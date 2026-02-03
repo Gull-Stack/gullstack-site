@@ -1,0 +1,9 @@
+{
+  "name": "gullstack-site",
+  "version": "1.0.0",
+  "description": "GullStack Trust - Build Once. Scale Forever.",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  }
+}
