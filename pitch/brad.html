@@ -612,7 +612,7 @@
       </div>
       
       <!-- Sitemap Visual -->
-      <div style="background: var(--bg); border-radius: 12px; padding: 40px; border: 1px solid var(--border);">
+      <div style="background: var(--bg); border-radius: 12px; padding: 40px; border: 1px solid var(--border); overflow-x: auto;">
         <!-- Home -->
         <div style="text-align: center; margin-bottom: 32px;">
           <div style="display: inline-block; background: var(--accent); padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 1.1rem;">
@@ -626,7 +626,7 @@
         </div>
         
         <!-- Level 1 -->
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 24px;">
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(120px, 1fr)); gap: 16px; margin-bottom: 24px; min-width: 700px;">
           <div style="text-align: center;">
             <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
               🎨 Products
@@ -655,7 +655,7 @@
         </div>
         
         <!-- Level 2 - Sub-pages -->
-        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(5, minmax(120px, 1fr)); gap: 16px; min-width: 700px;">
           <!-- Products sub -->
           <div style="display: flex; flex-direction: column; gap: 6px;">
             <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Acrytech</div>
