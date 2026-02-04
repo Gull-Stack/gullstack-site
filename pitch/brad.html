@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT Sports × GullStack | Partnership Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --navy: #1b335e;
+      --navy-dark: #0f1d38;
+      --red: #cf2e2e;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e5e5e5;
+      --gray-600: #525252;
+      --gray-800: #262626;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      background: var(--white);
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .hero::after {
+      content: '↓';
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      opacity: 0.5;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+    
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    
+    .hero-logos img {
+      height: 60px;
+    }
+    
+    .hero-logos span {
+      font-size: 2rem;
+      opacity: 0.5;
+    }
+    
+    .hero h1 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    
+    .hero h1 span {
+      color: var(--red);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+    }
+    
+    section:nth-child(even) {
+      background: var(--gray-100);
+    }
+    
+    .section-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 8rem;
+      color: var(--red);
+      opacity: 0.15;
+      line-height: 1;
+      margin-bottom: -40px;
+    }
+    
+    .section-content h2 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    
+    .section-content p {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+    
+    .section-content ul {
+      list-style: none;
+      margin: 32px 0;
+    }
+    
+    .section-content li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 1.1rem;
+    }
+    
+    .section-content li::before {
+      content: '✓';
+      color: var(--red);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    .highlight-box {
+      background: var(--navy);
+      color: white;
+      padding: 32px;
+      border-radius: 8px;
+      margin-top: 32px;
+    }
+    
+    .highlight-box h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    
+    .highlight-box p {
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+    
+    /* CTA Section */
+    .cta {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      min-height: auto;
+      padding: 120px 0;
+    }
+    
+    .cta h2 {
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    
+    .cta p {
+      font-size: 1.25rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    
+    .cta-contact {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .cta-contact a {
+      color: var(--red);
+      text-decoration: none;
+    }
+    
+    /* Nav dots */
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+    
+    .nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-600);
+      opacity: 0.3;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .nav-dot:hover,
+    .nav-dot.active {
+      opacity: 1;
+      background: var(--red);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-dots { display: none; }
+      .section-number { font-size: 5rem; margin-bottom: -20px; }
+      section { padding: 60px 0; min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Dots -->
+  <nav class="nav-dots">
+    <a href="#hero" class="nav-dot active"></a>
+    <a href="#bss" class="nav-dot"></a>
+    <a href="#donald-young" class="nav-dot"></a>
+    <a href="#seo" class="nav-dot"></a>
+    <a href="#website" class="nav-dot"></a>
+    <a href="#ai" class="nav-dot"></a>
+    <a href="#automation" class="nav-dot"></a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-logos">
+        <img src="https://atsports.com/wp-content/uploads/2024/10/AT-Sports-Logo-Final-300x124.png" alt="AT Sports">
+        <span>×</span>
+        <img src="../gull-logo.png" alt="GullStack" style="filter: brightness(0) invert(1);">
+      </div>
+      <h1>A Partnership for <span>Growth</span></h1>
+      <p>We've put together a comprehensive package to help AT Sports dominate the digital landscape and streamline operations.</p>
+    </div>
+  </section>
+
+  <!-- 1. BSS Sponsorship -->
+  <section id="bss">
+    <div class="container">
+      <div class="section-number">01</div>
+      <div class="section-content">
+        <h2>BestSportsSurfaces.com Sponsorship</h2>
+        <p>Premium placement on the web's leading sports surfacing directory. Get found by customers actively searching for court installers and surfacing solutions.</p>
+        <ul>
+          <li>Featured listing with priority placement</li>
+          <li>Direct lead generation from qualified buyers</li>
+          <li>Brand visibility across the BSS network</li>
+          <li>Dedicated installer map integration</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>Why BSS?</h3>
+          <p>BestSportsSurfaces.com captures high-intent traffic from people ready to build or resurface courts. Your competitors are already there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Donald Young Site -->
+  <section id="donald-young">
+    <div class="container">
+      <div class="section-number">02</div>
+      <div class="section-content">
+        <h2>Donald Young Partnership Site</h2>
+        <p>A dedicated microsite featuring your partnership with tennis pro Donald Young. Leverage his name recognition to build credibility and attract tennis enthusiasts.</p>
+        <ul>
+          <li>Custom-designed landing page</li>
+          <li>Donald Young brand integration</li>
+          <li>Video testimonial placement</li>
+          <li>Social media cross-promotion</li>
+          <li>Event and clinic promotion capabilities</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>Star Power</h3>
+          <p>Celebrity partnerships drive trust and engagement. Donald's tennis credibility transfers directly to your brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SEO -->
+  <section id="seo">
+    <div class="container">
+      <div class="section-number">03</div>
+      <div class="section-content">
+        <h2>Search Engine Optimization</h2>
+        <p>Your competitors are outranking you for high-value keywords. Our SEO strategy will put AT Sports where customers are searching.</p>
+        <ul>
+          <li>Comprehensive keyword research & strategy</li>
+          <li>On-page optimization across all pages</li>
+          <li>Technical SEO audit & fixes</li>
+          <li>Content strategy for organic growth</li>
+          <li>Local SEO for installer network</li>
+          <li>Monthly ranking reports & adjustments</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>The Opportunity</h3>
+          <p>Key terms like "pickleball court surfacing" and "tennis court coatings" have significant search volume with room to capture market share.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. New Website -->
+  <section id="website">
+    <div class="container">
+      <div class="section-number">04</div>
+      <div class="section-content">
+        <h2>Modern Website Redesign</h2>
+        <p>A high-performance website built for conversions. Fast, mobile-optimized, and designed to turn visitors into leads.</p>
+        <ul>
+          <li>Modern, professional design</li>
+          <li>Mobile-first responsive build</li>
+          <li>Lightning-fast page speeds</li>
+          <li>Conversion-optimized layouts</li>
+          <li>Integrated lead capture forms</li>
+          <li>Product showcase & specifications</li>
+          <li>Installer finder with map integration</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>First Impressions</h3>
+          <p>Your website is often the first touchpoint with potential customers. Make it count with a site that reflects AT Sports' industry leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AI Solutions -->
+  <section id="ai">
+    <div class="container">
+      <div class="section-number">05</div>
+      <div class="section-content">
+        <h2>AI & Custom Software</h2>
+        <p>Purpose-built technology solutions to give AT Sports a competitive edge. From intelligent chatbots to predictive analytics.</p>
+        <ul>
+          <li>AI-powered customer service chatbot</li>
+          <li>Intelligent lead qualification</li>
+          <li>Automated quote generation</li>
+          <li>Inventory & demand forecasting</li>
+          <li>Custom CRM integrations</li>
+          <li>Data analytics dashboards</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>Work Smarter</h3>
+          <p>Let AI handle the repetitive tasks so your team can focus on what matters — building relationships and closing deals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Automation Discovery -->
+  <section id="automation">
+    <div class="container">
+      <div class="section-number">06</div>
+      <div class="section-content">
+        <h2>Process Automation</h2>
+        <p>Let's talk about what's eating up your team's time. We can automate more than you might think.</p>
+        <ul>
+          <li><strong>Sales Process</strong> — Lead scoring, follow-up sequences, CRM updates</li>
+          <li><strong>Customer Orders</strong> — Predictive ordering, inventory alerts, reorder automation</li>
+          <li><strong>Training Videos</strong> — AI-generated tutorials, installer certification tracking</li>
+          <li><strong>Installer Network</strong> — Automated onboarding, territory management</li>
+          <li><strong>Reporting</strong> — Automated dashboards, scheduled reports to stakeholders</li>
+          <li><strong>Customer Support</strong> — FAQ bots, ticket routing, satisfaction surveys</li>
+        </ul>
+        <div class="highlight-box">
+          <h3>The Question</h3>
+          <p>What processes are taking too much time? What would you automate if you could? Let's discuss what would move the needle for AT Sports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Let's Build Together</h2>
+      <p>We're excited about the opportunity to partner with AT Sports. Let's discuss how we can customize this package to fit your goals.</p>
+      <div class="cta-contact">
+        <a href="mailto:bryce@gullstack.com">bryce@gullstack.com</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Active nav dot on scroll
+    const sections = document.querySelectorAll('section');
+    const dots = document.querySelectorAll('.nav-dot');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (scrollY >= sectionTop - 300) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('href') === '#' + current) {
+          dot.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
