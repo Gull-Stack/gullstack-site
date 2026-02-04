@@ -236,54 +236,6 @@
       color: var(--text-muted);
     }
     
-    /* Comparison bars */
-    .compare-section {
-      margin: 48px 0;
-    }
-    
-    .compare-title {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 20px;
-    }
-    
-    .compare-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    
-    .compare-label {
-      width: 180px;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-    
-    .compare-bar-wrap {
-      flex: 1;
-      background: var(--bg-elevated);
-      height: 32px;
-      border-radius: 6px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .compare-bar {
-      height: 100%;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      padding: 0 12px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    
-    .bar-them { background: var(--green); }
-    .bar-you { background: var(--red); opacity: 0.8; }
-    
     /* Highlight box */
     .highlight {
       background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(168,85,247,0.1) 100%);
@@ -386,22 +338,17 @@
     @media (max-width: 768px) {
       .nav-dots { display: none; }
     }
-    
-    /* Emoji sizing */
-    .emoji { font-size: 1.5rem; }
   </style>
 </head>
 <body>
   <!-- Nav Dots -->
   <nav class="nav-dots">
     <a href="#hero" class="nav-dot active"></a>
+    <a href="#seo" class="nav-dot"></a>
+    <a href="#website" class="nav-dot"></a>
     <a href="#bss" class="nav-dot"></a>
     <a href="#donald" class="nav-dot"></a>
-    <a href="#seo" class="nav-dot"></a>
-    <a href="#hierarchy" class="nav-dot"></a>
-    <a href="#website" class="nav-dot"></a>
-    <a href="#ai" class="nav-dot"></a>
-    <a href="#automation" class="nav-dot"></a>
+    <a href="#future" class="nav-dot"></a>
   </nav>
 
   <!-- Hero -->
@@ -417,71 +364,10 @@
     </div>
   </section>
 
-  <!-- 1. BSS -->
-  <section id="bss">
-    <div class="container">
-      <div class="two-col">
-        <div>
-          <div class="section-label"><span class="num">1</span> Directory & Lead Gen</div>
-          <h2>🏆 BestSportsSurfaces.com Sponsorship</h2>
-          <p class="section-desc">Premium placement on the web's leading sports surfacing directory. Get found by customers actively searching for court installers.</p>
-          
-          <ul class="feature-list">
-            <li><span class="icon">📍</span> Featured listing with priority placement</li>
-            <li><span class="icon">🎯</span> Direct leads from qualified buyers</li>
-            <li><span class="icon">🗺️</span> Interactive installer map integration</li>
-            <li><span class="icon">📊</span> Monthly performance analytics</li>
-            <li><span class="icon">🏅</span> "Official PPA Surface" badge prominence</li>
-          </ul>
-          
-          <div style="margin-top: 32px;">
-            <a href="https://bestsportssurfaces.com" target="_blank" class="btn">Visit BSS →</a>
-          </div>
-        </div>
-        <div class="screenshot-frame">
-          <img src="bss-screenshot.jpg" alt="BestSportsSurfaces.com">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. Donald Young -->
-  <section id="donald">
-    <div class="container">
-      <div class="two-col">
-        <div class="screenshot-frame">
-          <img src="donald-young-site.jpg" alt="Donald Young Official Site">
-        </div>
-        <div>
-          <div class="section-label"><span class="num">2</span> Brand Partnership</div>
-          <h2>🌟 Donald Young Partnership Site</h2>
-          <p class="section-desc">A dedicated microsite featuring your partnership with tennis-turned-pickleball pro Donald Young. Leverage his credibility with the PPA audience.</p>
-          
-          <ul class="feature-list">
-            <li><span class="icon">🎬</span> Video testimonial & court tour</li>
-            <li><span class="icon">📱</span> Social media cross-promotion</li>
-            <li><span class="icon">🎪</span> Event & clinic promotion</li>
-            <li><span class="icon">🏆</span> PPA Tour integration</li>
-            <li><span class="icon">📰</span> Press kit & media assets</li>
-          </ul>
-          
-          <div style="margin-top: 32px;">
-            <a href="https://donald-young-site.vercel.app" target="_blank" class="btn">View Demo →</a>
-          </div>
-          
-          <div class="highlight">
-            <h4>💡 Why Donald?</h4>
-            <p>Former ATP Top 40 player, now pro pickleball. His crossover story perfectly aligns with AT Sports' dual tennis/pickleball market.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. SEO -->
+  <!-- 1. SEO -->
   <section id="seo">
     <div class="container">
-      <div class="section-label"><span class="num">3</span> Search Visibility</div>
+      <div class="section-label"><span class="num">1</span> Search Visibility</div>
       <h2>📈 Search Engine Optimization</h2>
       <p class="section-desc">Your competitors are outranking you for high-value keywords. Let's change that.</p>
       
@@ -506,8 +392,8 @@
         </p>
       </div>
       
-      <div class="compare-section">
-        <div class="compare-title">🥊 Competitor Comparison</div>
+      <div style="margin-bottom: 48px;">
+        <div style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">🥊 Competitor Comparison</div>
         
         <div style="overflow-x: auto;">
           <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
@@ -561,7 +447,7 @@
         </div>
       </div>
       
-      <div class="card" style="margin-top: 48px;">
+      <div class="card">
         <h3 style="margin-bottom: 24px;">🎯 Quick Wins We Can Capture</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
           <div style="padding: 16px; background: var(--bg); border-radius: 8px;">
@@ -625,30 +511,12 @@
             </div>
           </div>
           <div style="background: var(--bg); padding: 14px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.3rem;">🏠</span>
-            <div>
-              <div style="font-weight: 600; font-size: 0.9rem;">Residential</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);">/homeowners</div>
-            </div>
-          </div>
-          <div style="background: var(--bg); padding: 14px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.3rem;">🏢</span>
-            <div>
-              <div style="font-weight: 600; font-size: 0.9rem;">Corporate Campuses</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);">/corporate</div>
-            </div>
-          </div>
-          <div style="background: var(--bg); padding: 14px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px;">
             <span style="font-size: 1.3rem;">🎾</span>
             <div>
               <div style="font-weight: 600; font-size: 0.9rem;">Country Clubs</div>
               <div style="font-size: 0.75rem; color: var(--text-muted);">/country-clubs</div>
             </div>
           </div>
-        </div>
-        
-        <div style="margin-top: 20px; padding: 16px; background: rgba(168,85,247,0.1); border-radius: 8px;">
-          <p style="margin: 0; font-size: 0.9rem;"><strong style="color: #a855f7;">💡 Why this works:</strong> <span style="color: var(--text-muted);">Someone searching "church basketball court resurfacing" is ready to buy. Dedicated pages rank easily and convert at 3-5x higher rates than generic pages.</span></p>
         </div>
       </div>
       
@@ -659,156 +527,12 @@
     </div>
   </section>
 
-  <!-- 3b. Site Hierarchy -->
-  <section id="hierarchy" style="padding: 80px 0; background: var(--bg-elevated);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <div class="section-label" style="justify-content: center;"><span class="num">3b</span> Information Architecture</div>
-        <h2>🗺️ Proposed Site Hierarchy</h2>
-        <p class="section-desc" style="max-width: 700px; margin: 0 auto;">A clear, SEO-friendly structure that helps customers find what they need and search engines understand your content.</p>
-      </div>
-      
-      <!-- Sitemap Visual -->
-      <div style="background: var(--bg); border-radius: 12px; padding: 40px; border: 1px solid var(--border); overflow-x: auto;">
-        <!-- Home -->
-        <div style="text-align: center; margin-bottom: 32px;">
-          <div style="display: inline-block; background: var(--accent); padding: 12px 32px; border-radius: 8px; font-weight: 700; font-size: 1.1rem;">
-            🏠 Home
-          </div>
-        </div>
-        
-        <!-- Main branches -->
-        <div style="display: flex; justify-content: center; gap: 4px; margin-bottom: 8px;">
-          <div style="width: 2px; height: 24px; background: var(--border);"></div>
-        </div>
-        
-        <!-- Level 1 -->
-        <div style="display: grid; grid-template-columns: repeat(5, minmax(120px, 1fr)); gap: 16px; margin-bottom: 24px; min-width: 700px;">
-          <div style="text-align: center;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-              🎨 Products
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-              🏟️ Sports
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-              🗺️ Installers
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-              📚 Resources
-            </div>
-          </div>
-          <div style="text-align: center;">
-            <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px 8px; border-radius: 8px; font-weight: 600; font-size: 0.9rem;">
-              🏢 About
-            </div>
-          </div>
-        </div>
-        
-        <!-- Level 2 - Sub-pages -->
-        <div style="display: grid; grid-template-columns: repeat(5, minmax(120px, 1fr)); gap: 16px; min-width: 700px;">
-          <!-- Products sub -->
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Acrytech</div>
-            <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">CushionX</div>
-            <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Faultline</div>
-            <div style="background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">RollX</div>
-          </div>
-          <!-- Sports sub -->
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">🎾 Tennis</div>
-            <div style="background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">🥒 Pickleball</div>
-            <div style="background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">🏀 Basketball</div>
-            <div style="background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">🤖 Project Planner</div>
-          </div>
-          <!-- Installers sub -->
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Find Installer</div>
-            <div style="background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Become Installer</div>
-            <div style="background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center; font-weight: 600; color: #fbbf24;">⚡ Installer Portal</div>
-            <div style="background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Training</div>
-          </div>
-          <!-- Resources sub -->
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center; font-weight: 600; color: #ec4899;">🎨 Court Designer</div>
-            <div style="background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center; font-weight: 600; color: #ec4899;">🧮 Cost Estimator</div>
-            <div style="background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Maintenance</div>
-            <div style="background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Blog</div>
-          </div>
-          <!-- About sub -->
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <div style="background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Our Story</div>
-            <div style="background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">PPA Partnership</div>
-            <div style="background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3); padding: 8px; border-radius: 6px; font-size: 0.8rem; text-align: center;">Contact</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Installer Portal Callout -->
-      <div style="margin-top: 48px; background: linear-gradient(135deg, rgba(251,191,36,0.15) 0%, rgba(251,191,36,0.05) 100%); border: 1px solid rgba(251,191,36,0.3); border-radius: 12px; padding: 32px;">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-          <span style="font-size: 2rem;">⚡</span>
-          <h3 style="margin: 0;">Installer Portal — Make Them Use It Daily</h3>
-        </div>
-        <p style="color: var(--text-muted); margin-bottom: 24px;">Turn your installer network into power users. Give them tools they'll open every day.</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-          <div style="background: var(--bg); padding: 16px; border-radius: 8px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">🧮 Quick Estimator</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Input job dimensions → get paint quantities + cost range based on their margins</p>
-          </div>
-          <div style="background: var(--bg); padding: 16px; border-radius: 8px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">🎨 Court Designer</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Pick colors, visualize the court, impress clients with a professional mockup</p>
-          </div>
-          <div style="background: var(--bg); padding: 16px; border-radius: 8px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">📤 Quick Quote Sender</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Generate & send branded estimates to customers in seconds</p>
-          </div>
-          <div style="background: var(--bg); padding: 16px; border-radius: 8px;">
-            <div style="font-weight: 600; margin-bottom: 6px;">🤖 AI Project Planner</div>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin: 0;">Customers describe their project → AI recommends products, surfaces, timeline</p>
-          </div>
-        </div>
-        
-        <div style="margin-top: 20px; padding: 16px; background: rgba(251,191,36,0.1); border-radius: 8px;">
-          <p style="margin: 0; font-size: 0.9rem;"><strong style="color: #fbbf24;">💡 Why this matters:</strong> <span style="color: var(--text-muted);">When installers use your site to run their business, they order more paint, stay loyal, and become your marketing army.</span></p>
-        </div>
-      </div>
-      
-      <!-- SEO Benefits -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 8px;">🎯</div>
-          <strong>Dedicated Landing Pages</strong>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Each sport & product gets its own optimized page for search rankings</p>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 8px;">🔗</div>
-          <strong>Clean URL Structure</strong>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">/products/acrytech, /sports/pickleball — easy for users & Google</p>
-        </div>
-        <div class="card" style="text-align: center;">
-          <div style="font-size: 2rem; margin-bottom: 8px;">📊</div>
-          <strong>Siloed Content</strong>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Proper internal linking boosts topical authority in search</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Website -->
+  <!-- 2. Website -->
   <section id="website">
     <div class="container">
       <div class="two-col">
         <div>
-          <div class="section-label"><span class="num">4</span> Digital Presence</div>
+          <div class="section-label"><span class="num">2</span> Digital Presence</div>
           <h2>🌐 Modern Website Redesign</h2>
           <p class="section-desc">A high-performance website built for conversions. Fast, mobile-optimized, and designed to turn visitors into leads.</p>
           
@@ -819,117 +543,118 @@
             <li><span class="icon">📝</span> Integrated lead capture</li>
             <li><span class="icon">🗺️</span> Installer finder with map</li>
             <li><span class="icon">🧮</span> Paint calculator & court designer</li>
-            <li><span class="icon">🎮</span> Interactive "Pull the Paint" game</li>
           </ul>
           
-          <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="https://atsports-site.vercel.app" target="_blank" class="btn">View Demo →</a>
-            <a href="https://atsports-site.vercel.app/pull-the-paint/" target="_blank" class="btn" style="background: var(--bg-card); border: 1px solid var(--border);">🎮 Play the Game</a>
+          <div style="margin-top: 32px;">
+            <a href="https://brycedmorgan.github.io/atsports-redesign/" target="_blank" class="btn">View Demo →</a>
           </div>
         </div>
         <div class="screenshot-frame">
           <img src="atsports-demo.jpg" alt="AT Sports Website Demo">
         </div>
       </div>
-      
-      <!-- Game Callout -->
-      <div style="margin-top: 48px; background: linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(34,197,94,0.05) 100%); border: 1px solid rgba(34,197,94,0.3); border-radius: 12px; padding: 24px 32px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-        <div style="font-size: 3rem;">🎮</div>
-        <div style="flex: 1; min-width: 250px;">
-          <h3 style="margin: 0 0 8px;">Pull the Paint — Interactive Game</h3>
-          <p style="color: var(--text-muted); margin: 0; font-size: 0.95rem;">A fun, shareable game that teaches customers about your products while capturing leads. Perfect for trade shows, social media, and viral marketing.</p>
-        </div>
-        <a href="https://atsports-site.vercel.app/pull-the-paint/" target="_blank" class="btn" style="background: #22c55e;">Try It →</a>
-      </div>
     </div>
   </section>
 
-  <!-- 5. AI -->
-  <section id="ai">
+  <!-- 3. BSS -->
+  <section id="bss">
     <div class="container">
-      <div class="section-label"><span class="num">5</span> Custom Technology</div>
-      <h2>🤖 AI & Custom Software</h2>
-      <p class="section-desc">Purpose-built technology solutions to give AT Sports a competitive edge.</p>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px;">
-        <div class="card">
-          <div style="font-size: 2rem; margin-bottom: 16px;">💬</div>
-          <h3 style="margin-bottom: 8px;">AI Customer Service</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">24/7 intelligent chatbot that answers product questions, provides quotes, and routes qualified leads.</p>
+      <div class="two-col">
+        <div>
+          <div class="section-label"><span class="num">3</span> Directory & Lead Gen</div>
+          <h2>🏆 BestSportsSurfaces.com Sponsorship</h2>
+          <p class="section-desc">Premium placement on the web's leading sports surfacing directory. Get found by customers actively searching for court installers.</p>
+          
+          <ul class="feature-list">
+            <li><span class="icon">📍</span> Featured listing with priority placement</li>
+            <li><span class="icon">🎯</span> Direct leads from qualified buyers</li>
+            <li><span class="icon">🗺️</span> Interactive installer map integration</li>
+            <li><span class="icon">📊</span> Monthly performance analytics</li>
+            <li><span class="icon">🏅</span> "Official PPA Surface" badge prominence</li>
+          </ul>
+          
+          <div style="margin-top: 32px;">
+            <a href="https://bestsportssurfaces.com" target="_blank" class="btn">Visit BSS →</a>
+          </div>
         </div>
-        <div class="card">
-          <div style="font-size: 2rem; margin-bottom: 16px;">📊</div>
-          <h3 style="margin-bottom: 8px;">Smart Analytics</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Dashboards that translate data into actionable insights. Know what's working and what's not.</p>
-        </div>
-        <div class="card">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🔮</div>
-          <h3 style="margin-bottom: 8px;">Demand Forecasting</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Predict inventory needs and customer demand using historical data and market trends.</p>
-        </div>
-        <div class="card">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🔗</div>
-          <h3 style="margin-bottom: 8px;">CRM Integration</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Connect all your tools. Website, email, support, sales — one unified system.</p>
+        <div class="screenshot-frame">
+          <img src="bss-screenshot.jpg" alt="BestSportsSurfaces.com">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. Automation -->
-  <section id="automation">
+  <!-- 4. Donald Young -->
+  <section id="donald">
     <div class="container">
-      <div class="section-label"><span class="num">6</span> Efficiency</div>
-      <h2>💡 Let's Talk Process</h2>
-      <p class="section-desc">What manual processes are eating up your team's time? We can automate almost anything.</p>
+      <div class="two-col">
+        <div class="screenshot-frame">
+          <img src="donald-young-site.jpg" alt="Donald Young Official Site">
+        </div>
+        <div>
+          <div class="section-label"><span class="num">4</span> Brand Partnership</div>
+          <h2>🌟 Donald Young Partnership Site</h2>
+          <p class="section-desc">A dedicated microsite featuring your partnership with tennis-turned-pickleball pro Donald Young — now opening his own pickleball facility.</p>
+          
+          <ul class="feature-list">
+            <li><span class="icon">🏟️</span> Feature his new pickleball facility (AT Sports showcase)</li>
+            <li><span class="icon">🔗</span> High-authority backlink from donaldyoung.com</li>
+            <li><span class="icon">🎬</span> Video testimonial & court tour content</li>
+            <li><span class="icon">📱</span> Social media cross-promotion</li>
+            <li><span class="icon">🏆</span> PPA Tour integration & event coverage</li>
+            <li><span class="icon">📰</span> Press kit & media assets</li>
+          </ul>
+          
+          <div style="margin-top: 32px;">
+            <a href="https://donald-young-site.vercel.app" target="_blank" class="btn">View Demo →</a>
+          </div>
+          
+          <div class="highlight">
+            <h4>💡 SEO Power Move</h4>
+            <p>Donald's site linking to AT Sports = high-quality backlink from an authority in the space. His facility becomes a permanent case study driving organic traffic to your products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Future Opportunities -->
+  <section id="future">
+    <div class="container">
+      <div class="section-label"><span class="num">5</span> Future Opportunities</div>
+      <h2>💡 Let's Discuss</h2>
+      <p class="section-desc">Additional capabilities we can explore as the partnership grows. These are starting points for conversation, not commitments.</p>
       
-      <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 40px;">
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px;">
-          <span style="font-size: 1.5rem;">📊</span>
-          <div>
-            <strong>Sales workflow</strong>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">How do leads come in today? What's the follow-up process? Where do deals get stuck?</p>
-          </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 40px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🤖</div>
+          <strong style="font-size: 0.95rem;">AI Chatbot</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">24/7 product Q&A and quote generation</p>
         </div>
-        
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px;">
-          <span style="font-size: 1.5rem;">🧮</span>
-          <div>
-            <strong>Customer order estimation</strong>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">How do customers figure out how much paint they need? Can we automate the calculation?</p>
-          </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">📊</div>
+          <strong style="font-size: 0.95rem;">Analytics Dashboard</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Real-time insights on leads & traffic</p>
         </div>
-        
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px;">
-          <span style="font-size: 1.5rem;">🗺️</span>
-          <div>
-            <strong>Installer network management</strong>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">How do you track installer certifications, territories, and performance?</p>
-          </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🔗</div>
+          <strong style="font-size: 0.95rem;">CRM Integration</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Connect website, email, and sales</p>
         </div>
-        
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px;">
-          <span style="font-size: 1.5rem;">🎓</span>
-          <div>
-            <strong>Training & onboarding</strong>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">What does a new installer need to know? Can we build a self-service training portal?</p>
-          </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">⚡</div>
+          <strong style="font-size: 0.95rem;">Installer Portal</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Tools they'll use every day</p>
         </div>
-        
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px;">
-          <span style="font-size: 1.5rem;">📣</span>
-          <div>
-            <strong>Content & marketing</strong>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">Who creates social posts, blog content, email campaigns? How much time does it take?</p>
-          </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">💰</div>
+          <strong style="font-size: 0.95rem;">Automation</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Invoicing, reminders, workflows</p>
         </div>
-        
-        <div class="card" style="display: flex; align-items: flex-start; gap: 16px; background: linear-gradient(135deg, rgba(34,197,94,0.1) 0%, var(--bg-card) 100%); border: 1px solid rgba(34,197,94,0.3);">
-          <span style="font-size: 1.5rem;">💰</span>
-          <div>
-            <strong style="color: #22c55e;">Financial automation</strong> <span style="font-size: 0.75rem; background: #22c55e; color: black; padding: 2px 8px; border-radius: 4px; margin-left: 8px;">QUICK WIN</span>
-            <p style="color: var(--text-muted); margin: 4px 0 0; font-size: 0.95rem;">Invoicing, payment reminders, installer commissions, accounts receivable — automate the paperwork so your team can focus on sales.</p>
-          </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 12px;">🎨</div>
+          <strong style="font-size: 0.95rem;">Court Designer</strong>
+          <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Visual color picker for clients</p>
         </div>
       </div>
     </div>
