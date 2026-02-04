@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -22,6 +22,7 @@
       --accent: #6366f1;
       --accent-hover: #818cf8;
       --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
     }
     
     html { scroll-behavior: smooth; }
@@ -69,9 +70,10 @@
     }
     
     .logo {
+      font-family: var(--font-serif);
       font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
     
     .logo-placeholder {
@@ -181,10 +183,11 @@
     }
     
     .hero h1 {
+      font-family: var(--font-serif);
       font-size: clamp(3rem, 10vw, 7rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.04em;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
       margin-bottom: 24px;
     }
     
@@ -252,9 +255,10 @@
     }
     
     .section-title {
+      font-family: var(--font-serif);
       font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-weight: 400;
+      letter-spacing: -0.01em;
       margin-bottom: 16px;
     }
     
