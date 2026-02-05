@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Agreement — GullStack</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --green: #22c55e;
+      --border: rgba(255,255,255,0.1);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    
+    /* Header */
+    .contract-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    
+    .contract-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 24px 0 16px;
+    }
+    
+    .contract-meta {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .contract-id {
+      display: inline-block;
+      background: var(--bg-elevated);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-top: 12px;
+      color: var(--text-muted);
+    }
+    
+    /* Parties */
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .party-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .party-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    
+    .party-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .party-details {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Sections */
+    .section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-content {
+      color: var(--text-muted);
+    }
+    
+    .section-content p {
+      margin-bottom: 12px;
+    }
+    
+    .section-content ul {
+      list-style: none;
+      margin: 16px 0;
+    }
+    
+    .section-content li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+    }
+    
+    .section-content li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    /* Scope Table */
+    .scope-table {
+      width: 100%;
+      margin: 20px 0;
+      border-collapse: collapse;
+    }
+    
+    .scope-table th,
+    .scope-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .scope-table th {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+    }
+    
+    .scope-table td {
+      color: var(--text-muted);
+    }
+    
+    .scope-table .item-name {
+      color: var(--text);
+      font-weight: 500;
+    }
+    
+    .scope-table .amount {
+      text-align: right;
+      font-family: monospace;
+      color: var(--text);
+    }
+    
+    .scope-total {
+      font-weight: 600;
+      color: var(--text) !important;
+      background: var(--bg-elevated);
+    }
+    
+    /* Payment Schedule */
+    .payment-schedule {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    
+    .payment-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .payment-item.due-now {
+      border-color: var(--accent);
+      background: rgba(99, 102, 241, 0.1);
+    }
+    
+    .payment-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .payment-item.due-now .payment-label {
+      color: var(--accent);
+    }
+    
+    .payment-amount {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+    
+    .payment-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    /* Highlights */
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    
+    .highlight {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .highlight-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .highlight-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    /* Signature Section */
+    .signature-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 48px;
+    }
+    
+    .signature-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    
+    .signature-subtitle {
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    
+    .signature-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 16px;
+      background: var(--bg);
+      border-radius: 8px;
+    }
+    
+    .checkbox-group input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+    }
+    
+    .checkbox-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    
+    .sign-button {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    
+    .sign-button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    
+    .sign-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .secure-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .secure-note svg {
+      width: 14px;
+      height: 14px;
+    }
+    
+    /* Success State */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+    
+    .success-message.show {
+      display: block;
+    }
+    
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2rem;
+    }
+    
+    .success-message h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    
+    .success-message p {
+      color: var(--text-muted);
+    }
+    
+    /* Footer */
+    .contract-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Print Styles */
+    @media print {
+      body { background: white; color: black; }
+      .signature-section { border: 2px solid #000; }
+      .sign-button { display: none; }
+    }
+    
+    /* Responsive */
+    @media (max-width: 640px) {
+      .parties { grid-template-columns: 1fr; }
+      .payment-schedule { grid-template-columns: 1fr; }
+      .highlights { grid-template-columns: 1fr; }
+      .contract-title { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="contract-header">
+      <div class="logo">GullStack</div>
+      <h1 class="contract-title">Service Agreement</h1>
+      <p class="contract-meta">Website Development Services</p>
+      <span class="contract-id">Contract #GS-2026-001</span>
+    </div>
+    
+    <!-- Parties -->
+    <div class="parties">
+      <div class="party-card">
+        <div class="party-label">Service Provider</div>
+        <div class="party-name">GullStack Trust</div>
+        <div class="party-details">
+          Salt Lake City, Utah<br>
+          josh@augmentadvertise.com
+        </div>
+      </div>
+      <div class="party-card">
+        <div class="party-label">Client</div>
+        <div class="party-name">[CLIENT NAME]</div>
+        <div class="party-details">
+          [CLIENT ADDRESS]<br>
+          [CLIENT EMAIL]
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project Scope -->
+    <div class="section">
+      <h2 class="section-title">1. Project Scope</h2>
+      <div class="section-content">
+        <p>GullStack Trust ("Provider") agrees to provide the following services to [CLIENT NAME] ("Client"):</p>
+        
+        <table class="scope-table">
+          <thead>
+            <tr>
+              <th>Deliverable</th>
+              <th>Description</th>
+              <th class="amount">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="item-name">[PROJECT NAME]</td>
+              <td>Custom website design and development</td>
+              <td class="amount">$[AMOUNT]</td>
+            </tr>
+            <!-- Add more line items as needed -->
+          </tbody>
+          <tfoot>
+            <tr class="scope-total">
+              <td colspan="2"><strong>Total Project Value</strong></td>
+              <td class="amount"><strong>$[TOTAL]</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    
+    <!-- Payment Terms -->
+    <div class="section">
+      <h2 class="section-title">2. Payment Terms</h2>
+      <div class="section-content">
+        <p>Payment shall be made in two installments:</p>
+        
+        <div class="payment-schedule">
+          <div class="payment-item due-now">
+            <div class="payment-label">Deposit (50%) — Due Now</div>
+            <div class="payment-amount">$[DEPOSIT]</div>
+            <div class="payment-note">Due upon signing this agreement</div>
+          </div>
+          <div class="payment-item">
+            <div class="payment-label">Final Payment (50%)</div>
+            <div class="payment-amount">$[FINAL]</div>
+            <div class="payment-note">Due upon project completion</div>
+          </div>
+        </div>
+        
+        <p>Final payment is due within 7 days of project completion notification. Late payments may incur a 1.5% monthly fee.</p>
+      </div>
+    </div>
+    
+    <!-- Timeline & Revisions -->
+    <div class="section">
+      <h2 class="section-title">3. Timeline & Revisions</h2>
+      <div class="section-content">
+        <div class="highlights">
+          <div class="highlight">
+            <div class="highlight-value">[X] Days</div>
+            <div class="highlight-label">Estimated Timeline</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-value">3 Rounds</div>
+            <div class="highlight-label">Revisions Included</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-value">$[RATE]/hr</div>
+            <div class="highlight-label">Additional Revisions</div>
+          </div>
+        </div>
+        
+        <p>The project timeline begins upon receipt of the deposit and all required materials from Client. Provider will deliver work in stages for Client review. Three (3) rounds of revisions are included in the project scope. Additional revisions beyond the included rounds will be billed at the hourly rate specified above.</p>
+      </div>
+    </div>
+    
+    <!-- Intellectual Property -->
+    <div class="section">
+      <h2 class="section-title">4. Intellectual Property</h2>
+      <div class="section-content">
+        <p>Upon receipt of final payment, all intellectual property rights for the deliverables specified in this agreement shall transfer to the Client. This includes:</p>
+        <ul>
+          <li>All custom designs, graphics, and visual assets created for this project</li>
+          <li>All custom code and functionality developed specifically for Client</li>
+          <li>All content created by Provider for Client's project</li>
+        </ul>
+        <p>Provider retains the right to display the work in portfolios and case studies for promotional purposes, unless otherwise agreed in writing.</p>
+      </div>
+    </div>
+    
+    <!-- Confidentiality -->
+    <div class="section">
+      <h2 class="section-title">5. Confidentiality</h2>
+      <div class="section-content">
+        <p>Both parties agree to keep confidential any proprietary information shared during the course of this project. This includes business strategies, customer data, pricing information, and any materials marked as confidential.</p>
+      </div>
+    </div>
+    
+    <!-- Termination -->
+    <div class="section">
+      <h2 class="section-title">6. Termination</h2>
+      <div class="section-content">
+        <p>Either party may terminate this agreement with 14 days written notice. In the event of termination:</p>
+        <ul>
+          <li>Client shall pay for all work completed up to the termination date</li>
+          <li>Provider shall deliver all completed work and materials to Client</li>
+          <li>No kill fee or penalty shall apply</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Governing Law -->
+    <div class="section">
+      <h2 class="section-title">7. Governing Law</h2>
+      <div class="section-content">
+        <p>This agreement shall be governed by the laws of the State of Utah. Any disputes shall be resolved through good-faith negotiation, or if necessary, binding arbitration in Salt Lake County, Utah.</p>
+      </div>
+    </div>
+    
+    <!-- Signature Section -->
+    <div class="signature-section">
+      <div class="signature-form" id="signatureForm">
+        <h3 class="signature-title">Sign & Pay Deposit</h3>
+        <p class="signature-subtitle">By signing below, you agree to the terms of this contract.</p>
+        
+        <div class="form-group">
+          <label class="form-label">Your Full Legal Name</label>
+          <input type="text" class="form-input" id="signatureName" placeholder="e.g., John Smith" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Your Email</label>
+          <input type="email" class="form-input" id="signatureEmail" placeholder="e.g., john@company.com" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Today's Date</label>
+          <input type="text" class="form-input" id="signatureDate" readonly>
+        </div>
+        
+        <div class="checkbox-group">
+          <input type="checkbox" id="agreeTerms" required>
+          <label class="checkbox-label" for="agreeTerms">
+            I have read and agree to the terms of this Service Agreement. I understand that by clicking "Sign & Pay Deposit" I am entering into a legally binding contract and authorizing a payment of <strong>$[DEPOSIT]</strong>.
+          </label>
+        </div>
+        
+        <button type="button" class="sign-button" id="signButton" disabled>
+          Sign & Pay $[DEPOSIT] Deposit
+        </button>
+        
+        <div class="secure-note">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+          Secured by Stripe — Your payment info is never stored on our servers
+        </div>
+      </div>
+      
+      <div class="success-message" id="successMessage">
+        <div class="success-icon">✓</div>
+        <h3>Contract Signed!</h3>
+        <p>Thank you! You'll receive a confirmation email shortly.<br>Redirecting to payment...</p>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="contract-footer">
+      <p>Questions? Contact us at josh@augmentadvertise.com</p>
+      <p style="margin-top: 8px;">© 2026 GullStack Trust. All rights reserved.</p>
+    </div>
+  </div>
+  
+  <script>
+    // Set today's date
+    const today = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    document.getElementById('signatureDate').value = today;
+    
+    // Form validation
+    const nameInput = document.getElementById('signatureName');
+    const emailInput = document.getElementById('signatureEmail');
+    const agreeCheckbox = document.getElementById('agreeTerms');
+    const signButton = document.getElementById('signButton');
+    
+    function validateForm() {
+      const isValid = nameInput.value.trim() !== '' && 
+                      emailInput.value.includes('@') && 
+                      agreeCheckbox.checked;
+      signButton.disabled = !isValid;
+    }
+    
+    nameInput.addEventListener('input', validateForm);
+    emailInput.addEventListener('input', validateForm);
+    agreeCheckbox.addEventListener('change', validateForm);
+    
+    // Handle signature submission
+    signButton.addEventListener('click', async function() {
+      signButton.disabled = true;
+      signButton.textContent = 'Processing...';
+      
+      // Record signature (would POST to backend in production)
+      const signatureData = {
+        name: nameInput.value,
+        email: emailInput.value,
+        date: today,
+        contractId: 'GS-2026-001',
+        timestamp: new Date().toISOString()
+      };
+      
+      console.log('Signature recorded:', signatureData);
+      
+      // Show success message
+      document.getElementById('signatureForm').style.display = 'none';
+      document.getElementById('successMessage').classList.add('show');
+      
+      // In production: redirect to Stripe Checkout
+      // window.location.href = 'STRIPE_CHECKOUT_URL';
+      
+      // For demo, simulate redirect
+      setTimeout(() => {
+        alert('In production, this would redirect to Stripe Checkout for payment.');
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
