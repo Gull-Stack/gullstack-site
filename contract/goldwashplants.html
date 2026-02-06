@@ -4,351 +4,613 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Agreement | GullStack + Gold Wash Plants</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --bg-card: #1c1c1f;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --border: rgba(255,255,255,0.08);
+            --success: #22c55e;
+        }
+        
         body {
-            font-family: 'Georgia', serif;
-            background: #FAF9F6;
-            color: #1C2541;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+            min-height: 100vh;
+        }
+        
+        .contract-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 40px 20px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 60px;
-            border: 2px solid #1C2541;
-            box-shadow: 8px 8px 0 rgba(28, 37, 65, 0.1);
-        }
+        
+        /* Header with Logos */
         .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px 16px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #8b5cf6, var(--accent));
+        }
+        
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-gullstack {
+            font-family: 'Young Serif', serif;
+            font-size: 2rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .logo-client {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d4af37;
+        }
+        
+        .header-center {
             text-align: center;
-            border-bottom: 3px double #1C2541;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
         }
-        .header h1 {
-            font-size: 28px;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-        .header p {
-            color: #4A5D23;
-            font-size: 14px;
-        }
-        .contract-number {
-            background: #1C2541;
-            color: white;
+        
+        .partnership-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             padding: 8px 20px;
-            display: inline-block;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            margin-top: 15px;
-        }
-        .section {
-            margin-bottom: 35px;
-        }
-        .section h2 {
-            font-size: 16px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            border-bottom: 1px solid #1C2541;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            color: #4A5D23;
+            color: var(--accent);
         }
+        
+        .partnership-badge span {
+            font-size: 1.25rem;
+        }
+        
+        /* Main Content */
+        .content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: none;
+            padding: 50px;
+        }
+        
+        .contract-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contract-title h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+        
+        .contract-title p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .contract-number {
+            display: inline-block;
+            background: var(--bg);
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-top: 15px;
+            border: 1px solid var(--border);
+        }
+        
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        /* Parties Grid */
         .parties {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
         }
+        
         .party {
-            padding: 20px;
-            background: #F5F5F0;
-            border-left: 4px solid #4A5D23;
+            padding: 25px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
-        .party h3 {
-            font-size: 12px;
+        
+        .party-label {
+            font-size: 0.7rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #4A5D23;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
         }
-        .party p {
-            font-size: 15px;
+        
+        .party-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
-        table {
+        
+        .party-contact {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Services Table */
+        .services-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        th, td {
-            padding: 12px 15px;
+        
+        .services-table th {
+            background: var(--bg);
+            padding: 14px 18px;
             text-align: left;
-            border: 1px solid #1C2541;
-        }
-        th {
-            background: #1C2541;
-            color: white;
-            font-size: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
         }
-        .total-row {
-            background: #4A5D23;
+        
+        .services-table td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        
+        .services-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .service-name {
+            font-weight: 600;
+        }
+        
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--success);
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+        }
+        
+        /* Investment Section */
+        .investment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .investment-card {
+            padding: 30px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .investment-card.highlight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-color: var(--accent);
+        }
+        
+        .investment-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        .investment-amount {
+            font-family: 'Young Serif', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+        
+        .investment-amount .period {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .investment-note {
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Terms List */
+        .terms-list {
+            list-style: none;
+        }
+        
+        .terms-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .terms-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .terms-list .icon {
+            color: var(--accent);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-radius: 16px;
+            border: 1px solid var(--accent);
+            margin: 40px 0;
+        }
+        
+        .cta-section h3 {
+            font-family: 'Young Serif', serif;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+        
+        .cta-section p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
             color: white;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
         }
-        .terms {
-            font-size: 14px;
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(99, 102, 241, 0.5);
         }
-        .terms ul {
-            margin-left: 20px;
-            margin-top: 10px;
+        
+        .secure-note {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
-        .terms li {
-            margin-bottom: 8px;
+        
+        .secure-note svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            margin-right: 5px;
         }
-        .signature-section {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 3px double #1C2541;
-        }
+        
+        /* Signatures */
         .signatures {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 30px;
+            gap: 40px;
+            margin-top: 40px;
         }
+        
         .signature-box {
             text-align: center;
         }
+        
         .signature-line {
-            border-bottom: 1px solid #1C2541;
             height: 60px;
-            margin-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 5px;
         }
+        
+        .signature-line .signed {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 28px;
+            color: var(--accent);
+        }
+        
         .signature-label {
-            font-size: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #4A5D23;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
         }
-        .highlight {
-            background: #FFFDE7;
-            padding: 20px;
-            border: 1px dashed #4A5D23;
-            margin: 20px 0;
+        
+        .signature-name {
+            font-weight: 600;
         }
-        .badge {
-            display: inline-block;
-            background: #4A5D23;
-            color: white;
-            padding: 4px 12px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-left: 10px;
+        
+        .signature-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .parties, .investment-grid, .signatures {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="contract-wrapper">
+        <!-- Header with Logos -->
         <div class="header">
-            <h1>SERVICE AGREEMENT</h1>
-            <p>GullStack Digital Services</p>
-            <div class="contract-number">CONTRACT #GS-2026-0206-GWP</div>
-        </div>
-
-        <div class="section">
-            <h2>Parties</h2>
-            <div class="parties">
-                <div class="party">
-                    <h3>Service Provider</h3>
-                    <p><strong>GullStack Trust</strong></p>
-                    <p>bryce@gullstack.com</p>
-                </div>
-                <div class="party">
-                    <h3>Client</h3>
-                    <p><strong>Gold Wash Plants</strong></p>
-                    <p>Chase Shillig</p>
-                    <p>sales@goldwatchproject.com</p>
-                </div>
+            <div class="logo-section">
+                <div class="logo-gullstack">GullStack</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Trust</div>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>Scope of Services</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Service</th>
-                        <th>Description</th>
-                        <th>Frequency</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Website Redesign</strong></td>
-                        <td>Custom, SEO-optimized website with modern design</td>
-                        <td>One-time (included)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Technical SEO</strong></td>
-                        <td>Fast load times, mobile optimization, clean code, schema markup</td>
-                        <td>Ongoing</td>
-                    </tr>
-                    <tr>
-                        <td><strong>On-Page SEO</strong></td>
-                        <td>Strategic keywords in titles, meta descriptions, headers, content</td>
-                        <td>Ongoing</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Google Business Profile</strong></td>
-                        <td>Full optimization for local "near me" searches</td>
-                        <td>Initial + Monthly</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Keyword Tracking</strong></td>
-                        <td>SEMrush rank tracking for target keywords</td>
-                        <td>Monthly reports</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Analytics Setup</strong></td>
-                        <td>GA4 + Google Search Console configuration</td>
-                        <td>One-time</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Content Updates</strong></td>
-                        <td>Monthly blog posts targeting buyer keywords</td>
-                        <td>Monthly</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dashboard Access</strong></td>
-                        <td>SuperTool dashboard with traffic reports and SEO insights</td>
-                        <td>24/7 Access</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>Investment</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Website Redesign (one-time)</td>
-                        <td><strong>$0</strong> <span class="badge">Included</span></td>
-                    </tr>
-                    <tr>
-                        <td>Monthly SEO Services</td>
-                        <td>$55.00/month</td>
-                    </tr>
-                    <tr class="total-row">
-                        <td>Monthly Total</td>
-                        <td>$55.00/month</td>
-                    </tr>
-                </tbody>
-            </table>
             
-            <div class="highlight">
-                <strong>Billing:</strong> Monthly recurring charge of $55.00. First payment due upon contract signing. Cancel anytime with 30 days notice.
+            <div class="header-center">
+                <div class="partnership-badge">
+                    <span>🤝</span> Service Agreement
+                </div>
+            </div>
+            
+            <div class="logo-section">
+                <div class="logo-client">Gold Wash Plants</div>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">goldwashplants.com</div>
             </div>
         </div>
-
-        <div class="section">
-            <h2>Terms & Conditions</h2>
-            <div class="terms">
-                <ul>
-                    <li><strong>Term:</strong> Month-to-month, cancel anytime with 30 days written notice</li>
-                    <li><strong>Payment:</strong> Due on the same day each month as contract signing</li>
-                    <li><strong>Website Ownership:</strong> Client retains full ownership of website and content</li>
-                    <li><strong>Results:</strong> SEO is a long-term strategy; typical results visible within 3-6 months</li>
-                    <li><strong>Reporting:</strong> Monthly performance reports provided via SuperTool dashboard</li>
-                    <li><strong>Support:</strong> Email support included; response within 24-48 hours</li>
-                    <li><strong>Content Rights:</strong> GullStack retains right to use project as case study (anonymized if requested)</li>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="contract-title">
+                <h1>Service Agreement</h1>
+                <p>Digital Marketing & SEO Services</p>
+                <div class="contract-number">CONTRACT #GS-2026-0206-GWP</div>
+            </div>
+            
+            <!-- Parties -->
+            <div class="section">
+                <h2>Parties</h2>
+                <div class="parties">
+                    <div class="party">
+                        <div class="party-label">Service Provider</div>
+                        <div class="party-name">GullStack Trust</div>
+                        <div class="party-contact">bryce@gullstack.com</div>
+                    </div>
+                    <div class="party">
+                        <div class="party-label">Client</div>
+                        <div class="party-name">Gold Wash Plants</div>
+                        <div class="party-contact">Chase Shillig</div>
+                        <div class="party-contact">sales@goldwashplants.com</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services -->
+            <div class="section">
+                <h2>Scope of Services</h2>
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Description</th>
+                            <th>Frequency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="service-name">Website Redesign</span></td>
+                            <td><span class="service-desc">Custom, SEO-optimized website with modern design</span></td>
+                            <td><span class="badge">Included</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Technical SEO</span></td>
+                            <td><span class="service-desc">Fast load times, mobile optimization, schema markup</span></td>
+                            <td>Ongoing</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">On-Page SEO</span></td>
+                            <td><span class="service-desc">Strategic keywords in titles, meta descriptions, content</span></td>
+                            <td>Ongoing</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Google Business Profile</span></td>
+                            <td><span class="service-desc">Full optimization for local search visibility</span></td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Keyword Tracking</span></td>
+                            <td><span class="service-desc">SEMrush rank tracking for target keywords</span></td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Analytics & Reporting</span></td>
+                            <td><span class="service-desc">GA4, Search Console, monthly performance reports</span></td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Content Updates</span></td>
+                            <td><span class="service-desc">Blog posts targeting buyer keywords</span></td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td><span class="service-name">Dashboard Access</span></td>
+                            <td><span class="service-desc">SuperTool dashboard with traffic & SEO insights</span></td>
+                            <td>24/7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Investment -->
+            <div class="section">
+                <h2>Investment</h2>
+                <div class="investment-grid">
+                    <div class="investment-card">
+                        <div class="investment-label">Website Redesign</div>
+                        <div class="investment-amount">$0 <span class="badge">Included</span></div>
+                    </div>
+                    <div class="investment-card highlight">
+                        <div class="investment-label">Monthly SEO Services</div>
+                        <div class="investment-amount">$55<span class="period">/mo</span></div>
+                    </div>
+                </div>
+                <div class="investment-note">
+                    <strong>Billing:</strong> Monthly recurring charge. First payment due upon signing. Cancel anytime with 30 days notice.
+                </div>
+            </div>
+            
+            <!-- Terms -->
+            <div class="section">
+                <h2>Terms & Conditions</h2>
+                <ul class="terms-list">
+                    <li><span class="icon">✓</span> <span><strong>Term:</strong> Month-to-month, cancel anytime with 30 days written notice</span></li>
+                    <li><span class="icon">✓</span> <span><strong>Payment:</strong> Due on the same day each month as contract signing</span></li>
+                    <li><span class="icon">✓</span> <span><strong>Ownership:</strong> Client retains full ownership of website and content</span></li>
+                    <li><span class="icon">✓</span> <span><strong>Results:</strong> SEO is a long-term strategy; typical results visible within 3-6 months</span></li>
+                    <li><span class="icon">✓</span> <span><strong>Support:</strong> Email support included; response within 24-48 hours</span></li>
                 </ul>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>Deliverables Timeline</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Milestone</th>
-                        <th>Timeline</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Contract Signed</td>
-                        <td>Day 0</td>
-                    </tr>
-                    <tr>
-                        <td>Analytics Setup (GA4 + GSC)</td>
-                        <td>Week 1</td>
-                    </tr>
-                    <tr>
-                        <td>Website Redesign Complete</td>
-                        <td>Week 2-3</td>
-                    </tr>
-                    <tr>
-                        <td>Technical SEO Implementation</td>
-                        <td>Week 3</td>
-                    </tr>
-                    <tr>
-                        <td>Google Business Profile Optimization</td>
-                        <td>Week 3</td>
-                    </tr>
-                    <tr>
-                        <td>First Content Update</td>
-                        <td>Week 4</td>
-                    </tr>
-                    <tr>
-                        <td>First Monthly Report</td>
-                        <td>Month 1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="signature-section">
-            <h2>Agreement</h2>
-            <p>By clicking "Sign & Pay" below, you agree to the terms and conditions outlined in this Service Agreement and authorize the monthly recurring charge.</p>
             
-            <div style="text-align: center; margin: 40px 0;">
-                <a href="https://buy.stripe.com/test_3cIaEZcti9A028N52p2sM00" 
-                   style="display: inline-block; background: #4A5D23; color: white; padding: 20px 60px; font-size: 18px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s;">
+            <!-- CTA -->
+            <div class="cta-section">
+                <h3>Ready to Grow?</h3>
+                <p>Click below to sign the agreement and start your subscription.</p>
+                <a href="https://buy.stripe.com/test_3cIaEZcti9A028N52p2sM00" class="cta-button">
                     ✓ Sign & Pay $55/mo
                 </a>
-                <p style="margin-top: 15px; font-size: 13px; color: #666;">Secure payment powered by Stripe. Cancel anytime.</p>
+                <div class="secure-note">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    Secure payment powered by Stripe. Cancel anytime.
+                </div>
             </div>
             
-            <div class="signatures">
-                <div class="signature-box">
-                    <div class="signature-line" style="display: flex; align-items: flex-end; justify-content: center;"><span style="font-family: 'Brush Script MT', cursive; font-size: 32px; color: #1C2541;">Bryce Morgan</span></div>
-                    <p class="signature-label">GullStack Trust</p>
-                    <p>Bryce Morgan</p>
-                    <p style="font-size: 12px; color: #666;">Date: February 6, 2026</p>
-                </div>
-                <div class="signature-box">
-                    <div class="signature-line"></div>
-                    <p class="signature-label">Gold Wash Plants</p>
-                    <p>Chase Shillig</p>
-                    <p style="font-size: 12px; color: #666;">Date: Upon signing</p>
+            <!-- Signatures -->
+            <div class="section">
+                <h2>Agreement</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">By clicking "Sign & Pay" above, both parties agree to the terms outlined in this agreement.</p>
+                <div class="signatures">
+                    <div class="signature-box">
+                        <div class="signature-line">
+                            <span class="signed">Bryce Morgan</span>
+                        </div>
+                        <div class="signature-label">GullStack Trust</div>
+                        <div class="signature-name">Bryce Morgan</div>
+                        <div class="signature-date">February 6, 2026</div>
+                    </div>
+                    <div class="signature-box">
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Gold Wash Plants</div>
+                        <div class="signature-name">Chase Shillig</div>
+                        <div class="signature-date">Upon signing</div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div style="margin-top: 40px; text-align: center; font-size: 12px; color: #666;">
-            <p>GullStack Trust | gullstack.com | bryce@gullstack.com</p>
+        
+        <!-- Footer -->
+        <div class="footer">
+            GullStack Trust | gullstack.com | bryce@gullstack.com
         </div>
     </div>
 </body>
