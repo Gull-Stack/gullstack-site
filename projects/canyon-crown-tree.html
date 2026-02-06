@@ -20,6 +20,7 @@
       --accent: #6366f1;
       --accent-hover: #818cf8;
       --green: #22c55e;
+      --red: #ef4444;
       --border: rgba(255,255,255,0.08);
       --font-serif: 'Young Serif', Georgia, serif;
     }
@@ -136,13 +137,49 @@
     
     .comparison-card h3 { font-size: 1.25rem; margin-bottom: 16px; font-weight: 600; }
     .comparison-card ul { list-style: none; }
-    .comparison-card li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--text-muted); }
-    .comparison-card li::before { content: ''; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; border-radius: 50%; }
-    .before li::before { background: rgba(239, 68, 68, 0.3); }
-    .after li::before { background: rgba(34, 197, 94, 0.3); }
+    .comparison-card li { padding: 10px 0; padding-left: 32px; position: relative; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .comparison-card li:last-child { border-bottom: none; }
+    .comparison-card li::before { content: ''; position: absolute; left: 0; top: 16px; width: 16px; height: 16px; border-radius: 50%; }
+    .before li::before { background: var(--red); }
+    .after li::before { background: var(--green); }
+    
+    /* Stats Banner */
+    .stats-banner {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 16px;
+      padding: 48px;
+      margin: 60px 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat-item .stat-value {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    
+    .stat-item .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
     
     /* Deliverables Grid */
-    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
     
     .deliverable-card {
       background: var(--bg-elevated);
@@ -169,51 +206,72 @@
     /* City Pages List */
     .city-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
     }
     
     .city-card {
       background: var(--bg-elevated);
       border-radius: 8px;
-      padding: 20px;
+      padding: 16px 20px;
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       gap: 12px;
+      transition: border-color 0.2s;
     }
     
+    .city-card:hover { border-color: var(--green); }
+    
     .city-card .check {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      background: rgba(34, 197, 94, 0.15);
-      color: var(--green);
+      background: var(--green);
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
+      font-size: 0.7rem;
+      font-weight: bold;
     }
     
-    .city-card span { font-weight: 500; }
+    .city-card span { font-weight: 500; font-size: 0.95rem; }
     
-    /* Results */
-    .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    @media (max-width: 768px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* Blog Articles */
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
     
-    .result-card {
+    .blog-item {
       background: var(--bg-elevated);
       border-radius: 12px;
-      padding: 32px;
-      text-align: center;
+      padding: 24px;
       border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
     
-    .result-value { font-family: var(--font-serif); font-size: 2.5rem; color: var(--green); margin-bottom: 8px; }
-    .result-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .blog-item .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    
+    .blog-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .blog-item p { color: var(--text-muted); font-size: 0.9rem; }
     
     /* Competitors */
-    .competitors-section { background: var(--bg-elevated); padding: 80px 0; margin: 80px 0; }
+    .competitors-section { background: var(--bg-elevated); padding: 80px 0; margin: 60px 0; }
     .competitors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
     
     .competitor-card {
@@ -224,14 +282,52 @@
     }
     
     .competitor-card h4 { font-size: 1rem; margin-bottom: 8px; }
-    .competitor-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .competitor-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
     .competitor-card .years { color: var(--accent); font-weight: 600; }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+    
+    .timeline-item:last-child { padding-bottom: 0; }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 3px solid var(--bg);
+    }
+    
+    .timeline-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+    .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
     
     /* CTA */
     .cta-section { text-align: center; padding: 100px 0; }
     .cta-section h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px; }
     .cta-section p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 32px; }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
     
@@ -260,7 +356,7 @@
       <div class="container">
         <p class="breadcrumb"><a href="index.html">Projects</a> / Canyon Crown Tree Co</p>
         <h1>Canyon Crown Tree Co</h1>
-        <p class="lead">How we took a well-designed website from invisible to dominating local search with comprehensive SEO implementation.</p>
+        <p class="lead">Complete SEO overhaul: from invisible to dominating Utah's local search in a single day.</p>
         
         <div class="hero-meta">
           <div class="meta-item">
@@ -268,8 +364,12 @@
             <div class="meta-value">Tree Service</div>
           </div>
           <div class="meta-item">
+            <div class="meta-label">Owner</div>
+            <div class="meta-value">Sav Bhelke, ISA Certified Arborist</div>
+          </div>
+          <div class="meta-item">
             <div class="meta-label">Location</div>
-            <div class="meta-value">Salt Lake City, Utah</div>
+            <div class="meta-value">Salt Lake City & Northern Utah</div>
           </div>
           <div class="meta-item">
             <div class="meta-label">Timeline</div>
@@ -277,51 +377,81 @@
           </div>
           <div class="meta-item">
             <div class="meta-label">Live Site</div>
-            <div class="meta-value"><a href="https://canyoncrowntreeco.com" target="_blank">View Site ↗</a></div>
+            <div class="meta-value"><a href="https://canyoncrowntreeco.com" target="_blank">canyoncrowntreeco.com ↗</a></div>
           </div>
         </div>
       </div>
       
       <div class="container-wide case-hero-image">
-        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=1400&h=700&fit=crop" alt="Canyon Crown Tree Co">
+        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=1400&h=700&fit=crop" alt="Canyon Crown Tree Co - Professional Tree Service">
       </div>
     </section>
+
+    <!-- Stats Banner -->
+    <div class="container">
+      <div class="stats-banner">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">27</div>
+            <div class="stat-label">Total Pages</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">10</div>
+            <div class="stat-label">City Pages</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Blog Articles</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">7+</div>
+            <div class="stat-label">Competitors Analyzed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">1</div>
+            <div class="stat-label">Day to Build</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2>The Challenge</h2>
-          <p>Canyon Crown Tree Co had a beautiful, professionally designed website — but Google couldn't find it. Zero pages indexed. Zero organic traffic. Invisible to potential customers searching for tree services in Utah.</p>
+          <h2>Before & After</h2>
+          <p>Canyon Crown had a beautiful website — but Google couldn't find it. Here's everything we fixed.</p>
         </div>
         
         <div class="before-after">
           <div class="comparison-card before">
             <span class="comparison-badge">Before</span>
-            <h3>The SEO Problem</h3>
+            <h3>The Problems</h3>
             <ul>
-              <li>0 pages indexed by Google</li>
-              <li>No city-specific landing pages</li>
-              <li>Sitemap URL mismatch (www vs non-www)</li>
-              <li>No Google Business Profile</li>
-              <li>No blog or content marketing</li>
-              <li>Phone number was placeholder (555-1234)</li>
-              <li>Competitors dominating local search</li>
-              <li>Beautiful site that nobody could find</li>
+              <li><strong>0 pages indexed</strong> — Google couldn't see the site at all</li>
+              <li><strong>No city landing pages</strong> — missing local SEO entirely</li>
+              <li><strong>Sitemap URL broken</strong> — pointed to www, site served without www</li>
+              <li><strong>No Google Business Profile</strong> — invisible on Google Maps</li>
+              <li><strong>No blog content</strong> — missing organic traffic opportunities</li>
+              <li><strong>Placeholder phone number</strong> — (801) 555-1234 (fake)</li>
+              <li><strong>Placeholder email</strong> — info@canyoncrowntree.com (didn't exist)</li>
+              <li><strong>No schema markup</strong> — missing rich search features</li>
+              <li><strong>Competitors dominating</strong> — Diamond Tree has 57 years & 317 reviews</li>
             </ul>
           </div>
           
           <div class="comparison-card after">
             <span class="comparison-badge">After</span>
-            <h3>SEO-Optimized Site</h3>
+            <h3>What We Built</h3>
             <ul>
-              <li>27 pages ready for indexing</li>
-              <li>10 city-specific landing pages</li>
-              <li>Fixed sitemap and robots.txt</li>
-              <li>Google Search Console ready</li>
-              <li>3 Utah-focused blog articles</li>
-              <li>Schema markup on all city pages</li>
-              <li>Competitive analysis complete</li>
-              <li>Positioned to dominate local search</li>
+              <li><strong>27 pages ready for indexing</strong> — comprehensive site structure</li>
+              <li><strong>10 city-specific landing pages</strong> — targeting all major Utah cities</li>
+              <li><strong>Fixed sitemap & robots.txt</strong> — proper SEO configuration</li>
+              <li><strong>Google Search Console ready</strong> — just needs owner verification</li>
+              <li><strong>3 Utah-focused blog articles</strong> — iron chlorosis, tree removal, best trees</li>
+              <li><strong>Real phone: (385) 215-9973</strong> — main & emergency lines</li>
+              <li><strong>Real email: canyoncrowntreeco@gmail.com</strong> — working contact</li>
+              <li><strong>Schema markup on all city pages</strong> — LocalBusiness structured data</li>
+              <li><strong>Competitive analysis complete</strong> — strategy to outrank competitors</li>
             </ul>
           </div>
         </div>
@@ -331,8 +461,8 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2>10 City Landing Pages Created</h2>
-          <p>Each page features unique local content, neighborhood information, and city-specific schema markup for maximum local SEO impact.</p>
+          <h2>10 City Landing Pages</h2>
+          <p>Each page has unique local content, neighborhood information, common tree issues for that area, and city-specific schema markup.</p>
         </div>
         
         <div class="city-grid">
@@ -354,45 +484,89 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2>What We Delivered</h2>
-          <p>A comprehensive SEO overhaul built in a single day.</p>
+          <h2>Blog Content Created</h2>
+          <p>Utah-focused articles designed to capture organic search traffic and establish expertise.</p>
+        </div>
+        
+        <div class="blog-list">
+          <div class="blog-item">
+            <div class="icon">🍂</div>
+            <div>
+              <h4>Iron Chlorosis in Utah Trees: Causes, Symptoms & Treatment</h4>
+              <p>Utah's most common tree health problem — why leaves turn yellow and what to do about it. Covers soil treatments, trunk injections, and prevention.</p>
+            </div>
+          </div>
+          <div class="blog-item">
+            <div class="icon">⚠️</div>
+            <div>
+              <h4>When Should You Remove a Tree? 7 Warning Signs</h4>
+              <p>Expert guide on identifying hazardous trees, from trunk damage to root problems. Helps homeowners know when to call a professional.</p>
+            </div>
+          </div>
+          <div class="blog-item">
+            <div class="icon">🌲</div>
+            <div>
+              <h4>Best Trees to Plant in Utah: A Homeowner's Guide</h4>
+              <p>Species recommendations for Utah's alkaline soil and climate — shade trees, ornamentals, and evergreens that actually thrive here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything We Delivered</h2>
         </div>
         
         <div class="deliverables-grid">
           <div class="deliverable-card">
             <div class="deliverable-icon">🏙️</div>
-            <h3>City Landing Pages</h3>
-            <p>10 unique pages targeting local search queries like "tree service Sandy Utah" with neighborhood content and local schema.</p>
+            <h3>10 City Landing Pages</h3>
+            <p>Unique pages for Salt Lake City, Sandy, Draper, Park City, Murray, Cottonwood Heights, Holladay, Millcreek, West Valley City, South Jordan, and Riverton — each with local neighborhoods, common tree issues, and city-specific content.</p>
           </div>
           
           <div class="deliverable-card">
             <div class="deliverable-icon">📝</div>
-            <h3>Blog Content</h3>
-            <p>3 Utah-focused articles: Iron Chlorosis treatment, when to remove trees, and best trees for Utah's climate.</p>
+            <h3>3 Blog Articles</h3>
+            <p>Utah-focused content: Iron chlorosis treatment, when to remove trees, and best trees for Utah's climate. Written by an arborist perspective for SEO and trust.</p>
           </div>
           
           <div class="deliverable-card">
             <div class="deliverable-icon">🔧</div>
-            <h3>Technical SEO</h3>
-            <p>Fixed sitemap URL mismatch, updated robots.txt, ensured proper indexing configuration.</p>
+            <h3>Technical SEO Fixes</h3>
+            <p>Fixed sitemap URL mismatch (www vs non-www), updated robots.txt, configured proper canonical URLs, ensured all pages are indexable.</p>
           </div>
           
           <div class="deliverable-card">
             <div class="deliverable-icon">📊</div>
             <h3>Schema Markup</h3>
-            <p>LocalBusiness schema on every city page with proper service area targeting for rich search results.</p>
+            <p>LocalBusiness schema on every city page with proper service area targeting, business hours, contact info — ready for rich search results.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📞</div>
+            <h3>Real Contact Info</h3>
+            <p>Replaced all placeholder numbers and emails with real contact: (385) 215-9973 and canyoncrowntreeco@gmail.com across all 27 pages.</p>
           </div>
           
           <div class="deliverable-card">
             <div class="deliverable-icon">🔍</div>
             <h3>Competitive Analysis</h3>
-            <p>Research on 7+ tier-S competitors including Diamond Tree (57 years, 317 reviews) to inform strategy.</p>
+            <p>Deep research on 7+ tier-S competitors in Utah and PNW — Diamond Tree (57 years), South Valley Tree (52 years), A Adams (40 years) — to inform strategy.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🎨</div>
+            <h3>New Page Styling</h3>
+            <p>Custom CSS for city pages, blog articles, and content sections — consistent with existing site design while adding new page types.</p>
           </div>
           
           <div class="deliverable-card">
             <div class="deliverable-icon">📋</div>
-            <h3>SEO Audit</h3>
-            <p>Comprehensive documentation of issues found and solutions implemented for ongoing reference.</p>
+            <h3>SEO Audit Documentation</h3>
+            <p>Comprehensive audit document with all issues found, solutions implemented, and ongoing recommendations for continued improvement.</p>
           </div>
         </div>
       </div>
@@ -402,25 +576,25 @@
       <div class="container">
         <div class="section-header">
           <h2>Competitive Landscape</h2>
-          <p>We analyzed the top tree service websites in Utah to identify what makes them rank — then built Canyon Crown to compete.</p>
+          <p>We analyzed the top tree service websites in Utah and the Pacific Northwest to identify what makes them rank — then built Canyon Crown to compete.</p>
         </div>
         
         <div class="competitors-grid">
           <div class="competitor-card">
             <h4>Diamond Tree Experts</h4>
-            <p><span class="years">57 years</span> • 317 Google reviews • City-specific pages • Mulch side business</p>
+            <p><span class="years">57 years</span> in business • 317 Google reviews displayed on homepage • City-specific landing pages • Mulch products as side revenue</p>
           </div>
           <div class="competitor-card">
             <h4>South Valley Tree</h4>
-            <p><span class="years">52 years</span> • "No Job Too Small & No Tree Too Tall" • Great tagline</p>
+            <p><span class="years">52 years</span> in business • Killer tagline: "No Job Too Small & No Tree Too Tall" • Strong local presence</p>
           </div>
           <div class="competitor-card">
             <h4>A Adams Tree Service</h4>
-            <p><span class="years">40 years</span> • ISA Certified • Equipment showcase • Seattle market leader</p>
+            <p><span class="years">40 years</span> in Seattle • ISA Certified prominent • Equipment showcase • 24/7 emergency • FAQ section</p>
           </div>
           <div class="competitor-card">
             <h4>Rent a Monkey</h4>
-            <p><span class="years">Utah</span> • Memorable branding • Claims "#1 Tree Service in Utah"</p>
+            <p>Memorable branding • Claims "#1 Tree Service in Utah" • Power line clearance capability • Strong safety messaging</p>
           </div>
         </div>
       </div>
@@ -429,25 +603,38 @@
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Results</h2>
+          <h2>The Build Timeline</h2>
+          <p>Everything completed in a single day.</p>
         </div>
         
-        <div class="results-grid">
-          <div class="result-card">
-            <div class="result-value">27</div>
-            <div class="result-label">Total URLs</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Competitive Research</h4>
+            <p>Analyzed 7+ top tree service websites in Utah and Pacific Northwest. Identified city pages as the #1 competitive gap.</p>
           </div>
-          <div class="result-card">
-            <div class="result-value">10</div>
-            <div class="result-label">City Pages</div>
+          <div class="timeline-item">
+            <h4>SEO Audit</h4>
+            <p>Discovered critical issue: site not indexed by Google at all (0 results). Found sitemap URL mismatch and placeholder contact info.</p>
           </div>
-          <div class="result-card">
-            <div class="result-value">3</div>
-            <div class="result-label">Blog Articles</div>
+          <div class="timeline-item">
+            <h4>City Pages Created</h4>
+            <p>Built 10 unique city landing pages with local neighborhoods, common tree issues, testimonials, and schema markup.</p>
           </div>
-          <div class="result-card">
-            <div class="result-value">1 day</div>
-            <div class="result-label">Build Time</div>
+          <div class="timeline-item">
+            <h4>Blog Content Written</h4>
+            <p>Created 3 Utah-focused articles: iron chlorosis, when to remove trees, and best trees for Utah climate.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Technical Fixes</h4>
+            <p>Updated sitemap (27 URLs), fixed robots.txt, added CSS for new page types.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Contact Info Updated</h4>
+            <p>Replaced all placeholders with real phone (385) 215-9973 and email canyoncrowntreeco@gmail.com.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Deployed to Production</h4>
+            <p>All changes pushed to GitHub and live on canyoncrowntreeco.com. Ready for Google Search Console verification.</p>
           </div>
         </div>
       </div>
@@ -459,7 +646,8 @@
         <p>Let's make your business impossible to ignore online.</p>
         <div class="cta-buttons">
           <a href="mailto:contact@gullstack.com" class="btn">Start Your SEO Project</a>
-          <a href="index.html" class="btn btn-outline">View More Projects</a>
+          <a href="https://canyoncrowntreeco.com" target="_blank" class="btn btn-outline">View Live Site ↗</a>
+          <a href="index.html" class="btn btn-outline">More Projects</a>
         </div>
       </div>
     </section>
