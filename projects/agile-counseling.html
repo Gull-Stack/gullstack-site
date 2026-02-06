@@ -195,6 +195,56 @@
             font-weight: bold;
         }
         
+        /* Screenshot Gallery */
+        .screenshot-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .screenshot-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .screenshot-item.before {
+            border-top: 3px solid #ef4444;
+        }
+        
+        .screenshot-item.after {
+            border-top: 3px solid var(--success);
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .screenshot-label {
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .screenshot-label h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .screenshot-item.before .screenshot-label h4 { color: #ef4444; }
+        .screenshot-item.after .screenshot-label h4 { color: var(--success); }
+        
+        .screenshot-label p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
         /* Deliverables */
         .deliverables-grid {
             display: grid;
@@ -427,6 +477,43 @@
                         <li>Hyper-local SEO per city/service</li>
                         <li>Full schema markup for mental health</li>
                     </ul>
+                </div>
+            </div>
+            
+            <!-- Screenshots -->
+            <h3 style="font-family: 'Young Serif', serif; font-size: 1.25rem; margin: 2rem 0 1rem; color: var(--text-primary);">Visual Comparison</h3>
+            
+            <div class="screenshot-gallery">
+                <div class="screenshot-item before">
+                    <img src="images/agile-before.jpg" alt="Agile Counseling - Before (Homepage only)">
+                    <div class="screenshot-label">
+                        <h4>Before</h4>
+                        <p>Generic homepage, no local targeting</p>
+                    </div>
+                </div>
+                <div class="screenshot-item after">
+                    <img src="images/agile-after-city.jpg" alt="Agile Counseling - After (City Page)">
+                    <div class="screenshot-label">
+                        <h4>After — City Page</h4>
+                        <p>"Therapist in Draper, Utah" targeting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screenshot-gallery" style="margin-top: 1rem;">
+                <div class="screenshot-item after">
+                    <img src="images/agile-after-service.jpg" alt="Agile Counseling - After (Service Page)">
+                    <div class="screenshot-label">
+                        <h4>After — Service Page</h4>
+                        <p>"Anxiety Therapy in Sandy, Utah"</p>
+                    </div>
+                </div>
+                <div class="screenshot-item after">
+                    <img src="images/agile-after-city.jpg" alt="Agile Counseling - After (Another View)">
+                    <div class="screenshot-label">
+                        <h4>After — Local SEO</h4>
+                        <p>FAQs, schema, insurance, CTAs</p>
+                    </div>
                 </div>
             </div>
         </section>
