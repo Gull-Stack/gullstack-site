@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canyon Crown Tree Co — Case Study | GullStack</title>
+  <meta name="description" content="How GullStack transformed Canyon Crown Tree Co's SEO with 10 city landing pages, blog content, and technical fixes to dominate local search in Utah.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --green: #22c55e;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    
+    /* Hero */
+    .case-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    
+    .case-hero .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .breadcrumb a:hover { color: var(--accent); }
+    
+    .case-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item { text-align: center; }
+    .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .meta-value { font-size: 1.1rem; font-weight: 600; }
+    .meta-value a { color: var(--accent); }
+    .meta-value a:hover { text-decoration: underline; }
+    
+    .case-hero-image { margin: 60px 0; }
+    .case-hero-image img { width: 100%; border-radius: 16px; box-shadow: 0 40px 80px rgba(0,0,0,0.4); }
+    
+    /* Section */
+    .section { padding: 80px 0; }
+    .section-header { margin-bottom: 48px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 2.25rem; font-weight: 400; margin-bottom: 16px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+    
+    /* Before/After */
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    @media (max-width: 768px) { .before-after { grid-template-columns: 1fr; } }
+    
+    .comparison-card {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    
+    .comparison-card.before { border-color: rgba(239, 68, 68, 0.3); }
+    .comparison-card.after { border-color: rgba(34, 197, 94, 0.3); }
+    
+    .comparison-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    
+    .before .comparison-badge { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+    .after .comparison-badge { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+    
+    .comparison-card h3 { font-size: 1.25rem; margin-bottom: 16px; font-weight: 600; }
+    .comparison-card ul { list-style: none; }
+    .comparison-card li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--text-muted); }
+    .comparison-card li::before { content: ''; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; border-radius: 50%; }
+    .before li::before { background: rgba(239, 68, 68, 0.3); }
+    .after li::before { background: rgba(34, 197, 94, 0.3); }
+    
+    /* Deliverables Grid */
+    .deliverables-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    
+    .deliverable-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    
+    .deliverable-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(34, 197, 94, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+    }
+    
+    .deliverable-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+    .deliverable-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    
+    /* City Pages List */
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    
+    .city-card {
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .city-card .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    
+    .city-card span { font-weight: 500; }
+    
+    /* Results */
+    .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+    
+    .result-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .result-value { font-family: var(--font-serif); font-size: 2.5rem; color: var(--green); margin-bottom: 8px; }
+    .result-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    
+    /* Competitors */
+    .competitors-section { background: var(--bg-elevated); padding: 80px 0; margin: 80px 0; }
+    .competitors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+    
+    .competitor-card {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+    
+    .competitor-card h4 { font-size: 1rem; margin-bottom: 8px; }
+    .competitor-card p { color: var(--text-muted); font-size: 0.9rem; }
+    .competitor-card .years { color: var(--accent); font-weight: 600; }
+    
+    /* CTA */
+    .cta-section { text-align: center; padding: 100px 0; }
+    .cta-section h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px; }
+    .cta-section p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; }
+    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
+    
+    /* Footer */
+    footer { padding: 60px 0; border-top: 1px solid var(--border); text-align: center; }
+    footer p { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container-wide">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">GullStack</a>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="index.html">Projects</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Projects</a> / Canyon Crown Tree Co</p>
+        <h1>Canyon Crown Tree Co</h1>
+        <p class="lead">How we took a well-designed website from invisible to dominating local search with comprehensive SEO implementation.</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-label">Industry</div>
+            <div class="meta-value">Tree Service</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Salt Lake City, Utah</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">1 Day</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Live Site</div>
+            <div class="meta-value"><a href="https://canyoncrowntreeco.com" target="_blank">View Site ↗</a></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-wide case-hero-image">
+        <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=1400&h=700&fit=crop" alt="Canyon Crown Tree Co">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Challenge</h2>
+          <p>Canyon Crown Tree Co had a beautiful, professionally designed website — but Google couldn't find it. Zero pages indexed. Zero organic traffic. Invisible to potential customers searching for tree services in Utah.</p>
+        </div>
+        
+        <div class="before-after">
+          <div class="comparison-card before">
+            <span class="comparison-badge">Before</span>
+            <h3>The SEO Problem</h3>
+            <ul>
+              <li>0 pages indexed by Google</li>
+              <li>No city-specific landing pages</li>
+              <li>Sitemap URL mismatch (www vs non-www)</li>
+              <li>No Google Business Profile</li>
+              <li>No blog or content marketing</li>
+              <li>Phone number was placeholder (555-1234)</li>
+              <li>Competitors dominating local search</li>
+              <li>Beautiful site that nobody could find</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-card after">
+            <span class="comparison-badge">After</span>
+            <h3>SEO-Optimized Site</h3>
+            <ul>
+              <li>27 pages ready for indexing</li>
+              <li>10 city-specific landing pages</li>
+              <li>Fixed sitemap and robots.txt</li>
+              <li>Google Search Console ready</li>
+              <li>3 Utah-focused blog articles</li>
+              <li>Schema markup on all city pages</li>
+              <li>Competitive analysis complete</li>
+              <li>Positioned to dominate local search</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>10 City Landing Pages Created</h2>
+          <p>Each page features unique local content, neighborhood information, and city-specific schema markup for maximum local SEO impact.</p>
+        </div>
+        
+        <div class="city-grid">
+          <div class="city-card"><span class="check">✓</span><span>Salt Lake City</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Sandy</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Draper</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Park City</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Murray</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Cottonwood Heights</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Holladay</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Millcreek</span></div>
+          <div class="city-card"><span class="check">✓</span><span>West Valley City</span></div>
+          <div class="city-card"><span class="check">✓</span><span>South Jordan</span></div>
+          <div class="city-card"><span class="check">✓</span><span>Riverton</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Delivered</h2>
+          <p>A comprehensive SEO overhaul built in a single day.</p>
+        </div>
+        
+        <div class="deliverables-grid">
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🏙️</div>
+            <h3>City Landing Pages</h3>
+            <p>10 unique pages targeting local search queries like "tree service Sandy Utah" with neighborhood content and local schema.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📝</div>
+            <h3>Blog Content</h3>
+            <p>3 Utah-focused articles: Iron Chlorosis treatment, when to remove trees, and best trees for Utah's climate.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🔧</div>
+            <h3>Technical SEO</h3>
+            <p>Fixed sitemap URL mismatch, updated robots.txt, ensured proper indexing configuration.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📊</div>
+            <h3>Schema Markup</h3>
+            <p>LocalBusiness schema on every city page with proper service area targeting for rich search results.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🔍</div>
+            <h3>Competitive Analysis</h3>
+            <p>Research on 7+ tier-S competitors including Diamond Tree (57 years, 317 reviews) to inform strategy.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📋</div>
+            <h3>SEO Audit</h3>
+            <p>Comprehensive documentation of issues found and solutions implemented for ongoing reference.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="competitors-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Competitive Landscape</h2>
+          <p>We analyzed the top tree service websites in Utah to identify what makes them rank — then built Canyon Crown to compete.</p>
+        </div>
+        
+        <div class="competitors-grid">
+          <div class="competitor-card">
+            <h4>Diamond Tree Experts</h4>
+            <p><span class="years">57 years</span> • 317 Google reviews • City-specific pages • Mulch side business</p>
+          </div>
+          <div class="competitor-card">
+            <h4>South Valley Tree</h4>
+            <p><span class="years">52 years</span> • "No Job Too Small & No Tree Too Tall" • Great tagline</p>
+          </div>
+          <div class="competitor-card">
+            <h4>A Adams Tree Service</h4>
+            <p><span class="years">40 years</span> • ISA Certified • Equipment showcase • Seattle market leader</p>
+          </div>
+          <div class="competitor-card">
+            <h4>Rent a Monkey</h4>
+            <p><span class="years">Utah</span> • Memorable branding • Claims "#1 Tree Service in Utah"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Results</h2>
+        </div>
+        
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-value">27</div>
+            <div class="result-label">Total URLs</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">10</div>
+            <div class="result-label">City Pages</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">3</div>
+            <div class="result-label">Blog Articles</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">1 day</div>
+            <div class="result-label">Build Time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Dominate Local Search?</h2>
+        <p>Let's make your business impossible to ignore online.</p>
+        <div class="cta-buttons">
+          <a href="mailto:contact@gullstack.com" class="btn">Start Your SEO Project</a>
+          <a href="index.html" class="btn btn-outline">View More Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 GullStack Trust. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

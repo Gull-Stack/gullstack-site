@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falling Waters Day Spa — Case Study | GullStack</title>
+  <meta name="description" content="How GullStack transformed Falling Waters Day Spa's outdated Wix site into a luxury digital experience that converts visitors into bookings.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --gold: #C4A77D;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    
+    /* Case Study Hero */
+    .case-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    
+    .case-hero .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .breadcrumb a:hover { color: var(--accent); }
+    
+    .case-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    
+    .case-hero .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item {
+      text-align: center;
+    }
+    
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    
+    .meta-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .meta-value a { color: var(--accent); }
+    .meta-value a:hover { text-decoration: underline; }
+    
+    /* Hero Image */
+    .case-hero-image {
+      margin: 60px 0;
+    }
+    
+    .case-hero-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    }
+    
+    /* Section */
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-header {
+      margin-bottom: 48px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    
+    /* Before/After */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      .before-after { grid-template-columns: 1fr; }
+    }
+    
+    .comparison-card {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    
+    .comparison-card.before { border-color: rgba(239, 68, 68, 0.3); }
+    .comparison-card.after { border-color: rgba(34, 197, 94, 0.3); }
+    
+    .comparison-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    
+    .before .comparison-badge {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+    
+    .after .comparison-badge {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+    }
+    
+    .comparison-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .comparison-card ul {
+      list-style: none;
+    }
+    
+    .comparison-card li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      color: var(--text-muted);
+    }
+    
+    .comparison-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    
+    .before li::before {
+      background: rgba(239, 68, 68, 0.3);
+    }
+    
+    .after li::before {
+      background: rgba(34, 197, 94, 0.3);
+    }
+    
+    /* What We Did */
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .deliverable-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    
+    .deliverable-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+    }
+    
+    .deliverable-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .deliverable-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    /* Results */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .result-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .result-value {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    
+    .result-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Testimonial */
+    .testimonial-section {
+      background: var(--bg-elevated);
+      padding: 80px 0;
+      margin: 80px 0;
+    }
+    
+    .testimonial {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .testimonial blockquote {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+    
+    .testimonial cite {
+      font-style: normal;
+      color: var(--text-muted);
+    }
+    
+    .testimonial cite strong {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--text-muted);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    footer p { color: var(--text-muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container-wide">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">GullStack</a>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="index.html">Projects</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="index.html">Projects</a> / Falling Waters Day Spa</p>
+        <h1>Falling Waters Day Spa</h1>
+        <p class="lead">How we transformed an outdated Wix site into a luxury digital experience that turns visitors into bookings.</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-label">Industry</div>
+            <div class="meta-value">Day Spa</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Draper, Utah</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">2 Weeks</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Live Site</div>
+            <div class="meta-value"><a href="https://falling-waters-spa.vercel.app" target="_blank">View Site ↗</a></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-wide case-hero-image">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&h=700&fit=crop" alt="Falling Waters Day Spa">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Challenge</h2>
+          <p>Falling Waters Day Spa had been operating with an outdated Wix website that didn't reflect the quality of their services or convert visitors into bookings.</p>
+        </div>
+        
+        <div class="before-after">
+          <div class="comparison-card before">
+            <span class="comparison-badge">Before</span>
+            <h3>The Old Website</h3>
+            <ul>
+              <li>Outdated Wix template with generic design</li>
+              <li>Slow loading, poor mobile experience</li>
+              <li>No video or engaging visual content</li>
+              <li>Services listed as boring bullet points</li>
+              <li>No social proof or reviews displayed</li>
+              <li>Weak calls-to-action throughout</li>
+              <li>Generic stock photos (not spa-specific)</li>
+              <li>Owner described it as "embarrassing"</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-card after">
+            <span class="comparison-badge">After</span>
+            <h3>The New Website</h3>
+            <ul>
+              <li>Custom luxury design with video hero</li>
+              <li>Lightning-fast static site on Vercel</li>
+              <li>Ken Burns zoom effects on all imagery</li>
+              <li>Experience packages (Girls Day Out, Couples)</li>
+              <li>Real Google reviews front and center (4.4★)</li>
+              <li>CTAs in every section — booking focused</li>
+              <li>High-quality spa imagery throughout</li>
+              <li>Owner signed on the spot during demo</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Delivered</h2>
+          <p>A complete digital transformation designed to convert spa visitors into loyal customers.</p>
+        </div>
+        
+        <div class="deliverables-grid">
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🎬</div>
+            <h3>Video Hero</h3>
+            <p>Immersive video background with Ken Burns zoom effect that immediately communicates luxury and relaxation.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">⭐</div>
+            <h3>Social Proof</h3>
+            <p>Real Google reviews (4.4★, 136+ reviews) displayed prominently to build instant trust with visitors.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🎁</div>
+            <h3>Experience Packages</h3>
+            <p>Services reframed as emotional experiences — Girls Day Out, Couples Retreat, Birthday Bliss — not boring service lists.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📸</div>
+            <h3>Premium Imagery</h3>
+            <p>Curated spa photography throughout — massage, facial, hair, nails — replacing generic stock photos.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">📱</div>
+            <h3>Mobile-First Design</h3>
+            <p>Fully responsive experience that looks stunning on phones, where most spa searches happen.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🎯</div>
+            <h3>Conversion Focused</h3>
+            <p>Strategic CTAs in every section — gold accent buttons that guide visitors to book appointments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Key Design Decisions</h2>
+        </div>
+        
+        <div class="deliverables-grid">
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🎨</div>
+            <h3>No Emoji Icons</h3>
+            <p>Owner specifically rejected "shitty wave icons" — we used proper photography instead for a professional, luxury feel.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">✨</div>
+            <h3>Gold Accents</h3>
+            <p>Strategic use of gold (#C4A77D) throughout buttons and highlights to communicate premium quality.</p>
+          </div>
+          
+          <div class="deliverable-card">
+            <div class="deliverable-icon">🔳</div>
+            <h3>Sharp Edges</h3>
+            <p>Uppercase text, no border-radius on buttons — a deliberate departure from soft, rounded designs for a more luxurious aesthetic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="testimonial-section">
+      <div class="container">
+        <div class="testimonial">
+          <blockquote>"Oh. Nice work!"</blockquote>
+          <cite>
+            <strong>Falling Waters Day Spa Owner</strong>
+            Signed live during the demo presentation
+          </cite>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Results</h2>
+        </div>
+        
+        <div class="results-grid">
+          <div class="result-card">
+            <div class="result-value">100%</div>
+            <div class="result-label">Faster Load</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">4.4★</div>
+            <div class="result-label">Reviews Showcased</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">2wk</div>
+            <div class="result-label">Turnaround</div>
+          </div>
+          <div class="result-card">
+            <div class="result-value">1st</div>
+            <div class="result-label">Retail Client</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's create a website that turns visitors into customers.</p>
+        <div class="cta-buttons">
+          <a href="mailto:contact@gullstack.com" class="btn">Start Your Project</a>
+          <a href="index.html" class="btn btn-outline">View More Projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 GullStack Trust. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
