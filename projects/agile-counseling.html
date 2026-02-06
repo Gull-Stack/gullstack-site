@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agile Counseling Case Study | SEO Expansion | GullStack</title>
+    <meta name="description" content="How we expanded a therapist's website from 4 pages to 16 with city landing pages, service pages, and blog content for local SEO dominance.">
+    <link rel="canonical" href="https://gullstack.com/projects/agile-counseling.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-card: #141416;
+            --text-primary: #fafafa;
+            --text-secondary: #a1a1aa;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --success: #22c55e;
+            --border: #27272a;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        .case-header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .case-header h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .case-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .meta-item i {
+            color: var(--accent);
+        }
+        
+        /* Stats Banner */
+        .stats-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            background: var(--bg-card);
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+        
+        /* Content Sections */
+        .case-section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .case-section:last-child {
+            border-bottom: none;
+        }
+        
+        .case-section h2 {
+            font-family: 'Young Serif', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .case-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        /* Before/After */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+        
+        .comparison-card.before {
+            border-top: 3px solid #ef4444;
+        }
+        
+        .comparison-card.after {
+            border-top: 3px solid var(--success);
+        }
+        
+        .comparison-card h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .comparison-card.before h3 { color: #ef4444; }
+        .comparison-card.after h3 { color: var(--success); }
+        
+        .comparison-card ul {
+            list-style: none;
+        }
+        
+        .comparison-card li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .comparison-card.before li::before {
+            content: "✗";
+            color: #ef4444;
+            font-weight: bold;
+        }
+        
+        .comparison-card.after li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* Deliverables */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .deliverable {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .deliverable i {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-top: 0.1rem;
+        }
+        
+        .deliverable h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .deliverable p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Page List */
+        .page-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        
+        .page-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .page-item i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            background: linear-gradient(135deg, var(--bg-card), #1a1a1f);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .timeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .timeline p {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        /* CTA */
+        .case-cta {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .case-cta h2 {
+            font-family: 'Young Serif', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .case-cta p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            color: var(--accent);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .case-header h1 { font-size: 2rem; }
+            .stats-banner { grid-template-columns: repeat(2, 1fr); }
+            .comparison { grid-template-columns: 1fr; }
+            .deliverables-grid { grid-template-columns: 1fr; }
+            .page-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="case-header">
+            <nav class="breadcrumb">
+                <a href="../index.html">GullStack</a> / <a href="index.html">Projects</a> / Agile Counseling
+            </nav>
+            
+            <h1>Agile Counseling SEO Expansion</h1>
+            <p style="color: var(--text-secondary); font-size: 1.15rem;">How we 4x'd a therapist's web presence with strategic city pages, service pages, and content marketing — all in one session.</p>
+            
+            <div class="case-meta">
+                <div class="meta-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Mental Health / Therapy</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Sandy, Utah</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>February 2026</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Same-day delivery</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <span class="stat-number">4→16</span>
+                <span class="stat-label">Pages (4x growth)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">City Landing Pages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Service Pages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">22</span>
+                <span class="stat-label">Years Experience (therapist)</span>
+            </div>
+        </div>
+
+        <!-- The Challenge -->
+        <section class="case-section">
+            <h2>The Challenge</h2>
+            <p>Agile Counseling is a therapy practice in Sandy, Utah run by Candice Gonzalez, LCSW — a licensed clinical social worker with 22 years of experience. She serves individuals, children, and families across the Salt Lake Valley.</p>
+            <p>The existing website had just 4 pages: home, about, contact, and resources. While the content was professional, the site was missing critical SEO infrastructure to capture local search traffic.</p>
+            <p>People searching for "therapist in Draper" or "child counselor South Jordan" would never find her — even though she actively serves those communities.</p>
+        </section>
+
+        <!-- Before/After -->
+        <section class="case-section">
+            <h2>Before & After</h2>
+            
+            <div class="comparison">
+                <div class="comparison-card before">
+                    <h3>Before</h3>
+                    <ul>
+                        <li>Only 4 pages total</li>
+                        <li>No city-specific landing pages</li>
+                        <li>No dedicated service pages</li>
+                        <li>No blog content</li>
+                        <li>Generic SEO — "therapist in Sandy"</li>
+                        <li>Missing local schema markup</li>
+                    </ul>
+                </div>
+                <div class="comparison-card after">
+                    <h3>After</h3>
+                    <ul>
+                        <li>16 pages with strategic targeting</li>
+                        <li>4 city landing pages (Draper, SLC, etc.)</li>
+                        <li>5 service-specific pages</li>
+                        <li>Blog with expert content</li>
+                        <li>Hyper-local SEO per city/service</li>
+                        <li>Full schema markup for mental health</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Pages -->
+        <section class="case-section">
+            <h2>City Landing Pages</h2>
+            <p>Each city page is optimized to rank for searches like "therapist in [City]" and "counseling [City] Utah." Every page includes:</p>
+            <ul style="color: var(--text-secondary); margin-left: 1.5rem;">
+                <li>City-specific meta titles and descriptions</li>
+                <li>Local landmarks and neighborhood references</li>
+                <li>Drive time and accessibility information</li>
+                <li>LocalBusiness schema markup</li>
+                <li>City-relevant FAQs</li>
+            </ul>
+            
+            <div class="page-list">
+                <div class="page-item"><i class="fas fa-map-pin"></i> Draper, UT</div>
+                <div class="page-item"><i class="fas fa-map-pin"></i> South Jordan, UT</div>
+                <div class="page-item"><i class="fas fa-map-pin"></i> West Jordan, UT</div>
+                <div class="page-item"><i class="fas fa-map-pin"></i> Salt Lake City, UT</div>
+            </div>
+        </section>
+
+        <!-- Service Pages -->
+        <section class="case-section">
+            <h2>Service Pages</h2>
+            <p>Dedicated pages for each core service allow the site to rank for specific treatment searches like "anxiety therapy Sandy UT" or "child therapist near me."</p>
+            
+            <div class="page-list">
+                <div class="page-item"><i class="fas fa-brain"></i> Anxiety Therapy</div>
+                <div class="page-item"><i class="fas fa-cloud-rain"></i> Depression Therapy</div>
+                <div class="page-item"><i class="fas fa-child"></i> Child & Teen Therapy</div>
+                <div class="page-item"><i class="fas fa-home"></i> Family Counseling</div>
+                <div class="page-item"><i class="fas fa-rainbow"></i> LGBTQIA+ Affirming Care</div>
+            </div>
+        </section>
+
+        <!-- Blog & Content -->
+        <section class="case-section">
+            <h2>Blog & Content Marketing</h2>
+            <p>We launched a blog section with expert mental health content to establish authority and capture informational searches. The first article — "5 Practical Coping Strategies for Anxiety" — provides genuine value while naturally funneling readers toward booking.</p>
+            
+            <div class="deliverables-grid">
+                <div class="deliverable">
+                    <i class="fas fa-newspaper"></i>
+                    <div>
+                        <h4>Blog Index</h4>
+                        <p>Clean, scannable blog layout with featured articles</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <h4>Expert Article</h4>
+                        <p>Evidence-based anxiety coping strategies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical SEO -->
+        <section class="case-section">
+            <h2>Technical SEO</h2>
+            
+            <div class="deliverables-grid">
+                <div class="deliverable">
+                    <i class="fas fa-sitemap"></i>
+                    <div>
+                        <h4>Updated Sitemap</h4>
+                        <p>16 URLs with proper priorities</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h4>robots.txt</h4>
+                        <p>Proper crawl directives</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <i class="fas fa-code"></i>
+                    <div>
+                        <h4>Schema Markup</h4>
+                        <p>MentalHealthBusiness + MedicalWebPage</p>
+                    </div>
+                </div>
+                <div class="deliverable">
+                    <i class="fas fa-share-alt"></i>
+                    <div>
+                        <h4>Open Graph</h4>
+                        <p>Social sharing optimization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="case-section">
+            <h2>Delivery Timeline</h2>
+            
+            <div class="timeline">
+                <div class="timeline-badge">
+                    <i class="fas fa-bolt"></i>
+                    Same-Day Delivery
+                </div>
+                <p>All 12 new pages, blog content, and SEO infrastructure delivered in a single working session.</p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="case-cta">
+            <h2>Ready to Expand Your Reach?</h2>
+            <p>Local SEO is the fastest way to get found by people already searching for your services. Let's talk about your growth strategy.</p>
+            <a href="mailto:contact@gullstack.com" class="cta-button">
+                <i class="fas fa-envelope"></i>
+                Get in Touch
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <a href="../index.html">GullStack</a>. Building better businesses.</p>
+        </div>
+    </footer>
+</body>
+</html>
