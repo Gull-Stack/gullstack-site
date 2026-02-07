@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTC Paint Brand — Launch Strategy | GullStack</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+        
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            background: linear-gradient(90deg, #ec4899, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+        .header p { font-size: 1.1rem; color: #94a3b8; }
+        .header .date { font-size: 0.9rem; color: #64748b; margin-top: 8px; }
+        
+        .section { 
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px; 
+            padding: 32px; 
+            margin-bottom: 32px;
+        }
+        .section h2 { 
+            font-size: 1.4rem; 
+            color: #ec4899; 
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before { content: attr(data-icon); font-size: 1.5rem; }
+        
+        .section h3 { 
+            font-size: 1.1rem; 
+            color: #f1f5f9; 
+            margin: 24px 0 12px 0;
+        }
+        
+        .section p, .section li { color: #cbd5e1; }
+        .section ul { margin-left: 20px; margin-top: 12px; }
+        .section li { margin-bottom: 8px; }
+        
+        .highlight { 
+            background: rgba(236, 72, 153, 0.1);
+            border-left: 3px solid #ec4899;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .stat-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ec4899;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .comparison-table th {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .comparison-table td { color: #e2e8f0; }
+        .comparison-table .old { color: #ef4444; }
+        .comparison-table .new { color: #22c55e; }
+        
+        .brand-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 16px 0;
+            border-left: 4px solid #ec4899;
+        }
+        .brand-card h4 {
+            font-size: 1.3rem;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+        }
+        .brand-card .tagline {
+            font-style: italic;
+            color: #ec4899;
+            margin-bottom: 12px;
+        }
+        .brand-card p { margin-bottom: 8px; }
+        .brand-card .domains {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .favorite-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ec4899, #f97316);
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .competitor {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .competitor strong { color: #f1f5f9; }
+        .competitor .price { color: #ef4444; font-size: 1.2rem; }
+        .competitor span { color: #94a3b8; font-size: 0.85rem; display: block; margin-top: 4px; }
+        
+        .phase {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .phase-number {
+            background: linear-gradient(135deg, #ec4899, #f97316);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .phase-title { font-weight: 600; color: #f1f5f9; }
+        .phase ul { margin-left: 44px; }
+        
+        .channel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .channel-table th, .channel-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .channel-table th {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        .channel-table td { color: #e2e8f0; }
+        .channel-table .cac { color: #22c55e; font-weight: 600; }
+        
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .keyword {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px 16px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .keyword .term { color: #f1f5f9; }
+        .keyword .volume { color: #94a3b8; font-size: 0.85rem; }
+        .keyword.high { border-left: 3px solid #22c55e; }
+        .keyword.medium { border-left: 3px solid #f59e0b; }
+        
+        .cta {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(249, 115, 22, 0.2));
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+        .cta h2 { color: #f1f5f9; margin-bottom: 16px; }
+        .cta p { color: #94a3b8; margin-bottom: 24px; }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ec4899, #f97316);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.3);
+        }
+        
+        .logo { font-weight: 700; color: #64748b; margin-top: 40px; text-align: center; }
+        
+        .hero-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .hero-logos img {
+            max-height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+        
+        .price-hero {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 16px;
+            margin: 32px 0;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .price-hero .big-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #22c55e;
+        }
+        .price-hero .subtext {
+            font-size: 1.3rem;
+            color: #94a3b8;
+        }
+        .price-hero .savings {
+            margin-top: 16px;
+            font-size: 1.1rem;
+            color: #f1f5f9;
+        }
+        .price-hero .savings span {
+            color: #22c55e;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-logos">
+            <img src="/images/logo-white.png" alt="GullStack" class="gullstack-logo">
+        </div>
+
+        <div class="header">
+            <h1>DTC Paint Brand Launch Strategy</h1>
+            <p>Premium Quality Paint at Disruptive Pricing</p>
+            <div class="date">Prepared February 7, 2026</div>
+        </div>
+
+        <!-- Price Hero -->
+        <div class="price-hero">
+            <div class="big-number">$125</div>
+            <div class="subtext">4 gallons, shipped free</div>
+            <div class="savings">That's <span>47% less</span> than Clare and <span>52% less</span> than Backdrop</div>
+        </div>
+
+        <!-- Brand Names Section -->
+        <div class="section">
+            <h2 data-icon="🎨">Recommended Brand Names</h2>
+            <p>We evaluated 10 brand name options. Here are our top 3 recommendations:</p>
+            
+            <div class="brand-card">
+                <h4>LIMN <span class="favorite-badge">⭐ RECOMMENDED</span></h4>
+                <div class="tagline">"Define your space."</div>
+                <p>An art term meaning "to outline or illuminate" — sophisticated, distinctive, and memorable. Feels premium without being pretentious.</p>
+                <div class="domains">Domains: limnpaint.com, shopllimn.com</div>
+            </div>
+            
+            <div class="brand-card">
+                <h4>TINT</h4>
+                <div class="tagline">"Your shade, simplified."</div>
+                <p>Short, modern, and directly references paint while feeling premium. Easy to remember, easy to spell, strong visual potential.</p>
+                <div class="domains">Domains: tint.co, painttint.com, gettint.com</div>
+            </div>
+            
+            <div class="brand-card">
+                <h4>HUSH</h4>
+                <div class="tagline">"Color, quietly perfected."</div>
+                <p>Evokes the quiet confidence of a well-designed home. Feminine, calming, and luxury-adjacent. Perfect for the target demographic.</p>
+                <div class="domains">Domains: hushpaint.com, hushhome.com</div>
+            </div>
+        </div>
+
+        <!-- Competitive Analysis -->
+        <div class="section">
+            <h2 data-icon="🔍">Competitive Landscape</h2>
+            <p>The DTC paint market is growing, but competitors have left a massive gap: premium quality at accessible pricing.</p>
+            
+            <div class="competitor-grid">
+                <div class="competitor">
+                    <strong>Clare</strong>
+                    <div class="price">$59/gallon</div>
+                    <span>Designer-curated, 88 colors, woman-founded</span>
+                </div>
+                <div class="competitor">
+                    <strong>Backdrop</strong>
+                    <div class="price">$65/gallon</div>
+                    <span>Lifestyle brand, metal cans, eco-certified</span>
+                </div>
+                <div class="competitor">
+                    <strong>Benjamin Moore</strong>
+                    <div class="price">$65-80/gallon</div>
+                    <span>Premium positioning, retail only</span>
+                </div>
+                <div class="competitor" style="border: 2px solid #22c55e;">
+                    <strong style="color: #22c55e;">US (Your Brand)</strong>
+                    <div class="price" style="color: #22c55e;">$31.25/gallon</div>
+                    <span>Premium quality, curated colors, free shipping</span>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>The Gap:</strong> Clare and Backdrop proved DTC paint works, but they positioned as premium luxury. No one owns "premium quality at honest prices." That's your position.
+            </div>
+        </div>
+
+        <!-- Target Audience -->
+        <div class="section">
+            <h2 data-icon="👩">Target Audience</h2>
+            <h3>The "Intentional Homemaker"</h3>
+            <ul>
+                <li><strong>Demographics:</strong> Women, 28-45, household income $75k-200k</li>
+                <li><strong>Behavior:</strong> Heavy Pinterest/Instagram users, follow home decor accounts</li>
+                <li><strong>Mindset:</strong> Design-conscious but not professionals, want curated choices</li>
+            </ul>
+            
+            <h3>Pain Points We Solve</h3>
+            <ul>
+                <li>Overwhelmed by 3,000+ color options at hardware stores</li>
+                <li>Hate the fluorescent-lit hardware store experience</li>
+                <li>Fear making the "wrong" color choice</li>
+                <li>Want premium results without premium prices</li>
+            </ul>
+        </div>
+
+        <!-- Paid Ads Strategy -->
+        <div class="section">
+            <h2 data-icon="📣">Paid Advertising Strategy</h2>
+            
+            <table class="channel-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Budget %</th>
+                        <th>Purpose</th>
+                        <th>Est. CAC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta (FB/IG)</strong></td>
+                        <td>45%</td>
+                        <td>Awareness + Conversion</td>
+                        <td class="cac">$35-55</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pinterest</strong></td>
+                        <td>30%</td>
+                        <td>Discovery + Intent</td>
+                        <td class="cac">$25-45</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Ads</strong></td>
+                        <td>20%</td>
+                        <td>High-Intent Capture</td>
+                        <td class="cac">$40-70</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok</strong></td>
+                        <td>5%</td>
+                        <td>Testing/Awareness</td>
+                        <td class="cac">$30-50</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Creative Themes That Convert</h3>
+            <ul>
+                <li><strong>Price Shock:</strong> "4 gallons for $125? Yes, really."</li>
+                <li><strong>Before/After:</strong> Room transformations (UGC style)</li>
+                <li><strong>Process Simplicity:</strong> "3 steps to your dream room"</li>
+                <li><strong>Social Proof:</strong> Customer testimonials, unboxing</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>Target Blended CAC:</strong> Under $45 with $125 AOV = healthy margin for scale
+            </div>
+        </div>
+
+        <!-- SEO Strategy -->
+        <div class="section">
+            <h2 data-icon="🔎">SEO & Organic Strategy</h2>
+            
+            <h3>Target Keywords (35 identified)</h3>
+            <div class="keyword-grid">
+                <div class="keyword high">
+                    <span class="term">best paint colors for bedroom</span>
+                    <span class="volume">12K/mo</span>
+                </div>
+                <div class="keyword high">
+                    <span class="term">best paint colors for living room</span>
+                    <span class="volume">8.5K/mo</span>
+                </div>
+                <div class="keyword high">
+                    <span class="term">buy paint online</span>
+                    <span class="volume">6.5K/mo</span>
+                </div>
+                <div class="keyword high">
+                    <span class="term">zero VOC paint</span>
+                    <span class="volume">5.2K/mo</span>
+                </div>
+                <div class="keyword medium">
+                    <span class="term">Clare paint review</span>
+                    <span class="volume">1.8K/mo</span>
+                </div>
+                <div class="keyword medium">
+                    <span class="term">non toxic paint for nursery</span>
+                    <span class="volume">1.6K/mo</span>
+                </div>
+            </div>
+            
+            <h3>Timeline to Results</h3>
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <span class="phase-title">Months 1-3: Foundation</span>
+                </div>
+                <ul>
+                    <li>Technical SEO, site structure, initial content</li>
+                    <li>Expected: Indexing, 0 rankings</li>
+                </ul>
+            </div>
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <span class="phase-title">Months 4-6: Growth</span>
+                </div>
+                <ul>
+                    <li>Content velocity 10+/month, link building</li>
+                    <li>Expected: Long-tail rankings, 500-2K visits</li>
+                </ul>
+            </div>
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <span class="phase-title">Months 7-12: Scale</span>
+                </div>
+                <ul>
+                    <li>Competitive keywords, content refresh</li>
+                    <li>Expected: Page 1 rankings, 20K+ visits</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Influencer Strategy -->
+        <div class="section">
+            <h2 data-icon="📱">Influencer & Social Strategy</h2>
+            
+            <h3>Platform Priority</h3>
+            <ul>
+                <li><strong>Instagram:</strong> Primary — visual focus, home decor audience, shoppable</li>
+                <li><strong>Pinterest:</strong> Primary — discovery engine, high purchase intent</li>
+                <li><strong>TikTok:</strong> Secondary — viral potential, before/after content</li>
+            </ul>
+            
+            <h3>Influencer Tiers</h3>
+            <table class="channel-table">
+                <thead>
+                    <tr>
+                        <th>Tier</th>
+                        <th>Followers</th>
+                        <th>Cost/Post</th>
+                        <th>Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Micro</td>
+                        <td>1K-25K</td>
+                        <td>$100-500</td>
+                        <td>20-30/mo</td>
+                    </tr>
+                    <tr>
+                        <td>Mid-Tier</td>
+                        <td>25K-100K</td>
+                        <td>$500-2,000</td>
+                        <td>5-10/mo</td>
+                    </tr>
+                    <tr>
+                        <td>Macro</td>
+                        <td>100K-1M</td>
+                        <td>$2,000-10,000</td>
+                        <td>1-3/mo</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Content Themes</h3>
+            <ul>
+                <li><strong>Unboxing:</strong> Beautiful packaging reveal, "So cute I don't want to open it"</li>
+                <li><strong>Before/After:</strong> Time-lapse room transformations</li>
+                <li><strong>Price Reveal:</strong> "$125 for all this paint?!" shock value</li>
+                <li><strong>Tutorial:</strong> Tips, prep guides, how-tos</li>
+            </ul>
+        </div>
+
+        <!-- Budget Summary -->
+        <div class="section">
+            <h2 data-icon="💰">Budget Summary</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="number">$96K-186K</div>
+                    <div class="label">6-Month Marketing Budget</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">&lt;$45</div>
+                    <div class="label">Target Blended CAC</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">8 weeks</div>
+                    <div class="label">Time to Full Campaign</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">500+</div>
+                    <div class="label">Orders by Month 6</div>
+                </div>
+            </div>
+            
+            <h3>Monthly Breakdown</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Monthly</th>
+                        <th>6-Month Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paid Ads (Meta + Pinterest)</td>
+                        <td>$8,000-15,000</td>
+                        <td>$48,000-90,000</td>
+                    </tr>
+                    <tr>
+                        <td>Paid Ads (Google)</td>
+                        <td>$2,000-5,000</td>
+                        <td>$12,000-30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Influencer Seeding</td>
+                        <td>$3,000-5,000</td>
+                        <td>$18,000-30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Content Creation</td>
+                        <td>$2,000-4,000</td>
+                        <td>$12,000-24,000</td>
+                    </tr>
+                    <tr>
+                        <td>SEO Tools & Freelancers</td>
+                        <td>$1,000-2,000</td>
+                        <td>$6,000-12,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Key Messages -->
+        <div class="section">
+            <h2 data-icon="🎯">Key Messages to Hammer</h2>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="number" style="font-size: 1.5rem;">$125</div>
+                    <div class="label">4 gallons, shipped free</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" style="font-size: 1.5rem;">64</div>
+                    <div class="label">Designer-curated colors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" style="font-size: 1.5rem;">Zero VOC</div>
+                    <div class="label">Premium quality</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number" style="font-size: 1.5rem;">47%</div>
+                    <div class="label">Less than Clare</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <h2>Ready to Launch?</h2>
+            <p>Let's build this brand and disrupt the paint industry together.</p>
+            <a href="https://calendar.app.google/NbxVQRqcGjQeumPXA" class="cta-btn">Schedule Strategy Call</a>
+        </div>
+
+        <div class="logo">
+            <p>Prepared by GullStack</p>
+            <p style="font-size: 0.85rem; margin-top: 8px;">gullstack.com</p>
+        </div>
+    </div>
+</body>
+</html>
