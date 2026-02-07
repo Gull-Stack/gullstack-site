@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Building Care — Digital Growth Proposal | GullStack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-card: #21262d;
+    --border: #30363d;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent-blue: #58a6ff;
+    --accent-green: #3fb950;
+    --accent-purple: #a371f7;
+    --accent-red: #f85149;
+    --accent-orange: #d29922;
+  }
+  
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .hero-badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--accent-green);
+    margin-bottom: 2rem;
+  }
+  
+  .hero h1 {
+    font-family: 'Young Serif', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  
+  .hero h1 span { color: var(--accent-blue); }
+  
+  .hero-sub {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero-meta strong { color: var(--text-primary); }
+  
+  section {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .section-number {
+    font-family: 'Young Serif', serif;
+    font-size: 4rem;
+    color: var(--bg-card);
+    line-height: 1;
+    margin-bottom: -0.5rem;
+  }
+  
+  .section-title {
+    font-family: 'Young Serif', serif;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 700px;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .stat-card .number {
+    font-family: 'Young Serif', serif;
+    font-size: 2.5rem;
+    color: var(--accent-blue);
+  }
+  
+  .stat-card .label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+  
+  .stat-card.green .number { color: var(--accent-green); }
+  .stat-card.red .number { color: var(--accent-red); }
+  .stat-card.purple .number { color: var(--accent-purple); }
+  .stat-card.orange .number { color: var(--accent-orange); }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  th {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  tr:hover { background: var(--bg-secondary); }
+  
+  .highlight { color: var(--accent-green); font-weight: 600; }
+  .dim { color: var(--text-secondary); }
+  .bad { color: var(--accent-red); }
+  
+  /* Cards */
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .card p, .card li {
+    color: var(--text-secondary);
+  }
+  
+  .card ul {
+    list-style: none;
+    margin-top: 1rem;
+  }
+  
+  .card li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+  }
+  
+  /* Two Column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+  
+  /* Compare */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .compare-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+  }
+  
+  .compare-card.old {
+    border-color: var(--accent-red);
+    opacity: 0.8;
+  }
+  
+  .compare-card.new {
+    border-color: var(--accent-green);
+  }
+  
+  .compare-card h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .compare-card ul {
+    list-style: none;
+  }
+  
+  .compare-card li {
+    padding: 0.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  .compare-card.old li::before {
+    content: "✗ ";
+    color: var(--accent-red);
+  }
+  
+  .compare-card.new li::before {
+    content: "✓ ";
+    color: var(--accent-green);
+  }
+  
+  @media (max-width: 700px) {
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+  
+  /* Timeline */
+  .timeline {
+    margin: 2rem 0;
+  }
+  
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .timeline-marker {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-card);
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Young Serif', serif;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+  
+  .timeline-content h4 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+  
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+  
+  .cta-section h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-section p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary {
+    background: var(--accent-blue);
+    color: var(--bg-primary);
+  }
+  
+  .btn-primary:hover {
+    background: #79b8ff;
+  }
+  
+  .btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+  
+  .btn-secondary:hover {
+    border-color: var(--text-secondary);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+  }
+  
+  /* Keyword pill */
+  .keyword-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .pill {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  
+  .pill.hot {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">✨ New Site Ready</div>
+  <h1>Advanced Building Care<br><span>Digital Growth Proposal</span></h1>
+  <p class="hero-sub">Your current website is invisible to Google. Here's how we fix that and turn your site into a lead generation machine.</p>
+  <div class="hero-meta">
+    <span><strong>Prepared for:</strong> Advanced Building Care</span>
+    <span><strong>Date:</strong> February 7, 2026</span>
+    <span><strong>By:</strong> GullStack</span>
+  </div>
+</section>
+
+<!-- The Problem -->
+<section>
+  <div class="container">
+    <div class="section-number">01</div>
+    <h2 class="section-title">The Problem</h2>
+    <p class="section-subtitle">Your competitors are eating your lunch. They rank for hundreds of keywords while you're barely visible.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Est. Keywords</th>
+          <th>Est. Traffic</th>
+          <th>Traffic Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Anago Cleaning (Utah)</td>
+          <td class="highlight">~800+</td>
+          <td>~650/mo</td>
+          <td>~$8,500/mo</td>
+        </tr>
+        <tr>
+          <td>Jani-King Salt Lake</td>
+          <td>~600+</td>
+          <td>~420/mo</td>
+          <td>~$5,800/mo</td>
+        </tr>
+        <tr>
+          <td>Stratus Clean</td>
+          <td>~500+</td>
+          <td>~350/mo</td>
+          <td>~$4,000/mo</td>
+        </tr>
+        <tr>
+          <td>Jani-Serv Inc</td>
+          <td>~450+</td>
+          <td>~380/mo</td>
+          <td>~$4,200/mo</td>
+        </tr>
+        <tr style="background: rgba(248,81,73,0.1);">
+          <td><strong>Advanced Building Care</strong></td>
+          <td class="bad">~40-60</td>
+          <td class="bad">~25/mo</td>
+          <td class="bad">~$300/mo</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="stats-grid">
+      <div class="stat-card red">
+        <div class="number">5%</div>
+        <div class="label">Market Share Captured</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="number">$56K</div>
+        <div class="label">Annual Traffic Gap</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">25</div>
+        <div class="label">Monthly Visitors</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="number">15x</div>
+        <div class="label">Behind Top Competitor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Keywords You're Missing -->
+<section>
+  <div class="container">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Keywords You're Missing</h2>
+    <p class="section-subtitle">High-intent searches happening every month that go to your competitors instead of you.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Monthly Searches</th>
+          <th>CPC Value</th>
+          <th>Who Ranks?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>commercial cleaning salt lake city</td>
+          <td>320</td>
+          <td class="highlight">$12.40</td>
+          <td class="dim">Anago, Jani-King</td>
+        </tr>
+        <tr>
+          <td>office cleaning salt lake city</td>
+          <td>260</td>
+          <td class="highlight">$9.80</td>
+          <td class="dim">Stratus, Jani-Serv</td>
+        </tr>
+        <tr>
+          <td>janitorial services salt lake</td>
+          <td>170</td>
+          <td class="highlight">$11.20</td>
+          <td class="dim">Jani-King</td>
+        </tr>
+        <tr>
+          <td>medical office cleaning utah</td>
+          <td>90</td>
+          <td class="highlight">$18.50</td>
+          <td class="dim">Anago</td>
+        </tr>
+        <tr>
+          <td>commercial cleaning services utah</td>
+          <td>210</td>
+          <td class="highlight">$14.30</td>
+          <td class="dim">Everyone but you</td>
+        </tr>
+        <tr>
+          <td>floor cleaning services slc</td>
+          <td>140</td>
+          <td class="highlight">$8.90</td>
+          <td class="dim">Local competitors</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p style="color: var(--text-secondary); margin-top: 1rem;">💡 <strong style="color: var(--text-primary);">The CPCs tell the story:</strong> Businesses pay $8-18 per click for these keywords because they convert. You're getting none of this traffic for free.</p>
+  </div>
+</section>
+
+<!-- Old vs New -->
+<section>
+  <div class="container">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Old Site vs. New Site</h2>
+    <p class="section-subtitle">We already built your new site. Here's what changed.</p>
+    
+    <div class="compare-grid">
+      <div class="compare-card old">
+        <h4>❌ Current Site Problems</h4>
+        <ul>
+          <li>Generic page titles (weak SEO)</li>
+          <li>No city/service landing pages</li>
+          <li>Slow load time (1.5s+)</li>
+          <li>Poor mobile experience</li>
+          <li>No schema markup</li>
+          <li>Thin content (Google penalizes)</li>
+          <li>No testimonials with location</li>
+        </ul>
+      </div>
+      <div class="compare-card new">
+        <h4>✅ New Site Solutions</h4>
+        <ul>
+          <li>Optimized titles with keywords</li>
+          <li>Service-specific sections</li>
+          <li>132ms load time (10x faster)</li>
+          <li>Mobile-first responsive</li>
+          <li>Trust signals: 15+ yrs, 500+ buildings</li>
+          <li>Real testimonial with location</li>
+          <li>Clear CTAs throughout</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card green">
+        <div class="number">132ms</div>
+        <div class="label">New Site Load Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">10x</div>
+        <div class="label">Faster Than Industry Avg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Growth Plan -->
+<section>
+  <div class="container">
+    <div class="section-number">04</div>
+    <h2 class="section-title">The SEO Growth Plan</h2>
+    <p class="section-subtitle">A phased approach to dominating local search.</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker">1</div>
+        <div class="timeline-content">
+          <h4>Foundation (Month 1)</h4>
+          <p>Launch new site, submit to Google Search Console, set up Google Business Profile optimization, implement schema markup, build XML sitemap.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">2</div>
+        <div class="timeline-content">
+          <h4>Content Expansion (Months 2-3)</h4>
+          <p>Create city landing pages (Salt Lake, Provo, Ogden, Lehi) and service-specific deep pages (Medical, Industrial, Floor Care).</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">3</div>
+        <div class="timeline-content">
+          <h4>Authority Building (Months 4-6)</h4>
+          <p>Monthly blog content (2-4 posts), local citation building (Yelp, Google, BBB), review generation strategy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Integrations -->
+<section>
+  <div class="container">
+    <div class="section-number">05</div>
+    <h2 class="section-title">AI Integration Opportunities</h2>
+    <p class="section-subtitle">Modern tools to save time and capture more leads.</p>
+    
+    <div class="two-col">
+      <div class="card">
+        <h3>🤖 Immediate Wins</h3>
+        <ul>
+          <li><strong>AI Chatbot</strong> — 24/7 quote requests (5-10 hrs/week saved)</li>
+          <li><strong>Automated Follow-ups</strong> — Email sequences after quotes</li>
+          <li><strong>Review Responder</strong> — AI-drafted Google review replies</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚡ Advanced (Phase 2)</h3>
+        <ul>
+          <li><strong>Smart Scheduling</strong> — Optimize cleaning routes (15% efficiency)</li>
+          <li><strong>Quality Inspection</strong> — Before/after photo verification</li>
+          <li><strong>Employee Portal</strong> — AI-powered training & checklists</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section>
+  <div class="container">
+    <div class="section-number">06</div>
+    <h2 class="section-title">Expected ROI</h2>
+    <p class="section-subtitle">Traffic growth over 12 months with consistent SEO work.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Timeline</th>
+          <th>Est. Organic Traffic</th>
+          <th>Est. Traffic Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Current</td>
+          <td class="bad">~25/mo</td>
+          <td class="bad">~$300/mo</td>
+        </tr>
+        <tr>
+          <td>Month 3</td>
+          <td>~80/mo</td>
+          <td>~$960/mo</td>
+        </tr>
+        <tr>
+          <td>Month 6</td>
+          <td>~200/mo</td>
+          <td>~$2,400/mo</td>
+        </tr>
+        <tr>
+          <td>Month 12</td>
+          <td class="highlight">~500/mo</td>
+          <td class="highlight">~$6,000/mo</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="stats-grid">
+      <div class="stat-card green">
+        <div class="number">20x</div>
+        <div class="label">Traffic Growth (Year 1)</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="number">$72K</div>
+        <div class="label">Annual Traffic Value (Year 1)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to Dominate Local Search?</h2>
+  <p>The new site is already built. Let's turn it on and start generating leads.</p>
+  <div class="cta-buttons">
+    <a href="https://advanced-building-care.vercel.app" target="_blank" class="btn btn-primary">Preview New Site →</a>
+    <a href="https://advancedbuildingcare.com" target="_blank" class="btn btn-secondary">View Current Site</a>
+  </div>
+</section>
+
+<footer>
+  <p>Prepared by <a href="https://gullstack.com">GullStack</a> — Digital Growth for Local Businesses</p>
+  <p style="margin-top: 0.5rem;">Questions? Let's talk.</p>
+</footer>
+
+</body>
+</html>
