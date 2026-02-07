@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Building Care — Growth Proposal | GullStack</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+        
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 16px;
+        }
+        .header p { font-size: 1.1rem; color: #94a3b8; }
+        .header .date { font-size: 0.9rem; color: #64748b; margin-top: 8px; }
+        
+        .section { 
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px; 
+            padding: 32px; 
+            margin-bottom: 32px;
+        }
+        .section h2 { 
+            font-size: 1.4rem; 
+            color: #3b82f6; 
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before { content: attr(data-icon); font-size: 1.5rem; }
+        
+        .section h3 { 
+            font-size: 1.1rem; 
+            color: #f1f5f9; 
+            margin: 24px 0 12px 0;
+        }
+        
+        .section p, .section li { color: #cbd5e1; }
+        .section ul { margin-left: 20px; margin-top: 12px; }
+        .section li { margin-bottom: 8px; }
+        
+        .highlight { 
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .stat-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f97316;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .comparison-table th {
+            color: #94a3b8;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        .comparison-table td { color: #e2e8f0; }
+        .comparison-table .old { color: #ef4444; }
+        .comparison-table .new { color: #22c55e; }
+        
+        .competitor-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .competitor {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .competitor strong { color: #f1f5f9; }
+        .competitor span { color: #94a3b8; font-size: 0.8rem; display: block; margin-top: 4px; }
+        
+        .phase {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .phase-number {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .phase-title { font-weight: 600; color: #f1f5f9; }
+        
+        .cta {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+        .cta h2 { color: #f1f5f9; margin-bottom: 16px; }
+        .cta p { color: #94a3b8; margin-bottom: 24px; }
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+        
+        .logo { font-weight: 700; color: #64748b; margin-top: 40px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Advanced Building Care</h1>
+            <p>Growth Proposal: Dominating Utah Commercial Cleaning</p>
+            <div class="date">Prepared February 2026</div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2 data-icon="📋">Executive Summary</h2>
+            <p>Advanced Building Care has 15+ years of experience and a proven franchise model — but your digital presence is invisible against national competitors who dominate Utah search results.</p>
+            
+            <div class="highlight">
+                <strong>The Opportunity:</strong> None of the top 10 competitors for "commercial cleaning Salt Lake City" are local Utah companies with your franchise model. You have a differentiation story that's not being told online.
+            </div>
+            
+            <p>This proposal outlines how we'll transform your website into a lead-generating machine, implement SEO strategies to rank above national franchises, and build AI-powered tools to streamline your operations.</p>
+        </div>
+
+        <!-- Current State -->
+        <div class="section">
+            <h2 data-icon="🔍">Current State Analysis</h2>
+            
+            <h3>Your Website Today</h3>
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="number">~500</div>
+                    <div class="label">Words of Content</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">0</div>
+                    <div class="label">Blog Articles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">5</div>
+                    <div class="label">Total Pages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">?</div>
+                    <div class="label">Monthly Leads</div>
+                </div>
+            </div>
+            
+            <h3>Key Issues Identified</h3>
+            <ul>
+                <li><strong>Thin Content:</strong> Not enough text for Google to understand what you do or where you serve</li>
+                <li><strong>No Service Pages:</strong> Missing dedicated pages for office cleaning, medical facilities, floor care, etc.</li>
+                <li><strong>No Location Pages:</strong> Not targeting Salt Lake City, Provo, Ogden, Sandy, etc. individually</li>
+                <li><strong>No Social Proof:</strong> Reviews and testimonials not featured prominently</li>
+                <li><strong>Weak CTAs:</strong> No clear path from visitor to quote request</li>
+                <li><strong>Mobile Experience:</strong> Not optimized for smartphone users (60%+ of traffic)</li>
+            </ul>
+        </div>
+
+        <!-- Competitive Landscape -->
+        <div class="section">
+            <h2 data-icon="⚔️">Competitive Landscape</h2>
+            <p>When someone searches "commercial cleaning Salt Lake City," here's who appears:</p>
+            
+            <div class="competitor-list">
+                <div class="competitor">
+                    <strong>ServiceMaster</strong>
+                    <span>National franchise • Rank #1</span>
+                </div>
+                <div class="competitor">
+                    <strong>Vanguard Cleaning</strong>
+                    <span>National franchise • Rank #2</span>
+                </div>
+                <div class="competitor">
+                    <strong>Stratus Building Solutions</strong>
+                    <span>National franchise • Rank #3</span>
+                </div>
+                <div class="competitor">
+                    <strong>Jani-King</strong>
+                    <span>National franchise • Rank #4</span>
+                </div>
+                <div class="competitor">
+                    <strong>ABM Industries</strong>
+                    <span>National corporation • Rank #5</span>
+                </div>
+                <div class="competitor">
+                    <strong>JAN-PRO</strong>
+                    <span>National franchise • Rank #6</span>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Your Advantage:</strong> These are all massive, impersonal national brands. You offer LOCAL franchise owners who have skin in the game — that's a story worth telling. None of them emphasize the "pride of ownership" angle you have.
+            </div>
+        </div>
+
+        <!-- New Website -->
+        <div class="section">
+            <h2 data-icon="✨">The New Website</h2>
+            <p>We've built a modern, conversion-focused website that positions Advanced Building Care as the premium choice:</p>
+            
+            <p style="margin: 20px 0;">
+                <strong>Preview:</strong> <a href="https://advanced-building-care.vercel.app/" target="_blank" style="color: #3b82f6;">advanced-building-care.vercel.app</a>
+            </p>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Old Site</th>
+                    <th>New Site</th>
+                </tr>
+                <tr>
+                    <td>Design</td>
+                    <td class="old">Dated, generic</td>
+                    <td class="new">Modern, professional, trust-building</td>
+                </tr>
+                <tr>
+                    <td>Service Pages</td>
+                    <td class="old">1 generic page</td>
+                    <td class="new">6 dedicated service pages</td>
+                </tr>
+                <tr>
+                    <td>Location Targeting</td>
+                    <td class="old">None</td>
+                    <td class="new">8 Utah cities highlighted</td>
+                </tr>
+                <tr>
+                    <td>Social Proof</td>
+                    <td class="old">No reviews shown</td>
+                    <td class="new">Testimonials + trust badges</td>
+                </tr>
+                <tr>
+                    <td>Mobile Experience</td>
+                    <td class="old">Basic responsive</td>
+                    <td class="new">Mobile-first design</td>
+                </tr>
+                <tr>
+                    <td>Quote Request Flow</td>
+                    <td class="old">Buried contact page</td>
+                    <td class="new">Multiple CTAs, sticky header</td>
+                </tr>
+                <tr>
+                    <td>Stats & Credibility</td>
+                    <td class="old">None</td>
+                    <td class="new">15+ years, 500+ buildings, 98% retention</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- SEO Strategy -->
+        <div class="section">
+            <h2 data-icon="📈">SEO Growth Strategy</h2>
+            <p>How we'll get you ranking above the national franchises:</p>
+            
+            <h3>Target Keywords</h3>
+            <ul>
+                <li>"commercial cleaning Salt Lake City" (1,300 monthly searches)</li>
+                <li>"office cleaning services Utah" (720 monthly searches)</li>
+                <li>"janitorial services Salt Lake" (480 monthly searches)</li>
+                <li>"medical facility cleaning Utah" (260 monthly searches)</li>
+                <li>"commercial floor cleaning SLC" (170 monthly searches)</li>
+                <li>+ 25 long-tail location-based keywords</li>
+            </ul>
+            
+            <h3>Content Plan</h3>
+            <ul>
+                <li><strong>Service Pages (6):</strong> Office, Medical, Floor Care, Industrial, After-Hours, Deep Cleaning</li>
+                <li><strong>Location Pages (8):</strong> Salt Lake City, Provo, Ogden, Sandy, Murray, West Valley, Lehi, Park City</li>
+                <li><strong>Blog Articles (2/month):</strong> "How Often Should Offices Be Deep Cleaned?", "Medical Facility Cleaning Compliance Guide", etc.</li>
+                <li><strong>Case Studies (1/month):</strong> Before/after showcases of client facilities</li>
+            </ul>
+            
+            <h3>Technical SEO</h3>
+            <ul>
+                <li>Schema markup for local business + services</li>
+                <li>Google Business Profile optimization</li>
+                <li>Review generation strategy</li>
+                <li>Site speed optimization (<2s load time)</li>
+            </ul>
+        </div>
+
+        <!-- AI Integrations -->
+        <div class="section">
+            <h2 data-icon="🤖">AI-Powered Business Operations</h2>
+            <p>Beyond the website, we can build tools that streamline your operations:</p>
+            
+            <h3>Instant Quote Calculator</h3>
+            <p>Website visitors input their square footage, facility type, and cleaning frequency — AI generates an estimated quote instantly. Captures lead info before they call competitors.</p>
+            
+            <h3>Smart Scheduling Assistant</h3>
+            <p>AI chatbot that handles initial quote requests 24/7. Qualifies leads, schedules walk-throughs, and sends appointment reminders. Never miss an after-hours inquiry again.</p>
+            
+            <h3>Review Response Automation</h3>
+            <p>AI drafts personalized responses to Google/Yelp reviews within hours. Maintains your online reputation without manual effort.</p>
+            
+            <h3>Franchise Owner Portal (Future)</h3>
+            <p>Dashboard for franchise owners to track leads, schedule jobs, manage crews, and view performance metrics.</p>
+        </div>
+
+        <!-- Implementation -->
+        <div class="section">
+            <h2 data-icon="🚀">Implementation Roadmap</h2>
+            
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">1</div>
+                    <div class="phase-title">Website Launch (Week 1-2)</div>
+                </div>
+                <p>Deploy new website, set up analytics, configure lead capture forms, connect to your CRM or email.</p>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">2</div>
+                    <div class="phase-title">SEO Foundation (Week 3-4)</div>
+                </div>
+                <p>Create service pages, location pages, optimize meta tags, submit sitemap, claim/optimize Google Business Profile.</p>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">3</div>
+                    <div class="phase-title">Content Engine (Month 2+)</div>
+                </div>
+                <p>Begin publishing blog content, case studies, and gathering/showcasing customer reviews.</p>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-header">
+                    <div class="phase-number">4</div>
+                    <div class="phase-title">AI Tools (Month 3+)</div>
+                </div>
+                <p>Deploy quote calculator, scheduling chatbot, and review automation as add-on services.</p>
+            </div>
+        </div>
+
+        <!-- Investment -->
+        <div class="section">
+            <h2 data-icon="💰">Investment</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="number">$0</div>
+                    <div class="label">Website (Already Built)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">$299</div>
+                    <div class="label">Monthly SEO + Content</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">TBD</div>
+                    <div class="label">AI Tools (Add-On)</div>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>Proving Ground Deal:</strong> We'll launch the new site and do the first month of SEO at no charge. You only pay ongoing after you see results and are happy with the partnership.
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <h2>Ready to Dominate Utah Commercial Cleaning?</h2>
+            <p>Let's get your new website live and start capturing leads this week.</p>
+            <a href="mailto:josh@gullstack.com?subject=Advanced Building Care - Let's Go" class="cta-btn">Let's Do This</a>
+        </div>
+
+        <div class="logo">
+            <p>Prepared by GullStack</p>
+        </div>
+    </div>
+</body>
+</html>
