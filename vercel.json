@@ -1,5 +1,9 @@
 {
   "buildCommand": null,
   "outputDirectory": ".",
-  "framework": null
+  "framework": null,
+  "github": {
+    "enabled": true,
+    "autoAlias": false
+  }
 }
