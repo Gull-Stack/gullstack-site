@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GullStack × Dwell Paint | Launch Strategy</title>
+    <title>GullStack × Paint Empire | Dual Brand Launch Strategy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
@@ -17,6 +17,8 @@
             --accent: #6366f1;
             --accent-light: #818cf8;
             --border: rgba(255,255,255,0.08);
+            --dwell: #818cf8;
+            --grit: #f59e0b;
         }
         body { 
             font-family: 'Inter', system-ui, sans-serif; 
@@ -27,7 +29,6 @@
         }
         .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
         
-        /* Collab Header */
         .collab-header {
             display: flex;
             align-items: center;
@@ -38,10 +39,7 @@
             margin-bottom: 40px;
             flex-wrap: wrap;
         }
-        .collab-header img {
-            height: 48px;
-            width: auto;
-        }
+        .collab-header img { height: 48px; width: auto; }
         .collab-x {
             font-family: 'Young Serif', Georgia, serif;
             font-size: 1.8rem;
@@ -52,6 +50,8 @@
             font-size: 1.8rem;
             color: var(--text);
         }
+        .collab-brand .dwell-color { color: var(--dwell); }
+        .collab-brand .grit-color { color: var(--grit); }
         
         .header { text-align: center; margin-bottom: 60px; }
         .header h1 { 
@@ -63,6 +63,12 @@
         }
         .header p { font-size: 1.1rem; color: var(--text-muted); }
         .header .date { font-size: 0.9rem; color: #71717a; margin-top: 8px; }
+        .header .empire-tagline {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            margin-top: 12px;
+            font-style: italic;
+        }
         
         .section { 
             background: var(--bg-elevated);
@@ -80,13 +86,7 @@
             gap: 12px;
         }
         .section h2::before { content: attr(data-icon); font-size: 1.5rem; }
-        
-        .section h3 { 
-            font-size: 1.1rem; 
-            color: var(--text); 
-            margin: 24px 0 12px 0;
-        }
-        
+        .section h3 { font-size: 1.1rem; color: var(--text); margin: 24px 0 12px 0; }
         .section p, .section li { color: #d4d4d8; }
         .section ul { margin-left: 20px; margin-top: 12px; }
         .section li { margin-bottom: 8px; }
@@ -94,6 +94,13 @@
         .highlight { 
             background: rgba(99, 102, 241, 0.1);
             border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        .highlight-grit {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--grit);
             padding: 16px 20px;
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
@@ -106,21 +113,10 @@
             padding: 24px;
             margin-top: 24px;
         }
-        .launch-steps h3 {
-            color: var(--accent-light);
-            margin-bottom: 16px;
-            margin-top: 0;
-        }
-        .launch-steps ol {
-            margin-left: 20px;
-        }
-        .launch-steps li {
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-        .launch-steps li strong {
-            color: var(--accent-light);
-        }
+        .launch-steps h3 { color: var(--accent-light); margin-bottom: 16px; margin-top: 0; }
+        .launch-steps ol { margin-left: 20px; }
+        .launch-steps li { margin-bottom: 10px; color: var(--text); }
+        .launch-steps li strong { color: var(--accent-light); }
         
         .stat-grid {
             display: grid;
@@ -134,33 +130,12 @@
             padding: 20px;
             text-align: center;
         }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-light);
-        }
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
+        .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent-light); }
+        .stat-card .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
         
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        .comparison-table th {
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .comparison-table th, .comparison-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .comparison-table th { color: var(--text-muted); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; }
         .comparison-table td { color: var(--text); }
         .comparison-table .old { color: #ef4444; }
         .comparison-table .new { color: #22c55e; }
@@ -180,28 +155,16 @@
         .competitor strong { color: var(--text); }
         .competitor span { color: var(--text-muted); font-size: 0.8rem; display: block; margin-top: 4px; }
         
-        .two-week-plan {
-            display: grid;
-            gap: 16px;
-        }
+        .two-week-plan { display: grid; gap: 16px; }
         .week-block {
             background: #27272a;
             border-radius: 12px;
             padding: 20px;
             border-left: 4px solid var(--accent);
         }
-        .week-block h4 {
-            color: var(--accent-light);
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-        .week-block ul {
-            margin-left: 16px;
-        }
-        .week-block li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
+        .week-block h4 { color: var(--accent-light); margin-bottom: 12px; font-size: 1rem; }
+        .week-block ul { margin-left: 16px; }
+        .week-block li { margin-bottom: 6px; font-size: 0.95rem; }
         
         .logo-grid {
             display: grid;
@@ -215,17 +178,10 @@
             padding: 24px;
             text-align: center;
         }
-        .logo-option img {
-            max-width: 100%;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 12px;
-        }
-        .logo-option .label {
-            color: #27272a;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
+        .logo-option.grit-logo { background: #1c1917; }
+        .logo-option.grit-logo .label { color: var(--grit); }
+        .logo-option img { max-width: 100%; height: 120px; object-fit: contain; margin-bottom: 12px; }
+        .logo-option .label { color: #27272a; font-size: 0.85rem; font-weight: 500; }
         
         .brand-card {
             background: #27272a;
@@ -234,52 +190,60 @@
             margin: 16px 0;
             border-left: 4px solid #71717a;
         }
-        .brand-card h4 {
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-        .brand-card .tagline {
-            font-style: italic;
-            color: var(--accent-light);
-            margin-bottom: 12px;
-        }
+        .brand-card h4 { font-size: 1.2rem; color: var(--text); margin-bottom: 4px; }
+        .brand-card .tagline { font-style: italic; color: var(--accent-light); margin-bottom: 12px; }
         .brand-card p { margin-bottom: 8px; color: #d4d4d8; }
-        .brand-card .domains {
-            font-size: 0.85rem;
-            color: #71717a;
-        }
+        .brand-card .domains { font-size: 0.85rem; color: #71717a; }
         .favorite { border-left-color: #22c55e; }
-        .favorite h4::after {
-            content: " ⭐ RECOMMENDED";
-            font-size: 0.7rem;
-            color: #22c55e;
-            margin-left: 8px;
+        .favorite h4::after { content: " ⭐ RECOMMENDED"; font-size: 0.7rem; color: #22c55e; margin-left: 8px; }
+        .grit-accent { border-left-color: var(--grit); }
+        .grit-accent .tagline { color: var(--grit); }
+        .grit-favorite { border-left-color: #22c55e; }
+        .grit-favorite h4::after { content: " ⭐ RECOMMENDED"; font-size: 0.7rem; color: #22c55e; margin-left: 8px; }
+        
+        .dual-brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0;
         }
+        @media (max-width: 640px) { .dual-brand-grid { grid-template-columns: 1fr; } }
+        .dual-brand-grid .brand-panel {
+            background: #27272a;
+            border-radius: 12px;
+            padding: 24px;
+            border-top: 4px solid var(--dwell);
+        }
+        .dual-brand-grid .brand-panel.grit-panel { border-top-color: var(--grit); }
+        .dual-brand-grid .brand-panel h3 { margin-top: 0; }
+        .dual-brand-grid .brand-panel .brand-name { font-family: 'Young Serif', Georgia, serif; font-size: 1.5rem; }
+        .dual-brand-grid .brand-panel .brand-name.dwell-name { color: var(--dwell); }
+        .dual-brand-grid .brand-panel .brand-name.grit-name { color: var(--grit); }
+        
+        .bundle-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(245, 158, 11, 0.15));
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        .bundle-box .savings { color: #22c55e; font-weight: 700; font-size: 1.2rem; }
         
         .cta {
             text-align: center;
             padding: 40px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(129, 140, 248, 0.15));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(245, 158, 11, 0.15));
             border-radius: 16px;
             margin-top: 40px;
         }
         .cta h2 { color: var(--text); margin-bottom: 16px; }
         .cta p { color: var(--text-muted); margin-bottom: 8px; }
-        .cta .price {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-light);
-            margin: 16px 0;
-        }
-        .cta .price-note {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
+        .cta .price { font-size: 2rem; font-weight: 700; color: var(--accent-light); margin: 16px 0; }
+        .cta .price-note { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 24px; }
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            background: linear-gradient(90deg, var(--accent), var(--grit));
             color: white;
             padding: 16px 40px;
             border-radius: 8px;
@@ -288,10 +252,7 @@
             font-size: 1.1rem;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
-        }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3); }
         
         .footer-logo { 
             text-align: center; 
@@ -299,53 +260,61 @@
             padding-top: 40px;
             border-top: 1px solid var(--border);
         }
-        .footer-logo img {
-            height: 36px;
-            opacity: 0.7;
-        }
-        .footer-logo p {
-            color: #71717a;
-            font-size: 0.85rem;
-            margin-top: 12px;
-        }
+        .footer-logo img { height: 36px; opacity: 0.7; }
+        .footer-logo p { color: #71717a; font-size: 0.85rem; margin-top: 12px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- GullStack x Client Collab Header -->
+        <!-- GullStack x Dual Brand Header -->
         <div class="collab-header">
             <img src="/gull-logo.png" alt="GullStack">
             <span class="collab-x">×</span>
-            <span class="collab-brand">Dwell Paint</span>
+            <span class="collab-brand"><span class="dwell-color">Dwell</span> × <span class="grit-color">Grit</span></span>
         </div>
 
         <div class="header">
-            <h1>Launch Strategy</h1>
-            <p>Disrupting the Premium Paint Market</p>
+            <h1>Paint Empire</h1>
+            <p>Dual Brand Launch Strategy</p>
+            <div class="empire-tagline">Two brands. Two audiences. One fulfillment. Total market domination.</div>
             <div class="date">Prepared February 2026</div>
         </div>
 
         <!-- Executive Summary -->
         <div class="section">
             <h2 data-icon="📋">Executive Summary</h2>
-            <p>The $31.5 billion US paint industry is ripe for disruption. Clare and Backdrop proved direct-to-consumer paint works — but they've positioned as premium luxury at $59-65/gallon.</p>
+            <p>The $31.5 billion US paint industry is ripe for disruption. Clare and Backdrop proved direct-to-consumer paint works — but they only target one audience. We're building a <strong>paint empire</strong> with two brands that capture both sides of the market.</p>
             
             <div class="highlight">
-                <strong>The Opportunity:</strong> No one owns "premium quality at honest prices." At <strong>$125 for 4 gallons shipped</strong> ($31.25/gallon), you're 47% cheaper than Clare and 52% cheaper than Backdrop — with the same quality.
+                <strong>The Vision:</strong> Two brands, two audiences, one fulfillment engine. <strong>Dwell</strong> owns the lifestyle/design-conscious woman. <strong>Grit</strong> owns the DIY man who lives at Home Depot. Same premium paint, same warehouse, same Stripe account — double the market.
+            </div>
+
+            <div class="dual-brand-grid">
+                <div class="brand-panel">
+                    <div class="brand-name dwell-name">Dwell</div>
+                    <p style="color: var(--dwell); font-style: italic; margin: 8px 0;">"Live in color."</p>
+                    <p>Pinterest · Instagram · Lifestyle</p>
+                    <p>Women 28-45 · Design-conscious · Curated palettes</p>
+                </div>
+                <div class="brand-panel grit-panel">
+                    <div class="brand-name grit-name">Grit</div>
+                    <p style="color: var(--grit); font-style: italic; margin: 8px 0;">"Get it done."</p>
+                    <p>TikTok · YouTube · Project-focused</p>
+                    <p>Men 25-50 · DIY obsessed · Home Depot regulars</p>
+                </div>
             </div>
             
-            <p>This proposal outlines brand naming, competitive positioning, paid ads strategy, SEO roadmap, and influencer tactics to launch and scale the brand.</p>
+            <p>At <strong>$125 for 4 gallons shipped</strong> ($31.25/gallon), both brands undercut Clare by 47% and Backdrop by 52% — with the same quality. Different branding, different audience, same unbeatable price.</p>
 
-            <!-- Launch Steps Summary -->
             <div class="launch-steps">
                 <h3>🚀 Steps to Launch</h3>
                 <ol>
-                    <li><strong>Finalize Brand Name</strong> — We recommend <em>dwellpaint.com</em> (see logo options below)</li>
-                    <li><strong>Website Build</strong> — Modern Shopify/custom DTC site with curated color selection</li>
-                    <li><strong>Product Photography</strong> — Lifestyle shots, packaging mockups, room inspiration</li>
-                    <li><strong>Payment & Fulfillment</strong> — Stripe, shipping integration, inventory setup</li>
-                    <li><strong>Launch Marketing</strong> — Meta/Pinterest ads, influencer seeding, SEO content</li>
-                    <li><strong>Go Live</strong> — Soft launch, gather feedback, iterate, scale</li>
+                    <li><strong>Finalize Brand Names</strong> — Dwell + Grit (see logo options below)</li>
+                    <li><strong>Website Builds</strong> — Two distinct DTC sites, shared backend/fulfillment</li>
+                    <li><strong>Product Photography</strong> — Lifestyle shots for Dwell, project/garage shots for Grit</li>
+                    <li><strong>Payment & Fulfillment</strong> — One Stripe account, shared shipping & inventory</li>
+                    <li><strong>Launch Marketing</strong> — Dwell on Pinterest/Meta, Grit on TikTok/YouTube</li>
+                    <li><strong>Go Live</strong> — Both sites launch simultaneously for maximum impact</li>
                 </ol>
             </div>
         </div>
@@ -353,32 +322,32 @@
         <!-- 2-Week Launch Plan -->
         <div class="section">
             <h2 data-icon="⚡">2-Week Launch Plan</h2>
-            <p>Here's an aggressive but achievable timeline to get you live:</p>
+            <p>An aggressive but achievable timeline to launch <strong>both sites</strong> simultaneously:</p>
             
             <div class="two-week-plan">
                 <div class="week-block">
-                    <h4>Week 1: Foundation</h4>
+                    <h4>Week 1: Foundation (Both Brands)</h4>
                     <ul>
-                        <li><strong>Day 1-2:</strong> Finalize brand name, secure domain, create brand guidelines</li>
-                        <li><strong>Day 3-4:</strong> Website wireframes, homepage design, color palette selection</li>
-                        <li><strong>Day 5-6:</strong> Product page design, checkout flow, mobile optimization</li>
+                        <li><strong>Day 1-2:</strong> Finalize both brand identities, secure domains, create brand guidelines for each</li>
+                        <li><strong>Day 3-4:</strong> Website wireframes for both sites — Dwell (soft, curated) & Grit (bold, project-focused)</li>
+                        <li><strong>Day 5-6:</strong> Product page designs, checkout flows, mobile optimization for both</li>
                         <li><strong>Day 7:</strong> Internal review, feedback, revisions</li>
                     </ul>
                 </div>
                 <div class="week-block">
                     <h4>Week 2: Build & Launch</h4>
                     <ul>
-                        <li><strong>Day 8-9:</strong> Development — homepage, product pages, cart/checkout</li>
-                        <li><strong>Day 10-11:</strong> Payment integration (Stripe), shipping setup, testing</li>
-                        <li><strong>Day 12:</strong> SEO setup, analytics, Meta pixel installation</li>
-                        <li><strong>Day 13:</strong> Final QA, mobile testing, load testing</li>
-                        <li><strong>Day 14:</strong> 🎉 LAUNCH DAY — Go live, announce, start ads</li>
+                        <li><strong>Day 8-9:</strong> Development — both homepages, product pages, cart/checkout</li>
+                        <li><strong>Day 10-11:</strong> Shared Stripe integration, shipping setup, testing on both sites</li>
+                        <li><strong>Day 12:</strong> SEO setup, analytics, Meta pixel + TikTok pixel installation</li>
+                        <li><strong>Day 13:</strong> Final QA, mobile testing, load testing on both sites</li>
+                        <li><strong>Day 14:</strong> 🎉 DUAL LAUNCH DAY — Both sites go live simultaneously</li>
                     </ul>
                 </div>
             </div>
             
             <div class="highlight">
-                <strong>What we need from you:</strong> Final brand name decision, product images/specs, payment account setup. Everything else — we handle.
+                <strong>What we need from you:</strong> Final brand name decisions, product images/specs, one Stripe account setup (covers both brands). Everything else — we handle.
             </div>
         </div>
 
@@ -400,25 +369,25 @@
                     <div class="label">Less Than Backdrop</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">Zero VOC</div>
-                    <div class="label">Premium Quality</div>
+                    <div class="number">2 Brands</div>
+                    <div class="label">Double the Market</div>
                 </div>
             </div>
         </div>
 
-        <!-- Brand Names -->
+        <!-- Brand: DWELL -->
         <div class="section">
-            <h2 data-icon="🎨">Recommended Brand: DWELL</h2>
+            <h2 data-icon="🎨">Brand 1: DWELL</h2>
             
             <div class="brand-card favorite">
                 <h4>DWELL</h4>
                 <div class="tagline">"Live in color."</div>
                 <p>Lifestyle-first positioning. "Dwell" is about living, home, and being present in your space. Feels premium, editorial, and aspirational — like a magazine come to life. Perfect for the Target/Nordstrom-shopping, Pinterest-loving audience.</p>
-                <div class="domains">✅ Domain available: <strong>dwellpaint.com</strong></div>
+                <div class="domains">✅ Domain: <strong>dwellpaint.com</strong></div>
             </div>
             
-            <h3>Logo Concepts</h3>
-            <p>Three directions to start the conversation — modern, feminine, and premium:</p>
+            <h3>Dwell Logo Concepts</h3>
+            <p>Three directions — modern, feminine, and premium:</p>
             
             <div class="logo-grid">
                 <div class="logo-option">
@@ -434,28 +403,58 @@
                     <div class="label">Option 3: Elegant Editorial</div>
                 </div>
             </div>
+        </div>
 
-            <h3>Alternate Names (If Needed)</h3>
+        <!-- Brand: GRIT -->
+        <div class="section">
+            <h2 data-icon="🔨" style="color: var(--grit);">Brand 2: GRIT</h2>
             
-            <div class="brand-card">
-                <h4>COAT</h4>
-                <div class="tagline">"Wear your walls."</div>
-                <p>Fashion-meets-home. Short, punchy, and playful. Strong visual identity potential.</p>
-                <div class="domains">Domains: coatpaint.com, getcoat.com</div>
+            <div class="brand-card grit-favorite grit-accent">
+                <h4>GRIT</h4>
+                <div class="tagline">"Get it done."</div>
+                <p>Project-first positioning. "Grit" is about getting your hands dirty, transforming spaces, and taking pride in the work. Built for the guy watching TikTok garage remodels, browsing Home Depot on weekends, and tackling closet-to-office conversions. No-nonsense, high-quality, great price.</p>
+                <div class="domains">✅ Domain: <strong>gritpaint.com</strong></div>
             </div>
             
-            <div class="brand-card">
-                <h4>VEIL</h4>
-                <div class="tagline">"Transform every room."</div>
-                <p>Elegant and feminine. A veil covers and transforms — just like paint.</p>
-                <div class="domains">Domains: veilpaint.com, veilhome.com</div>
+            <h3>Grit Logo Concepts</h3>
+            <p>Three directions — bold, industrial, and unapologetic:</p>
+            
+            <div class="logo-grid">
+                <div class="logo-option grit-logo">
+                    <img src="grit-logo-1.png" alt="Grit Logo Option 1">
+                    <div class="label">Option 1: Industrial Bold</div>
+                </div>
+                <div class="logo-option grit-logo">
+                    <img src="grit-logo-2.png" alt="Grit Logo Option 2">
+                    <div class="label">Option 2: Stencil Raw</div>
+                </div>
+                <div class="logo-option grit-logo">
+                    <img src="grit-logo-3.png" alt="Grit Logo Option 3">
+                    <div class="label">Option 3: Workshop Clean</div>
+                </div>
+            </div>
+
+            <h3>Alternate Names for the DIY Brand</h3>
+            
+            <div class="brand-card grit-accent">
+                <h4>BUILD</h4>
+                <div class="tagline">"Your project. Your paint."</div>
+                <p>Action-oriented and direct. Speaks to the builder/maker mindset. Strong, simple, memorable.</p>
+                <div class="domains">Domains: buildpaint.com, paintbuild.com</div>
+            </div>
+            
+            <div class="brand-card grit-accent">
+                <h4>MAKER</h4>
+                <div class="tagline">"Built different."</div>
+                <p>Taps into the maker movement and creator culture. Feels modern, authentic, and community-driven.</p>
+                <div class="domains">Domains: makerpaint.com, paintmaker.com</div>
             </div>
         </div>
 
         <!-- Competitive Landscape -->
         <div class="section">
             <h2 data-icon="⚔️">Competitive Landscape</h2>
-            <p>The DTC paint market is growing, but all players have positioned as premium luxury:</p>
+            <p>The DTC paint market is growing, but no one is running a dual-brand strategy. We own both sides:</p>
             
             <div class="competitor-list">
                 <div class="competitor">
@@ -479,105 +478,153 @@
                     <span>$28-45/gallon • Mass market • "Good enough"</span>
                 </div>
                 <div class="competitor" style="background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3);">
-                    <strong style="color: var(--accent-light);">DWELL PAINT</strong>
-                    <span style="color: var(--accent-light);">$31.25/gallon • Premium quality • Curated colors</span>
+                    <strong style="color: var(--dwell);">DWELL PAINT</strong>
+                    <span style="color: var(--dwell);">$31.25/gal • Premium quality • Curated lifestyle • Women</span>
+                </div>
+                <div class="competitor" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3);">
+                    <strong style="color: var(--grit);">GRIT PAINT</strong>
+                    <span style="color: var(--grit);">$31.25/gal • Premium quality • Project-focused • DIY Men</span>
                 </div>
             </div>
             
             <div class="highlight">
-                <strong>Your Position:</strong> Premium quality (Zero VOC, designer-curated) at mass-market pricing. You're the "Warby Parker that actually saves you money."
+                <strong>Dwell's Position:</strong> Premium quality at mass-market pricing for design-conscious women. The "Warby Parker of paint."
+            </div>
+            <div class="highlight-grit">
+                <strong>Grit's Position:</strong> Premium quality at mass-market pricing for DIY men. Better than Behr, cheaper than everything else, delivered to your door.
             </div>
         </div>
 
-        <!-- Target Audience -->
+        <!-- Target Audiences -->
         <div class="section">
-            <h2 data-icon="👩">Target Audience</h2>
+            <h2 data-icon="👥">Target Audiences</h2>
             
-            <h3>Primary: The "Intentional Homemaker"</h3>
-            <ul>
-                <li><strong>Demographics:</strong> Women, 28-45, household income $75k-200k</li>
-                <li><strong>Behavior:</strong> Heavy Pinterest/Instagram users, Target & Nordstrom shoppers</li>
-                <li><strong>Mindset:</strong> Design-conscious but not professionals, prefer curated choices</li>
-            </ul>
+            <div class="dual-brand-grid">
+                <div class="brand-panel">
+                    <h3 style="color: var(--dwell); margin-top: 0;">👩 Dwell: The Intentional Homemaker</h3>
+                    <ul>
+                        <li><strong>Demographics:</strong> Women, 28-45, HHI $75k-200k</li>
+                        <li><strong>Behavior:</strong> Heavy Pinterest/Instagram users, Target & Nordstrom shoppers</li>
+                        <li><strong>Mindset:</strong> Design-conscious, prefers curated choices over overwhelming options</li>
+                        <li><strong>Channels:</strong> Pinterest, Instagram, lifestyle blogs</li>
+                    </ul>
+                </div>
+                <div class="brand-panel grit-panel">
+                    <h3 style="color: var(--grit); margin-top: 0;">🔨 Grit: The Weekend Warrior</h3>
+                    <ul>
+                        <li><strong>Demographics:</strong> Men, 25-50, HHI $60k-180k</li>
+                        <li><strong>Behavior:</strong> Home Depot regulars, TikTok remodel video watchers, YouTube DIY bingers</li>
+                        <li><strong>Mindset:</strong> Project-focused, wants results fast, values quality + price</li>
+                        <li><strong>Channels:</strong> TikTok, YouTube, Reddit r/DIY</li>
+                    </ul>
+                </div>
+            </div>
             
-            <h3>Pain Points We Solve</h3>
+            <h3>Pain Points We Solve (Both Audiences)</h3>
             <ul>
                 <li>Overwhelmed by 3,000+ color options at hardware stores</li>
                 <li>Hate the fluorescent-lit hardware store experience</li>
-                <li>Fear making the "wrong" color choice</li>
                 <li>Want premium results without premium prices</li>
+                <li>Prefer shopping from home with free delivery</li>
             </ul>
         </div>
 
         <!-- SEO Strategy -->
         <div class="section">
-            <h2 data-icon="🔍">SEO Strategy (Priority)</h2>
-            <p>The sweet spot: <strong>"cheap high quality paint"</strong> and similar long-tail keywords that buyers actually search. We'll own the space between budget paint and overpriced DTC brands.</p>
+            <h2 data-icon="🔍">SEO Strategy (Both Brands)</h2>
+            <p>One shared SEO strategy, two keyword universes. $350/mo covers both brands — we're targeting different search intents that don't compete with each other.</p>
             
-            <h3>Target Keywords</h3>
+            <h3>Dwell Keywords</h3>
             <ul>
                 <li><strong>Primary:</strong> "cheap high quality paint," "affordable premium paint," "best paint for the money"</li>
                 <li><strong>Comparison:</strong> "clare paint alternative," "backdrop paint cheaper option"</li>
-                <li><strong>Educational:</strong> "best zero VOC paint 2026," "how much paint for a room"</li>
-                <li><strong>Local:</strong> "premium paint shipped free," "DTC paint brands"</li>
+                <li><strong>Educational:</strong> "best zero VOC paint 2026," "trending paint colors"</li>
+                <li><strong>Lifestyle:</strong> "curated paint palettes," "designer paint colors affordable"</li>
+            </ul>
+            
+            <h3>Grit Keywords</h3>
+            <ul>
+                <li><strong>Primary:</strong> "DIY paint," "garage paint," "best paint for projects," "cheap paint for renovations"</li>
+                <li><strong>Comparison:</strong> "better than Behr paint," "best paint Home Depot alternative"</li>
+                <li><strong>Educational:</strong> "how to paint a garage," "best paint for closet renovation," "one coat paint for projects"</li>
+                <li><strong>Project:</strong> "paint for home remodel," "best paint for flipping houses"</li>
             </ul>
             
             <h3>Content Roadmap</h3>
             <ul>
-                <li>Color inspiration guides (Pinterest-optimized)</li>
-                <li>Room painting tutorials with curated palettes</li>
-                <li>Price comparison articles (honest, not salesy)</li>
-                <li>Trending color roundups by season</li>
+                <li><strong>Dwell:</strong> Color inspiration guides, curated palettes, room makeovers (Pinterest-optimized)</li>
+                <li><strong>Grit:</strong> Project tutorials, before/after builds, garage & closet remodel guides (TikTok/YouTube-optimized)</li>
+                <li><strong>Both:</strong> Price comparison articles, paint quality breakdowns</li>
             </ul>
             
             <div class="highlight">
-                <strong>Goal:</strong> Rank for "cheap high quality paint" and related terms within 6 months. This traffic converts because they're ready to buy — just looking for the right brand.
+                <strong>Goal:</strong> Dwell ranks for lifestyle/design paint terms. Grit ranks for DIY/project paint terms. Zero keyword cannibalization — they serve completely different search intent.
             </div>
         </div>
 
         <!-- Growth Opportunities -->
         <div class="section">
             <h2 data-icon="🚀">Growth Opportunities (Post-Launch)</h2>
-            <p>Once the website is live and generating organic traffic, here's how we scale:</p>
+            <p>Once both sites are live and generating organic traffic, here's how we scale the empire:</p>
             
             <h3>Paid Advertising</h3>
-            <p>Meta, Pinterest, and Google ads to accelerate growth. Pinterest especially — the platform is made for home/design content.</p>
-            <ul>
-                <li><strong>Meta (FB/IG):</strong> Before/after room transformations, price shock ads</li>
-                <li><strong>Pinterest:</strong> Color inspiration, lifestyle imagery (high intent)</li>
-                <li><strong>Google:</strong> Capture high-intent "buy paint online" searches</li>
-            </ul>
+            <div class="dual-brand-grid">
+                <div class="brand-panel">
+                    <h3 style="color: var(--dwell); margin-top: 0;">Dwell Ads</h3>
+                    <ul>
+                        <li><strong>Pinterest:</strong> Color inspiration, lifestyle imagery (highest intent)</li>
+                        <li><strong>Meta (FB/IG):</strong> Before/after room transformations, curated palettes</li>
+                        <li><strong>Google:</strong> "Buy paint online" high-intent searches</li>
+                    </ul>
+                </div>
+                <div class="brand-panel grit-panel">
+                    <h3 style="color: var(--grit); margin-top: 0;">Grit Ads</h3>
+                    <ul>
+                        <li><strong>TikTok:</strong> Garage remodels, project timelapses, satisfying paint videos</li>
+                        <li><strong>YouTube:</strong> Pre-roll on DIY channels, project tutorials</li>
+                        <li><strong>Google:</strong> "DIY paint" and project-specific searches</li>
+                    </ul>
+                </div>
+            </div>
             
             <h3>AI TikTok+ Program</h3>
-            <p>Our flagship content engine for brands ready to scale. We create scroll-stopping TikTok, Reels, and Pinterest video content using AI tools + human creativity.</p>
+            <p>Our flagship content engine for brands ready to scale. We create scroll-stopping TikTok, Reels, and Pinterest video content using AI tools + human creativity — for <strong>both brands</strong>.</p>
             <ul>
-                <li>20+ pieces of video content per month</li>
-                <li>Before/after room transformations</li>
-                <li>Color trend content, DIY tutorials, satisfying paint videos</li>
+                <li>20+ pieces of video content per month per brand</li>
+                <li><strong>Dwell:</strong> Color trend content, room makeovers, aesthetic reveals</li>
+                <li><strong>Grit:</strong> Project tutorials, garage builds, before/after transformations</li>
                 <li>Optimized for each platform's algorithm</li>
             </ul>
             
             <div class="highlight">
-                <strong>Available post-launch</strong> — once your site is live and converting, we'll help you pour fuel on the fire with consistent viral content.
+                <strong>Available post-launch</strong> — once both sites are live and converting, we'll help you pour fuel on the fire with consistent viral content. Pricing based on volume and goals.
             </div>
         </div>
 
         <!-- Investment -->
         <div class="section">
             <h2 data-icon="💰">Investment</h2>
+
+            <div class="bundle-box">
+                <p style="color: var(--text-muted); margin-bottom: 8px;">🏗️ PAINT EMPIRE BUNDLE</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; text-decoration: line-through;">2 sites individually: $5,970</p>
+                <div style="font-size: 2.4rem; font-weight: 800; color: var(--accent-light); margin: 8px 0;">$4,985</div>
+                <div class="savings">You save ~$1,000 with the bundle</div>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;">Both websites • Both brands • One launch</p>
+            </div>
             
             <div class="stat-grid">
                 <div class="stat-card">
-                    <div class="number">$2,985</div>
-                    <div class="label">Website (One-Time)</div>
+                    <div class="number">$4,985</div>
+                    <div class="label">Both Websites (One-Time)</div>
                 </div>
                 <div class="stat-card">
                     <div class="number">$350</div>
-                    <div class="label">Monthly SEO</div>
+                    <div class="label">Monthly SEO (Both Brands)</div>
                 </div>
                 <div class="stat-card">
                     <div class="number">2 Weeks</div>
-                    <div class="label">Time to Launch</div>
+                    <div class="label">Both Sites Live</div>
                 </div>
             </div>
             
@@ -591,40 +638,55 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Website Build</strong></td>
-                        <td class="new">$2,985</td>
-                        <td>One-time — design, development, launch</td>
+                        <td><strong>Dwell Website</strong></td>
+                        <td>$2,985</td>
+                        <td>Design, development, launch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grit Website</strong></td>
+                        <td>$2,985</td>
+                        <td>Design, development, launch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bundle Discount</strong></td>
+                        <td class="new">−$985</td>
+                        <td>Same fulfillment, shared architecture</td>
+                    </tr>
+                    <tr style="border-top: 2px solid var(--accent);">
+                        <td><strong>Total (One-Time)</strong></td>
+                        <td class="new" style="font-weight: 700; font-size: 1.1rem;">$4,985</td>
+                        <td>Both sites, ready to sell</td>
                     </tr>
                     <tr>
                         <td><strong>SEO & Marketing</strong></td>
                         <td class="new">$350/mo</td>
-                        <td>Content, optimization, analytics, strategy</td>
+                        <td>Covers both brands, shared strategy</td>
                     </tr>
                 </tbody>
             </table>
             
-            <h3>Included in Website Build</h3>
+            <h3>Included in Both Website Builds</h3>
             <ul>
-                <li>✓ Full e-commerce website (Shopify or custom)</li>
-                <li>✓ Mobile-optimized, fast-loading design</li>
-                <li>✓ <strong>Social media setup</strong> — Instagram, Pinterest, TikTok accounts created & branded</li>
-                <li>✓ <strong>Initial seeding posts</strong> — 10-15 launch posts ready to go</li>
-                <li>✓ Payment & shipping integration</li>
-                <li>✓ Analytics & tracking setup</li>
+                <li>✓ Two full e-commerce websites (distinct branding, shared backend)</li>
+                <li>✓ Mobile-optimized, fast-loading design for both</li>
+                <li>✓ <strong>Social media setup for both brands</strong> — Instagram, Pinterest, TikTok accounts created & branded</li>
+                <li>✓ <strong>Initial seeding posts</strong> — 10-15 launch posts per brand ready to go</li>
+                <li>✓ One Stripe account, shared payment & shipping integration</li>
+                <li>✓ Analytics & tracking setup on both sites</li>
             </ul>
             
             <div class="highlight">
-                <strong>Want ongoing social content?</strong> Our AI TikTok+ program creates viral-ready content consistently. Available as an add-on post-launch — pricing based on volume and goals.
+                <strong>Want ongoing social content?</strong> Our AI TikTok+ program creates viral-ready content for both brands consistently. Available as an add-on post-launch — pricing based on volume and goals.
             </div>
         </div>
 
         <!-- CTA -->
         <div class="cta">
-            <h2>Ready to Launch Dwell Paint?</h2>
-            <p>50% deposit to begin. Balance due at launch.</p>
-            <div class="price">$1,492.50</div>
-            <div class="price-note">50% of $2,985 website build</div>
-            <a href="https://buy.stripe.com/test_placeholder_dwell_paint_deposit" class="cta-btn">Get Started →</a>
+            <h2>Ready to Build a Paint Empire?</h2>
+            <p>50% deposit to begin both sites. Balance due at launch.</p>
+            <div class="price">$2,492.50</div>
+            <div class="price-note">50% of $4,985 dual-brand bundle</div>
+            <a href="https://buy.stripe.com/test_placeholder_paint_empire_deposit" class="cta-btn">Launch the Empire →</a>
         </div>
 
         <div class="footer-logo">
