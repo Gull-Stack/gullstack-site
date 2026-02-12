@@ -35,22 +35,29 @@
     a { color: inherit; text-decoration: none; }
     
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 24px;
     }
     
+    /* Header - matches main site */
     header {
-      padding: 24px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      margin-bottom: 60px;
     }
     
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -59,25 +66,55 @@
       display: flex;
       align-items: center;
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 400;
     }
     
     .logo-img {
-      height: 32px;
+      height: 48px;
       width: auto;
-      margin-right: 10px;
+      margin-right: 12px;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
     }
     
     nav a {
       color: var(--text-muted);
       font-size: 0.9rem;
       font-weight: 500;
-      margin-left: 32px;
       transition: color 0.2s;
     }
     
     nav a:hover { color: var(--text); }
+    nav a.active { color: var(--text); }
+    
+    .btn {
+      display: inline-flex;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+    
+    /* Page Content */
+    main {
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
     
     .page-title {
       font-family: var(--font-serif);
@@ -91,23 +128,49 @@
       margin-bottom: 60px;
     }
     
-    .blog-list {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
+    /* Blog Grid with Images */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
     }
     
     .blog-card {
-      padding: 32px;
       background: var(--bg-elevated);
       border: 1px solid var(--border);
       border-radius: 16px;
+      overflow: hidden;
       transition: all 0.3s ease;
     }
     
     .blog-card:hover {
       border-color: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .blog-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .blog-card:hover .blog-card-image {
+      transform: scale(1.05);
+    }
+    
+    .blog-card-image-wrapper {
+      overflow: hidden;
+      height: 200px;
+    }
+    
+    .blog-card-content {
+      padding: 28px;
     }
     
     .blog-card-category {
@@ -122,14 +185,14 @@
     
     .blog-card-title {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       margin-bottom: 12px;
       line-height: 1.3;
     }
     
     .blog-card-excerpt {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.7;
       margin-bottom: 16px;
     }
@@ -137,22 +200,25 @@
     .blog-card-link {
       color: var(--accent);
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: gap 0.2s;
     }
     
-    .blog-card-link:hover { color: var(--accent-hover); }
+    .blog-card:hover .blog-card-link { gap: 10px; }
     
     footer {
-      margin-top: 80px;
-      padding: 40px 0;
+      padding: 60px 0;
       border-top: 1px solid var(--border);
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
     }
+    
+    footer a { color: var(--text); }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -163,8 +229,12 @@
         GullStack
       </a>
       <nav>
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
+        <a href="/#products">Products</a>
+        <a href="/projects/">Projects</a>
+        <a href="/#services">Services</a>
+        <a href="/ai-consulting/">AI Consulting</a>
+        <a href="/blog/" class="active">Blog</a>
+        <a href="/#contact" class="btn btn-primary">Contact</a>
       </nav>
     </div>
   </header>
@@ -173,53 +243,83 @@
     <h1 class="page-title">Blog</h1>
     <p class="page-subtitle">Insights on marketing, business growth, and building great products.</p>
 
-    <div class="blog-list">
+    <div class="blog-grid">
       <a href="is-blogging-really-worth-it.html" class="blog-card">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Is Blogging Really Worth It?</h2>
-        <p class="blog-card-excerpt">One of the most common questions companies ask us is if blogging about their business is really worth their time. Blogging can seem futile, tiresome, and usually becomes less of a priority...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Blogging" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Is Blogging Really Worth It?</h2>
+          <p class="blog-card-excerpt">One of the most common questions companies ask us is if blogging about their business is really worth their time...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
 
       <a href="marketing-starts-telling-story.html" class="blog-card">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Marketing Starts with Telling Your Story</h2>
-        <p class="blog-card-excerpt">If you can adequately tell your story, marketing your company will be so much easier. Think about the benefit of your product or service and make that your selling point...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=400&fit=crop" alt="Storytelling" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Marketing Starts with Telling Your Story</h2>
+          <p class="blog-card-excerpt">If you can adequately tell your story, marketing your company will be so much easier...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
 
       <a href="you-should-write-your-own-content.html" class="blog-card">
-        <span class="blog-card-category">Marketing · SEO</span>
-        <h2 class="blog-card-title">You Should Write Your Own Content</h2>
-        <p class="blog-card-excerpt">Writing your content can seem daunting…until you start writing. If you own your own business, you are talking about your business all of the time. Take those conversations and write them down...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop" alt="Writing Content" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing · SEO</span>
+          <h2 class="blog-card-title">You Should Write Your Own Content</h2>
+          <p class="blog-card-excerpt">Writing your content can seem daunting…until you start writing. If you own your own business, you are talking about it all the time...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
 
       <a href="professional-photography-game-changing.html" class="blog-card">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Professional Photography is Game Changing</h2>
-        <p class="blog-card-excerpt">One of the first things we recommend when building a website is to get professional photography. The difference between stock photos and real photos of your business is night and day...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" alt="Professional Photography" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Professional Photography is Game Changing</h2>
+          <p class="blog-card-excerpt">One of the first things we recommend when building a website is to get professional photography...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
 
       <a href="so-we-created-a-fake-business.html" class="blog-card">
-        <span class="blog-card-category">Business · Marketing</span>
-        <h2 class="blog-card-title">So We Created a Fake Business</h2>
-        <p class="blog-card-excerpt">First of all, apologies in advance to anyone who thought this business was real. We were curious to see how much traffic we could create based on a name that follows our rules...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop" alt="Fake Business Experiment" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Business · Marketing</span>
+          <h2 class="blog-card-title">So We Created a Fake Business</h2>
+          <p class="blog-card-excerpt">First of all, apologies in advance to anyone who thought this business was real. We were curious to see how much traffic we could create...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
 
       <a href="you-should-really-own-your-own-domain.html" class="blog-card">
-        <span class="blog-card-category">Business</span>
-        <h2 class="blog-card-title">You Should Really Own Your Own Domain</h2>
-        <p class="blog-card-excerpt">The first step to getting anything online for your business is to buy a domain. Your domain is your identity online — don't let someone else control it...</p>
-        <span class="blog-card-link">Read more →</span>
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Domain Ownership" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Business</span>
+          <h2 class="blog-card-title">You Should Really Own Your Own Domain</h2>
+          <p class="blog-card-excerpt">The first step to getting anything online for your business is to buy a domain. Your domain is your identity online...</p>
+          <span class="blog-card-link">Read more →</span>
+        </div>
       </a>
     </div>
   </main>
 
   <footer>
-    <p>© 2026 GullStack Trust. All rights reserved.</p>
+    <p>© 2026 <a href="/">GullStack Trust</a>. All rights reserved.</p>
   </footer>
 </body>
 </html>

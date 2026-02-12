@@ -18,7 +18,11 @@
     header { padding: 24px 0; border-bottom: 1px solid var(--border); margin-bottom: 60px; }
     .header-inner { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 0 24px; }
     .logo { display: flex; align-items: center; font-family: var(--font-serif); font-size: 1.5rem; color: var(--text); }
+    .logo-img { height: 48px; width: auto; margin-right: 12px; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
     .logo-img { height: 32px; width: auto; margin-right: 10px; }
+    nav { display: flex; align-items: center; gap: 32px; }
     nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; margin-left: 32px; } nav a:hover { color: var(--text); }
     .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; } .back-link:hover { color: var(--text); }
     .post-category { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 16px; }
@@ -30,7 +34,22 @@
   </style>
 </head>
 <body>
-  <header><div class="header-inner"><a href="/" class="logo"><img src="../gull-logo.png" alt="GullStack" class="logo-img">GullStack</a><nav><a href="/">Home</a><a href="/blog/">Blog</a></nav></div></header>
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="../gull-logo.png" alt="GullStack" class="logo-img">
+        GullStack
+      </a>
+      <nav>
+        <a href="/#products">Products</a>
+        <a href="/projects/">Projects</a>
+        <a href="/#services">Services</a>
+        <a href="/ai-consulting/">AI Consulting</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
   <main class="container">
     <a href="/blog/" class="back-link">← Back to Blog</a>
     <span class="post-category">Business · Marketing</span>
