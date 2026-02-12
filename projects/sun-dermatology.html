@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Dermatology — Before & After Redesign | GullStack</title>
+  <meta name="description" content="Complete website redesign for Sun Dermatology. See the dramatic before and after transformation from outdated to modern, SEO-optimized design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --gold: #D4A836;
+      --orange: #E8913A;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; font-family: var(--font-serif); font-size: 1.8rem; }
+    .logo-img { height: 48px; width: auto; margin-right: 12px; }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    
+    @media (max-width: 768px) {
+      nav { display: none; }
+    }
+    
+    .case-hero {
+      padding: 160px 0 60px;
+      text-align: center;
+    }
+    
+    .case-hero .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .breadcrumb a:hover { color: var(--accent); }
+    
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge-gold {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #1a1a2e;
+    }
+    
+    .badge-new {
+      background: var(--green);
+      color: #0a0a0a;
+    }
+    
+    .case-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item { text-align: center; }
+    .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .meta-value { font-size: 1.1rem; font-weight: 600; }
+    .meta-value a { color: var(--accent); }
+    .meta-value a:hover { text-decoration: underline; }
+    
+    /* Before/After Slider */
+    .slider-section {
+      padding: 60px 0 80px;
+    }
+    
+    .slider-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.25rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    
+    .slider-section > p {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+    
+    .comparison-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+    
+    .comparison-wrapper {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+    
+    .comparison-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    
+    .comparison-before,
+    .comparison-after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .comparison-after {
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path 0.05s ease-out;
+    }
+    
+    .comparison-slider {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: white;
+      cursor: ew-resize;
+      z-index: 20;
+      transform: translateX(-50%);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    
+    .comparison-slider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    
+    .comparison-slider::after {
+      content: '◀ ▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+      letter-spacing: 4px;
+    }
+    
+    .comparison-label {
+      position: absolute;
+      top: 20px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      z-index: 15;
+    }
+    
+    .label-before {
+      left: 20px;
+      background: rgba(239, 68, 68, 0.9);
+      color: white;
+    }
+    
+    .label-after {
+      right: 20px;
+      background: rgba(34, 197, 94, 0.9);
+      color: white;
+    }
+    
+    .slider-hint {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, rgba(99,102,241,0.03) 0%, transparent 100%);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+    }
+    
+    .stat-icon { font-size: 2rem; margin-bottom: 12px; }
+    .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--green); }
+    .stat-value.red { color: var(--red); }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+    
+    /* Changes Section */
+    .section { padding: 80px 0; }
+    .section-header { margin-bottom: 48px; text-align: center; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 2.25rem; font-weight: 400; margin-bottom: 16px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    
+    .changes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .changes-grid { grid-template-columns: 1fr; }
+    }
+    
+    .change-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .change-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(34, 197, 94, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    
+    .change-content h4 { font-size: 1.1rem; margin-bottom: 8px; }
+    .change-content p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+    
+    /* Live Preview */
+    .live-preview-section {
+      padding: 80px 0;
+    }
+    
+    .live-preview {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+    }
+    
+    .preview-header {
+      background: var(--bg-elevated);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .preview-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .preview-dot.red { background: #ef4444; }
+    .preview-dot.yellow { background: #eab308; }
+    .preview-dot.green { background: #22c55e; }
+    
+    .preview-url {
+      flex: 1;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .live-preview iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      background: white;
+    }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.05) 100%);
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .cta-section .btn {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+    
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    footer p { color: var(--text-muted); font-size: 0.9rem; }
+    footer a { color: var(--text); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="../gull-logo.png" alt="GullStack" class="logo-img">
+          GullStack
+        </a>
+        <nav>
+          <a href="/#products">Products</a>
+          <a href="/projects/">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/ai-consulting/">AI Consulting</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact" class="btn btn-primary">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Projects</a> / Sun Dermatology
+        </div>
+        
+        <div class="badge-row">
+          <span class="badge badge-gold">⭐ Tier-S Work</span>
+          <span class="badge badge-new">🚀 New</span>
+        </div>
+        
+        <h1>Sun Dermatology</h1>
+        <p class="lead">Complete website transformation for Dr. Jeremy Sunseri's Panama City dermatology practice. From outdated and generic to modern, trustworthy, and SEO-optimized.</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-label">Industry</div>
+            <div class="meta-value">Healthcare / Dermatology</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">3 Days</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Panama City, FL</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Preview</div>
+            <div class="meta-value"><a href="https://gull-stack.github.io/sundermatology-site/" target="_blank">View Site →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slider-section">
+      <div class="container-wide">
+        <h2>Drag to Compare</h2>
+        <p>Slide to see the transformation from the old site to the new design.</p>
+        
+        <div class="comparison-container">
+          <div class="comparison-wrapper" id="comparison">
+            <span class="comparison-label label-before">Before</span>
+            <span class="comparison-label label-after">After</span>
+            
+            <div class="comparison-before">
+              <iframe class="comparison-iframe" src="https://www.sundermatology.com/" loading="lazy"></iframe>
+            </div>
+            
+            <div class="comparison-after" id="afterClip">
+              <iframe class="comparison-iframe" src="https://gull-stack.github.io/sundermatology-site/" loading="lazy"></iframe>
+            </div>
+            
+            <div class="comparison-slider" id="slider"></div>
+          </div>
+        </div>
+        
+        <p class="slider-hint">👆 Drag the slider left and right to compare</p>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">🎨</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Custom Design</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📍</div>
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Local SEO Pages</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-value">&lt;1s</div>
+            <div class="stat-label">Load Time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📱</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Mobile Optimized</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Changed</h2>
+          <p>A complete overhaul focused on trust, local SEO, and conversions.</p>
+        </div>
+        
+        <div class="changes-grid">
+          <div class="change-card">
+            <div class="change-icon">🏥</div>
+            <div class="change-content">
+              <h4>Medical Authority Design</h4>
+              <p>Professional color palette (sun gold, deep navy, warm cream) that builds trust and credibility for a medical practice.</p>
+            </div>
+          </div>
+          
+          <div class="change-card">
+            <div class="change-icon">🔍</div>
+            <div class="change-content">
+              <h4>Local SEO Foundation</h4>
+              <p>Service area pages targeting Panama City Beach, Lynn Haven, and surrounding cities. Schema markup for local search dominance.</p>
+            </div>
+          </div>
+          
+          <div class="change-card">
+            <div class="change-icon">👨‍⚕️</div>
+            <div class="change-content">
+              <h4>Doctor-Focused Credibility</h4>
+              <p>Prominent display of Dr. Sunseri's credentials — board certification, AAD Fellow, Mohs surgery expertise. Trust signals everywhere.</p>
+            </div>
+          </div>
+          
+          <div class="change-card">
+            <div class="change-icon">📱</div>
+            <div class="change-content">
+              <h4>Mobile-First Build</h4>
+              <p>Static HTML for lightning-fast loads on any device. No bloated WordPress plugins dragging down performance.</p>
+            </div>
+          </div>
+          
+          <div class="change-card">
+            <div class="change-icon">🗺️</div>
+            <div class="change-content">
+              <h4>Clear Navigation</h4>
+              <p>Services, locations, and contact info immediately accessible. No hunting through confusing menus.</p>
+            </div>
+          </div>
+          
+          <div class="change-card">
+            <div class="change-icon">📞</div>
+            <div class="change-content">
+              <h4>Conversion-Focused CTAs</h4>
+              <p>Click-to-call phone numbers, prominent appointment buttons, and clear calls to action on every page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="live-preview-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The New Site</h2>
+          <p>Clean, fast, and built to convert visitors into patients.</p>
+        </div>
+      </div>
+      
+      <div class="container-wide">
+        <div class="live-preview">
+          <div class="preview-header">
+            <span class="preview-dot red"></span>
+            <span class="preview-dot yellow"></span>
+            <span class="preview-dot green"></span>
+            <span class="preview-url">gull-stack.github.io/sundermatology-site</span>
+          </div>
+          <iframe src="https://gull-stack.github.io/sundermatology-site/" loading="lazy" title="Sun Dermatology Website Preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Your Practice Deserves Better</h2>
+        <p>We specialize in healthcare websites that build trust and bring in patients.</p>
+        <a href="mailto:contact@gullstack.com" class="btn">Get Your Free Audit →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <a href="../index.html">GullStack Trust</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Before/After Slider
+    const comparison = document.getElementById('comparison');
+    const slider = document.getElementById('slider');
+    const afterClip = document.getElementById('afterClip');
+    
+    let isDragging = false;
+    
+    function updateSlider(x) {
+      const rect = comparison.getBoundingClientRect();
+      let percent = ((x - rect.left) / rect.width) * 100;
+      percent = Math.max(5, Math.min(95, percent));
+      
+      slider.style.left = percent + '%';
+      afterClip.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+    }
+    
+    slider.addEventListener('mousedown', () => isDragging = true);
+    slider.addEventListener('touchstart', () => isDragging = true);
+    
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('touchend', () => isDragging = false);
+    
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) updateSlider(e.clientX);
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging) updateSlider(e.touches[0].clientX);
+    });
+    
+    // Click anywhere on comparison to jump slider
+    comparison.addEventListener('click', (e) => {
+      if (e.target !== slider) updateSlider(e.clientX);
+    });
+  </script>
+</body>
+</html>
