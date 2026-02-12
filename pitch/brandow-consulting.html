@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandow Consulting — Website & SEO Assessment by GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139,92,246,0.3);
+      --bg: #0f0f14;
+      --bg-elevated: #1a1a24;
+      --bg-card: #22222e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --orange: #f97316;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:2rem 1.5rem; }
+
+    /* Hero */
+    .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f0f14 0%, #1a1030 50%, #0f0f14 100%); border-bottom:1px solid rgba(139,92,246,0.15); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; }
+    .hero-logos img { height:50px; border-radius:8px; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:0.75rem; }
+    .hero h1 span { color:var(--accent); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; max-width:650px; margin:0 auto; }
+
+    /* Sections */
+    .section { padding:3rem 0; }
+    .section-title { font-size:1.6rem; font-weight:800; margin-bottom:0.5rem; text-align:center; }
+    .section-sub { color:var(--text-muted); text-align:center; margin-bottom:2rem; font-size:0.95rem; }
+    .label { text-transform:uppercase; letter-spacing:0.15em; font-size:0.75rem; font-weight:700; color:var(--accent); margin-bottom:0.5rem; text-align:center; }
+
+    /* Score Card */
+    .score-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .score-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(139,92,246,0.12); }
+    .score-card .score-value { font-size:2.5rem; font-weight:900; }
+    .score-card .score-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.25rem; }
+    .bad { color:var(--red); }
+    .warn { color:var(--orange); }
+    .ok { color:var(--yellow); }
+    .good { color:var(--green); }
+
+    /* Issues */
+    .issues-list { list-style:none; margin:1.5rem 0; }
+    .issues-list li { background:var(--bg-elevated); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; display:flex; align-items:flex-start; gap:0.75rem; border-left:3px solid var(--red); }
+    .issues-list li.warning { border-left-color:var(--orange); }
+    .issues-list li.info { border-left-color:var(--accent); }
+    .issues-list .icon { font-size:1.2rem; flex-shrink:0; margin-top:0.1rem; }
+    .issues-list .issue-text strong { display:block; margin-bottom:0.15rem; }
+    .issues-list .issue-text span { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Competitor Table */
+    table { width:100%; border-collapse:collapse; background:var(--bg-elevated); border-radius:12px; overflow:hidden; }
+    thead { background:var(--bg-card); }
+    th { text-align:left; padding:0.85rem 1rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+    td { padding:0.85rem 1rem; border-top:1px solid rgba(255,255,255,0.04); font-size:0.95rem; }
+    tr:hover { background:rgba(139,92,246,0.04); }
+    .highlight-row { background:rgba(239,68,68,0.08) !important; border-left:3px solid var(--accent); }
+
+    /* Opportunity */
+    .opp-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .opp-card { background:var(--bg-elevated); border-radius:14px; padding:2rem 1.5rem; text-align:center; border:1px solid rgba(139,92,246,0.15); }
+    .opp-card .opp-number { font-size:2.5rem; font-weight:900; color:var(--accent); }
+    .opp-card .opp-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-top:0.5rem; }
+
+    /* Fix Section */
+    .fix-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .fix-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; border:1px solid rgba(139,92,246,0.1); }
+    .fix-card h3 { font-size:1rem; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem; }
+    .fix-card p { color:var(--text-muted); font-size:0.9rem; }
+
+    /* CTA */
+    .cta-section { text-align:center; padding:3rem 1.5rem; margin:2rem 0; background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02)); border-radius:20px; border:1px solid rgba(139,92,246,0.15); }
+    .cta-section h2 { font-size:1.8rem; font-weight:800; margin-bottom:0.75rem; }
+    .cta-section p { color:var(--text-muted); max-width:550px; margin:0 auto 1.5rem; }
+    .cta-btn { display:inline-block; background:var(--accent); color:#fff; padding:0.9rem 2.5rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; transition:all 0.2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--accent-glow); }
+
+    /* Footer */
+    .footer { text-align:center; padding:2rem 0; color:var(--text-muted); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); margin-top:2rem; }
+    .footer img { height:30px; margin-bottom:0.5rem; }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size:1.5rem; }
+      .score-card .score-value { font-size:2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <span style="font-weight:800; font-size:1.3rem;">Brandow Consulting</span>
+    </div>
+    <h1>Your Website Has <span>153 Pages</span>.<br>But Only <span>6 Visitors</span> a Month.</h1>
+    <p class="subtitle">An honest, data-driven assessment of brandowconsulting.com — and a roadmap to turn your site into the lead generation machine your consulting expertise deserves.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Current State -->
+    <div class="section">
+      <div class="label">Current State</div>
+      <div class="section-title">The Numbers Don't Lie</div>
+      <p class="section-sub">Here's where brandowconsulting.com stands right now according to SEMrush (February 2026).</p>
+
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="score-value bad">169</div>
+          <div class="score-label">Organic Keywords</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value bad">6</div>
+          <div class="score-label">Monthly Visitors</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value bad">$5</div>
+          <div class="score-label">Organic Traffic Value</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value warn">153</div>
+          <div class="score-label">Total Pages (Indexed)</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:1.5rem; border-left:3px solid var(--red); text-align:center;">
+        <strong style="color:var(--red);">⚠️ 153 pages generating only 6 visitors = 0.04 visitors per page per month</strong><br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">Your content library is there. It's just invisible to Google.</span>
+      </div>
+    </div>
+
+    <!-- Issues -->
+    <div class="section">
+      <div class="label">SEO Audit Findings</div>
+      <div class="section-title">What's Holding You Back</div>
+      <p class="section-sub">We found several critical issues preventing your content from ranking.</p>
+
+      <ul class="issues-list">
+        <li>
+          <span class="icon">🔴</span>
+          <div class="issue-text">
+            <strong>No Sitemap in robots.txt</strong>
+            <span>Your robots.txt doesn't reference your sitemap. Google may not be discovering all 153 pages. The XML sitemap exists (Yoast) but isn't linked where crawlers first look.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon">🔴</span>
+          <div class="issue-text">
+            <strong>195KB Homepage (Bloated)</strong>
+            <span>Your homepage is nearly 200KB of HTML — that's 3-5x what it should be. Slow-loading pages get penalized in Google's Core Web Vitals rankings.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon">🔴</span>
+          <div class="issue-text">
+            <strong>8 of 16 Images Missing Alt Text</strong>
+            <span>50% of your images have no alt text. Google can't "see" these images, and you're missing keyword opportunities + accessibility compliance.</span>
+          </div>
+        </li>
+        <li class="warning">
+          <span class="icon">🟠</span>
+          <div class="issue-text">
+            <strong>Hosted on Flywheel (WordPress)</strong>
+            <span>Flywheel is decent for WordPress, but the site is running heavy plugins that add bloat. A modern, streamlined stack would cut load times by 50-70%.</span>
+          </div>
+        </li>
+        <li class="warning">
+          <span class="icon">🟠</span>
+          <div class="issue-text">
+            <strong>No Content Freshness Strategy</strong>
+            <span>Last blog posts from May 2025, pages last updated July 2025. Google rewards sites that publish consistently. 7+ months of silence hurts rankings.</span>
+          </div>
+        </li>
+        <li class="warning">
+          <span class="icon">🟠</span>
+          <div class="issue-text">
+            <strong>Ranking for Brand Name Only</strong>
+            <span>Your #1 keyword is "brandow" (position 8). Almost zero commercial intent keywords ranking. "Inventory management software" terms are being captured by competitors.</span>
+          </div>
+        </li>
+        <li class="info">
+          <span class="icon">🟣</span>
+          <div class="issue-text">
+            <strong>No Strict Transport Security Header</strong>
+            <span>HSTS is missing — tells Google and browsers you're serious about security. Quick fix, big trust signal.</span>
+          </div>
+        </li>
+        <li class="info">
+          <span class="icon">🟣</span>
+          <div class="issue-text">
+            <strong>Title Tag Too Generic</strong>
+            <span>Current title: "Inventory Management Software for SMB" — no brand, no location, no differentiator. This should include "Brandow Consulting" and a value prop.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Competitive Analysis -->
+    <div class="section">
+      <div class="label">Competitive Analysis</div>
+      <div class="section-title">Where You Stand vs. The Competition</div>
+      <p class="section-sub">Real data from SEMrush. Companies in your space are capturing the traffic your prospects are searching for.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Competitor</th>
+            <th>Organic Keywords</th>
+            <th>Monthly Traffic</th>
+            <th>Organic Value ($/mo)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>FishbowlInventory.com</strong></td>
+            <td>13,441</td>
+            <td>24,044</td>
+            <td style="color:var(--green); font-weight:700;">$274,265</td>
+          </tr>
+          <tr>
+            <td><strong>Acctivate.com</strong></td>
+            <td>10,478</td>
+            <td>7,405</td>
+            <td style="color:var(--green); font-weight:700;">$65,375</td>
+          </tr>
+          <tr>
+            <td><strong>SOSInventory.com</strong></td>
+            <td>3,893</td>
+            <td>5,972</td>
+            <td style="color:var(--green); font-weight:700;">$48,211</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>⚠️ BrandowConsulting.com</strong></td>
+            <td>169</td>
+            <td>6</td>
+            <td style="color:var(--red); font-weight:700;">$5</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="opp-grid">
+        <div class="opp-card">
+          <div class="opp-number" style="color:var(--red);">$5/mo</div>
+          <div class="opp-label">Your Current Traffic Value</div>
+        </div>
+        <div class="opp-card">
+          <div class="opp-number" style="color:var(--green);">$48,211/mo</div>
+          <div class="opp-label">Nearest Competitor Value</div>
+        </div>
+        <div class="opp-card">
+          <div class="opp-number">9,642x</div>
+          <div class="opp-label">The Gap 🚀</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(139,92,246,0.15);">
+        <span style="color:var(--text-muted); font-size:0.95rem;">
+          <strong style="color:var(--text);">The good news?</strong> You don't need to compete with Fishbowl. Even capturing <strong style="color:var(--accent);">1% of their keyword footprint</strong> would mean <strong style="color:var(--green);">240+ monthly visitors</strong> — a 40x increase from where you are today. With 153 pages of existing content, you have the foundation. It just needs to be optimized and surfaced.
+        </span>
+      </div>
+    </div>
+
+    <!-- What We'd Fix -->
+    <div class="section">
+      <div class="label">The GullStack Plan</div>
+      <div class="section-title">What We'd Build For You</div>
+      <p class="section-sub">Here's exactly how we'd turn brandowconsulting.com into a lead generation engine.</p>
+
+      <div class="fix-grid">
+        <div class="fix-card">
+          <h3>🔍 Full SEO Overhaul</h3>
+          <p>Optimize all 153 pages with targeted keywords, proper meta tags, internal linking, and schema markup. Fix alt text, sitemap references, and crawl issues.</p>
+        </div>
+        <div class="fix-card">
+          <h3>⚡ Performance Rebuild</h3>
+          <p>Modern, lightweight codebase. Cut that 195KB homepage to under 50KB. Faster load times = better Core Web Vitals = higher Google rankings.</p>
+        </div>
+        <div class="fix-card">
+          <h3>📝 Content Strategy</h3>
+          <p>Target high-intent keywords like "inventory management software for small business," "Fishbowl consultant," and "QuickBooks inventory integration." Monthly content calendar.</p>
+        </div>
+        <div class="fix-card">
+          <h3>📊 Analytics & CRM</h3>
+          <p>Built-in lead tracking, form analytics, and CRM via SuperTool. Know exactly which pages convert and which visitors become clients.</p>
+        </div>
+        <div class="fix-card">
+          <h3>🎯 Local SEO</h3>
+          <p>Lance is in American Fork, UT. We'd optimize for "inventory consultant Utah" and related local searches to capture nearby SMBs looking for in-person help.</p>
+        </div>
+        <div class="fix-card">
+          <h3>📱 Mobile-First Design</h3>
+          <p>60%+ of searches are mobile. We'd rebuild with a responsive, modern design that converts on any device — clean, fast, professional.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Realistic Projections -->
+    <div class="section">
+      <div class="label">Growth Projection</div>
+      <div class="section-title">Conservative 12-Month Outlook</div>
+      <p class="section-sub">Based on your existing 153-page content library and the keyword opportunity in your niche.</p>
+
+      <div class="opp-grid">
+        <div class="opp-card">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem;">Month 1-3</div>
+          <div class="opp-number" style="font-size:2rem;">50-100</div>
+          <div class="opp-label">Monthly Visitors</div>
+          <div style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Technical fixes + on-page SEO</div>
+        </div>
+        <div class="opp-card">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem;">Month 4-6</div>
+          <div class="opp-number" style="font-size:2rem;">200-500</div>
+          <div class="opp-label">Monthly Visitors</div>
+          <div style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Content optimization kicks in</div>
+        </div>
+        <div class="opp-card">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.5rem;">Month 7-12</div>
+          <div class="opp-number" style="font-size:2rem;">500-1,500</div>
+          <div class="opp-label">Monthly Visitors</div>
+          <div style="margin-top:0.5rem; font-size:0.85rem; color:var(--text-muted);">Compounding SEO authority</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(139,92,246,0.15);">
+        <span style="color:var(--text-muted); font-size:0.95rem;">
+          At even <strong style="color:var(--green);">500 visitors/month</strong>, if just 2% convert to consultation requests, that's <strong style="color:var(--accent);">10 qualified leads per month</strong>. At Lance's typical project value, that's transformative.
+        </span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to Make Your Website<br>Work as Hard as You Do?</h2>
+      <p>Lance, you've spent nearly 20 years building expertise in inventory management consulting. Let's make sure people can actually find you.</p>
+      <a href="https://gullstack.com" class="cta-btn">Let's Talk →</a>
+    </div>
+
+    <div class="footer">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Data sourced from SEMrush US Database. Organic Value = estimated cost to buy equivalent traffic via Google Ads.</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
