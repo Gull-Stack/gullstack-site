@@ -26,7 +26,8 @@
     .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 0; background: rgba(9,9,11,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    .logo { display: flex; align-items: center; font-family: var(--font-serif); font-size: 1.8rem; }
+    .logo-img { height: 48px; width: auto; margin-right: 12px; }
     nav { display: flex; gap: 32px; align-items: center; }
     nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
     .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; }
@@ -60,15 +61,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="container-wide">
+    <header id="header">
+    <div class="container">
       <div class="header-inner">
-        <a href="../index.html" class="logo">GullStack</a>
+        <a href="/" class="logo">
+          <img src="../gull-logo.png" alt="GullStack" class="logo-img">
+          GullStack
+        </a>
         <nav>
-          <a href="../index.html">Home</a>
-          <a href="index.html">Projects</a>
-          <a href="../blog/index.html">Blog</a>
-          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+          <a href="/#products">Products</a>
+          <a href="/projects/">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/ai-consulting/">AI Consulting</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact" class="btn btn-primary">Contact</a>
         </nav>
       </div>
     </div>

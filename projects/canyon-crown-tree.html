@@ -50,12 +50,15 @@
     }
     
     .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    .logo { display: flex; align-items: center; font-family: var(--font-serif); font-size: 1.8rem; }
+    .logo-img { height: 48px; width: auto; margin-right: 12px; }
     nav { display: flex; gap: 32px; align-items: center; }
     nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav a:hover { color: var(--text); }
     .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
     .btn:hover { background: var(--accent-hover); }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: var(--accent-hover); }
     
     /* Hero */
     .case-hero {
@@ -337,15 +340,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="container-wide">
+    <header id="header">
+    <div class="container">
       <div class="header-inner">
-        <a href="../index.html" class="logo">GullStack</a>
+        <a href="/" class="logo">
+          <img src="../gull-logo.png" alt="GullStack" class="logo-img">
+          GullStack
+        </a>
         <nav>
-          <a href="../index.html">Home</a>
-          <a href="index.html">Projects</a>
-          <a href="../blog/index.html">Blog</a>
-          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+          <a href="/#products">Products</a>
+          <a href="/projects/">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/ai-consulting/">AI Consulting</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#contact" class="btn btn-primary">Contact</a>
         </nav>
       </div>
     </div>
