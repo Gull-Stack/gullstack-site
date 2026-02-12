@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Brandow Consulting</title>
+  <meta name="description" content="Inventory management insights, software comparisons, and implementation tips from Brandow Consulting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#005589;--brand-light:#45a7c5;--accent:#2AC4EA;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#005589,#2AC4EA);--gradient-subtle:linear-gradient(180deg,rgba(42,196,234,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text);letter-spacing:-0.02em}.nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}.nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none;transition:all 0.15s}.nav-cta:hover{opacity:0.85}
+    .section{max-width:1200px;margin:0 auto;padding:6rem 1.5rem}.section-header{text-align:center;margin-bottom:3.5rem}.section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--accent);margin-bottom:0.75rem}.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.75rem}.section-desc{color:var(--text-secondary);font-size:1.05rem;max-width:550px;margin:0 auto}
+    .hero{padding:10rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(42,196,234,0.08) 0%,transparent 70%);pointer-events:none}.hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.25rem}.hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero p{font-size:1.15rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:color 0.15s}footer .foot-links a:hover{color:var(--text)}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem}.blog-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.2s;text-decoration:none;color:inherit;display:block}.blog-card:hover{border-color:var(--border-light);transform:translateY(-2px)}.blog-thumb{height:180px;background:var(--bg-hover);display:flex;align-items:center;justify-content:center;font-size:3rem;border-bottom:1px solid var(--border)}.blog-body{padding:1.5rem}.blog-tag{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--accent);margin-bottom:0.5rem}.blog-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em;line-height:1.3}.blog-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6}.blog-meta{margin-top:1rem;font-size:0.8rem;color:var(--text-muted)}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 4rem}.blog-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><a href="./" class="nav-logo"><img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting"><span>Brandow Consulting</span></a><div class="nav-links"><a href="services">Services</a><a href="software">Software</a><a href="about">About</a><a href="blog">Blog</a><a href="./#contact" class="nav-cta">Get Started</a></div></div></nav>
+
+  <section class="hero">
+    <h1>The <span class="gradient">Blog</span></h1>
+    <p>Inventory management insights, software comparisons, and implementation best practices from our team of experts.</p>
+  </section>
+
+  <div class="section" style="padding-top:0;">
+    <div class="blog-grid">
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">🔄</div>
+        <div class="blog-body">
+          <div class="blog-tag">Education</div>
+          <h3>What is IMS and How Does It Differ from ERP?</h3>
+          <p>Understanding the critical difference between inventory management software and full ERP systems — and why it matters for your budget and timeline.</p>
+          <div class="blog-meta">Lance Brandow · 8 min read</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">🚀</div>
+        <div class="blog-body">
+          <div class="blog-tag">Implementation</div>
+          <h3>5 Steps to a Successful Software Implementation</h3>
+          <p>Our proven 5-step framework has guided over 200 successful implementations. Here's exactly how we do it and why each step matters.</p>
+          <div class="blog-meta">Lance Brandow · 12 min read</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">📉</div>
+        <div class="blog-body">
+          <div class="blog-tag">Operations</div>
+          <h3>How to Determine Your Reorder Point</h3>
+          <p>The reorder point formula, safety stock calculations, and how modern inventory software automates this critical decision for your team.</p>
+          <div class="blog-meta">Lance Brandow · 6 min read</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">⚖️</div>
+        <div class="blog-body">
+          <div class="blog-tag">Comparison</div>
+          <h3>Fishbowl vs Cin7: Which is Right for Your Business?</h3>
+          <p>An honest comparison of two leading inventory management platforms. Pricing, features, deployment models, and which business types each serves best.</p>
+          <div class="blog-meta">Lance Brandow · 10 min read</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">⚠️</div>
+        <div class="blog-body">
+          <div class="blog-tag">QuickBooks</div>
+          <h3>QuickBooks Inventory Limitations and When to Upgrade</h3>
+          <p>QuickBooks is great for accounting but limited for inventory. Here are the signs you've outgrown it and what to do next.</p>
+          <div class="blog-meta">Josh · 7 min read</div>
+        </div>
+      </a>
+      <a href="#" class="blog-card">
+        <div class="blog-thumb">📊</div>
+        <div class="blog-body">
+          <div class="blog-tag">Reports</div>
+          <h3>Custom Reports: Getting the KPIs Your Team Needs</h3>
+          <p>Standard reports rarely tell the full story. How custom Crystal Reports, JasperSoft dashboards, and SQL queries unlock actionable insights.</p>
+          <div class="blog-meta">Kendra · 9 min read</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer><div class="foot-left"><img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting"><span>© 2026 Brandow Consulting Corp.</span></div><div class="foot-links"><a href="services">Services</a><a href="about">About</a><a href="software">Software</a><a href="blog">Blog</a></div></footer>
+</body>
+</html>

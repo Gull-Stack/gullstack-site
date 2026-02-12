@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Partners — Brandow Consulting</title>
+  <meta name="description" content="We partner with 35+ inventory management software companies including Fishbowl, Cin7, MiSys, SOS Inventory, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#005589;--brand-light:#45a7c5;--accent:#2AC4EA;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#005589,#2AC4EA);--gradient-subtle:linear-gradient(180deg,rgba(42,196,234,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text);letter-spacing:-0.02em}.nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}.nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none;transition:all 0.15s}.nav-cta:hover{opacity:0.85}
+    .section{max-width:1200px;margin:0 auto;padding:6rem 1.5rem}.section-header{text-align:center;margin-bottom:3.5rem}.section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--accent);margin-bottom:0.75rem}.section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.75rem}.section-desc{color:var(--text-secondary);font-size:1.05rem;max-width:550px;margin:0 auto}
+    .hero{padding:10rem 1.5rem 4rem;text-align:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(42,196,234,0.08) 0%,transparent 70%);pointer-events:none}.hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.25rem}.hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.hero p{font-size:1.15rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
+    .btn-primary{background:var(--text);color:var(--bg);padding:0.75rem 2rem;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center;gap:0.5rem}.btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+    .cta-section{text-align:center;padding:6rem 1.5rem;position:relative}.cta-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(42,196,234,0.06) 0%,transparent 70%);pointer-events:none}.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:1rem}.cta-section p{color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-size:1.05rem}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:color 0.15s}footer .foot-links a:hover{color:var(--text)}
+    .sw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}.sw-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.2s}.sw-card:hover{border-color:var(--border-light);transform:translateY(-2px)}.sw-card .sw-icon{font-size:2rem;margin-bottom:1rem}.sw-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}.sw-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6}.sw-card .sw-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.75rem}.sw-tag{background:var(--bg-hover);border:1px solid var(--border);border-radius:6px;padding:0.2rem 0.6rem;font-size:0.75rem;color:var(--text-muted);font-weight:600}
+    .compare{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.compare-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2rem}.compare-card h3{font-size:1.15rem;font-weight:800;margin-bottom:0.75rem}.compare-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1rem}.compare-card ul{list-style:none}.compare-card ul li{color:var(--text-secondary);font-size:0.85rem;padding:0.35rem 0;display:flex;align-items:center;gap:0.5rem}.compare-card ul li::before{content:'•';color:var(--accent);font-weight:700}
+    .more-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin-top:2rem}.more-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;font-size:0.85rem;font-weight:600;color:var(--text-secondary);transition:all 0.2s}.more-card:hover{border-color:var(--border-light)}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 4rem}.compare{grid-template-columns:1fr}.sw-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner"><a href="./" class="nav-logo"><img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting"><span>Brandow Consulting</span></a><div class="nav-links"><a href="services">Services</a><a href="software">Software</a><a href="about">About</a><a href="blog">Blog</a><a href="./#contact" class="nav-cta">Get Started</a></div></div></nav>
+
+  <section class="hero">
+    <h1>Software <span class="gradient">Partners</span></h1>
+    <p>We're partnered with every major inventory management software that connects to QuickBooks. Unbiased recommendations — we work with them all.</p>
+  </section>
+
+  <!-- PRIMARY PARTNERS -->
+  <div class="section" style="padding-top:0;">
+    <div class="section-header">
+      <div class="section-label">Primary Partners</div>
+      <div class="section-title">The tools we know best.</div>
+    </div>
+    <div class="sw-grid">
+      <div class="sw-card">
+        <div class="sw-icon">🐟</div>
+        <h3>Fishbowl Inventory</h3>
+        <p>The most robust inventory management solution for SMBs. On-premise or hosted, Fishbowl handles manufacturing, warehousing, and e-commerce with deep QuickBooks integration.</p>
+        <div class="sw-tags"><span class="sw-tag">Manufacturing</span><span class="sw-tag">Warehouse</span><span class="sw-tag">Online</span><span class="sw-tag">Time</span><span class="sw-tag">Hosting</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">📦</div>
+        <h3>Cin7</h3>
+        <p>Cloud-based inventory and order management. Great for multi-channel retailers and distributors who need real-time visibility across warehouses and sales channels.</p>
+        <div class="sw-tags"><span class="sw-tag">Cloud</span><span class="sw-tag">Multi-channel</span><span class="sw-tag">Order Management</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">🏭</div>
+        <h3>MiSys Manufacturing</h3>
+        <p>Purpose-built for manufacturers. Advanced BOM management, production scheduling, shop floor control, and quality management with QuickBooks integration.</p>
+        <div class="sw-tags"><span class="sw-tag">Manufacturing</span><span class="sw-tag">BOM</span><span class="sw-tag">Production</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">💬</div>
+        <h3>Method:CRM</h3>
+        <p>CRM that integrates natively with QuickBooks and, via our Cfish connector, with Fishbowl. Manage leads, quotes, and customer relationships alongside inventory.</p>
+        <div class="sw-tags"><span class="sw-tag">CRM</span><span class="sw-tag">QuickBooks</span><span class="sw-tag">Cfish</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">📊</div>
+        <h3>SOS Inventory</h3>
+        <p>Cloud-based inventory management built specifically for QuickBooks Online users. Great for growing businesses that need more than QBO's native inventory features.</p>
+        <div class="sw-tags"><span class="sw-tag">Cloud</span><span class="sw-tag">QBO</span><span class="sw-tag">SMB</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">⚡</div>
+        <h3>Order Time</h3>
+        <p>Cloud-based inventory management accessible from any device. Purchasing, sales orders, inventory tracking, and reporting with QuickBooks sync.</p>
+        <div class="sw-tags"><span class="sw-tag">Cloud</span><span class="sw-tag">Any Device</span><span class="sw-tag">QuickBooks</span></div>
+      </div>
+      <div class="sw-card">
+        <div class="sw-icon">💰</div>
+        <h3>QuickBooks</h3>
+        <p>The accounting backbone. Every inventory system we implement connects to QuickBooks Desktop or Online. We ensure seamless two-way data sync.</p>
+        <div class="sw-tags"><span class="sw-tag">Desktop</span><span class="sw-tag">Online</span><span class="sw-tag">Accounting</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE PARTNERS -->
+  <div class="section" style="padding-top:0;">
+    <div class="section-header">
+      <div class="section-label">And Many More</div>
+      <div class="section-title">35+ software partners.</div>
+      <p class="section-desc">We work with every major inventory management system in the QuickBooks ecosystem.</p>
+    </div>
+    <div class="more-grid">
+      <div class="more-card">Acctivate</div>
+      <div class="more-card">Dear Systems</div>
+      <div class="more-card">Unleashed</div>
+      <div class="more-card">Zoho Inventory</div>
+      <div class="more-card">Katana MRP</div>
+      <div class="more-card">inFlow</div>
+      <div class="more-card">TradeGecko</div>
+      <div class="more-card">Ordoro</div>
+    </div>
+  </div>
+
+  <!-- ERP vs IMS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Understanding Your Options</div>
+      <div class="section-title">ERP vs Inventory Software</div>
+      <p class="section-desc">Two fundamentally different approaches. The right choice depends on your business size, complexity, and budget.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-card">
+        <h3>🏗️ ERP Systems</h3>
+        <p>All-in-one platforms that <strong>replace</strong> QuickBooks entirely. Higher cost, longer implementation, more complexity.</p>
+        <ul>
+          <li>SysPro, Acumatica, SAP, NetSuite</li>
+          <li>Replaces QuickBooks + inventory in one system</li>
+          <li>$50K–$500K+ implementation</li>
+          <li>6–18 month deployment</li>
+          <li>Best for $50M+ revenue companies</li>
+        </ul>
+      </div>
+      <div class="compare-card" style="border-color:var(--accent);">
+        <h3 style="color:var(--accent);">📦 Inventory Software</h3>
+        <p>Connects <strong>to</strong> QuickBooks. Keep what works, add what's missing. Lower cost, faster implementation.</p>
+        <ul>
+          <li>Fishbowl, Cin7, SOS, MiSys, Order Time</li>
+          <li>Works alongside QuickBooks via integration</li>
+          <li>$5K–$50K implementation</li>
+          <li>2–8 week deployment</li>
+          <li>Best for $2M–$40M revenue companies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Not sure which software<br>is right for you?</h2>
+    <p>That's literally what we do. Schedule a free assessment and we'll match you with the perfect solution.</p>
+    <a href="mailto:lance@brandowconsulting.com" class="btn-primary">Get a Free Assessment →</a>
+  </div>
+
+  <footer><div class="foot-left"><img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting"><span>© 2026 Brandow Consulting Corp.</span></div><div class="foot-links"><a href="services">Services</a><a href="about">About</a><a href="software">Software</a><a href="blog">Blog</a></div></footer>
+</body>
+</html>
