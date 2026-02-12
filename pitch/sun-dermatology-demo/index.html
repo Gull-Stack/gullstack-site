@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Dermatology — Your Dermatologist in Panama City</title>
+  <meta name="description" content="Board-certified dermatologist Dr. Sunseri provides medical, surgical, and cosmetic dermatology in Panama City, FL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#2ea3f2;--brand-light:#5bb8f5;--accent:#25a9e0;--dark:#003388;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#2ea3f2,#003388);--gradient-subtle:linear-gradient(180deg,rgba(46,163,242,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text);letter-spacing:-0.02em}
+    .nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none;transition:all 0.15s}.nav-cta:hover{opacity:0.85}
+    .hero{padding:10rem 1.5rem 6rem;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(46,163,242,0.08) 0%,transparent 70%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:100px;padding:0.35rem 1rem;font-size:0.8rem;color:var(--text-secondary);margin-bottom:1.5rem}
+    .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+    .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1.25rem;max-width:800px;margin-left:auto;margin-right:auto}
+    .hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.15rem;color:var(--text-secondary);max-width:560px;margin:0 auto 2.5rem;line-height:1.7}
+    .hero-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:var(--text);color:var(--bg);padding:0.75rem 2rem;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center;gap:0.5rem}.btn-primary:hover{opacity:0.85;transform:translateY(-1px)}
+    .btn-secondary{background:transparent;color:var(--text);padding:0.75rem 2rem;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid var(--border-light);transition:all 0.15s}.btn-secondary:hover{border-color:var(--text-muted);background:var(--bg-card)}
+    .stats-bar{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--bg-card)}
+    .stat-item{padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border)}.stat-item:last-child{border-right:none}
+    .stat-number{font-size:2rem;font-weight:800;letter-spacing:-0.03em}.stat-number .accent{color:var(--brand)}
+    .stat-label{font-size:0.8rem;color:var(--text-muted);margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.05em}
+    .section{max-width:1200px;margin:0 auto;padding:6rem 1.5rem}.section-header{text-align:center;margin-bottom:3.5rem}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--brand);margin-bottom:0.75rem}
+    .section-title{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.75rem}
+    .section-desc{color:var(--text-secondary);font-size:1.05rem;max-width:550px;margin:0 auto}
+    .bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .bento-card{background:var(--bg);padding:2.5rem 2rem;transition:background 0.2s}.bento-card:hover{background:var(--bg-hover)}
+    .bento-icon{width:40px;height:40px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.25rem}
+    .bento-card h3{font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.01em}.bento-card p{color:var(--text-secondary);font-size:0.9rem;line-height:1.6}
+    .bento-card.featured{grid-column:span 2;background:var(--gradient-subtle)}
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+    .team-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.2s}.team-card:hover{border-color:var(--border-light)}
+    .team-card img{width:100%;height:300px;object-fit:cover;filter:grayscale(20%)}.team-card .team-info{padding:1.25rem}
+    .team-card h3{font-size:1rem;font-weight:700}.team-card p{font-size:0.85rem;color:var(--text-muted);margin-top:0.2rem}
+    .cta-section{text-align:center;padding:6rem 1.5rem;position:relative}
+    .cta-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(46,163,242,0.06) 0%,transparent 70%);pointer-events:none}
+    .cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:1rem}
+    .cta-section p{color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-size:1.05rem}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}
+    footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem;transition:color 0.15s}footer .foot-links a:hover{color:var(--text)}
+    .testimonial-section{background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .testimonial{max-width:700px;margin:0 auto;text-align:center;padding:5rem 1.5rem}
+    .testimonial blockquote{font-size:1.35rem;font-weight:500;line-height:1.6;letter-spacing:-0.01em;margin-bottom:1.5rem;font-style:italic;color:var(--text)}
+    .testimonial cite{font-style:normal;color:var(--text-muted);font-size:0.9rem}
+    @media(max-width:768px){.nav-links{display:none}.bento-grid{grid-template-columns:1fr}.bento-card.featured{grid-column:span 1}.stats-bar{grid-template-columns:repeat(2,1fr)}.stat-item:nth-child(2){border-right:none}.stat-item:nth-child(1),.stat-item:nth-child(2){border-bottom:1px solid var(--border)}.hero{padding:8rem 1.5rem 4rem}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="/pitch/sun-dermatology-demo" class="nav-logo">
+      <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology">
+      <span>Sun Dermatology</span>
+    </a>
+    <div class="nav-links">
+      <a href="/pitch/sun-dermatology-demo/services">Services</a>
+      <a href="/pitch/sun-dermatology-demo/about">About</a>
+      <a href="/pitch/sun-dermatology-demo/contact">Contact</a>
+      <a href="/pitch/sun-dermatology-demo/contact" class="nav-cta">Book Appointment</a>
+    </div>
+  </div></nav>
+
+  <section class="hero">
+    <div class="hero-badge"><span class="dot"></span>Board-Certified Dermatology in Panama City, FL</div>
+    <h1>Your dermatologist in<br><span class="gradient">Panama City.</span></h1>
+    <p>Comprehensive medical, surgical, and cosmetic dermatology from Dr. Sunseri — trusted by patients across the Florida Panhandle for over a decade.</p>
+    <div class="hero-actions">
+      <a href="/pitch/sun-dermatology-demo/contact" class="btn-primary">Schedule an Appointment →</a>
+      <a href="/pitch/sun-dermatology-demo/services" class="btn-secondary">View Services</a>
+    </div>
+  </section>
+
+  <div class="section" style="padding-top:0;">
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-number"><span class="accent">✓</span></div><div class="stat-label">Board Certified</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="accent">10</span>+</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat-item"><div class="stat-number"><span class="accent">3</span></div><div class="stat-label">Service Categories</div></div>
+      <div class="stat-item"><div class="stat-number">📍</div><div class="stat-label">Panama City FL</div></div>
+    </div>
+  </div>
+
+  <div class="section" id="services">
+    <div class="section-header">
+      <div class="section-label">Our Services</div>
+      <div class="section-title">Complete dermatology care<br>under one roof.</div>
+      <p class="section-desc">From medical skin conditions to cosmetic treatments and surgical procedures, we provide comprehensive care.</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-card featured">
+        <div class="bento-icon">🏥</div>
+        <h3>Medical Dermatology</h3>
+        <p>Expert diagnosis and treatment for acne, eczema, psoriasis, rosacea, hair loss, skin infections, and all conditions affecting skin, hair, and nails. Evidence-based care for patients of all ages.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">🔬</div>
+        <h3>Surgical Dermatology</h3>
+        <p>Mohs micrographic surgery, skin cancer surveillance, reconstructive surgery, and photodynamic therapy.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">✨</div>
+        <h3>Cosmetic Dermatology</h3>
+        <p>Injectables & fillers, laser therapies, chemical peels, scar revision, and tattoo removal for natural-looking results.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">🛡️</div>
+        <h3>Skin Cancer Screening</h3>
+        <p>Comprehensive skin cancer checks, early detection protocols, and ongoing surveillance for at-risk patients.</p>
+      </div>
+      <div class="bento-card featured">
+        <div class="bento-icon">💉</div>
+        <h3>Mohs Surgery</h3>
+        <p>The gold standard for treating skin cancer with the highest cure rate. Tissue is examined in real-time to ensure complete removal while preserving healthy tissue. Performed on-site at our Panama City office.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-label">Meet Your Dermatologist</div>
+      <div class="section-title">Dr. Sunseri</div>
+      <p class="section-desc">Board Certified by the American Board of Dermatology and Fellow of the American Academy of Dermatology.</p>
+    </div>
+    <div style="display:flex;gap:3rem;align-items:center;flex-wrap:wrap;">
+      <div style="flex:0 0 350px;">
+        <div class="team-card">
+          <img src="https://www.sundermatology.com/wp-content/uploads/2021/04/dr_sunseri-panama-city-dermatologist_2.jpg" alt="Dr. Sunseri">
+          <div class="team-info"><h3>Dr. Sunseri</h3><p>Board-Certified Dermatologist</p></div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:280px;">
+        <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.5rem;">Dr. Sunseri brings a patient-first approach to dermatology, combining expertise in medical, surgical, and cosmetic treatments. As a Board-Certified Dermatologist and Fellow of the American Academy of Dermatology, patients receive the highest standard of care.</p>
+        <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;">From routine skin checks to complex Mohs surgery, Dr. Sunseri is committed to providing personalized, compassionate care for every patient who walks through the door.</p>
+        <div style="margin-top:1.5rem;"><a href="/pitch/sun-dermatology-demo/about" class="btn-secondary">Learn More About Dr. Sunseri →</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial-section">
+    <div class="testimonial">
+      <blockquote>"Our mission is to provide the highest quality dermatological care with compassion, expertise, and a commitment to each patient's well-being."</blockquote>
+      <cite><strong>Sun Dermatology</strong> — Panama City, Florida</cite>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:4rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sun-dermatology-building.jpg" alt="Sun Dermatology Building" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:1.5rem;"><h3 style="font-size:1rem;font-weight:700;margin-bottom:0.35rem;">Our Facility</h3><p style="color:var(--text-secondary);font-size:0.9rem;">Modern, comfortable office in the heart of Panama City.</p></div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/patient-centered.jpg" alt="Patient-Centered Care" style="width:100%;height:200px;object-fit:cover;">
+        <div style="padding:1.5rem;"><h3 style="font-size:1rem;font-weight:700;margin-bottom:0.35rem;">Patient-Centered Care</h3><p style="color:var(--text-secondary);font-size:0.9rem;">Every treatment plan is tailored to your unique needs.</p></div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <img src="https://www.sundermatology.com//wp-content/uploads/2016/10/association_logos_trans.png" alt="Professional Associations" style="width:100%;height:200px;object-fit:contain;background:#fff;padding:1rem;">
+        <div style="padding:1.5rem;"><h3 style="font-size:1rem;font-weight:700;margin-bottom:0.35rem;">Professional Affiliations</h3><p style="color:var(--text-secondary);font-size:0.9rem;">Fellow of AAD & certified by the American Board of Dermatology.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section" id="contact">
+    <h2>Ready for healthier skin?</h2>
+    <p>Schedule your appointment with Dr. Sunseri and experience personalized dermatology care in Panama City.</p>
+    <a href="/pitch/sun-dermatology-demo/contact" class="btn-primary">Book Your Appointment →</a>
+    <div style="margin-top:1.5rem;color:var(--text-muted);font-size:0.85rem;">📍 Panama City, FL &nbsp;·&nbsp; 📞 (850) 785-7546</div>
+  </div>
+
+  <footer>
+    <div class="foot-left">
+      <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology">
+      <span>© 2026 Sun Dermatology. All rights reserved.</span>
+    </div>
+    <div class="foot-links">
+      <a href="/pitch/sun-dermatology-demo/services">Services</a>
+      <a href="/pitch/sun-dermatology-demo/about">About</a>
+      <a href="/pitch/sun-dermatology-demo/contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Sun Dermatology | Panama City Dermatologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#2ea3f2;--brand-light:#5bb8f5;--accent:#25a9e0;--dark:#003388;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#2ea3f2,#003388);--gradient-subtle:linear-gradient(180deg,rgba(46,163,242,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text)}
+    .nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none}
+    .hero{padding:10rem 1.5rem 5rem;text-align:center;position:relative}
+    .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(46,163,242,0.08) 0%,transparent 70%);pointer-events:none}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1rem}
+    .hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
+    .section{max-width:1200px;margin:0 auto;padding:5rem 1.5rem}.section-header{text-align:center;margin-bottom:3rem}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--brand);margin-bottom:0.75rem}
+    .section-title{font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.75rem}
+    .section-desc{color:var(--text-secondary);font-size:1rem;max-width:550px;margin:0 auto}
+    .service-category{margin-bottom:4rem}
+    .service-category h2{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.75rem}
+    .service-category>p{color:var(--text-secondary);font-size:0.95rem;margin-bottom:1.5rem;max-width:600px}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .service-item{background:var(--bg);padding:1.5rem;transition:background 0.2s}.service-item:hover{background:var(--bg-hover)}
+    .service-item h3{font-size:0.95rem;font-weight:700;margin-bottom:0.35rem}.service-item p{color:var(--text-secondary);font-size:0.85rem;line-height:1.5}
+    .img-banner{width:100%;max-width:1200px;margin:0 auto 2rem;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+    .img-banner img{width:100%;height:300px;object-fit:cover}
+    .cta-section{text-align:center;padding:5rem 1.5rem}
+    .cta-section h2{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:1rem}
+    .cta-section p{color:var(--text-secondary);max-width:480px;margin:0 auto 2rem}
+    .btn-primary{background:var(--text);color:var(--bg);padding:0.75rem 2rem;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.15s}.btn-primary:hover{opacity:0.85}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}
+    footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem}footer .foot-links a:hover{color:var(--text)}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 3rem}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="/pitch/sun-dermatology-demo" class="nav-logo"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>Sun Dermatology</span></a>
+    <div class="nav-links">
+      <a href="/pitch/sun-dermatology-demo/services">Services</a>
+      <a href="/pitch/sun-dermatology-demo/about">About</a>
+      <a href="/pitch/sun-dermatology-demo/contact">Contact</a>
+      <a href="/pitch/sun-dermatology-demo/contact" class="nav-cta">Book Appointment</a>
+    </div>
+  </div></nav>
+
+  <section class="hero">
+    <h1>Comprehensive <span class="gradient">Dermatology Services</span></h1>
+    <p>Medical, surgical, and cosmetic dermatology — all under one roof in Panama City, FL.</p>
+  </section>
+
+  <div class="section">
+    <div class="service-category">
+      <h2>🏥 Medical Dermatology</h2>
+      <p>Expert diagnosis and treatment for conditions affecting skin, hair, and nails. We treat patients of all ages with evidence-based care.</p>
+      <div class="services-grid">
+        <div class="service-item"><h3>Acne</h3><p>Customized treatment plans for all types and severities of acne, from mild to severe cystic acne.</p></div>
+        <div class="service-item"><h3>Eczema</h3><p>Comprehensive management of atopic dermatitis and contact dermatitis with modern therapies.</p></div>
+        <div class="service-item"><h3>Psoriasis</h3><p>Advanced treatments including biologics, phototherapy, and topical regimens for lasting relief.</p></div>
+        <div class="service-item"><h3>Hair Loss</h3><p>Diagnosis and treatment of alopecia, pattern baldness, and other hair loss conditions.</p></div>
+        <div class="service-item"><h3>Nail Disease</h3><p>Treatment of fungal nails, ingrown nails, and other nail disorders.</p></div>
+        <div class="service-item"><h3>Fungal Infections</h3><p>Effective treatment for ringworm, athlete's foot, jock itch, and other fungal conditions.</p></div>
+        <div class="service-item"><h3>Excessive Sweating</h3><p>Hyperhidrosis treatment including prescription antiperspirants and advanced therapies.</p></div>
+        <div class="service-item"><h3>Seborrhea</h3><p>Management of seborrheic dermatitis affecting the scalp, face, and body.</p></div>
+        <div class="service-item"><h3>Shingles</h3><p>Diagnosis and treatment of herpes zoster and post-herpetic neuralgia.</p></div>
+        <div class="service-item"><h3>Vitiligo</h3><p>Treatment options to restore skin pigmentation and manage progression.</p></div>
+        <div class="service-item"><h3>Rosacea</h3><p>Targeted treatments to reduce redness, bumps, and visible blood vessels.</p></div>
+        <div class="service-item"><h3>Scars</h3><p>Treatment for acne scars, surgical scars, and other types of scarring.</p></div>
+        <div class="service-item"><h3>Skin Tags</h3><p>Safe, quick removal of benign skin growths.</p></div>
+        <div class="service-item"><h3>Broken Blood Vessels</h3><p>Laser and light-based treatments for spider veins and broken capillaries.</p></div>
+        <div class="service-item"><h3>Keloid Scars</h3><p>Specialized treatment to reduce and prevent keloid and hypertrophic scar formation.</p></div>
+      </div>
+    </div>
+
+    <div class="service-category">
+      <h2>🔬 Surgical Dermatology</h2>
+      <p>Advanced surgical procedures for skin cancer treatment and skin reconstruction, performed on-site.</p>
+      <div class="services-grid">
+        <div class="service-item"><h3>Mohs Surgery</h3><p>The gold standard for skin cancer removal with the highest cure rate while preserving maximum healthy tissue.</p></div>
+        <div class="service-item"><h3>Non-Surgical Radiotherapy</h3><p>SRT radiation therapy for skin cancer patients who are not surgical candidates.</p></div>
+        <div class="service-item"><h3>Reconstructive Surgery</h3><p>Skilled reconstruction following Mohs or excisional surgery for optimal cosmetic outcomes.</p></div>
+        <div class="service-item"><h3>Photodynamic Therapy</h3><p>Light-based treatment for pre-cancerous lesions and certain skin cancers.</p></div>
+        <div class="service-item"><h3>Skin Cancer Surveillance</h3><p>Ongoing monitoring and full-body skin exams for early detection and prevention.</p></div>
+      </div>
+    </div>
+
+    <div class="service-category">
+      <h2>✨ Cosmetic Dermatology</h2>
+      <p>Enhance your natural beauty with treatments performed by a board-certified dermatologist.</p>
+      <div class="services-grid">
+        <div class="service-item"><h3>Injectables & Fillers</h3><p>Botox, Juvéderm, Restylane, and other injectable treatments for natural-looking rejuvenation.</p></div>
+        <div class="service-item"><h3>Laser Therapies</h3><p>Advanced laser treatments for skin resurfacing, pigmentation, and vascular lesions.</p></div>
+        <div class="service-item"><h3>Chemical Peels</h3><p>Professional-grade peels to improve texture, tone, and overall skin appearance.</p></div>
+        <div class="service-item"><h3>Scar Revision</h3><p>Minimize the appearance of scars with advanced dermatological techniques.</p></div>
+        <div class="service-item"><h3>Tattoo Removal</h3><p>Safe and effective laser tattoo removal with minimal scarring.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to schedule<br>your visit?</h2>
+    <p>Contact us to book an appointment with Dr. Sunseri at our Panama City office.</p>
+    <a href="/pitch/sun-dermatology-demo/contact" class="btn-primary">Book Your Appointment →</a>
+  </div>
+
+  <footer>
+    <div class="foot-left"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>© 2026 Sun Dermatology.</span></div>
+    <div class="foot-links"><a href="/pitch/sun-dermatology-demo/services">Services</a><a href="/pitch/sun-dermatology-demo/about">About</a><a href="/pitch/sun-dermatology-demo/contact">Contact</a></div>
+  </footer>
+</body>
+</html>

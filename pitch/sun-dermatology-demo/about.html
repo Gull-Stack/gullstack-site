@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Sun Dermatology | Dr. Sunseri, Panama City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#2ea3f2;--brand-light:#5bb8f5;--accent:#25a9e0;--dark:#003388;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#2ea3f2,#003388);--gradient-subtle:linear-gradient(180deg,rgba(46,163,242,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text)}
+    .nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none}
+    .hero{padding:10rem 1.5rem 5rem;text-align:center;position:relative}
+    .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(46,163,242,0.08) 0%,transparent 70%);pointer-events:none}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1rem}
+    .hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
+    .section{max-width:1200px;margin:0 auto;padding:5rem 1.5rem}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--brand);margin-bottom:0.75rem}
+    .section-title{font-size:clamp(1.5rem,3.5vw,2.25rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;margin-bottom:0.75rem}
+    .bio-layout{display:flex;gap:3rem;align-items:flex-start;flex-wrap:wrap}
+    .bio-photo{flex:0 0 350px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .bio-photo img{width:100%;height:400px;object-fit:cover;filter:grayscale(20%)}
+    .bio-text{flex:1;min-width:280px}
+    .bio-text p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}
+    .credentials{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem}
+    .credential{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center}
+    .credential .icon{font-size:1.5rem;margin-bottom:0.5rem}.credential h3{font-size:0.9rem;font-weight:700;margin-bottom:0.25rem}.credential p{color:var(--text-muted);font-size:0.8rem}
+    .mission-box{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:3rem;text-align:center;margin-top:3rem}
+    .mission-box h2{font-size:1.5rem;font-weight:800;margin-bottom:1rem}.mission-box p{color:var(--text-secondary);font-size:1.05rem;line-height:1.8;max-width:650px;margin:0 auto}
+    .facility-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+    .facility-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .facility-card img{width:100%;height:200px;object-fit:cover}.facility-card .info{padding:1.25rem}
+    .facility-card h3{font-size:1rem;font-weight:700;margin-bottom:0.35rem}.facility-card p{color:var(--text-secondary);font-size:0.9rem}
+    .cta-section{text-align:center;padding:5rem 1.5rem}
+    .cta-section h2{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:1rem}
+    .cta-section p{color:var(--text-secondary);max-width:480px;margin:0 auto 2rem}
+    .btn-primary{background:var(--text);color:var(--bg);padding:0.75rem 2rem;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}
+    footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem}footer .foot-links a:hover{color:var(--text)}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 3rem}.bio-photo{flex:0 0 100%}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="/pitch/sun-dermatology-demo" class="nav-logo"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>Sun Dermatology</span></a>
+    <div class="nav-links">
+      <a href="/pitch/sun-dermatology-demo/services">Services</a>
+      <a href="/pitch/sun-dermatology-demo/about">About</a>
+      <a href="/pitch/sun-dermatology-demo/contact">Contact</a>
+      <a href="/pitch/sun-dermatology-demo/contact" class="nav-cta">Book Appointment</a>
+    </div>
+  </div></nav>
+
+  <section class="hero">
+    <h1>About <span class="gradient">Dr. Sunseri</span></h1>
+    <p>Board-Certified Dermatologist serving Panama City, FL with compassionate, expert care.</p>
+  </section>
+
+  <div class="section">
+    <div class="bio-layout">
+      <div class="bio-photo">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2021/04/dr_sunseri-panama-city-dermatologist_2.jpg" alt="Dr. Sunseri">
+      </div>
+      <div class="bio-text">
+        <div class="section-label">Your Dermatologist</div>
+        <div class="section-title">Dr. Sunseri</div>
+        <p>Dr. Sunseri is a Board-Certified Dermatologist and Fellow of the American Academy of Dermatology (AAD), bringing over a decade of expertise to patients across the Florida Panhandle.</p>
+        <p>With certification from the American Board of Dermatology, Dr. Sunseri specializes in medical, surgical, and cosmetic dermatology — providing comprehensive skin care for patients of all ages.</p>
+        <p>Dr. Sunseri's philosophy centers on patient-first care: taking the time to listen, educate, and develop personalized treatment plans that address each patient's unique needs and concerns.</p>
+        <p>From routine skin exams to complex Mohs micrographic surgery for skin cancer, patients can expect the highest standard of dermatological care delivered with compassion and expertise.</p>
+      </div>
+    </div>
+
+    <div class="credentials">
+      <div class="credential"><div class="icon">🎓</div><h3>Board Certified</h3><p>American Board of Dermatology</p></div>
+      <div class="credential"><div class="icon">🏅</div><h3>Fellow of AAD</h3><p>American Academy of Dermatology</p></div>
+      <div class="credential"><div class="icon">🔬</div><h3>Mohs Surgeon</h3><p>Specialized skin cancer treatment</p></div>
+      <div class="credential"><div class="icon">📍</div><h3>Panama City, FL</h3><p>Serving the Florida Panhandle</p></div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="section-label">Our Practice</div>
+    <div class="section-title">State-of-the-Art Facility</div>
+    <div class="facility-grid">
+      <div class="facility-card">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sun-dermatology-building.jpg" alt="Sun Dermatology Building">
+        <div class="info"><h3>Modern Office</h3><p>Our Panama City facility is equipped with the latest dermatological technology for diagnosis and treatment.</p></div>
+      </div>
+      <div class="facility-card">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/patient-centered.jpg" alt="Patient Care">
+        <div class="info"><h3>Patient-Centered Care</h3><p>Every visit is focused on you — your concerns, your comfort, and your health goals.</p></div>
+      </div>
+      <div class="facility-card">
+        <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/cosmetic_services-2.jpg" alt="Cosmetic Services">
+        <div class="info"><h3>Cosmetic Suite</h3><p>Dedicated treatment rooms for cosmetic procedures including injectables and laser therapies.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="mission-box">
+      <div class="section-label">Our Mission</div>
+      <h2>Patient-First Dermatology</h2>
+      <p>At Sun Dermatology, our mission is to provide the highest quality dermatological care with compassion, expertise, and a commitment to each patient's well-being. We believe every patient deserves personalized attention and access to the most advanced treatments available.</p>
+      <div style="margin-top:2rem;">
+        <img src="https://www.sundermatology.com//wp-content/uploads/2016/10/association_logos_trans.png" alt="Professional Associations" style="max-width:400px;width:100%;filter:brightness(0) invert(1);opacity:0.5;">
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Schedule your visit<br>with Dr. Sunseri.</h2>
+    <p>Experience personalized dermatology care at Sun Dermatology in Panama City.</p>
+    <a href="/pitch/sun-dermatology-demo/contact" class="btn-primary">Book Appointment →</a>
+  </div>
+
+  <footer>
+    <div class="foot-left"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>© 2026 Sun Dermatology.</span></div>
+    <div class="foot-links"><a href="/pitch/sun-dermatology-demo/services">Services</a><a href="/pitch/sun-dermatology-demo/about">About</a><a href="/pitch/sun-dermatology-demo/contact">Contact</a></div>
+  </footer>
+</body>
+</html>

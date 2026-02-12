@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Sun Dermatology | Panama City, FL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#2ea3f2;--brand-light:#5bb8f5;--accent:#25a9e0;--dark:#003388;--bg:#000;--bg-elevated:#0a0a0a;--bg-card:#111;--bg-hover:#1a1a1a;--border:#222;--border-light:#333;--text:#ededed;--text-secondary:#a1a1a1;--text-muted:#666;--gradient-brand:linear-gradient(135deg,#2ea3f2,#003388);--gradient-subtle:linear-gradient(180deg,rgba(46,163,242,0.08) 0%,transparent 50%)}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,0.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;width:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}.nav-logo img{height:32px}.nav-logo span{font-weight:700;font-size:0.95rem;color:var(--text)}
+    .nav-links{display:flex;gap:2rem;align-items:center}.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.15s}.nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--text);color:var(--bg);padding:0.5rem 1rem;border-radius:8px;font-weight:600;font-size:0.875rem;text-decoration:none}
+    .hero{padding:10rem 1.5rem 5rem;text-align:center;position:relative}
+    .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(46,163,242,0.08) 0%,transparent 70%);pointer-events:none}
+    .hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;margin-bottom:1rem}
+    .hero h1 .gradient{background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero p{font-size:1.1rem;color:var(--text-secondary);max-width:560px;margin:0 auto}
+    .section{max-width:1200px;margin:0 auto;padding:5rem 1.5rem}
+    .section-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;color:var(--brand);margin-bottom:0.75rem}
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+    .contact-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;transition:border-color 0.2s}
+    .contact-card:hover{border-color:var(--border-light)}
+    .contact-card .icon{font-size:2rem;margin-bottom:1rem}
+    .contact-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.5rem}
+    .contact-card p{color:var(--text-secondary);font-size:0.95rem;line-height:1.7}
+    .contact-card a{color:var(--brand);text-decoration:none;font-weight:600}.contact-card a:hover{text-decoration:underline}
+    .map-placeholder{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2rem}
+    .map-placeholder img{width:100%;height:300px;object-fit:cover}
+    .map-placeholder .map-info{padding:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .map-placeholder h3{font-size:1.1rem;font-weight:700}.map-placeholder p{color:var(--text-secondary);font-size:0.9rem}
+    .hours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:2rem}
+    .hour-item{background:var(--bg);padding:1.25rem 1.5rem;display:flex;justify-content:space-between}
+    .hour-item .day{font-weight:600;font-size:0.9rem}.hour-item .time{color:var(--text-secondary);font-size:0.9rem}
+    .form-section{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:3rem;margin-top:3rem}
+    .form-section h2{font-size:1.5rem;font-weight:800;margin-bottom:0.5rem}.form-section>p{color:var(--text-secondary);margin-bottom:2rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .form-group{display:flex;flex-direction:column;gap:0.35rem}
+    .form-group.full{grid-column:span 2}
+    .form-group label{font-size:0.8rem;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.05em}
+    .form-group input,.form-group textarea,.form-group select{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;color:var(--text);font-family:inherit;font-size:0.95rem;transition:border-color 0.15s}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--brand)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .btn-primary{background:var(--text);color:var(--bg);padding:0.75rem 2rem;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;transition:opacity 0.15s}.btn-primary:hover{opacity:0.85}
+    .cta-section{text-align:center;padding:5rem 1.5rem}
+    .cta-section h2{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:900;letter-spacing:-0.04em;margin-bottom:1rem}
+    .cta-section p{color:var(--text-secondary);max-width:480px;margin:0 auto 2rem}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    footer .foot-left{display:flex;align-items:center;gap:0.75rem}footer .foot-left img{height:24px}footer .foot-left span{font-size:0.85rem;color:var(--text-muted)}
+    footer .foot-links{display:flex;gap:1.5rem}footer .foot-links a{color:var(--text-muted);text-decoration:none;font-size:0.85rem}footer .foot-links a:hover{color:var(--text)}
+    @media(max-width:768px){.nav-links{display:none}.hero{padding:8rem 1.5rem 3rem}.form-grid{grid-template-columns:1fr}.form-group.full{grid-column:span 1}}
+  </style>
+</head>
+<body>
+  <nav><div class="nav-inner">
+    <a href="/pitch/sun-dermatology-demo" class="nav-logo"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>Sun Dermatology</span></a>
+    <div class="nav-links">
+      <a href="/pitch/sun-dermatology-demo/services">Services</a>
+      <a href="/pitch/sun-dermatology-demo/about">About</a>
+      <a href="/pitch/sun-dermatology-demo/contact">Contact</a>
+      <a href="/pitch/sun-dermatology-demo/contact" class="nav-cta">Book Appointment</a>
+    </div>
+  </div></nav>
+
+  <section class="hero">
+    <h1>Contact <span class="gradient">Sun Dermatology</span></h1>
+    <p>Schedule an appointment or reach out with questions. We're here to help with all your dermatology needs.</p>
+  </section>
+
+  <div class="section">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <h3>Our Location</h3>
+        <p>Sun Dermatology<br>Panama City, FL 32405<br><br>Serving the entire Florida Panhandle including Panama City Beach, Lynn Haven, and surrounding communities.</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>Phone & Fax</h3>
+        <p>Phone: <a href="tel:8507857546">(850) 785-7546</a><br>Fax: (850) 785-7548<br><br>Call us to schedule your appointment or ask about our services.</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">🕐</div>
+        <h3>Office Hours</h3>
+        <p>Monday – Thursday: 8:00 AM – 5:00 PM<br>Friday: 8:00 AM – 12:00 PM<br>Saturday – Sunday: Closed</p>
+      </div>
+    </div>
+
+    <div class="map-placeholder">
+      <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sun-dermatology-building.jpg" alt="Sun Dermatology Office">
+      <div class="map-info">
+        <div><h3>Sun Dermatology</h3><p>Panama City, Florida 32405</p></div>
+        <a href="https://maps.google.com/?q=Sun+Dermatology+Panama+City+FL" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:0.6rem 1.25rem;">Get Directions →</a>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="section-label">Request an Appointment</div>
+      <h2>Schedule Your Visit</h2>
+      <p>Fill out the form below and our team will contact you to confirm your appointment.</p>
+      <form onsubmit="event.preventDefault();alert('This is a demo site. Please call (850) 785-7546 to schedule.');">
+        <div class="form-grid">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="john@example.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(850) 555-0123"></div>
+          <div class="form-group"><label>Appointment Type</label>
+            <select><option>General Dermatology</option><option>Skin Cancer Screening</option><option>Cosmetic Consultation</option><option>Mohs Surgery Consultation</option><option>Follow-Up Visit</option></select>
+          </div>
+          <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+          <div class="form-group full"><label>Additional Notes</label><textarea placeholder="Tell us about your concerns or any information you'd like us to know..."></textarea></div>
+          <div class="form-group full" style="margin-top:0.5rem;"><button type="submit" class="btn-primary">Request Appointment →</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Prefer to call?</h2>
+    <p>Our friendly staff is ready to help you schedule your visit with Dr. Sunseri.</p>
+    <a href="tel:8507857546" class="btn-primary">Call (850) 785-7546 →</a>
+  </div>
+
+  <footer>
+    <div class="foot-left"><img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology"><span>© 2026 Sun Dermatology.</span></div>
+    <div class="foot-links"><a href="/pitch/sun-dermatology-demo/services">Services</a><a href="/pitch/sun-dermatology-demo/about">About</a><a href="/pitch/sun-dermatology-demo/contact">Contact</a></div>
+  </footer>
+</body>
+</html>

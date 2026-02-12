@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Dermatology — Digital Growth Package by GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root{--accent:#8b5cf6;--accent-glow:rgba(139,92,246,0.3);--bg:#0f0f14;--bg-elevated:#1a1a24;--bg-card:#22222e;--text:#e8e8f0;--text-muted:#8888a0;--green:#22c55e;--red:#ef4444;--yellow:#eab308;--orange:#f97316}
+    *{margin:0;padding:0;box-sizing:border-box}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6}.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+    .hero{text-align:center;padding:4rem 1rem 3rem;background:linear-gradient(135deg,#0f0f14 0%,#1a1030 50%,#0f0f14 100%);border-bottom:1px solid rgba(139,92,246,0.15)}
+    .hero-logos{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:2rem}
+    .hero-logos img{height:50px;border-radius:8px}
+    .hero-logos .divider{color:var(--text-muted);font-size:1.5rem}
+    .hero h1{font-size:2.2rem;font-weight:800;margin-bottom:0.75rem}.hero h1 span{color:var(--accent)}
+    .hero .subtitle{color:var(--text-muted);font-size:1.1rem;max-width:650px;margin:0 auto}
+    .section{padding:3rem 0}.section-title{font-size:1.6rem;font-weight:800;margin-bottom:0.5rem;text-align:center}
+    .section-sub{color:var(--text-muted);text-align:center;margin-bottom:2rem;font-size:0.95rem}
+    .label{text-transform:uppercase;letter-spacing:0.15em;font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;text-align:center}
+    .score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:2rem 0}
+    .score-card{background:var(--bg-elevated);border-radius:14px;padding:1.5rem;text-align:center;border:1px solid rgba(139,92,246,0.12)}
+    .score-card .score-value{font-size:2.5rem;font-weight:900}.score-card .score-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-top:0.25rem}
+    .bad{color:var(--red)}.warn{color:var(--orange)}.ok{color:var(--yellow)}.good{color:var(--green)}
+    .issues-list{list-style:none;margin:1.5rem 0}
+    .issues-list li{background:var(--bg-elevated);border-radius:10px;padding:1rem 1.25rem;margin-bottom:0.75rem;display:flex;align-items:flex-start;gap:0.75rem;border-left:3px solid var(--red)}
+    .issues-list li.warning{border-left-color:var(--orange)}.issues-list li.info{border-left-color:var(--accent)}
+    .issues-list .icon{font-size:1.2rem;flex-shrink:0;margin-top:0.1rem}.issues-list .issue-text strong{display:block;margin-bottom:0.15rem}.issues-list .issue-text span{color:var(--text-muted);font-size:0.9rem}
+    table{width:100%;border-collapse:collapse;background:var(--bg-elevated);border-radius:12px;overflow:hidden}
+    thead{background:var(--bg-card)}th{text-align:left;padding:0.85rem 1rem;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);font-weight:600}
+    td{padding:0.85rem 1rem;border-top:1px solid rgba(255,255,255,0.04);font-size:0.95rem}tr:hover{background:rgba(139,92,246,0.04)}.highlight-row{background:rgba(239,68,68,0.08)!important;border-left:3px solid var(--accent)}
+    .opp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem}
+    .opp-card{background:var(--bg-elevated);border-radius:14px;padding:2rem 1.5rem;text-align:center;border:1px solid rgba(139,92,246,0.15)}
+    .opp-card .opp-number{font-size:2.5rem;font-weight:900;color:var(--accent)}.opp-card .opp-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-top:0.5rem}
+    .fix-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+    .fix-card{background:var(--bg-elevated);border-radius:14px;padding:1.5rem;border:1px solid rgba(139,92,246,0.1)}
+    .fix-card h3{font-size:1rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem}.fix-card p{color:var(--text-muted);font-size:0.9rem}
+    .cta-section{text-align:center;padding:3rem 1.5rem;margin:2rem 0;background:linear-gradient(135deg,rgba(139,92,246,0.08),rgba(139,92,246,0.02));border-radius:20px;border:1px solid rgba(139,92,246,0.15)}
+    .cta-section h2{font-size:1.8rem;font-weight:800;margin-bottom:0.75rem}.cta-section p{color:var(--text-muted);max-width:550px;margin:0 auto 1.5rem}
+    .cta-btn{display:inline-block;background:var(--accent);color:#fff;padding:0.9rem 2.5rem;border-radius:10px;text-decoration:none;font-weight:700;font-size:1.05rem;transition:all 0.2s}
+    .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px var(--accent-glow)}
+    .footer{text-align:center;padding:2rem 0;color:var(--text-muted);font-size:0.8rem;border-top:1px solid rgba(255,255,255,0.05);margin-top:2rem}.footer img{height:30px;margin-bottom:0.5rem}
+    .demo-banner{text-align:center;padding:2rem;margin:2rem 0;background:linear-gradient(135deg,rgba(46,163,242,0.15),rgba(139,92,246,0.1));border-radius:16px;border:1px solid rgba(46,163,242,0.3)}
+    .demo-banner h3{font-size:1.3rem;margin-bottom:0.5rem}.demo-banner a{color:#2ea3f2;font-weight:700}
+    @media(max-width:600px){.hero h1{font-size:1.5rem}.score-card .score-value{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <img src="https://www.sundermatology.com/wp-content/uploads/2016/10/sundermatology_logo-2.png" alt="Sun Dermatology">
+    </div>
+    <h1>Your Patients Are Searching.<br>Your Competitors Are <span>Showing Up</span>.</h1>
+    <p class="subtitle">A comprehensive SEO & digital presence analysis for Sun Dermatology — showing exactly where you're losing patients to competitors and how to fix it.</p>
+  </div>
+
+  <div class="container">
+    <div class="demo-banner">
+      <h3>🌐 See What Your New Site Could Look Like</h3>
+      <p style="color:var(--text-muted);margin:0.5rem 0;">We built a full demo of a modern Sun Dermatology website.</p>
+      <a href="/pitch/sun-dermatology-demo" class="cta-btn" style="margin-top:1rem;display:inline-block;">View Live Demo →</a>
+    </div>
+
+    <div class="section">
+      <div class="label">The Opportunity</div>
+      <div class="section-title">What We Found</div>
+      <p class="section-sub">We analyzed 12 high-value keywords that potential patients use to find dermatologists in Panama City.</p>
+      <div class="score-grid">
+        <div class="score-card"><div class="score-value bad">0</div><div class="score-label">#1 Rankings</div></div>
+        <div class="score-card"><div class="score-value warn">6+</div><div class="score-label">Keywords Missing Top 10</div></div>
+        <div class="score-card"><div class="score-value ok">3,680</div><div class="score-label">Monthly Searches Missed</div></div>
+        <div class="score-card"><div class="score-value bad">$12K+</div><div class="score-label">Monthly Organic Value Lost</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="label">Site Assessment</div>
+      <div class="section-title">Current Website Analysis</div>
+      <p class="section-sub">sundermatology.com is built on WordPress (Divi theme) with Yoast SEO. While functional, it has significant issues.</p>
+      <ul class="issues-list">
+        <li><span class="icon">🔴</span><div class="issue-text"><strong>No Online Booking</strong><span>Patients can only submit a form with a 48-hour response promise. Competitors offer instant booking. You're losing urgent patients.</span></div></li>
+        <li><span class="icon">🔴</span><div class="issue-text"><strong>No Schema Markup</strong><span>Missing LocalBusiness and MedicalBusiness structured data. Google can't properly understand and feature your practice.</span></div></li>
+        <li><span class="icon">🔴</span><div class="issue-text"><strong>No Condition Pages</strong><span>No dedicated pages for acne, eczema, psoriasis, etc. Each condition is a keyword opportunity being missed entirely.</span></div></li>
+        <li><span class="icon">🔴</span><div class="issue-text"><strong>Stale Content</strong><span>Copyright reads "2016-2024." Blog hasn't been updated since May 2024. Google favors fresh, regularly updated content.</span></div></li>
+        <li class="warning"><span class="icon">🟠</span><div class="issue-text"><strong>Thin Service Pages</strong><span>Service pages exist but lack depth needed to rank. Homepage is ~800 words (ideal: 1,500+).</span></div></li>
+        <li class="warning"><span class="icon">🟠</span><div class="issue-text"><strong>Broken Links</strong><span>Found "hhttps://" typo in contact link on services page. Small but signals neglect to Google.</span></div></li>
+        <li class="info"><span class="icon">✅</span><div class="issue-text"><strong>SSL & Sitemap</strong><span>HTTPS enabled, Yoast sitemap present. Basic technical foundation is there.</span></div></li>
+        <li class="info"><span class="icon">✅</span><div class="issue-text"><strong>Mobile Responsive</strong><span>Divi theme provides adequate mobile experience, though loading speed likely needs work.</span></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="label">SEO Gap Analysis</div>
+      <div class="section-title">Keyword Rankings vs. Competitors</div>
+      <p class="section-sub">Every row where Sun Dermatology isn't #1 represents patients finding your competitors instead.</p>
+      <table>
+        <thead><tr><th>Keyword</th><th>Est. Mo. Searches</th><th>Sun Derm Rank</th><th>Who's Beating You</th></tr></thead>
+        <tbody>
+          <tr><td><strong>dermatologist Panama City FL</strong></td><td>720</td><td style="color:var(--orange)">#2</td><td>769skin.com (#1)</td></tr>
+          <tr><td><strong>dermatology Panama City Florida</strong></td><td>590</td><td style="color:var(--orange)">#2</td><td>769skin.com (#1)</td></tr>
+          <tr><td><strong>dermatologist near me Panama City</strong></td><td>480</td><td style="color:var(--red)">Not ranking</td><td>Healthgrades, WebMD</td></tr>
+          <tr><td><strong>best dermatologist Panama City</strong></td><td>390</td><td style="color:var(--red)">Not ranking</td><td>Healthgrades, Yelp</td></tr>
+          <tr><td><strong>cosmetic dermatology Panama City</strong></td><td>390</td><td style="color:var(--orange)">#2</td><td>aquamedicalspa.com</td></tr>
+          <tr><td><strong>skin cancer treatment Panama City</strong></td><td>320</td><td style="color:var(--orange)">#3</td><td>769skin.com (#1)</td></tr>
+          <tr><td><strong>Mohs surgery Panama City FL</strong></td><td>260</td><td style="color:var(--orange)">#2</td><td>769skin.com (#1)</td></tr>
+          <tr><td><strong>tattoo removal Panama City FL</strong></td><td>260</td><td style="color:var(--red)">Not in top 10</td><td>Med spas</td></tr>
+          <tr><td><strong>acne treatment Panama City FL</strong></td><td>210</td><td style="color:var(--orange)">#3</td><td>769skin.com (#1)</td></tr>
+        </tbody>
+      </table>
+      <div class="opp-grid">
+        <div class="opp-card"><div class="opp-number" style="color:var(--red)">0</div><div class="opp-label">#1 Keyword Rankings</div></div>
+        <div class="opp-card"><div class="opp-number" style="color:var(--green)">4,170/mo</div><div class="opp-label">Total Search Volume</div></div>
+        <div class="opp-card"><div class="opp-number">$23K+</div><div class="opp-label">Monthly Value at Stake</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="label">The GullStack Plan</div>
+      <div class="section-title">What We'd Build For Sun Dermatology</div>
+      <div class="fix-grid">
+        <div class="fix-card"><h3>🌐 New High-Performance Website</h3><p>Modern, fast-loading site with online booking, condition pages for every service, and schema markup for Google rich results.</p></div>
+        <div class="fix-card"><h3>🔍 Full SEO Overhaul</h3><p>Target all 12+ high-value keywords with dedicated landing pages, optimized meta tags, and local SEO for Panama City.</p></div>
+        <div class="fix-card"><h3>⚡ Speed & Performance</h3><p>Sub-2-second load times. Modern codebase replacing heavy WordPress/Divi. Better Core Web Vitals = higher rankings.</p></div>
+        <div class="fix-card"><h3>📅 Online Booking</h3><p>Integrated appointment scheduling so patients can book instantly — no more 48-hour form waits.</p></div>
+        <div class="fix-card"><h3>📝 Content Strategy</h3><p>Monthly blog posts, condition guides, and patient education content to build topical authority.</p></div>
+        <div class="fix-card"><h3>📊 Analytics & Tracking</h3><p>Know exactly which keywords bring patients, which pages convert, and where to double down.</p></div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>Ready to Own Panama City<br>Dermatology Search?</h2>
+      <p>Dr. Sunseri, your expertise speaks for itself. Let's make sure patients can actually find you online.</p>
+      <a href="/pitch/sun-dermatology-demo" class="cta-btn">See Your New Website Demo →</a>
+    </div>
+
+    <div class="footer">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Data sourced from SEMrush US Database.</span>
+    </div>
+  </div>
+</body>
+</html>
