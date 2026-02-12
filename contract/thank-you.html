@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Aboard | GullStack</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #09090b; --bg-elevated: #18181b; --bg-card: #1c1c1f;
+            --text: #fafafa; --text-muted: #a1a1aa;
+            --accent: #9333ea; --accent-glow: rgba(147, 51, 234, 0.15);
+            --border: rgba(255,255,255,0.08); --success: #22c55e;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .wrapper { max-width: 700px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        .success-icon {
+            width: 120px; height: 120px; margin: 0 auto 32px;
+            background: rgba(34, 197, 94, 0.1); border: 2px solid var(--success);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 3.5rem; animation: scaleIn 0.5s ease-out;
+        }
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        h1 {
+            font-family: 'Young Serif', serif; font-size: 2.8rem; font-weight: 400;
+            margin-bottom: 16px; animation: fadeUp 0.6s ease-out 0.2s both;
+        }
+        h1 span {
+            background: linear-gradient(135deg, var(--accent), #c084fc);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .subtitle {
+            font-size: 1.2rem; color: var(--text-muted); margin-bottom: 48px;
+            animation: fadeUp 0.6s ease-out 0.3s both;
+        }
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 40px; text-align: left; margin-bottom: 32px;
+            animation: fadeUp 0.6s ease-out 0.4s both;
+        }
+        .card h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 24px; }
+        .step {
+            display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start;
+        }
+        .step:last-child { margin-bottom: 0; }
+        .step-number {
+            min-width: 36px; height: 36px; background: var(--accent-glow);
+            border: 1px solid var(--accent); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 0.85rem; color: var(--accent);
+        }
+        .step-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+        .step-content p { color: var(--text-muted); font-size: 0.9rem; }
+        .contact-card {
+            background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
+            border: 1px solid var(--accent); border-radius: 16px;
+            padding: 32px; animation: fadeUp 0.6s ease-out 0.5s both;
+        }
+        .contact-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .contact-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; background: var(--accent); color: white;
+            border-radius: 8px; font-weight: 600; font-size: 1rem;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .contact-btn:hover { background: #7c22ce; transform: translateY(-2px); }
+        .footer { margin-top: 48px; color: var(--text-muted); font-size: 0.85rem; animation: fadeUp 0.6s ease-out 0.6s both; }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        /* Confetti */
+        .confetti { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; overflow: hidden; }
+        .confetti-piece {
+            position: absolute; top: -20px;
+            width: 10px; height: 10px; border-radius: 2px;
+            animation: confettiFall 3s ease-out forwards;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti" id="confetti"></div>
+    <div class="wrapper">
+        <div class="success-icon">✅</div>
+        <h1>Welcome to <span>GullStack</span></h1>
+        <p class="subtitle">Your payment has been received. We're officially partners — let's build something incredible.</p>
+
+        <div class="card">
+            <h2>🚀 What Happens Next</h2>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Kickoff Call</h3>
+                    <p>We'll reach out within 24 hours to schedule your discovery call. We'll map out your brand, goals, and timeline.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Brand & Content Gathering</h3>
+                    <p>We'll send you a simple questionnaire to collect logos, images, copy preferences, and brand direction.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Design & Build</h3>
+                    <p>Our team gets to work. You'll see progress within the first week with a preview link to review.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Launch 🎉</h3>
+                    <p>After your approval, we go live. Final payment is due at launch. Then we measure, optimize, and grow.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <p>Questions? Your project lead is ready to help.</p>
+            <a href="mailto:bryce@gullstack.com" class="contact-btn">📧 Email Bryce</a>
+        </div>
+
+        <div class="footer">
+            <p>A Stripe receipt has been sent to your email.</p>
+            <p style="margin-top: 8px;"><a href="https://gullstack.com">← Back to GullStack.com</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Confetti on load
+        const colors = ['#9333ea', '#c084fc', '#22c55e', '#6366f1', '#facc15', '#f43f5e'];
+        const container = document.getElementById('confetti');
+        for (let i = 0; i < 60; i++) {
+            const piece = document.createElement('div');
+            piece.className = 'confetti-piece';
+            piece.style.left = Math.random() * 100 + '%';
+            piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+            piece.style.animationDelay = Math.random() * 2 + 's';
+            piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+            piece.style.width = (6 + Math.random() * 8) + 'px';
+            piece.style.height = (6 + Math.random() * 8) + 'px';
+            container.appendChild(piece);
+        }
+    </script>
+</body>
+</html>
