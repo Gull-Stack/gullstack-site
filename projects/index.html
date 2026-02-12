@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Work — GullStack Projects & Case Studies</title>
-  <meta name="description" content="Real projects. Real results. See how GullStack transforms businesses with custom websites, SEO, and digital solutions.">
+  <meta name="description" content="Real projects. Real results. See how GullStack transforms businesses with custom websites, SEO, and digital solutions. From startups to enterprise.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
@@ -45,34 +45,12 @@
       border-bottom: 1px solid var(--border);
     }
     
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-    }
-    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
     nav { display: flex; gap: 32px; align-items: center; }
     nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     nav a:hover, nav a.active { color: var(--text); }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: all 0.2s;
-      background: var(--accent);
-      color: white;
-    }
-    
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; }
     .btn:hover { background: var(--accent-hover); }
     
     /* Hero */
@@ -86,7 +64,6 @@
       font-size: 3.5rem;
       font-weight: 400;
       margin-bottom: 24px;
-      letter-spacing: -0.02em;
     }
     
     .page-hero p {
@@ -106,16 +83,32 @@
       margin-bottom: 60px;
     }
     
-    @media (max-width: 600px) {
-      .stats-bar { gap: 32px; flex-wrap: wrap; }
-    }
+    @media (max-width: 600px) { .stats-bar { gap: 32px; flex-wrap: wrap; } }
     
     .stat { text-align: center; }
     .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
     .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
     
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 40px;
+      padding-top: 60px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    
     /* Projects Grid */
-    .projects-section { padding: 0 0 120px; }
+    .projects-section { padding: 0 0 60px; }
     
     .projects-grid {
       display: grid;
@@ -123,9 +116,7 @@
       gap: 40px;
     }
     
-    @media (max-width: 540px) {
-      .projects-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 540px) { .projects-grid { grid-template-columns: 1fr; } }
     
     .project-card {
       background: var(--bg-elevated);
@@ -142,7 +133,7 @@
     
     .project-image {
       position: relative;
-      height: 280px;
+      height: 260px;
       overflow: hidden;
     }
     
@@ -153,9 +144,7 @@
       transition: transform 0.5s;
     }
     
-    .project-card:hover .project-image img {
-      transform: scale(1.05);
-    }
+    .project-card:hover .project-image img { transform: scale(1.05); }
     
     .project-badge {
       position: absolute;
@@ -174,56 +163,44 @@
     .badge-live { color: #22c55e; }
     .badge-new { color: #6366f1; }
     .badge-featured { color: #f59e0b; }
+    .badge-archive { color: #a1a1aa; }
+    .badge-enterprise { color: #8b5cf6; }
     
-    .project-content {
-      padding: 32px;
-    }
+    .project-content { padding: 28px; }
     
     .project-industry {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--accent);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     
-    .project-content h2 {
+    .project-content h3 {
       font-family: var(--font-serif);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       font-weight: 400;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     
     .project-content p {
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.7;
+      font-size: 0.95rem;
     }
     
     .project-stats {
       display: flex;
-      gap: 24px;
-      padding-top: 24px;
+      gap: 20px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
     }
     
-    .project-stat {
-      text-align: left;
-    }
-    
-    .project-stat-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    
-    .project-stat-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .project-stat { text-align: left; }
+    .project-stat-value { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+    .project-stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
     
     .project-link {
       display: inline-flex;
@@ -232,11 +209,54 @@
       color: var(--accent);
       font-weight: 600;
       font-size: 0.9rem;
-      margin-top: 20px;
+      margin-top: 16px;
       transition: gap 0.2s;
     }
     
     .project-link:hover { gap: 12px; }
+    
+    /* Archive Grid - Smaller Cards */
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+    }
+    
+    @media (max-width: 400px) { .archive-grid { grid-template-columns: 1fr; } }
+    
+    .archive-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    
+    .archive-card:hover { border-color: var(--accent); }
+    
+    .archive-card .project-industry { margin-bottom: 8px; }
+    
+    .archive-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    
+    .archive-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    
+    .archive-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .archive-meta span { display: flex; align-items: center; gap: 4px; }
     
     /* CTA */
     .cta-section {
@@ -246,22 +266,9 @@
       border-top: 1px solid var(--border);
     }
     
-    .cta-section h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
-    
-    .cta-section p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 32px;
-    }
-    
-    .cta-section .btn {
-      padding: 16px 32px;
-      font-size: 1rem;
-    }
+    .cta-section h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 16px; }
+    .cta-section p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 32px; }
+    .cta-section .btn { padding: 16px 32px; font-size: 1rem; }
     
     /* Footer */
     footer {
@@ -294,14 +301,14 @@
     <section class="page-hero">
       <div class="container">
         <h1>Our Work</h1>
-        <p>Real projects. Real results. See how we help businesses transform their digital presence and grow.</p>
+        <p>Real projects. Real results. From local businesses to enterprise clients — see how we help companies transform their digital presence.</p>
       </div>
     </section>
 
     <div class="container">
       <div class="stats-bar">
         <div class="stat">
-          <div class="stat-value">15+</div>
+          <div class="stat-value">30+</div>
           <div class="stat-label">Projects Delivered</div>
         </div>
         <div class="stat">
@@ -309,14 +316,20 @@
           <div class="stat-label">Client Satisfaction</div>
         </div>
         <div class="stat">
-          <div class="stat-value">2 wks</div>
-          <div class="stat-label">Avg. Delivery</div>
+          <div class="stat-value">5+ yrs</div>
+          <div class="stat-label">Experience</div>
         </div>
       </div>
     </div>
 
+    <!-- Recent Work -->
     <section class="projects-section">
       <div class="container">
+        <div class="section-header">
+          <h2>Recent Work</h2>
+          <p>Our latest projects and case studies.</p>
+        </div>
+        
         <div class="projects-grid">
           
           <!-- Ace Rents -->
@@ -327,8 +340,8 @@
             </div>
             <div class="project-content">
               <div class="project-industry">Equipment Rental</div>
-              <h2>Ace Rents</h2>
-              <p>Complete website rebuild for Utah County's #1 equipment rental company. Transformed an outdated, broken site into a modern platform with equipment search, 4 location pages, and SEO that actually works.</p>
+              <h3>Ace Rents</h3>
+              <p>Complete website rebuild for Utah County's #1 equipment rental company. Transformed an outdated site into a modern platform with equipment search and 4 location pages.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">70 yrs</div>
@@ -340,7 +353,7 @@
                 </div>
                 <div class="project-stat">
                   <div class="project-stat-value">200+</div>
-                  <div class="project-stat-label">Equipment Items</div>
+                  <div class="project-stat-label">Equipment</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
@@ -350,20 +363,20 @@
           <!-- Nickl & Shine -->
           <a href="nickl-and-shine.html" class="project-card">
             <div class="project-image">
-              <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&h=600&fit=crop" alt="Nickl & Shine Window Cleaning">
+              <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&h=600&fit=crop" alt="Nickl & Shine">
               <span class="project-badge badge-live">● Live</span>
             </div>
             <div class="project-content">
               <div class="project-industry">Window Cleaning</div>
-              <h2>Nickl & Shine</h2>
-              <p>Premium website design that elevates a local service business into a luxury brand. Sophisticated cream palette, glowing orbs, sparkle effects, and typography that builds trust instantly.</p>
+              <h3>Nickl & Shine</h3>
+              <p>Premium website design that elevates a local service business into a luxury brand. Sophisticated design with sparkle effects and premium typography.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">Luxury</div>
-                  <div class="project-stat-label">Design Style</div>
+                  <div class="project-stat-label">Design</div>
                 </div>
                 <div class="project-stat">
-                  <div class="project-stat-value">1 week</div>
+                  <div class="project-stat-value">1 wk</div>
                   <div class="project-stat-label">Delivery</div>
                 </div>
               </div>
@@ -379,12 +392,12 @@
             </div>
             <div class="project-content">
               <div class="project-industry">Events / Festival</div>
-              <h2>Firefly Fam Fest</h2>
-              <p>Vibrant event website for Utah's newest family festival. Animated design with Ken Burns effects, Luma registration integration, and video sections that capture festival energy.</p>
+              <h3>Firefly Fam Fest</h3>
+              <p>Vibrant event website for Utah's newest family festival. Animated design with Ken Burns effects and Luma registration integration.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">5,000+</div>
-                  <div class="project-stat-label">Expected Attendees</div>
+                  <div class="project-stat-label">Expected</div>
                 </div>
                 <div class="project-stat">
                   <div class="project-stat-value">5 days</div>
@@ -395,7 +408,7 @@
             </div>
           </a>
 
-          <!-- Canyon Crown Tree Co -->
+          <!-- Canyon Crown Tree -->
           <a href="canyon-crown-tree.html" class="project-card">
             <div class="project-image">
               <img src="https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&h=600&fit=crop" alt="Canyon Crown Tree Co">
@@ -403,8 +416,8 @@
             </div>
             <div class="project-content">
               <div class="project-industry">Tree Service</div>
-              <h2>Canyon Crown Tree Co</h2>
-              <p>Comprehensive SEO overhaul for Salt Lake City's trusted arborist. Created 10 city landing pages, blog content, and fixed critical indexing issues to dominate local search.</p>
+              <h3>Canyon Crown Tree Co</h3>
+              <p>Comprehensive SEO overhaul for Salt Lake City's trusted arborist. Created 10 city landing pages and fixed critical indexing issues.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">10</div>
@@ -414,16 +427,12 @@
                   <div class="project-stat-value">27</div>
                   <div class="project-stat-label">Total URLs</div>
                 </div>
-                <div class="project-stat">
-                  <div class="project-stat-value">1 day</div>
-                  <div class="project-stat-label">SEO Build</div>
-                </div>
               </div>
               <span class="project-link">View Case Study →</span>
             </div>
           </a>
 
-          <!-- Falling Waters Day Spa -->
+          <!-- Falling Waters -->
           <a href="falling-waters-spa.html" class="project-card">
             <div class="project-image">
               <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop" alt="Falling Waters Day Spa">
@@ -431,20 +440,16 @@
             </div>
             <div class="project-content">
               <div class="project-industry">Day Spa</div>
-              <h2>Falling Waters Day Spa</h2>
-              <p>Complete website redesign for Draper's premier day spa. Transformed a dated Wix site into a luxury digital experience with video backgrounds, real reviews, and compelling CTAs.</p>
+              <h3>Falling Waters Day Spa</h3>
+              <p>Complete website redesign for Draper's premier day spa. Luxury digital experience with video backgrounds and real reviews.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">4.4★</div>
-                  <div class="project-stat-label">Google Rating</div>
+                  <div class="project-stat-label">Google</div>
                 </div>
                 <div class="project-stat">
                   <div class="project-stat-value">136+</div>
                   <div class="project-stat-label">Reviews</div>
-                </div>
-                <div class="project-stat">
-                  <div class="project-stat-value">2 weeks</div>
-                  <div class="project-stat-label">Delivery</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
@@ -458,9 +463,9 @@
               <span class="project-badge badge-live">● Live</span>
             </div>
             <div class="project-content">
-              <div class="project-industry">Mental Health / Therapy</div>
-              <h2>Agile Counseling</h2>
-              <p>SEO expansion for a Sandy, Utah therapist. Grew from 4 pages to 16 with city landing pages, service pages, and blog content to capture local mental health searches.</p>
+              <div class="project-industry">Mental Health</div>
+              <h3>Agile Counseling</h3>
+              <p>SEO expansion for a Sandy, Utah therapist. Grew from 4 pages to 16 with city landing pages and service pages.</p>
               <div class="project-stats">
                 <div class="project-stat">
                   <div class="project-stat-value">4→16</div>
@@ -470,15 +475,252 @@
                   <div class="project-stat-value">4</div>
                   <div class="project-stat-label">City Pages</div>
                 </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Archive Section -->
+    <section class="projects-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>📁 Archive</h2>
+          <p>Earlier projects from our portfolio. Proof we've been at this a while.</p>
+        </div>
+        
+        <div class="projects-grid">
+          
+          <!-- The Culture Works -->
+          <a href="the-culture-works.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="The Culture Works">
+              <span class="project-badge badge-enterprise">🏢 Enterprise</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Employee Engagement</div>
+              <h3>The Culture Works</h3>
+              <p>Website redesign and eCommerce overhaul for an enterprise employee engagement company. Massive results that speak for themselves.</p>
+              <div class="project-stats">
                 <div class="project-stat">
-                  <div class="project-stat-value">5</div>
-                  <div class="project-stat-label">Service Pages</div>
+                  <div class="project-stat-value">368%</div>
+                  <div class="project-stat-label">Sales Increase</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">253%</div>
+                  <div class="project-stat-label">Traffic Increase</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">#1</div>
+                  <div class="project-stat-label">Ranking</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
             </div>
           </a>
 
+          <!-- MaritzCX -->
+          <a href="maritzcx.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="MaritzCX">
+              <span class="project-badge badge-enterprise">🏢 Enterprise</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Enterprise SaaS / CX</div>
+              <h3>MaritzCX</h3>
+              <p>Marketing collateral and digital assets for a global enterprise customer experience platform. Fortune 500 clients. Serious brand standards.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">Global</div>
+                  <div class="project-stat-label">Scale</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">F500</div>
+                  <div class="project-stat-label">Clients</div>
+                </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- The Ranches Golf Club -->
+          <a href="ranches-golf-club.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=600&fit=crop" alt="The Ranches Golf Club">
+              <span class="project-badge badge-archive">📁 2017</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Golf / Recreation</div>
+              <h3>The Ranches Golf Club</h3>
+              <p>Website redesign and eCommerce implementation for Eagle Mountain's premier golf course. Mobile-first for a 55% mobile audience.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">55%</div>
+                  <div class="project-stat-label">Mobile</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">eComm</div>
+                  <div class="project-stat-label">Integration</div>
+                </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- Choice Mortgage -->
+          <a href="choice-mortgage.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop" alt="Choice Mortgage Bank">
+              <span class="project-badge badge-archive">📁 2017</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Financial Services</div>
+              <h3>Choice Mortgage Bank</h3>
+              <p>Professional website for a mortgage lender. Trust-building design for one of the biggest financial decisions people make.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">Trust</div>
+                  <div class="project-stat-label">Focus</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">Finance</div>
+                  <div class="project-stat-label">Industry</div>
+                </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Smaller Archive Cards -->
+        <div style="margin-top: 48px;">
+          <div class="archive-grid">
+            
+            <a href="orchard-hills-dentistry.html" class="archive-card">
+              <div class="project-industry">Dental / Healthcare</div>
+              <h3>Orchard Hills Dentistry</h3>
+              <p>Website and local SEO for a family dental practice.</p>
+              <div class="archive-meta">
+                <span>🦷 Dental</span>
+                <span>📅 2017</span>
+              </div>
+            </a>
+
+            <div class="archive-card">
+              <div class="project-industry">HVAC</div>
+              <h3>4 Seasons Techs</h3>
+              <p>Website design for an HVAC service company.</p>
+              <div class="archive-meta">
+                <span>🔧 Service</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Healthcare / Chiropractic</div>
+              <h3>Dr. Les Pachter, D.C.</h3>
+              <p>Professional website for a chiropractor practice.</p>
+              <div class="archive-meta">
+                <span>💆 Healthcare</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Home Services</div>
+              <h3>Florida Cabinet Refacing</h3>
+              <p>Lead generation website for cabinet refacing services.</p>
+              <div class="archive-meta">
+                <span>🏠 Home</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Restaurant</div>
+              <h3>Seaside Grill</h3>
+              <p>Website design for a coastal restaurant.</p>
+              <div class="archive-meta">
+                <span>🍽️ Food</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Moving Services</div>
+              <h3>Meehan's Family Moving</h3>
+              <p>Website and local SEO for a family moving company.</p>
+              <div class="archive-meta">
+                <span>📦 Service</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Window Cleaning</div>
+              <h3>Diamond Professional</h3>
+              <p>Website for a professional window cleaning service.</p>
+              <div class="archive-meta">
+                <span>✨ Service</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Bookkeeping</div>
+              <h3>Boca Bookkeeping</h3>
+              <p>Professional website for bookkeeping services.</p>
+              <div class="archive-meta">
+                <span>📊 Finance</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">SaaS / Revenue</div>
+              <h3>RevenueHub</h3>
+              <p>Marketing materials for a revenue platform.</p>
+              <div class="archive-meta">
+                <span>💰 SaaS</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Legal</div>
+              <h3>Superstein & Superstein</h3>
+              <p>Website for a law firm.</p>
+              <div class="archive-meta">
+                <span>⚖️ Legal</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Dental</div>
+              <h3>Higgs Family Dental</h3>
+              <p>Website for a family dental practice.</p>
+              <div class="archive-meta">
+                <span>🦷 Dental</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+            <div class="archive-card">
+              <div class="project-industry">Dental</div>
+              <h3>Kettle Falls Family Dentistry</h3>
+              <p>Website for a family dental practice.</p>
+              <div class="archive-meta">
+                <span>🦷 Dental</span>
+                <span>📅 2017</span>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
