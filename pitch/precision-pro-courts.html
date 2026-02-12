@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Pro Courts × GullStack | Marketing Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #7c3aed;
+      --accent-hover: #a78bfa;
+      --green: #22c55e;
+      --red: #ef4444;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(ellipse at top, rgba(249,115,22,0.12) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓';
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    .hero-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .hero-logos img {
+      height: 50px;
+    }
+
+    .hero-logos span.divider {
+      font-size: 2rem;
+      opacity: 0.3;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--accent) 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(249,115,22,0.15);
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    /* Before/After */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+
+    .compare-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .compare-card .label {
+      padding: 16px 24px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .compare-card.before .label {
+      background: rgba(239,68,68,0.1);
+      color: var(--red);
+    }
+
+    .compare-card.after .label {
+      background: rgba(34,197,94,0.1);
+      color: var(--green);
+    }
+
+    .compare-card .screenshot {
+      width: 100%;
+      height: 350px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .compare-card .screenshot iframe {
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+
+    .compare-card .issues {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .compare-card .issues li {
+      list-style: none;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .compare-card .issues li::before {
+      content: '✕';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    .compare-card.after .issues li::before {
+      content: '✓';
+      color: var(--green);
+    }
+
+    /* Keyword Table */
+    .keyword-table-wrap {
+      overflow-x: auto;
+      margin-top: 32px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .keyword-table th {
+      text-align: left;
+      padding: 16px 20px;
+      background: var(--bg-elevated);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .keyword-table td {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .keyword-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    .vol-bar {
+      display: inline-block;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--accent);
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .rank-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .rank-badge.none {
+      background: rgba(239,68,68,0.15);
+      color: var(--red);
+    }
+
+    .rank-badge.opportunity {
+      background: rgba(234,179,8,0.15);
+      color: #a78bfa;
+    }
+
+    .total-row td {
+      font-weight: 700;
+      background: rgba(249,115,22,0.05) !important;
+      border-top: 2px solid var(--accent);
+    }
+
+    /* What's Included */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(249,115,22,0.3);
+    }
+
+    .feature-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Pricing */
+    .pricing-section {
+      text-align: center;
+      background: radial-gradient(ellipse at center, rgba(249,115,22,0.08) 0%, transparent 60%);
+    }
+
+    .pricing-card {
+      max-width: 560px;
+      margin: 48px auto 0;
+      background: var(--bg-card);
+      border: 2px solid var(--accent);
+      border-radius: 24px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #a78bfa);
+    }
+
+    .early-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      color: #000;
+      padding: 6px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      margin-bottom: 32px;
+    }
+
+    .pricing-card .old-price {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .price {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .price sup {
+      font-size: 2rem;
+      vertical-align: super;
+    }
+
+    .pricing-card .price-note {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .savings-bar {
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .savings-bar .save-amount {
+      font-weight: 800;
+      color: var(--green);
+      font-size: 1.3rem;
+    }
+
+    .savings-bar .save-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .pricing-features {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      list-style: none;
+      padding: 10px 0;
+      padding-left: 28px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      color: #000;
+      padding: 18px 48px;
+      border-radius: 12px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(249,115,22,0.3);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 60px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer .gullstack-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+
+    .footer .gullstack-mark img {
+      height: 32px;
+    }
+
+    .footer .gullstack-mark span {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    /* Competitor callout */
+    .competitor-note {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 32px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .competitor-note strong {
+      color: var(--text);
+    }
+
+    /* Prepared for */
+    .prepared-for {
+      margin-top: 40px;
+      padding: 20px 28px;
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .prepared-for .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .prepared-for .name {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .prepared-for .company {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .pricing-card { padding: 32px 24px; }
+      .pricing-card .price { font-size: 3.5rem; }
+      .hero-logos { flex-wrap: wrap; gap: 16px; }
+      .hero-logos img { height: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logos">
+        <img src="https://precisionprocourts.com/wp-content/uploads/2025/01/precision-pro-courts_dark_500.png" alt="Precision Pro Courts">
+        <span class="divider">×</span>
+        <img src="assets/gull-pixel.png" alt="GullStack" style="height:45px;">
+      </div>
+      <div class="badge">Exclusive Early-Adopter Proposal</div>
+      <h1>Dominate Utah's<br><span class="gradient">Court Construction</span><br>Search Results</h1>
+      <p>A custom marketing partnership designed to put Precision Pro Courts in front of every homeowner in Utah searching for court builders.</p>
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Sam Roberts</div>
+        <div class="company">Precision Pro Courts</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Opportunity</div>
+        <div class="section-title">Your competitors are showing up.<br>You should be too.</div>
+        <p class="section-sub">Right now, Utah homeowners are actively searching for court builders — pickleball, tennis, basketball. There are <strong style="color:#fff;">310+ monthly searches</strong> for court construction keywords in Utah alone. The companies ranking for these terms are getting the calls.</p>
+
+        <div class="competitor-note">
+          <strong>Who's ranking right now?</strong> Companies like Courts Unlimited, Premium Surface Solutions, Ace Coatings, Parkin Tennis Courts, and Courts Utah are capturing this traffic. With a purpose-built website and SEO strategy, Precision Pro Courts can compete — and win — in these local searches across <strong>Utah County, Salt Lake County, Davis County, Weber County, Juab County, and Washington County</strong>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keyword Research -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Competitive Analysis</div>
+        <div class="section-title">Where You Stand vs. The Competition</div>
+        <p class="section-sub">Real data from SEMrush. Here's how Precision Pro Courts stacks up against competitors in organic search.</p>
+
+        <div class="keyword-table-wrap">
+          <table class="keyword-table">
+            <thead>
+              <tr>
+                <th style="text-align:left;">Competitor</th>
+                <th>Organic Keywords</th>
+                <th>Monthly Traffic</th>
+                <th>Organic Value ($/mo)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CourtsUnlimitedUT.com</strong></td>
+                <td>1,251</td>
+                <td>4,043</td>
+                <td style="color:#22c55e; font-weight:700;">$6,059</td>
+              </tr>
+              <tr>
+                <td><strong>PinnacleSportsGroup.com</strong></td>
+                <td>390</td>
+                <td>531</td>
+                <td style="color:#22c55e; font-weight:700;">$1,773</td>
+              </tr>
+              <tr>
+                <td><strong>PrecisePickleballCourts.com</strong></td>
+                <td>262</td>
+                <td>245</td>
+                <td style="color:#22c55e; font-weight:700;">$975</td>
+              </tr>
+              <tr>
+                <td><strong>UtahCourtSurfacing.com</strong></td>
+                <td>330</td>
+                <td>390</td>
+                <td style="color:#22c55e; font-weight:700;">$851</td>
+              </tr>
+              <tr>
+                <td><strong>PremiumSurfaceSolutions.com</strong></td>
+                <td>696</td>
+                <td>249</td>
+                <td style="color:#22c55e; font-weight:700;">$154</td>
+              </tr>
+              <tr>
+                <td><strong>AceCoatingsUtah.com</strong></td>
+                <td>10</td>
+                <td>22</td>
+                <td style="color:#22c55e; font-weight:700;">$80</td>
+              </tr>
+              <tr>
+                <td><strong>ParkinTennis.com</strong></td>
+                <td>120</td>
+                <td>202</td>
+                <td style="color:#22c55e; font-weight:700;">$316</td>
+              </tr>
+              <tr style="background: rgba(124,58,237,0.1); border-left:3px solid var(--accent);">
+                <td><strong>⚠️ PrecisionProCourts.com</strong></td>
+                <td>74</td>
+                <td>237</td>
+                <td style="color:#ef4444; font-weight:700;">$1,269</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-top:2rem;">
+          <div style="background:var(--bg-elevated); border-radius:12px; padding:1.5rem; text-align:center; border:1px solid rgba(124,58,237,0.2);">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:0.5rem;">Your Current Traffic Value</div>
+            <div style="font-size:2rem; font-weight:800; color:#ef4444;">$1,269/mo</div>
+          </div>
+          <div style="background:var(--bg-elevated); border-radius:12px; padding:1.5rem; text-align:center; border:1px solid rgba(124,58,237,0.2);">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:0.5rem;">Industry Leader Value</div>
+            <div style="font-size:2rem; font-weight:800; color:#22c55e;">$6,059/mo</div>
+          </div>
+          <div style="background:var(--bg-elevated); border-radius:12px; padding:1.5rem; text-align:center; border:1px solid rgba(124,58,237,0.2);">
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:0.5rem;">Your Growth Opportunity</div>
+            <div style="font-size:2rem; font-weight:800; color:var(--accent);">5x 🚀</div>
+          </div>
+        </div>
+
+        <p style="color:var(--text-muted); font-size:0.85rem; margin-top:16px; text-align:center;">Source: SEMrush US Database — February 2026 &nbsp;|&nbsp; Organic Value = estimated cost to buy equivalent traffic via Google Ads</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Your New Website</div>
+        <div class="section-title">Built to Rank. Designed to Convert.</div>
+        <p class="section-sub">We've already built your new site. Faster, modern, SEO-optimized, and designed to turn visitors into leads.</p>
+
+        <div class="compare-grid">
+          <div class="compare-card before">
+            <div class="label">⚠ Current Site — precisionprocourts.com</div>
+            <div class="screenshot">
+              <iframe src="https://precisionprocourts.com" loading="lazy" sandbox></iframe>
+            </div>
+            <ul class="issues">
+              <li>WordPress template — slow page speed</li>
+              <li>Not optimized for local SEO keywords</li>
+              <li>No dedicated service landing pages</li>
+              <li>Missing structured data & meta optimization</li>
+              <li>No court designer or quote tools</li>
+            </ul>
+          </div>
+
+          <div class="compare-card after">
+            <div class="label">✦ New Site — Ready to be Customized</div>
+            <div class="screenshot">
+              <iframe src="https://gull-stack.github.io/precision-pro-courts-demo/" loading="lazy" sandbox></iframe>
+            </div>
+            <ul class="issues">
+              <li>Lightning-fast static site — better Core Web Vitals</li>
+              <li>SEO-focused content for every target keyword</li>
+              <li>Dedicated pages for pickleball, tennis, basketball</li>
+              <li>Interactive court designer & quote builder</li>
+              <li>Mobile-first, professional design</li>
+            </ul>
+          </div>
+        </div>
+
+        <p style="text-align:center; margin-top:24px;">
+          <a href="https://gull-stack.github.io/precision-pro-courts-demo/" target="_blank" style="color:var(--accent); font-weight:600; text-decoration:underline;">🔗 Preview the full demo site →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">What's Included</div>
+        <div class="section-title">The Hard Court Marketing Package</div>
+        <p class="section-sub">Everything you need to dominate local search and convert more leads — managed for you.</p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon">🌐</div>
+            <h3>Brand New SEO Website</h3>
+            <p>Custom-built site with keyword-targeted landing pages, blazing speed, and a design that builds trust instantly. All hosting and edits included — forever.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">📈</div>
+            <h3>Biweekly SEO Checkups</h3>
+            <p>We optimize your Google Business Profile, publish strategic blog content, and monitor your rankings every two weeks. Consistent growth, not guesswork.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>Interactive Court Designer</h3>
+            <p>Your customers can design their dream court right on your site — choose colors, dimensions, and sport type. A lead magnet that sets you apart from every competitor.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">🛠️</div>
+            <h3>All Website Edits & Hosting</h3>
+            <p>Need a change? We handle it. New photos, updated pricing, seasonal promotions — your site stays current without you lifting a finger.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>SuperTool Analytics Dashboard</h3>
+            <p>Full access to GullStack SuperTool — track your SEO rankings, website traffic, lead sources, and marketing performance all in one place.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">💰</div>
+            <h3>SuperTool Quote Builder</h3>
+            <p>Generate professional quotes for customers in minutes. Streamline your sales process with branded, itemized proposals they can approve on the spot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Early Adopter Pricing</div>
+        <div class="section-title">Lock In Your Rate Before Launch</div>
+        <p class="section-sub" style="margin-left:auto; margin-right:auto;">We're onboarding a small number of court construction companies before our public launch. As an early partner, you lock in a rate that won't be available later.</p>
+
+        <div class="pricing-card">
+          <div class="early-badge">🔒 72% OFF — Early Adopter Rate</div>
+
+          <div class="old-price">$250/mo <span style="font-size:0.85rem; text-decoration:none;"> — Standard Price</span></div>
+          <div class="price"><sup>$</sup>69<span style="font-size:1.5rem; font-family: Inter, sans-serif; font-weight:400; color:var(--text-muted);">/mo</span></div>
+          <div class="price-note">Locked in. No contracts. Cancel anytime.</div>
+
+          <div class="savings-bar">
+            <span class="save-amount">Save $181/mo</span>
+            <span class="save-label">— that's $2,172/year you keep</span>
+          </div>
+
+          <ul class="pricing-features">
+            <li>Brand new SEO-optimized website</li>
+            <li>Interactive court designer tool</li>
+            <li>Biweekly SEO checkups (GMB + Blog)</li>
+            <li>All website edits & hosting included</li>
+            <li>SuperTool analytics dashboard access</li>
+            <li>SuperTool Quote Builder</li>
+            <li>Priority support from GullStack team</li>
+          </ul>
+
+          <a href="https://buy.stripe.com/9B628k5vq5CN3MEaR39k40a" class="cta-btn">Get Started — $69/mo →</a>
+
+          <p style="color:var(--text-muted); font-size:0.8rem; margin-top:16px;">Secure checkout via Stripe. Cancel anytime — no lock-in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="gullstack-mark">
+      <img src="assets/gull-pixel.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <p>Prepared exclusively for Precision Pro Courts &nbsp;·&nbsp; February 2026</p>
+    <p style="margin-top:8px; font-size:0.8rem;">Questions? Reach out anytime.</p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
