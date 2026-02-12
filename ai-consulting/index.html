@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Corporate Consulting | Enterprise AI Solutions | GullStack</title>
+  <meta name="description" content="Enterprise AI consulting in Utah. GullStack delivers AI corporate consulting, AI business consulting in Salt Lake City, AI implementation services, and enterprise AI solutions. From strategy to deployment.">
+  <meta property="og:title" content="AI Corporate Consulting | Enterprise AI Solutions | GullStack">
+  <meta property="og:description" content="Enterprise AI consulting — strategy, custom agents, workflow automation, and corporate training. GullStack builds AI that works for your business.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gullstack.com/ai-consulting">
+  <link rel="canonical" href="https://gullstack.com/ai-consulting">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "GullStack Trust",
+        "url": "https://gullstack.com",
+        "logo": "https://gullstack.com/gull-logo.png",
+        "email": "hello@gullstack.com",
+        "sameAs": []
+      },
+      {
+        "@type": "Service",
+        "name": "AI Corporate Consulting",
+        "provider": {
+          "@type": "Organization",
+          "name": "GullStack Trust"
+        },
+        "description": "Enterprise AI consulting services including AI strategy, custom AI agent deployment, workflow automation, AI-powered customer engagement, corporate AI training, and AI security & compliance.",
+        "areaServed": {
+          "@type": "Place",
+          "name": "United States"
+        },
+        "serviceType": "AI Consulting"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How long does a typical AI consulting engagement take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most engagements begin with a 2-4 week discovery and audit phase. From there, strategy and implementation timelines vary — a focused automation project may take 6-8 weeks, while a full enterprise AI transformation typically runs 3-6 months."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do we need a large dataset to get started with AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not necessarily. Many AI solutions — especially AI agents and workflow automation — can deliver value with your existing business data. During the audit phase, we assess what data you have and identify the fastest path to ROI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What industries do you work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We work across industries including healthcare, retail, professional services, real estate, SaaS, and manufacturing. Our approach is adaptable — we focus on business outcomes, not industry jargon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you handle data privacy and AI compliance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every engagement includes a security and compliance review. We follow responsible AI principles, ensure data privacy by design, and help you navigate regulations relevant to your industry — from HIPAA to SOC 2 to GDPR."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the typical ROI from AI implementation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Results vary, but our clients typically see 30-60% reduction in manual task time, 20-40% improvement in customer response times, and measurable revenue uplift within the first 90 days of deployment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you integrate AI with our existing tools and systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. We specialize in integrating AI into your existing tech stack — CRMs, ERPs, marketing platforms, customer service tools, and custom software. No rip-and-replace required."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 0;
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(9,9,11,0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      margin-right: 12px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+    nav a.active { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 32px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      display: block;
+      background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 48px;
+      font-weight: 400;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* SECTIONS */
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 550px;
+    }
+
+    /* SERVICES GRID */
+    .services-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    .service-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .service-card:hover::before { opacity: 1; }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(99,102,241,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* CASE STUDIES */
+    .case-studies {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .cases-grid { grid-template-columns: 1fr; }
+    }
+
+    .case-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: scale(1.02);
+      border-color: var(--accent);
+    }
+
+    .case-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .case-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    }
+
+    .case-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .case-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* PROCESS */
+    .process-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 24px 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .process-step:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .process-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(99,102,241,0.15);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+    .process-step h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ROI STATS */
+    .stats-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list {
+      max-width: 800px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .faq-q {
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-q::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-q::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-top: 16px;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 550px;
+      margin: 0 auto 48px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 64px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .footer-logo img {
+      height: 32px;
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-copy {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+      nav { display: none; }
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="/gull-logo.png" alt="GullStack" class="logo-img">
+          GullStack
+        </a>
+        <nav>
+          <a href="/#products">Products</a>
+          <a href="/projects/">Projects</a>
+          <a href="/#services">Services</a>
+          <a href="/ai-consulting" class="active">AI Consulting</a>
+          <a href="/blog/">Blog</a>
+          <a href="mailto:hello@gullstack.com" class="btn btn-primary">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag">AI CORPORATE CONSULTING</div>
+      <h1>
+        AI That Works
+        <span>For Your Business.</span>
+      </h1>
+      <p>
+        GullStack helps companies implement AI that actually drives results — not hype decks. 
+        From strategy to deployment, we build AI systems that save time, cut costs, and scale.
+      </p>
+      <div class="hero-btns">
+        <a href="mailto:hello@gullstack.com" class="btn btn-primary btn-lg">Book a Discovery Call →</a>
+        <a href="#services" class="btn btn-outline btn-lg">See Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">What We Do</div>
+        <h2 class="section-title">Enterprise AI Services</h2>
+        <p class="section-sub">End-to-end AI consulting — from first assessment to full-scale production.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon">🎯</div>
+          <h3>AI Strategy & Implementation</h3>
+          <p>A clear roadmap from assessment to deployment. We audit your operations, identify high-impact AI opportunities, and build a phased plan to get you there.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🤖</div>
+          <h3>Custom AI Agent Deployment</h3>
+          <p>Autonomous agents for customer service, sales, and operations. Purpose-built for your workflows — not generic chatbots bolted onto your site.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">⚡</div>
+          <h3>AI Workflow Automation</h3>
+          <p>Eliminate repetitive tasks and connect your systems. We build intelligent automations that handle the work your team shouldn't be doing manually.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">💬</div>
+          <h3>AI-Powered Customer Engagement</h3>
+          <p>Smart chatbots, personalized outreach, and AI-enhanced CRM. Turn every customer interaction into a data-driven opportunity.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🎓</div>
+          <h3>Corporate AI Training & Adoption</h3>
+          <p>Upskill your teams and manage the transition. We run workshops, build internal playbooks, and ensure your people actually use the AI you invest in.</p>
+        </div>
+
+        <div class="service-card fade-in">
+          <div class="service-icon">🛡️</div>
+          <h3>AI Security & Compliance</h3>
+          <p>Responsible AI, data privacy, and governance frameworks. We make sure your AI implementation meets regulatory requirements and ethical standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="case-studies" id="work">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Results</div>
+        <h2 class="section-title">AI in Action</h2>
+        <p class="section-sub">Real implementations. Measurable outcomes.</p>
+      </div>
+
+      <div class="cases-grid">
+        <div class="case-card fade-in">
+          <div class="case-placeholder">Case study coming soon</div>
+          <div class="case-overlay">
+            <h3>AI Sales Agent Deployment</h3>
+            <p>65% of inbound leads handled autonomously</p>
+          </div>
+        </div>
+
+        <div class="case-card fade-in">
+          <div class="case-placeholder">Case study coming soon</div>
+          <div class="case-overlay">
+            <h3>Operations Workflow Automation</h3>
+            <p>40+ hours/week reclaimed from manual processes</p>
+          </div>
+        </div>
+
+        <div class="case-card fade-in">
+          <div class="case-placeholder">Case study coming soon</div>
+          <div class="case-overlay">
+            <h3>AI Customer Support Integration</h3>
+            <p>Response time reduced from 4 hours to 3 minutes</p>
+          </div>
+        </div>
+
+        <div class="case-card fade-in">
+          <div class="case-placeholder">Case study coming soon</div>
+          <div class="case-overlay">
+            <h3>Corporate AI Training Program</h3>
+            <p>200+ employees onboarded in 6 weeks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">Our Process</div>
+        <h2 class="section-title">From Discovery to Scale</h2>
+        <p class="section-sub">A proven six-phase approach to AI implementation.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step fade-in">
+          <div class="process-num">01</div>
+          <h4>Discovery</h4>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">02</div>
+          <h4>Audit</h4>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">03</div>
+          <h4>Strategy</h4>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">04</div>
+          <h4>Build</h4>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">05</div>
+          <h4>Deploy</h4>
+        </div>
+        <div class="process-step fade-in">
+          <div class="process-num">06</div>
+          <h4>Optimize</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI Stats -->
+  <section class="stats-section" id="roi">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">The Impact</div>
+        <h2 class="section-title">AI That Pays for Itself</h2>
+        <p class="section-sub">Average results across our AI consulting engagements.</p>
+      </div>
+
+      <div class="stats-grid fade-in">
+        <div class="stat-item">
+          <div class="stat-num">42%</div>
+          <div class="stat-label">Reduction in operational costs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3.5×</div>
+          <div class="stat-label">Faster customer response times</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">60%</div>
+          <div class="stat-label">Less time on repetitive tasks</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">90 days</div>
+          <div class="stat-label">Average time to measurable ROI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <div class="faq-q">How long does a typical AI consulting engagement take?</div>
+          <div class="faq-a">Most engagements begin with a 2–4 week discovery and audit phase. From there, strategy and implementation timelines vary — a focused automation project may take 6–8 weeks, while a full enterprise AI transformation typically runs 3–6 months.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do we need a large dataset to get started with AI?</div>
+          <div class="faq-a">Not necessarily. Many AI solutions — especially AI agents and workflow automation — can deliver value with your existing business data. During the audit phase, we assess what data you have and identify the fastest path to ROI.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What industries do you work with?</div>
+          <div class="faq-a">We work across industries including healthcare, retail, professional services, real estate, SaaS, and manufacturing. Our approach is adaptable — we focus on business outcomes, not industry jargon.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do you handle data privacy and AI compliance?</div>
+          <div class="faq-a">Every engagement includes a security and compliance review. We follow responsible AI principles, ensure data privacy by design, and help you navigate regulations relevant to your industry — from HIPAA to SOC 2 to GDPR.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's the typical ROI from AI implementation?</div>
+          <div class="faq-a">Results vary, but our clients typically see 30–60% reduction in manual task time, 20–40% improvement in customer response times, and measurable revenue uplift within the first 90 days of deployment.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can you integrate AI with our existing tools and systems?</div>
+          <div class="faq-a">Absolutely. We specialize in integrating AI into your existing tech stack — CRMs, ERPs, marketing platforms, customer service tools, and custom software. No rip-and-replace required.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="container fade-in">
+      <div class="section-tag">Ready to Start?</div>
+      <h2>Let's Build Your AI Advantage</h2>
+      <p>Book a free discovery call. We'll assess your operations, identify the highest-impact AI opportunities, and give you a clear plan — no obligations.</p>
+      <a href="mailto:hello@gullstack.com" class="btn btn-primary btn-lg">Get in Touch →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2026 GullStack Trust. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="mailto:hello@gullstack.com">hello@gullstack.com</a>
+          <a href="/">Home</a>
+          <a href="/#products">Products</a>
+          <a href="/#services">Services</a>
+        </div>
+        <a href="/" class="footer-logo">
+          <img src="/gull-logo.png" alt="GullStack">
+          GullStack
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
