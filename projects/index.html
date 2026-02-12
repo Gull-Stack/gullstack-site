@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Work — GullStack Projects & Case Studies</title>
-  <meta name="description" content="See how GullStack transforms businesses with custom websites and digital solutions. Case studies from real clients.">
+  <meta name="description" content="Real projects. Real results. See how GullStack transforms businesses with custom websites, SEO, and digital solutions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
@@ -96,16 +96,34 @@
       margin: 0 auto;
     }
     
-    /* Projects Grid */
-    .projects-section { padding: 60px 0 120px; }
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 40px;
+    /* Stats */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 60px;
     }
     
     @media (max-width: 600px) {
+      .stats-bar { gap: 32px; flex-wrap: wrap; }
+    }
+    
+    .stat { text-align: center; }
+    .stat-value { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    
+    /* Projects Grid */
+    .projects-section { padding: 0 0 120px; }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 40px;
+    }
+    
+    @media (max-width: 540px) {
       .projects-grid { grid-template-columns: 1fr; }
     }
     
@@ -155,6 +173,7 @@
     
     .badge-live { color: #22c55e; }
     .badge-new { color: #6366f1; }
+    .badge-featured { color: #f59e0b; }
     
     .project-content {
       padding: 32px;
@@ -189,17 +208,17 @@
       border-top: 1px solid var(--border);
     }
     
-    .stat {
+    .project-stat {
       text-align: left;
     }
     
-    .stat-value {
+    .project-stat-value {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--text);
     }
     
-    .stat-label {
+    .project-stat-label {
       font-size: 0.75rem;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -218,6 +237,31 @@
     }
     
     .project-link:hover { gap: 12px; }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.05) 100%);
+      border-top: 1px solid var(--border);
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .cta-section .btn {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
     
     /* Footer */
     footer {
@@ -254,32 +298,97 @@
       </div>
     </section>
 
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-value">15+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2 wks</div>
+          <div class="stat-label">Avg. Delivery</div>
+        </div>
+      </div>
+    </div>
+
     <section class="projects-section">
       <div class="container">
         <div class="projects-grid">
           
-          <!-- Falling Waters Day Spa -->
-          <a href="falling-waters-spa.html" class="project-card">
+          <!-- Ace Rents -->
+          <a href="ace-rents.html" class="project-card">
             <div class="project-image">
-              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop" alt="Falling Waters Day Spa">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop" alt="Ace Rents Equipment">
+              <span class="project-badge badge-featured">★ Featured</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Equipment Rental</div>
+              <h2>Ace Rents</h2>
+              <p>Complete website rebuild for Utah County's #1 equipment rental company. Transformed an outdated, broken site into a modern platform with equipment search, 4 location pages, and SEO that actually works.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">70 yrs</div>
+                  <div class="project-stat-label">In Business</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">4</div>
+                  <div class="project-stat-label">Locations</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">200+</div>
+                  <div class="project-stat-label">Equipment Items</div>
+                </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- Nickl & Shine -->
+          <a href="nickl-and-shine.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&h=600&fit=crop" alt="Nickl & Shine Window Cleaning">
               <span class="project-badge badge-live">● Live</span>
             </div>
             <div class="project-content">
-              <div class="project-industry">Day Spa</div>
-              <h2>Falling Waters Day Spa</h2>
-              <p>Complete website redesign for Draper's premier day spa. Transformed a dated Wix site into a luxury digital experience with video backgrounds, real reviews, and compelling CTAs.</p>
+              <div class="project-industry">Window Cleaning</div>
+              <h2>Nickl & Shine</h2>
+              <p>Premium website design that elevates a local service business into a luxury brand. Sophisticated cream palette, glowing orbs, sparkle effects, and typography that builds trust instantly.</p>
               <div class="project-stats">
-                <div class="stat">
-                  <div class="stat-value">4.4★</div>
-                  <div class="stat-label">Google Rating</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">Luxury</div>
+                  <div class="project-stat-label">Design Style</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">136+</div>
-                  <div class="stat-label">Reviews</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">1 week</div>
+                  <div class="project-stat-label">Delivery</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">2 weeks</div>
-                  <div class="stat-label">Delivery</div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- Firefly Fam Fest -->
+          <a href="firefly-fam-fest.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=800&h=600&fit=crop" alt="Firefly Fam Fest">
+              <span class="project-badge badge-new">● New</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Events / Festival</div>
+              <h2>Firefly Fam Fest</h2>
+              <p>Vibrant event website for Utah's newest family festival. Animated design with Ken Burns effects, Luma registration integration, and video sections that capture festival energy.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">5,000+</div>
+                  <div class="project-stat-label">Expected Attendees</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">5 days</div>
+                  <div class="project-stat-label">Delivery</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
@@ -297,17 +406,45 @@
               <h2>Canyon Crown Tree Co</h2>
               <p>Comprehensive SEO overhaul for Salt Lake City's trusted arborist. Created 10 city landing pages, blog content, and fixed critical indexing issues to dominate local search.</p>
               <div class="project-stats">
-                <div class="stat">
-                  <div class="stat-value">10</div>
-                  <div class="stat-label">City Pages</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">10</div>
+                  <div class="project-stat-label">City Pages</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">27</div>
-                  <div class="stat-label">Total URLs</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">27</div>
+                  <div class="project-stat-label">Total URLs</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">1 day</div>
-                  <div class="stat-label">SEO Build</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">1 day</div>
+                  <div class="project-stat-label">SEO Build</div>
+                </div>
+              </div>
+              <span class="project-link">View Case Study →</span>
+            </div>
+          </a>
+
+          <!-- Falling Waters Day Spa -->
+          <a href="falling-waters-spa.html" class="project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=600&fit=crop" alt="Falling Waters Day Spa">
+              <span class="project-badge badge-live">● Live</span>
+            </div>
+            <div class="project-content">
+              <div class="project-industry">Day Spa</div>
+              <h2>Falling Waters Day Spa</h2>
+              <p>Complete website redesign for Draper's premier day spa. Transformed a dated Wix site into a luxury digital experience with video backgrounds, real reviews, and compelling CTAs.</p>
+              <div class="project-stats">
+                <div class="project-stat">
+                  <div class="project-stat-value">4.4★</div>
+                  <div class="project-stat-label">Google Rating</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">136+</div>
+                  <div class="project-stat-label">Reviews</div>
+                </div>
+                <div class="project-stat">
+                  <div class="project-stat-value">2 weeks</div>
+                  <div class="project-stat-label">Delivery</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
@@ -318,24 +455,24 @@
           <a href="agile-counseling.html" class="project-card">
             <div class="project-image">
               <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop" alt="Agile Counseling">
-              <span class="project-badge badge-new">● New</span>
+              <span class="project-badge badge-live">● Live</span>
             </div>
             <div class="project-content">
               <div class="project-industry">Mental Health / Therapy</div>
               <h2>Agile Counseling</h2>
               <p>SEO expansion for a Sandy, Utah therapist. Grew from 4 pages to 16 with city landing pages, service pages, and blog content to capture local mental health searches.</p>
               <div class="project-stats">
-                <div class="stat">
-                  <div class="stat-value">4→16</div>
-                  <div class="stat-label">Pages</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">4→16</div>
+                  <div class="project-stat-label">Pages</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">4</div>
-                  <div class="stat-label">City Pages</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">4</div>
+                  <div class="project-stat-label">City Pages</div>
                 </div>
-                <div class="stat">
-                  <div class="stat-value">5</div>
-                  <div class="stat-label">Service Pages</div>
+                <div class="project-stat">
+                  <div class="project-stat-value">5</div>
+                  <div class="project-stat-label">Service Pages</div>
                 </div>
               </div>
               <span class="project-link">View Case Study →</span>
@@ -343,6 +480,14 @@
           </a>
 
         </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Be Next?</h2>
+        <p>If your website isn't working for you, let's change that.</p>
+        <a href="mailto:contact@gullstack.com" class="btn">Start a Conversation →</a>
       </div>
     </section>
   </main>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firefly Fam Fest — Case Study | GullStack</title>
+  <meta name="description" content="Event website for Firefly Fam Fest, a family festival in Eagle Mountain, Utah. Vibrant design with Luma registration integration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --amber: #f59e0b;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    
+    .case-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+    }
+    
+    .case-hero .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .case-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--pink) 50%, var(--amber) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .case-hero .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item { text-align: center; }
+    .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .meta-value { font-size: 1.1rem; font-weight: 600; }
+    .meta-value a { color: var(--cyan); }
+    
+    .live-preview {
+      margin: 60px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+    }
+    
+    .preview-header {
+      background: var(--bg-elevated);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .preview-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .preview-dot.red { background: #ef4444; }
+    .preview-dot.yellow { background: #eab308; }
+    .preview-dot.green { background: #22c55e; }
+    .preview-url { flex: 1; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+    
+    .live-preview iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      background: white;
+    }
+    
+    .section { padding: 80px 0; }
+    .section-header { margin-bottom: 48px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 2.25rem; font-weight: 400; margin-bottom: 16px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+    
+    .event-details {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 60px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .event-details { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .detail-card {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    
+    .detail-icon { font-size: 2rem; margin-bottom: 12px; }
+    .detail-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px; }
+    .detail-value { font-size: 1.1rem; font-weight: 600; }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+    
+    .feature-item {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+    
+    .feature-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .feature-item p { color: var(--text-muted); font-size: 0.9rem; }
+    
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.05) 100%);
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .cta-section .btn {
+      padding: 16px 32px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--pink) 100%);
+    }
+    
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    footer p { color: var(--text-muted); font-size: 0.9rem; }
+    footer a { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container-wide">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">GullStack</a>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="index.html">Projects</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Projects</a> / Firefly Fam Fest
+        </div>
+        <h1>Firefly Fam Fest</h1>
+        <p class="lead">Vibrant event website for Utah's newest family festival. Animated design, Luma registration, and a vibe that matches the energy of 5,000+ expected attendees.</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-label">Industry</div>
+            <div class="meta-value">Events / Festival</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">5 Days</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Website</div>
+            <div class="meta-value"><a href="https://firefly-fam-fest.vercel.app" target="_blank">View Live →</a></div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Event Date</div>
+            <div class="meta-value">May 9, 2026</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-wide">
+        <div class="live-preview">
+          <div class="preview-header">
+            <span class="preview-dot red"></span>
+            <span class="preview-dot yellow"></span>
+            <span class="preview-dot green"></span>
+            <span class="preview-url">firefly-fam-fest.vercel.app</span>
+          </div>
+          <iframe src="https://firefly-fam-fest.vercel.app" loading="lazy" title="Firefly Fam Fest Website Preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="container-wide">
+      <div class="event-details">
+        <div class="detail-card">
+          <div class="detail-icon">📅</div>
+          <div class="detail-label">Date</div>
+          <div class="detail-value">May 9, 2026</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">⏰</div>
+          <div class="detail-label">Time</div>
+          <div class="detail-value">11 AM – 8 PM</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">📍</div>
+          <div class="detail-label">Location</div>
+          <div class="detail-value">Eagle Mountain, UT</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-icon">👨‍👩‍👧‍👦</div>
+          <div class="detail-label">Expected</div>
+          <div class="detail-value">5,000+ Families</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Built</h2>
+          <p>A festival deserves a website with energy.</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-item">
+            <h4>🎨 Vibrant Color Scheme</h4>
+            <p>Cyan, pink, and amber gradients that match the Firefly Fam Fest logo and create instant visual excitement.</p>
+          </div>
+          <div class="feature-item">
+            <h4>✨ Ken Burns Animations</h4>
+            <p>Subtle zoom effects on hero images that add movement without overwhelming. Scroll-triggered animations throughout.</p>
+          </div>
+          <div class="feature-item">
+            <h4>🎫 Luma Integration</h4>
+            <p>Embedded registration widget with QR check-in. Dynamic codes prevent screenshot sharing of tickets.</p>
+          </div>
+          <div class="feature-item">
+            <h4>🎬 Video Sections</h4>
+            <p>Muted autoplay video backgrounds for bounce village and food village showcasing the festival experience.</p>
+          </div>
+          <div class="feature-item">
+            <h4>🎁 Raffle Integration</h4>
+            <p>Punch pass system for crafts (family getaway raffle) and touch truck experience (Tonka truck raffle).</p>
+          </div>
+          <div class="feature-item">
+            <h4>📱 Festival-Ready Mobile</h4>
+            <p>Families will check this on their phones. Every interaction optimized for taps and swipes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Hosting an Event?</h2>
+        <p>We build websites that match your energy.</p>
+        <a href="mailto:contact@gullstack.com" class="btn">Plan Your Launch →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <a href="../index.html">GullStack Trust</a>. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

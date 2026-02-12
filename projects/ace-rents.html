@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ace Rents — Case Study | GullStack</title>
+  <meta name="description" content="How GullStack completely rebuilt Ace Rents' outdated website into a modern, SEO-optimized platform with equipment search, 4 locations, and tools that actually work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --orange: #f97316;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      background: rgba(9,9,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; }
+    nav { display: flex; gap: 32px; align-items: center; }
+    nav a { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; background: var(--accent); color: white; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    
+    /* Hero */
+    .case-hero {
+      padding: 160px 0 80px;
+      text-align: center;
+    }
+    
+    .case-hero .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .breadcrumb a:hover { color: var(--accent); }
+    
+    .case-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+    
+    .case-hero .lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .meta-item { text-align: center; }
+    .meta-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .meta-value { font-size: 1.1rem; font-weight: 600; }
+    .meta-value a { color: var(--accent); }
+    .meta-value a:hover { text-decoration: underline; }
+    
+    /* Live Preview */
+    .live-preview {
+      margin: 60px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+    }
+    
+    .preview-header {
+      background: var(--bg-elevated);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .preview-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .preview-dot.red { background: #ef4444; }
+    .preview-dot.yellow { background: #eab308; }
+    .preview-dot.green { background: #22c55e; }
+    
+    .preview-url {
+      flex: 1;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    .live-preview iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      background: white;
+    }
+    
+    /* Section */
+    .section { padding: 80px 0; }
+    .section-header { margin-bottom: 48px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 2.25rem; font-weight: 400; margin-bottom: 16px; }
+    .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+    
+    /* Before/After */
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    @media (max-width: 768px) { .before-after { grid-template-columns: 1fr; } }
+    
+    .comparison-card {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+    }
+    
+    .comparison-card.before { border-color: rgba(239, 68, 68, 0.3); }
+    .comparison-card.after { border-color: rgba(34, 197, 94, 0.3); }
+    
+    .comparison-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    
+    .before .comparison-badge { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+    .after .comparison-badge { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+    
+    .comparison-card h3 { font-size: 1.25rem; margin-bottom: 16px; font-weight: 600; }
+    .comparison-card ul { list-style: none; }
+    .comparison-card li { padding: 10px 0; padding-left: 32px; position: relative; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+    .comparison-card li:last-child { border-bottom: none; }
+    .comparison-card li::before { content: ''; position: absolute; left: 0; top: 16px; width: 16px; height: 16px; border-radius: 50%; }
+    .before li::before { background: var(--red); }
+    .after li::before { background: var(--green); }
+    
+    /* Stats Banner */
+    .stats-banner {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin: 60px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-banner { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 3rem; font-weight: 800; color: var(--orange); margin-bottom: 8px; }
+    .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    
+    /* What We Built */
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .deliverables { grid-template-columns: 1fr; }
+    }
+    
+    .deliverable {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+    
+    .deliverable:hover { border-color: var(--accent); }
+    
+    .deliverable-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(99,102,241,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+    
+    .deliverable h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+    .deliverable p { color: var(--text-muted); font-size: 0.9rem; }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(99,102,241,0.05) 100%);
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .cta-section .btn {
+      padding: 16px 32px;
+      font-size: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    
+    footer p { color: var(--text-muted); font-size: 0.9rem; }
+    footer a { color: var(--text); }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container-wide">
+      <div class="header-inner">
+        <a href="../index.html" class="logo">GullStack</a>
+        <nav>
+          <a href="../index.html">Home</a>
+          <a href="index.html">Projects</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="mailto:contact@gullstack.com" class="btn">Get in Touch</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Projects</a> / Ace Rents
+        </div>
+        <h1>Ace Rents</h1>
+        <p class="lead">Complete website rebuild for Utah County's #1 equipment rental company. From clunky and outdated to modern, fast, and built for conversions.</p>
+        
+        <div class="hero-meta">
+          <div class="meta-item">
+            <div class="meta-label">Industry</div>
+            <div class="meta-value">Equipment Rental</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">3 Weeks</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Website</div>
+            <div class="meta-value"><a href="https://www.acerents.net" target="_blank">acerents.net →</a></div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Utah County, UT</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-wide">
+        <div class="live-preview">
+          <div class="preview-header">
+            <span class="preview-dot red"></span>
+            <span class="preview-dot yellow"></span>
+            <span class="preview-dot green"></span>
+            <span class="preview-url">acerents.net</span>
+          </div>
+          <iframe src="https://www.acerents.net" loading="lazy" title="Ace Rents Website Preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Transformation</h2>
+          <p>70 years of trust deserves a website that matches.</p>
+        </div>
+        
+        <div class="before-after">
+          <div class="comparison-card before">
+            <span class="comparison-badge">Before</span>
+            <h3>The Old Site Was Painful</h3>
+            <ul>
+              <li>Outdated design from the early 2010s</li>
+              <li>No mobile optimization — broken on phones</li>
+              <li>Equipment buried in cluttered menus</li>
+              <li>No location pages for 4 Utah branches</li>
+              <li>Zero SEO structure — invisible to Google</li>
+              <li>Slow load times killing conversions</li>
+              <li>Contact forms that didn't actually work</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-card after">
+            <span class="comparison-badge">After</span>
+            <h3>Now It Works For Them</h3>
+            <ul>
+              <li>Modern, professional design that builds trust</li>
+              <li>Fully responsive — perfect on any device</li>
+              <li>Equipment catalog with search & filtering</li>
+              <li>Dedicated pages for all 4 locations</li>
+              <li>SEO-optimized for "equipment rental Utah"</li>
+              <li>Sub-2-second load times</li>
+              <li>Working forms with email notifications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container-wide">
+      <div class="stats-banner">
+        <div class="stat-item">
+          <div class="stat-number">70</div>
+          <div class="stat-label">Years in Business</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Utah Locations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Equipment Items</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Week Build</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Built</h2>
+          <p>A complete digital overhaul, not just a facelift.</p>
+        </div>
+        
+        <div class="deliverables">
+          <div class="deliverable">
+            <div class="deliverable-icon">🔍</div>
+            <h4>Equipment Search & Catalog</h4>
+            <p>Browse 200+ rental items with filtering by category. Generators, scaffolding, compressors — all easy to find.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable-icon">📍</div>
+            <h4>Multi-Location SEO</h4>
+            <p>Dedicated landing pages for Lindon, Spanish Fork, Provo, and Eagle Mountain. Each optimized for local search.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable-icon">⭐</div>
+            <h4>Review Integration</h4>
+            <p>Real customer testimonials displayed prominently. 70 years of trust on full display.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable-icon">📱</div>
+            <h4>Mobile-First Design</h4>
+            <p>Contractors are on job sites, not desktops. Site works flawlessly on any phone.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable-icon">⚡</div>
+            <h4>Performance Optimization</h4>
+            <p>Sub-2-second load times. No more losing customers to slow pages.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable-icon">📧</div>
+            <h4>Quote Request System</h4>
+            <p>Streamlined forms that actually send. Notifications to the right staff at each location.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready for a Rebuild?</h2>
+        <p>If your website is embarrassing you, let's fix that.</p>
+        <a href="mailto:contact@gullstack.com" class="btn">Start a Conversation →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <a href="../index.html">GullStack Trust</a>. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
