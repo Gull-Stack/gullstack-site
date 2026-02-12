@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandow Consulting — Expert Inventory Software Implementation</title>
+  <meta name="description" content="Since 2006, Brandow Consulting has helped 200+ companies implement inventory management software. Expert guidance for Fishbowl, Cin7, MiSys, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #005589;
+      --brand-light: #45a7c5;
+      --accent: #2AC4EA;
+      --bg: #000000;
+      --bg-elevated: #0a0a0a;
+      --bg-card: #111111;
+      --bg-hover: #1a1a1a;
+      --border: #222222;
+      --border-light: #333333;
+      --text: #ededed;
+      --text-secondary: #a1a1a1;
+      --text-muted: #666666;
+      --gradient-brand: linear-gradient(135deg, #005589, #2AC4EA);
+      --gradient-subtle: linear-gradient(180deg, rgba(42,196,234,0.08) 0%, transparent 50%);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:rgba(0,0,0,0.8);
+      backdrop-filter:saturate(180%) blur(20px);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid var(--border);
+      height:64px;
+      display:flex; align-items:center;
+    }
+    .nav-inner {
+      max-width:1200px; margin:0 auto; padding:0 1.5rem;
+      width:100%; display:flex; align-items:center; justify-content:space-between;
+    }
+    .nav-logo { display:flex; align-items:center; gap:0.75rem; text-decoration:none; }
+    .nav-logo img { height:32px; }
+    .nav-logo span { font-weight:700; font-size:0.95rem; color:var(--text); letter-spacing:-0.02em; }
+    .nav-links { display:flex; gap:2rem; align-items:center; }
+    .nav-links a { color:var(--text-secondary); text-decoration:none; font-size:0.875rem; font-weight:500; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta {
+      background:var(--text); color:var(--bg); padding:0.5rem 1rem;
+      border-radius:8px; font-weight:600; font-size:0.875rem;
+      text-decoration:none; transition:all 0.15s;
+    }
+    .nav-cta:hover { opacity:0.85; }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding:10rem 1.5rem 6rem;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before {
+      content:'';
+      position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:800px; height:600px;
+      background:radial-gradient(ellipse, rgba(42,196,234,0.08) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:100px; padding:0.35rem 1rem;
+      font-size:0.8rem; color:var(--text-secondary);
+      margin-bottom:1.5rem;
+    }
+    .hero-badge .dot { width:6px; height:6px; border-radius:50%; background:var(--accent); }
+    .hero h1 {
+      font-size:clamp(2.5rem, 6vw, 4.5rem);
+      font-weight:900; letter-spacing:-0.04em;
+      line-height:1.1; margin-bottom:1.25rem;
+      max-width:800px; margin-left:auto; margin-right:auto;
+    }
+    .hero h1 .gradient {
+      background:var(--gradient-brand);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero p {
+      font-size:1.15rem; color:var(--text-secondary);
+      max-width:560px; margin:0 auto 2.5rem;
+      line-height:1.7;
+    }
+    .hero-actions { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-primary {
+      background:var(--text); color:var(--bg);
+      padding:0.75rem 2rem; border-radius:10px;
+      font-weight:700; font-size:0.95rem;
+      text-decoration:none; transition:all 0.15s;
+      display:inline-flex; align-items:center; gap:0.5rem;
+    }
+    .btn-primary:hover { opacity:0.85; transform:translateY(-1px); }
+    .btn-secondary {
+      background:transparent; color:var(--text);
+      padding:0.75rem 2rem; border-radius:10px;
+      font-weight:600; font-size:0.95rem;
+      text-decoration:none; border:1px solid var(--border-light);
+      transition:all 0.15s;
+    }
+    .btn-secondary:hover { border-color:var(--text-muted); background:var(--bg-card); }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      max-width:900px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(4, 1fr);
+      border:1px solid var(--border); border-radius:16px;
+      overflow:hidden; background:var(--bg-card);
+    }
+    .stat-item {
+      padding:2rem 1.5rem; text-align:center;
+      border-right:1px solid var(--border);
+    }
+    .stat-item:last-child { border-right:none; }
+    .stat-number { font-size:2rem; font-weight:800; letter-spacing:-0.03em; }
+    .stat-number .accent { color:var(--accent); }
+    .stat-label { font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem; text-transform:uppercase; letter-spacing:0.05em; }
+
+    /* ===== SECTION COMMON ===== */
+    .section { max-width:1200px; margin:0 auto; padding:6rem 1.5rem; }
+    .section-header { text-align:center; margin-bottom:3.5rem; }
+    .section-label {
+      font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em;
+      font-weight:700; color:var(--accent); margin-bottom:0.75rem;
+    }
+    .section-title {
+      font-size:clamp(1.75rem, 4vw, 2.75rem);
+      font-weight:800; letter-spacing:-0.03em;
+      line-height:1.15; margin-bottom:0.75rem;
+    }
+    .section-desc {
+      color:var(--text-secondary); font-size:1.05rem;
+      max-width:550px; margin:0 auto;
+    }
+
+    /* ===== SERVICES GRID (Vercel-style bento) ===== */
+    .bento-grid {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:1px;
+      background:var(--border);
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .bento-card {
+      background:var(--bg);
+      padding:2.5rem 2rem;
+      transition:background 0.2s;
+    }
+    .bento-card:hover { background:var(--bg-hover); }
+    .bento-icon {
+      width:40px; height:40px;
+      border-radius:10px;
+      background:var(--bg-card);
+      border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; margin-bottom:1.25rem;
+    }
+    .bento-card h3 {
+      font-size:1.05rem; font-weight:700;
+      margin-bottom:0.5rem; letter-spacing:-0.01em;
+    }
+    .bento-card p { color:var(--text-secondary); font-size:0.9rem; line-height:1.6; }
+    .bento-card.featured {
+      grid-column:span 2;
+      background:var(--gradient-subtle);
+    }
+
+    /* ===== SOFTWARE PARTNERS ===== */
+    .partners-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+      gap:1rem; margin-top:2rem;
+    }
+    .partner-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:12px; padding:1.5rem; text-align:center;
+      transition:all 0.2s;
+    }
+    .partner-card:hover { border-color:var(--border-light); transform:translateY(-2px); }
+    .partner-card img { height:40px; margin-bottom:0.75rem; filter:brightness(0) invert(1); opacity:0.7; }
+    .partner-card span { display:block; font-size:0.85rem; font-weight:600; color:var(--text-secondary); }
+
+    /* ===== PROCESS ===== */
+    .process-list { max-width:700px; margin:0 auto; }
+    .process-step {
+      display:flex; gap:1.5rem; padding:2rem 0;
+      border-bottom:1px solid var(--border);
+    }
+    .process-step:last-child { border-bottom:none; }
+    .step-number {
+      width:48px; height:48px; flex-shrink:0;
+      border-radius:12px; background:var(--bg-card);
+      border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:1.1rem; color:var(--accent);
+    }
+    .step-content h3 { font-size:1.05rem; font-weight:700; margin-bottom:0.35rem; }
+    .step-content p { color:var(--text-secondary); font-size:0.9rem; }
+
+    /* ===== TESTIMONIAL ===== */
+    .testimonial-section {
+      background:var(--bg-card);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .testimonial {
+      max-width:700px; margin:0 auto; text-align:center;
+      padding:5rem 1.5rem;
+    }
+    .testimonial blockquote {
+      font-size:1.35rem; font-weight:500;
+      line-height:1.6; letter-spacing:-0.01em;
+      margin-bottom:1.5rem; font-style:italic;
+      color:var(--text);
+    }
+    .testimonial cite {
+      font-style:normal; color:var(--text-muted); font-size:0.9rem;
+    }
+    .testimonial cite strong { color:var(--text-secondary); }
+
+    /* ===== ABOUT / TEAM ===== */
+    .team-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; }
+    .team-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:16px; overflow:hidden; transition:all 0.2s;
+    }
+    .team-card:hover { border-color:var(--border-light); }
+    .team-card img { width:100%; height:250px; object-fit:cover; filter:grayscale(30%); }
+    .team-card .team-info { padding:1.25rem; }
+    .team-card h3 { font-size:1rem; font-weight:700; }
+    .team-card p { font-size:0.85rem; color:var(--text-muted); margin-top:0.2rem; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      text-align:center;
+      padding:6rem 1.5rem;
+      position:relative;
+    }
+    .cta-section::before {
+      content:'';
+      position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:600px; height:400px;
+      background:radial-gradient(ellipse, rgba(42,196,234,0.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .cta-section h2 {
+      font-size:clamp(2rem, 4vw, 3rem);
+      font-weight:900; letter-spacing:-0.04em;
+      margin-bottom:1rem;
+    }
+    .cta-section p {
+      color:var(--text-secondary); max-width:480px;
+      margin:0 auto 2rem; font-size:1.05rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top:1px solid var(--border);
+      padding:3rem 1.5rem;
+      max-width:1200px; margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:1rem;
+    }
+    footer .foot-left { display:flex; align-items:center; gap:0.75rem; }
+    footer .foot-left img { height:24px; }
+    footer .foot-left span { font-size:0.85rem; color:var(--text-muted); }
+    footer .foot-links { display:flex; gap:1.5rem; }
+    footer .foot-links a { color:var(--text-muted); text-decoration:none; font-size:0.85rem; transition:color 0.15s; }
+    footer .foot-links a:hover { color:var(--text); }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px) {
+      .nav-links { display:none; }
+      .bento-grid { grid-template-columns:1fr; }
+      .bento-card.featured { grid-column:span 1; }
+      .stats-bar { grid-template-columns:repeat(2,1fr); }
+      .stat-item:nth-child(2) { border-right:none; }
+      .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom:1px solid var(--border); }
+      .hero { padding:8rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting">
+        <span>Brandow Consulting</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#software">Software</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Trusted by 200+ manufacturers since 2006
+    </div>
+    <h1>
+      Inventory software<br>
+      <span class="gradient">implemented right.</span>
+    </h1>
+    <p>
+      Expert guidance for selecting, implementing, and optimizing inventory management software. We help SMBs go from chaos to control.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Schedule a Consultation →</a>
+      <a href="#process" class="btn-secondary">See Our Process</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="section" style="padding-top:0;">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number"><span class="accent">200</span>+</div>
+        <div class="stat-label">Companies Helped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="accent">19</span> yrs</div>
+        <div class="stat-label">In Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="accent">35</span>+</div>
+        <div class="stat-label">Software Partners</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="accent">5</span> Step</div>
+        <div class="stat-label">Proven Process</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section" id="services">
+    <div class="section-header">
+      <div class="section-label">Services</div>
+      <div class="section-title">Everything you need to<br>get inventory right.</div>
+      <p class="section-desc">From selecting the right software to training your team, we handle the entire implementation lifecycle.</p>
+    </div>
+    <div class="bento-grid">
+      <div class="bento-card featured">
+        <div class="bento-icon">🔍</div>
+        <h3>Software Assessment & Selection</h3>
+        <p>Not sure which inventory software fits your business? We're partnered with 35+ inventory management systems that connect with QuickBooks. We'll assess your needs, compare options, and recommend the perfect fit — no bias, just expertise.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">⚙️</div>
+        <h3>Implementation</h3>
+        <p>Full setup: data migration, workflow design, role assignment, and go-live planning. Done right the first time.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">🎓</div>
+        <h3>Onsite Training</h3>
+        <p>We come to your facility. Meet your team, understand your processes, and train everyone to use the system with confidence.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">📊</div>
+        <h3>Custom Reports</h3>
+        <p>Crystal Reports, JasperSoft, SQL — we build the KPI dashboards, labels, and forms your team actually needs.</p>
+      </div>
+      <div class="bento-card featured">
+        <div class="bento-icon">🔗</div>
+        <h3>Custom Integrations</h3>
+        <p>Connect your shopping cart, CRM, EDI, shipping software, or any other system via API. Stop double-entering data. When volume is high, automate. We integrate with QuickBooks, Shopify, WooCommerce, and dozens more.</p>
+      </div>
+      <div class="bento-card">
+        <div class="bento-icon">💬</div>
+        <h3>CRM for IMS</h3>
+        <p>Method:CRM integration with Fishbowl via our Cfish connector. The best of both worlds — inventory meets customer management.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section" id="process">
+    <div class="section-header">
+      <div class="section-label">Our Process</div>
+      <div class="section-title">5 steps to success.</div>
+      <p class="section-desc">Proven through hundreds of implementations. Every project follows this framework.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>IT Infrastructure Setup</h3>
+          <p>Ensure your hardware, network, and hosting environment can support your inventory software. We handle server config, cloud setup, or hybrid deployments.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Practice File Setup</h3>
+          <p>Build a sandbox environment with your real data. Test workflows, catch issues early, and validate configurations before going live.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Process Design</h3>
+          <p>Map your current workflows to the software. Redesign where needed. Create new roles and responsibilities that align with best practices.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3>Training & Practice</h3>
+          <p>Comprehensive training for all users — remote via Zoom or onsite at your facility. Practice in the sandbox until everyone is confident.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">05</div>
+        <div class="step-content">
+          <h3>Live Conversion</h3>
+          <p>Carefully planned go-live with your accountant in the loop. Data cutover, parallel running period, and post-launch support to ensure a smooth transition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIAL -->
+  <div class="testimonial-section">
+    <div class="testimonial">
+      <blockquote>"I strongly endorse and recommend Lance for Fishbowl consulting, and I would trust him to work on any other software application if he told me he could do it."</blockquote>
+      <cite><strong>Glen Lynch</strong> — President, Cupertino Supply Inc.</cite>
+    </div>
+  </div>
+
+  <!-- SOFTWARE PARTNERS -->
+  <div class="section" id="software">
+    <div class="section-header">
+      <div class="section-label">Software Partners</div>
+      <div class="section-title">We know the tools you need.</div>
+      <p class="section-desc">Partnered with all major inventory management software companies that connect with QuickBooks.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">🐟</span>
+        <span>Fishbowl Inventory</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">📦</span>
+        <span>Cin7</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">🏭</span>
+        <span>MiSys Manufacturing</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">📋</span>
+        <span>Method:CRM</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">💰</span>
+        <span>QuickBooks</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">📊</span>
+        <span>SOS Inventory</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">⚡</span>
+        <span>Order Time</span>
+      </div>
+      <div class="partner-card">
+        <span style="font-size:1.5rem; margin-bottom:0.5rem; display:block;">🔗</span>
+        <span>35+ More</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section" id="about">
+    <div class="section-header">
+      <div class="section-label">Our Team</div>
+      <div class="section-title">Experts in every area.</div>
+      <p class="section-desc">Each team member specializes so you get the highest quality guidance for your specific needs.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/lance-brandow-1-500x500.jpg" alt="Lance Brandow">
+        <div class="team-info">
+          <h3>Lance Brandow</h3>
+          <p>Founder — Inventory Software Expert</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/aaron-thevarajah-500x500.jpg" alt="Aaron Thevarajah">
+        <div class="team-info">
+          <h3>Aaron Thevarajah</h3>
+          <p>CRM Specialist</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/kendra-bio.jpg" alt="Kendra">
+        <div class="team-info">
+          <h3>Kendra</h3>
+          <p>Senior Developer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDY TEASER -->
+  <div class="section" style="padding-top:0;">
+    <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:16px; padding:3rem; display:flex; align-items:center; gap:3rem; flex-wrap:wrap;">
+      <div style="flex:1; min-width:280px;">
+        <div class="section-label" style="text-align:left;">Case Study</div>
+        <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:0.75rem; letter-spacing:-0.02em;">Nelson + Pade</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:1.25rem;">See how inventory management software, QuickBooks, and Brandow Consulting helped improve inventory and manufacturing activities at Nelson + Pade.</p>
+        <a href="#" class="btn-secondary" style="display:inline-flex;">Read the Case Study →</a>
+      </div>
+      <div style="flex:0 0 300px; height:200px; background:var(--bg-hover); border-radius:12px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center;">
+        <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/ir_nb_shot02.png" alt="Nelson + Pade" style="max-width:90%; max-height:90%; object-fit:contain;">
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section" id="contact">
+    <h2>Ready to get<br>inventory right?</h2>
+    <p>Schedule a free consultation and let's find the right software solution for your business.</p>
+    <a href="mailto:lance@brandowconsulting.com" class="btn-primary">Talk With an Expert →</a>
+    <div style="margin-top:1.5rem; color:var(--text-muted); font-size:0.85rem;">
+      📍 American Fork, Utah &nbsp;·&nbsp; 📞 Remote & onsite available
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-left">
+      <img src="https://www.brandowconsulting.com/wp-content/uploads/2019/07/brandow-logo-final-2-med.png" alt="Brandow Consulting">
+      <span>© 2026 Brandow Consulting Corp.</span>
+    </div>
+    <div class="foot-links">
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Case Studies</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
