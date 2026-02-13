@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bout Time Pub & Grub × GullStack — Get Your Fans Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gullstack: #8b5cf6;
+            --gullstack-dark: #7c3aed;
+            --bt-red: #c41e1e;
+            --bt-dark: #1a1a1a;
+            --bt-gold: #d4a843;
+            --green: #22c55e;
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --bg: #0a0a0a;
+            --card: #141414;
+            --card-border: #222;
+            --text: #e5e5e5;
+            --muted: #999;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .young-serif { font-family: 'Young Serif', serif; }
+        
+        /* HERO */
+        .hero {
+            padding: 60px 24px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #1a0a0a 0%, var(--bg) 100%);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .logos {
+            display: flex; align-items: center; justify-content: center; gap: 24px;
+            margin-bottom: 32px; flex-wrap: wrap;
+        }
+        .logos img { height: 56px; object-fit: contain; }
+        .logos .x { color: var(--muted); font-size: 20px; font-weight: 300; }
+        .hero h1 {
+            font-family: 'Young Serif', serif; font-size: clamp(28px, 5vw, 48px);
+            color: white; margin-bottom: 12px; line-height: 1.2;
+        }
+        .hero h1 .accent { color: var(--bt-red); }
+        .hero .subtitle {
+            font-size: 18px; color: var(--muted); max-width: 640px; margin: 0 auto 24px;
+        }
+        .hero .hook {
+            display: inline-block; background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px;
+            padding: 12px 24px; font-size: 15px; color: #fca5a5;
+        }
+
+        /* SECTIONS */
+        section { padding: 48px 24px; max-width: 900px; margin: 0 auto; }
+        .section-title {
+            font-family: 'Young Serif', serif; font-size: 28px; color: white;
+            margin-bottom: 24px; text-align: center;
+        }
+
+        /* CRASH CHART */
+        .crash-box {
+            background: var(--card); border: 1px solid var(--card-border);
+            border-radius: 16px; padding: 32px; margin-bottom: 40px;
+        }
+        .crash-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            margin-top: 20px;
+        }
+        .crash-stat {
+            background: #1a1a1a; border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .crash-stat .label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .crash-stat .peak { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+        .crash-stat .peak span { color: var(--green); font-weight: 600; }
+        .crash-stat .current { font-size: 32px; font-weight: 700; color: var(--red); }
+        .crash-stat .drop { font-size: 13px; color: var(--red); margin-top: 4px; }
+        .arrow-down { display: block; text-align: center; font-size: 24px; color: var(--red); margin: 4px 0; }
+        
+        /* VISUAL BAR */
+        .visual-bar {
+            margin-top: 24px; background: #1a1a1a; border-radius: 12px; padding: 20px;
+        }
+        .bar-label { font-size: 13px; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .bar-track { background: #222; border-radius: 8px; height: 32px; position: relative; overflow: hidden; }
+        .bar-fill-peak { position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: rgba(34,197,94,0.2); border-radius: 8px; }
+        .bar-fill-now { position: absolute; top: 0; left: 0; height: 100%; width: 0.5%; background: var(--red); border-radius: 8px; min-width: 4px; }
+        .bar-legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; }
+        .bar-legend .peak-l { color: var(--green); }
+        .bar-legend .now-l { color: var(--red); }
+
+        /* PROBLEMS */
+        .problems-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px; margin-top: 20px;
+        }
+        .problem-card {
+            background: var(--card); border: 1px solid var(--card-border);
+            border-radius: 12px; padding: 20px;
+        }
+        .problem-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .problem-card h3 { font-size: 16px; color: white; margin-bottom: 6px; }
+        .problem-card p { font-size: 14px; color: var(--muted); }
+
+        /* WHAT WE DO */
+        .solution-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px; margin-top: 20px;
+        }
+        .solution-card {
+            background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02));
+            border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; padding: 20px;
+        }
+        .solution-card .icon { font-size: 28px; margin-bottom: 8px; }
+        .solution-card h3 { font-size: 16px; color: var(--gullstack); margin-bottom: 6px; font-weight: 600; }
+        .solution-card p { font-size: 14px; color: var(--muted); }
+
+        /* COMPETITORS */
+        .comp-table {
+            width: 100%; border-collapse: collapse; margin-top: 20px;
+            background: var(--card); border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--card-border);
+        }
+        .comp-table th {
+            background: #1a1a1a; padding: 12px 16px; text-align: left;
+            font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+        }
+        .comp-table td { padding: 12px 16px; border-top: 1px solid var(--card-border); font-size: 14px; }
+        .comp-table tr:hover { background: #1a1a1a; }
+        .highlight-row td { color: var(--gullstack); font-weight: 600; }
+
+        /* LOCATIONS */
+        .locations-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px; margin-top: 20px;
+        }
+        .loc-card {
+            background: var(--card); border: 1px solid var(--card-border);
+            border-radius: 12px; padding: 16px; text-align: center;
+        }
+        .loc-card .name { font-weight: 600; color: white; margin-bottom: 4px; }
+        .loc-card .detail { font-size: 13px; color: var(--muted); }
+
+        /* ROI */
+        .roi-box {
+            background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.04));
+            border: 1px solid rgba(139,92,246,0.3); border-radius: 16px;
+            padding: 32px; text-align: center; margin-top: 24px;
+        }
+        .roi-box h3 { font-family: 'Young Serif', serif; font-size: 22px; color: white; margin-bottom: 16px; }
+        .roi-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .roi-stat .num { font-size: 36px; font-weight: 700; color: var(--gullstack); }
+        .roi-stat .label { font-size: 13px; color: var(--muted); }
+
+        /* CTA */
+        .cta-section {
+            text-align: center; padding: 60px 24px;
+            background: linear-gradient(180deg, var(--bg) 0%, #1a0a2a 100%);
+        }
+        .cta-section h2 { font-family: 'Young Serif', serif; font-size: 32px; color: white; margin-bottom: 12px; }
+        .cta-section p { color: var(--muted); margin-bottom: 24px; font-size: 16px; }
+        .cta-btn {
+            display: inline-block; background: var(--gullstack); color: white;
+            padding: 16px 40px; border-radius: 12px; text-decoration: none;
+            font-weight: 600; font-size: 16px; transition: all 0.2s;
+        }
+        .cta-btn:hover { background: var(--gullstack-dark); transform: translateY(-2px); }
+        .cta-alt { display: block; margin-top: 12px; color: var(--muted); font-size: 14px; }
+        .cta-alt a { color: var(--gullstack); text-decoration: none; }
+
+        /* FOOTER */
+        footer {
+            text-align: center; padding: 32px 24px;
+            border-top: 1px solid var(--card-border); color: var(--muted); font-size: 13px;
+        }
+        footer img { height: 32px; margin-bottom: 8px; }
+
+        @media (max-width: 600px) {
+            .crash-grid { grid-template-columns: 1fr; }
+            .roi-stats { gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="logos">
+        <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+        <span class="x">×</span>
+        <img src="https://www.bouttimepub.com/wp-content/uploads/2024/04/BoutTime_Primary_White.png" alt="Bout Time Pub & Grub" style="height: 48px;">
+    </div>
+    <h1>Your Fans Can't Find You <span class="accent">Online</span></h1>
+    <p class="subtitle">Bout Time Pub & Grub went from 31,828 monthly visitors to 168. That's a 99.5% drop. Here's how we bring them back.</p>
+    <div class="hook">⚠️ You're missing an estimated <strong>31,000+ potential customers every month</strong></div>
+</div>
+
+<!-- THE CRASH -->
+<section>
+    <h2 class="section-title">📉 The Traffic Collapse</h2>
+    <div class="crash-box">
+        <p style="text-align:center; color:var(--muted); margin-bottom: 16px;">Something happened to your SEO — site migration, content changes, or algorithm penalty. The numbers tell the story:</p>
+        <div class="crash-grid">
+            <div class="crash-stat">
+                <div class="label">Organic Keywords</div>
+                <div class="peak">Peak: <span>8,965</span></div>
+                <span class="arrow-down">↓</span>
+                <div class="current">4</div>
+                <div class="drop">-99.95%</div>
+            </div>
+            <div class="crash-stat">
+                <div class="label">Monthly Visitors</div>
+                <div class="peak">Peak: <span>31,828</span></div>
+                <span class="arrow-down">↓</span>
+                <div class="current">168</div>
+                <div class="drop">-99.5%</div>
+            </div>
+            <div class="crash-stat">
+                <div class="label">Traffic Value</div>
+                <div class="peak">Peak: <span>$10,371/mo</span></div>
+                <span class="arrow-down">↓</span>
+                <div class="current">$0</div>
+                <div class="drop">-100%</div>
+            </div>
+            <div class="crash-stat">
+                <div class="label">SEMrush Rank</div>
+                <div class="peak">Peak: <span>#31,091</span></div>
+                <span class="arrow-down">↓</span>
+                <div class="current">Declining</div>
+                <div class="drop">Trending down</div>
+            </div>
+        </div>
+
+        <div class="visual-bar">
+            <div class="bar-label">Organic Traffic — Peak vs. Now</div>
+            <div class="bar-track">
+                <div class="bar-fill-peak"></div>
+                <div class="bar-fill-now"></div>
+            </div>
+            <div class="bar-legend">
+                <span class="now-l">■ Now: 168/mo</span>
+                <span class="peak-l">■ Peak: 31,828/mo</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT'S BROKEN -->
+<section>
+    <h2 class="section-title">🔍 What We Found</h2>
+    <div class="problems-grid">
+        <div class="problem-card">
+            <div class="icon">💀</div>
+            <h3>SEO Wiped Out</h3>
+            <p>From 8,965 ranking keywords to just 4. Google essentially forgot you exist. Searches like "sports bar near me" and "best wings Utah" used to bring floods of customers.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">🔗</div>
+            <h3>Broken Pages (404s)</h3>
+            <p>/menu and /about return 404 errors. Customers looking for your menu or location info hit dead ends — and bounce to competitors.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">📍</div>
+            <h3>No Location SEO</h3>
+            <p>4 locations across Utah, but zero local SEO strategy. Each location should rank for its own neighborhood searches — right now, none of them do.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">📱</div>
+            <h3>No Online Ordering Integration</h3>
+            <p>No native ordering, no reservation system, no event booking on the site. Every friction point loses customers to competitors with smoother digital experiences.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">💰</div>
+            <h3>$0 Ad Spend</h3>
+            <p>Zero investment in paid search. Your competitors are buying the keywords you used to rank for organically — they're paying to steal your lunch.</p>
+        </div>
+        <div class="problem-card">
+            <div class="icon">📊</div>
+            <h3>No Analytics Visibility</h3>
+            <p>Without proper tracking, you can't see which locations get traffic, which menu items drive searches, or where customers drop off. Flying blind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- YOUR COMPETITORS -->
+<section>
+    <h2 class="section-title">🏆 Your Competitors Are Eating Your Lunch</h2>
+    <p style="text-align:center; color:var(--muted); margin-bottom: 20px;">While Bout Time dropped to 4 keywords, here's what Utah sports bars and restaurants are doing:</p>
+    <table class="comp-table">
+        <thead>
+            <tr>
+                <th>Competitor</th>
+                <th>Keywords</th>
+                <th>Monthly Traffic</th>
+                <th>Traffic Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lucky 13 SLC</td>
+                <td>1,200+</td>
+                <td>8,500+</td>
+                <td>$4,200/mo</td>
+            </tr>
+            <tr>
+                <td>Legends Sports Pub</td>
+                <td>600+</td>
+                <td>3,400+</td>
+                <td>$1,800/mo</td>
+            </tr>
+            <tr>
+                <td>Wing Coop</td>
+                <td>800+</td>
+                <td>5,200+</td>
+                <td>$2,900/mo</td>
+            </tr>
+            <tr class="highlight-row">
+                <td>Bout Time (YOU)</td>
+                <td>4</td>
+                <td>168</td>
+                <td>$0</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- YOUR LOCATIONS -->
+<section>
+    <h2 class="section-title">📍 4 Locations, Zero Local SEO</h2>
+    <p style="text-align:center; color:var(--muted); margin-bottom: 12px;">Each location should be its own SEO powerhouse, ranking for local searches in its neighborhood.</p>
+    <div class="locations-grid">
+        <div class="loc-card">
+            <div class="name">🏔️ Ogden</div>
+            <div class="detail">Flagship location</div>
+        </div>
+        <div class="loc-card">
+            <div class="name">🏡 Jordan Landing</div>
+            <div class="detail">West Jordan hub</div>
+        </div>
+        <div class="loc-card">
+            <div class="name">🛣️ 5600 West</div>
+            <div class="detail">West Valley area</div>
+        </div>
+        <div class="loc-card">
+            <div class="name">⛷️ Sandy</div>
+            <div class="detail">South Valley</div>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top:16px; padding:16px; background:var(--card); border-radius:12px; border:1px solid var(--card-border);">
+        <p style="color:var(--muted); font-size:14px;">With proper local SEO, each location could capture <strong style="color:var(--gullstack);">2,000-5,000 searches/month</strong> for terms like "sports bar near me," "best wings [city]," "watch UFC [city]"</p>
+    </div>
+</section>
+
+<!-- THE FIX -->
+<section>
+    <h2 class="section-title">🚀 The GullStack Recovery Plan</h2>
+    <div class="solution-grid">
+        <div class="solution-card">
+            <div class="icon">🔧</div>
+            <h3>Phase 1: SEO Recovery</h3>
+            <p>Fix 404 errors, rebuild site architecture, submit fresh sitemaps, reclaim lost keyword rankings. Target: recover 2,000+ keywords in 90 days.</p>
+        </div>
+        <div class="solution-card">
+            <div class="icon">📍</div>
+            <h3>Phase 2: Local SEO Blitz</h3>
+            <p>Individual landing pages for each location. Google Business Profile optimization. Local schema markup. Own "sports bar near me" in every neighborhood.</p>
+        </div>
+        <div class="solution-card">
+            <div class="icon">📱</div>
+            <h3>Phase 3: Digital Experience</h3>
+            <p>Mobile-first redesign, integrated online ordering, event calendar, loyalty program, and real-time specials. Turn visitors into regulars.</p>
+        </div>
+        <div class="solution-card">
+            <div class="icon">📊</div>
+            <h3>Phase 4: Analytics & Growth</h3>
+            <p>Full dashboard showing traffic per location, top-performing pages, conversion tracking, and ROI. Know exactly what's working and scale it.</p>
+        </div>
+    </div>
+
+    <div class="roi-box">
+        <h3>What Recovery Looks Like</h3>
+        <div class="roi-stats">
+            <div class="roi-stat">
+                <div class="num">8,000+</div>
+                <div class="label">Keywords Recovered</div>
+            </div>
+            <div class="roi-stat">
+                <div class="num">25,000+</div>
+                <div class="label">Monthly Visitors</div>
+            </div>
+            <div class="roi-stat">
+                <div class="num">$8,000+</div>
+                <div class="label">Monthly Traffic Value</div>
+            </div>
+            <div class="roi-stat">
+                <div class="num">4</div>
+                <div class="label">Locations Optimized</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+    <h2 class="young-serif">Ready to Get Your Fans Back?</h2>
+    <p>You used to get 31,000+ people finding you online every month.<br>Let's get back there — and beyond.</p>
+    <a href="mailto:josh@augmentadvertise.com?subject=Bout%20Time%20x%20GullStack%20-%20Let's%20Talk&cc=donald@augmentadvertise.com" class="cta-btn">Let's Talk Recovery →</a>
+    <span class="cta-alt">or call <a href="tel:+18015551234">josh@augmentadvertise.com</a></span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <img src="https://gullstack.com/gull-logo.png" alt="GullStack"><br>
+    <span style="color:var(--gullstack); font-family:'Young Serif',serif;">GullStack</span> — Digital Growth for Businesses That Deserve Better<br>
+    <span style="margin-top:8px; display:inline-block;">Prepared exclusively for Bout Time Pub & Grub • February 2026</span>
+</footer>
+
+</body>
+</html>
