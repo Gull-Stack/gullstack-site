@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falling Waters Day Spa — Digital Growth Proposal by GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --accent: #C4A77D;
+      --accent-glow: rgba(196,167,125,0.3);
+      --bg: #0f0f14;
+      --bg-elevated: #1a1a24;
+      --bg-card: #22222e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --orange: #f97316;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:2rem 1.5rem; }
+
+    /* Hero */
+    .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f0f14 0%, #1a1818 50%, #0f0f14 100%); border-bottom:1px solid rgba(196,167,125,0.15); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; }
+    .hero-logos img { height:50px; border-radius:8px; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:0.75rem; }
+    .hero h1 span { color:var(--accent); }
+    .hero h1 .red { color:var(--red); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; max-width:650px; margin:0 auto; }
+
+    /* Sections */
+    .section { padding:3rem 0; }
+    .section-title { font-size:1.6rem; font-weight:800; margin-bottom:0.5rem; text-align:center; }
+    .section-sub { color:var(--text-muted); text-align:center; margin-bottom:2rem; font-size:0.95rem; }
+    .label { text-transform:uppercase; letter-spacing:0.15em; font-size:0.75rem; font-weight:700; color:var(--accent); margin-bottom:0.5rem; text-align:center; }
+
+    /* Score Card */
+    .score-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .score-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(196,167,125,0.12); }
+    .score-card .score-value { font-size:2.5rem; font-weight:900; }
+    .score-card .score-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.25rem; }
+    .bad { color:var(--red); }
+    .warn { color:var(--orange); }
+    .ok { color:var(--yellow); }
+    .good { color:var(--green); }
+
+    /* Before/After */
+    .compare-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:2rem; margin:2rem 0; }
+    .compare-card { background:var(--bg-elevated); border-radius:14px; overflow:hidden; border:1px solid rgba(196,167,125,0.12); }
+    .compare-card .compare-label { padding:0.75rem 1rem; background:var(--bg-card); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; }
+    .compare-card .compare-label.before { color:var(--red); }
+    .compare-card .compare-label.after { color:var(--green); }
+    .compare-card img { width:100%; display:block; }
+    .compare-card .screenshot-placeholder { height:220px; display:flex; align-items:center; justify-content:center; background:var(--bg-card); color:var(--text-muted); font-size:0.85rem; }
+    .compare-card a { display:block; padding:0.75rem 1rem; background:rgba(196,167,125,0.1); color:var(--accent); text-decoration:none; font-size:0.9rem; text-align:center; transition:background 0.2s; }
+    .compare-card a:hover { background:rgba(196,167,125,0.2); }
+
+    /* Issues */
+    .issues-list { list-style:none; margin:1.5rem 0; }
+    .issues-list li { background:var(--bg-elevated); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; display:flex; align-items:flex-start; gap:0.75rem; border-left:3px solid var(--red); }
+    .issues-list li.warning { border-left-color:var(--orange); }
+    .issues-list li.info { border-left-color:var(--accent); }
+    .issues-list .icon { font-size:1.2rem; flex-shrink:0; margin-top:0.1rem; }
+    .issues-list .issue-text strong { display:block; margin-bottom:0.15rem; }
+    .issues-list .issue-text span { color:var(--text-muted); font-size:0.9rem; }
+
+    /* What We Built */
+    .built-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .built-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; border:1px solid rgba(196,167,125,0.1); }
+    .built-card h3 { font-size:1rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+    .built-card ul { list-style:none; }
+    .built-card li { padding:0.35rem 0; padding-left:1.2rem; position:relative; color:var(--text-muted); font-size:0.9rem; }
+    .built-card li::before { content:'✓'; position:absolute; left:0; color:var(--green); font-weight:bold; }
+
+    /* Competitor Table */
+    table { width:100%; border-collapse:collapse; background:var(--bg-elevated); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
+    thead { background:var(--bg-card); }
+    th { text-align:left; padding:0.85rem 1rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+    td { padding:0.85rem 1rem; border-top:1px solid rgba(255,255,255,0.04); font-size:0.95rem; }
+    tr:hover { background:rgba(196,167,125,0.04); }
+    .highlight-row { background:rgba(239,68,68,0.08) !important; border-left:3px solid var(--accent); }
+
+    /* CTA */
+    .cta-section { text-align:center; padding:3rem 1.5rem; margin:2rem 0; background:linear-gradient(135deg, rgba(196,167,125,0.08), rgba(196,167,125,0.02)); border-radius:20px; border:1px solid rgba(196,167,125,0.15); }
+    .cta-section h2 { font-size:1.8rem; font-weight:800; margin-bottom:0.75rem; }
+    .cta-section p { color:var(--text-muted); max-width:550px; margin:0 auto 1.5rem; }
+    .cta-btn { display:inline-block; background:var(--accent); color:#000; padding:0.9rem 2.5rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; transition:all 0.2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--accent-glow); }
+
+    /* Footer */
+    .footer { text-align:center; padding:2rem 0; color:var(--text-muted); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); margin-top:2rem; }
+    .footer img { height:30px; margin-bottom:0.5rem; }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size:1.5rem; }
+      .score-card .score-value { font-size:2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <span style="font-weight:800; font-size:1.2rem;">Falling Waters Day Spa</span>
+    </div>
+    <h1>Your Website is <span class="red">Invisible</span><br>to Luxury Clients</h1>
+    <p class="subtitle">After 25+ years serving Draper, your online presence doesn't match your reputation. Here's the data — and your new digital experience.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- The Problem -->
+    <div class="section">
+      <div class="label">Current State</div>
+      <div class="section-title">The Numbers Tell the Story</div>
+      <p class="section-sub">Your Wix site isn't ranking for the searches that matter most.</p>
+
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="score-value bad">Wix</div>
+          <div class="score-label">Platform (Limited SEO)</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value bad">~50</div>
+          <div class="score-label">Organic Visitors/Month</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value warn">25+</div>
+          <div class="score-label">Years in Business</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value bad">Low</div>
+          <div class="score-label">Local Search Visibility</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:1.5rem; border-left:3px solid var(--red); text-align:center;">
+        <strong style="color:var(--red);">⚠️ 25 years of reputation, but Google doesn't know you exist</strong><br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">When Draper residents search "day spa near me" or "massage Draper UT" — they're finding your competitors.</span>
+      </div>
+    </div>
+
+    <!-- Issues -->
+    <div class="section">
+      <div class="label">Site Audit</div>
+      <div class="section-title">What's Holding You Back</div>
+      <p class="section-sub">Key issues with the current fallingwatersdayspa.com</p>
+
+      <ul class="issues-list">
+        <li>
+          <span class="icon">🔴</span>
+          <div class="issue-text">
+            <strong>Built on Wix — SEO Ceiling</strong>
+            <span>Wix sites have structural limitations that prevent optimal search engine performance. Google prefers faster, cleaner code.</span>
+          </div>
+        </li>
+        <li>
+          <span class="icon">🔴</span>
+          <div class="issue-text">
+            <strong>No Service-Specific Pages</strong>
+            <span>All services lumped on one page. No dedicated pages for "massage Draper UT" or "facials Salt Lake County" — missing targeted keyword opportunities.</span>
+          </div>
+        </li>
+        <li class="warning">
+          <span class="icon">🟠</span>
+          <div class="issue-text">
+            <strong>Outdated Design Language</strong>
+            <span>The current design doesn't reflect the luxury spa experience you provide. First impressions happen online — before they ever walk in.</span>
+          </div>
+        </li>
+        <li class="warning">
+          <span class="icon">🟠</span>
+          <div class="issue-text">
+            <strong>No Schema Markup</strong>
+            <span>Missing LocalBusiness schema, service schema, and review schema. Google can't properly understand what you offer or where you're located.</span>
+          </div>
+        </li>
+        <li class="info">
+          <span class="icon">🟣</span>
+          <div class="issue-text">
+            <strong>Booking Friction</strong>
+            <span>Booker integration works, but the path to booking could be streamlined with prominent CTAs and service-specific booking links.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Before/After -->
+    <div class="section">
+      <div class="label">The Transformation</div>
+      <div class="section-title">What We Built</div>
+      <p class="section-sub">A complete digital experience that matches your 25-year reputation.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-label before">❌ Current Wix Site</div>
+          <div class="screenshot-placeholder">
+            <span>fallingwatersdayspa.com</span>
+          </div>
+          <a href="https://www.fallingwatersdayspa.com" target="_blank">View Current Site →</a>
+        </div>
+        <div class="compare-card">
+          <div class="compare-label after">✓ GullStack Rebuild</div>
+          <div class="screenshot-placeholder">
+            <span>Luxury • Modern • Fast • SEO-Optimized</span>
+          </div>
+          <a href="https://gullstack.com/projects/falling-waters-spa" target="_blank">View Case Study →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Built -->
+    <div class="section">
+      <div class="label">Deliverables</div>
+      <div class="section-title">Complete Digital Transformation</div>
+
+      <div class="built-grid">
+        <div class="built-card">
+          <h3>🎨 Luxury Design</h3>
+          <ul>
+            <li>Premium visual experience</li>
+            <li>Gold accent, dark elegance</li>
+            <li>Mobile-first responsive</li>
+            <li>High-end photography integration</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>📄 Service Pages</h3>
+          <ul>
+            <li>Dedicated massage page</li>
+            <li>Facials & skincare page</li>
+            <li>Body treatments page</li>
+            <li>Hair & nail services</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>🔍 SEO Optimization</h3>
+          <ul>
+            <li>Local schema markup</li>
+            <li>Service schema</li>
+            <li>Optimized meta tags</li>
+            <li>City-targeted content</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>⚡ Performance</h3>
+          <ul>
+            <li>Sub-2 second load times</li>
+            <li>Core Web Vitals optimized</li>
+            <li>Clean, modern codebase</li>
+            <li>No Wix bloat</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Keyword Opportunity -->
+    <div class="section">
+      <div class="label">SEO Opportunity</div>
+      <div class="section-title">Keywords You Should Own</div>
+      <p class="section-sub">High-intent searches from people ready to book.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Current Rank</th>
+            <th>Opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>day spa draper ut</strong></td>
+            <td>210</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+          <tr>
+            <td><strong>massage draper utah</strong></td>
+            <td>320</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+          <tr>
+            <td>facials salt lake county</td>
+            <td>170</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+          <tr>
+            <td>spa near me draper</td>
+            <td>260</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+          <tr>
+            <td>couples massage draper</td>
+            <td>140</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(196,167,125,0.15);">
+        <strong style="color:var(--text);">1,100+ monthly searches</strong> from people looking for exactly what you offer.<br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">With proper SEO, even a 3% booking rate = <strong style="color:var(--accent);">30+ new clients per month</strong></span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>25 Years of Excellence<br>Deserves a Website to Match</h2>
+      <p>Let's launch your new digital presence and start capturing the clients who are already searching for you.</p>
+      <a href="mailto:hello@gullstack.com?subject=Falling Waters Day Spa" class="cta-btn">Let's Talk →</a>
+    </div>
+
+    <div class="footer">
+      <img src="/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Data estimated based on local search patterns. Actual SEMrush data available upon request.</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
