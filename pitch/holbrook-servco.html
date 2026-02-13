@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jason, Let's Make Servco Unstoppable | GullStack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #141414;
+      --bg-card: #1a1a1a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --orange: #f97316;
+      --orange-light: #fb923c;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span { color: var(--orange); }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Section */
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-header {
+      margin-bottom: 32px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+    }
+    
+    /* Competitor Analysis */
+    .competitor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    
+    .competitor-table th,
+    .competitor-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .competitor-table th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .competitor-table tr.highlight {
+      background: rgba(249, 115, 22, 0.1);
+    }
+    
+    .competitor-table tr.highlight td {
+      color: var(--orange);
+      font-weight: 600;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .badge-green { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+    .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+    .badge-orange { background: rgba(249, 115, 22, 0.2); color: var(--orange); }
+    
+    /* Opportunities */
+    .opportunities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .opportunities { grid-template-columns: 1fr; }
+    }
+    
+    .opportunity {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .opportunity-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .opportunity h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .opportunity p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* SEO Value */
+    .seo-value {
+      background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 32px 0;
+    }
+    
+    .seo-value h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+    
+    .seo-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .seo-stat h4 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    
+    .seo-stat p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    
+    /* What We'll Build */
+    .deliverables {
+      list-style: none;
+    }
+    
+    .deliverables li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .deliverables li:last-child {
+      border-bottom: none;
+    }
+    
+    .deliverable-check {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .deliverable-content h5 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    
+    .deliverable-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Events & Fun */
+    .fun-ideas {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .fun-ideas h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin-bottom: 20px;
+    }
+    
+    .fun-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    
+    @media (max-width: 500px) {
+      .fun-grid { grid-template-columns: 1fr; }
+    }
+    
+    .fun-item {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .fun-item span {
+      font-size: 1.5rem;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      padding: 16px 32px;
+      background: var(--orange);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .btn:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    footer img {
+      height: 32px;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-badge">🔥 Pitch for Jason Hansen</div>
+      <h1>Let's Make <span>Servco</span><br>The Undisputed Boiler King</h1>
+      <p>You've got 68 years of expertise and the ONLY Cleaver Brooks exclusivity in the region. Time to make sure everyone knows it.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🔍 The Competitive Landscape</h2>
+        <p>Here's who you're up against — and why you're already winning.</p>
+      </div>
+      
+      <table class="competitor-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Years</th>
+            <th>Territory</th>
+            <th>Edge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td><strong>Servco (You)</strong></td>
+            <td>68 years ✅</td>
+            <td>UT / ID / WY</td>
+            <td><span class="badge badge-green">Cleaver Brooks Exclusive</span></td>
+          </tr>
+          <tr>
+            <td>Therm Pro</td>
+            <td>50 years</td>
+            <td>UT / ID / WY / NV</td>
+            <td><span class="badge badge-red">Generic Rep</span></td>
+          </tr>
+          <tr>
+            <td>Blunck Industrial</td>
+            <td>18 years</td>
+            <td>UT / ID / NV / WY / CO</td>
+            <td><span class="badge badge-orange">24/7 Focus</span></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        <strong>Bottom line:</strong> You have the longest track record AND the most valuable partnership in the region. Your competitors can't touch that. But their websites look newer. Let's fix that.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📈 The SEO Opportunity</h2>
+        <p>What you could be capturing with a proper digital presence.</p>
+      </div>
+      
+      <div class="seo-value">
+        <h3>Estimated Organic Traffic Value (Year 1)</h3>
+        <div class="seo-stats">
+          <div class="seo-stat">
+            <h4>$42K+</h4>
+            <p>Annual Traffic Value</p>
+          </div>
+          <div class="seo-stat">
+            <h4>150+</h4>
+            <p>Target Keywords</p>
+          </div>
+          <div class="seo-stat">
+            <h4>8</h4>
+            <p>City Landing Pages</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="opportunities">
+        <div class="opportunity">
+          <div class="opportunity-icon">🎯</div>
+          <h4>"Boiler Service Utah" — Nobody Owns It</h4>
+          <p>High-intent keyword with weak competition. With your authority, you'd rank page 1 in 90 days.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">🗺️</div>
+          <h4>City Pages = Easy Wins</h4>
+          <p>Salt Lake, Boise, Idaho Falls, Cheyenne — each gets a dedicated page targeting "[city] boiler service".</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">🏆</div>
+          <h4>Cleaver Brooks Content</h4>
+          <p>"Cleaver Brooks dealer Utah" searches have ZERO good results. That's your content to own.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">📚</div>
+          <h4>Training Content = Authority</h4>
+          <p>Your boiler training program is a goldmine for SEO. Educational content ranks AND builds trust.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🛠️ What We'll Build</h2>
+        <p>A complete digital overhaul that matches your real-world reputation.</p>
+      </div>
+      
+      <ul class="deliverables">
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>New Website — Modern, Fast, Mobile-Perfect</h5>
+            <p>Clean design that reflects 68 years of trust. Prominent Cleaver Brooks partnership. Click-to-call on every page.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>8 City Landing Pages</h5>
+            <p>Salt Lake City, Ogden, Provo, Boise, Idaho Falls, Pocatello, Cheyenne, Rock Springs — each optimized for local search.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Full SEO Implementation</h5>
+            <p>Schema markup, meta optimization, internal linking, sitemap, Google Search Console setup. The works.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>AI Chat Support</h5>
+            <p>24/7 chatbot that answers product questions, schedules service calls, and captures leads when you're off the clock.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Product Guide / How-To Section</h5>
+            <p>Interactive guides for your equipment. Helps customers self-serve simple questions, positions you as the expert.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Training Registration System</h5>
+            <p>Online booking for boiler operator training. Automated confirmations, calendar integration, payment processing.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="fun-ideas">
+        <h3>🎉 Bonus: Let's Have Some Fun Too</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Beyond the website, here are some ideas to build community and brand love:</p>
+        <div class="fun-grid">
+          <div class="fun-item">
+            <span>⛳</span>
+            <div>
+              <strong>Servco Boiler Classic</strong>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Annual golf tournament for facility managers</p>
+            </div>
+          </div>
+          <div class="fun-item">
+            <span>🎓</span>
+            <div>
+              <strong>Lunch & Learns</strong>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Host training events at engineering firms</p>
+            </div>
+          </div>
+          <div class="fun-item">
+            <span>👕</span>
+            <div>
+              <strong>Premium Merch</strong>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Branded Yetis, tool kits for VIP customers</p>
+            </div>
+          </div>
+          <div class="fun-item">
+            <span>🏷️</span>
+            <div>
+              <strong>"Servco Certified" Stickers</strong>
+              <p style="color: var(--text-muted); font-size: 0.85rem;">Badge of honor for facilities you maintain</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="container">
+      <h2>Ready to Dominate?</h2>
+      <p>Let's hop on a call and map out the game plan. No pressure, just strategy.</p>
+      <a href="mailto:contact@gullstack.com?subject=Servco%20Website%20-%20Let's%20Talk" class="btn">Schedule a Call with Bryce →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Prepared with 🔥 by <strong>GullStack</strong></p>
+      <p style="margin-top: 8px;">Questions? <a href="mailto:bryce@gullstack.com" style="color: var(--orange);">bryce@gullstack.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
