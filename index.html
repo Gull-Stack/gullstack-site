@@ -230,6 +230,124 @@
     }
     
     /* ═══════════════════════════════════════════
+       WEBSITE AUDIT TOOL
+    ═══════════════════════════════════════════ */
+    .audit-tool {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .audit-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    
+    @media (max-width: 900px) {
+      .audit-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+    
+    .audit-text .section-title {
+      margin-bottom: 24px;
+    }
+    
+    .audit-text .section-sub {
+      max-width: 100%;
+      margin-bottom: 32px;
+    }
+    
+    .audit-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .audit-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .audit-icon {
+      font-size: 1rem;
+    }
+    
+    .audit-form-wrap {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+    }
+    
+    .audit-form .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .audit-form label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    
+    .audit-form input,
+    .audit-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    
+    .audit-form input:focus,
+    .audit-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+    }
+    
+    .audit-form input::placeholder,
+    .audit-form textarea::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .audit-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+      font-size: 1rem;
+    }
+    
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 16px;
+    }
+
+    /* ═══════════════════════════════════════════
        PRODUCTS
     ═══════════════════════════════════════════ */
     .products {
@@ -535,10 +653,10 @@
           GullStack
         </a>
         <nav>
+          <a href="#audit">Free Audit</a>
           <a href="#products">Products</a>
           <a href="projects/">Projects</a>
           <a href="#services">Services</a>
-          <a href="/ai-consulting">AI Consulting</a>
           <a href="/blog/">Blog</a>
           <a href="#contact" class="btn btn-primary">Contact</a>
         </nav>
@@ -568,6 +686,59 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
+    </div>
+  </section>
+
+  <!-- Website Audit Tool -->
+  <section class="audit-tool" id="audit">
+    <div class="container">
+      <div class="audit-content">
+        <div class="audit-text fade-in">
+          <div class="section-tag">FREE WEBSITE AUDIT</div>
+          <h2 class="section-title">Is Your Website<br><span style="background: linear-gradient(135deg, var(--accent), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Costing You Customers?</span></h2>
+          <p class="section-sub">Enter your website below. We'll show you exactly what you're missing — plus a preview of what your site <em>could</em> look like.</p>
+          
+          <div class="audit-features">
+            <div class="audit-feature">
+              <span class="audit-icon">🔍</span>
+              <span>SEO Gap Analysis</span>
+            </div>
+            <div class="audit-feature">
+              <span class="audit-icon">💰</span>
+              <span>Lost Revenue Calculator</span>
+            </div>
+            <div class="audit-feature">
+              <span class="audit-icon">✨</span>
+              <span>Free Preview Redesign</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="audit-form-wrap fade-in">
+          <form class="audit-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-group">
+              <label for="website">Your Website URL</label>
+              <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="frustrations">What don't you like about your current site?</label>
+              <textarea id="frustrations" name="frustrations" rows="4" placeholder="It looks outdated, doesn't rank on Google, hard to update, doesn't convert visitors..." required></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email (for your free audit)</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full">
+              Get My Free Audit →
+            </button>
+            
+            <p class="form-note">Free. No credit card. Preview delivered within 24 hours.</p>
+          </form>
+        </div>
+      </div>
     </div>
   </section>
 
