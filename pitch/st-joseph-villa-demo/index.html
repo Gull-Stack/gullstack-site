@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Joseph Villa — Salt Lake City's Premier Senior Care Campus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --teal: #004a59;
+            --teal-light: #006b7f;
+            --blue: #005a87;
+            --gold: #c9a84c;
+            --cream: #faf8f5;
+            --warm-white: #f5f0eb;
+            --text: #2d3436;
+            --text-light: #636e72;
+        }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; background: #fff; }
+
+        /* Nav */
+        nav {
+            background: #fff;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 50px; }
+        .nav-logo span { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--teal); font-weight: 600; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--teal); }
+        .nav-cta {
+            background: var(--teal);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .nav-cta:hover { background: var(--teal-light); }
+        .nav-phone { color: var(--teal) !important; font-weight: 600; font-size: 1rem; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%);
+            padding: 100px 40px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.03)" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,128C672,107,768,117,864,144C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            border: 1px solid rgba(201,168,76,0.3);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero p { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 35px; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--gold);
+            color: var(--teal);
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover { background: #d4b35a; transform: translateY(-2px); }
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--cream);
+            padding: 30px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e8e3dc;
+        }
+        .trust-item { text-align: center; }
+        .trust-item .num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--teal); font-weight: 700; }
+        .trust-item .label { font-size: 0.85rem; color: var(--text-light); margin-top: 2px; }
+
+        /* Container */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+        /* Services */
+        .services-section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--teal); margin-bottom: 12px; }
+        .section-header p { color: var(--text-light); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 35px 30px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,74,89,0.1); border-color: var(--teal); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal); margin-bottom: 10px; }
+        .service-card p { color: var(--text-light); font-size: 0.95rem; }
+        .service-card .learn-more { display: inline-block; margin-top: 15px; color: var(--blue); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+        .service-card .learn-more:hover { color: var(--teal); }
+
+        /* Campus Section */
+        .campus-section {
+            background: var(--cream);
+            padding: 80px 0;
+        }
+        .campus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .campus-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--teal); margin-bottom: 20px; }
+        .campus-text p { color: var(--text-light); margin-bottom: 15px; }
+        .campus-features { list-style: none; margin-top: 25px; }
+        .campus-features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .campus-features li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+        .campus-image {
+            background: linear-gradient(135deg, var(--teal), var(--blue));
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            color: #fff;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .campus-image h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 20px; }
+        .campus-locations { display: flex; flex-direction: column; gap: 15px; }
+        .campus-loc {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 15px 20px;
+            text-align: left;
+        }
+        .campus-loc strong { color: var(--gold); }
+        .campus-loc span { display: block; font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 3px; }
+
+        /* Testimonial */
+        .testimonial-section { padding: 80px 0; text-align: center; }
+        .testimonial-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+        }
+        .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 6rem; color: var(--gold); opacity: 0.3; position: absolute; top: 10px; left: 30px; }
+        .testimonial-card p { font-size: 1.15rem; color: var(--text); font-style: italic; line-height: 1.9; position: relative; z-index: 1; }
+        .testimonial-card .author { margin-top: 20px; color: var(--text-light); font-style: normal; font-weight: 600; }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--teal), var(--blue));
+            padding: 70px 40px;
+            text-align: center;
+        }
+        .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 15px; }
+        .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 30px; max-width: 550px; margin-left: auto; margin-right: auto; margin-bottom: 30px; }
+        .cta-phone {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 25px;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 60px 40px 30px;
+        }
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand h3 { font-family: 'Playfair Display', serif; color: #fff; font-size: 1.3rem; margin-bottom: 10px; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.6; }
+        .footer-col h4 { color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 15px; }
+        .footer-col a { display: block; color: #999; text-decoration: none; font-size: 0.9rem; padding: 4px 0; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { max-width: 1100px; margin: 30px auto 0; padding-top: 20px; border-top: 1px solid #333; text-align: center; font-size: 0.8rem; }
+
+        /* Demo Banner */
+        .demo-banner {
+            background: var(--gold);
+            color: var(--teal);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .demo-banner a { color: var(--teal); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .campus-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .trust-bar { gap: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Demo Banner -->
+    <div class="demo-banner">
+        ✨ This is a demo site built by <a href="https://gullstack.com">GullStack</a> for St. Joseph Villa — <a href="https://gullstack.com/pitch/st-joseph-villa">View Full Proposal</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">
+            <img src="https://i0.wp.com/stjosephvilla.com/wp-content/uploads/2025/09/stjoseph-logo1.png?fit=750%2C400&ssl=1" alt="St. Joseph Villa">
+        </div>
+        <div class="nav-links">
+            <a href="/pitch/st-joseph-villa-demo/">Home</a>
+            <a href="/pitch/st-joseph-villa-demo/services/">Services</a>
+            <a href="/pitch/st-joseph-villa-demo/about/">About</a>
+            <a href="/pitch/st-joseph-villa-demo/contact/">Contact</a>
+            <a href="tel:8014877557" class="nav-phone">📞 (801) 487-7557</a>
+            <a href="/pitch/st-joseph-villa-demo/contact/" class="nav-cta">Schedule a Tour</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Salt Lake City's Premier Senior Care Campus</div>
+            <h1>Where Compassionate Care Feels Like Home</h1>
+            <p>Post-acute rehabilitation, skilled nursing, and a full continuum of senior living — all on one beautiful campus in the heart of Salt Lake City.</p>
+            <div class="hero-buttons">
+                <a href="/pitch/st-joseph-villa-demo/contact/" class="btn-primary">Schedule a Personalized Tour</a>
+                <a href="/pitch/st-joseph-villa-demo/services/" class="btn-secondary">Explore Our Services</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <div class="trust-item">
+            <div class="num">60+</div>
+            <div class="label">Years of Service</div>
+        </div>
+        <div class="trust-item">
+            <div class="num">24/7</div>
+            <div class="label">Nursing Care</div>
+        </div>
+        <div class="trust-item">
+            <div class="num">3</div>
+            <div class="label">Campus Facilities</div>
+        </div>
+        <div class="trust-item">
+            <div class="num">Board</div>
+            <div class="label">Certified Staff</div>
+        </div>
+        <div class="trust-item">
+            <div class="num">Full</div>
+            <div class="label">Continuum of Care</div>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>From short-term rehabilitation to long-term care, we provide personalized treatment plans tailored to your unique needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>Post-Acute Rehabilitation</h3>
+                    <p>Recovering from surgery or illness? Our intensive rehab programs help you regain strength and independence faster — with a dedicated team focused entirely on your recovery.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3>In-House Physical Therapy</h3>
+                    <p>State-of-the-art therapeutic approaches combined with hands-on care from our dedicated in-house therapy team. Short-term and long-term rehabilitation tailored just for you.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>Skilled Nursing</h3>
+                    <p>Round-the-clock nursing care in a warm, welcoming environment. Our skilled nursing team ensures your comfort, safety, and dignity every single day.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Assisted Living</h3>
+                    <p>Maintain your independence with just the right amount of support. Our St. Joseph Senior Apartments offer assisted and independent living on our beautiful campus.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Behavioral Health</h3>
+                    <p>The Marian Center offers a full continuum of behavioral health services for adults 55 and above, providing compassionate psychiatric and psychological care.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Activities & Wellness</h3>
+                    <p>A packed calendar of activities designed to keep you engaged, social, and thriving — from morning exercises to evening entertainment and everything in between.</p>
+                    <a href="/pitch/st-joseph-villa-demo/services/" class="learn-more">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Campus -->
+    <div class="campus-section">
+        <div class="container">
+            <div class="campus-grid">
+                <div class="campus-text">
+                    <h2>One Campus. Complete Care.</h2>
+                    <p>St. Joseph Villa isn't just a nursing home — it's a premier senior living campus offering everything your loved one needs under one roof.</p>
+                    <p>Whether the need is short-term rehabilitation after surgery, long-term skilled nursing, independent living, or behavioral health support, our campus provides seamless transitions between levels of care.</p>
+                    <ul class="campus-features">
+                        <li>Seamless transitions between care levels</li>
+                        <li>Beautiful Salt Lake City location</li>
+                        <li>Comprehensive care team coordination</li>
+                        <li>Family-centered approach to every decision</li>
+                        <li>Medicare & Medicaid accepted</li>
+                        <li>Personalized care plans for every resident</li>
+                    </ul>
+                </div>
+                <div class="campus-image">
+                    <h3>Our Campus</h3>
+                    <div class="campus-locations">
+                        <div class="campus-loc">
+                            <strong>St. Joseph Villa</strong>
+                            <span>Skilled Nursing & Post-Acute Rehabilitation</span>
+                        </div>
+                        <div class="campus-loc">
+                            <strong>St. Joseph Senior Apartments</strong>
+                            <span>Independent & Assisted Living</span>
+                        </div>
+                        <div class="campus-loc">
+                            <strong>The Marian Center</strong>
+                            <span>Senior Behavioral Health Hospital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Families Say</h2>
+            </div>
+            <div class="testimonial-card">
+                <p>The staff at St. Joseph Villa treated my mother like family. From the moment she arrived for rehabilitation, every nurse, every therapist, and every aide knew her by name. She came in needing a walker and left walking on her own. We couldn't have asked for better care.</p>
+                <div class="author">— Family Member, Post-Acute Rehabilitation</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-banner">
+        <h2>Ready to See the Difference?</h2>
+        <p>Schedule a personalized tour and discover why families across Salt Lake City trust St. Joseph Villa for their loved ones' care.</p>
+        <a href="tel:8014877557" class="cta-phone">(801) 487-7557</a>
+        <a href="/pitch/st-joseph-villa-demo/contact/" class="btn-primary" style="font-size: 1.1rem; padding: 16px 40px;">Schedule Your Tour Today</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>St. Joseph Villa</h3>
+                <p>451 Bishop Federal Lane<br>Salt Lake City, Utah 84115<br><br>Salt Lake City's premier location for short-term rehabilitation and long-term care since the 1960s.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="/pitch/st-joseph-villa-demo/services/">Post-Acute Rehab</a>
+                <a href="/pitch/st-joseph-villa-demo/services/">Skilled Nursing</a>
+                <a href="/pitch/st-joseph-villa-demo/services/">Physical Therapy</a>
+                <a href="/pitch/st-joseph-villa-demo/services/">Assisted Living</a>
+                <a href="/pitch/st-joseph-villa-demo/services/">Behavioral Health</a>
+            </div>
+            <div class="footer-col">
+                <h4>Campus</h4>
+                <a href="#">St. Joseph Villa</a>
+                <a href="#">Senior Apartments</a>
+                <a href="#">The Marian Center</a>
+                <a href="#">Activities Calendar</a>
+                <a href="#">Photos & Videos</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="tel:8014877557">(801) 487-7557</a>
+                <a href="mailto:contact-stjosephvilla@ensignservices.net">Email Us</a>
+                <a href="/pitch/st-joseph-villa-demo/contact/">Schedule a Tour</a>
+                <a href="#">Careers</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 St. Joseph Villa. All rights reserved. Part of the Ensign Services family.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — St. Joseph Villa | Schedule a Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}:root{--teal:#004a59;--teal-light:#006b7f;--blue:#005a87;--gold:#c9a84c;--cream:#faf8f5;--text:#2d3436;--text-light:#636e72}body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7}
+        nav{background:#fff;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:80px;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.04)}.nav-logo img{height:50px}.nav-links{display:flex;gap:30px;align-items:center}.nav-links a{text-decoration:none;color:var(--text-light);font-size:0.95rem;font-weight:500}.nav-links a:hover{color:var(--teal)}.nav-cta{background:var(--teal);color:#fff!important;padding:10px 24px;border-radius:8px;font-weight:600}.nav-phone{color:var(--teal)!important;font-weight:600}
+        .demo-banner{background:var(--gold);color:var(--teal);text-align:center;padding:10px;font-size:0.85rem;font-weight:600}.demo-banner a{color:var(--teal)}
+        .page-hero{background:linear-gradient(135deg,var(--teal),var(--blue));padding:80px 40px;text-align:center}.page-hero h1{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;margin-bottom:15px}.page-hero p{color:rgba(255,255,255,0.8);font-size:1.15rem;max-width:600px;margin:0 auto}
+        .container{max-width:1100px;margin:0 auto;padding:0 40px}
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:60px 0}
+        .contact-form h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--teal);margin-bottom:20px}
+        .form-group{margin-bottom:20px}
+        .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem;color:var(--text)}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:8px;font-family:'Inter',sans-serif;font-size:0.95rem;transition:border 0.3s}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);outline:none}
+        .form-group textarea{height:120px;resize:vertical}
+        .submit-btn{background:var(--teal);color:#fff;border:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:1rem;cursor:pointer;width:100%;transition:background 0.3s}.submit-btn:hover{background:var(--teal-light)}
+        .contact-info h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--teal);margin-bottom:20px}
+        .info-card{background:var(--cream);border-radius:16px;padding:25px;margin-bottom:20px}
+        .info-card h3{color:var(--teal);margin-bottom:8px;font-size:1.1rem}
+        .info-card p{color:var(--text-light);font-size:0.95rem;margin:4px 0}
+        .info-card a{color:var(--blue);text-decoration:none;font-weight:600}
+        .map-embed{border-radius:16px;overflow:hidden;margin-top:20px;border:1px solid #eee}
+        .map-embed iframe{width:100%;height:250px;border:0}
+        footer{background:#1a1a1a;color:#999;padding:30px 40px;text-align:center;font-size:0.85rem}
+        @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}.page-hero{padding:50px 20px}.page-hero h1{font-size:2rem}.contact-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="demo-banner">✨ Demo site by <a href="https://gullstack.com">GullStack</a> — <a href="https://gullstack.com/pitch/st-joseph-villa">View Proposal</a></div>
+    <nav>
+        <div class="nav-logo"><img src="https://i0.wp.com/stjosephvilla.com/wp-content/uploads/2025/09/stjoseph-logo1.png?fit=750%2C400&ssl=1" alt="St. Joseph Villa"></div>
+        <div class="nav-links">
+            <a href="/pitch/st-joseph-villa-demo/">Home</a>
+            <a href="/pitch/st-joseph-villa-demo/services/">Services</a>
+            <a href="/pitch/st-joseph-villa-demo/about/">About</a>
+            <a href="/pitch/st-joseph-villa-demo/contact/" style="color:var(--teal);font-weight:700">Contact</a>
+            <a href="tel:8014877557" class="nav-phone">📞 (801) 487-7557</a>
+            <a href="#" class="nav-cta">Schedule a Tour</a>
+        </div>
+    </nav>
+
+    <div class="page-hero">
+        <h1>Contact Us</h1>
+        <p>We'd love to show you around. Schedule a personalized tour or reach out with any questions.</p>
+    </div>
+
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h2>Schedule a Tour</h2>
+                <form onsubmit="event.preventDefault(); alert('This is a demo site. In the live version, this form would submit to St. Joseph Villa\'s team.');">
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" placeholder="Full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" placeholder="(801) 555-1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>I'm Interested In</label>
+                        <select>
+                            <option>Post-Acute Rehabilitation</option>
+                            <option>Skilled Nursing Care</option>
+                            <option>Assisted Living</option>
+                            <option>Independent Living</option>
+                            <option>Behavioral Health (Marian Center)</option>
+                            <option>Physical Therapy</option>
+                            <option>Not Sure — I'd Like Guidance</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to Patient</label>
+                        <select>
+                            <option>I am the patient</option>
+                            <option>Spouse / Partner</option>
+                            <option>Son / Daughter</option>
+                            <option>Other Family Member</option>
+                            <option>Healthcare Provider / Case Manager</option>
+                            <option>Hospital Discharge Planner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tell Us More</label>
+                        <textarea placeholder="Any details about your situation or questions you have..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Request a Tour</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="info-card">
+                    <h3>📞 Call Us</h3>
+                    <p><a href="tel:8014877557">(801) 487-7557</a></p>
+                    <p>Available 24/7 for inquiries</p>
+                </div>
+                <div class="info-card">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:contact-stjosephvilla@ensignservices.net">contact-stjosephvilla@ensignservices.net</a></p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 Visit Us</h3>
+                    <p><strong>St. Joseph Villa</strong></p>
+                    <p>451 Bishop Federal Lane</p>
+                    <p>Salt Lake City, Utah 84115</p>
+                </div>
+                <div class="info-card">
+                    <h3>🕐 Office Hours</h3>
+                    <p>Monday – Friday: 8:00 AM – 5:00 PM</p>
+                    <p>Saturday – Sunday: By Appointment</p>
+                    <p><em>Nursing care available 24/7</em></p>
+                </div>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.5!2d-111.8755!3d40.7255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752f508e3e5d4c7%3A0x9aaadcfe06186e2f!2sSt.%20Joseph%20Villa!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>© 2026 St. Joseph Villa · 451 Bishop Federal Lane, Salt Lake City, UT 84115 · Demo by GullStack</p></footer>
+</body>
+</html>
