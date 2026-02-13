@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Skin Dermatology — Digital Growth Proposal by GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --accent: #8b5cf6;
+      --accent-glow: rgba(139,92,246,0.3);
+      --bg: #0f0f14;
+      --bg-elevated: #1a1a24;
+      --bg-card: #22222e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --teal: #1f424e;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:2rem 1.5rem; }
+
+    /* Hero */
+    .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f0f14 0%, #1a1030 50%, #0f0f14 100%); border-bottom:1px solid rgba(139,92,246,0.15); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; }
+    .hero-logos img { height:50px; border-radius:8px; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:0.75rem; }
+    .hero h1 span { color:var(--accent); }
+    .hero h1 .red { color:var(--red); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; max-width:650px; margin:0 auto; }
+
+    /* Sections */
+    .section { padding:3rem 0; }
+    .section-title { font-size:1.6rem; font-weight:800; margin-bottom:0.5rem; text-align:center; }
+    .section-sub { color:var(--text-muted); text-align:center; margin-bottom:2rem; font-size:0.95rem; }
+    .label { text-transform:uppercase; letter-spacing:0.15em; font-size:0.75rem; font-weight:700; color:var(--accent); margin-bottom:0.5rem; text-align:center; }
+
+    /* Score Card */
+    .score-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .score-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(139,92,246,0.12); }
+    .score-card .score-value { font-size:2.5rem; font-weight:900; }
+    .score-card .score-label { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.25rem; }
+    .bad { color:var(--red); }
+    .warn { color:var(--orange); }
+    .ok { color:var(--yellow); }
+    .good { color:var(--green); }
+
+    /* Collapse Visual */
+    .collapse-visual { display:flex; align-items:center; justify-content:center; gap:2rem; margin:2.5rem 0; flex-wrap:wrap; }
+    .collapse-box { background:var(--bg-elevated); border-radius:14px; padding:2rem; text-align:center; min-width:180px; border:1px solid rgba(139,92,246,0.12); }
+    .collapse-box .number { font-size:3rem; font-weight:900; }
+    .collapse-box .period { color:var(--text-muted); font-size:0.8rem; margin-top:0.25rem; }
+    .collapse-arrow { font-size:2.5rem; color:var(--red); }
+
+    /* Before/After */
+    .compare-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:2rem; margin:2rem 0; }
+    .compare-card { background:var(--bg-elevated); border-radius:14px; overflow:hidden; border:1px solid rgba(139,92,246,0.12); }
+    .compare-card .compare-label { padding:0.75rem 1rem; background:var(--bg-card); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; }
+    .compare-card .compare-label.before { color:var(--red); }
+    .compare-card .compare-label.after { color:var(--green); }
+    .compare-card img { width:100%; display:block; }
+    .compare-card .screenshot-placeholder { height:220px; display:flex; align-items:center; justify-content:center; background:var(--bg-card); color:var(--text-muted); font-size:0.85rem; }
+    .compare-card a { display:block; padding:0.75rem 1rem; background:rgba(139,92,246,0.1); color:var(--accent); text-decoration:none; font-size:0.9rem; text-align:center; transition:background 0.2s; }
+    .compare-card a:hover { background:rgba(139,92,246,0.2); }
+
+    /* What We Built */
+    .built-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .built-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; border:1px solid rgba(139,92,246,0.1); }
+    .built-card h3 { font-size:1rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+    .built-card ul { list-style:none; }
+    .built-card li { padding:0.35rem 0; padding-left:1.2rem; position:relative; color:var(--text-muted); font-size:0.9rem; }
+    .built-card li::before { content:'✓'; position:absolute; left:0; color:var(--green); font-weight:bold; }
+
+    /* Keyword Table */
+    table { width:100%; border-collapse:collapse; background:var(--bg-elevated); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
+    thead { background:var(--bg-card); }
+    th { text-align:left; padding:0.85rem 1rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+    td { padding:0.85rem 1rem; border-top:1px solid rgba(255,255,255,0.04); font-size:0.95rem; }
+    tr:hover { background:rgba(139,92,246,0.04); }
+    .money-keyword { background:rgba(34,197,94,0.08) !important; border-left:3px solid var(--green); }
+
+    /* Opportunity */
+    .opp-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .opp-card { background:var(--bg-elevated); border-radius:14px; padding:2rem 1.5rem; text-align:center; border:1px solid rgba(139,92,246,0.15); }
+    .opp-card .opp-number { font-size:2.5rem; font-weight:900; color:var(--accent); }
+    .opp-card .opp-label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-top:0.5rem; }
+
+    /* Trust Signals */
+    .trust-list { display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; margin:2rem 0; }
+    .trust-badge { background:var(--bg-elevated); border:1px solid rgba(139,92,246,0.12); border-radius:50px; padding:0.5rem 1rem; font-size:0.85rem; display:flex; align-items:center; gap:0.4rem; }
+    .trust-badge .icon { font-size:1rem; }
+
+    /* CTA */
+    .cta-section { text-align:center; padding:3rem 1.5rem; margin:2rem 0; background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(139,92,246,0.02)); border-radius:20px; border:1px solid rgba(139,92,246,0.15); }
+    .cta-section h2 { font-size:1.8rem; font-weight:800; margin-bottom:0.75rem; }
+    .cta-section p { color:var(--text-muted); max-width:550px; margin:0 auto 1.5rem; }
+    .cta-btn { display:inline-block; background:var(--accent); color:#fff; padding:0.9rem 2.5rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; transition:all 0.2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--accent-glow); }
+
+    /* Footer */
+    .footer { text-align:center; padding:2rem 0; color:var(--text-muted); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); margin-top:2rem; }
+    .footer img { height:30px; margin-bottom:0.5rem; }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size:1.5rem; }
+      .score-card .score-value { font-size:2rem; }
+      .collapse-box .number { font-size:2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <span style="font-weight:800; font-size:1.2rem; color:var(--teal);">Smart Skin Dermatology</span>
+    </div>
+    <h1>From <span class="red">1,300</span> Monthly Visitors<br>to <span class="red">3</span>.</h1>
+    <p class="subtitle">Your website traffic collapsed 99.8% — but we've already built the fix. Here's the data, the problem, and your new digital front door.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- The Problem -->
+    <div class="section">
+      <div class="label">The Problem</div>
+      <div class="section-title">Your Traffic Disappeared</div>
+      <p class="section-sub">According to SEMrush, smartskindermatology.com went from a healthy traffic stream to almost zero.</p>
+
+      <div class="collapse-visual">
+        <div class="collapse-box">
+          <div class="number good">1,300</div>
+          <div class="period">Monthly Visitors (Peak)</div>
+        </div>
+        <div class="collapse-arrow">→</div>
+        <div class="collapse-box">
+          <div class="number bad">3</div>
+          <div class="period">Monthly Visitors (Now)</div>
+        </div>
+      </div>
+
+      <div class="score-grid">
+        <div class="score-card">
+          <div class="score-value bad">3</div>
+          <div class="score-label">Organic Visitors/Month</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value bad">$262</div>
+          <div class="score-label">Current Organic Value</div>
+        </div>
+        <div class="score-card">
+          <div class="score-value warn">99.8%</div>
+          <div class="score-label">Traffic Drop</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:1.5rem; border-left:3px solid var(--red); text-align:center;">
+        <strong style="color:var(--red);">⚠️ A 30+ year dermatology practice invisible to Google</strong><br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">Every day, potential patients in Lehi are searching for dermatologists — and finding your competitors instead.</span>
+      </div>
+    </div>
+
+    <!-- Before/After -->
+    <div class="section">
+      <div class="label">Before & After</div>
+      <div class="section-title">We Already Built Your New Site</div>
+      <p class="section-sub">Side-by-side: what you have now vs. what's ready to launch.</p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <div class="compare-label before">❌ Current Site</div>
+          <div class="screenshot-placeholder">
+            <span>smartskindermatology.com</span>
+          </div>
+          <a href="https://smartskindermatology.com" target="_blank">View Current Site →</a>
+        </div>
+        <div class="compare-card">
+          <div class="compare-label after">✓ GullStack Rebuild</div>
+          <div class="screenshot-placeholder">
+            <span>Modern, SEO-optimized, fast</span>
+          </div>
+          <a href="https://gull-stack.github.io/smartskin-site/" target="_blank">View New Site →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Built -->
+    <div class="section">
+      <div class="label">What We Built</div>
+      <div class="section-title">13+ Optimized Pages, Ready to Launch</div>
+      <p class="section-sub">A complete, SEO-optimized website built around your brand and services.</p>
+
+      <div class="built-grid">
+        <div class="built-card">
+          <h3>📄 Service Pages (6)</h3>
+          <ul>
+            <li>Medical Dermatology</li>
+            <li>Cosmetic Dermatology</li>
+            <li>Surgical Dermatology</li>
+            <li>Skin Cancer Screening</li>
+            <li>Botox & Fillers</li>
+            <li>Laser Treatments</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>🩺 Condition Pages (5)</h3>
+          <ul>
+            <li>Acne Treatment</li>
+            <li>Eczema & Dermatitis</li>
+            <li>Psoriasis</li>
+            <li>Rosacea</li>
+            <li>Skin Cancer</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>⚙️ Core Pages</h3>
+          <ul>
+            <li>Homepage with hero CTA</li>
+            <li>About / Meet the Team</li>
+            <li>FAQ with Schema Markup</li>
+            <li>Insurance Information</li>
+            <li>Contact with click-to-call</li>
+          </ul>
+        </div>
+        <div class="built-card">
+          <h3>🎯 SEO Features</h3>
+          <ul>
+            <li>Local schema markup</li>
+            <li>Physician schema</li>
+            <li>FAQ schema</li>
+            <li>Optimized meta tags</li>
+            <li>Internal linking structure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="trust-list">
+        <div class="trust-badge"><span class="icon">🏆</span> 30+ Years Experience</div>
+        <div class="trust-badge"><span class="icon">✓</span> Board Certified</div>
+        <div class="trust-badge"><span class="icon">⭐</span> City Weekly Best Of</div>
+        <div class="trust-badge"><span class="icon">💚</span> Healthgrades 4.9</div>
+        <div class="trust-badge"><span class="icon">📞</span> Click-to-Call Everywhere</div>
+      </div>
+    </div>
+
+    <!-- SEO Opportunity -->
+    <div class="section">
+      <div class="label">SEO Opportunity</div>
+      <div class="section-title">The Money Keywords</div>
+      <p class="section-sub">High-intent keywords your potential patients are searching for right now.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Current Rank</th>
+            <th>Target Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="money-keyword">
+            <td><strong>dermatologist lehi ut</strong></td>
+            <td>320</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+          <tr class="money-keyword">
+            <td><strong>dermatologist utah county</strong></td>
+            <td>480</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+          <tr>
+            <td>skin cancer screening lehi</td>
+            <td>110</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+          <tr>
+            <td>botox lehi utah</td>
+            <td>210</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+          <tr>
+            <td>acne treatment utah county</td>
+            <td>170</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+          <tr>
+            <td>cosmetic dermatology lehi</td>
+            <td>90</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 3</td>
+          </tr>
+          <tr>
+            <td>eczema specialist utah</td>
+            <td>140</td>
+            <td style="color:var(--red);">Not ranking</td>
+            <td style="color:var(--green);">Top 5</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="opp-grid">
+        <div class="opp-card">
+          <div class="opp-number" style="color:var(--green);">1,520+</div>
+          <div class="opp-label">Monthly Search Volume</div>
+        </div>
+        <div class="opp-card">
+          <div class="opp-number">$0</div>
+          <div class="opp-label">Cost to Rank (Organic)</div>
+        </div>
+        <div class="opp-card">
+          <div class="opp-number" style="color:var(--green);">$25-50</div>
+          <div class="opp-label">CPC if Buying Ads</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(139,92,246,0.15);">
+        <span style="color:var(--text-muted); font-size:0.95rem;">
+          <strong style="color:var(--text);">This is low-hanging fruit.</strong> "Dermatologist Lehi UT" alone has 320 searches/month. At a 3% conversion rate, that's <strong style="color:var(--accent);">9-10 new patient inquiries per month</strong> — just from one keyword. The new site is built to capture all of them.
+        </span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Your New Website is Ready.<br>Let's Launch It.</h2>
+      <p>Dr. Smart, you've built 30+ years of reputation. Let's make sure Lehi can actually find you online.</p>
+      <a href="https://gullstack.com" class="cta-btn">Let's Talk →</a>
+    </div>
+
+    <div class="footer">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Traffic data sourced from SEMrush US Database. Organic Value = estimated cost to buy equivalent traffic via Google Ads.</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
