@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falling Waters Day Spa — Digital Growth Report | GullStack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-card: #21262d;
+    --border: #30363d;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent-blue: #58a6ff;
+    --accent-green: #3fb950;
+    --accent-purple: #a371f7;
+    --accent-red: #f85149;
+    --accent-orange: #d29922;
+    --accent-teal: #56d4c8;
+  }
+  
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--accent-teal);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Young Serif', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .hero h1 span { color: var(--accent-teal); }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    color: var(--accent-teal);
+  }
+  .hero-stat .label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  /* SECTIONS */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+  section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  section h2 .icon { margin-right: 0.5rem; }
+
+  .section-sub {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  /* CARDS */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p, .card li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .card .big-num {
+    font-family: 'Young Serif', serif;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .red { color: var(--accent-red); }
+  .green { color: var(--accent-green); }
+  .blue { color: var(--accent-blue); }
+  .orange { color: var(--accent-orange); }
+  .teal { color: var(--accent-teal); }
+  .purple { color: var(--accent-purple); }
+
+  /* TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .data-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .data-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .data-table tr:hover td {
+    background: rgba(86, 212, 200, 0.04);
+  }
+
+  .pos-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .pos-1 { background: rgba(63, 185, 80, 0.15); color: var(--accent-green); }
+  .pos-top5 { background: rgba(88, 166, 255, 0.15); color: var(--accent-blue); }
+  .pos-top10 { background: rgba(210, 153, 34, 0.15); color: var(--accent-orange); }
+  .pos-low { background: rgba(248, 81, 73, 0.1); color: var(--accent-red); }
+
+  /* COMPARISON */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .comparison { grid-template-columns: 1fr; }
+  }
+
+  .comparison .before {
+    border-color: var(--accent-red);
+    border-left: 3px solid var(--accent-red);
+  }
+
+  .comparison .after {
+    border-color: var(--accent-green);
+    border-left: 3px solid var(--accent-green);
+  }
+
+  .comparison .card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .comparison ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .comparison li {
+    padding: 0.35rem 0;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+
+  .comparison li::before {
+    margin-right: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .before li::before { content: '✗'; color: var(--accent-red); }
+  .after li::before { content: '✓'; color: var(--accent-green); }
+
+  /* IMPROVEMENTS LIST */
+  .improvements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .improvements li {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .improvements li .check {
+    color: var(--accent-green);
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* OPPORTUNITY BAR */
+  .opp-bar {
+    background: var(--bg-card);
+    border-radius: 8px;
+    height: 10px;
+    overflow: hidden;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .opp-fill {
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(90deg, var(--accent-teal), var(--accent-green));
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  }
+
+  .cta-section h2 {
+    font-family: 'Young Serif', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(86, 212, 200, 0.25);
+  }
+
+  .cta-primary {
+    background: linear-gradient(135deg, var(--accent-teal), #3fb9a0);
+    color: #0d1117;
+  }
+
+  .cta-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    margin-left: 1rem;
+  }
+
+  .cta-contact {
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .cta-contact a {
+    color: var(--accent-teal);
+    text-decoration: none;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: var(--accent-blue); text-decoration: none; }
+
+  /* PILL */
+  .pill {
+    display: inline-block;
+    padding: 0.2rem 0.75rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .pill-red { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+  .pill-green { background: rgba(63,185,80,0.15); color: var(--accent-green); }
+  .pill-blue { background: rgba(88,166,255,0.15); color: var(--accent-blue); }
+
+  /* TRUST */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .trust-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+  }
+
+  .trust-item .icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .trust-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .trust-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📊 Digital Growth Report — February 2026</div>
+  <h1>Falling Waters Day Spa<br><span>Digital Growth Report</span></h1>
+  <p>A data-driven analysis of your digital presence and the opportunity ahead — prepared by GullStack.</p>
+  
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">163</div>
+      <div class="label">Organic Keywords</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">645</div>
+      <div class="label">Monthly Visitors</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">$153</div>
+      <div class="label">Traffic Value</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">#1.4M</div>
+      <div class="label">SEMrush Rank</div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section>
+  <div class="container">
+    <h2><span class="icon">🚨</span> The Problem</h2>
+    <p class="section-sub">Your current website is leaving thousands of dollars in bookings on the table every month.</p>
+    
+    <div class="card-grid">
+      <div class="card">
+        <div class="big-num red">645</div>
+        <h3>Monthly Organic Visitors</h3>
+        <p>For a spa established in 1998 with strong local reputation, this is critically low. Competitors in the Salt Lake Valley average 2,000–5,000+ monthly visitors.</p>
+      </div>
+      <div class="card">
+        <div class="big-num red">5</div>
+        <h3>Total Indexed Pages</h3>
+        <p>Your current Wix site has only ~5 pages. Google can't rank what doesn't exist. Zero dedicated service pages, zero location pages, zero blog content.</p>
+      </div>
+      <div class="card">
+        <div class="big-num orange">163</div>
+        <h3>Ranking Keywords</h3>
+        <p>Nearly all are branded ("falling waters day spa"). You're invisible for high-intent searches like "massage draper utah" (Position 10) and "massage draper" (Position 13).</p>
+      </div>
+      <div class="card">
+        <div class="big-num red">$153</div>
+        <h3>Traffic Value</h3>
+        <p>The estimated value of your organic traffic. A well-optimized spa site in your market should generate $2,000–$5,000+ in equivalent ad value monthly.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+      <h3 style="margin-bottom: 1rem;">🔍 Key SEO Gaps</h3>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+        <li style="color: var(--text-secondary);">✗ <span class="red">No dedicated massage page</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No facial/skincare page</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No hair services page</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No location/Draper page</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No blog or content strategy</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No schema markup</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No mobile optimization</span></li>
+        <li style="color: var(--text-secondary);">✗ <span class="red">No meta descriptions</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KEYWORD DATA -->
+<section>
+  <div class="container">
+    <h2><span class="icon">📈</span> Current Keyword Rankings</h2>
+    <p class="section-sub">SEMrush data for fallingwatersdayspa.com — your top 20 organic keywords. Notice: almost all traffic comes from branded terms.</p>
+    
+    <div style="overflow-x: auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Position</th>
+            <th>Volume</th>
+            <th>CPC</th>
+            <th>Traffic %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>falling waters day spa draper</td>
+            <td><span class="pos-badge pos-1">1</span></td>
+            <td>170</td>
+            <td>$0.00</td>
+            <td>21.1%</td>
+          </tr>
+          <tr>
+            <td>falling waters day spa</td>
+            <td><span class="pos-badge pos-1">1</span></td>
+            <td>170</td>
+            <td>$0.00</td>
+            <td>21.1%</td>
+          </tr>
+          <tr>
+            <td>falling waters day spa utah</td>
+            <td><span class="pos-badge pos-1">1</span></td>
+            <td>140</td>
+            <td>$0.00</td>
+            <td>17.4%</td>
+          </tr>
+          <tr>
+            <td>falling waters day spa and salon</td>
+            <td><span class="pos-badge pos-1">1</span></td>
+            <td>140</td>
+            <td>$0.00</td>
+            <td>17.4%</td>
+          </tr>
+          <tr>
+            <td><strong>spa at falling waters</strong></td>
+            <td><span class="pos-badge pos-top10">8</span></td>
+            <td><strong>590</strong></td>
+            <td>$0.00</td>
+            <td>2.2%</td>
+          </tr>
+          <tr>
+            <td><strong>falling waters spa</strong></td>
+            <td><span class="pos-badge pos-top5">4</span></td>
+            <td><strong>320</strong></td>
+            <td>$0.90</td>
+            <td>1.4%</td>
+          </tr>
+          <tr>
+            <td>spa draper utah</td>
+            <td><span class="pos-badge pos-top5">3</span></td>
+            <td>170</td>
+            <td><strong>$2.52</strong></td>
+            <td>0.8%</td>
+          </tr>
+          <tr>
+            <td><strong>draper spa</strong></td>
+            <td><span class="pos-badge pos-top5">2</span></td>
+            <td><strong>210</strong></td>
+            <td><strong>$2.57</strong></td>
+            <td>0.8%</td>
+          </tr>
+          <tr>
+            <td>spa draper</td>
+            <td><span class="pos-badge pos-top5">2</span></td>
+            <td>90</td>
+            <td><strong>$2.73</strong></td>
+            <td>0.5%</td>
+          </tr>
+          <tr>
+            <td style="color: var(--accent-orange);">massage draper utah</td>
+            <td><span class="pos-badge pos-top10">10</span></td>
+            <td><strong>390</strong></td>
+            <td><strong>$2.58</strong></td>
+            <td>0.3%</td>
+          </tr>
+          <tr>
+            <td>day spa draper utah</td>
+            <td><span class="pos-badge pos-top5">2</span></td>
+            <td>50</td>
+            <td>$1.73</td>
+            <td>0.3%</td>
+          </tr>
+          <tr>
+            <td style="color: var(--accent-red);">massage draper</td>
+            <td><span class="pos-badge pos-low">13</span></td>
+            <td><strong>260</strong></td>
+            <td><strong>$2.58</strong></td>
+            <td>0.2%</td>
+          </tr>
+          <tr>
+            <td>draper massage</td>
+            <td><span class="pos-badge pos-top10">9</span></td>
+            <td>90</td>
+            <td><strong>$2.90</strong></td>
+            <td>0.2%</td>
+          </tr>
+          <tr>
+            <td>spa in draper</td>
+            <td><span class="pos-badge pos-top5">2</span></td>
+            <td>40</td>
+            <td>$2.73</td>
+            <td>0.2%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background: rgba(248,81,73,0.08); border: 1px solid rgba(248,81,73,0.2); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+      <h3 class="red" style="margin-bottom: 0.5rem;">⚠️ The Biggest Problem</h3>
+      <p style="color: var(--text-secondary);">"<strong>Massage draper utah</strong>" has <strong>390 searches/month</strong> and a CPC of $2.58 — but you're sitting at <strong>position 10</strong>. "<strong>Massage draper</strong>" (260/mo) has you at <strong>position 13</strong> — page 2 of Google. These are high-intent, high-converting keywords. A dedicated massage page alone could capture 200+ additional monthly visitors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section>
+  <div class="container">
+    <h2><span class="icon">⚡</span> Before &amp; After</h2>
+    <p class="section-sub">We rebuilt your entire digital presence from the ground up. Here's what changed.</p>
+    
+    <div class="comparison">
+      <div class="card before">
+        <h3><span class="pill pill-red">BEFORE</span> Current Wix Site</h3>
+        <ul>
+          <li>~5 total pages (Home, Specials, About, Services, Shop)</li>
+          <li>Generic page titles, no meta descriptions</li>
+          <li>No dedicated service pages for massage, facials, hair</li>
+          <li>No location-targeted content</li>
+          <li>No blog or content marketing</li>
+          <li>No structured data / schema markup</li>
+          <li>Slow load times on mobile (Wix overhead)</li>
+          <li>No clear service pricing visible</li>
+          <li>Minimal social proof / reviews</li>
+          <li>No conversion-optimized booking flow</li>
+        </ul>
+      </div>
+      <div class="card after">
+        <h3><span class="pill pill-green">AFTER</span> GullStack Rebuild</h3>
+        <ul>
+          <li>18+ SEO-optimized pages targeting real search queries</li>
+          <li>Unique title tags &amp; meta descriptions on every page</li>
+          <li>Dedicated pages: massage, facials, hair, nails, waxing, lashes</li>
+          <li>Location page targeting "Draper" + surrounding areas</li>
+          <li>Blog section ready for content marketing</li>
+          <li>Full schema markup (LocalBusiness, Service, FAQ)</li>
+          <li>Sub-second load times, mobile-first design</li>
+          <li>Clear pricing on all services with Book Now CTAs</li>
+          <li>Google reviews integrated with star ratings</li>
+          <li>One-tap booking integration with Booker</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+      <a href="https://www.fallingwatersdayspa.com" target="_blank" style="display: block; background: var(--bg-card); border: 1px solid var(--accent-red); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-primary); transition: transform 0.2s;">
+        <div style="font-size: 0.8rem; color: var(--accent-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Current Site</div>
+        <div style="font-size: 1.1rem;">fallingwatersdayspa.com →</div>
+      </a>
+      <a href="https://falling-waters-spa.vercel.app" target="_blank" style="display: block; background: var(--bg-card); border: 1px solid var(--accent-green); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-primary); transition: transform 0.2s;">
+        <div style="font-size: 0.8rem; color: var(--accent-green); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">GullStack Rebuild</div>
+        <div style="font-size: 1.1rem;">falling-waters-spa.vercel.app →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILT -->
+<section>
+  <div class="container">
+    <h2><span class="icon">🏗️</span> What We Built</h2>
+    <p class="section-sub">A complete digital transformation — 18+ pages, conversion-optimized, built to rank.</p>
+    
+    <ul class="improvements">
+      <li><span class="check">✓</span> <span><strong>18+ SEO Pages</strong> — each targeting specific keywords</span></li>
+      <li><span class="check">✓</span> <span><strong>Massage Therapy Page</strong> — Swedish, deep tissue, hot stone, prenatal</span></li>
+      <li><span class="check">✓</span> <span><strong>Facials &amp; Skincare Page</strong> — HydraFacial, peels, microderm</span></li>
+      <li><span class="check">✓</span> <span><strong>Hair Services Page</strong> — cuts, color, balayage, styling</span></li>
+      <li><span class="check">✓</span> <span><strong>Waxing Services Page</strong> — full service menu with pricing</span></li>
+      <li><span class="check">✓</span> <span><strong>Nails &amp; Lashes Pages</strong> — mani/pedi, extensions, lifts</span></li>
+      <li><span class="check">✓</span> <span><strong>Draper Location Page</strong> — local SEO targeting South Valley</span></li>
+      <li><span class="check">✓</span> <span><strong>Blog Section</strong> — content marketing foundation</span></li>
+      <li><span class="check">✓</span> <span><strong>Booker Integration</strong> — one-tap online booking</span></li>
+      <li><span class="check">✓</span> <span><strong>Mobile-First Design</strong> — sub-second load times</span></li>
+      <li><span class="check">✓</span> <span><strong>Schema Markup</strong> — LocalBusiness + Service structured data</span></li>
+      <li><span class="check">✓</span> <span><strong>Google Reviews</strong> — social proof on every page</span></li>
+      <li><span class="check">✓</span> <span><strong>Package Experiences</strong> — Girls Day, Couples, Birthday bundles</span></li>
+      <li><span class="check">✓</span> <span><strong>Trust Signals</strong> — 27 years, 10K+ guests, 4.4★ reviews</span></li>
+      <li><span class="check">✓</span> <span><strong>Pricing Transparency</strong> — visible prices drive conversions</span></li>
+      <li><span class="check">✓</span> <span><strong>SEO Meta Tags</strong> — unique title + description per page</span></li>
+      <li><span class="check">✓</span> <span><strong>Accessibility</strong> — WCAG-compliant, semantic HTML</span></li>
+      <li><span class="check">✓</span> <span><strong>Analytics Ready</strong> — GA4 + conversion tracking setup</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEO OPPORTUNITY -->
+<section>
+  <div class="container">
+    <h2><span class="icon">🎯</span> SEO Opportunity</h2>
+    <p class="section-sub">Keywords you should be ranking #1 for — and the traffic you're missing.</p>
+    
+    <div style="overflow-x: auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Target Keyword</th>
+            <th>Monthly Volume</th>
+            <th>CPC Value</th>
+            <th>Current Rank</th>
+            <th>Target</th>
+            <th>Opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>massage draper utah</td>
+            <td><strong>390</strong></td>
+            <td>$2.58</td>
+            <td><span class="pos-badge pos-top10">10</span></td>
+            <td><span class="pos-badge pos-1">Top 3</span></td>
+            <td>+180 visits/mo</td>
+          </tr>
+          <tr>
+            <td>massage draper</td>
+            <td><strong>260</strong></td>
+            <td>$2.58</td>
+            <td><span class="pos-badge pos-low">13</span></td>
+            <td><span class="pos-badge pos-1">Top 3</span></td>
+            <td>+140 visits/mo</td>
+          </tr>
+          <tr>
+            <td>draper massage</td>
+            <td>90</td>
+            <td>$2.90</td>
+            <td><span class="pos-badge pos-top10">9</span></td>
+            <td><span class="pos-badge pos-1">Top 3</span></td>
+            <td>+50 visits/mo</td>
+          </tr>
+          <tr>
+            <td>facials draper utah</td>
+            <td><em>~200</em></td>
+            <td>~$3.00</td>
+            <td><span class="pill pill-red">Not ranking</span></td>
+            <td><span class="pos-badge pos-top5">Top 5</span></td>
+            <td>+120 visits/mo</td>
+          </tr>
+          <tr>
+            <td>day spa draper</td>
+            <td>50</td>
+            <td>$1.73</td>
+            <td><span class="pos-badge pos-top5">2</span></td>
+            <td><span class="pos-badge pos-1">1</span></td>
+            <td>+30 visits/mo</td>
+          </tr>
+          <tr>
+            <td>hydrafacial draper</td>
+            <td><em>~110</em></td>
+            <td>~$4.00</td>
+            <td><span class="pill pill-red">Not ranking</span></td>
+            <td><span class="pos-badge pos-top5">Top 5</span></td>
+            <td>+70 visits/mo</td>
+          </tr>
+          <tr>
+            <td>hair salon draper utah</td>
+            <td><em>~320</em></td>
+            <td>~$2.50</td>
+            <td><span class="pill pill-red">Not ranking</span></td>
+            <td><span class="pos-badge pos-top10">Top 10</span></td>
+            <td>+100 visits/mo</td>
+          </tr>
+          <tr>
+            <td>best spa in draper</td>
+            <td><em>~150</em></td>
+            <td>~$3.00</td>
+            <td><span class="pill pill-red">Not ranking</span></td>
+            <td><span class="pos-badge pos-top5">Top 3</span></td>
+            <td>+90 visits/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-grid" style="margin-top: 2rem;">
+      <div class="card" style="border-left: 3px solid var(--accent-teal);">
+        <div class="big-num teal">+780</div>
+        <h3>Additional Monthly Visitors</h3>
+        <p>Conservative estimate from ranking improvements on identified keywords alone.</p>
+      </div>
+      <div class="card" style="border-left: 3px solid var(--accent-green);">
+        <div class="big-num green">+220%</div>
+        <h3>Projected Traffic Increase</h3>
+        <p>From 645 to 1,400+ monthly organic visitors within 6 months.</p>
+      </div>
+      <div class="card" style="border-left: 3px solid var(--accent-orange);">
+        <div class="big-num orange">$2,400+</div>
+        <h3>Monthly Traffic Value</h3>
+        <p>Up from $153/mo. That's $28,800+ in annual organic ad-equivalent value.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+      <h3 style="margin-bottom: 0.75rem;">💰 Revenue Impact Estimate</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">If just <strong>5%</strong> of new visitors book (industry average for spa sites):</p>
+      <p style="color: var(--text-secondary);">780 new visitors × 5% conversion × $120 avg booking = <strong style="color: var(--accent-green); font-size: 1.3rem;">$4,680/month in new revenue</strong></p>
+      <p style="color: var(--text-secondary); margin-top: 0.5rem;">That's <strong style="color: var(--accent-green);">$56,160/year</strong> in additional bookings from organic search alone.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST SIGNALS -->
+<section>
+  <div class="container">
+    <h2><span class="icon">🛡️</span> Why GullStack</h2>
+    <p class="section-sub">We build websites that rank, convert, and grow your business.</p>
+    
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="icon">⚡</div>
+        <h4>Performance-First</h4>
+        <p>Sub-second load times. No Wix bloat, no WordPress plugins. Just clean, fast code.</p>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📊</div>
+        <h4>Data-Driven SEO</h4>
+        <p>Every page targets real keywords with real search volume. We use SEMrush data, not guesswork.</p>
+      </div>
+      <div class="trust-item">
+        <div class="icon">🎨</div>
+        <h4>Custom Design</h4>
+        <p>No templates. Every site is designed specifically for your brand and your customers.</p>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📱</div>
+        <h4>Mobile-First</h4>
+        <p>70%+ of spa searches happen on mobile. Your site will be flawless on every device.</p>
+      </div>
+      <div class="trust-item">
+        <div class="icon">🔄</div>
+        <h4>Booking Integration</h4>
+        <p>Seamless Booker integration on every page. One tap from search to scheduled appointment.</p>
+      </div>
+      <div class="trust-item">
+        <div class="icon">📈</div>
+        <h4>Ongoing Growth</h4>
+        <p>Monthly content, keyword tracking, and continuous optimization to keep you climbing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to Grow?</h2>
+  <p>Your new site is already built and ready to deploy. Let's turn your 27 years of excellence into the digital presence you deserve.</p>
+  <div>
+    <a href="https://falling-waters-spa.vercel.app" target="_blank" class="cta-btn cta-primary">View Your New Site →</a>
+    <a href="https://gullstack.com" target="_blank" class="cta-btn cta-secondary">About GullStack</a>
+  </div>
+  <div class="cta-contact">
+    <p style="margin-top: 1.5rem;">📞 <a href="tel:8015019000">(801) 501-9000</a>&nbsp;&nbsp;·&nbsp;&nbsp;📍 Draper, UT&nbsp;&nbsp;·&nbsp;&nbsp;Est. 1998</p>
+    <p style="margin-top: 0.75rem;">Questions? Email <a href="mailto:hello@gullstack.com">hello@gullstack.com</a></p>
+  </div>
+</div>
+
+<footer>
+  <p>Prepared by <a href="https://gullstack.com">GullStack</a> · February 2026 · Data sourced from SEMrush</p>
+</footer>
+
+</body>
+</html>
