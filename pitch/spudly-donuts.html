@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spudly Donuts — Let's Get You Ranking | GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --accent: #FF6B9D;
+      --accent-glow: rgba(255,107,157,0.3);
+      --bg: #0f0f14;
+      --bg-elevated: #1a1a24;
+      --bg-card: #22222e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --orange: #f97316;
+      --donut-pink: #FF6B9D;
+      --donut-brown: #8B4513;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:2rem 1.5rem; }
+
+    /* Hero */
+    .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f0f14 0%, #1f1520 50%, #0f0f14 100%); border-bottom:1px solid rgba(255,107,157,0.15); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; }
+    .hero-logos img { height:50px; border-radius:8px; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero-emoji { font-size:4rem; margin-bottom:1rem; }
+    .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:0.75rem; }
+    .hero h1 span { color:var(--accent); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; max-width:600px; margin:0 auto; }
+
+    /* Friendly Banner */
+    .friend-banner { background:rgba(255,107,157,0.1); border:1px solid rgba(255,107,157,0.2); border-radius:12px; padding:1rem 1.5rem; margin:2rem auto; max-width:600px; text-align:center; }
+    .friend-banner p { color:var(--text); font-size:0.95rem; }
+
+    /* Sections */
+    .section { padding:3rem 0; }
+    .section-title { font-size:1.6rem; font-weight:800; margin-bottom:0.5rem; text-align:center; }
+    .section-sub { color:var(--text-muted); text-align:center; margin-bottom:2rem; font-size:0.95rem; }
+    .label { text-transform:uppercase; letter-spacing:0.15em; font-size:0.75rem; font-weight:700; color:var(--accent); margin-bottom:0.5rem; text-align:center; }
+
+    /* Current State */
+    .current-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .current-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(255,107,157,0.12); }
+    .current-card .emoji { font-size:2rem; margin-bottom:0.5rem; }
+    .current-card .label { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem; }
+    .current-card .value { font-size:1.1rem; font-weight:600; }
+    .current-card .value.bad { color:var(--orange); }
+
+    /* Opportunity */
+    .opp-list { list-style:none; max-width:600px; margin:0 auto; }
+    .opp-list li { background:var(--bg-elevated); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:1rem; border-left:3px solid var(--accent); }
+    .opp-list .emoji { font-size:1.5rem; }
+    .opp-list .text strong { display:block; margin-bottom:0.15rem; }
+    .opp-list .text span { color:var(--text-muted); font-size:0.9rem; }
+
+    /* What We'll Build */
+    .build-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .build-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; border:1px solid rgba(255,107,157,0.1); }
+    .build-card h3 { font-size:1rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+    .build-card p { color:var(--text-muted); font-size:0.9rem; line-height:1.5; }
+
+    /* Game Preview */
+    .game-preview { background:var(--bg-elevated); border-radius:16px; padding:2rem; margin:2rem 0; text-align:center; border:1px solid rgba(255,107,157,0.15); }
+    .game-preview h3 { font-size:1.25rem; margin-bottom:0.5rem; }
+    .game-preview p { color:var(--text-muted); margin-bottom:1.5rem; }
+    .game-mockup { background:var(--bg-card); border-radius:12px; padding:3rem; display:flex; align-items:center; justify-content:center; gap:1rem; }
+    .donut-emoji { font-size:4rem; }
+    .knife-emoji { font-size:2rem; animation: slice 1s ease-in-out infinite; }
+    @keyframes slice {
+      0%, 100% { transform: translateX(-20px) rotate(-45deg); }
+      50% { transform: translateX(20px) rotate(-45deg); }
+    }
+    .game-mockup span { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Keyword Table */
+    table { width:100%; border-collapse:collapse; background:var(--bg-elevated); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
+    thead { background:var(--bg-card); }
+    th { text-align:left; padding:0.85rem 1rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+    td { padding:0.85rem 1rem; border-top:1px solid rgba(255,255,255,0.04); font-size:0.95rem; }
+    tr:hover { background:rgba(255,107,157,0.04); }
+    .money-row { background:rgba(34,197,94,0.08) !important; border-left:3px solid var(--green); }
+
+    /* Price Card */
+    .price-section { text-align:center; padding:3rem 1.5rem; margin:2rem 0; background:linear-gradient(135deg, rgba(255,107,157,0.08), rgba(255,107,157,0.02)); border-radius:20px; border:1px solid rgba(255,107,157,0.15); }
+    .price-section h2 { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; }
+    .price-section .price { font-size:4rem; font-weight:900; color:var(--accent); line-height:1; margin:1rem 0; }
+    .price-section .price span { font-size:1.5rem; font-weight:500; color:var(--text-muted); }
+    .price-section .includes { color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem; }
+    .price-section .includes strong { color:var(--text); }
+    .cta-btn { display:inline-block; background:var(--accent); color:#fff; padding:0.9rem 2.5rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; transition:all 0.2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px var(--accent-glow); }
+
+    /* Toast Note */
+    .toast-note { background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; border-left:3px solid var(--green); }
+    .toast-note h4 { font-size:0.9rem; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem; }
+    .toast-note p { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Footer */
+    .footer { text-align:center; padding:2rem 0; color:var(--text-muted); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); margin-top:2rem; }
+    .footer img { height:30px; margin-bottom:0.5rem; }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size:1.5rem; }
+      .price-section .price { font-size:3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <span style="font-weight:800; font-size:1.2rem;">🍩 Spudly Donuts</span>
+    </div>
+    <div class="hero-emoji">🍩</div>
+    <h1>Let's Get <span>Spudly</span><br>Ranking on Google</h1>
+    <p class="subtitle">You make incredible donuts. Let's make sure people can actually find you when they search "donuts near me" in Lehi & Lindon.</p>
+    
+    <div class="friend-banner">
+      <p>👋 Hey! Bryce mentioned we should chat about your online presence. Here's a friendly proposal — no pressure, just ideas.</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Current Situation -->
+    <div class="section">
+      <div class="label">Where You're At</div>
+      <div class="section-title">Current Online Presence</div>
+      <p class="section-sub">A quick look at spudlydonuts.com and your local search visibility.</p>
+
+      <div class="current-grid">
+        <div class="current-card">
+          <div class="emoji">🌐</div>
+          <div class="label">Website</div>
+          <div class="value">Squarespace (minimal)</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">🛒</div>
+          <div class="label">Ordering</div>
+          <div class="value">Toast Site</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">📍</div>
+          <div class="label">Locations</div>
+          <div class="value">Lehi + Lindon</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">🔍</div>
+          <div class="label">Google Ranking</div>
+          <div class="value bad">Could be stronger</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:1.5rem; text-align:center; border:1px solid rgba(255,107,157,0.1);">
+        <span style="color:var(--text-muted); font-size:0.95rem;">
+          Right now, when someone searches "donuts Lehi" or "best donuts Utah County" — <strong style="color:var(--text);">Pinkbox, Parlor, and Lehi Bakery</strong> are showing up first. You should be in that mix.
+        </span>
+      </div>
+    </div>
+
+    <!-- The Opportunity -->
+    <div class="section">
+      <div class="label">The Opportunity</div>
+      <div class="section-title">What We Can Do Together</div>
+      <p class="section-sub">Simple, effective upgrades to get more people through your door.</p>
+
+      <ul class="opp-list">
+        <li>
+          <span class="emoji">🎯</span>
+          <div class="text">
+            <strong>Rank for "donuts near me" in Lehi & Lindon</strong>
+            <span>Thousands of searches every month. You should own these.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">🍩</span>
+          <div class="text">
+            <strong>A page for every donut</strong>
+            <span>Maple bacon bar? Dedicated page. Churro donut? Dedicated page. Each one optimized for search.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">🎮</span>
+          <div class="text">
+            <strong>Fun factor: Donut game</strong>
+            <span>Cut the donut perfectly in half → win a free dozen. Shareable, viral potential.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">📱</span>
+          <div class="text">
+            <strong>Seamless Toast integration</strong>
+            <span>We outrank Toast in search, but all orders still flow through your existing Toast system.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- What We'll Build -->
+    <div class="section">
+      <div class="label">The New Site</div>
+      <div class="section-title">What You'll Get</div>
+
+      <div class="build-grid">
+        <div class="build-card">
+          <h3>🏠 Homepage That Converts</h3>
+          <p>Beautiful, fast, mobile-first. Shows off your donuts, locations, and hours. Big "Order Now" button that goes to Toast.</p>
+        </div>
+        <div class="build-card">
+          <h3>🍩 Individual Donut Pages</h3>
+          <p>Each signature donut gets its own page with photos, descriptions, and ingredients. Great for SEO — "maple bacon donut Lehi" rankings.</p>
+        </div>
+        <div class="build-card">
+          <h3>📍 Location Pages</h3>
+          <p>Dedicated pages for Lehi and Lindon with local schema markup. Helps you show up in "near me" searches for both areas.</p>
+        </div>
+        <div class="build-card">
+          <h3>🎮 The Donut Game</h3>
+          <p>Simple, addictive mini-game: slice the donut perfectly in half. Winners get entered to win a free dozen. People share it = free marketing.</p>
+        </div>
+        <div class="build-card">
+          <h3>📸 Photo Gallery</h3>
+          <p>Beautiful showcase of your creations. Instagram-worthy presentation that makes people hungry.</p>
+        </div>
+        <div class="build-card">
+          <h3>⭐ Review Integration</h3>
+          <p>Pull in your best Yelp & Google reviews automatically. Social proof that builds trust.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Preview -->
+    <div class="section">
+      <div class="game-preview">
+        <h3>🎮 The Donut Slice Game</h3>
+        <p>Perfectly slice the donut in half to win. Miss by too much? Try again!</p>
+        <div class="game-mockup">
+          <span class="donut-emoji">🍩</span>
+          <span class="knife-emoji">🔪</span>
+        </div>
+        <p style="margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">Winners enter a weekly drawing for a free dozen. Shareable = viral potential.</p>
+      </div>
+    </div>
+
+    <!-- Keywords -->
+    <div class="section">
+      <div class="label">SEO Targets</div>
+      <div class="section-title">Keywords We'll Win</div>
+      <p class="section-sub">Real searches people make every month in Utah County.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Your Current Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="money-row">
+            <td><strong>donuts lehi utah</strong></td>
+            <td>210</td>
+            <td style="color:var(--orange);">Page 2+</td>
+          </tr>
+          <tr class="money-row">
+            <td><strong>donuts near me</strong> (Lehi/Lindon)</td>
+            <td>1,200+</td>
+            <td style="color:var(--orange);">Not in top 5</td>
+          </tr>
+          <tr>
+            <td>best donuts utah county</td>
+            <td>320</td>
+            <td style="color:var(--red);">Not ranking</td>
+          </tr>
+          <tr>
+            <td>gourmet donuts lehi</td>
+            <td>90</td>
+            <td style="color:var(--orange);">Low visibility</td>
+          </tr>
+          <tr>
+            <td>donuts lindon utah</td>
+            <td>110</td>
+            <td style="color:var(--orange);">Page 2</td>
+          </tr>
+          <tr>
+            <td>donut delivery lehi</td>
+            <td>70</td>
+            <td style="color:var(--red);">Not ranking</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(255,107,157,0.15);">
+        <strong style="color:var(--text);">2,000+ monthly searches</strong> for donuts in your area.<br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">Even capturing 10% = <strong style="color:var(--accent);">200+ new potential customers</strong> finding you every month.</span>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="price-section">
+      <h2>Simple, Friendly Pricing</h2>
+      <div class="price">$99<span>/mo</span></div>
+      <p class="includes">
+        <strong>Includes:</strong> New custom website • Individual donut pages • Location pages<br>
+        SEO optimization • The Donut Game • Toast integration • Hosting & maintenance
+      </p>
+      <a href="mailto:hello@gullstack.com?subject=Spudly Donuts Website" class="cta-btn">Let's Chat 🍩</a>
+      
+      <div class="toast-note">
+        <h4>🍞 About Toast</h4>
+        <p>Your Toast ordering system stays exactly as is. We'll build a site that ranks higher in Google and sends all orders directly to Toast. No disruption to how you currently work.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <img src="/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Search volume estimates based on Utah County data. Ready to pull detailed SEMrush report if helpful!</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
