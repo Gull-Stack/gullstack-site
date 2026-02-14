@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "GullStack Trust - Build Once. Scale Forever.",
   "scripts": {
-    "dev": "npx serve .",
-    "build": "echo 'Static site - no build needed'"
+    "dev": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
   }
 }

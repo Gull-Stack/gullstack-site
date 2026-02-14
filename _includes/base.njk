@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ site.name }}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  {% if ogTitle %}
+  <meta property="og:title" content="{{ ogTitle }}">
+  {% endif %}
+  {% if ogDescription %}
+  <meta property="og:description" content="{{ ogDescription }}">
+  {% endif %}
+  <meta property="og:type" content="{{ ogType | default('website') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    {% include "styles/main.css" %}
+    {{ css | safe }}
+  </style>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body>
+  {% include "header.njk" %}
+  
+  {{ content | safe }}
+  
+  {% include "footer.njk" %}
+</body>
+</html>

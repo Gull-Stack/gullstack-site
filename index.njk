@@ -1,0 +1,624 @@
+---
+layout: base.njk
+title: GullStack — Build Once. Scale Forever.
+description: GullStack Trust builds custom software solutions and AI consulting that transform industries and your brand. Marketing, sales, operations technology, and enterprise AI implementation that saves you money.
+ogTitle: GullStack — Build Once. Scale Forever.
+ogDescription: Software products that transform industries.
+css: |
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+  
+  .hero-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
+  
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  
+  .hero h1 span {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    font-weight: 400;
+  }
+  
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .scroll-indicator {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+  }
+  
+  .scroll-indicator svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--text-muted);
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+  
+  /* ═══════════════════════════════════════════
+     WEBSITE AUDIT TOOL
+  ═══════════════════════════════════════════ */
+  .audit-tool {
+    padding: 120px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .audit-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  @media (max-width: 900px) {
+    .audit-content {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+  
+  .audit-text .section-title {
+    margin-bottom: 24px;
+  }
+  
+  .audit-text .section-sub {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+  
+  .audit-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .audit-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .audit-icon {
+    font-size: 1rem;
+  }
+  
+  .audit-form-wrap {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  /* ═══════════════════════════════════════════
+     PRODUCTS
+  ═══════════════════════════════════════════ */
+  .products {
+    padding: 120px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  @media (max-width: 900px) {
+    .products-grid { grid-template-columns: 1fr; }
+  }
+  
+  .product-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .product-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #a855f7);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .product-card:hover::before { opacity: 1; }
+  
+  .product-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(99,102,241,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  
+  .product-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  
+  .product-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+  }
+  
+  .product-link {
+    font-weight: 600;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.2s;
+  }
+  
+  .product-link:hover { gap: 12px; }
+  
+  /* ═══════════════════════════════════════════
+     CASE STUDIES
+  ═══════════════════════════════════════════ */
+  .case-studies {
+    padding: 120px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  @media (max-width: 768px) {
+    .cases-grid { grid-template-columns: 1fr; }
+  }
+  
+  .case-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+  
+  .case-card:hover {
+    transform: scale(1.02);
+    border-color: var(--accent);
+  }
+  
+  .case-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .case-card:hover img { opacity: 1; }
+  
+  .case-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  }
+  
+  .case-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .case-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  .case-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  
+  /* ═══════════════════════════════════════════
+     SERVICES
+  ═══════════════════════════════════════════ */
+  .services {
+    padding: 120px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 64px;
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  
+  .service-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .service-item h3::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  
+  .service-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding-left: 20px;
+  }
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">SOFTWARE THAT SCALES</div>
+    <h1>
+      Build Once.
+      <span>Scale Forever.</span>
+    </h1>
+    <p>
+      {{ site.fullName }} builds custom software solutions that transform industries and your individual brand. 
+      From marketing to sales to operations — we build technology that saves you money 
+      and gives you the power to run your business better.
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-primary">Explore Products →</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<!-- Website Audit Tool -->
+<section class="audit-tool" id="audit">
+  <div class="container">
+    <div class="audit-content">
+      <div class="audit-text fade-in">
+        <div class="section-tag">FREE WEBSITE AUDIT</div>
+        <h2 class="section-title">Is Your Website<br><span style="background: linear-gradient(135deg, var(--accent), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Costing You Customers?</span></h2>
+        <p class="section-sub">Enter your website below. We'll show you exactly what you're missing — plus a preview of what your site <em>could</em> look like.</p>
+        
+        <div class="audit-features">
+          <div class="audit-feature">
+            <span class="audit-icon">🔍</span>
+            <span>SEO Gap Analysis</span>
+          </div>
+          <div class="audit-feature">
+            <span class="audit-icon">💰</span>
+            <span>Lost Revenue Calculator</span>
+          </div>
+          <div class="audit-feature">
+            <span class="audit-icon">✨</span>
+            <span>Free Preview Redesign</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="audit-form-wrap fade-in">
+        <form class="audit-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-group">
+            <label for="website">Your Website URL</label>
+            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="frustrations">What don't you like about your current site?</label>
+            <textarea id="frustrations" name="frustrations" rows="4" placeholder="It looks outdated, doesn't rank on Google, hard to update, doesn't convert visitors..." required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email (for your free audit)</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+          
+          <button type="submit" class="btn btn-primary btn-full">
+            Get My Free Audit →
+          </button>
+          
+          <p class="form-note">Free. No credit card. Preview delivered within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">Our Products</div>
+      <h2 class="section-title">Built to Transform</h2>
+      <p class="section-sub">Each product solves a real problem for real businesses.</p>
+    </div>
+    
+    <div class="products-grid">
+      <div class="product-card fade-in">
+        <div class="product-icon">🛠️</div>
+        <h3>SuperTool</h3>
+        <p>Multi-tenant customer engagement platform. Messaging, loyalty, analytics, and more — all in one dashboard.</p>
+        <a href="https://supertool-marketing.vercel.app" class="product-link" target="_blank">
+          Learn more <span>→</span>
+        </a>
+      </div>
+      
+      <div class="product-card fade-in">
+        <div class="product-icon">💕</div>
+        <h3>Love Rescue</h3>
+        <p>The world's best relationship experts. One program. Real results. Transform yourself, transform your relationship.</p>
+        <a href="https://loverescue.app" class="product-link" target="_blank">
+          Learn more <span>→</span>
+        </a>
+      </div>
+      
+      <div class="product-card fade-in">
+        <div class="product-icon">🎾</div>
+        <h3>Best Sport Surfaces</h3>
+        <p>Premium court surfacing for tennis, pickleball, and multi-sport facilities. Official surface of the PPA.</p>
+        <a href="https://bestsportsurfaces.com" class="product-link" target="_blank">
+          Learn more <span>→</span>
+        </a>
+      </div>
+      
+      <div class="product-card fade-in">
+        <div class="product-icon">🤖</div>
+        <h3>AI Consulting</h3>
+        <p>Replace your SEO employees and website managers — all in one. Get a dedicated AI bot with 24/7 access that handles what used to take a team.</p>
+        <div style="margin: 16px 0; padding: 12px 16px; background: rgba(99,102,241,0.1); border-radius: 8px; border: 1px solid rgba(99,102,241,0.2);">
+          <span style="font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Starting at</span>
+          <div style="font-size: 1.75rem; font-weight: 800; color: var(--text);">$2,000<span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">/mo</span></div>
+        </div>
+        <a href="#contact" class="product-link">
+          Get Started <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="case-studies" id="work">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">Our Work</div>
+      <h2 class="section-title">Results That Speak</h2>
+      <p class="section-sub">Real projects. Real outcomes. Real transformation.</p>
+    </div>
+    
+    <div class="cases-grid">
+      <div class="case-card fade-in">
+        <div class="case-placeholder">Case study coming soon</div>
+        <div class="case-overlay">
+          <h3>Surgeon Website Redesign</h3>
+          <p>3x increase in consultation bookings</p>
+        </div>
+      </div>
+      
+      <div class="case-card fade-in">
+        <div class="case-placeholder">Case study coming soon</div>
+        <div class="case-overlay">
+          <h3>Retail Customer Engagement</h3>
+          <p>40% increase in repeat purchases</p>
+        </div>
+      </div>
+      
+      <div class="case-card fade-in">
+        <div class="case-placeholder">Case study coming soon</div>
+        <div class="case-overlay">
+          <h3>Sports Facility Upgrade</h3>
+          <p>Tournament-ready in 30 days</p>
+        </div>
+      </div>
+      
+      <div class="case-card fade-in">
+        <div class="case-placeholder">Case study coming soon</div>
+        <div class="case-overlay">
+          <h3>Marketing Automation</h3>
+          <p>$2M pipeline in 90 days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag">Services</div>
+      <h2 class="section-title">How We Help</h2>
+      <p class="section-sub">Beyond products, we partner with businesses to accelerate growth.</p>
+    </div>
+    
+    <div class="services-grid">
+      <div class="service-item fade-in">
+        <h3>Brand Storytelling</h3>
+        <p>Nobody cares about you. People care about why your business can make their life easier or better. Let's reframe your story to shape your entire marketing effort.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>Websites</h3>
+        <p>People will check out your website. And it better be ready. Websites today are as much a validity check as they are informational. We help you simplify your message beautifully.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>Marketing Funnel</h3>
+        <p>Most businesses have a misconstrued view of the marketing funnel. Let's build an entire funnel and help you track from awareness through repeat business.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>Marketing Automation</h3>
+        <p>A lot is happening behind the scenes for the best marketing machines. CRM, email automation, website chat, and growth strategies for your best asset: your customers.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>Marketing Strategy</h3>
+        <p>You are the entrepreneur and you have the story. Let's chat about how to best attack your persona and what is needed to grow and polish your business with benchmarks and reports.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>Social Media</h3>
+        <p>Social media is here to stay. Each business persona has different social media needs — let's find yours and build a strategy to increase awareness and drive engagement.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>AI Consulting</h3>
+        <p>One dedicated AI bot replaces your SEO employee, website manager, and content team — with 24/7 access. Plans start at $2,000/month. Real automation, not another tool to manage.</p>
+      </div>
+    </div>
+    
+    <!-- Process -->
+    <div class="section-header fade-in" style="margin-top: 96px;">
+      <div class="section-tag">Our Process</div>
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-sub">"Create Something Memorable" is the motto we live by.</p>
+    </div>
+    
+    <div class="services-grid" style="margin-top: 48px;">
+      <div class="service-item fade-in">
+        <h3>01. Exploration</h3>
+        <p>We begin by auditing your market space. Who is the core audience? What are their concerns and values? What are your business goals, objectives, and needs?</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>02. Prototype</h3>
+        <p>Rapid and collaborative iteration on wireframe concepts, layouts and directions. Simple design to drive conversion while making sure your project has your brand's value proposition.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>03. Design</h3>
+        <p>While we look at prototypes and what your business needs, we research your audience and which design will resonate with them. Logo, brand, look, and feel — all considered.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>04. Build</h3>
+        <p>We build simple and clean websites, applications, marketing campaigns, and strategies to accommodate your business goals. No fluff. Just what works.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>05. Go Live & Measure</h3>
+        <p>We go live to the world and measure the return on investment for you, with detailed analytics. Every metric matters.</p>
+      </div>
+      
+      <div class="service-item fade-in">
+        <h3>06. Grow</h3>
+        <p>Continually look at new ways to improve your digital marketing and increase brand awareness. Growth never stops.</p>
+      </div>
+    </div>
+  </div>
+</section>

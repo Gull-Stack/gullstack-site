@@ -1,0 +1,36 @@
+<!-- Header -->
+<header id="header" class="{{ 'header--inner' if headerStyle == 'inner' else '' }}">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="{{ site.logo }}" alt="{{ site.name }}" class="logo-img">
+        {{ site.name }}
+      </a>
+      <nav>
+        <a href="/#audit">Free Audit</a>
+        <a href="/#products">Products</a>
+        <a href="/projects/">Projects</a>
+        <a href="/#services">Services</a>
+        <a href="/blog/"{% if activeNav == 'blog' %} class="active"{% endif %}>Blog</a>
+        <a href="/#contact" class="btn btn-primary">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#audit" onclick="closeMobileMenu()">Free Audit</a>
+  <a href="/#products" onclick="closeMobileMenu()">Products</a>
+  <a href="/projects/" onclick="closeMobileMenu()">Projects</a>
+  <a href="/#services" onclick="closeMobileMenu()">Services</a>
+  <a href="/blog/" onclick="closeMobileMenu()">Blog</a>
+  <a href="/#contact" class="btn btn-primary" onclick="closeMobileMenu()">Contact</a>
+</div>

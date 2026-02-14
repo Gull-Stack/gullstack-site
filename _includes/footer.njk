@@ -1,0 +1,58 @@
+<!-- Footer -->
+<footer id="contact" class="{{ 'footer--simple' if footerStyle == 'simple' else '' }}">
+  <div class="container">
+    {% if footerStyle == 'simple' %}
+    <div class="footer-inner">
+      <p class="footer-copy">© {{ site.year }} <a href="/">{{ site.fullName }}</a>. All rights reserved.</p>
+    </div>
+    {% else %}
+    <div class="footer-inner">
+      <div class="footer-copy">© {{ site.year }} {{ site.fullName }}. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <a href="#products">Products</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+      </div>
+      <a href="/" class="footer-logo">
+        <img src="{{ site.logo }}" alt="{{ site.name }}">
+        {{ site.name }}
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</footer>
+
+<script>
+  // Sticky header (only for homepage with dynamic header)
+  {% if not headerStyle %}
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+  {% endif %}
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  
+  // Mobile menu
+  function toggleMobileMenu() {
+    document.querySelector('.mobile-menu-btn').classList.toggle('active');
+    document.getElementById('mobileNav').classList.toggle('active');
+    document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
+  }
+  
+  function closeMobileMenu() {
+    document.querySelector('.mobile-menu-btn').classList.remove('active');
+    document.getElementById('mobileNav').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+</script>
