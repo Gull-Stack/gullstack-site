@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peterson Zeyer Law | Boise Bankruptcy Attorneys</title>
+  <meta name="description" content="Idaho's trusted bankruptcy attorneys. Free consultations for Chapter 7 and Chapter 13 bankruptcy in Boise, Nampa, and the Treasure Valley.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --navy: #1a2332;
+      --navy-light: #2a3a52;
+      --gold: #c9a961;
+      --gold-light: #d4ba7a;
+      --cream: #faf9f7;
+      --white: #ffffff;
+      --text: #333333;
+      --text-muted: #666666;
+      --border: #e5e5e5;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-sans);
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    header {
+      background: var(--navy);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+    }
+    
+    .logo span { color: var(--gold); }
+    
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    nav a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover { color: var(--gold); }
+    
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .nav-cta:hover {
+      background: var(--gold-light);
+    }
+    
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .mobile-menu { display: block; }
+    }
+    
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 180px 0 120px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(201,169,97,0.1)" stroke-width="0.5"/></svg>') center/cover;
+      opacity: 0.5;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,169,97,0.2);
+      color: var(--gold);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero { padding: 140px 0 80px; }
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--white);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat h3 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    
+    .stat p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+    
+    /* Attorneys */
+    .attorneys {
+      background: var(--cream);
+    }
+    
+    .attorneys-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+    }
+    
+    @media (max-width: 768px) {
+      .attorneys-grid { grid-template-columns: 1fr; }
+    }
+    
+    .attorney-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    
+    .attorney-photo {
+      height: 320px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-family: var(--font-serif);
+      font-size: 4rem;
+    }
+    
+    .attorney-info {
+      padding: 32px;
+    }
+    
+    .attorney-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    
+    .attorney-info .title {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    
+    .attorney-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    /* Practice Areas */
+    .practice-areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .practice-areas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 600px) {
+      .practice-areas-grid { grid-template-columns: 1fr; }
+    }
+    
+    .practice-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    
+    .practice-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    
+    .practice-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--cream);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .practice-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    
+    .practice-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    
+    .practice-card a {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .practice-card a:hover { text-decoration: underline; }
+    
+    /* Process */
+    .process {
+      background: var(--navy);
+      color: var(--white);
+    }
+    
+    .process .section-header h2 { color: var(--white); }
+    .process .section-header p { color: rgba(255,255,255,0.7); }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 500px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+    
+    .process-step {
+      text-align: center;
+    }
+    
+    .step-number {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 auto 20px;
+    }
+    
+    .process-step h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .process-step p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background: var(--cream);
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+    
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    
+    .testimonial-author span {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Locations */
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .locations-grid { grid-template-columns: 1fr; }
+    }
+    
+    .location-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 40px;
+    }
+    
+    .location-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    
+    .location-card p {
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .location-card .phone {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 100px 0;
+    }
+    
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f1620;
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    
+    .footer-brand .logo {
+      margin-bottom: 16px;
+      display: block;
+    }
+    
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    
+    .footer-col a {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    
+    .footer-col a:hover { color: var(--gold); }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .footer-bottom p {
+      font-size: 0.85rem;
+    }
+    
+    /* Demo Banner */
+    .demo-banner {
+      background: var(--gold);
+      color: var(--navy);
+      text-align: center;
+      padding: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .demo-banner a {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    🎨 DEMO PREVIEW — Built by <a href="https://gullstack.com">GullStack</a> | <a href="../peterson-zeyer-law.html">View Full Proposal →</a>
+  </div>
+  
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="#" class="logo">Peterson <span>Zeyer</span> Law</a>
+        <nav>
+          <a href="#attorneys">Attorneys</a>
+          <a href="#practice-areas">Practice Areas</a>
+          <a href="#process">Process</a>
+          <a href="#locations">Locations</a>
+          <a href="tel:208-433-9882" class="nav-cta">Free Consultation</a>
+        </nav>
+        <button class="mobile-menu">☰</button>
+      </div>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Idaho's Trusted Bankruptcy Attorneys</div>
+        <h1>Your Fresh Start Begins Here</h1>
+        <p>Filing for bankruptcy is a legal tool designed to help honest, hardworking people get relief from overwhelming debt. At Peterson Zeyer Law, we make the process simple, smooth, and stress-free.</p>
+        <div class="hero-buttons">
+          <a href="tel:208-433-9882" class="btn btn-primary">
+            <span>📞</span> Free Consultation
+          </a>
+          <a href="#practice-areas" class="btn btn-outline">
+            Learn About Your Options
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <h3>1,000+</h3>
+          <p>Cases Filed</p>
+        </div>
+        <div class="stat">
+          <h3>$0</h3>
+          <p>Down Payment Options</p>
+        </div>
+        <div class="stat">
+          <h3>5★</h3>
+          <p>Client Reviews</p>
+        </div>
+        <div class="stat">
+          <h3>Free</h3>
+          <p>Initial Consultation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="attorneys" id="attorneys">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meet Your Attorneys</h2>
+        <p>Experienced advocates who understand what you're going through and are dedicated to guiding you toward financial freedom.</p>
+      </div>
+      
+      <div class="attorneys-grid">
+        <div class="attorney-card">
+          <div class="attorney-photo">JWP</div>
+          <div class="attorney-info">
+            <h3>Jake W. Peterson</h3>
+            <div class="title">Founding Partner</div>
+            <p>Jake founded Peterson Zeyer Law with a mission to make bankruptcy accessible to everyone who needs it. He has helped hundreds of Idaho families get the fresh start they deserve.</p>
+          </div>
+        </div>
+        <div class="attorney-card">
+          <div class="attorney-photo">HZ</div>
+          <div class="attorney-info">
+            <h3>Hyrum Zeyer</h3>
+            <div class="title">Partner</div>
+            <p>Hyrum brings a compassionate approach to every case, taking time to understand each client's unique situation and providing clear, actionable guidance through the bankruptcy process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="practice-areas" id="practice-areas">
+    <div class="container">
+      <div class="section-header">
+        <h2>Practice Areas</h2>
+        <p>We specialize in helping individuals and families find the right path to debt relief.</p>
+      </div>
+      
+      <div class="practice-areas-grid">
+        <div class="practice-card">
+          <div class="practice-icon">⚡</div>
+          <h3>Chapter 7 Bankruptcy</h3>
+          <p>Eliminate most unsecured debts and get a fresh start in as little as 4-6 months. Ideal for those with limited income and assets.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🏠</div>
+          <h3>Chapter 13 Bankruptcy</h3>
+          <p>Reorganize your debts into a manageable 3-5 year payment plan. Keep your home and catch up on missed mortgage payments.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🛡️</div>
+          <h3>Stop Wage Garnishment</h3>
+          <p>Filing bankruptcy immediately stops wage garnishment, giving you relief from creditors and protection for your paycheck.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🚗</div>
+          <h3>Stop Repossession</h3>
+          <p>Protect your vehicle from repossession and create a plan to catch up on payments while keeping your transportation.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🏡</div>
+          <h3>Stop Foreclosure</h3>
+          <p>Chapter 13 bankruptcy can stop foreclosure proceedings and allow you to save your home through a repayment plan.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">👨‍👩‍👧</div>
+          <h3>Family Law & Divorce</h3>
+          <p>We understand how bankruptcy intersects with divorce and can help coordinate both processes for the best outcome.</p>
+          <a href="#">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>We make the bankruptcy process simple and transparent. Here's what to expect.</p>
+      </div>
+      
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Free Consultation</h4>
+          <p>Meet with an attorney to discuss your situation and explore your options. No obligation.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Gather Documents</h4>
+          <p>We'll provide a clear checklist and help you compile everything needed for your petition.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>File Your Case</h4>
+          <p>We prepare and file your petition. Collection calls and garnishments stop immediately.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Fresh Start</h4>
+          <p>After your discharge, you're debt-free and ready to rebuild your financial future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>Client Success Stories</h2>
+        <p>Don't just take our word for it — hear from people we've helped.</p>
+      </div>
+      
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Relief is an understatement, now that my case has been discharged. The process of filing for bankruptcy is daunting and encrypted in legalese. Hyrum and his team provided a clear template and timeline. I knew what to expect, and I felt supported."</blockquote>
+          <div class="testimonial-author">Hilary <span>— Verified Client</span></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Mr. Zeyer and his staff have been incredible to work with throughout this entire process. We had various challenges and complexities arise with our case, and each step of the way, Mr. Zeyer handled everything with professionalism and care."</blockquote>
+          <div class="testimonial-author">Michael T. <span>— Verified Client</span></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"They charge a flat rate for representation, and it is worth every cent. I will be sharing Mr. Zeyer's name with anyone who finds themselves in financial turmoil. Cannot recommend highly enough."</blockquote>
+          <div class="testimonial-author">Sarah M. <span>— Verified Client</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="locations" id="locations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Locations</h2>
+        <p>Serving clients throughout the Treasure Valley with offices in Boise and consultations available in Nampa.</p>
+      </div>
+      
+      <div class="locations-grid">
+        <div class="location-card">
+          <h3>Boise Office</h3>
+          <p>1215 W Hays Street</p>
+          <p>Boise, ID 83702</p>
+          <p class="phone">📞 (208) 433-9882</p>
+        </div>
+        <div class="location-card">
+          <h3>Nampa Consultations</h3>
+          <p>Serving Canyon County</p>
+          <p>Nampa, Caldwell, Middleton</p>
+          <p class="phone">📞 (208) 433-9882</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta">
+    <div class="container">
+      <h2>Ready for Your Fresh Start?</h2>
+      <p>Schedule your free, no-obligation consultation today. We'll review your situation and explain all your options.</p>
+      <a href="tel:208-433-9882" class="btn btn-primary">
+        Call (208) 433-9882
+      </a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Peterson <span>Zeyer</span> Law</span>
+          <p>Idaho's trusted bankruptcy attorneys, helping families get the fresh start they deserve since 2015.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Practice Areas</h4>
+          <a href="#">Chapter 7</a>
+          <a href="#">Chapter 13</a>
+          <a href="#">Stop Garnishment</a>
+          <a href="#">Family Law</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">FAQs</a>
+          <a href="#">Bankruptcy Process</a>
+          <a href="#">Client Forms</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:208-433-9882">(208) 433-9882</a>
+          <a href="mailto:Legal@PetersonZeyerLaw.com">Email Us</a>
+          <a href="#">Directions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Peterson Zeyer Law. All rights reserved.</p>
+        <p>Serving Boise, Nampa, Meridian, Eagle, Caldwell & the Treasure Valley</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
