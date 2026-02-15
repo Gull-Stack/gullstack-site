@@ -64,6 +64,87 @@ css: |
     font-family: monospace;
   }
   
+  .before-after-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .screenshot-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -10px rgba(0,0,0,0.4);
+    border: 1px solid var(--border);
+  }
+  .screenshot-card.before { border-color: #ef4444; }
+  .screenshot-card.after { border-color: var(--success); }
+  .screenshot-label {
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .screenshot-card.before .screenshot-label { 
+    background: rgba(239,68,68,0.15); 
+    color: #ef4444; 
+  }
+  .screenshot-card.after .screenshot-label { 
+    background: rgba(34,197,94,0.15); 
+    color: var(--success); 
+  }
+  .screenshot-card .browser-frame { padding: 8px 12px; }
+  .screenshot-card .browser-dots span { width: 10px; height: 10px; }
+  .screenshot-card img { width: 100%; display: block; }
+  .broken-site-mock {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    min-height: 250px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  .broken-site-mock .broken-nav {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: blue;
+    text-decoration: underline;
+  }
+  .broken-site-mock h1 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: normal;
+  }
+  .broken-site-mock p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .broken-site-mock .broken-img {
+    background: #ddd;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #999;
+    float: left;
+    margin-right: 15px;
+  }
+  .broken-site-mock .missing-css {
+    color: red;
+    font-size: 11px;
+    font-family: monospace;
+  }
+  
+  @media (max-width: 768px) {
+    .before-after-visual { grid-template-columns: 1fr; }
+  }
+  
   .post-category {
     display: inline-block;
     font-size: 0.75rem;
@@ -197,6 +278,40 @@ css: |
     <p>Agile Counseling came to us with a problem we see all too often: a therapist with 22 years of clinical experience, serving clients across the Salt Lake Valley, but a website that was actively hurting her business.</p>
     
     <p>Within 24 hours, we rebuilt the entire site and had Google indexing 21 pages. Here's how we did it—and why this matters for any local service business.</p>
+
+    <div class="before-after-visual">
+      <div class="screenshot-card before">
+        <div class="screenshot-label">❌ Before</div>
+        <div class="browser-frame">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">agilecounseling.com</div>
+        </div>
+        <div class="broken-site-mock">
+          <div class="broken-nav">
+            <span>Home</span>
+            <span>About</span>
+            <span>Services</span>
+            <span>Contact</span>
+          </div>
+          <div class="broken-img">[Image not found]</div>
+          <h1>Welcome to Agile Counseling</h1>
+          <p>Therapy services in Sandy, Utah...</p>
+          <p class="missing-css">⚠️ CSS failed to load</p>
+          <p class="missing-css">⚠️ No meta tags</p>
+          <p class="missing-css">⚠️ Mobile nav broken</p>
+        </div>
+      </div>
+      <div class="screenshot-card after">
+        <div class="screenshot-label">✅ After</div>
+        <div class="browser-frame">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">agilecounseling.com</div>
+        </div>
+        <a href="https://agilecounseling.com" target="_blank">
+          <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling - After GullStack">
+        </a>
+      </div>
+    </div>
 
     <h2>The Before: A Site Working Against Itself</h2>
     
