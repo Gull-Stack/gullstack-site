@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peterson Zeyer Law — Double Your Organic Traffic | GullStack</title>
+  <meta name="description" content="SEO analysis and growth strategy for Peterson Zeyer Law. Location pages, content strategy, and competitive positioning to dominate Boise bankruptcy search.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #141414;
+      --bg-card: #1a1a1a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --orange: #f97316;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+    }
+    
+    .hero h1 span { color: var(--purple); }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .hero-stat {
+      text-align: center;
+    }
+    
+    .hero-stat h3 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    
+    .hero-stat h3.red { color: var(--red); }
+    
+    .hero-stat p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    /* Section */
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-header {
+      margin-bottom: 32px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+    }
+    
+    /* Competitor Analysis */
+    .competitor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+    
+    .competitor-table th,
+    .competitor-table td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .competitor-table th {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .competitor-table tr.highlight {
+      background: rgba(139, 92, 246, 0.1);
+    }
+    
+    .competitor-table tr.highlight td {
+      color: var(--purple-light);
+      font-weight: 600;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    
+    .badge-green { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+    .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+    .badge-orange { background: rgba(249, 115, 22, 0.2); color: var(--orange); }
+    .badge-purple { background: rgba(139, 92, 246, 0.2); color: var(--purple); }
+    
+    /* Problem Cards */
+    .problems {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .problems { grid-template-columns: 1fr; }
+    }
+    
+    .problem {
+      background: var(--bg-card);
+      border: 1px solid var(--red);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .problem-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .problem h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--red);
+    }
+    
+    .problem p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Opportunities */
+    .opportunities {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    @media (max-width: 600px) {
+      .opportunities { grid-template-columns: 1fr; }
+    }
+    
+    .opportunity {
+      background: var(--bg-card);
+      border: 1px solid var(--green);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .opportunity-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .opportunity h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .opportunity p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Traffic Table */
+    .traffic-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.9rem;
+    }
+    
+    .traffic-table th,
+    .traffic-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .traffic-table th {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .traffic-table .new-row {
+      background: rgba(34, 197, 94, 0.1);
+    }
+    
+    /* SEO Value */
+    .seo-value {
+      background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 32px 0;
+    }
+    
+    .seo-value h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+    
+    .seo-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .seo-stat h4 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    
+    .seo-stat p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    
+    /* What We'll Build */
+    .deliverables {
+      list-style: none;
+    }
+    
+    .deliverables li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .deliverables li:last-child {
+      border-bottom: none;
+    }
+    
+    .deliverable-check {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .deliverable-content h5 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    
+    .deliverable-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Timeline */
+    .timeline {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    
+    .timeline h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      margin-bottom: 24px;
+    }
+    
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+    
+    .timeline-month {
+      width: 80px;
+      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--purple);
+    }
+    
+    .timeline-content h5 {
+      margin-bottom: 4px;
+    }
+    
+    .timeline-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Pricing */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    @media (max-width: 600px) {
+      .pricing { grid-template-columns: 1fr; }
+    }
+    
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    
+    .price-card.featured {
+      border-color: var(--purple);
+      background: rgba(139, 92, 246, 0.05);
+    }
+    
+    .price-card h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    
+    .price-card .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    
+    .price-card .price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    
+    .price-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      padding: 16px 32px;
+      background: var(--purple);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .btn:hover {
+      background: var(--purple-light);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Current Site Screenshot */
+    .current-site {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    
+    .current-site h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    
+    .site-issues {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    @media (max-width: 500px) {
+      .site-issues { grid-template-columns: 1fr; }
+    }
+    
+    .site-issue {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+    
+    .site-issue .x {
+      color: var(--red);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-badge">⚖️ SEO Analysis — Peterson Zeyer Law</div>
+      <h1>You're Ranking #1.<br><span>But Leaving Half the Traffic Behind.</span></h1>
+      <p>You dominate "bankruptcy lawyer Boise" — congrats. But zero location pages means Meridian, Nampa, and Eagle searches go to your competitors. Let's fix that.</p>
+      
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h3>#1</h3>
+          <p>Ranking for "bankruptcy lawyer Boise"</p>
+        </div>
+        <div class="hero-stat">
+          <h3 class="red">0</h3>
+          <p>Location pages (competitors have 4+)</p>
+        </div>
+        <div class="hero-stat">
+          <h3>2x</h3>
+          <p>Traffic potential with proper SEO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🔍 The Competitive Landscape</h2>
+        <p>You're winning on experience. But competitors are outpacing you on SEO infrastructure.</p>
+      </div>
+      
+      <table class="competitor-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Service Pages</th>
+            <th>Location Pages</th>
+            <th>Blog</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td><strong>Peterson Zeyer (You)</strong></td>
+            <td>~6</td>
+            <td>0 ❌</td>
+            <td>None</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Foley Freeman</td>
+            <td>12+</td>
+            <td>4+ (Meridian, S. Idaho, Pocatello)</td>
+            <td>FAQ + Articles</td>
+            <td><span class="badge badge-red">High</span></td>
+          </tr>
+          <tr>
+            <td>Idaho Bankruptcy Center</td>
+            <td>8+</td>
+            <td>3 (Boise, Eagle, Meridian)</td>
+            <td>Service Guides</td>
+            <td><span class="badge badge-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Idaho Chapter 7</td>
+            <td>5</td>
+            <td>6+ (Star, Eagle, etc.)</td>
+            <td>Minimal</td>
+            <td><span class="badge badge-orange">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Avery Law</td>
+            <td>6</td>
+            <td>Aggressive geo-pages</td>
+            <td>Active</td>
+            <td><span class="badge badge-orange">Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        <strong>The threat:</strong> Foley Freeman has 25+ years of messaging, deeper content, and location-specific pages. They're positioned to overtake your #1 ranking.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🚨 Current Website Issues</h2>
+        <p>Your site is ranking despite itself. These issues are costing you conversions.</p>
+      </div>
+      
+      <div class="problems">
+        <div class="problem">
+          <div class="problem-icon">🏚️</div>
+          <h4>Homepage is Nearly Empty</h4>
+          <p>Just one testimonial. No hero, no value proposition, no service overview, no CTAs. Visitors don't know what you do.</p>
+        </div>
+        <div class="problem">
+          <div class="problem-icon">📍</div>
+          <h4>Zero Location Pages</h4>
+          <p>You serve Nampa, Meridian, Eagle — but no dedicated pages. That traffic goes to Idaho Chapter 7 instead.</p>
+        </div>
+        <div class="problem">
+          <div class="problem-icon">🏷️</div>
+          <h4>Generic Page Titles</h4>
+          <p>"FAQs" and "Chapter 13" — missing keywords like "Boise Bankruptcy FAQs | Free Consultation"</p>
+        </div>
+        <div class="problem">
+          <div class="problem-icon">📝</div>
+          <h4>No Blog or Content Strategy</h4>
+          <p>Great FAQ content exists but it's buried. No long-tail keyword capture.</p>
+        </div>
+      </div>
+      
+      <div class="current-site">
+        <h4>Quick Site Audit</h4>
+        <div class="site-issues">
+          <div class="site-issue"><span class="x">✗</span> No schema markup (LocalBusiness, Attorney)</div>
+          <div class="site-issue"><span class="x">✗</span> Only 9 Facebook reviews</div>
+          <div class="site-issue"><span class="x">✗</span> No internal linking strategy</div>
+          <div class="site-issue"><span class="x">✗</span> Missing meta descriptions</div>
+          <div class="site-issue"><span class="x">✗</span> No Google Business optimization</div>
+          <div class="site-issue"><span class="x">✗</span> Template/Wix limitations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📈 The Traffic Opportunity</h2>
+        <p>Here's what you're leaving on the table — and what we can capture.</p>
+      </div>
+      
+      <table class="traffic-table">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Current Ranking</th>
+            <th>Opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bankruptcy lawyer boise</td>
+            <td>320</td>
+            <td><span class="badge badge-green">#1</span></td>
+            <td>Maintain + convert</td>
+          </tr>
+          <tr>
+            <td>chapter 7 bankruptcy boise</td>
+            <td>170</td>
+            <td><span class="badge badge-green">Top 3</span></td>
+            <td>Optimize page title</td>
+          </tr>
+          <tr>
+            <td>chapter 13 bankruptcy boise</td>
+            <td>50</td>
+            <td><span class="badge badge-purple">Top 5</span></td>
+            <td>Optimize + link</td>
+          </tr>
+          <tr class="new-row">
+            <td>bankruptcy attorney meridian idaho</td>
+            <td>90</td>
+            <td><span class="badge badge-red">Not ranking</span></td>
+            <td>NEW LOCATION PAGE</td>
+          </tr>
+          <tr class="new-row">
+            <td>bankruptcy lawyer nampa</td>
+            <td>70</td>
+            <td><span class="badge badge-red">Not ranking</span></td>
+            <td>NEW LOCATION PAGE</td>
+          </tr>
+          <tr class="new-row">
+            <td>bankruptcy attorney eagle idaho</td>
+            <td>40</td>
+            <td><span class="badge badge-red">Not ranking</span></td>
+            <td>NEW LOCATION PAGE</td>
+          </tr>
+          <tr class="new-row">
+            <td>bankruptcy lawyer caldwell idaho</td>
+            <td>30</td>
+            <td><span class="badge badge-red">Not ranking</span></td>
+            <td>NEW LOCATION PAGE</td>
+          </tr>
+          <tr class="new-row">
+            <td>stop wage garnishment boise</td>
+            <td>40</td>
+            <td><span class="badge badge-purple">Has page</span></td>
+            <td>Optimize + blog post</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="seo-value">
+        <h3>Projected Results (90 Days)</h3>
+        <div class="seo-stats">
+          <div class="seo-stat">
+            <h4>2x</h4>
+            <p>Organic Traffic</p>
+          </div>
+          <div class="seo-stat">
+            <h4>6</h4>
+            <p>New Location Pages</p>
+          </div>
+          <div class="seo-stat">
+            <h4>800+</h4>
+            <p>Monthly Search Capture</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>✅ The Growth Opportunities</h2>
+        <p>Low-hanging fruit that will move the needle immediately.</p>
+      </div>
+      
+      <div class="opportunities">
+        <div class="opportunity">
+          <div class="opportunity-icon">📍</div>
+          <h4>Location Pages = Instant Wins</h4>
+          <p>Meridian, Nampa, Eagle, Caldwell, Star, Kuna — each gets a dedicated page targeting "[city] bankruptcy attorney"</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">📝</div>
+          <h4>Turn FAQs into Blog Posts</h4>
+          <p>"Can I keep my guns in bankruptcy Idaho" — you have this content! Just buried. Surface it as a blog post = easy traffic.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">⭐</div>
+          <h4>Review Generation</h4>
+          <p>Only 9 Facebook reviews. A simple post-discharge email sequence could 5x this in 6 months.</p>
+        </div>
+        <div class="opportunity">
+          <div class="opportunity-icon">🔗</div>
+          <h4>Internal Linking</h4>
+          <p>FAQ content should link to service pages. Service pages to locations. None of this exists — easy fix.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🛠️ What We'll Do</h2>
+        <p>A focused SEO strategy to double your organic traffic and lock in your #1 position.</p>
+      </div>
+      
+      <ul class="deliverables">
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Fix All Page Titles & Meta Descriptions</h5>
+            <p>Transform "FAQs" → "Boise Bankruptcy FAQs | Free Chapter 7 Consultation | Peterson Zeyer Law"</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>6 Location Landing Pages</h5>
+            <p>Meridian, Nampa, Eagle, Caldwell, Star, Kuna — each optimized for local search with unique content.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Schema Markup Implementation</h5>
+            <p>LocalBusiness, Attorney, FAQ schema — tells Google exactly what you are and boosts rich results.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Google Business Profile Optimization</h5>
+            <p>Complete profile, proper categories, photos, posts, Q&A — the foundation of local SEO.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Content Strategy: FAQ → Blog Posts</h5>
+            <p>Extract your buried FAQ gems into standalone blog posts targeting long-tail keywords.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Internal Linking Architecture</h5>
+            <p>Connect your pages strategically so Google understands your site structure and passes authority.</p>
+          </div>
+        </li>
+        <li>
+          <div class="deliverable-check">✓</div>
+          <div class="deliverable-content">
+            <h5>Review Generation System</h5>
+            <p>Post-discharge email/text sequence to capture happy client reviews automatically.</p>
+          </div>
+        </li>
+      </ul>
+      
+      <div class="timeline">
+        <h3>📅 90-Day Timeline</h3>
+        
+        <div class="timeline-item">
+          <div class="timeline-month">Month 1</div>
+          <div class="timeline-content">
+            <h5>Foundation</h5>
+            <p>Fix page titles, add schema markup, launch Meridian + Nampa location pages, Google Business audit</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-month">Month 2</div>
+          <div class="timeline-content">
+            <h5>Expansion</h5>
+            <p>Eagle, Caldwell, Star, Kuna pages live. Convert top FAQs to blog posts. Internal linking complete.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-month">Month 3</div>
+          <div class="timeline-content">
+            <h5>Optimization</h5>
+            <p>Review generation active. Monthly blog cadence. Monitor rankings, adjust strategy.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-month">Ongoing</div>
+          <div class="timeline-content">
+            <h5>Maintenance & Growth</h5>
+            <p>Monthly content, backlink building, competitor monitoring, ranking reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>💰 Investment</h2>
+        <p>Straightforward pricing. No hidden fees. Real results.</p>
+      </div>
+      
+      <div class="pricing">
+        <div class="price-card featured">
+          <h4>Monthly SEO Retainer</h4>
+          <div class="price">$1,500<span>/mo</span></div>
+          <p>Location pages, content, optimization, reporting. Everything above included.</p>
+        </div>
+        <div class="price-card">
+          <h4>Website Rebuild (If Needed)</h4>
+          <div class="price">$4,000<span> one-time</span></div>
+          <p>If platform limitations block SEO progress, we build a proper foundation.</p>
+        </div>
+      </div>
+      
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 24px; text-align: center;">
+        <strong>ROI perspective:</strong> One new bankruptcy client = $1,500-3,000+ in fees. This pays for itself with 1-2 new clients per month.
+      </p>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="container">
+      <h2>Ready to Double Your Traffic?</h2>
+      <p>Let's hop on a quick call and map out the game plan. No pressure — just strategy.</p>
+      <a href="mailto:bryce@gullstack.com?subject=Peterson%20Zeyer%20Law%20SEO%20-%20Let's%20Talk" class="btn">Schedule a Call →</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Prepared with 🔥 by <strong>GullStack</strong></p>
+      <p style="margin-top: 8px;">Questions? <a href="mailto:bryce@gullstack.com" style="color: var(--purple);">bryce@gullstack.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
