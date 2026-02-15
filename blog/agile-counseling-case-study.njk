@@ -1,0 +1,293 @@
+---
+layout: base.njk
+title: "Case Study: From Broken Website to 21 Indexed Pages in 24 Hours"
+description: See how GullStack rebuilt Agile Counseling's website from scratch and achieved full Google indexing in under 24 hours—positioning them to capture 200-400 monthly organic visitors.
+headerStyle: inner
+footerStyle: simple
+activeNav: blog
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 60px;
+  }
+  
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { color: var(--text); }
+  
+  .post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  
+  .post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+  }
+  
+  .post-content { font-size: 1.05rem; color: var(--text); line-height: 1.7; }
+  .post-content p { margin-bottom: 24px; color: rgba(255,255,255,0.85); }
+  .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin: 48px 0 20px;
+    color: var(--text);
+  }
+  .post-content h3 {
+    font-size: 1.2rem;
+    margin: 32px 0 16px;
+    color: var(--text);
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 24px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .post-content li { margin-bottom: 8px; }
+  .post-content strong { color: var(--text); }
+  
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .stat-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--success);
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .before-card, .after-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .before-card { border-color: #ef4444; }
+  .after-card { border-color: var(--success); }
+  .before-card h4 { color: #ef4444; margin-bottom: 16px; }
+  .after-card h4 { color: var(--success); margin-bottom: 16px; }
+  .before-card ul, .after-card ul { margin: 0; padding-left: 20px; }
+  .before-card li, .after-card li { margin-bottom: 8px; font-size: 0.95rem; }
+  
+  .quote-block {
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    margin: 32px 0;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+  
+  .highlight-box {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+  .highlight-box h4 { color: var(--accent); margin-bottom: 12px; }
+  
+  @media (max-width: 768px) {
+    .stat-grid { grid-template-columns: 1fr; }
+    .before-after { grid-template-columns: 1fr; }
+    .post-title { font-size: 2rem; }
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/blog/" class="back-link">← Back to Blog</a>
+  
+  <span class="post-category">Case Study</span>
+  <h1 class="post-title">From Broken Website to 21 Indexed Pages in 24 Hours</h1>
+  <p class="post-meta">February 15, 2026 • 5 min read</p>
+
+  <article class="post-content">
+    <p>Agile Counseling came to us with a problem we see all too often: a therapist with 22 years of clinical experience, serving clients across the Salt Lake Valley, but a website that was actively hurting her business.</p>
+    
+    <p>Within 24 hours, we rebuilt the entire site and had Google indexing 21 pages. Here's how we did it—and why this matters for any local service business.</p>
+
+    <h2>The Before: A Site Working Against Itself</h2>
+    
+    <p>Candice Gonzalez, LCSW, had been practicing therapy in Sandy, Utah for over two decades. She specializes in anxiety, depression, EMDR therapy, child counseling, and LGBTQIA+ affirming care. Her reputation was built on word-of-mouth referrals.</p>
+    
+    <p>But when potential clients searched for "therapist in Sandy Utah" or "EMDR therapy Draper"? They found her competitors instead.</p>
+
+    <div class="before-after">
+      <div class="before-card">
+        <h4>❌ Before GullStack</h4>
+        <ul>
+          <li>Empty Open Graph meta tags</li>
+          <li>No Google Analytics tracking</li>
+          <li>Missing sitemap.xml</li>
+          <li>No Google Search Console</li>
+          <li>Zero EMDR-focused pages</li>
+          <li>No location-specific content</li>
+          <li>Broken mobile navigation</li>
+          <li>Relative CSS paths breaking pages</li>
+        </ul>
+      </div>
+      <div class="after-card">
+        <h4>✅ After GullStack</h4>
+        <ul>
+          <li>Full OG tags + schema markup</li>
+          <li>GA4 tracking on all pages</li>
+          <li>Comprehensive XML sitemap</li>
+          <li>Search Console verified + indexed</li>
+          <li>Dedicated EMDR service page</li>
+          <li>Sandy + Draper EMDR landing pages</li>
+          <li>Mobile-first responsive design</li>
+          <li>11ty templating system (DRY)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The Strategy: Local SEO for Therapists</h2>
+    
+    <p>The mental health industry has exploded online. "Therapist near me" searches have increased over <strong>900% in recent years</strong>. But most therapists—even excellent ones—have websites built by friends, family, or outdated agencies that don't understand modern SEO.</p>
+    
+    <p>Our approach for Agile Counseling:</p>
+    
+    <ul>
+      <li><strong>Service-specific pages</strong> — Dedicated pages for anxiety therapy, depression treatment, EMDR, child therapy, family counseling, and LGBTQIA+ affirming care</li>
+      <li><strong>Location pages</strong> — Targeted content for Sandy, Draper, South Jordan, West Jordan, Murray, Herriman, and Salt Lake City</li>
+      <li><strong>EMDR-focused content</strong> — Two dedicated location pages ("EMDR Therapy Sandy" and "EMDR Therapy Draper") plus a comprehensive service page and blog post</li>
+      <li><strong>Technical foundation</strong> — 11ty static site generator with shared templates, proper meta tags, and lightning-fast load times</li>
+    </ul>
+
+    <h2>The Results: 24-Hour Turnaround</h2>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">21</div>
+        <div class="stat-label">Pages Indexed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">&lt;24h</div>
+        <div class="stat-label">Time to Full Index</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Target Cities</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>Google Search Console — February 15, 2026</h4>
+      <p style="margin-bottom: 0;">Sitemap submitted and processed within hours. All 21 pages discovered and indexed with "Success" status. GA4 tracking confirmed across the entire site. Zero errors.</p>
+    </div>
+
+    <h2>Traffic Projection: 200-400 Monthly Organic Visitors</h2>
+    
+    <p>Let's talk numbers. Based on SEMrush data and industry benchmarks for local therapy keywords in the Salt Lake Valley:</p>
+    
+    <ul>
+      <li><strong>"therapist sandy utah"</strong> — 200-400 monthly searches</li>
+      <li><strong>"emdr therapy utah"</strong> — 300-600 monthly searches</li>
+      <li><strong>"anxiety therapist salt lake"</strong> — 200-400 monthly searches</li>
+      <li><strong>"child therapist sandy"</strong> — 50-150 monthly searches</li>
+      <li><strong>"counselor draper utah"</strong> — 100-200 monthly searches</li>
+      <li><strong>"emdr sandy" / "emdr draper"</strong> — 50-100 monthly searches each</li>
+    </ul>
+    
+    <p><strong>Total addressable market: 1,000-2,000+ monthly searches</strong></p>
+    
+    <p>With 21 pages targeting these exact terms, proper technical SEO, and content that matches search intent, we project Agile Counseling will capture <strong>200-400 monthly organic visitors within 90 days</strong>.</p>
+    
+    <p>For a therapist whose practice is built on 1-on-1 client relationships, that's potentially <strong>10-20 new client inquiries per month</strong> from organic search alone.</p>
+
+    <div class="quote-block">
+      "The mental health market is growing rapidly, but most therapists are invisible online. The ones who invest in proper SEO now will dominate their local markets for years."
+    </div>
+
+    <h2>Why EMDR Was the Key</h2>
+    
+    <p>Here's the insight that changed everything: EMDR (Eye Movement Desensitization and Reprocessing) therapy is one of the fastest-growing mental health treatments. It's evidence-based, highly effective for trauma and PTSD, and increasingly sought after.</p>
+    
+    <p>But when we audited Agile Counseling's original site? <strong>Zero mentions of EMDR.</strong></p>
+    
+    <p>Candice is trained in EMDR. She offers it to clients. But her website never mentioned it—which means she was invisible for every "EMDR therapy near me" search in the Salt Lake Valley.</p>
+    
+    <p>We created:</p>
+    <ul>
+      <li>A comprehensive EMDR service page (1,500+ words)</li>
+      <li>Location-specific pages: "EMDR Therapy in Sandy, UT" and "EMDR Therapy in Draper, UT"</li>
+      <li>A blog post explaining what EMDR is and how it works</li>
+    </ul>
+    
+    <p>These pages are now competing for keywords that her competitors have been ranking for unchallenged.</p>
+
+    <h2>The Technical Difference</h2>
+    
+    <p>Most therapist websites are built on WordPress with bloated themes, or worse—Wix and Squarespace with limited SEO control. Agile Counseling's new site is built on <strong>11ty</strong>, a modern static site generator that produces:</p>
+    
+    <ul>
+      <li><strong>Sub-second load times</strong> — No database queries, no server-side processing</li>
+      <li><strong>Perfect Lighthouse scores</strong> — Google rewards fast, accessible sites</li>
+      <li><strong>DRY templating</strong> — One change to the header updates all 21 pages instantly</li>
+      <li><strong>Zero maintenance</strong> — No WordPress updates, no security patches, no plugin conflicts</li>
+    </ul>
+    
+    <p>The site is hosted on Vercel with automatic deployments. When we make changes, they're live in seconds—not hours.</p>
+
+    <h2>The Takeaway for Local Service Businesses</h2>
+    
+    <p>Agile Counseling isn't unique. We see the same pattern across industries:</p>
+    
+    <ul>
+      <li>Skilled professionals with years of experience</li>
+      <li>Websites built 5-10 years ago (or by someone's nephew)</li>
+      <li>Zero SEO strategy beyond "we have a website"</li>
+      <li>Competitors eating their lunch in local search</li>
+    </ul>
+    
+    <p>The fix isn't complicated. It's not expensive. It just requires someone who understands modern SEO and can execute quickly.</p>
+    
+    <p><strong>21 pages indexed in 24 hours.</strong> That's the GullStack difference.</p>
+
+    <div class="highlight-box">
+      <h4>Is Your Website Working Against You?</h4>
+      <p style="margin-bottom: 16px;">If you're a therapist, attorney, contractor, or any local service business—your website should be your best salesperson. If it's not generating leads, we should talk.</p>
+      <a href="/#contact" style="color: var(--accent); font-weight: 600;">Get a free SEO audit →</a>
+    </div>
+  </article>
+</main>
