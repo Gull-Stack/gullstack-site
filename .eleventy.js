@@ -19,6 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("projects");
   eleventyConfig.addPassthroughCopy("ai-consulting");
   eleventyConfig.addPassthroughCopy("pitch"); // Keep pitch pages as-is (standalone client pitches)
+  eleventyConfig.addPassthroughCopy("assets"); // Pitch assets (logos, images)
   eleventyConfig.addPassthroughCopy("privacy.html"); // Static for now
   
   // Pass through remaining blog HTML files (not yet converted)
