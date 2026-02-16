@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
   
   // Pass through static assets
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("*.png");
   eleventyConfig.addPassthroughCopy("*.ico");
   eleventyConfig.addPassthroughCopy("*.jpg");

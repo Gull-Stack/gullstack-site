@@ -3,15 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | {{ site.name }}</title>
+  <title>{% if title %}{{ title }}{% else %}{{ site.name }} — {{ site.tagline }}{% endif %}</title>
   <meta name="description" content="{{ description | default(site.description) }}">
-  {% if ogTitle %}
-  <meta property="og:title" content="{{ ogTitle }}">
-  {% endif %}
-  {% if ogDescription %}
-  <meta property="og:description" content="{{ ogDescription }}">
-  {% endif %}
+  <meta name="author" content="{{ site.fullName }}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') }}">
+  
+  <!-- Open Graph -->
   <meta property="og:type" content="{{ ogType | default('website') }}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="{{ site.url }}{{ page.url | default('/') }}">
+  <meta property="og:site_name" content="{{ site.fullName }}">
+  <meta property="og:title" content="{{ ogTitle | default(title) | default(site.name + ' — ' + site.tagline) }}">
+  <meta property="og:description" content="{{ ogDescription | default(description) | default(site.description) }}">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle | default(title) | default(site.name) }}">
+  <meta name="twitter:description" content="{{ ogDescription | default(description) | default(site.description) }}">
+  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
+  
+  <!-- Google Analytics -->
+  {% if site.gaId %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.gaId }}');
+  </script>
+  {% endif %}
+  
+  <!-- Schema.org Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.fullName }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}{{ site.logo }}",
+    "description": "{{ site.description }}",
+    "email": "{{ site.email }}",
+    "sameAs": []
+  }
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">

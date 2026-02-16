@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gullstack.com/sitemap.xml
+
+# Block pitch pages from indexing (client previews)
+Disallow: /pitch/
