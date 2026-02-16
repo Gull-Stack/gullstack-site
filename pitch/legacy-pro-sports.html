@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy Pro Sports — Digital Growth Proposal by GullStack</title>
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --accent: #1e3a5f;
+      --accent-light: #2d5a8a;
+      --accent-glow: rgba(30,58,95,0.3);
+      --gold: #c9a227;
+      --bg: #0f0f14;
+      --bg-elevated: #1a1a24;
+      --bg-card: #22222e;
+      --text: #e8e8f0;
+      --text-muted: #8888a0;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --orange: #f97316;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; line-height:1.6; }
+    .container { max-width:900px; margin:0 auto; padding:2rem 1.5rem; }
+
+    /* Hero */
+    .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f0f14 0%, #1a2a3a 50%, #0f0f14 100%); border-bottom:1px solid rgba(30,58,95,0.3); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; }
+    .hero-logos img { height:50px; border-radius:8px; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero-badge { display:inline-block; background:rgba(201,162,39,0.15); border:1px solid var(--gold); color:var(--gold); padding:0.4rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; margin-bottom:1rem; }
+    .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:0.75rem; }
+    .hero h1 span { color:var(--gold); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; max-width:650px; margin:0 auto; }
+
+    /* Sections */
+    .section { padding:3rem 0; }
+    .section-title { font-size:1.6rem; font-weight:800; margin-bottom:0.5rem; text-align:center; }
+    .section-sub { color:var(--text-muted); text-align:center; margin-bottom:2rem; font-size:0.95rem; }
+    .label { text-transform:uppercase; letter-spacing:0.15em; font-size:0.75rem; font-weight:700; color:var(--gold); margin-bottom:0.5rem; text-align:center; }
+
+    /* Stats Grid */
+    .stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .stat-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(30,58,95,0.2); }
+    .stat-card .number { font-size:2rem; font-weight:800; color:var(--gold); }
+    .stat-card .label { font-size:0.8rem; color:var(--text-muted); margin-top:0.25rem; text-transform:none; letter-spacing:normal; }
+
+    /* Current State Cards */
+    .current-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.5rem; margin:2rem 0; }
+    .current-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; text-align:center; border:1px solid rgba(30,58,95,0.12); }
+    .current-card .emoji { font-size:2rem; margin-bottom:0.5rem; }
+    .current-card .card-label { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.25rem; }
+    .current-card .value { font-size:1.1rem; font-weight:600; }
+    .current-card .value.bad { color:var(--orange); }
+    .current-card .value.good { color:var(--green); }
+
+    /* Competitor Table */
+    table { width:100%; border-collapse:collapse; background:var(--bg-elevated); border-radius:12px; overflow:hidden; margin-top:1.5rem; }
+    thead { background:var(--bg-card); }
+    th { text-align:left; padding:0.85rem 1rem; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); font-weight:600; }
+    td { padding:0.85rem 1rem; border-top:1px solid rgba(255,255,255,0.04); font-size:0.95rem; }
+    tr:hover { background:rgba(30,58,95,0.08); }
+    .highlight-row { background:rgba(201,162,39,0.1) !important; border-left:3px solid var(--gold); }
+    .competitor-row { opacity:0.8; }
+
+    /* Opportunity List */
+    .opp-list { list-style:none; max-width:700px; margin:0 auto; }
+    .opp-list li { background:var(--bg-elevated); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; display:flex; align-items:flex-start; gap:1rem; border-left:3px solid var(--gold); }
+    .opp-list .emoji { font-size:1.5rem; flex-shrink:0; }
+    .opp-list .text strong { display:block; margin-bottom:0.15rem; }
+    .opp-list .text span { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Features Grid */
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .feature-card { background:var(--bg-elevated); border-radius:14px; padding:1.5rem; border:1px solid rgba(30,58,95,0.1); }
+    .feature-card h3 { font-size:1rem; margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem; }
+    .feature-card p { color:var(--text-muted); font-size:0.9rem; line-height:1.5; }
+
+    /* Keyword Table */
+    .money-row { background:rgba(34,197,94,0.08) !important; border-left:3px solid var(--green); }
+
+    /* CTA Section */
+    .cta-section { text-align:center; padding:3rem 1.5rem; margin:2rem 0; background:linear-gradient(135deg, rgba(30,58,95,0.15), rgba(201,162,39,0.08)); border-radius:20px; border:1px solid rgba(30,58,95,0.2); }
+    .cta-section h2 { font-size:1.5rem; font-weight:700; margin-bottom:0.5rem; }
+    .cta-section .price { font-size:3.5rem; font-weight:900; color:var(--gold); line-height:1; margin:1rem 0; }
+    .cta-section .price span { font-size:1.25rem; font-weight:500; color:var(--text-muted); }
+    .cta-section .includes { color:var(--text-muted); font-size:0.95rem; margin-bottom:1.5rem; }
+    .cta-section .includes strong { color:var(--text); }
+    .cta-btn { display:inline-block; background:var(--gold); color:#0f0f14; padding:0.9rem 2.5rem; border-radius:10px; text-decoration:none; font-weight:700; font-size:1.05rem; transition:all 0.2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(201,162,39,0.3); }
+
+    /* Alert Box */
+    .alert-box { background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+    .alert-box h4 { color:var(--red); font-size:0.95rem; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem; }
+    .alert-box p { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Success Box */
+    .success-box { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.3); border-radius:12px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+    .success-box h4 { color:var(--green); font-size:0.95rem; margin-bottom:0.5rem; }
+    .success-box p { color:var(--text-muted); font-size:0.9rem; }
+
+    /* Footer */
+    .footer { text-align:center; padding:2rem 0; color:var(--text-muted); font-size:0.8rem; border-top:1px solid rgba(255,255,255,0.05); margin-top:2rem; }
+    .footer img { height:30px; margin-bottom:0.5rem; }
+
+    @media(max-width:600px) {
+      .hero h1 { font-size:1.5rem; }
+      .cta-section .price { font-size:2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-logos">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+      <span class="divider">×</span>
+      <span style="font-weight:800; font-size:1.1rem; color:var(--gold);">Legacy Pro Sports</span>
+    </div>
+    <div class="hero-badge">🏈 Former NFL Player Founded</div>
+    <h1>Dominate Google for <span>"NFL Disability"</span></h1>
+    <p class="subtitle">You've helped 5,000+ athletes. Now let's make sure the next 5,000 can actually find you when they search online.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- Your Numbers -->
+    <div class="section">
+      <div class="label">Your Impact</div>
+      <div class="section-title">Legacy Pro Sports by the Numbers</div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">5,000+</div>
+          <div class="label">Athletes Represented</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">1,000+</div>
+          <div class="label">Active NFL/MLB Clients</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">$405K+</div>
+          <div class="label">Min Lifetime Benefits (LOD)</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">$0</div>
+          <div class="label">Upfront Cost to Players</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Situation -->
+    <div class="section">
+      <div class="label">The Opportunity</div>
+      <div class="section-title">Where You Stand Online</div>
+      <p class="section-sub">A quick look at legacyprosports.us vs. key competitors.</p>
+
+      <div class="current-grid">
+        <div class="current-card">
+          <div class="emoji">🌐</div>
+          <div class="card-label">Website</div>
+          <div class="value">WordPress/Divi</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">📊</div>
+          <div class="card-label">Est. Monthly Traffic</div>
+          <div class="value bad">~500-1,000</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">🔍</div>
+          <div class="card-label">Ranking Keywords</div>
+          <div class="value bad">~50-100</div>
+        </div>
+        <div class="current-card">
+          <div class="emoji">🏆</div>
+          <div class="card-label">Market Position</div>
+          <div class="value bad">Page 2+ for key terms</div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <h4>⚠️ The Problem</h4>
+        <p>When a former NFL player searches "NFL disability benefits help" — law firms like DarrasLaw, Dabdoub, and Ortiz are showing up first. They're capturing leads that should be coming to you.</p>
+      </div>
+    </div>
+
+    <!-- Competitor Analysis -->
+    <div class="section">
+      <div class="label">Competitive Intel</div>
+      <div class="section-title">Who's Winning the Search Battle</div>
+      <p class="section-sub">Estimated monthly organic traffic in the NFL disability space.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Est. Traffic</th>
+            <th>Keywords</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="competitor-row">
+            <td><strong>DarrasLaw</strong></td>
+            <td style="color:var(--green);">15,000+</td>
+            <td>2,500+</td>
+            <td>Law Firm</td>
+          </tr>
+          <tr class="competitor-row">
+            <td><strong>Dabdoub Law Firm</strong></td>
+            <td style="color:var(--green);">8,000+</td>
+            <td>1,200+</td>
+            <td>Law Firm</td>
+          </tr>
+          <tr class="competitor-row">
+            <td><strong>Pro Athlete Disability Claims</strong></td>
+            <td style="color:var(--yellow);">2,000+</td>
+            <td>300+</td>
+            <td>Claims Firm</td>
+          </tr>
+          <tr class="competitor-row">
+            <td><strong>Lorentz Law Firm</strong></td>
+            <td style="color:var(--yellow);">1,500+</td>
+            <td>200+</td>
+            <td>Law Firm</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>Legacy Pro Sports</strong></td>
+            <td style="color:var(--orange);">~500-1,000</td>
+            <td>~50-100</td>
+            <td>Claims Firm ⭐</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="success-box">
+        <h4>💡 Your Advantage</h4>
+        <p>You're not a law firm — you're a <strong>player-focused organization founded by a former NFL player</strong>. That's a massive trust differentiator. We just need to get that story in front of more players.</p>
+      </div>
+    </div>
+
+    <!-- Target Keywords -->
+    <div class="section">
+      <div class="label">SEO Targets</div>
+      <div class="section-title">Keywords We'll Win</div>
+      <p class="section-sub">High-intent searches from former players looking for help.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Monthly Searches</th>
+            <th>Current Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="money-row">
+            <td><strong>NFL disability benefits</strong></td>
+            <td>1,900</td>
+            <td style="color:var(--orange);">Page 2+</td>
+          </tr>
+          <tr class="money-row">
+            <td><strong>NFL disability claims</strong></td>
+            <td>720</td>
+            <td style="color:var(--orange);">Page 2+</td>
+          </tr>
+          <tr class="money-row">
+            <td><strong>NFL line of duty disability</strong></td>
+            <td>480</td>
+            <td style="color:var(--yellow);">Low visibility</td>
+          </tr>
+          <tr>
+            <td>NFL total and permanent disability</td>
+            <td>390</td>
+            <td style="color:var(--red);">Not ranking</td>
+          </tr>
+          <tr>
+            <td>NFL neurocognitive disability</td>
+            <td>260</td>
+            <td style="color:var(--red);">Not ranking</td>
+          </tr>
+          <tr>
+            <td>former NFL player benefits</td>
+            <td>590</td>
+            <td style="color:var(--orange);">Page 3</td>
+          </tr>
+          <tr>
+            <td>NFL retirement benefits help</td>
+            <td>320</td>
+            <td style="color:var(--red);">Not ranking</td>
+          </tr>
+          <tr>
+            <td>MLB disability benefits</td>
+            <td>210</td>
+            <td style="color:var(--yellow);">Low visibility</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background:var(--bg-elevated); border-radius:12px; padding:1.25rem 1.5rem; margin-top:2rem; text-align:center; border:1px solid rgba(30,58,95,0.15);">
+        <strong style="color:var(--text);">5,000+ monthly searches</strong> for NFL/MLB disability help.<br>
+        <span style="color:var(--text-muted); font-size:0.9rem;">Even capturing 5% = <strong style="color:var(--gold);">250+ potential new clients</strong> finding you every month.</span>
+      </div>
+    </div>
+
+    <!-- What We'll Build -->
+    <div class="section">
+      <div class="label">The Plan</div>
+      <div class="section-title">What We'll Build for Legacy</div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>🏠 Homepage Redesign</h3>
+          <p>Modern, fast, trust-building design that speaks directly to former players. Clear CTAs, social proof, and your story front and center.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📄 Service Landing Pages</h3>
+          <p>Dedicated pages for Line of Duty, Total & Permanent, and Neurocognitive disability — each optimized for specific searches.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🏈 "For NFL Players" Hub</h3>
+          <p>Comprehensive resource center for former NFL players. Benefits guide, eligibility checker, success stories — all in one place.</p>
+        </div>
+        <div class="feature-card">
+          <h3>⚾ "For MLB Players" Hub</h3>
+          <p>Same treatment for baseball. You serve both leagues — let's rank for both.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📝 Case Study Pages</h3>
+          <p>Turn your 5,000+ success stories into SEO-optimized content. Real results = real trust = real leads.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📰 Blog + Content Strategy</h3>
+          <p>Monthly articles targeting long-tail keywords: "how to apply for NFL disability," "NFL disability denied what to do," etc.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🎓 NIL Athletes Section</h3>
+          <p>You also serve NIL athletes — let's capture that growing market with dedicated landing pages.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📊 Analytics + Tracking</h3>
+          <p>Know exactly which keywords drive leads. Track conversions from first click to consultation booked.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opportunity -->
+    <div class="section">
+      <div class="label">Why Now</div>
+      <div class="section-title">The Opportunity Window</div>
+
+      <ul class="opp-list">
+        <li>
+          <span class="emoji">⚖️</span>
+          <div class="text">
+            <strong>Law firms dominate but players want player-focused help</strong>
+            <span>Your founder is a former NFL player. That's something DarrasLaw can never claim. Let's make that story impossible to miss.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">📈</span>
+          <div class="text">
+            <strong>NFL disability awareness is growing</strong>
+            <span>Search volume for "NFL disability" has increased 40%+ in 2 years. More players are learning about their benefits.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">🎯</span>
+          <div class="text">
+            <strong>Pro Athlete Disability Claims is your only direct competitor</strong>
+            <span>They have ~2,000 monthly visitors. With the right SEO, you can overtake them in 6-12 months.</span>
+          </div>
+        </li>
+        <li>
+          <span class="emoji">💰</span>
+          <div class="text">
+            <strong>High-value leads with low competition</strong>
+            <span>Unlike personal injury, NFL disability is a niche market. Fewer competitors = faster ranking results.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Pricing -->
+    <div class="cta-section">
+      <h2>Let's Get Legacy to Page 1</h2>
+      <div class="price">$199<span>/mo</span></div>
+      <p class="includes">
+        <strong>Includes:</strong> Website redesign • SEO-optimized service pages • NFL & MLB content hubs<br>
+        Blog content strategy • Analytics setup • Technical SEO • Monthly reporting
+      </p>
+      <a href="mailto:hello@gullstack.com?subject=Legacy Pro Sports Website" class="cta-btn">Let's Talk →</a>
+      
+      <p style="margin-top:1.5rem; color:var(--text-muted); font-size:0.85rem;">
+        No long-term contracts. Cancel anytime. Results typically visible in 3-6 months.
+      </p>
+    </div>
+
+    <div class="footer">
+      <img src="https://gullstack.com/gull-logo.png" alt="GullStack"><br>
+      Prepared by GullStack — February 2026<br>
+      <span style="font-size:0.75rem;">Traffic estimates based on industry analysis. Ready to pull detailed competitive report if helpful!</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
