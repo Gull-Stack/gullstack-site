@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intercap Lending — SEO Growth Proposal by GullStack</title>
+  <title>Intercap Lending — Digital Growth Opportunity | GullStack</title>
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
     :root {
       --accent: #1a365d;
       --accent-light: #2c5282;
-      --accent-glow: rgba(44,82,130,0.3);
       --teal: #276749;
       --bg: #0f1419;
       --bg-elevated: #1a2332;
@@ -32,10 +31,25 @@
     .hero-logos { display:flex; align-items:center; justify-content:center; gap:2rem; margin-bottom:2.5rem; flex-wrap:wrap; }
     .hero-logos img { height:55px; border-radius:8px; background:white; padding:10px 20px; }
     .hero-logos .divider { color:var(--text-muted); font-size:2rem; font-weight:300; }
-    .hero-badge { display:inline-block; background:rgba(72,187,120,0.15); border:1px solid var(--green); color:var(--green); padding:0.4rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; margin-bottom:1rem; }
+    .hero-badge { display:inline-block; background:rgba(252,129,129,0.15); border:1px solid var(--red); color:var(--red); padding:0.4rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; margin-bottom:1rem; }
     .hero h1 { font-size:2.4rem; font-weight:800; margin-bottom:0.75rem; }
     .hero h1 span { color:var(--blue); }
     .hero .subtitle { color:var(--text-muted); font-size:1.15rem; max-width:700px; margin:0 auto; }
+
+    /* TLDR Box */
+    .tldr-box { background:linear-gradient(135deg, #1a365d 0%, #2c5282 100%); border-radius:16px; padding:2.5rem; margin:2rem 0; border:2px solid var(--blue); }
+    .tldr-box h2 { font-size:1.4rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
+    .tldr-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:1.5rem; }
+    @media (max-width:700px) { .tldr-grid { grid-template-columns:1fr; } }
+    .tldr-item { display:flex; align-items:flex-start; gap:1rem; }
+    .tldr-item .icon { font-size:1.8rem; flex-shrink:0; }
+    .tldr-item h3 { font-size:1rem; margin-bottom:0.25rem; }
+    .tldr-item p { color:rgba(255,255,255,0.75); font-size:0.9rem; }
+
+    .fomo-box { background:linear-gradient(135deg, #742a2a 0%, #9b2c2c 100%); border-radius:16px; padding:2rem; margin:2rem 0; text-align:center; border:2px solid var(--red); }
+    .fomo-box h3 { font-size:1.3rem; margin-bottom:0.75rem; color:white; }
+    .fomo-box p { color:rgba(255,255,255,0.85); font-size:1rem; max-width:700px; margin:0 auto; }
+    .fomo-box .stat { font-size:2.5rem; font-weight:800; color:var(--yellow); margin:1rem 0; }
 
     /* Sections */
     .section { padding:3rem 0; }
@@ -88,39 +102,12 @@
     .features-list { list-style:none; max-width:800px; margin:1.5rem auto; }
     .features-list li { background:var(--bg-elevated); border-radius:10px; padding:1rem 1.25rem; margin-bottom:0.75rem; display:flex; align-items:flex-start; gap:1rem; border-left:3px solid var(--green); }
 
-    /* Pricing */
-    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:2rem 0; }
-    @media (max-width:700px) { .pricing-grid { grid-template-columns:1fr; } }
-    .price-card { background:var(--bg-elevated); border-radius:16px; padding:2rem; border:2px solid rgba(66,153,225,0.2); }
-    .price-card.featured { background:linear-gradient(135deg, var(--teal) 0%, #2f855a 100%); border-color:var(--green); }
-    .price-card h3 { font-size:1.2rem; margin-bottom:0.5rem; }
-    .price-card .tagline { color:var(--text-muted); font-size:0.9rem; margin-bottom:1rem; }
-    .price-card.featured .tagline { color:rgba(255,255,255,0.8); }
-    .price-card ul { list-style:none; font-size:0.9rem; margin-bottom:1.5rem; }
-    .price-card ul li { padding:0.4rem 0; display:flex; align-items:flex-start; gap:0.5rem; }
-    .price-card ul li::before { content:'✓'; color:var(--green); font-weight:bold; }
-    .price-card.featured ul li::before { color:rgba(255,255,255,0.9); }
-    .price-card .price { font-size:2.5rem; font-weight:800; }
-    .price-card .price-sub { font-size:0.85rem; color:var(--text-muted); }
-    .price-card.featured .price-sub { color:rgba(255,255,255,0.7); }
-
-    .bundle-bar { background:linear-gradient(135deg, #553c9a 0%, #6b46c1 100%); border-radius:16px; padding:1.5rem 2rem; margin:1.5rem 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
-    .bundle-bar h3 { margin:0; font-size:1.1rem; }
-    .bundle-bar p { margin:0; opacity:0.9; font-size:0.9rem; }
-    .bundle-bar .price { font-size:1.8rem; font-weight:800; }
-    .bundle-bar .save { font-size:0.8rem; opacity:0.8; }
-
     /* CTA */
     .cta-section { text-align:center; padding:4rem 2rem; background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius:16px; margin:2rem 0; }
     .cta-section h2 { font-size:1.8rem; margin-bottom:0.5rem; }
-    .cta-section p { color:rgba(255,255,255,0.8); margin-bottom:1.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+    .cta-section p { color:rgba(255,255,255,0.8); margin-bottom:1.5rem; max-width:550px; margin-left:auto; margin-right:auto; }
     .cta-btn { display:inline-block; background:var(--green); color:white; padding:1rem 2.5rem; border-radius:8px; text-decoration:none; font-weight:700; font-size:1rem; transition:all 0.3s; }
     .cta-btn:hover { background:#38a169; transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,0.3); }
-
-    .trust-badges { display:flex; justify-content:center; gap:3rem; margin-top:2rem; flex-wrap:wrap; }
-    .trust-badge { text-align:center; opacity:0.8; }
-    .trust-badge .icon { font-size:1.5rem; margin-bottom:0.3rem; }
-    .trust-badge .text { font-size:0.8rem; }
 
     .footer { text-align:center; padding:2rem; color:var(--text-muted); font-size:0.85rem; }
     .footer a { color:var(--blue); text-decoration:none; }
@@ -134,17 +121,59 @@
     <span class="divider">×</span>
     <img src="/assets/images/clients/intercap-logo.png" alt="Intercap Lending">
   </div>
-  <div class="hero-badge">📈 Custom Growth Proposal</div>
-  <h1>SEO Growth Strategy for <span>Intercap Lending</span></h1>
-  <p class="subtitle">Comprehensive analysis and roadmap to dominate Utah's mortgage search landscape</p>
+  <div class="hero-badge">⚠️ Competitive Analysis</div>
+  <h1>Your Competitors Are <span>Eating Your Lunch</span></h1>
+  <p class="subtitle">47 years of trust. 47 years of referrals. But online? You're invisible — and newer players are stealing your market share.</p>
 </div>
 
 <div class="container">
 
+  <!-- TLDR -->
+  <div class="tldr-box">
+    <h2>⚡ TL;DR — What You Get</h2>
+    <div class="tldr-grid">
+      <div class="tldr-item">
+        <div class="icon">🎯</div>
+        <div>
+          <h3>Dominate Utah Mortgage Search</h3>
+          <p>Rank #1 for "Utah mortgage lender", "mortgage broker Salt Lake City", and 50+ high-value keywords you're not ranking for</p>
+        </div>
+      </div>
+      <div class="tldr-item">
+        <div class="icon">📈</div>
+        <div>
+          <h3>8-12x More Organic Traffic</h3>
+          <p>From ~400 monthly visitors to 4,500+ — all exclusive leads, not shared with competitors</p>
+        </div>
+      </div>
+      <div class="tldr-item">
+        <div class="icon">🤖</div>
+        <div>
+          <h3>24/7 AI Lead Capture</h3>
+          <p>Chatbot qualifies leads, books appointments, and follows up via text — even at 2am on a Saturday</p>
+        </div>
+      </div>
+      <div class="tldr-item">
+        <div class="icon">💰</div>
+        <div>
+          <h3>50-80 New Leads/Month</h3>
+          <p>Conservative math: $8,750-14,000/month in new revenue from organic search alone</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOMO -->
+  <div class="fomo-box">
+    <h3>🚨 The Window Is Closing</h3>
+    <div class="stat">City Creek Mortgage has 19x your traffic</div>
+    <p>While you've been building relationships the old way, competitors have been building digital moats. <strong>Every month you wait, they get stronger and harder to catch.</strong> In 1983, Mark Cuban sold PCs to businesses who didn't think they needed them. The ones who said "we'll think about it" got crushed by the ones who moved first. This is your PC moment.</p>
+  </div>
+
   <div class="section">
-    <p class="label center">Current Performance</p>
-    <h2 class="section-title center">📊 Current State Analysis</h2>
-    <p class="section-sub center">Intercap Lending has been a trusted name in home loans since 1978 — but your digital presence isn't matching your reputation.</p>
+    <p class="label center">The Problem</p>
+    <h2 class="section-title center">📊 Where You Stand Today</h2>
+    <p class="section-sub center">Intercap has been a trusted name since 1978 — but your digital presence is a ghost town.</p>
 
     <div class="stats-grid">
       <div class="stat-card">
@@ -165,59 +194,58 @@
       </div>
     </div>
 
-    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🔍 Key Issues Identified</h3>
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🔍 What's Broken</h3>
     <ul class="issues-list">
-      <li><span class="emoji">⚠️</span><div><strong>Thin local SEO presence</strong><span>Not ranking for "Utah mortgage lender" or city-specific terms</span></div></li>
-      <li><span class="emoji">⚠️</span><div><strong>Missing programmatic pages</strong><span>No dedicated landing pages for service areas or loan types</span></div></li>
-      <li><span class="emoji">⚠️</span><div><strong>Weak backlink profile</strong><span>Competitors have 3-5x more referring domains</span></div></li>
-      <li><span class="emoji">⚠️</span><div><strong>No schema markup</strong><span>Missing LocalBusiness and FinancialService structured data</span></div></li>
-      <li><span class="emoji">⚠️</span><div><strong>Content gaps</strong><span>Minimal blog/resource content for informational searches</span></div></li>
+      <li><span class="emoji">⚠️</span><div><strong>Invisible in local search</strong><span>Not ranking for "Utah mortgage lender" or any city-specific terms</span></div></li>
+      <li><span class="emoji">⚠️</span><div><strong>No landing pages</strong><span>Competitors have 25+ pages targeting loan types and service areas — you have zero</span></div></li>
+      <li><span class="emoji">⚠️</span><div><strong>Weak link profile</strong><span>City Creek has 3-5x more sites linking to them</span></div></li>
+      <li><span class="emoji">⚠️</span><div><strong>No after-hours capture</strong><span>When someone visits your site at 10pm, they bounce. Competitors have chat.</span></div></li>
     </ul>
   </div>
 
   <div class="section">
-    <p class="label center">Competition</p>
-    <h2 class="section-title center">🏆 Competitive Landscape</h2>
-    <p class="section-sub center">Here's how Intercap stacks up against top Utah mortgage competitors:</p>
+    <p class="label center">The Competition</p>
+    <h2 class="section-title center">🏆 Who's Winning (And Why)</h2>
+    <p class="section-sub center">These companies started building their digital presence years ago. Now they're harvesting.</p>
 
     <table>
       <thead>
-        <tr><th>Company</th><th>Keywords</th><th>Traffic</th><th>Traffic Value</th><th>DR</th></tr>
+        <tr><th>Company</th><th>Keywords</th><th>Traffic</th><th>Traffic Value</th><th>Head Start</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>City Creek Mortgage</strong></td><td>2,800+</td><td>8,500</td><td>$45,000</td><td>42</td></tr>
-        <tr><td><strong>Altius Mortgage</strong></td><td>1,900+</td><td>5,200</td><td>$28,000</td><td>38</td></tr>
-        <tr><td><strong>Utah Mortgage</strong></td><td>1,500+</td><td>4,100</td><td>$22,000</td><td>35</td></tr>
-        <tr class="warning-row"><td><strong>Intercap (Current)</strong></td><td>~150</td><td>~400</td><td>~$2,800</td><td>28</td></tr>
-        <tr class="highlight-row"><td><strong>Intercap (12-Mo Target)</strong></td><td>2,000+</td><td>4,500+</td><td>$35,000+</td><td>40+</td></tr>
+        <tr><td><strong>City Creek Mortgage</strong></td><td>2,800+</td><td>8,500</td><td>$45,000/mo</td><td>🔥 Dominant</td></tr>
+        <tr><td><strong>Altius Mortgage</strong></td><td>1,900+</td><td>5,200</td><td>$28,000/mo</td><td>Strong</td></tr>
+        <tr><td><strong>Utah Mortgage</strong></td><td>1,500+</td><td>4,100</td><td>$22,000/mo</td><td>Established</td></tr>
+        <tr class="warning-row"><td><strong>Intercap Lending</strong></td><td>~150</td><td>~400</td><td>~$2,800/mo</td><td>❌ Behind</td></tr>
       </tbody>
     </table>
+    <p style="margin-top:1rem; color:var(--text-muted); font-size:0.9rem; text-align:center;"><strong>The gap is growing every month.</strong> They're adding content, building links, and capturing your would-be customers.</p>
   </div>
 
   <div class="section">
-    <p class="label center">Opportunity</p>
-    <h2 class="section-title center">🎯 Target Keywords</h2>
-    <p class="section-sub center">High-value keywords you're not ranking for:</p>
+    <p class="label center">The Opportunity</p>
+    <h2 class="section-title center">🎯 Keywords You Should Own</h2>
+    <p class="section-sub center">High-value searches happening every month — going to your competitors:</p>
 
     <table>
       <thead>
-        <tr><th>Keyword</th><th>Volume</th><th>CPC</th><th>Status</th><th>Opportunity</th></tr>
+        <tr><th>Keyword</th><th>Monthly Searches</th><th>What Ads Cost</th><th>Your Rank</th></tr>
       </thead>
       <tbody>
-        <tr><td>utah mortgage lender</td><td class="volume">1,900</td><td class="cpc">$24.50</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>mortgage broker salt lake city</td><td class="volume">880</td><td class="cpc">$32.00</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>first time home buyer utah</td><td class="volume">2,400</td><td class="cpc">$22.00</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>fha loan utah</td><td class="volume">720</td><td class="cpc">$28.40</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>va loan utah</td><td class="volume">590</td><td class="cpc">$35.20</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>refinance utah</td><td class="volume">480</td><td class="cpc">$42.00</td><td>Not ranking</td><td>🔥 High</td></tr>
-        <tr><td>mortgage lender draper ut</td><td class="volume">170</td><td class="cpc">$26.00</td><td>Not ranking</td><td>💎 Easy Win</td></tr>
+        <tr><td>utah mortgage lender</td><td class="volume">1,900</td><td class="cpc">$24.50/click</td><td>❌ Not ranking</td></tr>
+        <tr><td>mortgage broker salt lake city</td><td class="volume">880</td><td class="cpc">$32.00/click</td><td>❌ Not ranking</td></tr>
+        <tr><td>first time home buyer utah</td><td class="volume">2,400</td><td class="cpc">$22.00/click</td><td>❌ Not ranking</td></tr>
+        <tr><td>fha loan utah</td><td class="volume">720</td><td class="cpc">$28.40/click</td><td>❌ Not ranking</td></tr>
+        <tr><td>va loan utah</td><td class="volume">590</td><td class="cpc">$35.20/click</td><td>❌ Not ranking</td></tr>
+        <tr><td>refinance utah</td><td class="volume">480</td><td class="cpc">$42.00/click</td><td>❌ Not ranking</td></tr>
       </tbody>
     </table>
+    <p style="margin-top:1rem; color:var(--text-muted); font-size:0.9rem; text-align:center;">That's <strong>7,000+ searches/month</strong> for just these keywords. All going to competitors.</p>
   </div>
 
   <div class="section">
     <div class="roi-box">
-      <h3>📈 Projected ROI (12 Months)</h3>
+      <h3>📈 What's Possible in 12 Months</h3>
       <p style="opacity:0.9;">Based on industry benchmarks for mortgage SEO:</p>
       <div class="roi-grid">
         <div class="roi-item"><div class="value">8-12x</div><div class="desc">Traffic Multiplier</div></div>
@@ -227,113 +255,42 @@
     </div>
 
     <table style="margin-top:2rem;">
-      <thead><tr><th>Metric</th><th>Current</th><th>6 Months</th><th>12 Months</th></tr></thead>
+      <thead><tr><th>Metric</th><th>Today</th><th>6 Months</th><th>12 Months</th></tr></thead>
       <tbody>
         <tr><td>Organic Traffic</td><td>~400/mo</td><td>1,500/mo</td><td>4,500+/mo</td></tr>
         <tr><td>Ranking Keywords</td><td>~150</td><td>800+</td><td>2,000+</td></tr>
         <tr><td>Traffic Value</td><td>$2,800/mo</td><td>$12,000/mo</td><td>$35,000+/mo</td></tr>
-        <tr><td>Est. Organic Leads</td><td>5-10/mo</td><td>25-35/mo</td><td>50-80/mo</td></tr>
+        <tr class="highlight-row"><td><strong>Est. New Revenue</strong></td><td>—</td><td>$4-6K/mo</td><td><strong>$8-14K/mo</strong></td></tr>
       </tbody>
     </table>
-    <p style="margin-top:1rem; color:var(--text-muted); font-size:0.9rem;"><strong>Conservative math:</strong> If 5% of visitors become leads, and 10% of leads close at $3,500 commission = <strong style="color:var(--green);">$8,750-14,000/month in new revenue</strong></p>
   </div>
 
   <div class="section">
-    <p class="label center">Deliverables</p>
-    <h2 class="section-title center">🛠️ The Strategy</h2>
+    <p class="label center">The Solution</p>
+    <h2 class="section-title center">🛠️ How We Close The Gap</h2>
 
     <div class="timeline">
-      <div class="timeline-item"><h4>Month 1-2: Foundation</h4><p>Technical SEO audit, schema markup, Google Business optimization, site speed</p></div>
-      <div class="timeline-item"><h4>Month 2-3: Content Architecture</h4><p>Create 25+ city/service landing pages, optimize existing pages, internal linking</p></div>
-      <div class="timeline-item"><h4>Month 3-6: Authority Building</h4><p>Local link building, industry citations, content marketing, guest posts</p></div>
-      <div class="timeline-item"><h4>Month 6-12: Scale & Dominate</h4><p>Expand programmatic pages, blog content strategy, target competitive head terms</p></div>
+      <div class="timeline-item"><h4>Phase 1: Foundation</h4><p>Technical SEO audit, schema markup, Google Business optimization, site speed — fix the fundamentals</p></div>
+      <div class="timeline-item"><h4>Phase 2: Content Blitz</h4><p>Create 25+ landing pages targeting cities, loan types, and service areas competitors already rank for</p></div>
+      <div class="timeline-item"><h4>Phase 3: Authority</h4><p>Build backlinks from mortgage, real estate, and local business sites to close the domain authority gap</p></div>
+      <div class="timeline-item"><h4>Phase 4: Scale</h4><p>Expand into competitive head terms, blog content, and programmatic pages for long-tail traffic</p></div>
     </div>
 
-    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🤖 AI Communication Suite (Podium Alternative)</h3>
-    <p class="section-sub">Podium charges <strong>$599/month</strong>. We built the same thing for a fraction:</p>
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🤖 Plus: 24/7 Lead Capture System</h3>
+    <p class="section-sub">Never miss another lead — even at 2am:</p>
     <ul class="features-list">
-      <li><span class="emoji">💬</span><div><strong>AI Webchat</strong><span>Qualifies leads 24/7 with smart loan-type matching (FHA, VA, conventional, jumbo)</span></div></li>
-      <li><span class="emoji">📱</span><div><strong>2-Way SMS</strong><span>Real text conversations with prospects, not just blasts</span></div></li>
-      <li><span class="emoji">📥</span><div><strong>Unified Inbox</strong><span>All messages (web, text, forms) in one dashboard</span></div></li>
-      <li><span class="emoji">⭐</span><div><strong>Review Requests</strong><span>Automated review asks after closing + response management</span></div></li>
-      <li><span class="emoji">📅</span><div><strong>Appointment Booking</strong><span>AI books directly to your loan officers' calendars</span></div></li>
-      <li><span class="emoji">🤖</span><div><strong>AI Auto-Responses</strong><span>Smart replies when LOs are busy or after hours</span></div></li>
+      <li><span class="emoji">💬</span><div><strong>AI Webchat</strong><span>Qualifies leads instantly — loan type, credit, timeline — while you sleep</span></div></li>
+      <li><span class="emoji">📱</span><div><strong>2-Way Texting</strong><span>Prospects prefer text. Meet them where they are.</span></div></li>
+      <li><span class="emoji">📅</span><div><strong>Auto Booking</strong><span>AI schedules appointments directly to your loan officers' calendars</span></div></li>
+      <li><span class="emoji">⭐</span><div><strong>Review Requests</strong><span>Automated asks after closing build your Google reputation</span></div></li>
     </ul>
-    <p style="margin-top:1rem; color:var(--text-muted); font-size:0.9rem;"><strong>Industry data:</strong> Mortgage sites with chat see <strong style="color:var(--green);">40-60% higher conversion rates</strong>. Add texting and that jumps to <strong style="color:var(--green);">80%+</strong>.</p>
-  </div>
-
-  <div class="section">
-    <p class="label center">Pricing</p>
-    <h2 class="section-title center">💰 Investment</h2>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h3>🎯 SEO Growth Package</h3>
-        <p class="tagline">Dominate organic search</p>
-        <ul>
-          <li>Complete technical SEO audit</li>
-          <li>25+ programmatic landing pages</li>
-          <li>Local SEO & Google Business</li>
-          <li>Monthly link building (5-10 links)</li>
-          <li>Content strategy & blog posts</li>
-          <li>Monthly reporting & calls</li>
-        </ul>
-        <div class="price">$2,500<span style="font-size:1rem; font-weight:400;">/mo</span></div>
-        <div class="price-sub">12-month commitment • $1,500 setup</div>
-      </div>
-
-      <div class="price-card featured">
-        <h3>🤖 AI Communication Suite</h3>
-        <p class="tagline">Everything Podium offers, 1/6 the price</p>
-        <ul>
-          <li>AI Webchat (24/7 qualification)</li>
-          <li>Unified Inbox (SMS + web + forms)</li>
-          <li>2-Way Texting with prospects</li>
-          <li>Automated Review Requests</li>
-          <li>Appointment Booking</li>
-          <li>AI Auto-Responses</li>
-          <li>Lead Dashboard</li>
-        </ul>
-        <div class="price">+$500<span style="font-size:1rem; font-weight:400;">/mo</span></div>
-        <div class="price-sub">Podium charges $599/mo for less</div>
-      </div>
-    </div>
-
-    <div class="bundle-bar">
-      <div>
-        <h3>🚀 Full Growth Bundle</h3>
-        <p>SEO + AI Communication Suite + Priority Support</p>
-      </div>
-      <div style="text-align:right;">
-        <div class="price">$2,800<span style="font-size:0.9rem; font-weight:400;">/mo</span></div>
-        <div class="save">Save $200/month</div>
-      </div>
-    </div>
-
-    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">ROI Comparison</h3>
-    <table>
-      <thead><tr><th>Channel</th><th>Monthly Cost</th><th>Est. Leads</th><th>Cost Per Lead</th></tr></thead>
-      <tbody>
-        <tr><td>Google Ads (Mortgage)</td><td>$8,000-15,000</td><td>40-60</td><td>$150-250</td></tr>
-        <tr><td>Purchased Leads</td><td>$5,000-10,000</td><td>50-100 (shared)</td><td>$50-100 (low quality)</td></tr>
-        <tr class="highlight-row"><td><strong>SEO (Year 2+)</strong></td><td>$2,500</td><td>50-80 (exclusive)</td><td><strong>$31-50</strong></td></tr>
-      </tbody>
-    </table>
-    <p style="margin-top:1rem; color:var(--text-muted); font-size:0.9rem;"><em>SEO compounds over time. Year 2+ delivers leads at dramatically lower cost as rankings mature.</em></p>
   </div>
 
   <div class="cta-section">
-    <h2>Ready to Dominate Utah Mortgage Search?</h2>
-    <p>Let's discuss how we can help Intercap capture the organic opportunity.</p>
-    <a href="mailto:bryce@gullstack.com?subject=Intercap%20Lending%20SEO%20Proposal" class="cta-btn">Schedule a Strategy Call →</a>
-
-    <div class="trust-badges">
-      <div class="trust-badge"><div class="icon">🎯</div><div class="text">Data-Driven</div></div>
-      <div class="trust-badge"><div class="icon">📈</div><div class="text">Proven Results</div></div>
-      <div class="trust-badge"><div class="icon">🤝</div><div class="text">Transparent</div></div>
-      <div class="trust-badge"><div class="icon">💪</div><div class="text">No Lock-In*</div></div>
-    </div>
-    <p style="margin-top:1.5rem; font-size:0.8rem; opacity:0.6;">*12-month for best results, cancel anytime after month 6</p>
+    <h2>Ready to Stop Losing to Competitors?</h2>
+    <p>The math is simple: every month you wait, they get stronger. Let's talk about what it takes to catch up — and pass them.</p>
+    <a href="mailto:bryce@gullstack.com?subject=Intercap%20Lending%20-%20Let's%20Talk" class="cta-btn">Let's Talk →</a>
+    <p style="margin-top:1.5rem; font-size:0.85rem; opacity:0.7;">No pressure. Just data, strategy, and a realistic timeline.</p>
   </div>
 
   <div class="footer">
