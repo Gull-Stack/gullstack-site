@@ -6,7 +6,7 @@
   <title>Intercap Lending — Digital Growth Opportunity | GullStack</title>
   <link rel="icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #1a365d;
@@ -30,6 +30,9 @@
     .hero { text-align:center; padding:4rem 1rem 3rem; background:linear-gradient(135deg, #0f1419 0%, #1a365d 50%, #0f1419 100%); border-bottom:1px solid rgba(66,153,225,0.2); }
     .hero-logos { display:flex; align-items:center; justify-content:center; gap:2rem; margin-bottom:2.5rem; flex-wrap:wrap; }
     .hero-logos img { height:55px; border-radius:8px; background:white; padding:10px 20px; }
+    .gullstack-brand { display:flex; align-items:center; gap:12px; background:white; padding:12px 24px; border-radius:8px; }
+    .gullstack-brand .gull-bird { height:45px; padding:0; background:transparent; border-radius:0; }
+    .gullstack-brand .gull-text { font-family:'Space Grotesk','Inter',sans-serif; font-size:1.6rem; font-weight:700; color:#1a1a2e; letter-spacing:-0.02em; }
     .hero-logos .divider { color:var(--text-muted); font-size:2rem; font-weight:300; }
     .hero-badge { display:inline-block; background:rgba(252,129,129,0.15); border:1px solid var(--red); color:var(--red); padding:0.4rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; margin-bottom:1rem; }
     .hero h1 { font-size:2.4rem; font-weight:800; margin-bottom:0.75rem; }
@@ -117,7 +120,10 @@
 
 <div class="hero">
   <div class="hero-logos">
-    <img src="/gull-logo.png" alt="GullStack" style="height:50px; background:transparent;">
+    <div class="gullstack-brand">
+      <img src="/gull-logo.png" alt="GullStack Bird" class="gull-bird">
+      <span class="gull-text">GullStack</span>
+    </div>
     <span class="divider">×</span>
     <img src="/assets/images/clients/intercap-logo.png" alt="Intercap Lending">
   </div>
