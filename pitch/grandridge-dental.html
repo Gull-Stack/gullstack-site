@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grand Ridge Dental × GullStack — Implant Marketing Plan</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1e3a5f;
+      --accent-light: #2d5a87;
+      --teal: #0d9488;
+      --bg: #0f1419;
+      --bg-elevated: #1a2332;
+      --bg-card: #232d3f;
+      --text: #e8ecf0;
+      --text-muted: #8899a8;
+      --green: #10b981;
+      --blue: #3b82f6;
+      --yellow: #fbbf24;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--text); font-family:'Inter',-apple-system,sans-serif; line-height:1.6; }
+    .container { max-width:800px; margin:0 auto; padding:2rem 1.5rem; }
+
+    .hero { text-align:center; padding:3rem 1rem; background:linear-gradient(135deg, #0f1419 0%, #1e3a5f 50%, #0f1419 100%); border-bottom:1px solid rgba(59,130,246,0.2); }
+    .hero-logos { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin-bottom:2rem; flex-wrap:wrap; }
+    .gullstack-brand { display:flex; align-items:center; gap:10px; background:white; padding:10px 20px; border-radius:8px; }
+    .gullstack-brand img { height:40px; }
+    .gullstack-brand span { font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:#1a1a2e; }
+    .hero-logos .divider { color:var(--text-muted); font-size:1.5rem; }
+    .hero-logos .client-logo { height:50px; background:white; padding:8px 16px; border-radius:8px; }
+    .hero h1 { font-size:2rem; font-weight:800; margin-bottom:0.5rem; }
+    .hero h1 span { color:var(--teal); }
+    .hero .subtitle { color:var(--text-muted); font-size:1.1rem; }
+
+    .section { padding:2.5rem 0; }
+    .section-title { font-size:1.5rem; font-weight:700; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
+    
+    .goal-box { background:linear-gradient(135deg, var(--teal) 0%, #059669 100%); border-radius:12px; padding:1.5rem; margin-bottom:2rem; }
+    .goal-box h3 { margin-bottom:0.75rem; font-size:1.1rem; }
+    .goal-box p { opacity:0.9; font-size:1rem; }
+
+    .steps { counter-reset:step; }
+    .step { background:var(--bg-elevated); border-radius:12px; padding:1.5rem; margin-bottom:1rem; border-left:4px solid var(--teal); position:relative; }
+    .step::before { counter-increment:step; content:counter(step); position:absolute; left:-22px; top:50%; transform:translateY(-50%); background:var(--teal); color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; }
+    .step h4 { font-size:1.1rem; margin-bottom:0.5rem; color:var(--green); }
+    .step p { color:var(--text-muted); font-size:0.95rem; margin-bottom:0.75rem; }
+    .step ul { list-style:none; font-size:0.9rem; }
+    .step ul li { padding:0.3rem 0; display:flex; align-items:flex-start; gap:0.5rem; }
+    .step ul li::before { content:'✓'; color:var(--green); font-weight:bold; }
+
+    .what-you-get { display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem; margin:1.5rem 0; }
+    @media (max-width:600px) { .what-you-get { grid-template-columns:1fr; } }
+    .get-item { background:var(--bg-elevated); border-radius:10px; padding:1.25rem; text-align:center; }
+    .get-item .icon { font-size:2rem; margin-bottom:0.5rem; }
+    .get-item h4 { font-size:0.95rem; margin-bottom:0.25rem; }
+    .get-item p { font-size:0.8rem; color:var(--text-muted); }
+
+    .target-box { background:var(--bg-elevated); border-radius:12px; padding:1.5rem; margin:1.5rem 0; }
+    .target-box h4 { margin-bottom:1rem; color:var(--blue); }
+    .target-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:1rem; }
+    @media (max-width:500px) { .target-grid { grid-template-columns:1fr; } }
+    .target-item { display:flex; align-items:center; gap:0.75rem; }
+    .target-item .label { font-size:0.8rem; color:var(--text-muted); }
+    .target-item .value { font-weight:600; }
+
+    .timeline { background:var(--bg-elevated); border-radius:12px; padding:1.5rem; margin:1.5rem 0; }
+    .timeline h4 { margin-bottom:1rem; color:var(--yellow); }
+    .timeline-items { display:grid; grid-template-columns:repeat(4, 1fr); gap:0.75rem; }
+    @media (max-width:600px) { .timeline-items { grid-template-columns:repeat(2, 1fr); } }
+    .timeline-item { text-align:center; padding:1rem 0.5rem; border-radius:8px; background:var(--bg-card); }
+    .timeline-item .week { font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.1em; }
+    .timeline-item .task { font-size:0.85rem; font-weight:600; margin-top:0.25rem; }
+
+    .next-steps { background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius:12px; padding:2rem; margin:2rem 0; text-align:center; }
+    .next-steps h3 { margin-bottom:1rem; }
+    .next-steps ol { text-align:left; max-width:400px; margin:0 auto 1.5rem; font-size:0.95rem; }
+    .next-steps ol li { padding:0.4rem 0; }
+    .next-steps .contact { font-size:0.9rem; opacity:0.8; }
+
+    .footer { text-align:center; padding:2rem; color:var(--text-muted); font-size:0.85rem; }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logos">
+    <div class="gullstack-brand">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <span class="divider">×</span>
+    <img src="/assets/images/clients/grandridge-logo.png" alt="Grand Ridge Dental" class="client-logo" style="background:#1e3a5f;">
+  </div>
+  <h1>Dental Implant <span>Marketing Plan</span></h1>
+  <p class="subtitle">Fill your chair with high-value implant patients</p>
+</div>
+
+<div class="container">
+
+  <div class="goal-box">
+    <h3>🎯 The Goal</h3>
+    <p><strong>Get implant consultations on your calendar</strong> — using social media, targeted ads, and AI-powered follow-up that works 24/7.</p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">📦 What You Get</h2>
+    
+    <div class="what-you-get">
+      <div class="get-item">
+        <div class="icon">🌐</div>
+        <h4>Implant Landing Page</h4>
+        <p>Dedicated page that converts visitors to consultations</p>
+      </div>
+      <div class="get-item">
+        <div class="icon">🤖</div>
+        <h4>AI Chatbot</h4>
+        <p>Qualifies leads & books appointments 24/7</p>
+      </div>
+      <div class="get-item">
+        <div class="icon">📱</div>
+        <h4>SMS Follow-Up</h4>
+        <p>Automated texts to nurture leads who don't book</p>
+      </div>
+      <div class="get-item">
+        <div class="icon">📅</div>
+        <h4>Calendar Integration</h4>
+        <p>Leads book directly to your schedule</p>
+      </div>
+      <div class="get-item">
+        <div class="icon">📣</div>
+        <h4>Social Content</h4>
+        <p>Posts for X, Facebook, Instagram ready to go</p>
+      </div>
+      <div class="get-item">
+        <div class="icon">🎯</div>
+        <h4>Ad Campaigns</h4>
+        <p>Facebook & Google ads targeting implant candidates</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🎯 Who We Target</h2>
+    
+    <div class="target-box">
+      <h4>Ideal Implant Patient Profile</h4>
+      <div class="target-grid">
+        <div class="target-item">
+          <div>
+            <div class="label">Age</div>
+            <div class="value">55-75 years old</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">Income</div>
+            <div class="value">$60K+ household</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">Location</div>
+            <div class="value">25mi of Kennewick</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">Pain Point</div>
+            <div class="value">Denture frustration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--text-muted); font-size:0.9rem; margin-top:1rem;">
+      <strong>Why these people?</strong> They can afford implants ($4K-15K), they're actively frustrated with dentures, and they're researching solutions online. Facebook is where they spend time.
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">📋 The Plan (4 Weeks)</h2>
+    
+    <div class="steps">
+      <div class="step">
+        <h4>Week 1: Build the Foundation</h4>
+        <p>We create everything you need to capture leads:</p>
+        <ul>
+          <li>Implant-focused landing page</li>
+          <li>AI chatbot that qualifies patients</li>
+          <li>Calendar booking integration</li>
+          <li>SMS follow-up sequences</li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <h4>Week 2: Content Creation</h4>
+        <p>Quick filming session with you (30 min = 10+ videos):</p>
+        <ul>
+          <li>"Why dentures slip" explainer</li>
+          <li>"Dental implants in 60 seconds"</li>
+          <li>"Can you afford implants?" (real talk)</li>
+          <li>Before/after transformations</li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <h4>Week 3: Launch Ads</h4>
+        <p>Start driving targeted traffic:</p>
+        <ul>
+          <li>Facebook ads to 55-75 age group</li>
+          <li>Google ads for "dental implants Kennewick"</li>
+          <li>Retargeting for website visitors</li>
+        </ul>
+      </div>
+      
+      <div class="step">
+        <h4>Week 4+: Optimize & Scale</h4>
+        <p>Measure results and double down on what works:</p>
+        <ul>
+          <li>Track cost per lead</li>
+          <li>A/B test ad creative</li>
+          <li>Scale winning campaigns</li>
+          <li>Add more content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">💰 The Math</h2>
+    
+    <div class="target-box">
+      <div class="target-grid">
+        <div class="target-item">
+          <div>
+            <div class="label">Avg Implant Case</div>
+            <div class="value" style="color:var(--green);">$4,000-15,000</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">Cost Per Lead</div>
+            <div class="value">$50-150</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">Close Rate</div>
+            <div class="value">20-30%</div>
+          </div>
+        </div>
+        <div class="target-item">
+          <div>
+            <div class="label">10 Leads/Month</div>
+            <div class="value" style="color:var(--green);">2-3 Cases</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem; text-align:center; font-size:1.1rem;">
+        <strong>10 leads → 2-3 implant cases → $8,000-45,000/month</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🚀 The Bigger Picture</h2>
+    <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.7;">
+      Once we dial this in for Grand Ridge, we package it and sell it to other dentists. You become the proof case. <strong>This is the template.</strong>
+    </p>
+    <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.7; margin-top:1rem;">
+      Every dentist in America wants more implant patients. We build the system once, deploy it everywhere.
+    </p>
+  </div>
+
+  <div class="next-steps">
+    <h3>✅ Next Steps</h3>
+    <ol>
+      <li><strong>You:</strong> What scheduling system do you use?</li>
+      <li><strong>Us:</strong> Build landing page + chatbot (this week)</li>
+      <li><strong>You:</strong> 30-min video filming session</li>
+      <li><strong>Us:</strong> Launch ads, start getting leads</li>
+    </ol>
+    <p class="contact">Questions? Call Bryce: <strong>(843) 577-0771</strong></p>
+  </div>
+
+  <div class="footer">
+    <p>Prepared for Jeff Morgan by GullStack • February 2026</p>
+  </div>
+
+</div>
+</body>
+</html>
