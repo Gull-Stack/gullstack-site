@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AskNicely × GullStack — AI Partnership Proposal</title>
+  <title>AskNicely — The Future of Customer Success | GullStack</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
       --red: #ef4444;
       --orange: #f97316;
       --blue: #3b82f6;
-      --cyan: #06b6d4;
+      --asknicely-blue: #0ea5e9;
       --border: rgba(255,255,255,0.08);
       --font-serif: 'Young Serif', Georgia, serif;
     }
@@ -62,8 +62,8 @@
     .logo img { height: 28px; }
     
     .badge {
-      background: rgba(6, 182, 212, 0.2);
-      color: var(--cyan);
+      background: rgba(14, 165, 233, 0.2);
+      color: var(--asknicely-blue);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.8rem;
@@ -98,7 +98,7 @@
     }
     
     .hero-eyebrow {
-      color: var(--cyan);
+      color: var(--orange);
       font-size: 0.9rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -108,21 +108,218 @@
     
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 400;
       line-height: 1.2;
       margin-bottom: 24px;
     }
     
-    .hero h1 span { color: var(--cyan); }
-    .hero h1 .green { color: var(--green); }
+    .hero h1 span { color: var(--green); }
     .hero h1 .red { color: var(--red); }
     
     .hero-sub {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 750px;
+      max-width: 700px;
       margin: 0 auto;
+    }
+    
+    /* Pain Section */
+    .pain-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .pain-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .pain-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--red);
+    }
+    
+    .pain-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .pain-grid { grid-template-columns: 1fr; }
+    }
+    
+    .pain-card {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    
+    .pain-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .pain-card h4 .icon { font-size: 1.5rem; }
+    
+    .pain-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .pain-card .stat {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--red);
+      font-weight: 600;
+    }
+    
+    /* Vision Section */
+    .vision-section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .vision-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .vision-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .vision-header h2 span { color: var(--green); }
+    
+    .vision-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .reagan-quote {
+      background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+      border: 2px solid var(--green);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .reagan-quote .avatar {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--green) 0%, #16a34a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 20px;
+    }
+    
+    .reagan-quote blockquote {
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    
+    .reagan-quote .attribution {
+      color: var(--green);
+      font-weight: 600;
+    }
+    
+    .pivot-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .pivot-cards { grid-template-columns: 1fr; }
+    }
+    
+    .pivot-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    
+    .pivot-card .number {
+      width: 48px;
+      height: 48px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 auto 16px;
+    }
+    
+    .pivot-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .pivot-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Savings Banner */
+    .savings-banner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    @media (max-width: 768px) {
+      .savings-banner { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .savings-item {
+      text-align: center;
+    }
+    
+    .savings-item .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--red);
+    }
+    
+    .savings-item .amount.green { color: var(--green); }
+    
+    .savings-item .label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 4px;
     }
     
     /* Section */
@@ -148,192 +345,284 @@
       margin: 0 auto;
     }
     
-    /* Problem Cards */
-    .problem-grid {
+    /* Problem/Solution Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    
+    @media (max-width: 900px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      .comparison-arrow { display: none; }
+    }
+    
+    .comparison-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .comparison-card.problem {
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    
+    .comparison-card.solution {
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+    
+    .comparison-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .comparison-card h3 .icon {
+      font-size: 1.5rem;
+    }
+    
+    .cost-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .cost-line:last-child { border-bottom: none; }
+    
+    .cost-line .name { color: var(--text-muted); }
+    
+    .cost-line .amount { font-weight: 600; }
+    
+    .cost-line .amount.red { color: var(--red); }
+    .cost-line .amount.green { color: var(--green); }
+    
+    .cost-total {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    
+    .comparison-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--purple);
+    }
+    
+    /* Features Grid */
+    .features-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
     
-    @media (max-width: 900px) {
-      .problem-grid { grid-template-columns: 1fr; }
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
     }
     
-    .problem-card {
+    .feature-card {
       background: var(--bg-elevated);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      border-radius: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       padding: 28px;
     }
     
-    .problem-card h4 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: var(--red);
+    .feature-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
     }
     
-    .problem-card p {
+    .feature-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .feature-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
     }
     
-    /* Solution Grid */
-    .solution-grid {
+    /* How It Works */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .how-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 600px) {
+      .how-grid { grid-template-columns: 1fr; }
+    }
+    
+    .how-step {
+      text-align: center;
+    }
+    
+    .how-step .number {
+      width: 48px;
+      height: 48px;
+      background: var(--purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0 auto 16px;
+    }
+    
+    .how-step h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .how-step p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Use Cases */
+    .usecase-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
     
     @media (max-width: 768px) {
-      .solution-grid { grid-template-columns: 1fr; }
+      .usecase-grid { grid-template-columns: 1fr; }
     }
     
-    .solution-card {
+    .usecase-card {
       background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 32px;
     }
     
-    .solution-card.highlight {
-      border-color: var(--cyan);
-      grid-column: span 2;
-    }
-    
-    @media (max-width: 768px) {
-      .solution-card.highlight { grid-column: span 1; }
-    }
-    
-    .solution-card .icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-    
-    .solution-card h4 {
-      font-size: 1.2rem;
+    .usecase-card h4 {
+      font-size: 1.1rem;
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
-    .solution-card p {
+    .usecase-card p {
       color: var(--text-muted);
       font-size: 0.95rem;
       margin-bottom: 16px;
     }
     
-    .solution-card ul {
-      list-style: none;
-      color: var(--text-muted);
+    .usecase-card .result {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      border-radius: 8px;
+      padding: 12px 16px;
       font-size: 0.9rem;
+      color: var(--green);
     }
     
-    .solution-card li {
-      padding: 6px 0;
-      padding-left: 20px;
-      position: relative;
+    /* Pricing */
+    .pricing-section {
+      background: var(--bg-elevated);
     }
     
-    .solution-card li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--cyan);
-    }
-    
-    /* Comparison */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 32px;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-      padding: 16px 20px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    .comparison-table th {
-      font-weight: 600;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .comparison-table td:first-child {
-      font-weight: 500;
-    }
-    
-    .comparison-table .status-red { color: var(--red); }
-    .comparison-table .status-green { color: var(--green); }
-    .comparison-table .status-orange { color: var(--orange); }
-    
-    /* Timeline */
-    .timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-    
-    @media (max-width: 768px) {
-      .timeline { grid-template-columns: repeat(2, 1fr); }
-    }
-    
-    .timeline-item {
+    .pricing-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg) 100%);
+      border: 2px solid var(--purple);
+      border-radius: 20px;
+      padding: 48px;
       text-align: center;
     }
     
-    .timeline-item .week {
-      width: 48px;
-      height: 48px;
-      background: var(--cyan);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin: 0 auto 12px;
-    }
-    
-    .timeline-item h4 {
-      font-size: 1rem;
+    .pricing-card h3 {
+      font-size: 1.5rem;
       margin-bottom: 8px;
     }
     
-    .timeline-item p {
+    .pricing-card .subtitle {
       color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .pricing-card .price {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    
+    .pricing-card .price span {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    .pricing-card .vs {
+      margin: 24px 0;
+      padding: 16px;
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 12px;
+      color: var(--text-muted);
+    }
+    
+    .pricing-card .vs strong {
+      color: var(--red);
+    }
+    
+    .pricing-includes {
+      text-align: left;
+      margin: 32px 0;
+    }
+    
+    .pricing-includes h4 {
       font-size: 0.85rem;
-    }
-    
-    /* Quote Block */
-    .quote-block {
-      background: var(--bg-elevated);
-      border-left: 4px solid var(--cyan);
-      padding: 24px 32px;
-      margin: 40px 0;
-      border-radius: 0 12px 12px 0;
-    }
-    
-    .quote-block p {
-      font-size: 1.1rem;
-      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       color: var(--text-muted);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     
-    .quote-block .author {
-      font-weight: 600;
-      font-style: normal;
-      color: var(--text);
+    .pricing-includes ul {
+      list-style: none;
+    }
+    
+    .pricing-includes li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .pricing-includes li:last-child { border-bottom: none; }
+    
+    .pricing-includes .check {
+      color: var(--green);
+      font-weight: bold;
     }
     
     /* CTA */
     .cta-section {
       padding: 80px 0;
       text-align: center;
-      background: linear-gradient(135deg, var(--cyan) 0%, #0891b2 100%);
+      background: linear-gradient(135deg, var(--purple) 0%, #6366f1 100%);
     }
     
     .cta-section h2 {
@@ -376,35 +665,28 @@
       font-size: 0.85rem;
     }
     
-    .footer a { color: var(--cyan); }
+    .footer a { color: var(--purple-light); }
     
-    /* Stat Banner */
-    .stat-banner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
+    /* Quote Block */
+    .quote-block {
+      background: var(--bg-elevated);
+      border-left: 4px solid var(--purple);
+      padding: 24px 32px;
+      margin: 40px 0;
+      border-radius: 0 12px 12px 0;
     }
     
-    @media (max-width: 768px) {
-      .stat-banner { grid-template-columns: 1fr; }
-    }
-    
-    .stat-item {
-      text-align: center;
-    }
-    
-    .stat-item .number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--cyan);
-    }
-    
-    .stat-item .label {
+    .quote-block p {
+      font-size: 1.1rem;
+      font-style: italic;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    
+    .quote-block .author {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--text);
     }
   </style>
 </head>
@@ -415,7 +697,7 @@
         <img src="/gull-logo.png" alt="">
         GullStack
       </a>
-      <span class="badge">AI Partnership Proposal</span>
+      <span class="badge">Strategic Partnership Proposal</span>
     </div>
   </header>
   
@@ -428,54 +710,94 @@
   
   <section class="hero">
     <div class="container">
-      <p class="hero-eyebrow">Strategic AI Partnership</p>
-      <h1>From "NPS Tool" to <span>AI-Powered Growth Engine</span></h1>
-      <p class="hero-sub">Your customers see AskNicely as a survey tool. Your competitors are eating your positioning. Your valuation depends on being an AI company. Let's fix all three.</p>
+      <p class="hero-eyebrow">A Vision for AskNicely's Future</p>
+      <h1>Your Customers Are <span class="red">Bleeding Money</span> on SaaS They Don't Need.<br><span>You Can Stop It.</span></h1>
+      <p class="hero-sub">Every AskNicely customer is paying $200K+ annually for a Frankenstack of tools that barely talk to each other. Reagan, you're positioned to offer them something better — and capture massive revenue doing it.</p>
     </div>
   </section>
   
-  <section class="section">
+  <section class="pain-section">
     <div class="container">
-      <div class="section-header">
-        <h2>The Challenges You're Facing</h2>
-        <p>Three threats to AskNicely's growth and valuation.</p>
+      <div class="pain-header">
+        <h2>The Painful Reality Your Customers Face</h2>
+        <p>They won't tell you this in their NPS feedback, but every day they're fighting these battles:</p>
       </div>
       
-      <div class="problem-grid">
-        <div class="problem-card">
-          <h4>🎯 Perception Problem</h4>
-          <p>"We're just an NPS tool." Customers believe HubSpot can trigger a CSAT survey too — so why pay extra for AskNicely? The core value prop isn't landing.</p>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <h4><span class="icon">💸</span> The SaaS Tax</h4>
+          <p>They're paying Vitally for health scores, Zendesk for tickets, Intercom for chat, Mixpanel for analytics. Five tools. Five contracts. Five integration nightmares. None of them built for their specific workflow.</p>
+          <div class="stat">Average enterprise CS stack: $55K-150K/year</div>
         </div>
-        <div class="problem-card">
-          <h4>⚔️ Competitive Threat</h4>
-          <p>Birdeye, Podium, and Yext position themselves as lead drivers and referral generators. They're stealing your deals because they sell outcomes, not surveys.</p>
+        <div class="pain-card">
+          <h4><span class="icon">👥</span> The Headcount Trap</h4>
+          <p>Every customer needs 1-2 dedicated CS managers at $75-100K each. Most of their day? Copy-pasting between tools, writing reports, and doing work an AI could handle in seconds.</p>
+          <div class="stat">60% of CS time is administrative, not strategic</div>
         </div>
-        <div class="problem-card">
-          <h4>📈 Valuation Pressure</h4>
-          <p>To maximize acquisition value, AskNicely needs to be an AI company — not just have "AI lipstick" on the product. Real AI capabilities, not chatbot wrappers.</p>
+        <div class="pain-card">
+          <h4><span class="icon">🔄</span> The Integration Hell</h4>
+          <p>Data lives in silos. The support team doesn't see the health scores. The success team doesn't see the tickets. Everyone's flying blind and duplicating effort.</p>
+          <div class="stat">Avg. enterprise uses 130+ SaaS tools</div>
         </div>
-      </div>
-      
-      <div class="quote-block" style="margin-top: 48px;">
-        <p>"The most effective way to grow your business is by focusing on your current customer base. AskNicely should be the AI-powered growth engine that turns happy customers into marketers and unhappy customers into retention opportunities."</p>
-        <span class="author">— The Real Value Prop</span>
+        <div class="pain-card">
+          <h4><span class="icon">⏰</span> The Churn Blindspot</h4>
+          <p>By the time they see a customer is at-risk in Vitally, it's already too late. The leading indicators were scattered across five different dashboards nobody was watching.</p>
+          <div class="stat">68% of churned customers showed warning signs 30+ days earlier</div>
+        </div>
       </div>
     </div>
   </section>
   
-  <div class="stat-banner">
+  <section class="vision-section">
+    <div class="container">
+      <div class="vision-header">
+        <h2>Reagan's <span>Big Play</span></h2>
+        <p>You've built a company that measures customer sentiment. Now imagine offering them the whole solution.</p>
+      </div>
+      
+      <div class="reagan-quote">
+        <div class="avatar">🎯</div>
+        <blockquote>"What if every AskNicely customer could replace their entire $200K CS stack with a single intelligent platform — powered by AI, custom-built for their business — for less than they're paying now?"</blockquote>
+        <p class="attribution">— The AskNicely Evolution</p>
+      </div>
+      
+      <div class="pivot-cards">
+        <div class="pivot-card">
+          <div class="number">1</div>
+          <h4>Stop the Bleeding</h4>
+          <p>Your customers are at-risk not because of you — but because they're exhausted by their CS stack. Save them.</p>
+        </div>
+        <div class="pivot-card">
+          <div class="number">2</div>
+          <h4>Become the Platform</h4>
+          <p>AskNicely already owns the relationship. Expand from surveys to the complete CS operating system.</p>
+        </div>
+        <div class="pivot-card">
+          <div class="number">3</div>
+          <h4>10x the Contract</h4>
+          <p>Turn $30K NPS contracts into $150K AI platform deals. Same customer. Massive upside.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="savings-banner">
     <div class="container" style="display: contents;">
-      <div class="stat-item">
-        <div class="number">4-6 wks</div>
-        <div class="label">To launch AI Service Recovery Agent</div>
+      <div class="savings-item">
+        <div class="amount">$37K</div>
+        <div class="label">Vitally (eliminated)</div>
       </div>
-      <div class="stat-item">
-        <div class="number">3</div>
-        <div class="label">New AI features we can ship</div>
+      <div class="savings-item">
+        <div class="amount">$18K</div>
+        <div class="label">Zendesk (eliminated)</div>
       </div>
-      <div class="stat-item">
-        <div class="number">$0</div>
-        <div class="label">Upfront development cost</div>
+      <div class="savings-item">
+        <div class="amount">$150K+</div>
+        <div class="label">1-2 CS Heads (reduced)</div>
+      </div>
+      <div class="savings-item">
+        <div class="amount green">$80K+</div>
+        <div class="label">Net Savings/Customer</div>
       </div>
     </div>
   </div>
@@ -483,66 +805,56 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>What GullStack Can Build for AskNicely</h2>
-        <p>Real AI capabilities that differentiate you from competitors and justify premium pricing.</p>
+        <h2>What We Actually Build</h2>
+        <p>Not another SaaS product. A custom AI platform built specifically for each customer's workflows.</p>
       </div>
       
-      <div class="solution-grid">
-        <div class="solution-card highlight">
+      <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 48px;">
+        <h3 style="margin-bottom: 16px; color: var(--asknicely-blue);">🔧 How It Works: Custom-Built, Not Off-the-Shelf</h3>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">We don't sell software licenses. We build <strong style="color: var(--text);">bespoke AI platforms</strong> tailored to each customer's exact needs:</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border-left: 3px solid var(--red);">
+            <h4 style="margin-bottom: 8px;">❌ Vitally Replacement</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Custom dashboard pulling from <em>their</em> data sources (HubSpot, Salesforce, Intercom, etc). Health scores calculated using <em>their</em> definition of healthy. No generic templates.</p>
+          </div>
+          <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border-left: 3px solid var(--red);">
+            <h4 style="margin-bottom: 8px;">❌ Zendesk Replacement</h4>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">AI agent trained on <em>their</em> knowledge base, past tickets, and internal docs. Handles email/chat/Slack. Escalates to humans only when needed. Custom routing rules.</p>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 20px; font-size: 0.95rem;"><strong style="color: var(--green);">The result:</strong> One unified system that does exactly what they need — nothing more, nothing less. No paying for features they'll never use. No fighting with rigid workflows designed for someone else.</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
           <div class="icon">🤖</div>
-          <h4>AI Service Recovery Agent (Priority #1)</h4>
-          <p>Your roadmap says "months away." We can build and deploy it in 4-6 weeks. An AI agent that:</p>
-          <ul>
-            <li>Monitors negative feedback in real-time</li>
-            <li>Crafts personalized recovery responses (not templates)</li>
-            <li>Escalates to humans only when needed</li>
-            <li>Learns from successful recovery patterns</li>
-            <li>Integrates with your bespoke CRM via API</li>
-          </ul>
+          <h4>24/7 AI Support Agent</h4>
+          <p>Custom-trained on their docs, past tickets, and tribal knowledge. Answers via email, chat, or Slack. Resolves 80% of tier-1 without humans.</p>
         </div>
-        
-        <div class="solution-card">
-          <div class="icon">🎯</div>
-          <h4>Predictive Churn Detection</h4>
-          <p>AI that identifies at-risk customers before they cancel:</p>
-          <ul>
-            <li>Pattern recognition across NPS/CSAT trends</li>
-            <li>Early warning alerts to CS teams</li>
-            <li>Recommended interventions</li>
-          </ul>
-        </div>
-        
-        <div class="solution-card">
-          <div class="icon">📣</div>
-          <h4>AI Referral Optimizer</h4>
-          <p>Beat Birdeye at their own game:</p>
-          <ul>
-            <li>Identifies optimal "ask" timing per customer</li>
-            <li>Auto-generates referral requests</li>
-            <li>Tracks referral → revenue attribution</li>
-          </ul>
-        </div>
-        
-        <div class="solution-card">
-          <div class="icon">✨</div>
-          <h4>Smart Testimonial Generator</h4>
-          <p>Turn survey responses into marketing gold:</p>
-          <ul>
-            <li>AI identifies quotable feedback</li>
-            <li>Generates polished testimonials</li>
-            <li>One-click publish to review sites</li>
-          </ul>
-        </div>
-        
-        <div class="solution-card">
+        <div class="feature-card">
           <div class="icon">📊</div>
-          <h4>Revenue Impact Dashboard</h4>
-          <p>Prove ROI to your customers' CFOs:</p>
-          <ul>
-            <li>CX score → referral correlation</li>
-            <li>Recovery → retention impact</li>
-            <li>Dollar value of happy customers</li>
-          </ul>
+          <h4>Custom CS Dashboard</h4>
+          <p>Health scores, NPS, support sentiment, engagement — built to their exact specs. Connects to their existing tools. Their data, their way.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎯</div>
+          <h4>Predictive Outreach</h4>
+          <p>AI monitors actual behavior signals (not just segments) and triggers personalized campaigns before churn happens.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🎫</div>
+          <h4>Smart Ticket Routing</h4>
+          <p>AI triages, responds to simple questions, and escalates complex issues with full context. Their team does human work, not busywork.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">📈</div>
+          <h4>Automated Reporting</h4>
+          <p>Weekly reports generated and delivered to Slack/email. NPS trends, churn risks, expansion opps. Zero manual work.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">💬</div>
+          <h4>Natural Language Control</h4>
+          <p>Slack/Teams/Telegram bot: "Who's at risk?" "Send renewal email to Acme." "What's our NPS this month?" Just ask.</p>
         </div>
       </div>
     </div>
@@ -551,62 +863,73 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Competitive Positioning</h2>
-        <p>How these AI features change your competitive landscape.</p>
+        <h2>The Economics</h2>
+        <p>What your customers are paying now vs. what you could offer them.</p>
       </div>
       
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Capability</th>
-            <th>HubSpot</th>
-            <th>Birdeye/Podium</th>
-            <th>AskNicely + GullStack AI</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>NPS/CSAT Surveys</td>
-            <td class="status-orange">Basic</td>
-            <td class="status-orange">Basic</td>
-            <td class="status-green">✓ Advanced + AI Analysis</td>
-          </tr>
-          <tr>
-            <td>AI Service Recovery</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-green">✓ Autonomous Agent</td>
-          </tr>
-          <tr>
-            <td>Predictive Churn</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-green">✓ ML-Powered Alerts</td>
-          </tr>
-          <tr>
-            <td>Referral Optimization</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-orange">Manual triggers</td>
-            <td class="status-green">✓ AI-Timed Asks</td>
-          </tr>
-          <tr>
-            <td>Review Generation</td>
-            <td class="status-red">✗ None</td>
-            <td class="status-green">✓ Their core</td>
-            <td class="status-green">✓ + Survey → Review AI</td>
-          </tr>
-          <tr>
-            <td>Revenue Attribution</td>
-            <td class="status-orange">Generic</td>
-            <td class="status-orange">Leads only</td>
-            <td class="status-green">✓ CX → Revenue Pipeline</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="comparison-grid">
+        <div class="comparison-card problem">
+          <h3><span class="icon">❌</span> Their Current Reality</h3>
+          <div class="cost-line">
+            <span class="name">Vitally (CS Platform)</span>
+            <span class="amount red">$37,000/yr</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">Zendesk (Support)</span>
+            <span class="amount red">$18,000/yr</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">CS Manager #1</span>
+            <span class="amount red">$85,000/yr</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">CS Manager #2</span>
+            <span class="amount red">$75,000/yr</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">Integration pain & lost productivity</span>
+            <span class="amount red">Incalculable</span>
+          </div>
+          <div class="cost-total">
+            <span>Total Annual Cost</span>
+            <span class="red">$215,000+</span>
+          </div>
+        </div>
+        
+        <div class="comparison-arrow">→</div>
+        
+        <div class="comparison-card solution">
+          <h3><span class="icon">✓</span> AskNicely AI Platform</h3>
+          <div class="cost-line">
+            <span class="name">Complete CS Platform</span>
+            <span class="amount green">Included</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">24/7 AI Support Agent</span>
+            <span class="amount green">Included</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">Automated Outreach</span>
+            <span class="amount green">Included</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">Predictive Analytics</span>
+            <span class="amount green">Included</span>
+          </div>
+          <div class="cost-line">
+            <span class="name">NPS + Surveys (your core)</span>
+            <span class="amount green">Included</span>
+          </div>
+          <div class="cost-total">
+            <span>Total Annual Cost</span>
+            <span class="green">~$125,000</span>
+          </div>
+        </div>
+      </div>
       
       <div class="quote-block" style="margin-top: 48px; border-color: var(--green);">
-        <p>"With these capabilities, AskNicely isn't competing with survey tools or review platforms. You're the only AI-powered CX growth engine in the market. That's a different conversation with buyers — and a different valuation for acquirers."</p>
-        <span class="author">— The New Positioning</span>
+        <p>"Your customer saves $90K+ per year. They consolidate five vendors into one trusted partner. They get AI superpowers. And AskNicely turns a $30K contract into a $125K contract. Everyone wins."</p>
+        <span class="author">— The Win-Win-Win</span>
       </div>
     </div>
   </section>
@@ -614,104 +937,76 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Implementation Timeline</h2>
-        <p>AI Service Recovery Agent — from kickoff to production.</p>
+        <h2>Real Use Cases</h2>
+        <p>What the AI platform handles autonomously — so CS teams can do strategic work.</p>
       </div>
       
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="week">1</div>
-          <h4>Discovery</h4>
-          <p>Map workflows, CRM integration points, success criteria</p>
+      <div class="usecase-grid">
+        <div class="usecase-card">
+          <h4>🎫 Tier-1 Support Elimination</h4>
+          <p>Customer emails: "How do I export my dashboard?" AI reads the request, checks the knowledge base, replies with step-by-step instructions + screenshots. CS team never sees it.</p>
+          <div class="result">80% of support tickets resolved without human intervention</div>
         </div>
-        <div class="timeline-item">
-          <div class="week">2-3</div>
-          <h4>Build</h4>
-          <p>AI agent development, training on your recovery playbooks</p>
+        <div class="usecase-card">
+          <h4>⚠️ Early Churn Detection</h4>
+          <p>AI monitors: login frequency dropping, feature usage declining, support sentiment negative. Flags the account 30 days before traditional signals. Triggers re-engagement automatically.</p>
+          <div class="result">Catch at-risk customers 3-4 weeks earlier than Vitally</div>
         </div>
-        <div class="timeline-item">
-          <div class="week">4-5</div>
-          <h4>Integrate</h4>
-          <p>Connect to CRM, test with real feedback, refine responses</p>
+        <div class="usecase-card">
+          <h4>📧 Intelligent Campaigns</h4>
+          <p>Customer hasn't used feature X in 3 weeks? AI sends personalized tips. New feature launched? AI identifies who'd benefit and reaches out with their specific use case.</p>
+          <div class="result">3x engagement vs. generic email blasts</div>
         </div>
-        <div class="timeline-item">
-          <div class="week">6</div>
-          <h4>Launch</h4>
-          <p>Pilot with select customers, measure impact, iterate</p>
+        <div class="usecase-card">
+          <h4>📊 Zero-Touch Reporting</h4>
+          <p>Every Monday at 8am: automated report with NPS trends, churn risks, expansion opportunities, support patterns. Delivered to Slack and email. No analyst required.</p>
+          <div class="result">4-6 hours/week saved on manual reporting</div>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="section" style="background: var(--bg-elevated);">
+  <section class="section pricing-section">
     <div class="container">
       <div class="section-header">
-        <h2>Partnership Models</h2>
-        <p>Flexible structures based on your goals.</p>
+        <h2>Partnership Model</h2>
+        <p>GullStack builds it. AskNicely sells it. Your customers love it.</p>
       </div>
       
-      <div class="solution-grid">
-        <div class="solution-card">
-          <h4>Option A: Development Partnership</h4>
-          <p>GullStack builds AI features as an extension of your product team.</p>
+      <div class="pricing-card">
+        <h3>AI Customer Success Platform</h3>
+        <p class="subtitle">White-labeled for AskNicely</p>
+        
+        <div class="price">$10,000<span>/month per customer</span></div>
+        
+        <div class="vs">
+          Customer pays <strong>$10K/mo</strong> instead of <strong>$18K+/mo</strong> for their SaaS stack.<br>
+          They save money. You make 5x what you made on NPS alone.
+        </div>
+        
+        <div class="pricing-includes">
+          <h4>What GullStack Delivers</h4>
           <ul>
-            <li>Fixed monthly retainer</li>
-            <li>Dedicated AI engineering resources</li>
-            <li>Features owned by AskNicely</li>
-            <li>White-labeled, your brand</li>
+            <li><span class="check">✓</span> Custom AI CS platform (white-labeled)</li>
+            <li><span class="check">✓</span> 24/7 AI support agent</li>
+            <li><span class="check">✓</span> Automated outreach engine</li>
+            <li><span class="check">✓</span> Churn prediction & health scoring</li>
+            <li><span class="check">✓</span> Weekly automated reports</li>
+            <li><span class="check">✓</span> All integrations (HubSpot, Slack, Salesforce, etc.)</li>
+            <li><span class="check">✓</span> Ongoing optimization & support</li>
           </ul>
         </div>
-        <div class="solution-card">
-          <h4>Option B: Revenue Share</h4>
-          <p>We build, you sell. Shared upside.</p>
-          <ul>
-            <li>$0 upfront development</li>
-            <li>Revenue share on AI feature upsells</li>
-            <li>We handle ongoing optimization</li>
-            <li>Aligned incentives</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why GullStack?</h2>
-        <p>We're not a dev shop. We're operators who build AI that actually works.</p>
-      </div>
-      
-      <div class="solution-grid">
-        <div class="solution-card">
-          <div class="icon">⚡</div>
-          <h4>Speed</h4>
-          <p>Your AI agent is "months away." We ship production AI in weeks. Same capability, fraction of the timeline.</p>
-        </div>
-        <div class="solution-card">
-          <div class="icon">🎯</div>
-          <h4>ICP Expertise</h4>
-          <p>We build for service businesses — home services, medical, multi-location. We understand your customers' customers.</p>
-        </div>
-        <div class="solution-card">
-          <div class="icon">🔧</div>
-          <h4>Integration-First</h4>
-          <p>We've built against bespoke CRMs, legacy systems, and Franken-stacks. Your "we'll never move" CRM isn't a blocker.</p>
-        </div>
-        <div class="solution-card">
-          <div class="icon">📈</div>
-          <h4>Outcome-Focused</h4>
-          <p>We don't bill for hours. We build things that move metrics — churn reduction, referral lift, deal velocity.</p>
-        </div>
+        
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Revenue share model available for qualified partners</p>
       </div>
     </div>
   </section>
   
   <section class="cta-section">
     <div class="container">
-      <h2>Let's Build This Together</h2>
-      <p>30 minutes to scope the AI Service Recovery Agent and discuss partnership structure.</p>
-      <a href="mailto:bryce@gullstack.com?subject=AskNicely%20AI%20Partnership" class="btn btn-primary">Schedule a Call →</a>
+      <h2>Let's Talk</h2>
+      <p>20 minutes to explore what this could look like for AskNicely.</p>
+      <a href="mailto:bryce@gullstack.com?subject=AskNicely%20Partnership%20Discussion" class="btn btn-primary">Schedule a Call →</a>
     </div>
   </section>
   

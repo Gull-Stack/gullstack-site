@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AskNicely × GullStack — Internal AI Partnership Proposal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #141414;
+      --bg-card: #1a1a1a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --purple: #8b5cf6;
+      --purple-light: #a78bfa;
+      --green: #22c55e;
+      --red: #ef4444;
+      --orange: #f97316;
+      --blue: #3b82f6;
+      --cyan: #06b6d4;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Header */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img { height: 28px; }
+    
+    .badge {
+      background: rgba(6, 182, 212, 0.2);
+      color: var(--cyan);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    /* Client Logo Hero */
+    .client-hero {
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .client-logo {
+      max-width: 320px;
+      height: auto;
+      margin: 0 auto 24px;
+    }
+    
+    .client-hero .prepared-for {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 60px 0 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .hero-eyebrow {
+      color: var(--cyan);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 span { color: var(--cyan); }
+    .hero h1 .green { color: var(--green); }
+    .hero h1 .red { color: var(--red); }
+    
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    /* Section */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Problem Cards */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 900px) {
+      .problem-grid { grid-template-columns: 1fr; }
+    }
+    
+    .problem-card {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    
+    .problem-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--red);
+    }
+    
+    .problem-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    /* Solution Grid */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .solution-grid { grid-template-columns: 1fr; }
+    }
+    
+    .solution-card {
+      background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .solution-card.highlight {
+      border-color: var(--cyan);
+      grid-column: span 2;
+    }
+    
+    @media (max-width: 768px) {
+      .solution-card.highlight { grid-column: span 1; }
+    }
+    
+    .solution-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .solution-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    
+    .solution-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    
+    .solution-card ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .solution-card li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .solution-card li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+    }
+    
+    /* Comparison */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: 16px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .comparison-table th {
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .comparison-table td:first-child {
+      font-weight: 500;
+    }
+    
+    .comparison-table .status-red { color: var(--red); }
+    .comparison-table .status-green { color: var(--green); }
+    .comparison-table .status-orange { color: var(--orange); }
+    
+    /* Timeline */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .timeline-item {
+      text-align: center;
+    }
+    
+    .timeline-item .week {
+      width: 48px;
+      height: 48px;
+      background: var(--cyan);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 12px;
+    }
+    
+    .timeline-item h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .timeline-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Quote Block */
+    .quote-block {
+      background: var(--bg-elevated);
+      border-left: 4px solid var(--cyan);
+      padding: 24px 32px;
+      margin: 40px 0;
+      border-radius: 0 12px 12px 0;
+    }
+    
+    .quote-block p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .quote-block .author {
+      font-weight: 600;
+      font-style: normal;
+      color: var(--text);
+    }
+    
+    /* CTA */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--cyan) 0%, #0891b2 100%);
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .footer a { color: var(--cyan); }
+    
+    /* Stat Banner */
+    .stat-banner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    @media (max-width: 768px) {
+      .stat-banner { grid-template-columns: 1fr; }
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-item .number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+    
+    .stat-item .label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="https://gullstack.com" class="logo">
+        <img src="/gull-logo.png" alt="">
+        GullStack
+      </a>
+      <span class="badge">AI Partnership Proposal</span>
+    </div>
+  </header>
+  
+  <section class="client-hero">
+    <div class="container">
+      <img src="/pitch/assets/asknicely-logo.png" alt="AskNicely" class="client-logo">
+      <p class="prepared-for">Prepared for Reagan Nickl</p>
+    </div>
+  </section>
+  
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Strategic AI Partnership</p>
+      <h1>From "NPS Tool" to <span>AI-Powered Growth Engine</span></h1>
+      <p class="hero-sub">Your customers see AskNicely as a survey tool. Your competitors are eating your positioning. Your valuation depends on being an AI company. Let's fix all three.</p>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Challenges You're Facing</h2>
+        <p>Three threats to AskNicely's growth and valuation.</p>
+      </div>
+      
+      <div class="problem-grid">
+        <div class="problem-card">
+          <h4>🎯 Perception Problem</h4>
+          <p>"We're just an NPS tool." Customers believe HubSpot can trigger a CSAT survey too — so why pay extra for AskNicely? The core value prop isn't landing.</p>
+        </div>
+        <div class="problem-card">
+          <h4>⚔️ Competitive Threat</h4>
+          <p>Birdeye, Podium, and Yext position themselves as lead drivers and referral generators. They're stealing your deals because they sell outcomes, not surveys.</p>
+        </div>
+        <div class="problem-card">
+          <h4>📈 Valuation Pressure</h4>
+          <p>To maximize acquisition value, AskNicely needs to be an AI company — not just have "AI lipstick" on the product. Real AI capabilities, not chatbot wrappers.</p>
+        </div>
+      </div>
+      
+      <div class="quote-block" style="margin-top: 48px;">
+        <p>"The most effective way to grow your business is by focusing on your current customer base. AskNicely should be the AI-powered growth engine that turns happy customers into marketers and unhappy customers into retention opportunities."</p>
+        <span class="author">— The Real Value Prop</span>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stat-banner">
+    <div class="container" style="display: contents;">
+      <div class="stat-item">
+        <div class="number">4-6 wks</div>
+        <div class="label">To launch AI Service Recovery Agent</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">3</div>
+        <div class="label">New AI features we can ship</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">$0</div>
+        <div class="label">Upfront development cost</div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>What GullStack Can Build for AskNicely</h2>
+        <p>Real AI capabilities that differentiate you from competitors and justify premium pricing.</p>
+      </div>
+      
+      <div class="solution-grid">
+        <div class="solution-card highlight">
+          <div class="icon">🤖</div>
+          <h4>AI Service Recovery Agent (Priority #1)</h4>
+          <p>Your roadmap says "months away." We can build and deploy it in 4-6 weeks. An AI agent that:</p>
+          <ul>
+            <li>Monitors negative feedback in real-time</li>
+            <li>Crafts personalized recovery responses (not templates)</li>
+            <li>Escalates to humans only when needed</li>
+            <li>Learns from successful recovery patterns</li>
+            <li>Integrates with your bespoke CRM via API</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="icon">🎯</div>
+          <h4>Predictive Churn Detection</h4>
+          <p>AI that identifies at-risk customers before they cancel:</p>
+          <ul>
+            <li>Pattern recognition across NPS/CSAT trends</li>
+            <li>Early warning alerts to CS teams</li>
+            <li>Recommended interventions</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="icon">📣</div>
+          <h4>AI Referral Optimizer</h4>
+          <p>Beat Birdeye at their own game:</p>
+          <ul>
+            <li>Identifies optimal "ask" timing per customer</li>
+            <li>Auto-generates referral requests</li>
+            <li>Tracks referral → revenue attribution</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="icon">✨</div>
+          <h4>Smart Testimonial Generator</h4>
+          <p>Turn survey responses into marketing gold:</p>
+          <ul>
+            <li>AI identifies quotable feedback</li>
+            <li>Generates polished testimonials</li>
+            <li>One-click publish to review sites</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="icon">📊</div>
+          <h4>Revenue Impact Dashboard</h4>
+          <p>Prove ROI to your customers' CFOs:</p>
+          <ul>
+            <li>CX score → referral correlation</li>
+            <li>Recovery → retention impact</li>
+            <li>Dollar value of happy customers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Competitive Positioning</h2>
+        <p>How these AI features change your competitive landscape.</p>
+      </div>
+      
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>HubSpot</th>
+            <th>Birdeye/Podium</th>
+            <th>AskNicely + GullStack AI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NPS/CSAT Surveys</td>
+            <td class="status-orange">Basic</td>
+            <td class="status-orange">Basic</td>
+            <td class="status-green">✓ Advanced + AI Analysis</td>
+          </tr>
+          <tr>
+            <td>AI Service Recovery</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-green">✓ Autonomous Agent</td>
+          </tr>
+          <tr>
+            <td>Predictive Churn</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-green">✓ ML-Powered Alerts</td>
+          </tr>
+          <tr>
+            <td>Referral Optimization</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-orange">Manual triggers</td>
+            <td class="status-green">✓ AI-Timed Asks</td>
+          </tr>
+          <tr>
+            <td>Review Generation</td>
+            <td class="status-red">✗ None</td>
+            <td class="status-green">✓ Their core</td>
+            <td class="status-green">✓ + Survey → Review AI</td>
+          </tr>
+          <tr>
+            <td>Revenue Attribution</td>
+            <td class="status-orange">Generic</td>
+            <td class="status-orange">Leads only</td>
+            <td class="status-green">✓ CX → Revenue Pipeline</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="quote-block" style="margin-top: 48px; border-color: var(--green);">
+        <p>"With these capabilities, AskNicely isn't competing with survey tools or review platforms. You're the only AI-powered CX growth engine in the market. That's a different conversation with buyers — and a different valuation for acquirers."</p>
+        <span class="author">— The New Positioning</span>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Implementation Timeline</h2>
+        <p>AI Service Recovery Agent — from kickoff to production.</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="week">1</div>
+          <h4>Discovery</h4>
+          <p>Map workflows, CRM integration points, success criteria</p>
+        </div>
+        <div class="timeline-item">
+          <div class="week">2-3</div>
+          <h4>Build</h4>
+          <p>AI agent development, training on your recovery playbooks</p>
+        </div>
+        <div class="timeline-item">
+          <div class="week">4-5</div>
+          <h4>Integrate</h4>
+          <p>Connect to CRM, test with real feedback, refine responses</p>
+        </div>
+        <div class="timeline-item">
+          <div class="week">6</div>
+          <h4>Launch</h4>
+          <p>Pilot with select customers, measure impact, iterate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section" style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Partnership Models</h2>
+        <p>Flexible structures based on your goals.</p>
+      </div>
+      
+      <div class="solution-grid">
+        <div class="solution-card">
+          <h4>Option A: Development Partnership</h4>
+          <p>GullStack builds AI features as an extension of your product team.</p>
+          <ul>
+            <li>Fixed monthly retainer</li>
+            <li>Dedicated AI engineering resources</li>
+            <li>Features owned by AskNicely</li>
+            <li>White-labeled, your brand</li>
+          </ul>
+        </div>
+        <div class="solution-card">
+          <h4>Option B: Revenue Share</h4>
+          <p>We build, you sell. Shared upside.</p>
+          <ul>
+            <li>$0 upfront development</li>
+            <li>Revenue share on AI feature upsells</li>
+            <li>We handle ongoing optimization</li>
+            <li>Aligned incentives</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Why GullStack?</h2>
+        <p>We're not a dev shop. We're operators who build AI that actually works.</p>
+      </div>
+      
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="icon">⚡</div>
+          <h4>Speed</h4>
+          <p>Your AI agent is "months away." We ship production AI in weeks. Same capability, fraction of the timeline.</p>
+        </div>
+        <div class="solution-card">
+          <div class="icon">🎯</div>
+          <h4>ICP Expertise</h4>
+          <p>We build for service businesses — home services, medical, multi-location. We understand your customers' customers.</p>
+        </div>
+        <div class="solution-card">
+          <div class="icon">🔧</div>
+          <h4>Integration-First</h4>
+          <p>We've built against bespoke CRMs, legacy systems, and Franken-stacks. Your "we'll never move" CRM isn't a blocker.</p>
+        </div>
+        <div class="solution-card">
+          <div class="icon">📈</div>
+          <h4>Outcome-Focused</h4>
+          <p>We don't bill for hours. We build things that move metrics — churn reduction, referral lift, deal velocity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="container">
+      <h2>Let's Build This Together</h2>
+      <p>30 minutes to scope the AI Service Recovery Agent and discuss partnership structure.</p>
+      <a href="mailto:bryce@gullstack.com?subject=AskNicely%20AI%20Partnership" class="btn btn-primary">Schedule a Call →</a>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="container">
+      <p>Prepared by <a href="https://gullstack.com">GullStack</a> • February 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
