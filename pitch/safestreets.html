@@ -10,15 +10,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --purple: #6366f1;
-            --purple-dark: #4f46e5;
-            --purple-light: #818cf8;
-            --dark: #0f172a;
-            --gray-900: #1e293b;
-            --gray-700: #334155;
-            --gray-500: #64748b;
-            --gray-300: #cbd5e1;
-            --gray-100: #f1f5f9;
+            /* SafeStreets Brand Colors */
+            --ss-blue: #003366;
+            --ss-blue-light: #004d99;
+            --ss-orange: #ff6600;
+            --ss-orange-dark: #e55a00;
+            /* GullStack Colors */
+            --gs-purple: #6366f1;
+            --gs-purple-light: #818cf8;
+            /* Neutrals */
+            --dark: #0a1628;
+            --gray-900: #1a2a3a;
+            --gray-700: #2d4a5e;
+            --gray-500: #5a7a8a;
+            --gray-300: #a8c0cc;
+            --gray-100: #e8f0f4;
             --white: #ffffff;
             --green: #10b981;
             --red: #ef4444;
@@ -45,6 +51,24 @@
             justify-content: center;
             position: relative;
             border-bottom: 1px solid var(--gray-700);
+            overflow: hidden;
+        }
+        
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 1;
         }
         
         .slide-number {
@@ -54,27 +78,45 @@
             font-size: 14px;
             color: var(--gray-500);
             font-weight: 500;
+            z-index: 2;
         }
         
-        .logo {
+        .logos {
             position: absolute;
             top: 30px;
             left: 40px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 24px;
+            z-index: 2;
         }
         
-        .logo img {
-            height: 36px;
+        .logo-ss img {
+            height: 40px;
             width: auto;
         }
         
-        .logo span {
-            font-size: 20px;
+        .logo-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--gray-700);
+        }
+        
+        .logo-gs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-gs img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .logo-gs span {
+            font-size: 18px;
             font-weight: 700;
-            color: var(--purple-light);
-            letter-spacing: -0.5px;
+            color: var(--gs-purple-light);
         }
         
         h1 {
@@ -85,11 +127,12 @@
             margin-bottom: 24px;
         }
         
-        h1 span {
-            background: linear-gradient(135deg, var(--purple-light), var(--purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h1 .highlight-orange {
+            color: var(--ss-orange);
+        }
+        
+        h1 .highlight-blue {
+            color: var(--ss-blue-light);
         }
         
         h2 {
@@ -104,7 +147,7 @@
             font-size: 28px;
             font-weight: 600;
             margin-bottom: 16px;
-            color: var(--purple-light);
+            color: var(--ss-orange);
         }
         
         p {
@@ -120,28 +163,23 @@
         }
         
         .hero-slide {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--ss-blue) 100%);
         }
         
-        .hero-slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        .hero-slide .slide-bg {
+            background-image: url('https://www.safestreets.com/wp-content/uploads/2019/06/cta-background_2.jpg');
+            opacity: 0.25;
         }
         
         .badge {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(99, 102, 241, 0.2);
-            border: 1px solid var(--purple);
+            background: rgba(255, 102, 0, 0.2);
+            border: 1px solid var(--ss-orange);
             border-radius: 100px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--purple-light);
+            color: var(--ss-orange);
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -155,7 +193,7 @@
         }
         
         .stat-card {
-            background: var(--gray-900);
+            background: linear-gradient(135deg, var(--gray-900), var(--ss-blue));
             border: 1px solid var(--gray-700);
             border-radius: 16px;
             padding: 32px;
@@ -165,13 +203,13 @@
         .stat-value {
             font-size: 48px;
             font-weight: 800;
-            color: var(--purple-light);
+            color: var(--ss-orange);
             margin-bottom: 8px;
         }
         
         .stat-label {
             font-size: 16px;
-            color: var(--gray-500);
+            color: var(--gray-300);
         }
         
         .two-col {
@@ -216,11 +254,30 @@
             color: var(--green);
         }
         
+        .icon-orange {
+            background: rgba(255, 102, 0, 0.2);
+            color: var(--ss-orange);
+        }
+        
         .solution-card {
             background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
             border: 1px solid var(--gray-700);
             border-radius: 20px;
             padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: url('https://www.safestreets.com/wp-content/uploads/2023/05/indoornestcambookshelf.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.1;
         }
         
         .feature-grid {
@@ -240,7 +297,7 @@
         .feature-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            background: linear-gradient(135deg, var(--ss-orange), var(--ss-orange-dark));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -285,15 +342,11 @@
             font-size: 18px;
         }
         
-        .pricing-table .highlight {
-            background: rgba(99, 102, 241, 0.1);
-        }
-        
         .pricing-table .total td {
             font-weight: 700;
             font-size: 24px;
-            color: var(--purple-light);
-            border-top: 2px solid var(--purple);
+            color: var(--ss-orange);
+            border-top: 2px solid var(--ss-orange);
         }
         
         .comparison-grid {
@@ -368,7 +421,7 @@
         .timeline-dot {
             width: 48px;
             height: 48px;
-            background: var(--purple);
+            background: var(--ss-orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -393,8 +446,13 @@
         }
         
         .cta-slide {
-            background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+            background: linear-gradient(135deg, var(--ss-blue), var(--ss-blue-light));
             text-align: center;
+        }
+        
+        .cta-slide .slide-bg {
+            background-image: url('https://www.safestreets.com/wp-content/uploads/2019/11/whyus2.jpg');
+            opacity: 0.2;
         }
         
         .cta-slide h2 {
@@ -414,6 +472,10 @@
             flex-direction: column;
             align-items: center;
             gap: 16px;
+            background: rgba(255,255,255,0.1);
+            padding: 32px 48px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
         }
         
         .cta-contact .name {
@@ -451,6 +513,32 @@
             margin: 16px auto 0;
         }
         
+        .slide-image {
+            position: absolute;
+            right: 60px;
+            bottom: 60px;
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-slide {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+        }
+        
+        .profile-slide .slide-bg {
+            background-image: url('https://www.safestreets.com/wp-content/uploads/2019/06/Locations.jpg');
+        }
+        
         @media (max-width: 1024px) {
             .slide {
                 padding: 40px;
@@ -461,6 +549,7 @@
             .feature-grid { grid-template-columns: 1fr; }
             .two-col { grid-template-columns: 1fr; }
             .comparison-grid { grid-template-columns: 1fr; }
+            .slide-image { display: none; }
         }
         
         @media print {
@@ -476,289 +565,395 @@
 
 <!-- Slide 1: Title -->
 <section class="slide hero-slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    <div class="slide-bg"></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
     <div class="slide-number">01</div>
-    <div class="badge">Proposal</div>
-    <h1>AI-Powered<br><span>Customer Service</span></h1>
-    <p class="subtitle">A managed solution for SafeStreets USA</p>
-    <p>24/7 intelligent support that scales with your business, reduces costs, and delights customers.</p>
+    <div class="slide-content">
+        <div class="badge">Proposal</div>
+        <h1>AI-Powered<br><span class="highlight-orange">Customer Service</span></h1>
+        <p class="subtitle">A managed solution for SafeStreets USA</p>
+        <p>24/7 intelligent support that scales with your business, reduces costs, and delights customers.</p>
+    </div>
+    <div class="slide-image">
+        <img src="https://www.safestreets.com/wp-content/uploads/2019/06/Home-Security.jpg" alt="Home Security">
+    </div>
 </section>
 
 <!-- Slide 2: SafeStreets Profile -->
-<section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+<section class="slide profile-slide">
+    <div class="slide-bg"></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
     <div class="slide-number">02</div>
-    <h2>SafeStreets at a Glance</h2>
-    <p>ADT's largest and most respected Authorized Provider, protecting over 1 million homes nationwide.</p>
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-value">$82M</div>
-            <div class="stat-label">Annual Revenue</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">400+</div>
-            <div class="stat-label">Employees</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">44</div>
-            <div class="stat-label">States Covered</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value">118K+</div>
-            <div class="stat-label">Trustpilot Reviews</div>
+    <div class="slide-content">
+        <h2>SafeStreets at a Glance</h2>
+        <p>ADT's largest and most respected Authorized Provider, protecting over 1 million homes nationwide.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$82M</div>
+                <div class="stat-label">Annual Revenue</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">400+</div>
+                <div class="stat-label">Employees</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">44</div>
+                <div class="stat-label">States Covered</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">118K+</div>
+                <div class="stat-label">Trustpilot Reviews</div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Slide 3: The Problem -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
-    <div class="slide-number">03</div>
-    <div class="two-col">
-        <div>
-            <h2>The Challenge</h2>
-            <p>Traditional customer service is expensive, inconsistent, and doesn't scale.</p>
-            <ul class="problem-list">
-                <li>
-                    <div class="icon icon-red">✕</div>
-                    <span><strong>High labor costs</strong> — CS reps cost $45-60K/year each, plus benefits and overhead</span>
-                </li>
-                <li>
-                    <div class="icon icon-red">✕</div>
-                    <span><strong>Limited hours</strong> — Customers need help at 2am, not just 9-5</span>
-                </li>
-                <li>
-                    <div class="icon icon-red">✕</div>
-                    <span><strong>Inconsistent quality</strong> — Training gaps, turnover, bad days</span>
-                </li>
-                <li>
-                    <div class="icon icon-red">✕</div>
-                    <span><strong>Doesn't scale</strong> — 2x volume = 2x headcount = 2x cost</span>
-                </li>
-            </ul>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
         </div>
-        <div class="solution-card">
-            <h3>Common CS Inquiries</h3>
-            <p style="font-size: 16px; margin-bottom: 24px;">80% of support tickets fall into predictable categories that don't require human judgment:</p>
-            <ul class="problem-list" style="margin-top: 0;">
-                <li><div class="icon icon-green">→</div> "How do I pay my bill?"</li>
-                <li><div class="icon icon-green">→</div> "My sensor fell off the wall"</li>
-                <li><div class="icon icon-green">→</div> "I can't see my camera footage"</li>
-                <li><div class="icon icon-green">→</div> "What's my warranty coverage?"</li>
-                <li><div class="icon icon-green">→</div> "Where's my Visa gift card?"</li>
-            </ul>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
+    <div class="slide-number">03</div>
+    <div class="slide-content">
+        <div class="two-col">
+            <div>
+                <h2>The Challenge</h2>
+                <p>Traditional customer service is expensive, inconsistent, and doesn't scale.</p>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>High labor costs</strong> — CS reps cost $45-60K/year each, plus benefits and overhead</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Limited hours</strong> — Customers need help at 2am, not just 9-5</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Inconsistent quality</strong> — Training gaps, turnover, bad days</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Doesn't scale</strong> — 2x volume = 2x headcount = 2x cost</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3>Common CS Inquiries</h3>
+                <p style="font-size: 16px; margin-bottom: 24px;">80% of support tickets fall into predictable categories that don't require human judgment:</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-orange">→</div> "How do I pay my bill?"</li>
+                    <li><div class="icon icon-orange">→</div> "My sensor fell off the wall"</li>
+                    <li><div class="icon icon-orange">→</div> "I can't see my camera footage"</li>
+                    <li><div class="icon icon-orange">→</div> "What's my warranty coverage?"</li>
+                    <li><div class="icon icon-orange">→</div> "Where's my Visa gift card?"</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Slide 4: The Solution -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    <div class="slide-bg" style="background-image: url('https://www.safestreets.com/wp-content/uploads/2023/05/indoornestcambookshelf.png'); opacity: 0.05; background-position: right center;"></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
     <div class="slide-number">04</div>
-    <h2>The Solution: AI-First Support</h2>
-    <p>An intelligent customer service system that handles 70-80% of inquiries automatically, escalating only when human judgment is truly needed.</p>
-    <div class="feature-grid">
-        <div class="feature-card">
-            <div class="feature-icon">💬</div>
-            <h4>Smart Chatbot</h4>
-            <p>Website chat that understands context, remembers history, and resolves issues instantly.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📞</div>
-            <h4>Voice AI</h4>
-            <p>Phone support that sounds natural, handles complex conversations, and never puts customers on hold.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🧠</div>
-            <h4>Knowledge Base</h4>
-            <p>Trained on your docs, policies, and past conversations. Gets smarter every day.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🔄</div>
-            <h4>Smart Escalation</h4>
-            <p>Complex issues route to humans with full context. No customer repeats themselves.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h4>Analytics Dashboard</h4>
-            <p>Real-time insights on volume, resolution rates, common issues, and customer satisfaction.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌙</div>
-            <h4>24/7/365</h4>
-            <p>No holidays. No sick days. No shift coverage problems. Always-on support.</p>
+    <div class="slide-content">
+        <h2>The Solution: <span style="color: var(--ss-orange);">AI-First Support</span></h2>
+        <p>An intelligent customer service system that handles 70-80% of inquiries automatically, escalating only when human judgment is truly needed.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h4>Smart Chatbot</h4>
+                <p>Website chat that understands context, remembers history, and resolves issues instantly.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h4>Voice AI</h4>
+                <p>Phone support that sounds natural, handles complex conversations, and never puts customers on hold.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h4>Knowledge Base</h4>
+                <p>Trained on your docs, policies, and past conversations. Gets smarter every day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h4>Smart Escalation</h4>
+                <p>Complex issues route to humans with full context. No customer repeats themselves.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Analytics Dashboard</h4>
+                <p>Real-time insights on volume, resolution rates, common issues, and customer satisfaction.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h4>24/7/365</h4>
+                <p>No holidays. No sick days. No shift coverage problems. Always-on support.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Slide 5: Before/After -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
-    <div class="slide-number">05</div>
-    <h2>The Transformation</h2>
-    <div class="comparison-grid">
-        <div class="comparison-card before">
-            <h3>Before: Traditional CS</h3>
-            <ul>
-                <li>6:00 AM – 9:00 PM support hours</li>
-                <li>Hold times during peak periods</li>
-                <li>$150-250K/year for 3-5 CS reps</li>
-                <li>Training gaps after turnover</li>
-                <li>Inconsistent responses</li>
-                <li>Manual ticket categorization</li>
-                <li>Limited capacity during spikes</li>
-            </ul>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
         </div>
-        <div class="comparison-card after">
-            <h3>After: AI-Powered CS</h3>
-            <ul>
-                <li>24/7/365 instant support</li>
-                <li>Zero hold times, ever</li>
-                <li>$125K/year flat fee</li>
-                <li>Consistent training always</li>
-                <li>Identical quality every time</li>
-                <li>Auto-categorization + insights</li>
-                <li>Unlimited scalability</li>
-            </ul>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
         </div>
     </div>
-    <div class="roi-highlight">
-        <h3>Estimated Annual Savings</h3>
-        <div class="big-number">$50-125K</div>
-        <p>Compared to maintaining equivalent human CS capacity</p>
+    <div class="slide-number">05</div>
+    <div class="slide-content">
+        <h2>The Transformation</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card before">
+                <h3>Before: Traditional CS</h3>
+                <ul>
+                    <li>6:00 AM – 9:00 PM support hours</li>
+                    <li>Hold times during peak periods</li>
+                    <li>$150-250K/year for 3-5 CS reps</li>
+                    <li>Training gaps after turnover</li>
+                    <li>Inconsistent responses</li>
+                    <li>Manual ticket categorization</li>
+                    <li>Limited capacity during spikes</li>
+                </ul>
+            </div>
+            <div class="comparison-card after">
+                <h3>After: AI-Powered CS</h3>
+                <ul>
+                    <li>24/7/365 instant support</li>
+                    <li>Zero hold times, ever</li>
+                    <li>$125K/year flat fee</li>
+                    <li>Consistent training always</li>
+                    <li>Identical quality every time</li>
+                    <li>Auto-categorization + insights</li>
+                    <li>Unlimited scalability</li>
+                </ul>
+            </div>
+        </div>
+        <div class="roi-highlight">
+            <h3>Estimated Annual Savings</h3>
+            <div class="big-number">$50-125K</div>
+            <p>Compared to maintaining equivalent human CS capacity</p>
+        </div>
     </div>
 </section>
 
 <!-- Slide 6: Investment -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
     <div class="slide-number">06</div>
-    <h2>Investment</h2>
-    <p>A fully managed service — we handle everything so you can focus on growing your business.</p>
-    <table class="pricing-table">
-        <thead>
-            <tr>
-                <th>What's Included</th>
-                <th>Details</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Implementation</strong></td>
-                <td>Knowledge base creation, system training, integrations</td>
-            </tr>
-            <tr>
-                <td><strong>AI Infrastructure</strong></td>
-                <td>Chatbot, voice bot, phone integration</td>
-            </tr>
-            <tr>
-                <td><strong>Ongoing Optimization</strong></td>
-                <td>Continuous improvement, retraining, new scenarios</td>
-            </tr>
-            <tr>
-                <td><strong>Monitoring & Support</strong></td>
-                <td>24/7 system monitoring, escalation handling</td>
-            </tr>
-            <tr>
-                <td><strong>Monthly Reporting</strong></td>
-                <td>Analytics, insights, recommendations</td>
-            </tr>
-            <tr class="total">
-                <td>Annual Investment</td>
-                <td>$125,000/year</td>
-            </tr>
-        </tbody>
-    </table>
-    <p style="margin-top: 24px; font-size: 16px; color: var(--gray-500);">
-        * Billed monthly at $10,417/month. 12-month initial commitment with annual renewal.
-    </p>
+    <div class="slide-content">
+        <h2>Investment</h2>
+        <p>A fully managed service — we handle everything so you can focus on growing your business.</p>
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>What's Included</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Implementation</strong></td>
+                    <td>Knowledge base creation, system training, integrations</td>
+                </tr>
+                <tr>
+                    <td><strong>AI Infrastructure</strong></td>
+                    <td>Chatbot, voice bot, phone integration</td>
+                </tr>
+                <tr>
+                    <td><strong>Ongoing Optimization</strong></td>
+                    <td>Continuous improvement, retraining, new scenarios</td>
+                </tr>
+                <tr>
+                    <td><strong>Monitoring & Support</strong></td>
+                    <td>24/7 system monitoring, escalation handling</td>
+                </tr>
+                <tr>
+                    <td><strong>Monthly Reporting</strong></td>
+                    <td>Analytics, insights, recommendations</td>
+                </tr>
+                <tr class="total">
+                    <td>Annual Investment</td>
+                    <td>$125,000/year</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 24px; font-size: 16px; color: var(--gray-500);">
+            * Billed monthly at $10,417/month. 12-month initial commitment with annual renewal.
+        </p>
+    </div>
 </section>
 
 <!-- Slide 7: Timeline -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
     <div class="slide-number">07</div>
-    <h2>Implementation Timeline</h2>
-    <p>From kickoff to live in 6-8 weeks.</p>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-dot">1</div>
-            <h4>Discovery</h4>
-            <p>Deep dive into your processes, docs, and customer needs</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot">2</div>
-            <h4>Build</h4>
-            <p>Knowledge base ingestion, AI training, integrations</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot">3</div>
-            <h4>Test</h4>
-            <p>Internal testing, edge cases, refinement</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot">4</div>
-            <h4>Pilot</h4>
-            <p>Soft launch with subset of traffic</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-dot">5</div>
-            <h4>Launch</h4>
-            <p>Full deployment + ongoing optimization</p>
+    <div class="slide-content">
+        <h2>Implementation Timeline</h2>
+        <p>From kickoff to live in 6-8 weeks.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <h4>Discovery</h4>
+                <p>Deep dive into your processes, docs, and customer needs</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <h4>Build</h4>
+                <p>Knowledge base ingestion, AI training, integrations</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <h4>Test</h4>
+                <p>Internal testing, edge cases, refinement</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <h4>Pilot</h4>
+                <p>Soft launch with subset of traffic</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">5</div>
+                <h4>Launch</h4>
+                <p>Full deployment + ongoing optimization</p>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Slide 8: Why GullStack -->
 <section class="slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
-    <div class="slide-number">08</div>
-    <h2>Why GullStack</h2>
-    <div class="two-col">
-        <div>
-            <ul class="problem-list">
-                <li>
-                    <div class="icon icon-green">✓</div>
-                    <span><strong>Local partner</strong> — We're based in Utah, same timezone, face-to-face relationship</span>
-                </li>
-                <li>
-                    <div class="icon icon-green">✓</div>
-                    <span><strong>AI specialists</strong> — We build AI-powered business solutions, not generic chatbots</span>
-                </li>
-                <li>
-                    <div class="icon icon-green">✓</div>
-                    <span><strong>Fully managed</strong> — We handle everything. You get results without the headaches.</span>
-                </li>
-                <li>
-                    <div class="icon icon-green">✓</div>
-                    <span><strong>Performance aligned</strong> — We succeed when you succeed</span>
-                </li>
-            </ul>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets">
         </div>
-        <div class="solution-card">
-            <h3>Our Commitment</h3>
-            <p style="font-size: 18px; margin-bottom: 20px;">We're not selling software and walking away. This is a managed service partnership.</p>
-            <ul class="problem-list" style="margin-top: 0;">
-                <li><div class="icon icon-green">→</div> Dedicated account manager</li>
-                <li><div class="icon icon-green">→</div> Monthly strategy reviews</li>
-                <li><div class="icon icon-green">→</div> Continuous optimization</li>
-                <li><div class="icon icon-green">→</div> 99.9% uptime SLA</li>
-            </ul>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
+    <div class="slide-number">08</div>
+    <div class="slide-content">
+        <h2>Why <span style="color: var(--gs-purple-light);">GullStack</span></h2>
+        <div class="two-col">
+            <div>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Local partner</strong> — We're based in Utah, same timezone, face-to-face relationship</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>AI specialists</strong> — We build AI-powered business solutions, not generic chatbots</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Fully managed</strong> — We handle everything. You get results without the headaches.</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Performance aligned</strong> — We succeed when you succeed</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3 style="color: var(--gs-purple-light);">Our Commitment</h3>
+                <p style="font-size: 18px; margin-bottom: 20px;">We're not selling software and walking away. This is a managed service partnership.</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-green">→</div> Dedicated account manager</li>
+                    <li><div class="icon icon-green">→</div> Monthly strategy reviews</li>
+                    <li><div class="icon icon-green">→</div> Continuous optimization</li>
+                    <li><div class="icon icon-green">→</div> 99.9% uptime SLA</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Slide 9: CTA -->
 <section class="slide cta-slide">
-    <div class="logo"><img src="/gull-logo.png" alt="GullStack" style="filter: brightness(1.2);"><span style="color: rgba(255,255,255,0.9);">GullStack</span></div>
+    <div class="slide-bg"></div>
+    <div class="logos">
+        <div class="logo-ss">
+            <img src="https://www.safestreets.com/wp-content/uploads/2024/08/Safestreets-Primary-RGB-24-Crop-1.png" alt="SafeStreets" style="filter: brightness(1.5);">
+        </div>
+        <div class="logo-divider" style="background: rgba(255,255,255,0.3);"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack" style="filter: brightness(1.2);">
+            <span style="color: rgba(255,255,255,0.9);">GullStack</span>
+        </div>
+    </div>
     <div class="slide-number" style="color: rgba(255,255,255,0.6);">09</div>
-    <h2>Let's Talk</h2>
-    <p>Ready to transform your customer service? Let's schedule a discovery call to dive deeper into your needs.</p>
-    <div class="cta-contact">
-        <div class="name">Bryce Morgan</div>
-        <div class="details">
-            bryce@gullstack.com<br>
-            (540) 424-0317
+    <div class="slide-content">
+        <h2>Let's Talk</h2>
+        <p>Ready to transform your customer service? Let's schedule a discovery call to dive deeper into your needs.</p>
+        <div class="cta-contact">
+            <div class="name">Bryce Morgan</div>
+            <div class="details">
+                bryce@gullstack.com<br>
+                (540) 424-0317
+            </div>
         </div>
     </div>
 </section>
