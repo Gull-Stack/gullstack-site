@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service Agreement — Peterson Zeyer Law | GullStack</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #09090b;
+      --bg-elevated: #18181b;
+      --bg-card: #1f1f23;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --green: #22c55e;
+      --border: rgba(255,255,255,0.1);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    
+    /* Header */
+    .contract-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+    
+    .contract-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 24px 0 16px;
+    }
+    
+    .contract-meta {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    .contract-id {
+      display: inline-block;
+      background: var(--bg-elevated);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-family: monospace;
+      margin-top: 12px;
+      color: var(--text-muted);
+    }
+    
+    /* Parties */
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    @media (max-width: 600px) {
+      .parties { grid-template-columns: 1fr; }
+    }
+    
+    .party-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    
+    .party-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    
+    .party-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .party-details {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* Sections */
+    .section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-content {
+      color: var(--text-muted);
+    }
+    
+    .section-content p {
+      margin-bottom: 12px;
+    }
+    
+    .section-content ul {
+      list-style: none;
+      margin: 16px 0;
+    }
+    
+    .section-content li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+    }
+    
+    .section-content li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    /* Pricing */
+    .pricing-box {
+      background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .pricing-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    
+    .pricing-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    
+    .pricing-amount span {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    
+    .pricing-note {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* Services Table */
+    .services-table {
+      width: 100%;
+      margin: 24px 0;
+    }
+    
+    .services-table tr {
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .services-table td {
+      padding: 16px 0;
+    }
+    
+    .services-table td:last-child {
+      text-align: right;
+      color: var(--green);
+      font-weight: 600;
+    }
+    
+    .service-name {
+      font-weight: 500;
+    }
+    
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 48px 0;
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    
+    .cta-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: var(--bg);
+      padding: 16px 48px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    .footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="contract-header">
+      <div class="logo">
+        <img src="/gull-logo.png" alt="">
+        GullStack
+      </div>
+      <h1 class="contract-title">Service Agreement</h1>
+      <p class="contract-meta">Peterson Zeyer Law — Website & SEO Package</p>
+      <span class="contract-id">PZL-2026-02-17</span>
+    </header>
+    
+    <div class="parties">
+      <div class="party-card">
+        <div class="party-label">Service Provider</div>
+        <div class="party-name">GullStack</div>
+        <div class="party-details">
+          Digital Marketing & Web Development<br>
+          hello@gullstack.com
+        </div>
+      </div>
+      <div class="party-card">
+        <div class="party-label">Client</div>
+        <div class="party-name">Brett McCormack</div>
+        <div class="party-details">
+          King-Maker<br>
+          mack@king-maker.com
+        </div>
+      </div>
+    </div>
+    
+    <section class="section">
+      <h2 class="section-title">Project Overview</h2>
+      <div class="section-content">
+        <p>GullStack will provide comprehensive website development and ongoing SEO services for <strong>Peterson Zeyer Law</strong>, a Boise-based bankruptcy law firm.</p>
+        <p>This engagement includes a complete website redesign, content strategy, and ongoing search engine optimization to improve organic visibility and attract more qualified leads in the Idaho market.</p>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title">Services Included</h2>
+      <table class="services-table">
+        <tr>
+          <td>
+            <div class="service-name">New Website Design & Development</div>
+            <div class="service-desc">Complete redesign with modern, conversion-focused layout. Mobile responsive, fast-loading, SEO-optimized foundation.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Monthly SEO Management</div>
+            <div class="service-desc">On-page optimization, technical SEO audits, Google Business Profile management, local SEO improvements.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Keyword Analysis & Strategy</div>
+            <div class="service-desc">Ongoing keyword research, competitor analysis, and ranking tracking for bankruptcy-related search terms in Idaho.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Biweekly Blog Posts</div>
+            <div class="service-desc">Two SEO-optimized blog articles per month targeting high-intent keywords and answering common bankruptcy questions.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Keyword Improvement & Tracking</div>
+            <div class="service-desc">Monthly reporting on keyword rankings, traffic growth, and optimization recommendations.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="service-name">Website Hosting & Maintenance</div>
+            <div class="service-desc">Fast, secure hosting with SSL certificate, backups, and ongoing maintenance.</div>
+          </td>
+          <td>Included</td>
+        </tr>
+      </table>
+    </section>
+    
+    <div class="pricing-box">
+      <div class="pricing-label">Monthly Investment</div>
+      <div class="pricing-amount">$500<span>/month</span></div>
+      <p class="pricing-note">Website build included at no additional cost. Billed monthly, cancel anytime with 30 days notice.</p>
+    </div>
+    
+    <section class="section">
+      <h2 class="section-title">Timeline</h2>
+      <div class="section-content">
+        <ul>
+          <li><strong>Week 1-2:</strong> Website design and development</li>
+          <li><strong>Week 3:</strong> Content migration, SEO setup, launch</li>
+          <li><strong>Ongoing:</strong> Monthly SEO, biweekly blog posts, keyword tracking</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="section">
+      <h2 class="section-title">Terms</h2>
+      <div class="section-content">
+        <ul>
+          <li>Monthly billing via credit card subscription</li>
+          <li>No long-term contract required</li>
+          <li>30-day cancellation notice</li>
+          <li>Monthly reporting and strategy calls included</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <h2>Ready to Get Started?</h2>
+      <p>Click below to set up your monthly subscription and kick off the project.</p>
+      <a href="#PAYMENT_LINK" class="btn">Subscribe — $500/month →</a>
+    </section>
+    
+    <footer class="footer">
+      <p>Questions? Contact <a href="mailto:bryce@gullstack.com">bryce@gullstack.com</a></p>
+      <p style="margin-top: 8px;">© 2026 GullStack. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
