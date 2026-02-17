@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: Compare GullStack vs Alternatives — Podium, HoneyBook, Square, Wix
+description: See how GullStack compares to Podium, HoneyBook, Square, and Wix. Lower fees, more features, one integrated system.
+ogTitle: GullStack vs The Competition
+ogDescription: Compare GullStack to Podium, HoneyBook, Square, and Wix. Lower fees. Better results.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .page-header { text-align: center; margin-bottom: 100px; }
+  .page-header h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; }
+  .page-header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+  .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 40px; transition: all 0.3s ease; text-decoration: none; color: inherit; display: block; }
+  .compare-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .compare-card h2 { font-size: 1.5rem; margin-bottom: 12px; }
+  .compare-card .vs { color: var(--accent); font-weight: 600; }
+  .compare-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .compare-card .link { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+  .compare-card:hover .link { gap: 12px; }
+---
+
+<main class="container">
+  <div class="page-header">
+    <h1>How We Compare</h1>
+    <p>See how GullStack stacks up against the tools you're probably overpaying for.</p>
+  </div>
+  
+  <div class="compare-grid">
+    <a href="/compare/podium-alternative/" class="compare-card">
+      <h2>GullStack <span class="vs">vs</span> Podium</h2>
+      <p>Podium charges $599/month for reviews and messaging. We do all that and more — for less. A lot less.</p>
+      <span class="link">See the comparison →</span>
+    </a>
+    
+    <a href="/compare/honeybook-alternative/" class="compare-card">
+      <h2>GullStack <span class="vs">vs</span> HoneyBook</h2>
+      <p>HoneyBook is great for proposals and contracts, but they charge 2.9% on payments. We charge 1%.</p>
+      <span class="link">See the comparison →</span>
+    </a>
+    
+    <a href="/compare/square-alternative/" class="compare-card">
+      <h2>GullStack <span class="vs">vs</span> Square</h2>
+      <p>Square's 2.6% + $0.10 adds up fast. On $100K in sales, you're losing $2,900. We cut that to $1,000.</p>
+      <span class="link">See the comparison →</span>
+    </a>
+    
+    <a href="/compare/wix-alternative/" class="compare-card">
+      <h2>GullStack <span class="vs">vs</span> Wix</h2>
+      <p>Wix gives you a template. We give you a website that actually converts — plus everything else you need.</p>
+      <span class="link">See the comparison →</span>
+    </a>
+  </div>
+</main>

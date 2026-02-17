@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: AI Consulting for Small Business — GullStack
+description: Replace expensive employees with AI that works 24/7. Content creation, customer service, SEO, and automation at a fraction of the cost. Real AI solutions, not hype.
+ogTitle: AI-Powered Tools for Small Business — GullStack
+ogDescription: AI that actually works for small business. Replace expensive employees. Automate the repetitive stuff.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .service-hero { text-align: center; margin-bottom: 100px; }
+  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
+  .comparison { max-width: 600px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .comparison-row { display: flex; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row.header { background: rgba(99,102,241,0.1); font-weight: 600; }
+  .comparison-row .label { color: var(--text-muted); }
+  .comparison-row .human { color: #ef4444; }
+  .comparison-row .ai { color: var(--accent); }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
+  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--text-muted); line-height: 1.6; }
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .pricing { text-align: center; margin-bottom: 100px; }
+  .pricing .price { font-family: var(--font-serif); font-size: 3rem; color: var(--accent); }
+  .pricing .price span { font-size: 1rem; color: var(--text-muted); }
+  .pricing .note { color: var(--text-muted); margin-top: 8px; }
+---
+
+<main class="container">
+  <div class="service-hero">
+    <span class="tag">AI CONSULTING</span>
+    <h1>AI That Actually Works for Your Business</h1>
+    <p>Replace expensive employees with AI tools that work 24/7 at a fraction of the cost. Content, customer service, SEO, research — automated and always available.</p>
+    <a href="/#contact" class="btn btn-primary">See What's Possible →</a>
+  </div>
+  
+  <div class="comparison">
+    <div class="comparison-row header">
+      <span>Task</span>
+      <span>Human Cost</span>
+      <span>AI Cost</span>
+    </div>
+    <div class="comparison-row">
+      <span class="label">SEO & Content Manager</span>
+      <span class="human">$50K+/year</span>
+      <span class="ai">$2K/month</span>
+    </div>
+    <div class="comparison-row">
+      <span class="label">Customer Service (24/7)</span>
+      <span class="human">$80K+/year</span>
+      <span class="ai">Included</span>
+    </div>
+    <div class="comparison-row">
+      <span class="label">Blog Content Writer</span>
+      <span class="human">$40K+/year</span>
+      <span class="ai">Included</span>
+    </div>
+    <div class="comparison-row">
+      <span class="label">Market Research</span>
+      <span class="human">$100/hour</span>
+      <span class="ai">Included</span>
+    </div>
+  </div>
+  
+  <div class="pricing">
+    <div class="price">$2,000<span>/month</span></div>
+    <div class="note">Your own AI assistant, trained on your business, available 24/7</div>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">✍️</div>
+      <h3>Content Creation</h3>
+      <p>Blog posts, social media, email campaigns — AI creates first drafts at superhuman speed. You review and refine.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">💬</div>
+      <h3>Customer Support</h3>
+      <p>AI chatbot that knows your business inside and out. Answers questions, qualifies leads, books appointments — 24/7.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔍</div>
+      <h3>SEO & Research</h3>
+      <p>Keyword research, competitor analysis, content optimization — tasks that used to take hours done in minutes.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📧</div>
+      <h3>Email Management</h3>
+      <p>Draft responses, summarize threads, prioritize your inbox. Spend less time on email, more time on work that matters.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Data Analysis</h3>
+      <p>Turn spreadsheets into insights. AI analyzes your data and surfaces what matters.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <h3>Strategy & Planning</h3>
+      <p>Brainstorm ideas, create plans, think through problems. AI as a thought partner that's always available.</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>This Isn't ChatGPT</h2>
+    <p>Anyone can use ChatGPT. What we provide is different: a dedicated AI assistant trained specifically on your business, integrated with your tools, and available to help with real work — not just answer random questions.</p>
+    
+    <p>Think of it as a hybrid: part employee, part software, part consultant. It knows your customers, your services, your voice. And it's available 24/7 at a fraction of what you'd pay a human.</p>
+    
+    <h2>Real Work, Real Results</h2>
+    <p>Our AI clients use their assistants for things like:</p>
+    <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; padding-left: 24px;">
+      <li>Writing and scheduling 30 days of social media posts in an afternoon</li>
+      <li>Creating detailed blog posts for SEO</li>
+      <li>Researching competitors and market trends</li>
+      <li>Answering customer questions via chat</li>
+      <li>Drafting proposals and contracts</li>
+      <li>Managing calendars and scheduling</li>
+    </ul>
+    
+    <p>This isn't future technology. It's available now, and small businesses that adopt it early will have a massive advantage.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready to 10x Your Productivity?</h2>
+    <p>Let's talk about how AI can help your specific business. No hype — just practical applications that save time and money.</p>
+    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+  </div>
+</main>

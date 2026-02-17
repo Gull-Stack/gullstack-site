@@ -1,0 +1,75 @@
+---
+layout: base.njk
+title: Industries We Serve — GullStack
+description: Specialized marketing and business systems for therapists, contractors, medical practices, salons, consultants, and more. Industry-specific solutions that work.
+ogTitle: Industries We Serve — GullStack
+ogDescription: Marketing solutions tailored to your industry. Real results for real businesses.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .page-header { text-align: center; margin-bottom: 100px; }
+  .page-header h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; }
+  .page-header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+  .industries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  @media (max-width: 768px) { .industries-grid { grid-template-columns: 1fr; } }
+  .industry-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 40px; transition: all 0.3s ease; text-decoration: none; color: inherit; display: block; }
+  .industry-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .industry-card .icon { font-size: 2.5rem; margin-bottom: 20px; }
+  .industry-card h2 { font-size: 1.5rem; margin-bottom: 12px; }
+  .industry-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .industry-card .link { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+  .industry-card:hover .link { gap: 12px; }
+  .industry-card .case-study { display: inline-block; background: rgba(99,102,241,0.1); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 16px; }
+---
+
+<main class="container">
+  <div class="page-header">
+    <h1>Built for Your Industry</h1>
+    <p>Every industry has unique needs. We build solutions tailored to how you work, not generic templates.</p>
+  </div>
+  
+  <div class="industries-grid">
+    <a href="/industries/therapists/" class="industry-card">
+      <span class="case-study">Case Study Available</span>
+      <div class="icon">🧠</div>
+      <h2>Therapists & Counselors</h2>
+      <p>HIPAA-friendly websites, online booking, client portals, and payment processing that doesn't gouge you. We helped one therapist cut fees from 8% to 1%.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/industries/contractors/" class="industry-card">
+      <span class="case-study">Case Study Available</span>
+      <div class="icon">🏗️</div>
+      <h2>Contractors & Construction</h2>
+      <p>Project portfolios, lead capture, local SEO, and CRM to manage estimates and follow-ups. Built for general contractors, remodelers, and specialty trades.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/industries/medical-practices/" class="industry-card">
+      <div class="icon">⚕️</div>
+      <h2>Medical Practices</h2>
+      <p>Patient scheduling, appointment reminders, intake forms, and websites that build trust. For doctors, dentists, chiropractors, and specialists.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/industries/salons-spas/" class="industry-card">
+      <div class="icon">💅</div>
+      <h2>Salons & Spas</h2>
+      <p>Online booking, client management, loyalty programs, and marketing automation. Fill your chairs and keep clients coming back.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/industries/consultants/" class="industry-card">
+      <div class="icon">💼</div>
+      <h2>Consultants & Coaches</h2>
+      <p>Professional websites, proposal systems, invoicing, and client portals. Look credible and close more deals.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/industries/restaurants/" class="industry-card">
+      <div class="icon">🍽️</div>
+      <h2>Restaurants & Food Service</h2>
+      <p>Online ordering, reservations, menu management, and lower payment processing fees. Keep more of every dollar.</p>
+      <span class="link">Learn more →</span>
+    </a>
+  </div>
+</main>

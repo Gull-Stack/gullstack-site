@@ -1,0 +1,132 @@
+---
+layout: base.njk
+title: Marketing for Therapists & Counselors — GullStack
+description: Websites, booking, and payment processing built for mental health professionals. One therapist cut fees from 8% to 1% and cried. See how we help therapists grow.
+ogTitle: Marketing for Therapists — GullStack
+ogDescription: Websites, booking, and payment processing that doesn't gouge you. Built for mental health professionals.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .service-hero { text-align: center; margin-bottom: 100px; }
+  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
+  
+  .case-study-box { max-width: 700px; margin: 0 auto 80px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 40px; }
+  .case-study-box .quote { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.5; margin-bottom: 24px; }
+  .case-study-box .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; border-top: 1px solid rgba(99,102,241,0.2); }
+  .case-study-box .stat { text-align: center; }
+  .case-study-box .stat .number { font-family: var(--font-serif); font-size: 2rem; color: var(--accent); }
+  .case-study-box .stat .label { font-size: 0.85rem; color: var(--text-muted); }
+  .case-study-box .cta { text-align: center; margin-top: 24px; }
+  .case-study-box .cta a { color: var(--accent); font-weight: 600; }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } .case-study-box .stats { grid-template-columns: 1fr; } }
+  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--text-muted); line-height: 1.6; }
+  
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  .content-section ul { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; padding-left: 24px; }
+  .content-section li { margin-bottom: 8px; }
+  
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+---
+
+<main class="container">
+  <div class="service-hero">
+    <span class="tag">FOR THERAPISTS & COUNSELORS</span>
+    <h1>Marketing That Understands Your Practice</h1>
+    <p>You became a therapist to help people, not to figure out payment processing and website design. We handle the business side so you can focus on your clients.</p>
+    <a href="/#contact" class="btn btn-primary">See What's Possible →</a>
+  </div>
+  
+  <div class="case-study-box">
+    <p class="quote">"She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back."</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="number">8%→1%</div>
+        <div class="label">Processing Fees</div>
+      </div>
+      <div class="stat">
+        <div class="number">$0</div>
+        <div class="label">Website Cost</div>
+      </div>
+      <div class="stat">
+        <div class="number">$7K</div>
+        <div class="label">Annual Savings</div>
+      </div>
+    </div>
+    <div class="cta"><a href="/blog/she-cried/">Read her full story →</a></div>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">🌐</div>
+      <h3>Professional Website</h3>
+      <p>Warm, trustworthy design that helps potential clients feel comfortable reaching out. Optimized for local search.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📅</div>
+      <h3>Online Booking</h3>
+      <p>Clients book appointments directly. Syncs with your calendar, sends reminders, reduces no-shows.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">💳</div>
+      <h3>1% Payment Processing</h3>
+      <p>Stop losing 3-8% on every session. Our 1% rate puts thousands back in your pocket every year.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📝</div>
+      <h3>Digital Intake Forms</h3>
+      <p>Clients complete paperwork before their first session. Secure, HIPAA-friendly, fully integrated.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Secure Client Portal</h3>
+      <p>Share resources, collect payments, and communicate securely with clients between sessions.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔍</div>
+      <h3>Local SEO</h3>
+      <p>Show up when people search "therapist near me" in your area. Get found by the clients who need you.</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>Built for How You Work</h2>
+    <p>We understand that therapy practices are different from other businesses. You have considerations around privacy, client trust, and the sensitive nature of your work.</p>
+    
+    <p>Every system we build keeps that in mind:</p>
+    <ul>
+      <li>HIPAA-friendly design and data handling</li>
+      <li>Warm, calming aesthetics that put potential clients at ease</li>
+      <li>Clear service descriptions without clinical jargon</li>
+      <li>Easy-to-find contact information and booking</li>
+      <li>Integration with practice management systems you already use</li>
+    </ul>
+    
+    <h2>The Payment Processing Problem</h2>
+    <p>Most therapists use services like SimplePractice, IvyPay, or Square for payments. They charge 2.5-3.5% per transaction — some even higher.</p>
+    
+    <p>On a $150 session, that's $4-5 gone. Every session. If you see 20 clients a week, that's $4,000-5,000 per year just in processing fees.</p>
+    
+    <p>We cut that to 1%. That's real money back in your pocket — enough to cover a vacation, pay off student loans faster, or invest back in your practice.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready to Simplify Your Practice?</h2>
+    <p>Let's talk about what you need. Website, booking, payments, or all of the above — we'll build something that works for your practice.</p>
+    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+  </div>
+</main>

@@ -1,0 +1,269 @@
+---
+layout: base.njk
+title: "EDGE Energy: Texas Microgrid Website That Sells Energy Independence"
+description: "How we built a conversion-focused website for a Texas microgrid company targeting homeowners tired of grid failures and rising energy costs."
+headerStyle: inner
+activeNav: blog
+ogTitle: "EDGE Energy Case Study | GullStack"
+ogDescription: "Texas microgrid website built to convert homeowners into energy independence customers."
+css: |
+  .case-hero {
+    padding: 140px 0 80px;
+    text-align: center;
+  }
+  
+  .case-hero .tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #a855f7;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+  
+  .case-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .case-hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  
+  .case-hero .live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a855f7;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .case-hero .live-link:hover {
+    text-decoration: underline;
+  }
+  
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item .number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #a855f7;
+    margin-bottom: 4px;
+  }
+  
+  .stat-item .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .case-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+  }
+  
+  .case-content h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin: 60px 0 24px;
+  }
+  
+  .case-content h2:first-of-type {
+    margin-top: 0;
+  }
+  
+  .case-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  
+  .case-content ul {
+    margin: 24px 0;
+    padding-left: 24px;
+  }
+  
+  .case-content li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  
+  .case-content strong {
+    color: var(--text);
+  }
+  
+  .highlight-box {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 4px solid #a855f7;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+  
+  .highlight-box p {
+    margin: 0;
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+  
+  .screenshot {
+    margin: 40px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  
+  .screenshot img {
+    width: 100%;
+    display: block;
+  }
+  
+  .cta-box {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 20px;
+    margin-top: 60px;
+  }
+  
+  .cta-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+  }
+---
+
+<section class="case-hero">
+  <div class="container">
+    <span class="tag">Case Study</span>
+    <h1>EDGE Energy: Selling Texas Energy Independence</h1>
+    <p class="subtitle">A conversion-focused website for a microgrid company helping Texans escape grid failures and rising energy costs.</p>
+    <a href="https://www.energydevelopmentgroup.com" target="_blank" class="live-link">
+      Visit Live Site →
+    </a>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="number">14</div>
+    <div class="label">Pages</div>
+  </div>
+  <div class="stat-item">
+    <div class="number">11ty</div>
+    <div class="label">Built With</div>
+  </div>
+  <div class="stat-item">
+    <div class="number">$0</div>
+    <div class="label">Monthly Hosting</div>
+  </div>
+  <div class="stat-item">
+    <div class="number">100</div>
+    <div class="label">PageSpeed Score</div>
+  </div>
+</div>
+
+<div class="case-content">
+  <h2>The Challenge</h2>
+  <p>
+    EDGE Energy needed a website that could explain a complex product — residential microgrids with 80kWh battery storage — in simple terms that Texas homeowners would understand and trust.
+  </p>
+  <p>
+    The Texas energy market is unique. After the 2021 grid failures left millions without power, homeowners are actively seeking alternatives. But "microgrid" and "battery backup" sound expensive and complicated. EDGE needed messaging that cut through the technical jargon and spoke to real pain points.
+  </p>
+
+  <h2>The Strategy</h2>
+  <p>
+    We built the entire site around one concept: <strong>energy independence</strong>. Not solar panels. Not batteries. Not microgrids. Independence.
+  </p>
+  <p>
+    Every section addresses a specific fear or frustration Texas homeowners have:
+  </p>
+  <ul>
+    <li><strong>Grid failures</strong> — "When the grid fails, your EDGE system automatically takes over"</li>
+    <li><strong>Rising costs</strong> — "Lock in your energy cost for 30 years"</li>
+    <li><strong>No control</strong> — "Your own personal power plant"</li>
+  </ul>
+
+  <div class="highlight-box">
+    <p>"When the grid went down during the February freeze, our EDGE system kept everything running — heat, refrigerator, everything. Our neighbors were in the dark for 3 days. We never lost power."</p>
+  </div>
+
+  <h2>Key Features</h2>
+  <p>
+    The site was built with conversion in mind from day one:
+  </p>
+  <ul>
+    <li><strong>Stats bar above the fold</strong> — 80kWh storage, $0.12/kWh fixed rate, 30-year guarantee, $0 upfront</li>
+    <li><strong>Problem-solution narrative</strong> — Acknowledge pain before presenting the fix</li>
+    <li><strong>Simple 4-step process</strong> — Free Analysis → Custom Design → Install → Freedom</li>
+    <li><strong>Trust builders</strong> — No credit check, 20-year guarantee, Made in USA, 24/7 monitoring</li>
+    <li><strong>Local testimonials</strong> — Real names, real Texas cities</li>
+  </ul>
+
+  <h2>Technical Details</h2>
+  <p>
+    We built the site with 11ty (Eleventy) for maximum performance and zero monthly hosting costs:
+  </p>
+  <ul>
+    <li><strong>14 pages</strong> including dedicated solution pages and service areas</li>
+    <li><strong>100/100 PageSpeed</strong> — static HTML, optimized images, no bloat</li>
+    <li><strong>SEO-optimized</strong> — Schema markup, meta tags, sitemap</li>
+    <li><strong>Mobile-first</strong> — Responsive design that works on any device</li>
+    <li><strong>Fast deploys</strong> — Git push to production in seconds</li>
+  </ul>
+
+  <h2>The Result</h2>
+  <p>
+    A professional, conversion-focused website that positions EDGE as the obvious choice for Texas homeowners ready to take control of their energy future. Clear messaging, strong CTAs, and zero monthly overhead.
+  </p>
+
+  <div class="cta-box">
+    <h3>Need a Website That Converts?</h3>
+    <p>We build sites that turn visitors into customers. No fluff, no templates, no monthly gouging.</p>
+    <a href="/#contact" class="btn btn-primary">Let's Talk →</a>
+  </div>
+</div>

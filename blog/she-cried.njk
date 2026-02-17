@@ -1,0 +1,438 @@
+---
+layout: base.njk
+title: "She Cried: How We Saved a Therapist 7% on Every Dollar"
+description: A therapist came to us paying 8% fees on every transaction. We rebuilt her entire system. Now she pays 1%. When we showed her the numbers, she cried.
+headerStyle: inner
+footerStyle: simple
+activeNav: blog
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  
+  .back-link {
+    margin-top: 120px;
+  }
+  
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { color: var(--text); }
+  
+  .hero-image {
+    margin: -20px 0 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  }
+  .hero-overlay .site-url {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+  
+  .post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  
+  .post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  
+  .post-content { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+  .post-content p { margin-bottom: 28px; color: rgba(255,255,255,0.85); }
+  .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin: 56px 0 24px;
+    color: var(--text);
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 28px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .post-content li { margin-bottom: 12px; }
+  .post-content strong { color: var(--text); }
+  
+  .big-number {
+    text-align: center;
+    padding: 48px 24px;
+    margin: 40px 0;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .big-number .number {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--success);
+    line-height: 1;
+  }
+  .big-number .label {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-top: 12px;
+  }
+  
+  .fee-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+  .fee-box {
+    text-align: center;
+    padding: 24px;
+  }
+  .fee-box .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .fee-box .amount {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+  }
+  .fee-box.before .amount { color: #ef4444; }
+  .fee-box.after .amount { color: var(--success); }
+  .fee-arrow {
+    font-size: 2rem;
+    color: var(--text-muted);
+  }
+  
+  .what-she-got {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .what-she-got h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--success);
+  }
+  .what-she-got ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .what-she-got li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+  }
+  .what-she-got li:last-child { border-bottom: none; }
+  .what-she-got li::before {
+    content: "✅";
+    font-size: 1.2rem;
+  }
+  
+  .quote-block {
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    background: var(--bg-elevated);
+    border-radius: 0 12px 12px 0;
+  }
+  
+  .saas-hell {
+    background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05));
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .saas-hell h3 {
+    color: #ef4444;
+    margin-bottom: 16px;
+  }
+  .saas-hell .tool-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .saas-hell .tool {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(239,68,68,0.2);
+    font-size: 0.95rem;
+  }
+  .saas-hell .tool-name { color: var(--text-muted); }
+  .saas-hell .tool-price { color: #ef4444; font-weight: 600; }
+  .saas-hell .total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(239,68,68,0.3);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .saas-hell .total .tool-price { font-size: 1.25rem; }
+  
+  .cta-box {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-box .btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    .post-title { font-size: 2rem; }
+    .fee-comparison { grid-template-columns: 1fr; }
+    .fee-arrow { transform: rotate(90deg); }
+    .big-number .number { font-size: 3.5rem; }
+    .saas-hell .tool-list { grid-template-columns: 1fr; }
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/blog/" class="back-link">← Back to Blog</a>
+  
+  <span class="post-category">Client Story</span>
+  <h1 class="post-title">She Cried: How We Saved a Therapist 7% on Every Dollar</h1>
+  <p class="post-meta">February 16, 2026 • 4 min read</p>
+
+  <div class="hero-image">
+    <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling website by GullStack">
+    <div class="hero-overlay">
+      <span class="site-url">agilecounseling.com</span>
+    </div>
+  </div>
+
+  <article class="post-content">
+    <p>A therapist came to us last month. She wasn't looking for a website redesign. She was looking for a way to stop bleeding money.</p>
+    
+    <p>Eight percent. That's what she was paying on every single patient transaction. Her payment processor—one of those "easy setup" solutions marketed to small businesses—was taking 8 cents of every dollar she earned.</p>
+    
+    <p>On a $150 therapy session, that's $12. Gone. On every. Single. Appointment.</p>
+    
+    <p>For a solo practitioner seeing 20-25 clients a week, that adds up to <strong>$600-750/month</strong> disappearing into processing fees alone.</p>
+
+    <div class="fee-comparison">
+      <div class="fee-box before">
+        <div class="label">Before</div>
+        <div class="amount">8%</div>
+      </div>
+      <div class="fee-arrow">→</div>
+      <div class="fee-box after">
+        <div class="label">After</div>
+        <div class="amount">1%</div>
+      </div>
+    </div>
+
+    <p>We rebuilt her entire system. New payment processing. New website. Calendar integration. AI tools for patient scheduling and payments.</p>
+    
+    <p><strong>Her cost for the website? $0.</strong></p>
+    
+    <p>When we showed her the new dashboard—when she saw that her processing fees had dropped from 8% to 1%—she started crying.</p>
+    
+    <p>Not sad tears. Relief tears. "I didn't know this was possible" tears.</p>
+
+    <div class="big-number">
+      <div class="number">7%</div>
+      <div class="label">More revenue in her pocket. Every transaction. Forever.</div>
+    </div>
+
+    <h2>The Math That Made Her Cry</h2>
+    
+    <p>Let's say she does $100,000/year in patient revenue. Pretty typical for a solo therapist.</p>
+    
+    <p>At 8% processing fees, she was losing <strong>$8,000/year</strong> to her payment processor.</p>
+    
+    <p>At 1% processing fees, she loses <strong>$1,000/year</strong>.</p>
+    
+    <p>That's <strong>$7,000 back in her pocket</strong>. Every year. For doing absolutely nothing different—except switching to a system that isn't designed to gouge her.</p>
+    
+    <p>Over 10 years? That's $70,000. The price of a year's salary for an employee. Or a down payment on a house. Or retirement savings she thought she couldn't afford.</p>
+
+    <h2>But It Wasn't Just the Fees</h2>
+    
+    <p>The payment processor was just the most egregious problem. Her entire tech stack was a mess:</p>
+
+    <div class="saas-hell">
+      <h3>Her Monthly SaaS Bill</h3>
+      <div class="tool-list">
+        <div class="tool">
+          <span class="tool-name">Website hosting</span>
+          <span class="tool-price">$30/mo</span>
+        </div>
+        <div class="tool">
+          <span class="tool-name">Scheduling software</span>
+          <span class="tool-price">$45/mo</span>
+        </div>
+        <div class="tool">
+          <span class="tool-name">Email marketing</span>
+          <span class="tool-price">$35/mo</span>
+        </div>
+        <div class="tool">
+          <span class="tool-name">Payment processor</span>
+          <span class="tool-price">8% per txn</span>
+        </div>
+        <div class="tool">
+          <span class="tool-name">Client portal</span>
+          <span class="tool-price">$50/mo</span>
+        </div>
+        <div class="tool">
+          <span class="tool-name">Forms/intake</span>
+          <span class="tool-price">$25/mo</span>
+        </div>
+      </div>
+      <div class="total">
+        <span>Monthly SaaS spend</span>
+        <span class="tool-price">$185+ /mo</span>
+      </div>
+    </div>
+    
+    <p>Six different logins. Six different bills. None of them talking to each other. And she still had to manually copy patient info between systems.</p>
+    
+    <p>This is what we call <strong>SaaS hell</strong>. And almost every small business owner we meet is living in it.</p>
+
+    <h2>What She Got Instead</h2>
+
+    <div class="what-she-got">
+      <h3>One System. Everything Connected.</h3>
+      <ul>
+        <li>Professional website that actually converts visitors to patients</li>
+        <li>Online booking synced directly to her calendar</li>
+        <li>Patient payments at 1% processing (not 8%)</li>
+        <li>Automated appointment reminders</li>
+        <li>Digital intake forms that populate patient records</li>
+        <li>AI-powered tools to help patients find availability and get questions answered</li>
+        <li>Everything in one dashboard—not six different logins</li>
+      </ul>
+    </div>
+
+    <p>Her website cost her $0 because we're not in the business of charging small business owners for websites. We make our money by being the payment processor—at rates that are actually fair.</p>
+    
+    <p>When you're only taking 1% instead of 8%, you can afford to give away the website. Everyone wins.</p>
+
+    <div class="quote-block">
+      "I've been in practice for 22 years. I had no idea I was being taken advantage of this badly."
+    </div>
+
+    <h2>This Isn't Unique to Therapists</h2>
+    
+    <p>We see the same pattern everywhere:</p>
+    
+    <ul>
+      <li><strong>Contractors</strong> paying 2.9% + fees on every invoice</li>
+      <li><strong>Salons</strong> using Square at 2.6% + $0.10 per swipe</li>
+      <li><strong>Consultants</strong> losing 3%+ on every Stripe payment</li>
+      <li><strong>Restaurants</strong> giving up 3-4% to DoorDash and payment processors</li>
+    </ul>
+    
+    <p>Add in the disconnected SaaS tools—the scheduling app, the email tool, the CRM, the website builder—and small businesses are bleeding $500-1,500/month without even realizing it.</p>
+    
+    <p><strong>That's $6,000-18,000/year.</strong> Enough to hire a part-time employee. Enough to fund marketing that actually grows the business. Enough to take a real vacation.</p>
+    
+    <p>Instead, it's going to a dozen different software companies who are all optimizing for one thing: extracting maximum revenue from small business owners who don't know there's a better way.</p>
+
+    <h2>The Better Way</h2>
+    
+    <p>We built GullStack because we were tired of watching this happen.</p>
+    
+    <p>The business model is simple: we consolidate everything into one system, we process payments at fair rates, and we give you the website and tools for free. We make money when you make money—but we don't gouge you in the process.</p>
+    
+    <p>Less SaaS. Lower fees. More money in your pocket.</p>
+    
+    <p>That's it. That's the whole pitch.</p>
+    
+    <p>And when we show business owners the math—when they see how much they've been losing—sometimes they cry.</p>
+    
+    <p>We think that's a good sign.</p>
+
+    <div class="cta-box">
+      <h3>What Are You Paying in Fees?</h3>
+      <p>Most business owners don't know. We'll show you—for free—exactly what you're losing to payment processors and disconnected tools.</p>
+      <a href="/#contact" class="btn">Get Your Free Analysis →</a>
+    </div>
+    
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 48px;">
+      <strong>See the website:</strong> <a href="https://agilecounseling.com" target="_blank">agilecounseling.com</a>
+    </p>
+  </article>
+</main>

@@ -817,7 +817,9 @@
         </div>
         
         <div class="audit-form-wrap fade-in">
-          <form class="audit-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <form id="auditForm" class="audit-form">
+            <!-- Honeypot - bots fill this, humans don't see it -->
+            <input type="text" name="company_fax" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
             <div class="form-group">
               <label for="website">Your Website URL</label>
               <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
@@ -833,12 +835,55 @@
               <input type="email" id="email" name="email" placeholder="you@company.com" required>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-full">
+            <button type="submit" id="auditSubmitBtn" class="btn btn-primary btn-full">
               Get My Free Audit →
             </button>
-            
+            <div id="auditFormMessage" style="display:none;padding:16px;border-radius:8px;text-align:center;font-weight:500;margin-top:16px"></div>
             <p class="form-note">Free. No credit card. Preview delivered within 24 hours.</p>
           </form>
+          <script>
+            document.getElementById('auditForm').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = document.getElementById('auditSubmitBtn');
+              const msg = document.getElementById('auditFormMessage');
+              const form = this;
+              btn.disabled = true;
+              btn.textContent = 'Sending...';
+              msg.style.display = 'none';
+              const data = {
+                website: form.website.value,
+                frustrations: form.frustrations.value,
+                email: form.email.value,
+                company_fax: form.company_fax.value
+              };
+              try {
+                const res = await fetch('/api/audit', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(data)
+                });
+                const result = await res.json();
+                if (res.ok) {
+                  msg.style.background = 'rgba(124,58,237,0.15)';
+                  msg.style.color = '#7c3aed';
+                  msg.textContent = result.message || 'Thanks! Your audit is on the way.';
+                  form.reset();
+                } else {
+                  msg.style.background = 'rgba(239,68,68,0.15)';
+                  msg.style.color = '#ef4444';
+                  msg.textContent = result.error || 'Something went wrong. Please try again.';
+                }
+                msg.style.display = 'block';
+              } catch (err) {
+                msg.style.background = 'rgba(239,68,68,0.15)';
+                msg.style.color = '#ef4444';
+                msg.textContent = 'Network error. Please try again.';
+                msg.style.display = 'block';
+              }
+              btn.disabled = false;
+              btn.textContent = 'Get My Free Audit →';
+            });
+          </script>
         </div>
       </div>
     </div>

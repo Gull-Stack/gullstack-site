@@ -1,0 +1,196 @@
+---
+layout: base.njk
+title: Website Design for Small Business — GullStack
+description: Fast, modern websites that convert visitors into customers. Mobile-first design, SEO-ready, and built to grow your business. No templates. No bloat.
+ogTitle: Small Business Website Design — GullStack
+ogDescription: Websites that actually work. Fast, mobile-first, built to convert.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  
+  .service-hero {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .service-hero .tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+  }
+  
+  .service-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+  
+  .service-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 100px;
+  }
+  
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+  
+  .feature-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  
+  .feature-card .icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  
+  .content-section {
+    max-width: 800px;
+    margin: 0 auto 80px;
+  }
+  
+  .content-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+  
+  .content-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .content-section ul {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding-left: 24px;
+  }
+  
+  .content-section li { margin-bottom: 8px; }
+  
+  .cta-section {
+    text-align: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 60px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .cta-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  .cta-section p {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+---
+
+<main class="container">
+  <div class="service-hero">
+    <span class="tag">WEBSITES</span>
+    <h1>Websites That Actually Convert</h1>
+    <p>Your website should be your best salesperson — working 24/7 to turn visitors into customers. We build fast, modern sites that do exactly that.</p>
+    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Lightning Fast</h3>
+      <p>Sub-second load times. No bloated WordPress themes. Just clean, fast code that Google loves.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📱</div>
+      <h3>Mobile-First</h3>
+      <p>70% of your visitors are on phones. Every site we build looks and works perfectly on mobile.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔍</div>
+      <h3>SEO-Ready</h3>
+      <p>Proper meta tags, schema markup, sitemaps, and structure that helps you rank on Google from day one.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🎨</div>
+      <h3>Custom Design</h3>
+      <p>No templates. No cookie-cutter layouts. Every site is designed specifically for your brand and goals.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Secure & Reliable</h3>
+      <p>SSL certificates, modern hosting, and no WordPress vulnerabilities to worry about.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📈</div>
+      <h3>Built to Convert</h3>
+      <p>Strategic calls-to-action, clear messaging, and user experience designed to turn visitors into leads.</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>Why Most Small Business Websites Fail</h2>
+    <p>Here's the truth: most small business websites are expensive digital brochures that don't actually generate business. They're slow, they're not optimized for search, and they don't guide visitors toward taking action.</p>
+    
+    <p>Common problems we see:</p>
+    <ul>
+      <li>Built on bloated platforms like WordPress with 50+ plugins</li>
+      <li>No clear call-to-action — visitors don't know what to do</li>
+      <li>Not mobile-optimized — looks terrible on phones</li>
+      <li>No SEO foundation — invisible to Google</li>
+      <li>Costs $30-100/month just for hosting and maintenance</li>
+    </ul>
+    
+    <h2>Our Approach</h2>
+    <p>We build websites using modern static site technology that's faster, more secure, and costs less to maintain than traditional platforms. Every site is custom-designed for your specific business goals.</p>
+    
+    <p>More importantly, we understand that your website is just one piece of the puzzle. That's why our sites integrate seamlessly with our CRM, booking system, and payment processing — creating a complete system that captures and converts leads automatically.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready for a Website That Works?</h2>
+    <p>Let's talk about what you need. No pressure, no sales pitch — just an honest conversation about how we can help.</p>
+    <a href="/#contact" class="btn btn-primary">Get Your Free Consultation →</a>
+  </div>
+</main>

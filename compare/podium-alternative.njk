@@ -1,0 +1,134 @@
+---
+layout: base.njk
+title: Podium Alternative — GullStack vs Podium Comparison
+description: Looking for a Podium alternative? Compare Podium's $599/month to GullStack's all-in-one solution. Same features, lower price, more value.
+ogTitle: Podium Alternative — GullStack
+ogDescription: Podium charges $599/month. We do more for less. See the comparison.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .compare-hero { text-align: center; margin-bottom: 100px; }
+  .compare-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .compare-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .compare-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; line-height: 1.6; }
+  
+  .compare-table { max-width: 800px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.header { background: rgba(99,102,241,0.1); font-weight: 600; }
+  .compare-row .feature { color: var(--text-muted); }
+  .compare-row .podium { text-align: center; color: #ef4444; }
+  .compare-row .gullstack { text-align: center; color: var(--accent); }
+  .compare-row .check { color: var(--accent); }
+  .compare-row .x { color: #ef4444; }
+  
+  .pricing-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; margin: 0 auto 80px; }
+  @media (max-width: 768px) { .pricing-compare { grid-template-columns: 1fr; } }
+  .price-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 40px; text-align: center; }
+  .price-card.them { border-color: rgba(239,68,68,0.3); }
+  .price-card.us { border-color: rgba(99,102,241,0.5); }
+  .price-card .name { font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; }
+  .price-card .price { font-family: var(--font-serif); font-size: 3rem; margin-bottom: 8px; }
+  .price-card.them .price { color: #ef4444; }
+  .price-card.us .price { color: var(--accent); }
+  .price-card .period { color: var(--text-muted); }
+  
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+---
+
+<main class="container">
+  <div class="compare-hero">
+    <span class="tag">COMPARISON</span>
+    <h1>GullStack vs Podium</h1>
+    <p>Podium charges $599/month for review management and messaging. We include that and much more — for less money.</p>
+  </div>
+  
+  <div class="pricing-compare">
+    <div class="price-card them">
+      <div class="name">Podium</div>
+      <div class="price">$599</div>
+      <div class="period">per month</div>
+    </div>
+    <div class="price-card us">
+      <div class="name">GullStack</div>
+      <div class="price">$299</div>
+      <div class="period">per month (or less)</div>
+    </div>
+  </div>
+  
+  <div class="compare-table">
+    <div class="compare-row header">
+      <span>Feature</span>
+      <span>Podium</span>
+      <span>GullStack</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Review Management</span>
+      <span class="podium check">✓</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Two-Way Texting</span>
+      <span class="podium check">✓</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Website Chat</span>
+      <span class="podium check">✓</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Payment Processing</span>
+      <span class="podium">2.5%+</span>
+      <span class="gullstack">1%</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Website Included</span>
+      <span class="podium x">✗</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Online Booking</span>
+      <span class="podium x">✗</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">CRM & Lead Tracking</span>
+      <span class="podium">Limited</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Email Automation</span>
+      <span class="podium x">✗</span>
+      <span class="gullstack check">✓</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">SEO & Local Search</span>
+      <span class="podium x">✗</span>
+      <span class="gullstack check">✓</span>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>Why Businesses Switch from Podium</h2>
+    <p>Podium is a solid product for review management and messaging. But at $599/month, you're paying premium prices for a narrow solution. You still need a website. You still need a CRM. You still need booking software.</p>
+    
+    <p>With GullStack, you get everything in one place — reviews, messaging, website, booking, CRM, automation, AND payment processing at 1% instead of Podium's 2.5%+.</p>
+    
+    <h2>The Math</h2>
+    <p>Podium: $599/month × 12 = $7,188/year (plus you need other tools)</p>
+    <p>GullStack: $299/month × 12 = $3,588/year (everything included)</p>
+    <p><strong>Savings: $3,600+/year</strong> — and that's before you factor in lower payment processing fees.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready to Make the Switch?</h2>
+    <p>See how much you could save with GullStack. Free demo, no pressure.</p>
+    <a href="/#contact" class="btn btn-primary">Get a Demo →</a>
+  </div>
+</main>

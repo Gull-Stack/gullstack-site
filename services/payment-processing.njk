@@ -1,0 +1,134 @@
+---
+layout: base.njk
+title: Low Fee Payment Processing for Small Business — GullStack
+description: Stop losing 2-8% on every transaction. Our 1% processing rate puts thousands back in your pocket every year. Fair fees. No gouging.
+ogTitle: Payment Processing at 1% — GullStack
+ogDescription: Stop getting gouged on payment processing. 1% fees vs the industry standard 2-8%.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  
+  .service-hero { text-align: center; margin-bottom: 100px; }
+  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
+  
+  .comparison-box { max-width: 600px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 48px; text-align: center; }
+  .comparison-box h2 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 32px; color: var(--text-muted); }
+  .fee-compare { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 32px; }
+  .fee-box { text-align: center; }
+  .fee-box .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px; }
+  .fee-box .rate { font-family: var(--font-serif); font-size: 4rem; line-height: 1; }
+  .fee-box.them .rate { color: #ef4444; }
+  .fee-box.us .rate { color: var(--accent); }
+  .fee-arrow { font-size: 2rem; color: var(--text-muted); }
+  .savings-line { padding-top: 24px; border-top: 1px solid var(--border); font-size: 1.25rem; }
+  .savings-line strong { color: var(--accent); }
+  
+  .proof-box { max-width: 700px; margin: 0 auto 80px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 40px; }
+  .proof-box .quote { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.5; margin-bottom: 20px; }
+  .proof-box .cite { color: var(--text-muted); }
+  .proof-box .cite a { color: var(--accent); }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
+  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--text-muted); line-height: 1.6; }
+  
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+---
+
+<main class="container">
+  <div class="service-hero">
+    <span class="tag">PAYMENT PROCESSING</span>
+    <h1>Stop Getting Gouged on Every Transaction</h1>
+    <p>Most small businesses lose 2-8% on every sale to payment processors. We charge 1%. Do the math — that's thousands back in your pocket every year.</p>
+    <a href="/#contact" class="btn btn-primary">See Your Savings →</a>
+  </div>
+  
+  <div class="comparison-box">
+    <h2>The Difference Is Real</h2>
+    <div class="fee-compare">
+      <div class="fee-box them">
+        <div class="label">Industry Average</div>
+        <div class="rate">2-8%</div>
+      </div>
+      <div class="fee-arrow">→</div>
+      <div class="fee-box us">
+        <div class="label">GullStack</div>
+        <div class="rate">1%</div>
+      </div>
+    </div>
+    <div class="savings-line">
+      On $100K annual revenue, that's <strong>$1,000-7,000 saved</strong> per year
+    </div>
+  </div>
+  
+  <div class="proof-box">
+    <p class="quote">"She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back."</p>
+    <p class="cite">A therapist went from 8% fees to 1%. <a href="/blog/she-cried/">Read her story →</a></p>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">💰</div>
+      <h3>Transparent Pricing</h3>
+      <p>1% flat rate. No hidden fees, no surprise charges, no monthly minimums. What you see is what you pay.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Fast Deposits</h3>
+      <p>Get your money quickly. No holding funds for weeks like some processors do.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Secure & PCI Compliant</h3>
+      <p>Bank-level security and full PCI compliance. Your customers' data is protected.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📱</div>
+      <h3>Works Everywhere</h3>
+      <p>Online payments, invoices, in-person — accept payments however your customers want to pay.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔗</div>
+      <h3>Fully Integrated</h3>
+      <p>Connected to your CRM, website, and booking system. No manual reconciliation needed.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Real-Time Dashboard</h3>
+      <p>See every transaction, track revenue, and manage refunds from one simple dashboard.</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>Why Are Payment Processing Fees So High?</h2>
+    <p>The payment processing industry is built on complexity and confusion. Interchange-plus, tiered pricing, monthly fees, PCI fees, statement fees — it's designed to make it hard to know what you're actually paying.</p>
+    
+    <p>Companies like Square and Stripe simplified this with flat-rate pricing, but they still charge 2.9% + $0.30 per transaction. For a $100 sale, that's $3.20. For a $50 sale, that's $1.75 (effectively 3.5%).</p>
+    
+    <p>We believe small businesses deserve better. Our 1% flat rate means you keep more of what you earn — and the savings add up fast.</p>
+    
+    <h2>How Is This Possible?</h2>
+    <p>We're not a standalone payment processor trying to maximize fees. Payments are one piece of a complete business system. By bundling payment processing with websites, CRM, and automation, we can offer rates that traditional processors can't match.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>How Much Are You Losing?</h2>
+    <p>Tell us your monthly revenue and current processing rate. We'll show you exactly what you could save.</p>
+    <a href="/#contact" class="btn btn-primary">Calculate Your Savings →</a>
+  </div>
+</main>

@@ -1,0 +1,109 @@
+---
+layout: base.njk
+title: Simple CRM for Small Business — GullStack
+description: Every lead, conversation, and follow-up in one dashboard. No more sticky notes, spreadsheets, or missed opportunities. CRM that actually works.
+ogTitle: One Dashboard CRM — GullStack
+ogDescription: Stop juggling six different logins. One dashboard for leads, conversations, and follow-ups.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .service-hero { text-align: center; margin-bottom: 100px; }
+  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
+  
+  .pain-points { max-width: 700px; margin: 0 auto 80px; background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(239,68,68,0.05)); border: 1px solid rgba(239,68,68,0.2); border-radius: 20px; padding: 40px; }
+  .pain-points h2 { color: #ef4444; font-size: 1.25rem; margin-bottom: 20px; }
+  .pain-points ul { margin: 0; padding-left: 20px; color: var(--text-muted); }
+  .pain-points li { margin-bottom: 12px; line-height: 1.6; }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
+  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
+  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+  .feature-card p { color: var(--text-muted); line-height: 1.6; }
+  
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+---
+
+<main class="container">
+  <div class="service-hero">
+    <span class="tag">CRM</span>
+    <h1>One Dashboard. Zero Chaos.</h1>
+    <p>Every lead, every conversation, every follow-up in one place. No more sticky notes. No more "I forgot to call them back." Just a simple system that keeps everything organized.</p>
+    <a href="/#contact" class="btn btn-primary">See It In Action →</a>
+  </div>
+  
+  <div class="pain-points">
+    <h2>Sound Familiar?</h2>
+    <ul>
+      <li>You have leads in your email, texts on your phone, and notes scattered across three apps</li>
+      <li>You forgot to follow up with that hot prospect from last week</li>
+      <li>You can't remember what you discussed with a client two months ago</li>
+      <li>You're paying for Salesforce/HubSpot but barely use 10% of the features</li>
+      <li>Your "CRM" is a spreadsheet that's always out of date</li>
+    </ul>
+  </div>
+  
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">📥</div>
+      <h3>All Leads In One Place</h3>
+      <p>Website forms, phone calls, emails, social — every lead lands in your dashboard automatically.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">💬</div>
+      <h3>Unified Inbox</h3>
+      <p>Text, email, and chat conversations in one thread per contact. Full history, always accessible.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🔔</div>
+      <h3>Smart Reminders</h3>
+      <p>Never forget a follow-up. Get reminded to reach out at the right time, every time.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Pipeline View</h3>
+      <p>See where every deal stands. Move leads through stages with drag-and-drop simplicity.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">🤖</div>
+      <h3>Automated Follow-ups</h3>
+      <p>Set it and forget it. Automated sequences that nurture leads while you focus on closing.</p>
+    </div>
+    
+    <div class="feature-card">
+      <div class="icon">📱</div>
+      <h3>Mobile App</h3>
+      <p>Access everything from your phone. Respond to leads instantly, no matter where you are.</p>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>CRM Without the Complexity</h2>
+    <p>Most CRMs are built for enterprise sales teams with dedicated admins to configure them. They're powerful — but they're overkill for small businesses, and they cost a fortune.</p>
+    
+    <p>Our CRM is different. It's designed for business owners who want to stay organized without becoming software experts. Everything just works, right out of the box.</p>
+    
+    <h2>Better Together</h2>
+    <p>The real magic happens when your CRM connects to everything else. When someone books an appointment on your website, they automatically appear in your CRM. When you send an invoice, the payment is tracked. When they fill out a form, you get notified instantly.</p>
+    
+    <p>No Zapier integrations. No manual data entry. Just one system that works together.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready to Get Organized?</h2>
+    <p>See how a simple CRM can transform the way you manage leads and customers.</p>
+    <a href="/#contact" class="btn btn-primary">Get a Demo →</a>
+  </div>
+</main>

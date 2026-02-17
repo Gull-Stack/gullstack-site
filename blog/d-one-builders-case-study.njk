@@ -1,0 +1,434 @@
+---
+layout: base.njk
+title: "Case Study: How We Positioned D One Builders to Capture 3,000+ Monthly Searches"
+description: A Gilroy contractor was invisible online. We rebuilt their site with 14 SEO-optimized pages targeting every service and city they serve. Here's the organic opportunity we unlocked.
+headerStyle: inner
+footerStyle: simple
+activeNav: blog
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  
+  .back-link {
+    margin-top: 120px;
+  }
+  
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { color: var(--text); }
+  
+  .hero-image {
+    margin: -20px 0 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  }
+  .hero-overlay .site-url {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+  
+  .post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  
+  .post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  
+  .post-content { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+  .post-content p { margin-bottom: 28px; color: rgba(255,255,255,0.85); }
+  .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin: 56px 0 24px;
+    color: var(--text);
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 28px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .post-content li { margin-bottom: 12px; }
+  .post-content strong { color: var(--text); }
+  
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .stat-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--success);
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  @media (max-width: 768px) {
+    .stat-grid { grid-template-columns: 1fr; }
+    .post-title { font-size: 2rem; }
+  }
+  
+  .keyword-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .keyword-table th {
+    background: rgba(99,102,241,0.1);
+    padding: 16px;
+    text-align: left;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+  .keyword-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .keyword-table tr:last-child td { border-bottom: none; }
+  .keyword-table .volume { 
+    color: var(--success); 
+    font-weight: 600;
+    font-family: monospace;
+  }
+  
+  .site-structure {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .site-structure h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--success);
+  }
+  .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 600px) {
+    .structure-grid { grid-template-columns: 1fr; }
+  }
+  .structure-col h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .structure-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .structure-col li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .structure-col li:last-child { border-bottom: none; }
+  .structure-col li::before {
+    content: "→";
+    color: var(--accent);
+  }
+  
+  .quote-block {
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    background: var(--bg-elevated);
+    border-radius: 0 12px 12px 0;
+  }
+  
+  .cta-box {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-box .btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/blog/" class="back-link">← Back to Blog</a>
+  
+  <span class="post-category">Case Study</span>
+  <h1 class="post-title">How We Positioned D One Builders to Capture 3,000+ Monthly Searches</h1>
+  <p class="post-meta">February 16, 2026 • 5 min read</p>
+
+  <div class="hero-image">
+    <img src="https://api.microlink.io/?url=https://www.donebuilders.com&screenshot=true&meta=false&embed=screenshot.url" alt="D One Builders website by GullStack">
+    <div class="hero-overlay">
+      <span class="site-url">donebuilders.com</span>
+    </div>
+  </div>
+
+  <article class="post-content">
+    <p>Kyle Dickson has been building custom homes and doing high-end remodels in the South Bay for over 17 years. His reputation? Impeccable. 50+ five-star Google reviews. BBB A+ rated. Referrals are his bread and butter.</p>
+    
+    <p>But when someone in San Jose searched "general contractor near me" or "kitchen remodel Gilroy"? Kyle was nowhere to be found.</p>
+    
+    <p>His old website was a single page. No service pages. No location targeting. No blog. Google had nothing to index — so Google showed nothing.</p>
+    
+    <p><strong>We changed that.</strong></p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Pages Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3,000+</div>
+        <div class="stat-label">Monthly Search Volume</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Cities Targeted</div>
+      </div>
+    </div>
+
+    <h2>The Problem: Invisible Where It Matters</h2>
+    
+    <p>D One Builders serves Gilroy, Morgan Hill, San Jose, Hollister, San Martin, and San Benito County. That's a massive service area with hundreds of thousands of potential customers.</p>
+    
+    <p>But the old site had:</p>
+    <ul>
+      <li>One page (the homepage)</li>
+      <li>No individual service pages</li>
+      <li>No location-specific content</li>
+      <li>No project portfolio with detail pages</li>
+      <li>No sitemap submitted to Google</li>
+    </ul>
+    
+    <p>When someone searched "bathroom remodel Morgan Hill" or "custom home builder San Jose" — Kyle was competing with his hands tied behind his back.</p>
+
+    <h2>The Strategy: One Page Per Intent</h2>
+    
+    <p>Every search query is an intent. "Kitchen remodel Gilroy" is different from "home addition San Jose" — even if the same contractor can do both.</p>
+    
+    <p>We built a page for every combination that matters:</p>
+
+    <div class="site-structure">
+      <h3>New Site Architecture</h3>
+      <div class="structure-grid">
+        <div class="structure-col">
+          <h4>Service Pages (8)</h4>
+          <ul>
+            <li>Kitchen Remodels</li>
+            <li>Bathroom Remodels</li>
+            <li>Home Additions</li>
+            <li>Custom Homes</li>
+            <li>Design-Build</li>
+            <li>High-End Finishes</li>
+            <li>Commercial</li>
+            <li>Swimming Pools</li>
+          </ul>
+        </div>
+        <div class="structure-col">
+          <h4>Location Pages (6)</h4>
+          <ul>
+            <li>Gilroy</li>
+            <li>Morgan Hill</li>
+            <li>San Jose</li>
+            <li>Hollister</li>
+            <li>San Martin</li>
+            <li>San Benito County</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <p>Each page is optimized for its specific keyword, with unique content, local references, and clear calls to action. This isn't keyword stuffing — it's matching real search intent with real expertise.</p>
+
+    <h2>The Organic Opportunity</h2>
+    
+    <p>Here's what D One Builders is now positioned to capture:</p>
+
+    <table class="keyword-table">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Monthly Searches</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>general contractor gilroy</td>
+          <td class="volume">200-400</td>
+        </tr>
+        <tr>
+          <td>kitchen remodel san jose</td>
+          <td class="volume">400-800</td>
+        </tr>
+        <tr>
+          <td>bathroom remodel san jose</td>
+          <td class="volume">300-600</td>
+        </tr>
+        <tr>
+          <td>custom home builder gilroy</td>
+          <td class="volume">100-200</td>
+        </tr>
+        <tr>
+          <td>contractor morgan hill</td>
+          <td class="volume">150-300</td>
+        </tr>
+        <tr>
+          <td>home addition san jose</td>
+          <td class="volume">200-400</td>
+        </tr>
+        <tr>
+          <td>remodeling contractor gilroy</td>
+          <td class="volume">100-200</td>
+        </tr>
+        <tr>
+          <td>design build gilroy</td>
+          <td class="volume">50-100</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p><strong>Total addressable search volume: 3,000+ monthly searches</strong></p>
+    
+    <p>These aren't vanity metrics. These are people actively looking for a contractor to hire — right now, in the cities Kyle already serves.</p>
+
+    <h2>What We Built</h2>
+    
+    <p>Beyond the page structure, we implemented:</p>
+    
+    <ul>
+      <li><strong>Project portfolio</strong> — Individual pages for major projects (Apple HQ renovation, San Jose whole-home remodel) with photos and details</li>
+      <li><strong>Schema markup</strong> — LocalBusiness structured data so Google understands exactly what D One does and where</li>
+      <li><strong>XML sitemap</strong> — All 20+ pages submitted to Google Search Console for faster indexing</li>
+      <li><strong>Internal linking</strong> — Strategic links between service and location pages to build topical authority</li>
+      <li><strong>Mobile-first design</strong> — Fast, responsive, works perfectly on phones (where most local searches happen)</li>
+      <li><strong>Custom phone numbers</strong> — Dedicated lines for Kyle (CEO) and his office manager, both integrated into a custom CRM where they can respond to leads instantly via text or call</li>
+      <li><strong>CRM integration</strong> — Every lead, every conversation, every follow-up tracked in one place — no more sticky notes or missed callbacks</li>
+    </ul>
+
+    <div class="quote-block">
+      "Contractors live and die by referrals. But the ones who show up in Google search? They're building a pipeline that doesn't depend on who-knows-who."
+    </div>
+
+    <h2>The Math That Matters</h2>
+    
+    <p>Let's be conservative. Say the new site captures just 5% of that 3,000+ monthly search volume. That's <strong>150 website visitors per month</strong> from organic search alone.</p>
+    
+    <p>If 3% of those visitors request a quote, that's <strong>4-5 new leads per month</strong>.</p>
+    
+    <p>For a contractor where a single kitchen remodel is $50K-150K? One new client per month from organic search is a game-changer.</p>
+    
+    <p>And unlike paid ads, organic traffic compounds. The site gets stronger over time as Google recognizes the expertise and authority. Six months from now, twelve months from now — the traffic keeps growing without additional spend.</p>
+
+    <h2>The Takeaway</h2>
+    
+    <p>D One Builders had the reputation. The reviews. The skill. What they didn't have was visibility where modern customers are looking.</p>
+    
+    <p>We didn't change their business — we just made sure Google could see what was already true: that Kyle Dickson is one of the best contractors in the South Bay.</p>
+    
+    <p>Now when someone searches, they'll find him.</p>
+
+    <div class="cta-box">
+      <h3>Is Your Business Invisible Online?</h3>
+      <p>Most local businesses are competing for customers with one hand tied behind their back. We can fix that.</p>
+      <a href="/#contact" class="btn">Get a Free SEO Audit →</a>
+    </div>
+    
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-top: 48px;">
+      <strong>See the website:</strong> <a href="https://www.donebuilders.com" target="_blank">donebuilders.com</a>
+    </p>
+  </article>
+</main>

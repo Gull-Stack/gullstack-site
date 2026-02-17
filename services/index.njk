@@ -1,0 +1,137 @@
+---
+layout: base.njk
+title: Services — GullStack
+description: Everything a marketing team does — without the team. Websites, payment processing, CRM, booking, automation, SEO, and AI tools. One partner. Real results.
+ogTitle: Our Services — GullStack
+ogDescription: Less SaaS. Lower fees. Better marketing. See how we help small businesses grow.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  .page-header h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 20px;
+  }
+  
+  .page-header p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  
+  .service-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  
+  .service-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .service-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .service-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .service-card .link {
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .service-card:hover .link { gap: 12px; }
+---
+
+<main class="container">
+  <div class="page-header">
+    <h1>What We Build</h1>
+    <p>Everything a marketing team does — without the team. One system. One partner. Real results.</p>
+  </div>
+  
+  <div class="services-grid">
+    <a href="/services/websites/" class="service-card">
+      <div class="icon">🌐</div>
+      <h2>Websites That Convert</h2>
+      <p>Fast, modern, mobile-first websites built to turn visitors into customers. No templates. No bloat. Just results.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/payment-processing/" class="service-card">
+      <div class="icon">💳</div>
+      <h2>Fair Payment Processing</h2>
+      <p>Stop losing 2-8% on every transaction. We process payments at 1% — putting thousands back in your pocket every year.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/crm/" class="service-card">
+      <div class="icon">📊</div>
+      <h2>One Dashboard CRM</h2>
+      <p>Every lead, every conversation, every follow-up in one place. No more juggling six different logins.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/booking-scheduling/" class="service-card">
+      <div class="icon">📅</div>
+      <h2>Booking & Scheduling</h2>
+      <p>Online booking synced to your calendar. Automated reminders. Follow-ups that run while you sleep.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/marketing-automation/" class="service-card">
+      <div class="icon">⚡</div>
+      <h2>Marketing Automation</h2>
+      <p>Email sequences, SMS follow-ups, and nurture campaigns that convert leads into customers on autopilot.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/seo/" class="service-card">
+      <div class="icon">🔍</div>
+      <h2>SEO & Local Search</h2>
+      <p>Get found when people search for what you do. Local rankings, content strategy, and organic traffic that compounds.</p>
+      <span class="link">Learn more →</span>
+    </a>
+    
+    <a href="/services/ai-consulting/" class="service-card">
+      <div class="icon">🤖</div>
+      <h2>AI-Powered Tools</h2>
+      <p>Replace your SEO employee, content writer, and customer service rep with AI that works 24/7 at a fraction of the cost.</p>
+      <span class="link">Learn more →</span>
+    </a>
+  </div>
+</main>

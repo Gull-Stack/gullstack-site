@@ -7,10 +7,30 @@
         {{ site.name }}
       </a>
       <nav>
-        <a href="/#audit">Free Audit</a>
-        <a href="/#products">Products</a>
-        <a href="/projects/">Projects</a>
-        <a href="/#services">Services</a>
+        <div class="nav-dropdown">
+          <a href="/services/"{% if activeNav == 'services' %} class="active"{% endif %}>Services ▾</a>
+          <div class="dropdown-content">
+            <a href="/services/websites/">Websites</a>
+            <a href="/services/payment-processing/">Payment Processing</a>
+            <a href="/services/crm/">CRM</a>
+            <a href="/services/booking-scheduling/">Booking & Scheduling</a>
+            <a href="/services/marketing-automation/">Marketing Automation</a>
+            <a href="/services/seo/">SEO</a>
+            <a href="/services/ai-consulting/">AI Consulting</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="/industries/"{% if activeNav == 'industries' %} class="active"{% endif %}>Industries ▾</a>
+          <div class="dropdown-content">
+            <a href="/industries/therapists/">Therapists</a>
+            <a href="/industries/contractors/">Contractors</a>
+            <a href="/industries/medical-practices/">Medical Practices</a>
+            <a href="/industries/salons-spas/">Salons & Spas</a>
+            <a href="/industries/consultants/">Consultants</a>
+            <a href="/industries/restaurants/">Restaurants</a>
+          </div>
+        </div>
+        <a href="/compare/"{% if activeNav == 'compare' %} class="active"{% endif %}>Compare</a>
         <a href="/blog/"{% if activeNav == 'blog' %} class="active"{% endif %}>Blog</a>
         <a href="/#contact" class="btn btn-primary">Contact</a>
       </nav>
@@ -27,10 +47,23 @@
 
 <!-- Mobile Navigation -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="/#audit" onclick="closeMobileMenu()">Free Audit</a>
-  <a href="/#products" onclick="closeMobileMenu()">Products</a>
-  <a href="/projects/" onclick="closeMobileMenu()">Projects</a>
-  <a href="/#services" onclick="closeMobileMenu()">Services</a>
+  <div class="mobile-nav-group">
+    <span class="mobile-nav-label">Services</span>
+    <a href="/services/" onclick="closeMobileMenu()">All Services</a>
+    <a href="/services/websites/" onclick="closeMobileMenu()">→ Websites</a>
+    <a href="/services/payment-processing/" onclick="closeMobileMenu()">→ Payment Processing</a>
+    <a href="/services/crm/" onclick="closeMobileMenu()">→ CRM</a>
+    <a href="/services/booking-scheduling/" onclick="closeMobileMenu()">→ Booking</a>
+    <a href="/services/seo/" onclick="closeMobileMenu()">→ SEO</a>
+  </div>
+  <div class="mobile-nav-group">
+    <span class="mobile-nav-label">Industries</span>
+    <a href="/industries/" onclick="closeMobileMenu()">All Industries</a>
+    <a href="/industries/therapists/" onclick="closeMobileMenu()">→ Therapists</a>
+    <a href="/industries/contractors/" onclick="closeMobileMenu()">→ Contractors</a>
+    <a href="/industries/medical-practices/" onclick="closeMobileMenu()">→ Medical</a>
+  </div>
+  <a href="/compare/" onclick="closeMobileMenu()">Compare</a>
   <a href="/blog/" onclick="closeMobileMenu()">Blog</a>
   <a href="/#contact" class="btn btn-primary" onclick="closeMobileMenu()">Contact</a>
 </div>

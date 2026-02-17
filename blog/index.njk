@@ -53,6 +53,7 @@ css: |
     height: 200px;
     object-fit: cover;
     transition: transform 0.5s;
+    background: var(--bg-elevated);
   }
   
   .blog-card:hover .blog-card-image {
@@ -62,6 +63,17 @@ css: |
   .blog-card-image-wrapper {
     overflow: hidden;
     height: 200px;
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, rgba(99,102,241,0.1) 100%);
+  }
+  
+  @media (max-width: 768px) {
+    .blog-card-image-wrapper,
+    .blog-card-image-wrapper[style*="height"],
+    .blog-card-image,
+    .blog-card-image[style*="height"] {
+      height: 180px !important;
+      max-height: 180px !important;
+    }
   }
   
   .blog-card-content {
@@ -110,6 +122,42 @@ css: |
   <p class="page-subtitle">Insights on marketing, business growth, and building great products.</p>
 
   <div class="blog-grid">
+    <a href="/blog/she-cried/" class="blog-card" style="grid-column: span 2;">
+      <div class="blog-card-image-wrapper" style="height: 280px;">
+        <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling Website" class="blog-card-image" style="height: 280px;">
+      </div>
+      <div class="blog-card-content">
+        <span class="blog-card-category">Client Story • Featured</span>
+        <h2 class="blog-card-title" style="font-size: 1.75rem;">She Cried: How We Saved a Therapist 7% on Every Dollar</h2>
+        <p class="blog-card-excerpt">A therapist came to us paying 8% on every transaction. We rebuilt her entire system. Now she pays 1%. When we showed her the numbers, she cried.</p>
+        <span class="blog-card-link">Read the full story →</span>
+      </div>
+    </a>
+
+    <a href="/blog/edge-energy-case-study/" class="blog-card">
+      <div class="blog-card-image-wrapper">
+        <img src="https://api.microlink.io/?url=https://www.energydevelopmentgroup.com&screenshot=true&meta=false&embed=screenshot.url" alt="EDGE Energy Website" class="blog-card-image">
+      </div>
+      <div class="blog-card-content">
+        <span class="blog-card-category">Case Study • New</span>
+        <h2 class="blog-card-title">EDGE Energy: Selling Texas Energy Independence</h2>
+        <p class="blog-card-excerpt">How we built a conversion-focused website for a Texas microgrid company helping homeowners escape grid failures and rising energy costs.</p>
+        <span class="blog-card-link">Read more →</span>
+      </div>
+    </a>
+
+    <a href="/blog/d-one-builders-case-study/" class="blog-card">
+      <div class="blog-card-image-wrapper">
+        <img src="https://api.microlink.io/?url=https://www.donebuilders.com&screenshot=true&meta=false&embed=screenshot.url" alt="D One Builders Website" class="blog-card-image">
+      </div>
+      <div class="blog-card-content">
+        <span class="blog-card-category">Case Study</span>
+        <h2 class="blog-card-title">How We Positioned D One Builders to Capture 3,000+ Monthly Searches</h2>
+        <p class="blog-card-excerpt">A Gilroy contractor with 50+ five-star reviews was invisible online. We rebuilt their site with 20+ SEO-optimized pages. Here's the organic opportunity we unlocked.</p>
+        <span class="blog-card-link">Read more →</span>
+      </div>
+    </a>
+
     <a href="/blog/agile-counseling-case-study/" class="blog-card">
       <div class="blog-card-image-wrapper">
         <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" alt="Therapist Office" class="blog-card-image">

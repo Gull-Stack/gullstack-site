@@ -1,0 +1,118 @@
+---
+layout: base.njk
+title: Square Alternative — Lower Payment Processing Fees Than Square
+description: Square charges 2.6% + $0.10 on every transaction. GullStack charges 1%. On $100K in sales, that's $1,700 back in your pocket every year.
+ogTitle: Square Alternative — GullStack
+ogDescription: Square takes 2.6%. We take 1%. That's $1,700+/year in savings on $100K revenue.
+css: |
+  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
+  .compare-hero { text-align: center; margin-bottom: 100px; }
+  .compare-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
+  .compare-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
+  .compare-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; line-height: 1.6; }
+  .fee-compare { max-width: 600px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 48px; text-align: center; }
+  .fee-numbers { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 32px; }
+  .fee-box { text-align: center; }
+  .fee-box .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 8px; }
+  .fee-box .rate { font-family: var(--font-serif); font-size: 3rem; line-height: 1; }
+  .fee-box.them .rate { color: #ef4444; }
+  .fee-box.us .rate { color: var(--accent); }
+  .fee-arrow { font-size: 2rem; color: var(--text-muted); }
+  .fee-savings { padding-top: 24px; border-top: 1px solid var(--border); }
+  .fee-savings .amount { font-family: var(--font-serif); font-size: 2.5rem; color: var(--accent); margin-bottom: 8px; }
+  .fee-savings .note { color: var(--text-muted); }
+  .compare-table { max-width: 800px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+  .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.header { background: rgba(99,102,241,0.1); font-weight: 600; }
+  .compare-row .feature { color: var(--text-muted); }
+  .compare-row .them { text-align: center; }
+  .compare-row .us { text-align: center; color: var(--accent); }
+  .compare-row .check { color: var(--accent); }
+  .content-section { max-width: 800px; margin: 0 auto 80px; }
+  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
+  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
+  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
+  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
+  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+---
+
+<main class="container">
+  <div class="compare-hero">
+    <span class="tag">COMPARISON</span>
+    <h1>Stop Overpaying Square</h1>
+    <p>Square made payment processing simple. But simple doesn't mean cheap. At 2.6% + $0.10 per transaction, you're leaving money on the table.</p>
+  </div>
+  
+  <div class="fee-compare">
+    <div class="fee-numbers">
+      <div class="fee-box them">
+        <div class="label">Square</div>
+        <div class="rate">2.6%</div>
+      </div>
+      <div class="fee-arrow">→</div>
+      <div class="fee-box us">
+        <div class="label">GullStack</div>
+        <div class="rate">1%</div>
+      </div>
+    </div>
+    <div class="fee-savings">
+      <div class="amount">$1,700+/year</div>
+      <div class="note">Savings on $100K in annual card sales</div>
+    </div>
+  </div>
+  
+  <div class="compare-table">
+    <div class="compare-row header">
+      <span>Feature</span>
+      <span>Square</span>
+      <span>GullStack</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">In-Person Payments</span>
+      <span class="them">2.6% + $0.10</span>
+      <span class="us">1%</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Online Payments</span>
+      <span class="them">2.9% + $0.30</span>
+      <span class="us">1%</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Invoices</span>
+      <span class="them">3.3% + $0.30</span>
+      <span class="us">1%</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Website</span>
+      <span class="them">Basic (extra $)</span>
+      <span class="us check">Included</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Full CRM</span>
+      <span class="them">Extra $</span>
+      <span class="us check">Included</span>
+    </div>
+    <div class="compare-row">
+      <span class="feature">Marketing Automation</span>
+      <span class="them">Extra $</span>
+      <span class="us check">Included</span>
+    </div>
+  </div>
+  
+  <div class="content-section">
+    <h2>Square's Hidden Costs</h2>
+    <p>Square's flat-rate pricing seems simple, but it adds up. A restaurant doing $300K/year in card sales pays Square $8,700+ in processing fees. With GullStack, that's $3,000.</p>
+    
+    <p>And that's just processing. Square charges extra for their CRM, loyalty programs, marketing tools, and advanced features. With GullStack, everything is included.</p>
+    
+    <h2>Same Simplicity, Better Value</h2>
+    <p>We're not asking you to go back to complicated merchant accounts. GullStack is just as easy as Square — one flat rate, no hidden fees, no contracts. Just a better rate that keeps more money in your business.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Ready to Stop Overpaying?</h2>
+    <p>See exactly how much you could save by switching from Square.</p>
+    <a href="/#contact" class="btn btn-primary">Calculate Your Savings →</a>
+  </div>
+</main>

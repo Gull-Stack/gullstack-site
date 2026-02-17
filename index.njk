@@ -1,20 +1,72 @@
 ---
 layout: base.njk
-title: GullStack — Build Once. Scale Forever.
-description: GullStack Trust builds custom software solutions and AI consulting that transform industries and your brand. Marketing, sales, operations technology, and enterprise AI implementation that saves you money.
-ogTitle: GullStack — Build Once. Scale Forever.
-ogDescription: Software products that transform industries.
+title: GullStack — Stop Bleeding Money
+description: We cut a client's processing fees from 8% to 1%. She cried. Kill your SaaS bill, slash your fees, and get marketing that actually works. One partner. Real savings.
+ogTitle: GullStack — Stop Bleeding Money
+ogDescription: Kill your SaaS bill. Slash your fees. Get marketing that works.
 css: |
+  /* ═══════════════════════════════════════════
+     LIVE COUNTER BANNER
+  ═══════════════════════════════════════════ */
+  .live-counter {
+    background: linear-gradient(90deg, rgba(99,102,241,0.9), rgba(168,85,247,0.9));
+    padding: 10px 24px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+  }
+  
+  .live-counter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  .live-counter .pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #c4b5fd;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+  }
+  
+  .live-counter .amount {
+    font-weight: 700;
+    font-family: monospace;
+    font-size: 1rem;
+    color: #c4b5fd;
+  }
+
   /* ═══════════════════════════════════════════
      HERO
   ═══════════════════════════════════════════ */
   .hero {
-    min-height: 85vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 120px 24px 80px;
+    padding: 60px 24px 80px;
     position: relative;
     overflow: hidden;
   }
@@ -27,7 +79,7 @@ css: |
     transform: translateX(-50%);
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
   
@@ -45,35 +97,48 @@ css: |
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent);
+    color: #a855f7;
     margin-bottom: 32px;
     letter-spacing: 0.05em;
   }
   
   .hero h1 {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 10vw, 7rem);
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
     font-weight: 400;
-    line-height: 1.05;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
   
-  .hero h1 span {
-    display: block;
-    background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .hero p {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 48px;
+    max-width: 650px;
+    margin: 0 auto 20px;
     font-weight: 400;
+    line-height: 1.6;
   }
+  
+  .hero-proof {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 48px;
+    padding: 16px 24px;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 12px;
+    display: inline-block;
+  }
+  
+  .hero-proof strong { color: #a855f7; }
   
   .hero-btns {
     display: flex;
@@ -82,135 +147,672 @@ css: |
     flex-wrap: wrap;
   }
   
-  .scroll-indicator {
-    position: absolute;
-    bottom: 48px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-  }
-  
-  .scroll-indicator svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--text-muted);
-  }
-  
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-  }
-  
   /* ═══════════════════════════════════════════
-     WEBSITE AUDIT TOOL
+     CALCULATOR
   ═══════════════════════════════════════════ */
-  .audit-tool {
-    padding: 120px 0;
+  .calculator {
+    padding: 100px 0;
     background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
+  }
+  
+  .calc-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .calc-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  
+  .calc-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .calc-header p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+  }
+  
+  .calc-box {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px;
+  }
+  
+  .calc-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 600px) {
+    .calc-inputs { grid-template-columns: 1fr; }
+  }
+  
+  .calc-field label {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  
+  .calc-field input, .calc-field select {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-family: monospace;
+  }
+  
+  .calc-field input:focus, .calc-field select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  .calc-result {
+    background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(99,102,241,0.1));
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+  }
+  
+  .calc-result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
     border-bottom: 1px solid var(--border);
   }
   
-  .audit-content {
+  .calc-result-row:last-child {
+    border-bottom: none;
+    padding-top: 24px;
+    margin-top: 8px;
+  }
+  
+  .calc-result-row .label {
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  
+  .calc-result-row .value {
+    font-family: monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .calc-result-row .value.negative { color: #ef4444; }
+  .calc-result-row .value.positive { color: #a855f7; }
+  
+  .calc-result-row.total .label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .calc-result-row.total .value {
+    font-size: 2rem;
+    color: #a855f7;
+  }
+  
+  .calc-cta {
+    margin-top: 32px;
+    text-align: center;
+  }
+  
+  .calc-cta p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* ═══════════════════════════════════════════
+     PROBLEM SECTION
+  ═══════════════════════════════════════════ */
+  .problem {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(239,68,68,0.03) 50%, var(--bg) 100%);
+    border-top: 1px solid var(--border);
+  }
+  
+  .problem-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .problem-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .problem-header p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .saas-stack {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-elevated);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .saas-header {
+    background: rgba(239,68,68,0.1);
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(239,68,68,0.2);
+    font-weight: 600;
+    color: #ef4444;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .saas-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .saas-item:last-of-type { border-bottom: none; }
+  
+  .saas-item .name { color: var(--text-muted); }
+  .saas-item .cost { color: #ef4444; font-weight: 600; font-family: monospace; }
+  
+  .saas-total {
+    background: rgba(239,68,68,0.15);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  
+  .saas-total .cost { color: #ef4444; font-size: 1.25rem; }
+  
+  .problem-note {
+    text-align: center;
+    margin-top: 32px;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+  
+  /* ═══════════════════════════════════════════
+     BEFORE/AFTER COMPARISON
+  ═══════════════════════════════════════════ */
+  .comparison {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .comparison-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .comparison-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .comparison-header p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+  }
+  
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 32px;
+    align-items: stretch;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 900px) {
+    .comparison-grid { 
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+    .comparison-arrow { 
+      transform: rotate(90deg);
+      justify-self: center;
+    }
+  }
+  
+  .comparison-card {
+    background: var(--bg-elevated);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+  }
+  
+  .comparison-card.before {
+    border: 2px solid #ef4444;
+  }
+  
+  .comparison-card.after {
+    border: 2px solid #a855f7;
+  }
+  
+  .comparison-card .tag {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    padding: 4px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 20px;
+  }
+  
+  .comparison-card.before .tag {
+    background: #ef4444;
+    color: white;
+  }
+  
+  .comparison-card.after .tag {
+    background: #a855f7;
+    color: white;
+  }
+  
+  .comparison-card h3 {
+    font-size: 1.25rem;
+    margin: 16px 0 24px;
+    color: var(--text-muted);
+  }
+  
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .app-icon {
+    aspect-ratio: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  
+  .app-icon .icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+  
+  .comparison-card .stats {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  
+  .comparison-card .stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.95rem;
+  }
+  
+  .comparison-card .stat-row .label { color: var(--text-muted); }
+  
+  .comparison-card.before .stat-row .value { 
+    color: #ef4444; 
+    font-weight: 600;
+    font-family: monospace;
+  }
+  
+  .comparison-card.after .stat-row .value { 
+    color: #a855f7; 
+    font-weight: 600;
+    font-family: monospace;
+  }
+  
+  .comparison-card.after .app-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-card.after .app-icon {
+    flex-direction: row;
+    aspect-ratio: auto;
+    padding: 20px 24px;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+  
+  .comparison-card.after .app-icon .icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  
+  .comparison-card.after .app-icon .text {
+    text-align: left;
+  }
+  
+  .comparison-card.after .app-icon .text strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  
+  .comparison-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--text-muted);
+  }
+  
+  /* ═══════════════════════════════════════════
+     SOLUTION SECTION
+  ═══════════════════════════════════════════ */
+  .solution {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .solution-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    gap: 80px;
     align-items: center;
   }
   
   @media (max-width: 900px) {
-    .audit-content {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
+    .solution-grid { grid-template-columns: 1fr; gap: 48px; }
   }
   
-  .audit-text .section-title {
+  .solution-text h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
     margin-bottom: 24px;
   }
   
-  .audit-text .section-sub {
-    max-width: 100%;
+  .solution-text h2 .highlight { color: #a855f7; }
+  
+  .solution-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
     margin-bottom: 32px;
   }
   
-  .audit-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
+  .solution-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   
-  .audit-feature {
+  .solution-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: rgba(99,102,241,0.1);
-    border: 1px solid rgba(99,102,241,0.2);
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 500;
+    gap: 16px;
+    font-size: 1.05rem;
   }
   
-  .audit-icon {
-    font-size: 1rem;
+  .solution-list li:last-child { border-bottom: none; }
+  
+  .solution-list .check {
+    width: 28px;
+    height: 28px;
+    background: rgba(99,102,241,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a855f7;
+    font-size: 0.9rem;
+    flex-shrink: 0;
   }
   
-  .audit-form-wrap {
+  .fee-comparison {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
+    text-align: center;
   }
-
-  /* ═══════════════════════════════════════════
-     PRODUCTS
-  ═══════════════════════════════════════════ */
-  .products {
-    padding: 120px 0;
+  
+  .fee-comparison h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+  
+  .fee-numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .fee-box {
+    text-align: center;
+  }
+  
+  .fee-box .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  
+  .fee-box .number {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+  
+  .fee-box.before .number { color: #ef4444; }
+  .fee-box.after .number { color: #a855f7; }
+  
+  .fee-arrow {
+    font-size: 2rem;
+    color: var(--text-muted);
+  }
+  
+  .fee-result {
+    padding-top: 24px;
     border-top: 1px solid var(--border);
   }
   
-  .products-grid {
+  .fee-result .savings {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: #a855f7;
+    margin-bottom: 8px;
+  }
+  
+  .fee-result .note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  
+  /* ═══════════════════════════════════════════
+     CASE STUDY
+  ═══════════════════════════════════════════ */
+  .case-study {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
+    border-top: 1px solid var(--border);
+  }
+  
+  .case-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .case-card-header {
+    padding: 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .case-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a855f7;
+  }
+  
+  .case-link {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+  
+  .case-card-body {
+    padding: 40px;
+  }
+  
+  .case-quote {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    position: relative;
+    padding-left: 32px;
+  }
+  
+  .case-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 4rem;
+    color: #a855f7;
+    opacity: 0.5;
+    line-height: 1;
+  }
+  
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  
+  @media (max-width: 600px) {
+    .case-stats { grid-template-columns: 1fr; }
+  }
+  
+  .case-stat {
+    text-align: center;
+  }
+  
+  .case-stat .number {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #a855f7;
+    margin-bottom: 4px;
+  }
+  
+  .case-stat .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  
+  .case-card-footer {
+    padding: 24px 40px;
+    background: rgba(99,102,241,0.05);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  
+  .case-card-footer a {
+    color: #a855f7;
+    font-weight: 600;
+  }
+  
+  /* ═══════════════════════════════════════════
+     SERVICES
+  ═══════════════════════════════════════════ */
+  .services {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+  
+  .services-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .services-header h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .services-header p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+  }
+  
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
   
   @media (max-width: 900px) {
-    .products-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
   }
   
-  .product-card {
+  .service-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 32px;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
   }
   
-  .product-card:hover {
-    border-color: var(--accent);
+  .service-card:hover {
+    border-color: #a855f7;
     transform: translateY(-4px);
   }
   
-  .product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent), #a855f7);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  
-  .product-card:hover::before { opacity: 1; }
-  
-  .product-icon {
+  .service-icon {
     width: 56px;
     height: 56px;
     background: rgba(99,102,241,0.1);
@@ -219,318 +821,472 @@ css: |
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   
-  .product-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
+  .service-card h3 {
+    font-size: 1.25rem;
     margin-bottom: 12px;
   }
   
-  .product-card p {
+  .service-card p {
     color: var(--text-muted);
     font-size: 0.95rem;
-    margin-bottom: 24px;
+    line-height: 1.6;
   }
-  
-  .product-link {
-    font-weight: 600;
-    color: var(--accent);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: gap 0.2s;
-  }
-  
-  .product-link:hover { gap: 12px; }
   
   /* ═══════════════════════════════════════════
-     CASE STUDIES
+     INDUSTRIES
   ═══════════════════════════════════════════ */
-  .case-studies {
-    padding: 120px 0;
+  .industries {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.03) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
   }
   
-  .cases-grid {
+  .industries-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
   
-  @media (max-width: 768px) {
-    .cases-grid { grid-template-columns: 1fr; }
+  @media (max-width: 900px) {
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
   }
   
-  .case-card {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    aspect-ratio: 16/10;
+  @media (max-width: 600px) {
+    .industries-grid { grid-template-columns: 1fr; }
+  }
+  
+  .industry-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
     transition: all 0.3s ease;
+    display: block;
   }
   
-  .case-card:hover {
-    transform: scale(1.02);
-    border-color: var(--accent);
+  .industry-card:hover {
+    border-color: #a855f7;
+    transform: translateY(-4px);
   }
   
-  .case-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+  .industry-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 16px;
   }
   
-  .case-card:hover img { opacity: 1; }
-  
-  .case-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 32px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-  }
-  
-  .case-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
+  .industry-card h3 {
+    font-size: 1.15rem;
     margin-bottom: 8px;
+    color: var(--text);
   }
   
-  .case-card p {
+  .industry-card p {
     color: var(--text-muted);
     font-size: 0.9rem;
+    line-height: 1.5;
   }
-  
-  .case-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-  }
-  
+
   /* ═══════════════════════════════════════════
-     SERVICES
+     CTA
   ═══════════════════════════════════════════ */
-  .services {
-    padding: 120px 0;
+  .cta-section {
+    padding: 100px 0;
     border-top: 1px solid var(--border);
   }
   
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 64px;
+  .cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 24px;
+    padding: 60px 40px;
   }
   
-  @media (max-width: 768px) {
-    .services-grid { grid-template-columns: 1fr; }
+  .cta-box h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    margin-bottom: 16px;
   }
   
-  .service-item h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .service-item h3::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-  }
-  
-  .service-item p {
+  .cta-box p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    padding-left: 20px;
+    font-size: 1.15rem;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-box .btn-primary {
+    background: #a855f7;
+    padding: 18px 36px;
+    font-size: 1.1rem;
+  }
+  
+  .cta-box .btn-primary:hover {
+    background: #7c3aed;
   }
 ---
+
+<!-- Live Counter Banner -->
+<div class="live-counter">
+  <span class="pulse"></span>
+  Small businesses have lost <span class="amount" id="lossCounter">$0</span> to fees and SaaS while you've been on this page
+</div>
+
+<script>
+(function() {
+  // Average small business loses ~$15,000/year = ~$1.71/hour = $0.0285/minute = $0.000475/second
+  // We'll use $0.50/second for dramatic effect (represents collective losses)
+  const perSecond = 0.47;
+  let total = 0;
+  const counter = document.getElementById('lossCounter');
+  
+  setInterval(() => {
+    total += perSecond;
+    counter.textContent = '$' + Math.floor(total).toLocaleString();
+  }, 1000);
+})();
+</script>
 
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-tag">SOFTWARE THAT SCALES</div>
+    <div class="hero-tag">LESS SAAS. LOWER FEES. MORE PROFIT.</div>
     <h1>
-      Build Once.
-      <span>Scale Forever.</span>
+      Stop Bleeding<br><span class="highlight">Money.</span>
     </h1>
     <p>
-      {{ site.fullName }} builds custom software solutions that transform industries and your individual brand. 
-      From marketing to sales to operations — we build technology that saves you money 
-      and gives you the power to run your business better.
+      Small businesses lose thousands every year to disconnected tools and payment processor gouging. We fix that.
     </p>
+    <div class="hero-proof">
+      A therapist came to us paying <strong>8% fees</strong>. Now she pays <strong>1%</strong>. She cried.
+    </div>
     <div class="hero-btns">
-      <a href="#products" class="btn btn-primary">Explore Products →</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      <a href="#calculator" class="btn btn-primary">Calculate Your Losses →</a>
+      <a href="/blog/she-cried/" class="btn btn-outline">Read Her Story</a>
     </div>
-  </div>
-  <div class="scroll-indicator">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-    </svg>
   </div>
 </section>
 
-<!-- Website Audit Tool -->
-<section class="audit-tool" id="audit">
+<!-- Calculator -->
+<section class="calculator" id="calculator">
   <div class="container">
-    <div class="audit-content">
-      <div class="audit-text fade-in">
-        <div class="section-tag">FREE WEBSITE AUDIT</div>
-        <h2 class="section-title">Is Your Website<br><span style="background: linear-gradient(135deg, var(--accent), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Costing You Customers?</span></h2>
-        <p class="section-sub">Enter your website below. We'll show you exactly what you're missing — plus a preview of what your site <em>could</em> look like.</p>
+    <div class="calc-container">
+      <div class="calc-header">
+        <h2>What Are You Losing?</h2>
+        <p>Enter your numbers. See the truth.</p>
+      </div>
+      
+      <div class="calc-box">
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label for="revenue">Monthly Revenue</label>
+            <input type="text" id="revenue" placeholder="$10,000" value="10000">
+          </div>
+          <div class="calc-field">
+            <label for="currentFee">Current Processing Fee %</label>
+            <select id="currentFee">
+              <option value="2.9">2.9% (Stripe/Square)</option>
+              <option value="3.5">3.5% (PayPal)</option>
+              <option value="4">4%</option>
+              <option value="5">5%</option>
+              <option value="6">6%</option>
+              <option value="8" selected>8% (Some processors)</option>
+            </select>
+          </div>
+        </div>
         
-        <div class="audit-features">
-          <div class="audit-feature">
-            <span class="audit-icon">🔍</span>
-            <span>SEO Gap Analysis</span>
+        <div class="calc-result">
+          <div class="calc-result-row">
+            <span class="label">You're currently losing</span>
+            <span class="value negative" id="currentLoss">$800/mo</span>
           </div>
-          <div class="audit-feature">
-            <span class="audit-icon">💰</span>
-            <span>Lost Revenue Calculator</span>
+          <div class="calc-result-row">
+            <span class="label">With GullStack (1%)</span>
+            <span class="value positive" id="newCost">$100/mo</span>
           </div>
-          <div class="audit-feature">
-            <span class="audit-icon">✨</span>
-            <span>Free Preview Redesign</span>
+          <div class="calc-result-row total">
+            <span class="label">Your annual savings</span>
+            <span class="value" id="annualSavings">$8,400/year</span>
           </div>
         </div>
-      </div>
-      
-      <div class="audit-form-wrap fade-in">
-        <form class="audit-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <div class="form-group">
-            <label for="website">Your Website URL</label>
-            <input type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="frustrations">What don't you like about your current site?</label>
-            <textarea id="frustrations" name="frustrations" rows="4" placeholder="It looks outdated, doesn't rank on Google, hard to update, doesn't convert visitors..." required></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email (for your free audit)</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" required>
-          </div>
-          
-          <button type="submit" class="btn btn-primary btn-full">
-            Get My Free Audit →
-          </button>
-          
-          <p class="form-note">Free. No credit card. Preview delivered within 24 hours.</p>
-        </form>
+        
+        <div class="calc-cta">
+          <p>That's real money. Back in your pocket. Every year.</p>
+          <a href="#contact" class="btn btn-primary">Get Started →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Products -->
-<section class="products" id="products">
+<script>
+(function() {
+  const revenueInput = document.getElementById('revenue');
+  const feeSelect = document.getElementById('currentFee');
+  const currentLoss = document.getElementById('currentLoss');
+  const newCost = document.getElementById('newCost');
+  const annualSavings = document.getElementById('annualSavings');
+  
+  function calculate() {
+    const revenue = parseFloat(revenueInput.value.replace(/[^0-9.]/g, '')) || 0;
+    const feePercent = parseFloat(feeSelect.value) || 0;
+    
+    const monthlyLoss = revenue * (feePercent / 100);
+    const monthlyNew = revenue * 0.01;
+    const yearlySavings = (monthlyLoss - monthlyNew) * 12;
+    
+    currentLoss.textContent = '$' + Math.round(monthlyLoss).toLocaleString() + '/mo';
+    newCost.textContent = '$' + Math.round(monthlyNew).toLocaleString() + '/mo';
+    annualSavings.textContent = '$' + Math.round(yearlySavings).toLocaleString() + '/year';
+  }
+  
+  revenueInput.addEventListener('input', calculate);
+  feeSelect.addEventListener('change', calculate);
+  calculate();
+})();
+</script>
+
+<!-- Before/After Comparison -->
+<section class="comparison">
   <div class="container">
-    <div class="section-header fade-in">
-      <div class="section-tag">Our Products</div>
-      <h2 class="section-title">Built to Transform</h2>
-      <p class="section-sub">Each product solves a real problem for real businesses.</p>
+    <div class="comparison-header">
+      <h2>Before & After</h2>
+      <p>Same business. Completely different reality.</p>
     </div>
     
-    <div class="products-grid">
-      <div class="product-card fade-in">
-        <div class="product-icon">🛠️</div>
-        <h3>SuperTool</h3>
-        <p>Multi-tenant customer engagement platform. Messaging, loyalty, analytics, and more — all in one dashboard.</p>
-        <a href="https://supertool-marketing.vercel.app" class="product-link" target="_blank">
-          Learn more <span>→</span>
-        </a>
-      </div>
-      
-      <div class="product-card fade-in">
-        <div class="product-icon">💕</div>
-        <h3>Love Rescue</h3>
-        <p>The world's best relationship experts. One program. Real results. Transform yourself, transform your relationship.</p>
-        <a href="https://loverescue.app" class="product-link" target="_blank">
-          Learn more <span>→</span>
-        </a>
-      </div>
-      
-      <div class="product-card fade-in">
-        <div class="product-icon">🎾</div>
-        <h3>Best Sport Surfaces</h3>
-        <p>Premium court surfacing for tennis, pickleball, and multi-sport facilities. Official surface of the PPA.</p>
-        <a href="https://bestsportsurfaces.com" class="product-link" target="_blank">
-          Learn more <span>→</span>
-        </a>
-      </div>
-      
-      <div class="product-card fade-in">
-        <div class="product-icon">🤖</div>
-        <h3>AI Consulting</h3>
-        <p>Replace your SEO employees and website managers — all in one. Get a dedicated AI bot with 24/7 access that handles what used to take a team.</p>
-        <div style="margin: 16px 0; padding: 12px 16px; background: rgba(99,102,241,0.1); border-radius: 8px; border: 1px solid rgba(99,102,241,0.2);">
-          <span style="font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em;">Starting at</span>
-          <div style="font-size: 1.75rem; font-weight: 800; color: var(--text);">$2,000<span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">/mo</span></div>
+    <div class="comparison-grid">
+      <div class="comparison-card before">
+        <span class="tag">Before</span>
+        <h3>6 apps. 6 logins. 6 bills.</h3>
+        <div class="app-grid">
+          <div class="app-icon">
+            <span class="icon">🌐</span>
+            Wix
+          </div>
+          <div class="app-icon">
+            <span class="icon">📅</span>
+            Calendly
+          </div>
+          <div class="app-icon">
+            <span class="icon">✉️</span>
+            Mailchimp
+          </div>
+          <div class="app-icon">
+            <span class="icon">💳</span>
+            Square
+          </div>
+          <div class="app-icon">
+            <span class="icon">📝</span>
+            Typeform
+          </div>
+          <div class="app-icon">
+            <span class="icon">⭐</span>
+            Podium
+          </div>
         </div>
-        <a href="#contact" class="product-link">
-          Get Started <span>→</span>
-        </a>
+        <div class="stats">
+          <div class="stat-row">
+            <span class="label">Monthly SaaS</span>
+            <span class="value">$784/mo</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Processing fees</span>
+            <span class="value">8%</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Logins to manage</span>
+            <span class="value">6</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Systems talking to each other</span>
+            <span class="value">0</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="comparison-arrow">→</div>
+      
+      <div class="comparison-card after">
+        <span class="tag">After</span>
+        <h3>1 system. Everything connected.</h3>
+        <div class="app-grid">
+          <div class="app-icon">
+            <img src="/gull-logo.png" alt="GullStack" style="width: 48px; height: 48px; object-fit: contain;">
+            <div class="text">
+              <strong>GullStack</strong>
+              Website + CRM + Payments + Automation
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat-row">
+            <span class="label">Monthly cost</span>
+            <span class="value">$0-299/mo</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Processing fees</span>
+            <span class="value">1%</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Logins to manage</span>
+            <span class="value">1</span>
+          </div>
+          <div class="stat-row">
+            <span class="label">Everything connected</span>
+            <span class="value">✓</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Case Studies -->
-<section class="case-studies" id="work">
+<!-- Problem -->
+<section class="problem" id="problem">
   <div class="container">
-    <div class="section-header fade-in">
-      <div class="section-tag">Our Work</div>
-      <h2 class="section-title">Results That Speak</h2>
-      <p class="section-sub">Real projects. Real outcomes. Real transformation.</p>
+    <div class="problem-header">
+      <h2>The Average Small Business Tech Stack</h2>
+      <p>This is what you're paying for tools that don't even work together.</p>
     </div>
     
-    <div class="cases-grid">
-      <div class="case-card fade-in">
-        <div class="case-placeholder">Case study coming soon</div>
-        <div class="case-overlay">
-          <h3>Surgeon Website Redesign</h3>
-          <p>3x increase in consultation bookings</p>
-        </div>
+    <div class="saas-stack">
+      <div class="saas-header">
+        <span>Monthly SaaS Subscriptions</span>
+        <span>Cost</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">Website hosting (Wix, Squarespace)</span>
+        <span class="cost">$30/mo</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">Scheduling software (Calendly, Acuity)</span>
+        <span class="cost">$45/mo</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">Email marketing (Mailchimp)</span>
+        <span class="cost">$35/mo</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">CRM / Client portal</span>
+        <span class="cost">$50/mo</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">Forms & intake</span>
+        <span class="cost">$25/mo</span>
+      </div>
+      <div class="saas-item">
+        <span class="name">Review management (Podium)</span>
+        <span class="cost">$599/mo</span>
+      </div>
+      <div class="saas-total">
+        <span>Before payment processing fees</span>
+        <span class="cost">$784+/mo</span>
+      </div>
+    </div>
+    
+    <p class="problem-note">
+      Plus 2-8% on every transaction. That's <strong>$10,000-20,000/year</strong> bleeding out.
+    </p>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="solution" id="solution">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="solution-text">
+        <h2>One System.<br><span class="highlight">Everything Connected.</span></h2>
+        <p>
+          We consolidate your tools, slash your processing fees, and build marketing that actually drives revenue. One partner. One bill. Real savings.
+        </p>
+        <ul class="solution-list">
+          <li>
+            <span class="check">✓</span>
+            Website that converts visitors to customers
+          </li>
+          <li>
+            <span class="check">✓</span>
+            Booking & scheduling synced to your calendar
+          </li>
+          <li>
+            <span class="check">✓</span>
+            Payment processing at fair rates (not 8%)
+          </li>
+          <li>
+            <span class="check">✓</span>
+            Automated follow-ups and reminders
+          </li>
+          <li>
+            <span class="check">✓</span>
+            AI tools that replace expensive employees
+          </li>
+          <li>
+            <span class="check">✓</span>
+            One dashboard — not six logins
+          </li>
+        </ul>
       </div>
       
-      <div class="case-card fade-in">
-        <div class="case-placeholder">Case study coming soon</div>
-        <div class="case-overlay">
-          <h3>Retail Customer Engagement</h3>
-          <p>40% increase in repeat purchases</p>
+      <div class="fee-comparison">
+        <h3>Real Client Results</h3>
+        <div class="fee-numbers">
+          <div class="fee-box before">
+            <div class="label">Before</div>
+            <div class="number">8%</div>
+          </div>
+          <div class="fee-arrow">→</div>
+          <div class="fee-box after">
+            <div class="label">After</div>
+            <div class="number">1%</div>
+          </div>
+        </div>
+        <div class="fee-result">
+          <div class="savings">$7,000/year saved</div>
+          <div class="note">On a $100K practice. Every year. Forever.</div>
         </div>
       </div>
-      
-      <div class="case-card fade-in">
-        <div class="case-placeholder">Case study coming soon</div>
-        <div class="case-overlay">
-          <h3>Sports Facility Upgrade</h3>
-          <p>Tournament-ready in 30 days</p>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-study" id="work">
+  <div class="container">
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-tag">Featured Client</span>
+        <a href="https://agilecounseling.com" target="_blank" class="case-link">agilecounseling.com →</a>
+      </div>
+      <div class="case-card-body">
+        <p class="case-quote">
+          She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <div class="number">8%→1%</div>
+            <div class="label">Processing Fees</div>
+          </div>
+          <div class="case-stat">
+            <div class="number">$0</div>
+            <div class="label">Website Cost</div>
+          </div>
+          <div class="case-stat">
+            <div class="number">$7K</div>
+            <div class="label">Annual Savings</div>
+          </div>
         </div>
       </div>
-      
-      <div class="case-card fade-in">
-        <div class="case-placeholder">Case study coming soon</div>
-        <div class="case-overlay">
-          <h3>Marketing Automation</h3>
-          <p>$2M pipeline in 90 days</p>
-        </div>
+      <div class="case-card-footer">
+        <a href="/blog/she-cried/">Read the full story →</a>
       </div>
     </div>
   </div>
@@ -539,86 +1295,114 @@ css: |
 <!-- Services -->
 <section class="services" id="services">
   <div class="container">
-    <div class="section-header fade-in">
-      <div class="section-tag">Services</div>
-      <h2 class="section-title">How We Help</h2>
-      <p class="section-sub">Beyond products, we partner with businesses to accelerate growth.</p>
+    <div class="services-header">
+      <h2>What You Get</h2>
+      <p>Everything a marketing team does — without the team.</p>
     </div>
     
     <div class="services-grid">
-      <div class="service-item fade-in">
-        <h3>Brand Storytelling</h3>
-        <p>Nobody cares about you. People care about why your business can make their life easier or better. Let's reframe your story to shape your entire marketing effort.</p>
-      </div>
+      <a href="/services/websites/" class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website That Converts</h3>
+        <p>Fast, modern, mobile-first. Built to turn visitors into customers, not just look pretty.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>Websites</h3>
-        <p>People will check out your website. And it better be ready. Websites today are as much a validity check as they are informational. We help you simplify your message beautifully.</p>
-      </div>
+      <a href="/services/payment-processing/" class="service-card">
+        <div class="service-icon">💳</div>
+        <h3>Fair Payment Processing</h3>
+        <p>Stop getting gouged at 2-8% per transaction. We process payments at rates that don't destroy your margins.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>Marketing Funnel</h3>
-        <p>Most businesses have a misconstrued view of the marketing funnel. Let's build an entire funnel and help you track from awareness through repeat business.</p>
-      </div>
+      <a href="/services/booking-scheduling/" class="service-card">
+        <div class="service-icon">📅</div>
+        <h3>Booking & Automation</h3>
+        <p>Online scheduling, automated reminders, follow-ups that run while you sleep. No more manual busywork.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>Marketing Automation</h3>
-        <p>A lot is happening behind the scenes for the best marketing machines. CRM, email automation, website chat, and growth strategies for your best asset: your customers.</p>
-      </div>
+      <a href="/services/ai-consulting/" class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI-Powered Tools</h3>
+        <p>Replace your SEO employee, content writer, and customer service rep. 24/7 availability at a fraction of the cost.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>Marketing Strategy</h3>
-        <p>You are the entrepreneur and you have the story. Let's chat about how to best attack your persona and what is needed to grow and polish your business with benchmarks and reports.</p>
-      </div>
+      <a href="/services/crm/" class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>One Dashboard</h3>
+        <p>Everything in one place. Leads, payments, bookings, analytics. Stop juggling six different logins.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>Social Media</h3>
-        <p>Social media is here to stay. Each business persona has different social media needs — let's find yours and build a strategy to increase awareness and drive engagement.</p>
-      </div>
-      
-      <div class="service-item fade-in">
-        <h3>AI Consulting</h3>
-        <p>One dedicated AI bot replaces your SEO employee, website manager, and content team — with 24/7 access. Plans start at $2,000/month. Real automation, not another tool to manage.</p>
-      </div>
+      <a href="/services/seo/" class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Marketing That Works</h3>
+        <p>SEO, local search, content strategy. We don't just build — we drive real traffic and real customers.</p>
+      </a>
     </div>
     
-    <!-- Process -->
-    <div class="section-header fade-in" style="margin-top: 96px;">
-      <div class="section-tag">Our Process</div>
-      <h2 class="section-title">How We Work</h2>
-      <p class="section-sub">"Create Something Memorable" is the motto we live by.</p>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/services/" class="btn btn-outline">View All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="industries" id="industries">
+  <div class="container">
+    <div class="services-header">
+      <h2>Built for Your Industry</h2>
+      <p>We specialize in businesses where every customer matters.</p>
     </div>
     
-    <div class="services-grid" style="margin-top: 48px;">
-      <div class="service-item fade-in">
-        <h3>01. Exploration</h3>
-        <p>We begin by auditing your market space. Who is the core audience? What are their concerns and values? What are your business goals, objectives, and needs?</p>
-      </div>
+    <div class="industries-grid">
+      <a href="/industries/therapists/" class="industry-card">
+        <span class="industry-icon">🧠</span>
+        <h3>Therapists</h3>
+        <p>Stop giving 8% to your payment processor. Focus on clients, not admin.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>02. Prototype</h3>
-        <p>Rapid and collaborative iteration on wireframe concepts, layouts and directions. Simple design to drive conversion while making sure your project has your brand's value proposition.</p>
-      </div>
+      <a href="/industries/contractors/" class="industry-card">
+        <span class="industry-icon">🏗️</span>
+        <h3>Contractors</h3>
+        <p>Dominate local search. Get found for "[service] near me" searches.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>03. Design</h3>
-        <p>While we look at prototypes and what your business needs, we research your audience and which design will resonate with them. Logo, brand, look, and feel — all considered.</p>
-      </div>
+      <a href="/industries/medical-practices/" class="industry-card">
+        <span class="industry-icon">⚕️</span>
+        <h3>Medical Practices</h3>
+        <p>HIPAA-mindful booking, patient communications, and online presence.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>04. Build</h3>
-        <p>We build simple and clean websites, applications, marketing campaigns, and strategies to accommodate your business goals. No fluff. Just what works.</p>
-      </div>
+      <a href="/industries/salons-spas/" class="industry-card">
+        <span class="industry-icon">💅</span>
+        <h3>Salons & Spas</h3>
+        <p>Online booking that reduces no-shows. Lower fees on every transaction.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>05. Go Live & Measure</h3>
-        <p>We go live to the world and measure the return on investment for you, with detailed analytics. Every metric matters.</p>
-      </div>
+      <a href="/industries/consultants/" class="industry-card">
+        <span class="industry-icon">💼</span>
+        <h3>Consultants</h3>
+        <p>Professional websites with integrated scheduling and proposals.</p>
+      </a>
       
-      <div class="service-item fade-in">
-        <h3>06. Grow</h3>
-        <p>Continually look at new ways to improve your digital marketing and increase brand awareness. Growth never stops.</p>
-      </div>
+      <a href="/industries/restaurants/" class="industry-card">
+        <span class="industry-icon">🍽️</span>
+        <h3>Restaurants</h3>
+        <p>Online ordering without DoorDash's 30% cut. Keep your margins.</p>
+      </a>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="/industries/" class="btn btn-outline">View All Industries →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Ready to Stop Bleeding?</h2>
+      <p>Most business owners don't know how much they're losing. Now you do. Let's fix it.</p>
+      <a href="mailto:hello@gullstack.com?subject=Let's%20Talk" class="btn btn-primary">Get Your Free Analysis →</a>
     </div>
   </div>
 </section>
