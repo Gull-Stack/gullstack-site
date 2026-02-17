@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Customer Service Solution | SafeStreets × GullStack</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #6366f1;
+            --purple-dark: #4f46e5;
+            --purple-light: #818cf8;
+            --dark: #0f172a;
+            --gray-900: #1e293b;
+            --gray-700: #334155;
+            --gray-500: #64748b;
+            --gray-300: #cbd5e1;
+            --gray-100: #f1f5f9;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--gray-700);
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--purple-light);
+            letter-spacing: -0.5px;
+        }
+        
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+        
+        h1 span {
+            background: linear-gradient(135deg, var(--purple-light), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+        
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--purple-light);
+        }
+        
+        p {
+            font-size: 20px;
+            color: var(--gray-300);
+            max-width: 700px;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: var(--gray-300);
+            margin-bottom: 40px;
+        }
+        
+        .hero-slide {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid var(--purple);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--purple-light);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .stat-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--purple-light);
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--gray-500);
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        
+        .problem-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+        
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            font-size: 20px;
+            color: var(--gray-300);
+        }
+        
+        .problem-list .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .icon-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--red);
+        }
+        
+        .icon-green {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--green);
+        }
+        
+        .solution-card {
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+            border: 1px solid var(--gray-700);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .feature-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            color: var(--gray-500);
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+        
+        .pricing-table th,
+        .pricing-table td {
+            padding: 20px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-700);
+        }
+        
+        .pricing-table th {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-500);
+        }
+        
+        .pricing-table td {
+            font-size: 18px;
+        }
+        
+        .pricing-table .highlight {
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        .pricing-table .total td {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--purple-light);
+            border-top: 2px solid var(--purple);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+        
+        .comparison-card {
+            border-radius: 20px;
+            padding: 40px;
+        }
+        
+        .comparison-card.before {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .comparison-card.after {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .comparison-card h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .comparison-card.before h3 {
+            color: var(--red);
+        }
+        
+        .comparison-card.after h3 {
+            color: var(--green);
+        }
+        
+        .comparison-card ul {
+            list-style: none;
+        }
+        
+        .comparison-card li {
+            padding: 12px 0;
+            font-size: 18px;
+            color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 64px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray-700);
+        }
+        
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            flex: 1;
+        }
+        
+        .timeline-dot {
+            width: 48px;
+            height: 48px;
+            background: var(--purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-item h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-item p {
+            font-size: 14px;
+            color: var(--gray-500);
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .cta-slide {
+            background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+            text-align: center;
+        }
+        
+        .cta-slide h2 {
+            font-size: 56px;
+            color: var(--white);
+        }
+        
+        .cta-slide p {
+            font-size: 24px;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+        
+        .cta-contact {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .cta-contact .name {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .cta-contact .details {
+            font-size: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--green), #059669);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+        }
+        
+        .roi-highlight h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .roi-highlight .big-number {
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--white);
+        }
+        
+        .roi-highlight p {
+            color: rgba(255,255,255,0.8);
+            margin: 16px auto 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .slide {
+                padding: 40px;
+            }
+            h1 { font-size: 48px; }
+            h2 { font-size: 36px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media print {
+            .slide {
+                page-break-after: always;
+                min-height: auto;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<section class="slide hero-slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">01</div>
+    <div class="badge">Proposal</div>
+    <h1>AI-Powered<br><span>Customer Service</span></h1>
+    <p class="subtitle">A managed solution for SafeStreets USA</p>
+    <p>24/7 intelligent support that scales with your business, reduces costs, and delights customers.</p>
+</section>
+
+<!-- Slide 2: SafeStreets Profile -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">02</div>
+    <h2>SafeStreets at a Glance</h2>
+    <p>ADT's largest and most respected Authorized Provider, protecting over 1 million homes nationwide.</p>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">$82M</div>
+            <div class="stat-label">Annual Revenue</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">400+</div>
+            <div class="stat-label">Employees</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">44</div>
+            <div class="stat-label">States Covered</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">118K+</div>
+            <div class="stat-label">Trustpilot Reviews</div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 3: The Problem -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">03</div>
+    <div class="two-col">
+        <div>
+            <h2>The Challenge</h2>
+            <p>Traditional customer service is expensive, inconsistent, and doesn't scale.</p>
+            <ul class="problem-list">
+                <li>
+                    <div class="icon icon-red">✕</div>
+                    <span><strong>High labor costs</strong> — CS reps cost $45-60K/year each, plus benefits and overhead</span>
+                </li>
+                <li>
+                    <div class="icon icon-red">✕</div>
+                    <span><strong>Limited hours</strong> — Customers need help at 2am, not just 9-5</span>
+                </li>
+                <li>
+                    <div class="icon icon-red">✕</div>
+                    <span><strong>Inconsistent quality</strong> — Training gaps, turnover, bad days</span>
+                </li>
+                <li>
+                    <div class="icon icon-red">✕</div>
+                    <span><strong>Doesn't scale</strong> — 2x volume = 2x headcount = 2x cost</span>
+                </li>
+            </ul>
+        </div>
+        <div class="solution-card">
+            <h3>Common CS Inquiries</h3>
+            <p style="font-size: 16px; margin-bottom: 24px;">80% of support tickets fall into predictable categories that don't require human judgment:</p>
+            <ul class="problem-list" style="margin-top: 0;">
+                <li><div class="icon icon-green">→</div> "How do I pay my bill?"</li>
+                <li><div class="icon icon-green">→</div> "My sensor fell off the wall"</li>
+                <li><div class="icon icon-green">→</div> "I can't see my camera footage"</li>
+                <li><div class="icon icon-green">→</div> "What's my warranty coverage?"</li>
+                <li><div class="icon icon-green">→</div> "Where's my Visa gift card?"</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 4: The Solution -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">04</div>
+    <h2>The Solution: AI-First Support</h2>
+    <p>An intelligent customer service system that handles 70-80% of inquiries automatically, escalating only when human judgment is truly needed.</p>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h4>Smart Chatbot</h4>
+            <p>Website chat that understands context, remembers history, and resolves issues instantly.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📞</div>
+            <h4>Voice AI</h4>
+            <p>Phone support that sounds natural, handles complex conversations, and never puts customers on hold.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Knowledge Base</h4>
+            <p>Trained on your docs, policies, and past conversations. Gets smarter every day.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔄</div>
+            <h4>Smart Escalation</h4>
+            <p>Complex issues route to humans with full context. No customer repeats themselves.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Analytics Dashboard</h4>
+            <p>Real-time insights on volume, resolution rates, common issues, and customer satisfaction.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🌙</div>
+            <h4>24/7/365</h4>
+            <p>No holidays. No sick days. No shift coverage problems. Always-on support.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 5: Before/After -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">05</div>
+    <h2>The Transformation</h2>
+    <div class="comparison-grid">
+        <div class="comparison-card before">
+            <h3>Before: Traditional CS</h3>
+            <ul>
+                <li>6:00 AM – 9:00 PM support hours</li>
+                <li>Hold times during peak periods</li>
+                <li>$150-250K/year for 3-5 CS reps</li>
+                <li>Training gaps after turnover</li>
+                <li>Inconsistent responses</li>
+                <li>Manual ticket categorization</li>
+                <li>Limited capacity during spikes</li>
+            </ul>
+        </div>
+        <div class="comparison-card after">
+            <h3>After: AI-Powered CS</h3>
+            <ul>
+                <li>24/7/365 instant support</li>
+                <li>Zero hold times, ever</li>
+                <li>$125K/year flat fee</li>
+                <li>Consistent training always</li>
+                <li>Identical quality every time</li>
+                <li>Auto-categorization + insights</li>
+                <li>Unlimited scalability</li>
+            </ul>
+        </div>
+    </div>
+    <div class="roi-highlight">
+        <h3>Estimated Annual Savings</h3>
+        <div class="big-number">$50-125K</div>
+        <p>Compared to maintaining equivalent human CS capacity</p>
+    </div>
+</section>
+
+<!-- Slide 6: Investment -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">06</div>
+    <h2>Investment</h2>
+    <p>A fully managed service — we handle everything so you can focus on growing your business.</p>
+    <table class="pricing-table">
+        <thead>
+            <tr>
+                <th>What's Included</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Implementation</strong></td>
+                <td>Knowledge base creation, system training, integrations</td>
+            </tr>
+            <tr>
+                <td><strong>AI Infrastructure</strong></td>
+                <td>Chatbot, voice bot, phone integration</td>
+            </tr>
+            <tr>
+                <td><strong>Ongoing Optimization</strong></td>
+                <td>Continuous improvement, retraining, new scenarios</td>
+            </tr>
+            <tr>
+                <td><strong>Monitoring & Support</strong></td>
+                <td>24/7 system monitoring, escalation handling</td>
+            </tr>
+            <tr>
+                <td><strong>Monthly Reporting</strong></td>
+                <td>Analytics, insights, recommendations</td>
+            </tr>
+            <tr class="total">
+                <td>Annual Investment</td>
+                <td>$125,000/year</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="margin-top: 24px; font-size: 16px; color: var(--gray-500);">
+        * Billed monthly at $10,417/month. 12-month initial commitment with annual renewal.
+    </p>
+</section>
+
+<!-- Slide 7: Timeline -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">07</div>
+    <h2>Implementation Timeline</h2>
+    <p>From kickoff to live in 6-8 weeks.</p>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot">1</div>
+            <h4>Discovery</h4>
+            <p>Deep dive into your processes, docs, and customer needs</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">2</div>
+            <h4>Build</h4>
+            <p>Knowledge base ingestion, AI training, integrations</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">3</div>
+            <h4>Test</h4>
+            <p>Internal testing, edge cases, refinement</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">4</div>
+            <h4>Pilot</h4>
+            <p>Soft launch with subset of traffic</p>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot">5</div>
+            <h4>Launch</h4>
+            <p>Full deployment + ongoing optimization</p>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 8: Why GullStack -->
+<section class="slide">
+    <div class="logo">GullStack</div>
+    <div class="slide-number">08</div>
+    <h2>Why GullStack</h2>
+    <div class="two-col">
+        <div>
+            <ul class="problem-list">
+                <li>
+                    <div class="icon icon-green">✓</div>
+                    <span><strong>Local partner</strong> — We're based in Utah, same timezone, face-to-face relationship</span>
+                </li>
+                <li>
+                    <div class="icon icon-green">✓</div>
+                    <span><strong>AI specialists</strong> — We build AI-powered business solutions, not generic chatbots</span>
+                </li>
+                <li>
+                    <div class="icon icon-green">✓</div>
+                    <span><strong>Fully managed</strong> — We handle everything. You get results without the headaches.</span>
+                </li>
+                <li>
+                    <div class="icon icon-green">✓</div>
+                    <span><strong>Performance aligned</strong> — We succeed when you succeed</span>
+                </li>
+            </ul>
+        </div>
+        <div class="solution-card">
+            <h3>Our Commitment</h3>
+            <p style="font-size: 18px; margin-bottom: 20px;">We're not selling software and walking away. This is a managed service partnership.</p>
+            <ul class="problem-list" style="margin-top: 0;">
+                <li><div class="icon icon-green">→</div> Dedicated account manager</li>
+                <li><div class="icon icon-green">→</div> Monthly strategy reviews</li>
+                <li><div class="icon icon-green">→</div> Continuous optimization</li>
+                <li><div class="icon icon-green">→</div> 99.9% uptime SLA</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 9: CTA -->
+<section class="slide cta-slide">
+    <div class="logo" style="color: rgba(255,255,255,0.8);">GullStack</div>
+    <div class="slide-number" style="color: rgba(255,255,255,0.6);">09</div>
+    <h2>Let's Talk</h2>
+    <p>Ready to transform your customer service? Let's schedule a discovery call to dive deeper into your needs.</p>
+    <div class="cta-contact">
+        <div class="name">Bryce Morgan</div>
+        <div class="details">
+            bryce@gullstack.com<br>
+            (540) 424-0317
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
