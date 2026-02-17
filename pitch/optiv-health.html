@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optiv Health Benefits — Digital Growth Partnership | GullStack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1E3A5F;
+      --primary-light: #2d5a8a;
+      --accent: #F5A623;
+      --accent-dark: #d4900e;
+      --purple: #7c3aed;
+      --purple-light: #a78bfa;
+      --success: #10b981;
+      --dark: #0f172a;
+      --gray-900: #111827;
+      --gray-800: #1f2937;
+      --gray-700: #374151;
+      --gray-600: #4b5563;
+      --gray-400: #9ca3af;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --white: #ffffff;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--dark);
+      color: var(--gray-100);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    .header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Young Serif', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+    
+    .logo span { color: var(--purple-light); }
+    
+    .badge {
+      background: rgba(124, 58, 237, 0.2);
+      color: var(--purple-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .hero-eyebrow {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent) 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--gray-400);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Section */
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-dark {
+      background: var(--gray-900);
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .section-header p {
+      color: var(--gray-400);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Problem Cards */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .problem-card {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    
+    .problem-card .icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .problem-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #fca5a5;
+    }
+    
+    .problem-card p {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+    }
+    
+    /* Solution Grid */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .solution-grid { grid-template-columns: 1fr; }
+    }
+    
+    .solution-card {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(30, 58, 95, 0.2) 100%);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .solution-card.featured {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(245, 166, 35, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
+      border-color: rgba(245, 166, 35, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      .solution-card.featured { grid-column: span 1; }
+    }
+    
+    .solution-card .card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .solution-card .icon {
+      font-size: 2.5rem;
+    }
+    
+    .solution-card h3 {
+      font-size: 1.3rem;
+      color: var(--white);
+    }
+    
+    .solution-card h3 small {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--purple-light);
+    }
+    
+    .solution-card p {
+      color: var(--gray-400);
+      margin-bottom: 20px;
+    }
+    
+    .feature-list {
+      list-style: none;
+    }
+    
+    .feature-list li {
+      padding: 8px 0;
+      color: var(--gray-300);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .feature-list .check {
+      color: var(--success);
+      font-weight: bold;
+    }
+    
+    /* Pricing */
+    .pricing-card {
+      background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+      border: 2px solid var(--purple);
+      border-radius: 20px;
+      padding: 48px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    
+    .pricing-card .price {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 24px 0;
+    }
+    
+    .pricing-card .price span {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--gray-400);
+    }
+    
+    .pricing-card .includes {
+      text-align: left;
+      margin: 32px 0;
+      padding: 24px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+    }
+    
+    .pricing-card .includes h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-400);
+      margin-bottom: 16px;
+    }
+    
+    .pricing-card .includes ul {
+      list-style: none;
+    }
+    
+    .pricing-card .includes li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      color: var(--gray-300);
+    }
+    
+    .pricing-card .includes li:last-child {
+      border-bottom: none;
+    }
+    
+    .pricing-card .includes .value {
+      color: var(--success);
+      font-weight: 600;
+    }
+    
+    /* Bot Features */
+    .bot-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    @media (max-width: 768px) {
+      .bot-features { grid-template-columns: 1fr; }
+    }
+    
+    .bot-feature {
+      background: rgba(124, 58, 237, 0.1);
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    
+    .bot-feature .icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+    
+    .bot-feature h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .bot-feature p {
+      font-size: 0.9rem;
+      color: var(--gray-400);
+    }
+    
+    /* Timeline */
+    .timeline {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    
+    .timeline-marker {
+      width: 48px;
+      height: 48px;
+      background: var(--purple);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .timeline-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    
+    .timeline-content p {
+      color: var(--gray-400);
+      font-size: 0.95rem;
+    }
+    
+    /* CTA */
+    .cta-section {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .footer {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    
+    .footer p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+    }
+    
+    .footer a {
+      color: var(--purple-light);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="https://gullstack.com" class="logo">Gull<span>Stack</span></a>
+      <span class="badge">Prepared for Brian Berekenbile</span>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Digital Growth Partnership</p>
+      <h1>Turn Your Expertise Into a <span>Lead Generation Machine</span></h1>
+      <p class="hero-sub">A complete digital platform that works while you sleep—capturing leads, nurturing prospects, and booking calls automatically.</p>
+    </div>
+  </section>
+  
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Challenge</h2>
+        <p>Growing a benefits consulting practice is hard when you're the only one selling.</p>
+      </div>
+      
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="icon">⏰</div>
+          <h3>Limited Hours</h3>
+          <p>You can only take so many calls per day. Every hour spent on unqualified leads is an hour not spent closing deals.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">📊</div>
+          <h3>Manual Prospecting</h3>
+          <p>Finding decision-makers, researching companies, sending outreach—it's time-consuming and inconsistent.</p>
+        </div>
+        <div class="problem-card">
+          <div class="icon">🔄</div>
+          <h3>Follow-Up Falls Through</h3>
+          <p>Prospects go cold because there's no system nurturing them between touchpoints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Solution</h2>
+        <p>A digital engine that generates, qualifies, and nurtures leads 24/7.</p>
+      </div>
+      
+      <div class="solution-grid">
+        <div class="solution-card">
+          <div class="card-header">
+            <div class="icon">🌐</div>
+            <h3>Authority Website<small>SEO-Optimized & Conversion-Focused</small></h3>
+          </div>
+          <p>Your content turns into searchable, shareable assets that attract employers actively looking for solutions.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Webinar recordings → blog posts & clips</li>
+            <li><span class="check">✓</span> Gated whitepapers for lead capture</li>
+            <li><span class="check">✓</span> SEO pages targeting buyer keywords</li>
+            <li><span class="check">✓</span> Savings calculator for engagement</li>
+            <li><span class="check">✓</span> Case studies & social proof</li>
+            <li><span class="check">✓</span> Mobile-optimized, fast-loading</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card">
+          <div class="card-header">
+            <div class="icon">📹</div>
+            <h3>Content Engine<small>Continuous Fresh Content</small></h3>
+          </div>
+          <p>Every webinar and recording you create gets transformed into multiple content pieces.</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Webinar → blog post transcription</li>
+            <li><span class="check">✓</span> Video clips for social media</li>
+            <li><span class="check">✓</span> Quote graphics & carousels</li>
+            <li><span class="check">✓</span> Email newsletter content</li>
+            <li><span class="check">✓</span> LinkedIn article repurposing</li>
+            <li><span class="check">✓</span> SEO optimization on all content</li>
+          </ul>
+        </div>
+        
+        <div class="solution-card featured">
+          <div class="card-header">
+            <div class="icon">🤖</div>
+            <h3>AI Sales Bot<small>Your 24/7 Sales Development Rep</small></h3>
+          </div>
+          <p>An intelligent assistant that engages visitors, qualifies leads, and hands you warm prospects ready to talk.</p>
+          
+          <div class="bot-features">
+            <div class="bot-feature">
+              <div class="icon">💬</div>
+              <h4>Website Chat</h4>
+              <p>Answers questions, explains benefits, captures contact info, and books calls—even at 2am.</p>
+            </div>
+            <div class="bot-feature">
+              <div class="icon">🔍</div>
+              <h4>Lead Research</h4>
+              <p>Scrapes company data, finds decision-makers, enriches contacts with employee counts & industries.</p>
+            </div>
+            <div class="bot-feature">
+              <div class="icon">📧</div>
+              <h4>Email Sequences</h4>
+              <p>Automated outreach campaigns that nurture prospects from cold to warm to booked meeting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <h2>Investment</h2>
+        <p>Everything you need to scale your practice.</p>
+      </div>
+      
+      <div class="pricing-card">
+        <h3>Complete Growth Package</h3>
+        <div class="price">$1,300<span>/month</span></div>
+        
+        <div class="includes">
+          <h4>What's Included</h4>
+          <ul>
+            <li>Professional website (hosting included) <span class="value">$300/mo value</span></li>
+            <li>Monthly content updates from recordings <span class="value">Included</span></li>
+            <li>AI sales chatbot (24/7) <span class="value">$500/mo value</span></li>
+            <li>Lead research & data enrichment <span class="value">$300/mo value</span></li>
+            <li>Email sequence automation <span class="value">$200/mo value</span></li>
+            <li>Monthly strategy calls <span class="value">Included</span></li>
+            <li>Analytics & reporting dashboard <span class="value">Included</span></li>
+          </ul>
+        </div>
+        
+        <p style="color: var(--gray-400); font-size: 0.9rem;">No long-term contracts. Cancel anytime with 30 days notice.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Implementation Timeline</h2>
+        <p>From kickoff to live in 2 weeks.</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">1</div>
+          <div class="timeline-content">
+            <h4>Week 1: Foundation</h4>
+            <p>Brand assets, content audit, website build, chatbot training on your FAQs and value props.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">2</div>
+          <div class="timeline-content">
+            <h4>Week 2: Launch & Optimize</h4>
+            <p>Website goes live, chatbot activated, email sequences configured, analytics connected.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">∞</div>
+          <div class="timeline-content">
+            <h4>Ongoing: Content & Optimization</h4>
+            <p>Every webinar becomes content. Every lead gets nurtured. Every month we review and improve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Scale?</h2>
+      <p>Let's turn your expertise into a growth engine.</p>
+      <a href="mailto:bryce@gullstack.com?subject=Optiv%20Health%20Partnership" class="btn btn-primary">Let's Talk →</a>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="container">
+      <p>Prepared by <a href="https://gullstack.com">GullStack</a> • February 2026</p>
+    </div>
+  </footer>
+</body>
+</html>
