@@ -357,6 +357,34 @@
       font-size: 1.25rem;
     }
     
+    .bdr-stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 16px 0 20px;
+      padding: 16px;
+      background: rgba(124, 58, 237, 0.15);
+      border-radius: 12px;
+    }
+    
+    .bdr-stat {
+      text-align: center;
+    }
+    
+    .bdr-stat .stat-num {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    
+    .bdr-stat .stat-desc {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
     /* Bot Features */
     .bot-features {
       display: grid;
@@ -627,14 +655,30 @@
           <h3>Automated BDR</h3>
           <div class="price">$1,000<span>/month</span></div>
           
+          <div class="bdr-stats">
+            <div class="bdr-stat">
+              <span class="stat-num">100</span>
+              <span class="stat-desc">emails/day</span>
+            </div>
+            <div class="bdr-stat">
+              <span class="stat-num">24/7</span>
+              <span class="stat-desc">prospecting</span>
+            </div>
+            <div class="bdr-stat">
+              <span class="stat-num">∞</span>
+              <span class="stat-desc">follow-ups</span>
+            </div>
+          </div>
+          
           <div class="includes">
             <h4>What's Included</h4>
             <ul>
               <li>AI sales chatbot (24/7) <span class="value">✓</span></li>
-              <li>Lead research & scraping <span class="value">✓</span></li>
-              <li>Data enrichment (decision-makers) <span class="value">✓</span></li>
-              <li>Email sequence automation <span class="value">✓</span></li>
-              <li>Automated follow-ups <span class="value">✓</span></li>
+              <li><strong>100 personalized emails/day</strong> <span class="value">✓</span></li>
+              <li>Scrapes companies matching your ICP <span class="value">✓</span></li>
+              <li>Finds HR directors & benefits managers <span class="value">✓</span></li>
+              <li>Multi-step email sequences <span class="value">✓</span></li>
+              <li>Auto follow-ups until reply <span class="value">✓</span></li>
               <li>Meeting booking integration <span class="value">✓</span></li>
               <li><strong>Dedicated Telegram channel</strong> <span class="value">✓</span></li>
               <li>Chat with bot for reports <span class="value">✓</span></li>
