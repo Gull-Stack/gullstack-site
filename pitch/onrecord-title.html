@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnRecord Title — SEO Audit & Growth Plan | GullStack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --bg: #0a0a0a;
+      --bg-elevated: #141414;
+      --bg-card: #1a1a1a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --orange: #f97316;
+      --orange-light: #fb923c;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Young Serif', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    
+    /* Hero */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span { color: var(--orange); }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* Score Card */
+    .score-card {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    
+    .score-item {
+      text-align: center;
+    }
+    
+    .score-number {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    
+    .score-number.red { color: var(--red); }
+    .score-number.yellow { color: var(--yellow); }
+    .score-number.green { color: var(--green); }
+    .score-number.orange { color: var(--orange); }
+    
+    .score-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+    
+    /* Section */
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .section-header {
+      margin-bottom: 32px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin-bottom: 8px;
+    }
+    
+    .section-header p {
+      color: var(--text-muted);
+    }
+    
+    /* Audit Table */
+    .audit-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    
+    .audit-table th,
+    .audit-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .audit-table th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .badge-green { background: rgba(34, 197, 94, 0.2); color: var(--green); }
+    .badge-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+    .badge-orange { background: rgba(249, 115, 22, 0.2); color: var(--orange); }
+    .badge-yellow { background: rgba(234, 179, 8, 0.2); color: var(--yellow); }
+    
+    /* What's Working */
+    .checklist {
+      list-style: none;
+    }
+    
+    .checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .checklist li:last-child { border-bottom: none; }
+    
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+    
+    /* Competitors */
+    .competitor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .competitor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .competitor-card h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    
+    .competitor-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Keywords */
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .keyword-table th,
+    .keyword-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .keyword-table th {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+    
+    .keyword-table tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+    
+    /* Opportunity Box */
+    .opportunity-box {
+      background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 32px 0;
+    }
+    
+    .opportunity-box h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+    
+    .opportunity-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    
+    .opportunity-stat h4 {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+    
+    .opportunity-stat p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    
+    /* Roadmap */
+    .roadmap {
+      position: relative;
+    }
+    
+    .roadmap-item {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .roadmap-item:last-child { border-bottom: none; }
+    
+    .roadmap-phase {
+      width: 80px;
+      flex-shrink: 0;
+    }
+    
+    .phase-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .phase-badge.phase-2 { background: var(--blue); }
+    .phase-badge.phase-3 { background: var(--green); }
+    
+    .roadmap-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    
+    .roadmap-content p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .roadmap-content ul {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    .roadmap-content li {
+      margin-bottom: 4px;
+    }
+    
+    /* CTA */
+    .cta {
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      padding: 16px 32px;
+      background: var(--orange);
+      color: white;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .btn:hover {
+      background: var(--orange-light);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .score-card { gap: 24px; padding: 24px; }
+      .score-number { font-size: 2rem; }
+      .roadmap-item { flex-direction: column; gap: 12px; }
+      .roadmap-phase { width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-badge">📊 SEO Audit Report</div>
+      <h1><span>OnRecord Title</span><br>Website Analysis & Growth Plan</h1>
+      <p>Your current site has solid bones. Here's what's working, what's not, and how we'd take you from 55 to 85+ in SEO score.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="score-card">
+        <div class="score-item">
+          <div class="score-number yellow">55</div>
+          <div class="score-label">Current SEO Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-number green">85+</div>
+          <div class="score-label">Target Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-number orange">4</div>
+          <div class="score-label">Pages (Need 20+)</div>
+        </div>
+        <div class="score-item">
+          <div class="score-number red">0</div>
+          <div class="score-label">Location Pages</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>✅ What's Already Working</h2>
+        <p>The foundation is solid — these are technical wins most small businesses miss.</p>
+      </div>
+      
+      <ul class="checklist">
+        <li><div class="check-icon">✓</div> Schema.org structured data (LocalBusiness markup)</li>
+        <li><div class="check-icon">✓</div> Meta titles & descriptions on all pages</li>
+        <li><div class="check-icon">✓</div> Open Graph tags for social sharing</li>
+        <li><div class="check-icon">✓</div> Mobile-responsive design</li>
+        <li><div class="check-icon">✓</div> XML sitemap & robots.txt</li>
+        <li><div class="check-icon">✓</div> Clean, readable URL structure</li>
+        <li><div class="check-icon">✓</div> SSL certificate (HTTPS)</li>
+        <li><div class="check-icon">✓</div> Fast static site architecture</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🔴 Critical Issues to Fix</h2>
+        <p>These are the gaps keeping you from ranking for valuable keywords.</p>
+      </div>
+      
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Issue</th>
+            <th>Impact</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Only 4 pages total</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Google prefers sites with 15-20+ pages minimum for authority</span></td>
+            <td><span class="badge badge-red">HIGH</span></td>
+            <td>Need service & location pages</td>
+          </tr>
+          <tr>
+            <td><strong>Broken internal links</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Links to /services/mobile-closing/ etc. go to 404</span></td>
+            <td><span class="badge badge-red">HIGH</span></td>
+            <td>Pages don't exist yet</td>
+          </tr>
+          <tr>
+            <td><strong>No city/location pages</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Missing "title company [city] utah" targeting</span></td>
+            <td><span class="badge badge-red">HIGH</span></td>
+            <td>Need 4-6 location pages</td>
+          </tr>
+          <tr>
+            <td><strong>H1 missing primary keyword</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">"Close On Your Terms" should include "Title Company Utah"</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td>Quick copy fix</td>
+          </tr>
+          <tr>
+            <td><strong>No Google Business Profile link</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">GBP is critical for local pack rankings</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td>Needs GBP setup/link</td>
+          </tr>
+          <tr>
+            <td><strong>No reviews/testimonials</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Missing social proof + Review schema</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td>Need to collect reviews</td>
+          </tr>
+          <tr>
+            <td><strong>Image placeholders only</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">No real photos = no image SEO opportunity</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td>Need team/office photos</td>
+          </tr>
+          <tr>
+            <td><strong>No FAQ schema</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Easy win for featured snippets in search results</span></td>
+            <td><span class="badge badge-yellow">LOW</span></td>
+            <td>Add FAQ page</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🎯 Keyword Opportunities</h2>
+        <p>High-value searches you should be ranking for — but aren't yet.</p>
+      </div>
+      
+      <table class="keyword-table">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Search Intent</th>
+            <th>Competition</th>
+            <th>Your Opportunity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>"title company midvale utah"</strong></td>
+            <td>Local</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span> — Your address!</td>
+          </tr>
+          <tr>
+            <td><strong>"mobile closing utah"</strong></td>
+            <td>Differentiator</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span> — You offer this!</td>
+          </tr>
+          <tr>
+            <td><strong>"online closing for sellers utah"</strong></td>
+            <td>Differentiator</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span> — You offer this!</td>
+          </tr>
+          <tr>
+            <td><strong>"title company salt lake valley"</strong></td>
+            <td>Local</td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td><strong>"escrow services utah"</strong></td>
+            <td>Commercial</td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td><strong>"remote closing real estate utah"</strong></td>
+            <td>Differentiator</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>"title company sandy utah"</strong></td>
+            <td>Local</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span> — Nearby city</td>
+          </tr>
+          <tr>
+            <td><strong>"title company draper utah"</strong></td>
+            <td>Local</td>
+            <td><span class="badge badge-green">LOW</span></td>
+            <td><span class="badge badge-green">HIGH</span> — Nearby city</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 12px; padding: 20px; margin-top: 24px;">
+        <p style="margin: 0; font-weight: 600; color: var(--green);">💡 Key Insight:</p>
+        <p style="margin: 8px 0 0; color: var(--text-muted);">Your <strong>mobile closings</strong> and <strong>online closings for sellers</strong> are major differentiators that almost no Utah title company is marketing for. This is low-hanging fruit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🏢 Competitive Landscape</h2>
+        <p>Your competition in the Salt Lake Valley market.</p>
+      </div>
+      
+      <div class="competitor-grid">
+        <div class="competitor-card">
+          <h4>Metro Title</h4>
+          <p>Established player, strong brand. Website is dated but has domain authority.</p>
+        </div>
+        <div class="competitor-card">
+          <h4>Cottonwood Title</h4>
+          <p>Local competitor with decent SEO. Multiple location pages.</p>
+        </div>
+        <div class="competitor-card">
+          <h4>Integrated Title</h4>
+          <p>Modern website, good content. Strong Google reviews.</p>
+        </div>
+        <div class="competitor-card">
+          <h4>National Giants</h4>
+          <p>First American, Fidelity, Stewart — big budgets but impersonal service. That's your angle.</p>
+        </div>
+      </div>
+      
+      <div style="background: var(--bg-elevated); border-radius: 12px; padding: 24px; margin-top: 24px;">
+        <p style="font-weight: 600; margin-bottom: 8px;">Your Competitive Advantage:</p>
+        <p style="color: var(--text-muted); margin: 0;">Unlike the faceless nationals, you offer <strong>mobile closings, online closings, and 25+ years of local expertise</strong>. Your website should lead with these differentiators — not bury them.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="opportunity-box">
+        <h3>Projected Growth (6 Months)</h3>
+        <div class="opportunity-stats">
+          <div class="opportunity-stat">
+            <h4>55 → 85+</h4>
+            <p>SEO Score</p>
+          </div>
+          <div class="opportunity-stat">
+            <h4>20+</h4>
+            <p>Indexed Pages</p>
+          </div>
+          <div class="opportunity-stat">
+            <h4>15+</h4>
+            <p>Ranking Keywords</p>
+          </div>
+          <div class="opportunity-stat">
+            <h4>4-6</h4>
+            <p>City Pages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>🛠️ Recommended Roadmap</h2>
+        <p>How we'd take you from 55 to 85+ in three phases.</p>
+      </div>
+      
+      <div class="roadmap">
+        <div class="roadmap-item">
+          <div class="roadmap-phase">
+            <span class="phase-badge">Phase 1</span>
+          </div>
+          <div class="roadmap-content">
+            <h4>Fix Critical Issues (Week 1-2)</h4>
+            <p>Plug the holes that are actively hurting your rankings.</p>
+            <ul>
+              <li>Build 4 service subpages (Mobile Closing, Residential, Commercial, Refinance)</li>
+              <li>Fix all broken internal links</li>
+              <li>Optimize H1 with primary keyword</li>
+              <li>Add real team photos with proper alt text</li>
+              <li>Create or link Google Business Profile</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="roadmap-item">
+          <div class="roadmap-phase">
+            <span class="phase-badge phase-2">Phase 2</span>
+          </div>
+          <div class="roadmap-content">
+            <h4>Location Pages & Content (Week 3-4)</h4>
+            <p>Expand your footprint to capture city-specific searches.</p>
+            <ul>
+              <li>Create 4-6 city landing pages (Salt Lake City, Sandy, Draper, West Jordan, Midvale, South Jordan)</li>
+              <li>Add FAQ page with FAQ schema for featured snippets</li>
+              <li>Create "What to Expect at Closing" resource guide</li>
+              <li>Add testimonials section with Review schema</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="roadmap-item">
+          <div class="roadmap-phase">
+            <span class="phase-badge phase-3">Phase 3</span>
+          </div>
+          <div class="roadmap-content">
+            <h4>Authority & Optimization (Month 2+)</h4>
+            <p>Build authority and capture long-tail traffic.</p>
+            <ul>
+              <li>Blog content: "How Much Does Title Insurance Cost in Utah?" etc.</li>
+              <li>Closing checklist PDF (lead magnet)</li>
+              <li>Agent/Lender resource section</li>
+              <li>Ongoing Google Search Console monitoring & optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📋 What's Included</h2>
+        <p>Everything we'd deliver to hit 85+ SEO score.</p>
+      </div>
+      
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Deliverable</th>
+            <th>Pages</th>
+            <th>SEO Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Service Pages</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Mobile Closing, Residential, Commercial, Refinance</span></td>
+            <td>4</td>
+            <td><span class="badge badge-green">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>City Landing Pages</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Salt Lake City, Sandy, Draper, West Jordan + more</span></td>
+            <td>4-6</td>
+            <td><span class="badge badge-green">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>FAQ Page</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">With FAQ schema for featured snippets</span></td>
+            <td>1</td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td><strong>Resource Guide</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">"What to Expect at Closing" evergreen content</span></td>
+            <td>1</td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td><strong>Schema Markup Fixes</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Correct LocalBusiness type, add Review schema</span></td>
+            <td>—</td>
+            <td><span class="badge badge-orange">MEDIUM</span></td>
+          </tr>
+          <tr>
+            <td><strong>On-Page Optimization</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">H1s, meta tags, image alt text, internal linking</span></td>
+            <td>All</td>
+            <td><span class="badge badge-green">HIGH</span></td>
+          </tr>
+          <tr>
+            <td><strong>Google Search Console Setup</strong><br><span style="color: var(--text-muted); font-size: 0.85rem;">Sitemap submission, monitoring, performance tracking</span></td>
+            <td>—</td>
+            <td><span class="badge badge-green">HIGH</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div class="container">
+      <h2>Ready to Dominate Local Search?</h2>
+      <p>Let's talk about getting OnRecord Title to page 1 for the keywords that matter.</p>
+      <a href="mailto:contact@gullstack.com?subject=OnRecord%20Title%20SEO%20-%20Let's%20Talk" class="btn">Schedule a Call →</a>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">Or call us: <a href="tel:+18015551234" style="color: var(--orange);">(801) 555-1234</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Prepared by <strong>GullStack</strong> — Full-Service Digital Marketing</p>
+      <p style="margin-top: 8px;">Questions? <a href="mailto:bryce@gullstack.com" style="color: var(--orange);">bryce@gullstack.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
