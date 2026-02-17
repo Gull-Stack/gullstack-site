@@ -243,49 +243,84 @@
       font-weight: bold;
     }
     
-    /* Pricing */
-    .pricing-card {
-      background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
-      border: 2px solid var(--purple);
-      border-radius: 20px;
-      padding: 48px;
-      text-align: center;
-      max-width: 600px;
+    /* Pricing Grid */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 900px;
       margin: 0 auto;
     }
     
+    @media (max-width: 768px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+    
+    .pricing-card {
+      background: linear-gradient(135deg, var(--gray-800) 0%, var(--gray-900) 100%);
+      border: 2px solid var(--gray-700);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+    }
+    
+    .pricing-card.featured {
+      border-color: var(--purple);
+      position: relative;
+    }
+    
+    .pricing-card.featured::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--purple);
+      color: white;
+      padding: 4px 16px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    
+    .pricing-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    
     .pricing-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 8px;
     }
     
     .pricing-card .price {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       font-weight: 800;
       color: var(--accent);
-      margin: 24px 0;
+      margin: 16px 0;
     }
     
     .pricing-card .price span {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--gray-400);
     }
     
     .pricing-card .includes {
       text-align: left;
-      margin: 32px 0;
-      padding: 24px;
+      margin: 24px 0 0;
+      padding: 20px;
       background: rgba(255,255,255,0.03);
       border-radius: 12px;
     }
     
     .pricing-card .includes h4 {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--gray-400);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     
     .pricing-card .includes ul {
@@ -293,11 +328,12 @@
     }
     
     .pricing-card .includes li {
-      padding: 10px 0;
+      padding: 8px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
       display: flex;
       justify-content: space-between;
       color: var(--gray-300);
+      font-size: 0.9rem;
     }
     
     .pricing-card .includes li:last-child {
@@ -307,6 +343,18 @@
     .pricing-card .includes .value {
       color: var(--success);
       font-weight: 600;
+    }
+    
+    .pricing-total {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .pricing-total p strong {
+      color: var(--accent);
+      font-size: 1.25rem;
     }
     
     /* Bot Features */
@@ -550,27 +598,55 @@
     <div class="container">
       <div class="section-header">
         <h2>Investment</h2>
-        <p>Everything you need to scale your practice.</p>
+        <p>Two packages. Take one or both.</p>
       </div>
       
-      <div class="pricing-card">
-        <h3>Complete Growth Package</h3>
-        <div class="price">$1,300<span>/month</span></div>
-        
-        <div class="includes">
-          <h4>What's Included</h4>
-          <ul>
-            <li>Professional website (hosting included) <span class="value">$300/mo value</span></li>
-            <li>Monthly content updates from recordings <span class="value">Included</span></li>
-            <li>AI sales chatbot (24/7) <span class="value">$500/mo value</span></li>
-            <li>Lead research & data enrichment <span class="value">$300/mo value</span></li>
-            <li>Email sequence automation <span class="value">$200/mo value</span></li>
-            <li>Monthly strategy calls <span class="value">Included</span></li>
-            <li>Analytics & reporting dashboard <span class="value">Included</span></li>
-          </ul>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-icon">🌐</div>
+          <h3>Website + Content</h3>
+          <div class="price">$300<span>/month</span></div>
+          
+          <div class="includes">
+            <h4>What's Included</h4>
+            <ul>
+              <li>Professional website <span class="value">✓</span></li>
+              <li>Hosting & SSL included <span class="value">✓</span></li>
+              <li>Webinar → blog post conversion <span class="value">✓</span></li>
+              <li>Video clips for social <span class="value">✓</span></li>
+              <li>SEO optimization <span class="value">✓</span></li>
+              <li>Savings calculator <span class="value">✓</span></li>
+              <li>Lead capture forms <span class="value">✓</span></li>
+              <li>Monthly content updates <span class="value">✓</span></li>
+            </ul>
+          </div>
         </div>
         
-        <p style="color: var(--gray-400); font-size: 0.9rem;">No long-term contracts. Cancel anytime with 30 days notice.</p>
+        <div class="pricing-card featured">
+          <div class="pricing-icon">🤖</div>
+          <h3>Automated BDR</h3>
+          <div class="price">$1,000<span>/month</span></div>
+          
+          <div class="includes">
+            <h4>What's Included</h4>
+            <ul>
+              <li>AI sales chatbot (24/7) <span class="value">✓</span></li>
+              <li>Lead research & scraping <span class="value">✓</span></li>
+              <li>Data enrichment (decision-makers) <span class="value">✓</span></li>
+              <li>Email sequence automation <span class="value">✓</span></li>
+              <li>Automated follow-ups <span class="value">✓</span></li>
+              <li>Meeting booking integration <span class="value">✓</span></li>
+              <li><strong>Dedicated Telegram channel</strong> <span class="value">✓</span></li>
+              <li>Chat with bot for reports <span class="value">✓</span></li>
+              <li>Ask questions, pull data <span class="value">✓</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pricing-total">
+        <p>Both packages together: <strong>$1,300/month</strong></p>
+        <p style="color: var(--gray-400); font-size: 0.9rem; margin-top: 8px;">No long-term contracts. Cancel anytime with 30 days notice.</p>
       </div>
     </div>
   </section>
