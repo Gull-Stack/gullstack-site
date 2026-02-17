@@ -12,19 +12,19 @@
         :root {
             /* SafeStreets Brand Colors */
             --ss-blue: #003366;
-            --ss-blue-light: #004d99;
-            --ss-orange: #ff6600;
-            --ss-orange-dark: #e55a00;
+            --ss-blue-light: #0066cc;
+            --ss-blue-bright: #3399ff;
+            --ss-accent: #0077cc;
             /* GullStack Colors */
             --gs-purple: #6366f1;
             --gs-purple-light: #818cf8;
             /* Neutrals */
-            --dark: #0a1628;
-            --gray-900: #1a2a3a;
-            --gray-700: #2d4a5e;
-            --gray-500: #5a7a8a;
-            --gray-300: #a8c0cc;
-            --gray-100: #e8f0f4;
+            --dark: #0a1420;
+            --gray-900: #152535;
+            --gray-700: #2a4055;
+            --gray-500: #5a7a90;
+            --gray-300: #9ab5c8;
+            --gray-100: #e0eaf0;
             --white: #ffffff;
             --green: #10b981;
             --red: #ef4444;
@@ -127,8 +127,12 @@
             margin-bottom: 24px;
         }
         
-        h1 .highlight-orange {
-            color: var(--ss-orange);
+        h1 .highlight-blue {
+            color: var(--ss-blue-bright);
+        }
+        
+        h1 .highlight-light {
+            color: var(--gray-300);
         }
         
         h1 .highlight-blue {
@@ -147,7 +151,7 @@
             font-size: 28px;
             font-weight: 600;
             margin-bottom: 16px;
-            color: var(--ss-orange);
+            color: var(--ss-blue-light);
         }
         
         p {
@@ -174,12 +178,12 @@
         .badge {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(255, 102, 0, 0.2);
-            border: 1px solid var(--ss-orange);
+            background: rgba(51, 153, 255, 0.15);
+            border: 1px solid var(--ss-blue-bright);
             border-radius: 100px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--ss-orange);
+            color: var(--ss-blue-bright);
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -203,7 +207,7 @@
         .stat-value {
             font-size: 48px;
             font-weight: 800;
-            color: var(--ss-orange);
+            color: var(--ss-blue-bright);
             margin-bottom: 8px;
         }
         
@@ -254,9 +258,9 @@
             color: var(--green);
         }
         
-        .icon-orange {
-            background: rgba(255, 102, 0, 0.2);
-            color: var(--ss-orange);
+        .icon-blue {
+            background: rgba(51, 153, 255, 0.2);
+            color: var(--ss-blue-bright);
         }
         
         .solution-card {
@@ -297,7 +301,7 @@
         .feature-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, var(--ss-orange), var(--ss-orange-dark));
+            background: linear-gradient(135deg, var(--ss-blue-light), var(--ss-blue));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -345,8 +349,8 @@
         .pricing-table .total td {
             font-weight: 700;
             font-size: 24px;
-            color: var(--ss-orange);
-            border-top: 2px solid var(--ss-orange);
+            color: var(--ss-blue-bright);
+            border-top: 2px solid var(--ss-blue-light);
         }
         
         .comparison-grid {
@@ -421,7 +425,7 @@
         .timeline-dot {
             width: 48px;
             height: 48px;
-            background: var(--ss-orange);
+            background: linear-gradient(135deg, var(--ss-blue-light), var(--ss-blue));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -579,7 +583,7 @@
     <div class="slide-number">01</div>
     <div class="slide-content">
         <div class="badge">Proposal</div>
-        <h1>AI-Powered<br><span class="highlight-orange">Customer Service</span></h1>
+        <h1>AI-Powered<br><span class="highlight-blue">Customer Service</span></h1>
         <p class="subtitle">A managed solution for SafeStreets USA</p>
         <p>24/7 intelligent support that scales with your business, reduces costs, and delights customers.</p>
     </div>
@@ -667,11 +671,11 @@
                 <h3>Common CS Inquiries</h3>
                 <p style="font-size: 16px; margin-bottom: 24px;">80% of support tickets fall into predictable categories that don't require human judgment:</p>
                 <ul class="problem-list" style="margin-top: 0;">
-                    <li><div class="icon icon-orange">→</div> "How do I pay my bill?"</li>
-                    <li><div class="icon icon-orange">→</div> "My sensor fell off the wall"</li>
-                    <li><div class="icon icon-orange">→</div> "I can't see my camera footage"</li>
-                    <li><div class="icon icon-orange">→</div> "What's my warranty coverage?"</li>
-                    <li><div class="icon icon-orange">→</div> "Where's my Visa gift card?"</li>
+                    <li><div class="icon icon-blue">→</div> "How do I pay my bill?"</li>
+                    <li><div class="icon icon-blue">→</div> "My sensor fell off the wall"</li>
+                    <li><div class="icon icon-blue">→</div> "I can't see my camera footage"</li>
+                    <li><div class="icon icon-blue">→</div> "What's my warranty coverage?"</li>
+                    <li><div class="icon icon-blue">→</div> "Where's my Visa gift card?"</li>
                 </ul>
             </div>
         </div>
@@ -693,7 +697,7 @@
     </div>
     <div class="slide-number">04</div>
     <div class="slide-content">
-        <h2>The Solution: <span style="color: var(--ss-orange);">AI-First Support</span></h2>
+        <h2>The Solution: <span style="color: var(--ss-blue-bright);">AI-First Support</span></h2>
         <p>An intelligent customer service system that handles 70-80% of inquiries automatically, escalating only when human judgment is truly needed.</p>
         <div class="feature-grid">
             <div class="feature-card">
