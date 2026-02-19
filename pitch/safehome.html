@@ -10,25 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Safe Home Brand Colors */
-            --sh-green: #1a6b3c;
-            --sh-green-light: #22a559;
-            --sh-green-bright: #34d673;
-            --sh-accent: #28a745;
-            /* GullStack Colors */
-            --gs-purple: #6366f1;
-            --gs-purple-light: #818cf8;
+            /* GullStack Brand */
+            --neon: #818cf8;
+            --neon-bright: #a5b4fc;
+            --neon-deep: #6366f1;
+            --cyan: #22d3ee;
+            --cyan-light: #67e8f9;
+            --cyan-deep: #06b6d4;
             /* Neutrals */
-            --dark: #0a1a10;
-            --gray-900: #122418;
-            --gray-700: #1e3a28;
-            --gray-500: #4a7a5a;
-            --gray-300: #8abf9a;
-            --gray-100: #d0eada;
+            --dark: #0a0e1a;
+            --gray-900: #111827;
+            --gray-700: #1f2937;
+            --gray-500: #6b7280;
+            --gray-300: #9ca3af;
+            --gray-100: #e5e7eb;
             --white: #ffffff;
             --green: #10b981;
-            --red: #ef4444;
-            --red-muted: #71717a;
+            --red: #71717a;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -94,32 +92,32 @@
             font-size: 64px; font-weight: 800; line-height: 1.1;
             letter-spacing: -2px; margin-bottom: 24px;
         }
-        h1 .highlight { color: var(--sh-green-bright); }
+        h1 .highlight { color: var(--neon-bright); }
         
         h2 {
             font-size: 48px; font-weight: 700; line-height: 1.2;
             letter-spacing: -1.5px; margin-bottom: 32px;
         }
         
-        h3 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: var(--sh-green-light); }
+        h3 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: var(--neon); }
         
         p { font-size: 20px; color: var(--gray-300); max-width: 700px; }
         .subtitle { font-size: 24px; color: var(--gray-300); margin-bottom: 40px; }
         
-        .hero-slide { background: linear-gradient(135deg, var(--dark) 0%, var(--sh-green) 100%); }
+        .hero-slide { background: linear-gradient(135deg, var(--dark) 0%, var(--neon-deep) 100%); }
         .hero-slide .slide-bg {
-            background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');
+            /* no bg image */
             opacity: 0.2;
         }
         
         .badge {
             display: inline-block;
             padding: 8px 16px;
-            background: rgba(52, 214, 115, 0.15);
-            border: 1px solid var(--sh-green-bright);
+            background: rgba(129, 140, 248, 0.15);
+            border: 1px solid var(--neon-bright);
             border-radius: 100px;
             font-size: 14px; font-weight: 600;
-            color: var(--sh-green-bright);
+            color: var(--neon-bright);
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -132,11 +130,11 @@
         }
         
         .stat-card {
-            background: linear-gradient(135deg, var(--gray-900), var(--sh-green));
+            background: linear-gradient(135deg, var(--gray-900), var(--neon-deep));
             border: 1px solid var(--gray-700);
             border-radius: 16px; padding: 32px; text-align: center;
         }
-        .stat-value { font-size: 48px; font-weight: 800; color: var(--sh-green-bright); margin-bottom: 8px; }
+        .stat-value { font-size: 48px; font-weight: 800; color: var(--neon-bright); margin-bottom: 8px; }
         .stat-label { font-size: 16px; color: var(--gray-300); }
         
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -151,9 +149,9 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 18px; flex-shrink: 0;
         }
-        .icon-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
-        .icon-green { background: rgba(16, 185, 129, 0.2); color: var(--green); }
-        .icon-blue { background: rgba(52, 214, 115, 0.2); color: var(--sh-green-bright); }
+        .icon-red { background: rgba(107, 114, 128, 0.2); color: var(--gray-500); }
+        .icon-green { background: rgba(34, 211, 238, 0.2); color: var(--green); }
+        .icon-blue { background: rgba(129, 140, 248, 0.2); color: var(--neon-bright); }
         
         .solution-card {
             background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
@@ -173,7 +171,7 @@
         }
         .feature-icon {
             width: 56px; height: 56px;
-            background: linear-gradient(135deg, var(--sh-green-light), var(--sh-green));
+            background: linear-gradient(135deg, var(--neon), var(--neon-deep));
             border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
             font-size: 28px; margin-bottom: 20px;
@@ -192,19 +190,19 @@
             position: relative;
         }
         .pricing-card.recommended {
-            border-color: var(--sh-green-bright);
-            box-shadow: 0 0 40px rgba(52, 214, 115, 0.15);
+            border-color: var(--neon-bright);
+            box-shadow: 0 0 40px rgba(129, 140, 248, 0.15);
         }
         .pricing-card.recommended::before {
             content: '⚡ RECOMMENDED';
             position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--sh-green-bright); color: var(--dark);
+            background: var(--neon-bright); color: var(--dark);
             padding: 4px 16px; border-radius: 100px;
             font-size: 12px; font-weight: 700; letter-spacing: 1px;
         }
         .pricing-card h4 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
         .pricing-card .price {
-            font-size: 42px; font-weight: 800; color: var(--sh-green-bright);
+            font-size: 42px; font-weight: 800; color: var(--neon-bright);
             margin-bottom: 4px;
         }
         .pricing-card .price-note { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
@@ -214,14 +212,14 @@
             border-bottom: 1px solid rgba(255,255,255,0.05);
             display: flex; align-items: center; gap: 10px;
         }
-        .pricing-card li::before { content: '✓'; color: var(--sh-green-bright); font-weight: 700; }
+        .pricing-card li::before { content: '✓'; color: var(--neon-bright); font-weight: 700; }
         
         .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
         .comparison-card { border-radius: 20px; padding: 40px; }
-        .comparison-card.before { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
-        .comparison-card.after { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .comparison-card.before { background: rgba(107, 114, 128, 0.1); border: 1px solid rgba(107, 114, 128, 0.3); }
+        .comparison-card.after { background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.3); }
         .comparison-card h3 { font-size: 24px; margin-bottom: 24px; }
-        .comparison-card.before h3 { color: var(--red); }
+        .comparison-card.before h3 { color: var(--gray-500); }
         .comparison-card.after h3 { color: var(--green); }
         .comparison-card ul { list-style: none; }
         .comparison-card li {
@@ -240,7 +238,7 @@
         .timeline-item { text-align: center; position: relative; flex: 1; }
         .timeline-dot {
             width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--sh-green-light), var(--sh-green));
+            background: linear-gradient(135deg, var(--neon), var(--neon-deep));
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-weight: 700; margin: 0 auto 16px;
@@ -258,11 +256,11 @@
         .roi-highlight p { color: rgba(255,255,255,0.8); margin: 16px auto 0; }
         
         .cta-slide {
-            background: linear-gradient(135deg, var(--sh-green), var(--sh-green-light));
+            background: linear-gradient(135deg, var(--neon-deep), var(--neon));
             text-align: center;
         }
         .cta-slide .slide-bg {
-            background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');
+            /* no bg image */
             opacity: 0.2;
         }
         .cta-slide h2 { font-size: 56px; color: var(--white); }
@@ -362,14 +360,11 @@
         <p class="subtitle">A managed growth engine for Safe Home Security</p>
         <p>You're the 12th largest security company in America. Let's make sure every dealer and sales rep in the country knows it — before your competitors recruit them first.</p>
     </div>
-    <div class="slide-image">
-        <img src="https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/shs_home_differ_protect.jpg" alt="Home Security">
-    </div>
 </section>
 
 <!-- Slide 2: Safe Home Profile -->
 <section class="slide" style="background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);">
-    <div class="slide-bg" style="background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');"></div>
+    <div class="slide-bg" style="/* no bg image */"></div>
     <div class="logos">
         <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
         <div class="logo-divider"></div>
@@ -460,7 +455,7 @@
     </div>
     <div class="slide-number">04</div>
     <div class="slide-content">
-        <h2>Three <span style="color: var(--sh-green-bright);">Growth Vectors</span></h2>
+        <h2>Three <span style="color: var(--neon-bright);">Growth Vectors</span></h2>
         <p>Safe Home has three distinct audiences — each an untapped growth engine.</p>
         <div class="feature-grid">
             <div class="feature-card">
@@ -695,7 +690,7 @@
     </div>
     <div class="slide-number">09</div>
     <div class="slide-content">
-        <h2>Why <span style="color: var(--gs-purple-light);">GullStack</span></h2>
+        <h2>Why <span style="color: var(--cyan-light);">GullStack</span></h2>
         <div class="two-col">
             <div>
                 <ul class="problem-list">
@@ -722,7 +717,7 @@
                 </ul>
             </div>
             <div class="solution-card">
-                <h3 style="color: var(--gs-purple-light);">Proven Results</h3>
+                <h3 style="color: var(--cyan-light);">Proven Results</h3>
                 <p style="font-size: 16px; margin-bottom: 24px;">We don't just talk — here's what we've done:</p>
                 <ul class="problem-list" style="margin-top: 0;">
                     <li><div class="icon icon-green">→</div> <strong>SafeStreets (ADT)</strong> — Built growth proposal for ADT's largest authorized provider</li>
