@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Home × GullStack | Growth Proposal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Safe Home Brand Colors */
+            --sh-green: #1a6b3c;
+            --sh-green-light: #22a559;
+            --sh-green-bright: #34d673;
+            --sh-accent: #28a745;
+            /* GullStack Colors */
+            --gs-purple: #6366f1;
+            --gs-purple-light: #818cf8;
+            /* Neutrals */
+            --dark: #0a1a10;
+            --gray-900: #122418;
+            --gray-700: #1e3a28;
+            --gray-500: #4a7a5a;
+            --gray-300: #8abf9a;
+            --gray-100: #d0eada;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+            --red-muted: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--gray-700);
+            overflow: hidden;
+        }
+        
+        .slide-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .slide-content { position: relative; z-index: 1; }
+        
+        .slide-number {
+            position: absolute;
+            top: 30px; right: 40px;
+            font-size: 14px;
+            color: var(--gray-500);
+            font-weight: 500;
+            z-index: 2;
+        }
+        
+        .logos {
+            position: absolute;
+            top: 30px; left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 2;
+        }
+        
+        .logo-sh img { height: 40px; width: auto; }
+        .logo-divider { width: 1px; height: 32px; background: var(--gray-700); }
+        .logo-gs { display: flex; align-items: center; gap: 10px; }
+        .logo-gs img { height: 36px; width: auto; }
+        .logo-gs span {
+            font-family: 'Young Serif', Georgia, serif;
+            font-size: 24px; font-weight: 400; color: #fafafa;
+            letter-spacing: -0.01em;
+        }
+        
+        h1 {
+            font-size: 64px; font-weight: 800; line-height: 1.1;
+            letter-spacing: -2px; margin-bottom: 24px;
+        }
+        h1 .highlight { color: var(--sh-green-bright); }
+        
+        h2 {
+            font-size: 48px; font-weight: 700; line-height: 1.2;
+            letter-spacing: -1.5px; margin-bottom: 32px;
+        }
+        
+        h3 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: var(--sh-green-light); }
+        
+        p { font-size: 20px; color: var(--gray-300); max-width: 700px; }
+        .subtitle { font-size: 24px; color: var(--gray-300); margin-bottom: 40px; }
+        
+        .hero-slide { background: linear-gradient(135deg, var(--dark) 0%, var(--sh-green) 100%); }
+        .hero-slide .slide-bg {
+            background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');
+            opacity: 0.2;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(52, 214, 115, 0.15);
+            border: 1px solid var(--sh-green-bright);
+            border-radius: 100px;
+            font-size: 14px; font-weight: 600;
+            color: var(--sh-green-bright);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--gray-900), var(--sh-green));
+            border: 1px solid var(--gray-700);
+            border-radius: 16px; padding: 32px; text-align: center;
+        }
+        .stat-value { font-size: 48px; font-weight: 800; color: var(--sh-green-bright); margin-bottom: 8px; }
+        .stat-label { font-size: 16px; color: var(--gray-300); }
+        
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        
+        .problem-list { list-style: none; margin-top: 32px; }
+        .problem-list li {
+            display: flex; align-items: flex-start; gap: 16px;
+            margin-bottom: 24px; font-size: 20px; color: var(--gray-300);
+        }
+        .problem-list .icon {
+            width: 32px; height: 32px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; flex-shrink: 0;
+        }
+        .icon-red { background: rgba(239, 68, 68, 0.2); color: var(--red); }
+        .icon-green { background: rgba(16, 185, 129, 0.2); color: var(--green); }
+        .icon-blue { background: rgba(52, 214, 115, 0.2); color: var(--sh-green-bright); }
+        
+        .solution-card {
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+            border: 1px solid var(--gray-700);
+            border-radius: 20px; padding: 40px;
+            position: relative; overflow: hidden;
+        }
+        
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        .feature-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px; padding: 32px;
+        }
+        .feature-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--sh-green-light), var(--sh-green));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 20px;
+        }
+        .feature-card h4 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+        .feature-card p { font-size: 16px; color: var(--gray-500); }
+        
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        .pricing-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 20px; padding: 40px;
+            position: relative;
+        }
+        .pricing-card.recommended {
+            border-color: var(--sh-green-bright);
+            box-shadow: 0 0 40px rgba(52, 214, 115, 0.15);
+        }
+        .pricing-card.recommended::before {
+            content: '⚡ RECOMMENDED';
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--sh-green-bright); color: var(--dark);
+            padding: 4px 16px; border-radius: 100px;
+            font-size: 12px; font-weight: 700; letter-spacing: 1px;
+        }
+        .pricing-card h4 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+        .pricing-card .price {
+            font-size: 42px; font-weight: 800; color: var(--sh-green-bright);
+            margin-bottom: 4px;
+        }
+        .pricing-card .price-note { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
+        .pricing-card ul { list-style: none; }
+        .pricing-card li {
+            padding: 10px 0; font-size: 16px; color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .pricing-card li::before { content: '✓'; color: var(--sh-green-bright); font-weight: 700; }
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+        .comparison-card { border-radius: 20px; padding: 40px; }
+        .comparison-card.before { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .comparison-card.after { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .comparison-card h3 { font-size: 24px; margin-bottom: 24px; }
+        .comparison-card.before h3 { color: var(--red); }
+        .comparison-card.after h3 { color: var(--green); }
+        .comparison-card ul { list-style: none; }
+        .comparison-card li {
+            padding: 12px 0; font-size: 18px; color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .timeline {
+            display: flex; justify-content: space-between;
+            margin-top: 64px; position: relative;
+        }
+        .timeline::before {
+            content: ''; position: absolute; top: 24px; left: 0; right: 0;
+            height: 2px; background: var(--gray-700);
+        }
+        .timeline-item { text-align: center; position: relative; flex: 1; }
+        .timeline-dot {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--sh-green-light), var(--sh-green));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; margin: 0 auto 16px;
+            position: relative; z-index: 1;
+        }
+        .timeline-item h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .timeline-item p { font-size: 14px; color: var(--gray-500); max-width: 200px; margin: 0 auto; }
+        
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--green), #059669);
+            border-radius: 20px; padding: 48px; text-align: center; margin-top: 48px;
+        }
+        .roi-highlight h3 { color: var(--white); font-size: 24px; margin-bottom: 16px; }
+        .roi-highlight .big-number { font-size: 72px; font-weight: 800; color: var(--white); }
+        .roi-highlight p { color: rgba(255,255,255,0.8); margin: 16px auto 0; }
+        
+        .cta-slide {
+            background: linear-gradient(135deg, var(--sh-green), var(--sh-green-light));
+            text-align: center;
+        }
+        .cta-slide .slide-bg {
+            background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');
+            opacity: 0.2;
+        }
+        .cta-slide h2 { font-size: 56px; color: var(--white); }
+        .cta-slide p { font-size: 24px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 48px; }
+        .cta-contact {
+            display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
+            background: rgba(255,255,255,0.1); padding: 32px 48px;
+            border-radius: 16px; backdrop-filter: blur(10px);
+        }
+        .cta-contact .name { font-size: 28px; font-weight: 700; }
+        .cta-contact .details { font-size: 20px; color: rgba(255,255,255,0.8); }
+        
+        .slide-image {
+            position: absolute; right: 60px; bottom: 60px;
+            width: 300px; height: 300px; border-radius: 20px;
+            overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); z-index: 1;
+        }
+        .slide-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            h1 { font-size: 48px; }
+            h2 { font-size: 36px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .two-col, .comparison-grid { grid-template-columns: 1fr; }
+            .slide-image { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .slide { padding: 100px 24px 40px; }
+            .logos { top: 16px; left: 16px; right: 16px; gap: 12px; }
+            .logo-sh img { height: 28px; }
+            .logo-gs img { height: 26px; }
+            .logo-gs span { font-size: 18px; }
+            .logo-divider { height: 24px; }
+            .slide-number { top: 20px; right: 20px; font-size: 12px; }
+            h1 { font-size: 36px; letter-spacing: -1px; }
+            h2 { font-size: 28px; letter-spacing: -0.5px; }
+            h3 { font-size: 22px; }
+            p { font-size: 16px; }
+            .subtitle { font-size: 18px; }
+            .badge { font-size: 12px; padding: 6px 12px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .stat-card { padding: 20px; }
+            .stat-value { font-size: 32px; }
+            .stat-label { font-size: 13px; }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+            .feature-card, .pricing-card { padding: 24px; }
+            .feature-icon { width: 48px; height: 48px; font-size: 24px; }
+            .feature-card h4 { font-size: 18px; }
+            .feature-card p { font-size: 14px; }
+            .problem-list li { font-size: 16px; }
+            .solution-card { padding: 24px; }
+            .comparison-grid { gap: 24px; }
+            .comparison-card { padding: 24px; }
+            .comparison-card li { font-size: 15px; padding: 10px 0; }
+            .roi-highlight { padding: 32px 24px; }
+            .roi-highlight .big-number { font-size: 48px; }
+            .pricing-card .price { font-size: 32px; }
+            .timeline { flex-direction: column; gap: 32px; margin-top: 40px; }
+            .timeline::before { display: none; }
+            .timeline-item { display: flex; align-items: flex-start; gap: 16px; text-align: left; }
+            .timeline-dot { width: 40px; height: 40px; margin: 0; flex-shrink: 0; }
+            .timeline-item p { max-width: none; }
+            .cta-slide h2 { font-size: 36px; }
+            .cta-slide p { font-size: 18px; }
+            .cta-contact { padding: 24px 32px; }
+            .cta-contact .name { font-size: 22px; }
+            .cta-contact .details { font-size: 16px; }
+        }
+        
+        @media print {
+            .slide { page-break-after: always; min-height: auto; padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<section class="slide hero-slide">
+    <div class="slide-bg"></div>
+    <div class="logos">
+        <div class="logo-sh">
+            <img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home">
+        </div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
+    <div class="slide-number">01</div>
+    <div class="slide-content">
+        <div class="badge">Growth Proposal</div>
+        <h1>Dominate Home Security<br><span class="highlight">Dealer Recruitment</span></h1>
+        <p class="subtitle">A managed growth engine for Safe Home Security</p>
+        <p>You're the 12th largest security company in America. Let's make sure every dealer and sales rep in the country knows it — before your competitors recruit them first.</p>
+    </div>
+    <div class="slide-image">
+        <img src="https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/shs_home_differ_protect.jpg" alt="Home Security">
+    </div>
+</section>
+
+<!-- Slide 2: Safe Home Profile -->
+<section class="slide" style="background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);">
+    <div class="slide-bg" style="background-image: url('https://www.safehomesecurityinc.com/wp-content/uploads/2021/06/Family-Banner.jpg');"></div>
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">02</div>
+    <div class="slide-content">
+        <h2>Safe Home at a Glance</h2>
+        <p>30 years of protecting families. Now it's time to protect your growth.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">12th</div>
+                <div class="stat-label">Largest Security Company<br>in the U.S.</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">30+</div>
+                <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">40</div>
+                <div class="stat-label">States with Tech Coverage</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$72B</div>
+                <div class="stat-label">Home Security Market<br>(Growing 8.6% CAGR)</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 3: The Problem -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">03</div>
+    <div class="slide-content">
+        <div class="two-col">
+            <div>
+                <h2>The Problem</h2>
+                <p>Your dealer program is one of the best in the industry. But nobody can find it.</p>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>"Home security dealer program"</strong> — not ranking in the top 100</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>"Alarm company dealer opportunities"</strong> — not ranking in the top 100</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Website last updated 2021</strong> — WordPress site with outdated design and no SEO foundation</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Zero content strategy</strong> — no blog, no educational content, no reason for Google to rank you</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-red">✕</div>
+                        <span><strong>Solar page is a single sentence</strong> — massive revenue line with zero web presence</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3>Who's Finding You Instead?</h3>
+                <p style="font-size: 16px; margin-bottom: 24px;">Your competitors are capturing the dealers and reps that should be yours:</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-red">→</div> ADT (recruiting their own dealers)</li>
+                    <li><div class="icon icon-red">→</div> Vivint (aggressive dealer recruitment)</li>
+                    <li><div class="icon icon-red">→</div> Brinks Home (dealer programs)</li>
+                    <li><div class="icon icon-red">→</div> Alarm.com (platform play)</li>
+                    <li><div class="icon icon-red">→</div> DIY brands eating market share</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 4: The Opportunity -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">04</div>
+    <div class="slide-content">
+        <h2>Three <span style="color: var(--sh-green-bright);">Growth Vectors</span></h2>
+        <p>Safe Home has three distinct audiences — each an untapped growth engine.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h4>Dealer Recruitment</h4>
+                <p>Independent alarm dealers searching for better programs. 12K+ monthly searches for "alarm dealer program," "security company partnerships," and related terms. You should own this space.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👤</div>
+                <h4>Sales Rep Pipeline</h4>
+                <p>Ambitious sales reps looking for better comp and better companies. 8K+ monthly searches for "home security sales jobs" and related terms. Build a recruiting engine that never sleeps.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☀️</div>
+                <h4>Solar Expansion</h4>
+                <p>Your solar division (Glyde Solar) has zero web presence. The residential solar market is $30B+ and growing. One sentence on your homepage isn't capturing any of it.</p>
+            </div>
+        </div>
+        <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 40px;">
+            <div class="stat-card">
+                <div class="stat-value">20K+</div>
+                <div class="stat-label">Monthly Searches You're<br>Not Capturing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$0</div>
+                <div class="stat-label">Current SEO<br>Investment</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">2021</div>
+                <div class="stat-label">Last Website<br>Update</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 5: The Strategy -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">05</div>
+    <div class="slide-content">
+        <h2>The Strategy</h2>
+        <p>New site. Long-tail SEO. AI-powered content at scale. Three audiences, one growth engine.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h4>New Website</h4>
+                <p>Modern, fast, SEO-optimized. Separate funnels for dealers, reps, and technicians. 95+ PageSpeed score. Schema markup from day one.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4>Long-Tail SEO</h4>
+                <p>We won't chase "home security" against billion-dollar brands. We'll own high-intent searches like "best alarm dealer program 2026" and "home security sales commission rates."</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Content Engine</h4>
+                <p>100+ pages of educational content for dealers, reps, and homeowners. AI-assisted creation means 10x the output at a fraction of traditional agency cost.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h4>Location Pages</h4>
+                <p>40+ state-specific pages for every state you have technician coverage. "Safe Home dealer program in [State]" — own every local search.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">☀️</div>
+                <h4>Solar Landing System</h4>
+                <p>Dedicated solar pages, lead capture, educational content. Transform a one-sentence mention into a lead generation machine.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Analytics & CRO</h4>
+                <p>Track every dealer application, every rep inquiry, every solar lead. A/B test everything. Data-driven optimization, not guesswork.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 6: Before/After -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">06</div>
+    <div class="slide-content">
+        <h2>The Transformation</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card before">
+                <h3>Today</h3>
+                <ul>
+                    <li>Outdated 2021 WordPress site</li>
+                    <li>Zero search visibility for key terms</li>
+                    <li>No content, no blog, no SEO</li>
+                    <li>Solar is an afterthought</li>
+                    <li>Dealer recruitment relies on word of mouth</li>
+                    <li>No analytics or conversion tracking</li>
+                    <li>Competitors outranking you everywhere</li>
+                </ul>
+            </div>
+            <div class="comparison-card after">
+                <h3>After GullStack</h3>
+                <ul>
+                    <li>Modern, fast, conversion-optimized site</li>
+                    <li>Page 1 rankings for 150+ dealer terms</li>
+                    <li>Content engine producing weekly</li>
+                    <li>Solar division with dedicated web presence</li>
+                    <li>24/7 inbound dealer lead machine</li>
+                    <li>Full-funnel analytics dashboard</li>
+                    <li>Market leadership positioning</li>
+                </ul>
+            </div>
+        </div>
+        <div class="roi-highlight">
+            <h3>Conservative Year 1 Projection</h3>
+            <div class="big-number">120+ New Dealers</div>
+            <p>Based on 2.5% conversion rate from projected 50K annual organic visitors to dealer application page. At an average of 10 accounts per dealer per year, that's 1,200+ new customer accounts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 7: Timeline -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">07</div>
+    <div class="slide-content">
+        <h2>Implementation Timeline</h2>
+        <p>New site live in 60 days. Results compounding from month one.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <h4>Month 1-2</h4>
+                <p>New site build + 50+ optimized pages. Dealer, rep & tech funnels live. Solar landing pages.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <h4>Month 2-4</h4>
+                <p>100+ pages of content. 40 state location pages. Blog launch. 200% organic traffic increase.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <h4>Month 4-6</h4>
+                <p>Link building + digital PR. Authority growth. 500+ keyword rankings. Competitor monitoring.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <h4>Month 6-12</h4>
+                <p>Market leadership. 500% visibility improvement. Steady inbound dealer pipeline.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 8: Investment -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">08</div>
+    <div class="slide-content">
+        <h2>Investment</h2>
+        <p>Choose the path that matches your growth goals. All plans include a new site build, AI-assisted content, and performance guarantees.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>Starter</h4>
+                <div class="price">$8,500</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Modern SEO-optimized website</li>
+                    <li>50+ optimized pages</li>
+                    <li>20 state location pages</li>
+                    <li>Monthly content updates</li>
+                    <li>Technical SEO management</li>
+                    <li>Monthly performance reports</li>
+                    <li>Solar landing page</li>
+                </ul>
+            </div>
+            <div class="pricing-card recommended">
+                <h4>Growth</h4>
+                <div class="price">$18,500</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Everything in Starter</li>
+                    <li>200+ optimized pages</li>
+                    <li>40+ state location pages</li>
+                    <li>Weekly content creation</li>
+                    <li>Link building campaigns</li>
+                    <li>AI-powered competitor monitoring</li>
+                    <li>Conversion optimization</li>
+                    <li>Solar content strategy</li>
+                    <li>Dedicated strategist</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h4>Dominate</h4>
+                <div class="price">$32,000</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Everything in Growth</li>
+                    <li>500+ optimized pages</li>
+                    <li>National SEO campaign</li>
+                    <li>Digital PR & media outreach</li>
+                    <li>Custom analytics dashboard</li>
+                    <li>Full solar web presence</li>
+                    <li>Priority 24/7 support</li>
+                    <li>Quarterly strategy retreats</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 32px; font-size: 16px; color: var(--gray-500); text-align: center; max-width: 100%;">
+            Month-to-month flexibility after initial 90-day build period · Full transparency on everything we do
+        </p>
+    </div>
+</section>
+
+<!-- Slide 9: Why GullStack -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home"></div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">09</div>
+    <div class="slide-content">
+        <h2>Why <span style="color: var(--gs-purple-light);">GullStack</span></h2>
+        <div class="two-col">
+            <div>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>AI-powered workflows</strong> — Enterprise-level marketing at a fraction of traditional agency cost</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Utah-based partner</strong> — Same timezone as your Draper office, face-to-face relationship</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Security industry experience</strong> — We've built growth strategies for ADT's largest authorized provider</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Speed to market</strong> — New site in 60 days, not 6 months. AI lets us move 10x faster.</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Performance aligned</strong> — We succeed when you succeed. No long-term lock-in contracts.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3 style="color: var(--gs-purple-light);">Proven Results</h3>
+                <p style="font-size: 16px; margin-bottom: 24px;">We don't just talk — here's what we've done:</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-green">→</div> <strong>SafeStreets (ADT)</strong> — Built growth proposal for ADT's largest authorized provider</li>
+                    <li><div class="icon icon-green">→</div> <strong>Sun Dermatology</strong> — 400% organic traffic growth in 4 months</li>
+                    <li><div class="icon icon-green">→</div> <strong>BestSportsSurfaces</strong> — Page 1 rankings in 60 days, 179 vendor listings</li>
+                    <li><div class="icon icon-green">→</div> <strong>500+ pages</strong> of AI-assisted content delivered monthly</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 10: CTA -->
+<section class="slide cta-slide">
+    <div class="slide-bg"></div>
+    <div class="logos">
+        <div class="logo-sh"><img src="https://www.safehomedirect.com/wp-content/uploads/2021/03/shs-logo-white.png" alt="Safe Home" style="filter: brightness(1.5);"></div>
+        <div class="logo-divider" style="background: rgba(255,255,255,0.3);"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack" style="filter: brightness(1.2);"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number" style="color: rgba(255,255,255,0.6);">10</div>
+    <div class="slide-content">
+        <h2>Let's Build Your<br>Dealer Pipeline</h2>
+        <p>Every month Safe Home stays invisible online, dealers sign with your competitors. Let's change that.</p>
+        <div class="cta-contact">
+            <div class="name">Bryce Morgan</div>
+            <div class="details">
+                bryce@gullstack.com<br>
+                (540) 424-0317
+            </div>
+        </div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 32px; text-align: center; max-width: 100%;">⚡ We take 3 new clients per month. This proposal is reserved for 14 days.</p>
+    </div>
+</section>
+
+</body>
+</html>
