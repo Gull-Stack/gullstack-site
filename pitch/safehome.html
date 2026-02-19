@@ -14,7 +14,8 @@
             --primary: #6366f1;
             --primary-light: #818cf8;
             --primary-bright: #a5b4fc;
-            --accent: #7c3aed;
+            --accent: #22d3ee;
+            --accent-light: #67e8f9;
             /* GullStack Colors */
             --gs-purple: #6366f1;
             --gs-purple-light: #818cf8;
@@ -151,7 +152,7 @@
             font-size: 18px; flex-shrink: 0;
         }
         .icon-red { background: rgba(113, 113, 122, 0.2); color: var(--red); }
-        .icon-green { background: rgba(16, 185, 129, 0.2); color: var(--green); }
+        .icon-green { background: rgba(34, 211, 238, 0.2); color: var(--accent); }
         .icon-blue { background: rgba(99, 102, 241, 0.2); color: var(--primary-bright); }
         
         .solution-card {
@@ -218,10 +219,10 @@
         .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
         .comparison-card { border-radius: 20px; padding: 40px; }
         .comparison-card.before { background: rgba(113, 113, 122, 0.1); border: 1px solid rgba(113, 113, 122, 0.3); }
-        .comparison-card.after { background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .comparison-card.after { background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.3); }
         .comparison-card h3 { font-size: 24px; margin-bottom: 24px; }
         .comparison-card.before h3 { color: var(--red); }
-        .comparison-card.after h3 { color: var(--green); }
+        .comparison-card.after h3 { color: var(--accent); }
         .comparison-card ul { list-style: none; }
         .comparison-card li {
             padding: 12px 0; font-size: 18px; color: var(--gray-300);
