@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnRecord Title × GullStack | Growth Proposal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* GullStack Brand */
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-bright: #a5b4fc;
+            --accent: #22d3ee;
+            --accent-light: #67e8f9;
+            /* GullStack Colors */
+            --gs-purple: #6366f1;
+            --gs-purple-light: #818cf8;
+            /* Neutrals */
+            --dark: #0a0a14;
+            --gray-900: #131324;
+            --gray-700: #252540;
+            --gray-500: #6b6b8a;
+            --gray-300: #a0a0bf;
+            --gray-100: #e0e0ef;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #71717a;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--gray-700);
+            overflow: hidden;
+        }
+        
+        .slide-content { position: relative; z-index: 1; }
+        
+        .slide-number {
+            position: absolute;
+            top: 30px; right: 40px;
+            font-size: 14px;
+            color: var(--gray-500);
+            font-weight: 500;
+            z-index: 2;
+        }
+        
+        .logos {
+            position: absolute;
+            top: 30px; left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            z-index: 2;
+        }
+        
+        .logo-client { font-family: 'Young Serif', Georgia, serif; font-size: 22px; color: var(--white); font-weight: 400; }
+        .logo-divider { width: 1px; height: 32px; background: var(--gray-700); }
+        .logo-gs { display: flex; align-items: center; gap: 10px; }
+        .logo-gs img { height: 36px; width: auto; }
+        .logo-gs span {
+            font-family: 'Young Serif', Georgia, serif;
+            font-size: 24px; font-weight: 400; color: #fafafa;
+            letter-spacing: -0.01em;
+        }
+        
+        h1 {
+            font-size: 64px; font-weight: 800; line-height: 1.1;
+            letter-spacing: -2px; margin-bottom: 24px;
+        }
+        h1 .highlight { color: var(--primary-bright); }
+        
+        h2 {
+            font-size: 48px; font-weight: 700; line-height: 1.2;
+            letter-spacing: -1.5px; margin-bottom: 32px;
+        }
+        
+        h3 { font-size: 28px; font-weight: 600; margin-bottom: 16px; color: var(--primary-light); }
+        
+        p { font-size: 20px; color: var(--gray-300); max-width: 700px; }
+        .subtitle { font-size: 24px; color: var(--gray-300); margin-bottom: 40px; }
+        
+        .hero-slide { background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%); }
+        
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid var(--primary-bright);
+            border-radius: 100px;
+            font-size: 14px; font-weight: 600;
+            color: var(--primary-bright);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--gray-900), var(--primary));
+            border: 1px solid var(--gray-700);
+            border-radius: 16px; padding: 32px; text-align: center;
+        }
+        .stat-value { font-size: 48px; font-weight: 800; color: var(--primary-bright); margin-bottom: 8px; }
+        .stat-label { font-size: 16px; color: var(--gray-300); }
+        
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        
+        .problem-list { list-style: none; margin-top: 32px; }
+        .problem-list li {
+            display: flex; align-items: flex-start; gap: 16px;
+            margin-bottom: 24px; font-size: 20px; color: var(--gray-300);
+        }
+        .problem-list .icon {
+            width: 32px; height: 32px; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; flex-shrink: 0;
+        }
+        .icon-gray { background: rgba(113, 113, 122, 0.2); color: var(--red); }
+        .icon-green { background: rgba(34, 211, 238, 0.2); color: var(--accent); }
+        .icon-blue { background: rgba(99, 102, 241, 0.2); color: var(--primary-bright); }
+        
+        .solution-card {
+            background: linear-gradient(135deg, var(--gray-900), var(--gray-700));
+            border: 1px solid var(--gray-700);
+            border-radius: 20px; padding: 40px;
+        }
+        
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        .feature-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 16px; padding: 32px;
+        }
+        .feature-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; margin-bottom: 20px;
+        }
+        .feature-card h4 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+        .feature-card p { font-size: 16px; color: var(--gray-500); }
+        
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 32px; margin-top: 48px;
+        }
+        .pricing-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-700);
+            border-radius: 20px; padding: 40px;
+            position: relative;
+        }
+        .pricing-card.recommended {
+            border-color: var(--primary-bright);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+        .pricing-card.recommended::before {
+            content: '⚡ RECOMMENDED';
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--primary-bright); color: var(--dark);
+            padding: 4px 16px; border-radius: 100px;
+            font-size: 12px; font-weight: 700; letter-spacing: 1px;
+        }
+        .pricing-card h4 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+        .pricing-card .price {
+            font-size: 42px; font-weight: 800; color: var(--primary-bright);
+            margin-bottom: 4px;
+        }
+        .pricing-card .price-note { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
+        .pricing-card ul { list-style: none; }
+        .pricing-card li {
+            padding: 10px 0; font-size: 16px; color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .pricing-card li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+        .comparison-card { border-radius: 20px; padding: 40px; }
+        .comparison-card.before { background: rgba(113, 113, 122, 0.1); border: 1px solid rgba(113, 113, 122, 0.3); }
+        .comparison-card.after { background: rgba(34, 211, 238, 0.1); border: 1px solid rgba(34, 211, 238, 0.3); }
+        .comparison-card h3 { font-size: 24px; margin-bottom: 24px; }
+        .comparison-card.before h3 { color: var(--red); }
+        .comparison-card.after h3 { color: var(--accent); }
+        .comparison-card ul { list-style: none; }
+        .comparison-card li {
+            padding: 12px 0; font-size: 18px; color: var(--gray-300);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .timeline {
+            display: flex; justify-content: space-between;
+            margin-top: 64px; position: relative;
+        }
+        .timeline::before {
+            content: ''; position: absolute; top: 24px; left: 0; right: 0;
+            height: 2px; background: var(--gray-700);
+        }
+        .timeline-item { text-align: center; position: relative; flex: 1; }
+        .timeline-dot {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; margin: 0 auto 16px;
+            position: relative; z-index: 1;
+        }
+        .timeline-item h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .timeline-item p { font-size: 14px; color: var(--gray-500); max-width: 200px; margin: 0 auto; }
+        
+        .roi-highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 20px; padding: 48px; text-align: center; margin-top: 48px;
+        }
+        .roi-highlight h3 { color: var(--white); font-size: 24px; margin-bottom: 16px; }
+        .roi-highlight .big-number { font-size: 72px; font-weight: 800; color: var(--white); }
+        .roi-highlight p { color: rgba(255,255,255,0.8); margin: 16px auto 0; }
+        
+        .cta-slide {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            text-align: center;
+        }
+        .cta-slide h2 { font-size: 56px; color: var(--white); }
+        .cta-slide p { font-size: 24px; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto 48px; }
+        .cta-contact {
+            display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
+            background: rgba(255,255,255,0.1); padding: 32px 48px;
+            border-radius: 16px; backdrop-filter: blur(10px);
+        }
+        .cta-contact .name { font-size: 28px; font-weight: 700; }
+        .cta-contact .details { font-size: 20px; color: rgba(255,255,255,0.8); }
+        
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            h1 { font-size: 48px; }
+            h2 { font-size: 36px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .two-col, .comparison-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+            .slide { padding: 100px 24px 40px; }
+            .logos { top: 16px; left: 16px; right: 16px; gap: 12px; }
+            .logo-client { font-size: 16px; }
+            .logo-gs img { height: 26px; }
+            .logo-gs span { font-size: 18px; }
+            .logo-divider { height: 24px; }
+            .slide-number { top: 20px; right: 20px; font-size: 12px; }
+            h1 { font-size: 36px; letter-spacing: -1px; }
+            h2 { font-size: 28px; letter-spacing: -0.5px; }
+            h3 { font-size: 22px; }
+            p { font-size: 16px; }
+            .subtitle { font-size: 18px; }
+            .badge { font-size: 12px; padding: 6px 12px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .stat-card { padding: 20px; }
+            .stat-value { font-size: 32px; }
+            .stat-label { font-size: 13px; }
+            .feature-grid, .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+            .feature-card, .pricing-card { padding: 24px; }
+            .feature-icon { width: 48px; height: 48px; font-size: 24px; }
+            .feature-card h4 { font-size: 18px; }
+            .feature-card p { font-size: 14px; }
+            .problem-list li { font-size: 16px; }
+            .solution-card { padding: 24px; }
+            .comparison-grid { gap: 24px; }
+            .comparison-card { padding: 24px; }
+            .comparison-card li { font-size: 15px; padding: 10px 0; }
+            .roi-highlight { padding: 32px 24px; }
+            .roi-highlight .big-number { font-size: 48px; }
+            .pricing-card .price { font-size: 32px; }
+            .timeline { flex-direction: column; gap: 32px; margin-top: 40px; }
+            .timeline::before { display: none; }
+            .timeline-item { display: flex; align-items: flex-start; gap: 16px; text-align: left; }
+            .timeline-dot { width: 40px; height: 40px; margin: 0; flex-shrink: 0; }
+            .timeline-item p { max-width: none; }
+            .cta-slide h2 { font-size: 36px; }
+            .cta-slide p { font-size: 18px; }
+            .cta-contact { padding: 24px 32px; }
+            .cta-contact .name { font-size: 22px; }
+            .cta-contact .details { font-size: 16px; }
+        }
+        
+        @media print {
+            .slide { page-break-after: always; min-height: auto; padding: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Title -->
+<section class="slide hero-slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs">
+            <img src="/gull-logo.png" alt="GullStack">
+            <span>GullStack</span>
+        </div>
+    </div>
+    <div class="slide-number">01</div>
+    <div class="slide-content">
+        <div class="badge">Growth Proposal</div>
+        <h1>Own <span class="highlight">"Title Company Utah"</span></h1>
+        <p class="subtitle">A managed growth engine for OnRecord Title</p>
+        <p>You close deals beautifully. But when a realtor in Sandy Googles "title company near me," you're invisible. Every search you don't show up for is a closing that goes to Metro, Cottonwood, or a faceless national chain.</p>
+    </div>
+</section>
+
+<!-- Slide 2: OnRecord Profile -->
+<section class="slide" style="background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">02</div>
+    <div class="slide-content">
+        <h2>OnRecord Title at a Glance</h2>
+        <p>A modern title company with white-glove service, 187 five-star reviews, and 10+ years of closing expertise. The reputation is there — the web presence isn't.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">187</div>
+                <div class="stat-label">5-Star Reviews<br>on Birdeye</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Years in Title<br>& Escrow</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">10</div>
+                <div class="stat-label">Total Website Pages<br>(incl. "test" & "sample")</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$550K</div>
+                <div class="stat-label">Median Home Price<br>Salt Lake County</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 3: Technical Site Audit -->
+<section class="slide" style="background: var(--dark);">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">03</div>
+    <div class="slide-content">
+        <div class="badge">Technical Audit</div>
+        <h2>Your Site Under the <span style="color: var(--primary-bright);">Microscope</span></h2>
+        <p>We crawled onrecordtitle.com the way Google does — without JavaScript. Here's what we found.</p>
+        <div class="stats-grid">
+            <div class="stat-card" style="border-color: #dc3545;">
+                <div class="stat-value" style="color: #dc3545;">Blank</div>
+                <div class="stat-label">Content Visible<br>to Google Crawlers</div>
+            </div>
+            <div class="stat-card" style="border-color: #dc3545;">
+                <div class="stat-value" style="color: #dc3545;">4.2MB</div>
+                <div class="stat-label">Page Weight<br>(industry std: &lt;1MB)</div>
+            </div>
+            <div class="stat-card" style="border-color: #dc3545;">
+                <div class="stat-value" style="color: #dc3545;">47+</div>
+                <div class="stat-label">HTTP Requests<br>(industry std: &lt;25)</div>
+            </div>
+            <div class="stat-card" style="border-color: #dc3545;">
+                <div class="stat-value" style="color: #dc3545;">~18</div>
+                <div class="stat-label">PageSpeed Score<br>(target: 90+)</div>
+            </div>
+        </div>
+        <div class="two-col" style="margin-top: 48px;">
+            <div>
+                <h3 style="color: #dc3545;">Critical Failures</h3>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon" style="background: rgba(220,53,69,0.2); color: #dc3545;">!</div>
+                        <span><strong>Invisible to search engines</strong> — Elementor renders content via JavaScript only. Google's crawler sees a blank white page. Zero indexable content.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(220,53,69,0.2); color: #dc3545;">!</div>
+                        <span><strong>WordPress + Elementor + Bootstrap + jQuery</strong> — Three layout frameworks, 15+ CSS files, 180KB of generated styles. Most unused. Devastating for load time.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(220,53,69,0.2); color: #dc3545;">!</div>
+                        <span><strong>Mixed HTTP/HTTPS</strong> — Font files served over insecure HTTP. Triggers browser warnings, breaks rendering for some users.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(220,53,69,0.2); color: #dc3545;">!</div>
+                        <span><strong>Zero spam protection</strong> — Contact forms wide open to bots. No honeypot, no validation, no rate limiting.</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: #f0ad4e;">Missing Essentials</h3>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon" style="background: rgba(240,173,78,0.2); color: #f0ad4e;">⚠</div>
+                        <span><strong>No Schema.org markup</strong> — No LocalBusiness data. Google can't show your address, hours, or phone in rich results.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(240,173,78,0.2); color: #f0ad4e;">⚠</div>
+                        <span><strong>No Open Graph tags</strong> — Every LinkedIn/Facebook share shows a broken, ugly preview instead of your brand.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(240,173,78,0.2); color: #f0ad4e;">⚠</div>
+                        <span><strong>WCAG accessibility failures</strong> — Missing ARIA labels, inadequate contrast, no skip links, no keyboard nav support.</span>
+                    </li>
+                    <li>
+                        <div class="icon" style="background: rgba(240,173,78,0.2); color: #f0ad4e;">⚠</div>
+                        <span><strong>No interactive tools</strong> — No seller net sheet, no rate quote calculator. These are conversion magnets that competitors offer.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 4: The Problem -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">04</div>
+    <div class="slide-content">
+        <div class="two-col">
+            <div>
+                <h2>The Problem</h2>
+                <p>187 five-star reviews and realtors still don't know you exist.</p>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>"Title company Utah"</strong> — not ranking</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>"Escrow services Salt Lake"</strong> — not ranking</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>"Mobile closing Utah"</strong> — not ranking (this is your differentiator!)</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>/services page shows web design copy</strong> — not your actual title services</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>No location pages, no blog, no SEO</strong> — zero organic search strategy</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-gray">✕</div>
+                        <span><strong>"Sample page" and "test" pages live</strong> — hurting credibility with Google</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3>What Realtors Search For</h3>
+                <p style="font-size: 16px; margin-bottom: 24px;">These are the searches that drive closings — and you're not showing up for any of them:</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-blue">→</div> "title company midvale utah" — 390/mo</li>
+                    <li><div class="icon icon-blue">→</div> "title company salt lake city" — 1,200/mo</li>
+                    <li><div class="icon icon-blue">→</div> "escrow services utah" — 720/mo</li>
+                    <li><div class="icon icon-blue">→</div> "mobile closing utah" — 480/mo</li>
+                    <li><div class="icon icon-blue">→</div> "title company sandy utah" — 320/mo</li>
+                    <li><div class="icon icon-blue">→</div> "online closing real estate utah" — 260/mo</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 4: The Opportunity -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">05</div>
+    <div class="slide-content">
+        <h2>The <span style="color: var(--primary-bright);">Opportunity</span></h2>
+        <p>OnRecord has three competitive advantages that no competitor in Utah is marketing properly online.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h4>Mobile Closings</h4>
+                <p>You go to the client. Nobody else in the Salt Lake Valley is marketing this properly. "Mobile closing Utah" has low competition and high intent — every search is a potential deal.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h4>Online Closings</h4>
+                <p>Remote closings for sellers, refinances, and out-of-state parties. Post-COVID demand for remote options is permanent. You offer it — your website doesn't mention it.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h4>187 Five-Star Reviews</h4>
+                <p>Your reputation is gold. But it's trapped on Birdeye and Google. We turn that social proof into SEO fuel — review schema, testimonial pages, and trust signals everywhere.</p>
+            </div>
+        </div>
+        <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 40px;">
+            <div class="stat-card">
+                <div class="stat-value">3,370+</div>
+                <div class="stat-label">Monthly Searches<br>You're Missing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Keywords Ranking<br>in Top 100</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">$2,500+</div>
+                <div class="stat-label">Avg. Revenue<br>Per Closing</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 5: The Strategy -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">06</div>
+    <div class="slide-content">
+        <h2>The Strategy</h2>
+        <p>New site. Local SEO domination. AI-powered content that makes you the authority on title & escrow in Utah.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h4>New Website</h4>
+                <p>Fast, modern, SEO-optimized. Dedicated pages for every service — residential, commercial, new construction, mobile closings, online closings. 95+ PageSpeed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h4>Location Pages</h4>
+                <p>"Title company [city] Utah" pages for Midvale, Sandy, Draper, Murray, Cottonwood Heights, South Jordan, and every city in the Salt Lake Valley.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Content Engine</h4>
+                <p>"What to expect at closing," "Mobile vs. office closings," "How escrow works in Utah" — educational content that ranks and builds trust before the first phone call.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h4>Google Business Optimization</h4>
+                <p>GBP profile optimization, review management strategy, local pack targeting. Get into the map results for "title company near me."</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h4>Realtor Referral Engine</h4>
+                <p>Landing pages for realtor partnerships, co-branded resources, closing checklists. Give realtors a reason to recommend you — and an easy link to share.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Analytics & Tracking</h4>
+                <p>Track every form submission, every phone call, every "get a quote" click. Know exactly which pages drive closings and double down on what works.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 6: Before/After -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">07</div>
+    <div class="slide-content">
+        <h2>The Transformation</h2>
+        <div class="comparison-grid">
+            <div class="comparison-card before">
+                <h3>Today</h3>
+                <ul>
+                    <li>10-page WordPress site (with "test" pages)</li>
+                    <li>/services page shows web design copy</li>
+                    <li>Zero search visibility for title keywords</li>
+                    <li>No location pages for any city</li>
+                    <li>No blog or educational content</li>
+                    <li>Mobile closings not mentioned anywhere</li>
+                    <li>Referrals are 100% word-of-mouth</li>
+                </ul>
+            </div>
+            <div class="comparison-card after">
+                <h3>After GullStack</h3>
+                <ul>
+                    <li>40+ page modern site, 95+ PageSpeed</li>
+                    <li>Dedicated service pages with clear CTAs</li>
+                    <li>Page 1 for 50+ local title keywords</li>
+                    <li>12+ city-specific location pages</li>
+                    <li>Educational blog building authority</li>
+                    <li>Mobile & online closings front and center</li>
+                    <li>Inbound lead engine from Google + referrals</li>
+                </ul>
+            </div>
+        </div>
+        <div class="roi-highlight">
+            <h3>Conservative Year 1 Projection</h3>
+            <div class="big-number">48+ New Closings</div>
+            <p>Based on 2% conversion rate from projected 2,400 annual organic visitors to quote request page. At ~$2,500 avg. revenue per closing, that's $120K+ in additional annual revenue.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 7: Timeline -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">08</div>
+    <div class="slide-content">
+        <h2>Implementation Timeline</h2>
+        <p>New site live in 45 days. Local rankings improving by month 2.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">1</div>
+                <h4>Week 1-2</h4>
+                <p>Discovery, competitor audit, keyword research, site architecture</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2</div>
+                <h4>Week 3-6</h4>
+                <p>New site build with 30+ pages, location pages, service pages, blog foundation</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">3</div>
+                <h4>Month 2-3</h4>
+                <p>Content engine running, GBP optimization, review strategy, local citations</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">4</div>
+                <h4>Month 3-6</h4>
+                <p>Link building, realtor partnerships, conversion optimization, ranking growth</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 8: Investment -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">09</div>
+    <div class="slide-content">
+        <h2>Investment</h2>
+        <p>Choose the path that matches your growth goals. All plans include a new site build, AI-assisted content, and local SEO.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>Foundation</h4>
+                <div class="price">$2,500</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Modern SEO-optimized website</li>
+                    <li>10+ service & location pages</li>
+                    <li>Google Business optimization</li>
+                    <li>Monthly content updates</li>
+                    <li>Basic analytics setup</li>
+                    <li>Monthly performance reports</li>
+                </ul>
+            </div>
+            <div class="pricing-card recommended">
+                <h4>Growth</h4>
+                <div class="price">$4,500</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Everything in Foundation</li>
+                    <li>30+ optimized pages</li>
+                    <li>12+ city location pages</li>
+                    <li>Weekly blog content</li>
+                    <li>Realtor referral landing pages</li>
+                    <li>Review management strategy</li>
+                    <li>Local link building</li>
+                    <li>Conversion optimization</li>
+                    <li>Dedicated strategist</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h4>Dominate</h4>
+                <div class="price">$8,500</div>
+                <div class="price-note">/month</div>
+                <ul>
+                    <li>Everything in Growth</li>
+                    <li>50+ optimized pages</li>
+                    <li>Full Utah market coverage</li>
+                    <li>Digital PR & media outreach</li>
+                    <li>Custom analytics dashboard</li>
+                    <li>Competitor monitoring</li>
+                    <li>Priority support</li>
+                    <li>Quarterly strategy sessions</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 32px; font-size: 16px; color: var(--gray-500); text-align: center; max-width: 100%;">
+            Month-to-month flexibility after initial 90-day build period · Full transparency on everything we do
+        </p>
+    </div>
+</section>
+
+<!-- Slide 9: Why GullStack -->
+<section class="slide">
+    <div class="logos">
+        <div class="logo-client">OnRecord Title</div>
+        <div class="logo-divider"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number">10</div>
+    <div class="slide-content">
+        <h2>Why <span style="color: var(--accent-light);">GullStack</span></h2>
+        <div class="two-col">
+            <div>
+                <ul class="problem-list">
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>AI-powered workflows</strong> — Enterprise-level marketing at small business pricing</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Utah-based</strong> — We're local. Same market, same timezone, face-to-face relationship.</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Speed to market</strong> — New site in 45 days, not 6 months. AI lets us move 10x faster.</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>Right-sized pricing</strong> — Not a $15K/month enterprise agency. Built for local businesses that want real results.</span>
+                    </li>
+                    <li>
+                        <div class="icon icon-green">✓</div>
+                        <span><strong>No lock-in contracts</strong> — Month-to-month after the build period. We earn your business every month.</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="solution-card">
+                <h3 style="color: var(--accent-light);">Proven Results</h3>
+                <p style="font-size: 16px; margin-bottom: 24px;">We don't just talk — here's what we've done:</p>
+                <ul class="problem-list" style="margin-top: 0;">
+                    <li><div class="icon icon-green">→</div> <strong>Sun Dermatology</strong> — 400% organic traffic growth in 4 months</li>
+                    <li><div class="icon icon-green">→</div> <strong>BestSportsSurfaces</strong> — Page 1 rankings in 60 days, 179 vendor listings nationwide</li>
+                    <li><div class="icon icon-green">→</div> <strong>500+ pages</strong> of AI-assisted content delivered monthly across clients</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Slide 10: CTA -->
+<section class="slide cta-slide">
+    <div class="logos">
+        <div class="logo-client" style="color: rgba(255,255,255,0.9);">OnRecord Title</div>
+        <div class="logo-divider" style="background: rgba(255,255,255,0.3);"></div>
+        <div class="logo-gs"><img src="/gull-logo.png" alt="GullStack" style="filter: brightness(1.2);"><span>GullStack</span></div>
+    </div>
+    <div class="slide-number" style="color: rgba(255,255,255,0.6);">10</div>
+    <div class="slide-content">
+        <h2>Let's Own<br>"Title Company Utah"</h2>
+        <p>Every day OnRecord stays invisible online, closings go to competitors with worse service and better websites. Let's fix that.</p>
+        <div class="cta-contact">
+            <div class="name">Josh Cohen</div>
+            <div class="details">
+                josh@gullstack.com<br>
+                GullStack.com
+            </div>
+        </div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 32px; text-align: center; max-width: 100%;">⚡ We take 3 new clients per month. This proposal is reserved for 14 days.</p>
+    </div>
+</section>
+
+</body>
+</html>
