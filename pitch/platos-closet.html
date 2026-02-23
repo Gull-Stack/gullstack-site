@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plato's Closet — Simpler Payments, More Customer Engagement | GullStack</title>
+<meta name="description" content="See how we're helping Plato's Closet Draper save $350/month, simplify card processing, and reach more customers with unlimited texting and email.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-elevated: #21262d;
+    --border: #30363d;
+    --text: #f0f6fc;
+    --text-muted: #8b949e;
+    --accent: #a855f7;
+    --accent-soft: rgba(168, 85, 247, 0.15);
+    --green: #3fb950;
+    --red: #f85149;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-card) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Young Serif', serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent), #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+  }
+
+  .hero-cta:hover { background: #7c3aed; }
+
+  /* ── Story ── */
+  .story {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .story h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .story-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .story-text p { margin-bottom: 20px; }
+  .story-text strong { color: var(--text); }
+
+  /* ── Results ── */
+  .results {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(168, 85, 247, 0.04) 50%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .results h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto 60px;
+  }
+
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .stat-card .number {
+    font-family: 'Young Serif', serif;
+    font-size: 2.8rem;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .stat-card .label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── What Changed ── */
+  .changes {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .changes h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .change-list {
+    max-width: 700px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+  }
+
+  .change-list li {
+    display: flex;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .change-list li:last-child { border-bottom: none; }
+
+  .change-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--accent-soft);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .change-text h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+
+  .change-text p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ── Before/After ── */
+  .before-after {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(168, 85, 247, 0.04) 50%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .before-after h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    .ba-grid { grid-template-columns: 1fr; }
+  }
+
+  .ba-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .ba-card.before { border: 2px solid var(--red); }
+  .ba-card.after { border: 2px solid var(--green); }
+
+  .ba-card .tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+  }
+
+  .ba-card.before .tag { background: var(--red); color: white; }
+  .ba-card.after .tag { background: var(--green); color: white; }
+
+  .ba-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+
+  .ba-row:last-child { border-bottom: none; }
+  .ba-row .label { color: var(--text-muted); }
+  .ba-row .value { font-weight: 600; font-family: monospace; }
+  .ba-card.before .ba-row .value { color: var(--red); }
+  .ba-card.after .ba-row .value { color: var(--green); }
+
+  /* ── CTA ── */
+  .cta {
+    padding: 100px 0;
+  }
+
+  .cta-box {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 24px;
+    padding: 60px 40px;
+  }
+
+  .cta-box h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+  }
+
+  .cta-box p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-box .hero-cta { font-size: 1rem; }
+
+  /* ── Footer ── */
+  footer {
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">Plato's Closet × GullStack</div>
+  <h1>
+    Less Hassle.<br>Lower Costs.<br><span class="highlight">More Customers.</span>
+  </h1>
+  <p>
+    See how Plato's Closet Draper simplified their payments, cut $350/month in costs, and started reaching way more customers — without adding any complexity.
+  </p>
+  <a href="#contact" class="hero-cta">Get This for Your Store →</a>
+</section>
+
+<!-- Story -->
+<section class="story">
+  <div class="container">
+    <h2>What Was Happening</h2>
+    <div class="story-text">
+      <p>
+        Running a Plato's Closet is fast-paced. Customers in and out all day, buy-backs to manage, inventory always moving. The last thing any owner needs is to wrestle with confusing payment reports or overpay for basic things like texting customers.
+      </p>
+      <p>
+        The Draper location was dealing with exactly that — <strong>payment processing that was hard to reconcile</strong>, plus separate bills for texting and email that added up to hundreds a month. Every message to a customer cost money. Every report took effort to make sense of.
+      </p>
+      <p>
+        They needed it simpler. And cheaper.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="results">
+  <div class="container">
+    <h2>What Changed</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="number">$350</div>
+        <div class="label">Saved per month on texting & email alone</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">∞</div>
+        <div class="label">Unlimited texts & emails to customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="number">1</div>
+        <div class="label">Place to see everything — payments, messages, customers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Did -->
+<section class="changes">
+  <div class="container">
+    <h2>Here's Exactly What We Did</h2>
+    <ul class="change-list">
+      <li>
+        <div class="change-icon">💳</div>
+        <div class="change-text">
+          <h3>Simpler, Modern Card Processing</h3>
+          <p>Replaced their old setup with cleaner processing that's easy to understand. Reports that actually make sense — you can see what came in, what went out, and reconcile without a headache.</p>
+        </div>
+      </li>
+      <li>
+        <div class="change-icon">💬</div>
+        <div class="change-text">
+          <h3>Unlimited Texting to Customers</h3>
+          <p>No more paying per message. Text customers about buy-back events, new arrivals, promotions — as much as you want, whenever you want. That alone saves $350/month.</p>
+        </div>
+      </li>
+      <li>
+        <div class="change-icon">✉️</div>
+        <div class="change-text">
+          <h3>Unlimited Email Campaigns</h3>
+          <p>Send emails to your whole customer list without worrying about hitting limits or racking up charges. Announce sales, seasonal drops, loyalty rewards — all included.</p>
+        </div>
+      </li>
+      <li>
+        <div class="change-icon">📊</div>
+        <div class="change-text">
+          <h3>Reporting You Can Actually Read</h3>
+          <p>Clean reconciliation. See your numbers clearly without exporting to spreadsheets or calling your processor to figure out what a charge was.</p>
+        </div>
+      </li>
+      <li>
+        <div class="change-icon">📈</div>
+        <div class="change-text">
+          <h3>More Customer Engagement</h3>
+          <p>When messaging is free, you use it more. The Draper store went from occasional blasts to consistent communication — and customers started coming in more often.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Before / After -->
+<section class="before-after">
+  <div class="container">
+    <h2>The Difference</h2>
+    <div class="ba-grid">
+      <div class="ba-card before">
+        <span class="tag">Before</span>
+        <div class="ba-row">
+          <span class="label">Texting & Email</span>
+          <span class="value">$350+/mo</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Message limits</span>
+          <span class="value">Capped</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Payment reports</span>
+          <span class="value">Confusing</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Customer outreach</span>
+          <span class="value">Occasional</span>
+        </div>
+      </div>
+      <div class="ba-card after">
+        <span class="tag">After</span>
+        <div class="ba-row">
+          <span class="label">Texting & Email</span>
+          <span class="value">Included</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Message limits</span>
+          <span class="value">Unlimited</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Payment reports</span>
+          <span class="value">Clear</span>
+        </div>
+        <div class="ba-row">
+          <span class="label">Customer outreach</span>
+          <span class="value">Consistent</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-box">
+    <h2>Want This for Your Store?</h2>
+    <p>
+      If you're running a Plato's Closet and paying too much for basics that should be simple — let's talk. Five minutes.
+    </p>
+    <a href="mailto:hello@gullstack.com?subject=Plato's%20Closet%20—%20Let's%20Talk" class="hero-cta">Get Your Free Analysis →</a>
+  </div>
+</section>
+
+<footer>
+  <p>Built by <a href="https://gullstack.com">GullStack</a> — helping business owners simplify and save.</p>
+</footer>
+
+</body>
+</html>
