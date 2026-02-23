@@ -7,321 +7,783 @@
 <meta name="description" content="See how we're helping Plato's Closet Draper save $350/month, simplify card processing, and reach more customers with unlimited texting and email.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #0d1117;
-    --bg-card: #161b22;
-    --bg-elevated: #21262d;
-    --border: #30363d;
-    --text: #f0f6fc;
-    --text-muted: #8b949e;
+    --bg: #06080d;
+    --bg-card: #0c1018;
+    --bg-elevated: #121825;
+    --border: rgba(255,255,255,0.06);
+    --text: #f0f2f5;
+    --text-muted: #7a8299;
     --accent: #a855f7;
-    --accent-soft: rgba(168, 85, 247, 0.15);
-    --green: #3fb950;
-    --red: #f85149;
+    --accent-glow: rgba(168, 85, 247, 0.25);
+    --green: #34d399;
+    --green-glow: rgba(52, 211, 153, 0.15);
+    --red: #f87171;
+    --red-glow: rgba(248, 113, 113, 0.15);
+    --radius: 20px;
   }
 
   body {
-    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
-  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
-  /* ── Hero ── */
+  /* ═══ HERO ═══ */
   .hero {
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 80px 24px;
-    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-card) 100%);
-    border-bottom: 1px solid var(--border);
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
   }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, rgba(52,211,153,0.04) 40%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168,85,247,0.2), transparent);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 800px; }
 
   .hero-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    background: var(--accent-soft);
-    border: 1px solid rgba(168, 85, 247, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(168,85,247,0.08);
+    border: 1px solid rgba(168,85,247,0.2);
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--accent);
-    letter-spacing: 0.05em;
-    margin-bottom: 32px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    margin-bottom: 40px;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-glow); }
+    50% { opacity: 0.6; box-shadow: 0 0 0 8px transparent; }
   }
 
   .hero h1 {
-    font-family: 'Young Serif', serif;
-    font-size: clamp(2.2rem, 6vw, 4rem);
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 24px;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
   }
 
-  .hero h1 .highlight {
-    background: linear-gradient(135deg, var(--accent), #c084fc);
+  .hero h1 .gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, #c084fc 40%, var(--green) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .hero p {
-    font-size: 1.25rem;
+  .hero-sub {
+    font-size: 1.2rem;
     color: var(--text-muted);
-    max-width: 600px;
-    margin-bottom: 40px;
+    max-width: 550px;
+    margin: 0 auto 48px;
+    font-weight: 400;
+    line-height: 1.7;
   }
 
   .hero-cta {
-    display: inline-block;
-    padding: 16px 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
     background: var(--accent);
     color: white;
-    border-radius: 10px;
+    border-radius: 14px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: background 0.2s;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 24px var(--accent-glow);
   }
 
-  .hero-cta:hover { background: #7c3aed; }
+  .hero-cta:hover {
+    background: #9333ea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--accent-glow);
+  }
 
-  /* ── Story ── */
+  .hero-cta .arrow { transition: transform 0.3s; }
+  .hero-cta:hover .arrow { transform: translateX(4px); }
+
+  /* ═══ MOCKUP SECTION ═══ */
+  .mockup-section {
+    padding: 0 32px 120px;
+    position: relative;
+    margin-top: -40px;
+  }
+
+  .mockup-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .mockup-phone {
+    width: 280px;
+    height: 560px;
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 36px;
+    padding: 12px;
+    margin: 0 auto;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.05),
+      0 20px 60px rgba(0,0,0,0.5),
+      0 0 80px var(--accent-glow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mockup-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0f1629 0%, #0a0f1d 100%);
+    border-radius: 26px;
+    padding: 24px 16px;
+    overflow: hidden;
+  }
+
+  .mock-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .mock-header .store-name {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .mock-header .greeting {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .mock-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .mock-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+
+  .mock-stat .num {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .mock-stat .num.green { color: var(--green); }
+  .mock-stat .num.accent { color: var(--accent); }
+
+  .mock-stat .lbl {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .mock-messages {
+    margin-top: 16px;
+  }
+
+  .mock-messages .title {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .mock-msg {
+    background: rgba(168,85,247,0.1);
+    border: 1px solid rgba(168,85,247,0.15);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+
+  .mock-msg .sent {
+    font-size: 0.55rem;
+    color: var(--green);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .mock-chart {
+    margin-top: 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .mock-chart .title {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  .chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 50px;
+  }
+
+  .chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--accent), rgba(168,85,247,0.3));
+    border-radius: 4px 4px 0 0;
+    min-height: 8px;
+  }
+
+  /* Floating cards around phone */
+  .float-card {
+    position: absolute;
+    background: var(--bg-elevated);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 16px 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-card.left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    animation-delay: 0s;
+  }
+
+  .float-card.right {
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    animation-delay: 3s;
+  }
+
+  .float-card.right-bottom {
+    right: 40px;
+    bottom: 40px;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(-50%); }
+    50% { transform: translateY(calc(-50% - 10px)); }
+  }
+
+  .float-card .fc-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .float-card .fc-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .float-card .fc-value.green { color: var(--green); }
+  .float-card .fc-value.accent { color: var(--accent); }
+
+  .float-card .fc-sub {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 800px) {
+    .float-card { display: none; }
+  }
+
+  /* ═══ STORY ═══ */
   .story {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 140px 0;
+    position: relative;
+  }
+
+  .story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  @media (max-width: 800px) {
+    .story-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+
+  .story-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
   }
 
   .story h2 {
-    font-family: 'Young Serif', serif;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 48px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 24px;
   }
 
-  .story-text {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 1.15rem;
+  .story p {
     color: var(--text-muted);
+    font-size: 1.05rem;
     line-height: 1.8;
+    margin-bottom: 16px;
   }
 
-  .story-text p { margin-bottom: 20px; }
-  .story-text strong { color: var(--text); }
+  .story-visual {
+    position: relative;
+  }
 
-  /* ── Results ── */
+  .pain-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s;
+  }
+
+  .pain-card:hover {
+    border-color: rgba(248,113,113,0.3);
+    background: rgba(248,113,113,0.03);
+  }
+
+  .pain-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--red-glow);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .pain-card .pain-text {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .pain-card .pain-text strong { color: var(--text); }
+
+  /* ═══ RESULTS ═══ */
   .results {
-    padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(168, 85, 247, 0.04) 50%, var(--bg) 100%);
-    border-bottom: 1px solid var(--border);
+    padding: 140px 0;
+    position: relative;
   }
 
-  .results h2 {
-    font-family: 'Young Serif', serif;
-    font-size: 2.2rem;
+  .results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(52,211,153,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
     text-align: center;
-    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: center;
+    margin-bottom: 64px;
+    line-height: 1.1;
   }
 
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 800px;
-    margin: 0 auto 60px;
+    gap: 20px;
+    margin-bottom: 80px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     .stats-grid { grid-template-columns: 1fr; }
   }
 
   .stat-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: var(--radius);
+    padding: 40px 32px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
   }
+
+  .stat-card:hover {
+    border-color: rgba(168,85,247,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .stat-card:hover::before { opacity: 1; }
 
   .stat-card .number {
-    font-family: 'Young Serif', serif;
-    font-size: 2.8rem;
-    color: var(--accent);
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: 8px;
+    line-height: 1;
   }
+
+  .stat-card .number.green { color: var(--green); }
+  .stat-card .number.accent { color: var(--accent); }
 
   .stat-card .label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
-  /* ── What Changed ── */
-  .changes {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
+  /* ═══ WHAT WE DID ═══ */
+  .features {
+    padding: 140px 0;
+    position: relative;
   }
 
-  .changes h2 {
-    font-family: 'Young Serif', serif;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 60px;
+  .features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
 
-  .change-list {
-    max-width: 700px;
-    margin: 0 auto;
-    list-style: none;
-    padding: 0;
-  }
-
-  .change-list li {
-    display: flex;
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .change-list li:last-child { border-bottom: none; }
+  @media (max-width: 700px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
 
-  .change-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--accent-soft);
-    border-radius: 12px;
+  .feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(168,85,247,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+
+  .feature-card.wide {
+    grid-column: span 2;
+  }
+
+  @media (max-width: 700px) {
+    .feature-card.wide { grid-column: span 1; }
+  }
+
+  .feature-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--accent-glow);
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
-    flex-shrink: 0;
+    margin-bottom: 20px;
   }
 
-  .change-text h3 {
-    font-size: 1.15rem;
-    margin-bottom: 6px;
+  .feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
   }
 
-  .change-text p {
+  .feature-card p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.92rem;
+    line-height: 1.7;
   }
 
-  /* ── Before/After ── */
-  .before-after {
-    padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(168, 85, 247, 0.04) 50%, var(--bg) 100%);
-    border-bottom: 1px solid var(--border);
+  /* ═══ BEFORE / AFTER ═══ */
+  .comparison {
+    padding: 140px 0;
+    position: relative;
   }
 
-  .before-after h2 {
-    font-family: 'Young Serif', serif;
-    font-size: 2.2rem;
-    text-align: center;
-    margin-bottom: 60px;
+  .comparison::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
 
   .ba-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 800px;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    max-width: 850px;
     margin: 0 auto;
+    align-items: center;
   }
 
-  @media (max-width: 600px) {
-    .ba-grid { grid-template-columns: 1fr; }
+  @media (max-width: 700px) {
+    .ba-grid { grid-template-columns: 1fr; gap: 20px; }
+    .ba-arrow { transform: rotate(90deg); }
   }
 
   .ba-card {
     background: var(--bg-card);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: var(--radius);
+    padding: 36px;
+    position: relative;
   }
 
-  .ba-card.before { border: 2px solid var(--red); }
-  .ba-card.after { border: 2px solid var(--green); }
+  .ba-card.before { border: 1px solid rgba(248,113,113,0.2); }
+  .ba-card.after { border: 1px solid rgba(52,211,153,0.2); }
 
-  .ba-card .tag {
+  .ba-tag {
     display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
   }
 
-  .ba-card.before .tag { background: var(--red); color: white; }
-  .ba-card.after .tag { background: var(--green); color: white; }
+  .ba-card.before .ba-tag {
+    background: var(--red-glow);
+    color: var(--red);
+  }
+
+  .ba-card.after .ba-tag {
+    background: var(--green-glow);
+    color: var(--green);
+  }
 
   .ba-row {
     display: flex;
     justify-content: space-between;
-    padding: 12px 0;
+    align-items: center;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .ba-row:last-child { border-bottom: none; }
   .ba-row .label { color: var(--text-muted); }
-  .ba-row .value { font-weight: 600; font-family: monospace; }
+
+  .ba-row .value {
+    font-weight: 700;
+    font-family: 'Inter', monospace;
+    font-size: 0.95rem;
+  }
+
   .ba-card.before .ba-row .value { color: var(--red); }
   .ba-card.after .ba-row .value { color: var(--green); }
 
-  /* ── CTA ── */
+  .ba-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  /* ═══ CTA ═══ */
   .cta {
-    padding: 100px 0;
+    padding: 140px 0;
+    position: relative;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
   }
 
   .cta-box {
-    max-width: 650px;
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
     background: var(--bg-card);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 24px;
-    padding: 60px 40px;
+    border: 1px solid rgba(168,85,247,0.15);
+    border-radius: 28px;
+    padding: 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .cta-box h2 {
-    font-family: 'Young Serif', serif;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
     margin-bottom: 16px;
+    position: relative;
   }
 
   .cta-box p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
     max-width: 450px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    line-height: 1.7;
   }
 
-  .cta-box .hero-cta { font-size: 1rem; }
-
-  /* ── Footer ── */
+  /* ═══ FOOTER ═══ */
   footer {
-    padding: 32px 24px;
+    padding: 40px 32px;
     text-align: center;
-    border-top: 1px solid var(--border);
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   footer a { color: var(--accent); text-decoration: none; }
@@ -331,30 +793,126 @@
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-badge">Plato's Closet × GullStack</div>
-  <h1>
-    Less Hassle.<br>Lower Costs.<br><span class="highlight">More Customers.</span>
-  </h1>
-  <p>
-    See how Plato's Closet Draper simplified their payments, cut $350/month in costs, and started reaching way more customers — without adding any complexity.
-  </p>
-  <a href="#contact" class="hero-cta">Get This for Your Store →</a>
+  <div class="hero-content">
+    <div class="hero-badge">Plato's Closet × GullStack</div>
+    <h1>
+      Less Hassle. Lower Costs.<br><span class="gradient">More Customers.</span>
+    </h1>
+    <p class="hero-sub">
+      See how Plato's Closet Draper simplified their payments, cut $350/month in costs, and started reaching way more customers — without adding any complexity.
+    </p>
+    <a href="#contact" class="hero-cta">
+      Get This for Your Store
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- Mockup -->
+<section class="mockup-section">
+  <div class="mockup-wrapper">
+    <div class="float-card left">
+      <div class="fc-label">Monthly Savings</div>
+      <div class="fc-value green">$350</div>
+      <div class="fc-sub">Texting & email costs eliminated</div>
+    </div>
+
+    <div class="mockup-phone">
+      <div class="mockup-screen">
+        <div class="mock-header">
+          <div class="store-name">Plato's Closet Draper</div>
+          <div class="greeting">Dashboard</div>
+        </div>
+        <div class="mock-stat-row">
+          <div class="mock-stat">
+            <div class="num green">$350</div>
+            <div class="lbl">Saved/mo</div>
+          </div>
+          <div class="mock-stat">
+            <div class="num accent">2.4K</div>
+            <div class="lbl">Texts Sent</div>
+          </div>
+        </div>
+        <div class="mock-messages">
+          <div class="title">Recent Messages</div>
+          <div class="mock-msg">
+            🎉 New arrivals just dropped! Nike, Lululemon & more. Come check them out today!
+            <div class="sent">✓ Sent to 847 customers</div>
+          </div>
+          <div class="mock-msg">
+            💰 Buy-back event this Saturday! Bring your gently used clothing for cash on the spot.
+            <div class="sent">✓ Sent to 847 customers</div>
+          </div>
+        </div>
+        <div class="mock-chart">
+          <div class="title">Customer Visits</div>
+          <div class="chart-bars">
+            <div class="chart-bar" style="height: 40%"></div>
+            <div class="chart-bar" style="height: 55%"></div>
+            <div class="chart-bar" style="height: 45%"></div>
+            <div class="chart-bar" style="height: 70%"></div>
+            <div class="chart-bar" style="height: 65%"></div>
+            <div class="chart-bar" style="height: 85%"></div>
+            <div class="chart-bar" style="height: 100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-card right">
+      <div class="fc-label">Messages</div>
+      <div class="fc-value accent">Unlimited</div>
+      <div class="fc-sub">Text & email included</div>
+    </div>
+
+    <div class="float-card right-bottom" style="animation-name: float2;">
+      <div class="fc-label">Reports</div>
+      <div class="fc-value green">Clear</div>
+      <div class="fc-sub">Easy reconciliation</div>
+    </div>
+
+    <style>
+      @keyframes float2 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      .float-card.right-bottom { animation: float2 6s ease-in-out infinite; }
+    </style>
+  </div>
 </section>
 
 <!-- Story -->
 <section class="story">
   <div class="container">
-    <h2>What Was Happening</h2>
-    <div class="story-text">
-      <p>
-        Running a Plato's Closet is fast-paced. Customers in and out all day, buy-backs to manage, inventory always moving. The last thing any owner needs is to wrestle with confusing payment reports or overpay for basic things like texting customers.
-      </p>
-      <p>
-        The Draper location was dealing with exactly that — <strong>payment processing that was hard to reconcile</strong>, plus separate bills for texting and email that added up to hundreds a month. Every message to a customer cost money. Every report took effort to make sense of.
-      </p>
-      <p>
-        They needed it simpler. And cheaper.
-      </p>
+    <div class="story-grid">
+      <div>
+        <div class="story-label">The Problem</div>
+        <h2>Running a store shouldn't mean wrestling with software</h2>
+        <p>
+          Customers in and out all day. Buy-backs to manage. Inventory always moving. The last thing any owner needs is to fight with confusing payment reports or overpay for basic things like texting customers.
+        </p>
+        <p>
+          The Draper location was dealing with exactly that — processing that was hard to reconcile, plus separate bills for texting and email that added up to hundreds a month.
+        </p>
+      </div>
+      <div class="story-visual">
+        <div class="pain-card">
+          <div class="pain-icon">💸</div>
+          <div class="pain-text"><strong>$350+/month</strong> just for texting and email</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">📊</div>
+          <div class="pain-text"><strong>Confusing reports</strong> that take forever to reconcile</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">🔇</div>
+          <div class="pain-text"><strong>Limited outreach</strong> — every message costs money</div>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">😤</div>
+          <div class="pain-text"><strong>Multiple systems</strong> that don't talk to each other</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -362,75 +920,68 @@
 <!-- Results -->
 <section class="results">
   <div class="container">
-    <h2>What Changed</h2>
+    <div class="section-label">The Results</div>
+    <h2 class="section-title">What Changed</h2>
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="number">$350</div>
+        <div class="number green">$350</div>
         <div class="label">Saved per month on texting & email alone</div>
       </div>
       <div class="stat-card">
-        <div class="number">∞</div>
+        <div class="number accent">∞</div>
         <div class="label">Unlimited texts & emails to customers</div>
       </div>
       <div class="stat-card">
-        <div class="number">1</div>
+        <div class="number green">1</div>
         <div class="label">Place to see everything — payments, messages, customers</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What We Did -->
-<section class="changes">
+<!-- Features -->
+<section class="features">
   <div class="container">
-    <h2>Here's Exactly What We Did</h2>
-    <ul class="change-list">
-      <li>
-        <div class="change-icon">💳</div>
-        <div class="change-text">
-          <h3>Simpler, Modern Card Processing</h3>
-          <p>Replaced their old setup with cleaner processing that's easy to understand. Reports that actually make sense — you can see what came in, what went out, and reconcile without a headache.</p>
-        </div>
-      </li>
-      <li>
-        <div class="change-icon">💬</div>
-        <div class="change-text">
-          <h3>Unlimited Texting to Customers</h3>
-          <p>No more paying per message. Text customers about buy-back events, new arrivals, promotions — as much as you want, whenever you want. That alone saves $350/month.</p>
-        </div>
-      </li>
-      <li>
-        <div class="change-icon">✉️</div>
-        <div class="change-text">
-          <h3>Unlimited Email Campaigns</h3>
-          <p>Send emails to your whole customer list without worrying about hitting limits or racking up charges. Announce sales, seasonal drops, loyalty rewards — all included.</p>
-        </div>
-      </li>
-      <li>
-        <div class="change-icon">📊</div>
-        <div class="change-text">
-          <h3>Reporting You Can Actually Read</h3>
-          <p>Clean reconciliation. See your numbers clearly without exporting to spreadsheets or calling your processor to figure out what a charge was.</p>
-        </div>
-      </li>
-      <li>
-        <div class="change-icon">📈</div>
-        <div class="change-text">
-          <h3>More Customer Engagement</h3>
-          <p>When messaging is free, you use it more. The Draper store went from occasional blasts to consistent communication — and customers started coming in more often.</p>
-        </div>
-      </li>
-    </ul>
+    <div class="section-label">What We Did</div>
+    <h2 class="section-title">Here's the Breakdown</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Simpler Card Processing</h3>
+        <p>Replaced confusing processing with a modern setup. Reports that make sense — see what came in, what went out, reconcile without a headache.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💬</div>
+        <h3>Unlimited Texting</h3>
+        <p>No more paying per message. Text customers about buy-back events, new arrivals, promotions — as much as you want, whenever you want.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">✉️</div>
+        <h3>Unlimited Email</h3>
+        <p>Send emails to your whole list without worrying about limits or charges. Sales, seasonal drops, loyalty rewards — all included.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Reports You Can Read</h3>
+        <p>Clean reconciliation. See your numbers clearly without exporting to spreadsheets or calling your processor.</p>
+      </div>
+      <div class="feature-card wide">
+        <div class="feature-icon">📈</div>
+        <h3>More Customers Walking In</h3>
+        <p>When messaging is free, you use it more. The Draper store went from occasional blasts to consistent communication — and customers started coming in more often. That's the real win.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Before / After -->
-<section class="before-after">
+<!-- Comparison -->
+<section class="comparison">
   <div class="container">
-    <h2>The Difference</h2>
+    <div class="section-label">Side by Side</div>
+    <h2 class="section-title">The Difference</h2>
     <div class="ba-grid">
       <div class="ba-card before">
-        <span class="tag">Before</span>
+        <span class="ba-tag">Before</span>
         <div class="ba-row">
           <span class="label">Texting & Email</span>
           <span class="value">$350+/mo</span>
@@ -448,8 +999,9 @@
           <span class="value">Occasional</span>
         </div>
       </div>
+      <div class="ba-arrow">→</div>
       <div class="ba-card after">
-        <span class="tag">After</span>
+        <span class="ba-tag">After</span>
         <div class="ba-row">
           <span class="label">Texting & Email</span>
           <span class="value">Included</span>
@@ -478,7 +1030,10 @@
     <p>
       If you're running a Plato's Closet and paying too much for basics that should be simple — let's talk. Five minutes.
     </p>
-    <a href="mailto:hello@gullstack.com?subject=Plato's%20Closet%20—%20Let's%20Talk" class="hero-cta">Get Your Free Analysis →</a>
+    <a href="mailto:hello@gullstack.com?subject=Plato's%20Closet%20—%20Let's%20Talk" class="hero-cta" style="position: relative;">
+      Get Your Free Analysis
+      <span class="arrow">→</span>
+    </a>
   </div>
 </section>
 
