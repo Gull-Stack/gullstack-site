@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GullStack Bot Ops — Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --bg: #0a0a1a;
+      --bg2: #12122a;
+      --bg3: #1a1a3a;
+      --border: #2a2a4a;
+      --text: #e2e8f0;
+      --text-muted: #6b7280;
+      --accent: #a855f7;
+      --accent2: #c084fc;
+      --cyan: #22d3ee;
+      --green: #10b981;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --orange: #f97316;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .login-screen {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .login-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-box h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .login-box p {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      outline: none;
+    }
+
+    .login-box input:focus { border-color: var(--accent); }
+
+    .login-box button {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .login-box button:hover { opacity: 0.9; }
+
+    .dashboard { display: none; padding: 1.5rem; max-width: 1400px; margin: 0 auto; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.75rem;
+      background: linear-gradient(135deg, var(--accent), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .refresh-btn {
+      padding: 0.5rem 1rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: border-color 0.2s;
+    }
+
+    .refresh-btn:hover { border-color: var(--accent); }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .kpi-card .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-card .value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .kpi-card .sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .value.green { color: var(--green); }
+    .value.cyan { color: var(--cyan); }
+    .value.accent { color: var(--accent); }
+    .value.yellow { color: var(--yellow); }
+
+    /* Sections */
+    .section {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg3); }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge.active { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .badge.contract_sent { background: rgba(245, 158, 11, 0.15); color: var(--yellow); }
+    .badge.prospect { background: rgba(107, 114, 128, 0.15); color: var(--text-muted); }
+    .badge.pitched { background: rgba(168, 85, 247, 0.15); color: var(--accent); }
+    .badge.churned { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+    .badge.paused { background: rgba(249, 115, 22, 0.15); color: var(--orange); }
+    .badge.signed { background: rgba(34, 211, 238, 0.15); color: var(--cyan); }
+
+    .badge.live { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .badge.staging { background: rgba(245, 158, 11, 0.15); color: var(--yellow); }
+    .badge.in_progress { background: rgba(168, 85, 247, 0.15); color: var(--accent); }
+    .badge.not_started { background: rgba(107, 114, 128, 0.15); color: var(--text-muted); }
+    .badge.na { background: rgba(107, 114, 128, 0.1); color: var(--text-muted); }
+
+    .badge.pending { background: rgba(245, 158, 11, 0.15); color: var(--yellow); }
+    .badge.done { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .badge.blocked { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+    .badge.cancelled { background: rgba(107, 114, 128, 0.15); color: var(--text-muted); }
+
+    .badge.low { background: rgba(107, 114, 128, 0.15); color: var(--text-muted); }
+    .badge.medium { background: rgba(34, 211, 238, 0.15); color: var(--cyan); }
+    .badge.high { background: rgba(249, 115, 22, 0.15); color: var(--orange); }
+    .badge.urgent { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+
+    /* Bot roster */
+    .bot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .bot-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .bot-card .emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+    .bot-card .name { font-weight: 700; font-size: 1rem; }
+    .bot-card .role { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem; }
+    .bot-card .model { color: var(--accent2); font-size: 0.7rem; margin-top: 0.5rem; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .empty { color: var(--text-muted); font-style: italic; padding: 2rem; text-align: center; }
+    .error { color: var(--red); padding: 1rem; text-align: center; }
+    .loading { color: var(--text-muted); padding: 2rem; text-align: center; }
+    
+    .revenue-bar {
+      height: 8px;
+      background: var(--bg3);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 0.25rem;
+    }
+    .revenue-bar .fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      border-radius: 4px;
+      transition: width 0.5s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <h1>🦅 GullStack Bot Ops</h1>
+      <p>Admin Dashboard</p>
+      <input type="password" id="passwordInput" placeholder="Enter password" autofocus>
+      <button onclick="attemptLogin()">Enter</button>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="dashboard" id="dashboard">
+    <div class="header">
+      <h1>🦅 GullStack Bot Ops</h1>
+      <div class="header-meta">
+        <span id="lastUpdated"></span>
+        <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="label">Monthly Recurring Revenue</div>
+        <div class="value green" id="kpiMRR">—</div>
+        <div class="sub" id="kpiMRRsub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Active Clients</div>
+        <div class="value cyan" id="kpiClients">—</div>
+        <div class="sub" id="kpiClientsSub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Pending Tasks</div>
+        <div class="value accent" id="kpiTasks">—</div>
+        <div class="sub" id="kpiTasksSub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="label">Open Alerts</div>
+        <div class="value yellow" id="kpiAlerts">—</div>
+        <div class="sub" id="kpiAlertsSub"></div>
+      </div>
+    </div>
+
+    <!-- Clients Table -->
+    <div class="section">
+      <h2>📋 Clients</h2>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Contact</th>
+              <th>Revenue</th>
+              <th>Status</th>
+              <th>Website</th>
+              <th>SuperTool</th>
+              <th>Next Action</th>
+            </tr>
+          </thead>
+          <tbody id="clientsTable"><tr><td colspan="7" class="loading">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <!-- Tasks -->
+      <div class="section">
+        <h2>🔄 Bot Tasks</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>From → To</th>
+              <th>Priority</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tasksTable"><tr><td colspan="4" class="loading">Loading...</td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- Activity Feed -->
+      <div class="section">
+        <h2>📡 Recent Activity</h2>
+        <div id="activityFeed" class="loading">Loading...</div>
+      </div>
+    </div>
+
+    <!-- Usage Tracking -->
+    <div class="section">
+      <h2>📊 Claude Max — Weekly Usage</h2>
+      <div class="kpi-grid" id="usageCards" style="margin-bottom:1rem">
+        <div class="loading">Loading usage data...</div>
+      </div>
+      <div style="font-size:0.75rem;color:var(--text-muted)">
+        Drop your usage % to any bot anytime — "Melvin is at 45%" — and it updates here. Shows remaining capacity.
+      </div>
+    </div>
+
+    <!-- Bot Roster -->
+    <div class="section">
+      <h2>🤖 Bot Roster</h2>
+      <div class="bot-grid">
+        <div class="bot-card">
+          <div class="emoji">🐺</div>
+          <div class="name">Melvin</div>
+          <div class="role">Builder — websites, SEO, code</div>
+          <div class="model">Opus 4 · Bryce's Mac Mini</div>
+        </div>
+        <div class="bot-card">
+          <div class="emoji">🐶</div>
+          <div class="name">Bogey</div>
+          <div class="role">Business Manager — clients, research</div>
+          <div class="model">Sonnet 4 · Bryce's Mac Mini</div>
+        </div>
+        <div class="bot-card">
+          <div class="emoji">🦆</div>
+          <div class="name">Donald Jay</div>
+          <div class="role">SuperTool Manager</div>
+          <div class="model">Opus 4 · Josh's Mac mini</div>
+        </div>
+        <div class="bot-card">
+          <div class="emoji">👁️</div>
+          <div class="name">The Vision</div>
+          <div class="role">Chief Technologist</div>
+          <div class="model">Opus 4 · Loki-Node-3</div>
+        </div>
+        <div class="bot-card">
+          <div class="emoji">💋</div>
+          <div class="name">Natasha</div>
+          <div class="role">Financial Intelligence</div>
+          <div class="model">Planned · Sonnet 4.5</div>
+        </div>
+        <div class="bot-card">
+          <div class="emoji">🦌</div>
+          <div class="name">Jackie</div>
+          <div class="role">PPA Tour Ops</div>
+          <div class="model">Sonnet 4 · Separate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://kocdihmihyqpprclplnm.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtvY2RpaG1paHlxcHByY2xwbG5tIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MTcwNDI4OSwiZXhwIjoyMDg3MjgwMjg5fQ.XTU_kitqTT2ctmfv6UNSBsEaPylAF_slqnYEBBXANeg';
+    const PASSWORD = 'gullstack2026';
+
+    function attemptLogin() {
+      const pw = document.getElementById('passwordInput').value;
+      if (pw === PASSWORD) {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        sessionStorage.setItem('gs_auth', '1');
+        loadAll();
+      } else {
+        document.getElementById('passwordInput').style.borderColor = '#ef4444';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('passwordInput').placeholder = 'Wrong password';
+      }
+    }
+
+    document.getElementById('passwordInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') attemptLogin();
+    });
+
+    // Auto-login if session
+    if (sessionStorage.getItem('gs_auth')) {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      loadAll();
+    }
+
+    async function supaFetch(table, query = '') {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${query}`, {
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+        }
+      });
+      return res.json();
+    }
+
+    function badge(val) {
+      if (!val) return '';
+      return `<span class="badge ${val}">${val.replace('_', ' ')}</span>`;
+    }
+
+    function money(n) {
+      return '$' + Number(n || 0).toLocaleString();
+    }
+
+    async function loadAll() {
+      document.getElementById('lastUpdated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+      await Promise.all([loadClients(), loadTasks(), loadActivity(), loadAlerts(), loadUsage()]);
+    }
+
+    async function loadClients() {
+      try {
+        const clients = await supaFetch('clients', 'select=*&order=monthly_revenue.desc');
+        const active = clients.filter(c => c.contract_status === 'active');
+        const mrr = active.reduce((s, c) => s + Number(c.monthly_revenue || 0), 0);
+        
+        document.getElementById('kpiMRR').textContent = money(mrr);
+        document.getElementById('kpiMRRsub').textContent = `${active.length} paying clients`;
+        document.getElementById('kpiClients').textContent = clients.length;
+        document.getElementById('kpiClientsSub').textContent = `${active.length} active, ${clients.length - active.length} other`;
+
+        const maxRev = Math.max(...clients.map(c => Number(c.monthly_revenue || 0)), 1);
+        
+        document.getElementById('clientsTable').innerHTML = clients.length === 0
+          ? '<tr><td colspan="7" class="empty">No clients yet</td></tr>'
+          : clients.map(c => `
+            <tr>
+              <td>
+                <strong>${c.business_name}</strong>
+                ${c.domain ? `<br><span style="color:var(--text-muted);font-size:0.75rem">${c.domain}</span>` : ''}
+              </td>
+              <td>${c.contact_name || '—'}</td>
+              <td>
+                <strong>${money(c.monthly_revenue)}</strong>/mo
+                <div class="revenue-bar"><div class="fill" style="width:${(c.monthly_revenue / maxRev * 100)}%"></div></div>
+              </td>
+              <td>${badge(c.contract_status)}</td>
+              <td>${badge(c.website_status)}</td>
+              <td>${badge(c.supertool_status)}</td>
+              <td style="font-size:0.8rem;color:var(--text-muted)">${c.next_action || '—'}</td>
+            </tr>
+          `).join('');
+      } catch (e) {
+        document.getElementById('clientsTable').innerHTML = `<tr><td colspan="7" class="error">Error loading clients</td></tr>`;
+      }
+    }
+
+    async function loadTasks() {
+      try {
+        const tasks = await supaFetch('bot_tasks', 'select=*&order=created_at.desc&limit=20');
+        const pending = tasks.filter(t => t.status === 'pending').length;
+        const inProgress = tasks.filter(t => t.status === 'in_progress').length;
+        
+        document.getElementById('kpiTasks').textContent = pending + inProgress;
+        document.getElementById('kpiTasksSub').textContent = `${pending} pending, ${inProgress} in progress`;
+
+        document.getElementById('tasksTable').innerHTML = tasks.length === 0
+          ? '<tr><td colspan="4" class="empty">No tasks yet — Bogey will create them</td></tr>'
+          : tasks.map(t => `
+            <tr>
+              <td><strong>${t.title}</strong></td>
+              <td style="font-size:0.8rem">${t.from_bot} → ${t.to_bot}</td>
+              <td>${badge(t.priority)}</td>
+              <td>${badge(t.status)}</td>
+            </tr>
+          `).join('');
+      } catch (e) {
+        document.getElementById('tasksTable').innerHTML = `<tr><td colspan="4" class="error">Error loading tasks</td></tr>`;
+      }
+    }
+
+    async function loadActivity() {
+      try {
+        const activity = await supaFetch('bot_activity_log', 'select=*&order=created_at.desc&limit=15');
+        
+        document.getElementById('activityFeed').innerHTML = activity.length === 0
+          ? '<div class="empty">No activity logged yet</div>'
+          : activity.map(a => `
+            <div style="padding:0.5rem 0;border-bottom:1px solid var(--border);font-size:0.85rem">
+              <strong>${a.bot_name}</strong> · ${a.action_type}
+              <div style="color:var(--text-muted);font-size:0.75rem;margin-top:0.15rem">
+                ${a.description || ''}
+                <span style="float:right">${new Date(a.created_at).toLocaleString()}</span>
+              </div>
+            </div>
+          `).join('');
+      } catch (e) {
+        document.getElementById('activityFeed').innerHTML = '<div class="error">Error loading activity</div>';
+      }
+    }
+
+    async function loadAlerts() {
+      try {
+        const alerts = await supaFetch('financial_alerts', 'select=*&acknowledged=eq.false&order=created_at.desc');
+        document.getElementById('kpiAlerts').textContent = alerts.length;
+        document.getElementById('kpiAlertsSub').textContent = alerts.length === 0 ? 'All clear' : `${alerts.filter(a => a.severity === 'critical').length} critical`;
+      } catch (e) {
+        document.getElementById('kpiAlerts').textContent = '?';
+      }
+    }
+
+    async function loadUsage() {
+      try {
+        // Get latest usage record per bot (most recent note wins)
+        const usage = await supaFetch('bot_usage', 'select=*&order=recorded_at.desc&limit=20');
+        
+        const botEmoji = { melvin: '🐺', bogey: '🐶', donald: '🦆', vision: '👁️', natasha: '💋', jackie: '🦌' };
+        
+        // Bot config: reset schedules
+        const botConfig = {
+          melvin: { reset: 'Wed 7:00 PM MST', model: 'Opus 4' },
+          bogey: { reset: 'Sat 10:59 AM MST', model: 'Sonnet 4' }
+        };
+
+        // Get latest record per bot
+        const latest = {};
+        usage.forEach(u => {
+          if (!latest[u.bot_name]) latest[u.bot_name] = u;
+        });
+
+        const botNames = Object.keys(latest);
+
+        if (botNames.length === 0) {
+          document.getElementById('usageCards').innerHTML = '<div class="empty">No usage data yet. Tell Melvin your usage % and he\'ll log it.</div>';
+          return;
+        }
+
+        document.getElementById('usageCards').innerHTML = botNames.map(name => {
+          const u = latest[name];
+          const emoji = botEmoji[name] || '🤖';
+          const config = botConfig[name] || { reset: 'Unknown', model: 'Unknown' };
+          
+          // Check if we have a manual % report in notes
+          const noteMatch = u.notes && u.notes.match(/(\d+)%/);
+          const pctUsed = noteMatch ? parseInt(noteMatch[1]) : null;
+          const pctRemaining = pctUsed !== null ? (100 - pctUsed) : null;
+          
+          const color = pctRemaining !== null 
+            ? (pctRemaining < 20 ? 'var(--red)' : pctRemaining < 50 ? 'var(--yellow)' : 'var(--green)')
+            : 'var(--text-muted)';
+
+          const displayValue = pctRemaining !== null ? `${pctRemaining}%` : '—';
+          const displaySub = pctRemaining !== null ? `${pctUsed}% used` : 'No manual report yet';
+          
+          const timeSince = new Date(u.recorded_at);
+          const ago = Math.round((Date.now() - timeSince) / 60000);
+          const agoStr = ago < 60 ? `${ago}m ago` : ago < 1440 ? `${Math.round(ago/60)}h ago` : `${Math.round(ago/1440)}d ago`;
+
+          return `
+            <div class="kpi-card">
+              <div class="label">${emoji} ${name.charAt(0).toUpperCase() + name.slice(1)} · ${config.model}</div>
+              <div class="value" style="font-size:2rem;color:${color}">${displayValue}</div>
+              <div class="sub">${displaySub} · Reported ${agoStr}</div>
+              ${pctRemaining !== null ? `
+                <div class="revenue-bar" style="margin-top:0.5rem">
+                  <div class="fill" style="width:${pctRemaining}%;background:${color}"></div>
+                </div>
+              ` : ''}
+              <div class="sub" style="margin-top:0.25rem">Resets: ${config.reset}</div>
+            </div>
+          `;
+        }).join('');
+      } catch(e) {
+        document.getElementById('usageCards').innerHTML = '<div class="error">Error loading usage</div>';
+      }
+    }
+
+    // Auto-refresh every 60 seconds
+    setInterval(() => {
+      if (sessionStorage.getItem('gs_auth')) loadAll();
+    }, 60000);
+  </script>
+</body>
+</html>

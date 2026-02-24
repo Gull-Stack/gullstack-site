@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT Sports × GullStack | Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); color: var(--text-muted); font-size: 1.5rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-10px); } 60% { transform: translateX(-50%) translateY(-5px); } }
+
+    .hero h1 {
+      font-family: var(--font-serif); font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 400; line-height: 1.1; margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--text), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text-muted);
+      max-width: 600px; margin: 0 auto 40px; line-height: 1.4;
+    }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    section:nth-child(even) { background: var(--bg-elevated); }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400; text-align: center; line-height: 1.2;
+      margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+
+    .section-sub {
+      font-size: 1.1rem; color: var(--text-muted); text-align: center;
+      max-width: 640px; margin: 0 auto 60px; line-height: 1.5;
+    }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 40px 0; }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; transition: all 0.3s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+
+    .card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 16px; }
+    .card ul { list-style: none; }
+    .card li { padding: 8px 0 8px 24px; position: relative; color: var(--text-muted); }
+    .card li::before { content: '×'; position: absolute; left: 0; color: var(--muted); font-weight: 600; font-size: 1.2rem; }
+    .card.win li::before { content: '✓'; color: var(--gold); }
+    .card.problem li::before { content: '⚠'; color: var(--muted); }
+
+    /* Opportunity */
+    .opportunity { background: var(--gold-soft); border-color: var(--gold); }
+    .opportunity h3 { color: var(--gold); }
+
+    /* Callout */
+    .callout {
+      text-align: center; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 40px 32px; margin: 40px 0;
+    }
+
+    .number {
+      font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400; line-height: 1;
+    }
+    .number.gold { color: var(--gold); }
+    .label { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
+
+    /* Comparison Table */
+    .comparison {
+      overflow-x: auto; margin: 40px 0;
+    }
+
+    .comparison table {
+      width: 100%; border-collapse: collapse;
+      background: var(--bg-card); border-radius: 12px; overflow: hidden;
+    }
+
+    .comparison th,
+    .comparison td {
+      padding: 16px; text-align: left; border-bottom: 1px solid var(--border);
+    }
+
+    .comparison th {
+      background: var(--bg-elevated); font-weight: 700;
+      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    .comparison th:first-child { color: var(--text-muted); }
+    .comparison th:last-child { color: var(--gold); }
+
+    .comparison td:first-child { font-weight: 600; color: var(--text); }
+    .comparison td { color: var(--text-muted); }
+    .comparison td:last-child { color: var(--gold); font-weight: 600; }
+
+    /* Timeline */
+    .timeline { margin: 60px 0; }
+
+    .phase {
+      display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .phase:last-child { border-bottom: none; }
+
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin: 40px 0;
+    }
+    @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+    .tier {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; text-align: center;
+      transition: all 0.3s ease;
+    }
+    .tier.featured {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(168,85,247,0.08) 0%, var(--bg-card) 40%);
+      transform: scale(1.02);
+    }
+    .tier .tier-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .tier.featured .tier-label { color: var(--accent); }
+
+    .tier .price {
+      font-family: var(--font-serif); font-size: 2.2rem;
+      font-weight: 400; margin-bottom: 4px;
+    }
+    .tier .price-note { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px; }
+    .tier ul { list-style: none; text-align: left; margin-bottom: 24px; }
+    .tier li {
+      padding: 6px 0 6px 22px; position: relative;
+      color: var(--text-muted); font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier li:last-child { border-bottom: none; }
+    .tier li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+
+    .tier-btn {
+      display: block; width: 100%; padding: 14px;
+      border-radius: 10px; font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; transition: all 0.2s ease; text-align: center;
+      border: none; cursor: pointer;
+    }
+    .tier-btn.outline {
+      background: transparent; color: var(--accent-hover);
+      border: 1px solid rgba(168,85,247,0.3);
+    }
+    .tier-btn.outline:hover { background: var(--accent-glow); }
+    .tier-btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white;
+    }
+    .tier-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(168,85,247,0.3); }
+
+    /* Case Studies */
+    .case-study {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; margin: 20px 0;
+    }
+
+    .case-study h4 {
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .case-study .industry {
+      font-size: 0.85rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .case-study .results {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin-top: 20px;
+    }
+
+    .result-item {
+      text-align: center; padding: 16px;
+      background: var(--gold-soft); border-radius: 12px;
+    }
+
+    .result-item .metric {
+      font-family: var(--font-serif); font-size: 1.5rem;
+      color: var(--gold); font-weight: 400;
+    }
+
+    .result-item .desc {
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+
+    .cta-btn {
+      display: inline-block; padding: 16px 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; text-decoration: none; border-radius: 12px;
+      font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(168,85,247,0.4);
+    }
+
+    .urgency {
+      font-size: 0.85rem; color: var(--gold);
+      margin-top: 16px; font-style: italic;
+    }
+
+    /* Utilities */
+    .fade-in { opacity: 0; animation: fadeIn 0.6s ease forwards; }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      section { padding: 60px 0; }
+      .card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="fade-in">
+        <!-- Logos -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
+          <div style="text-align: center;">
+            <img src="/atsports-logo.png" alt="AT Sports" style="max-width: 140px; height: auto; filter: brightness(1.1);">
+          </div>
+          <div style="color: var(--text-muted); font-size: 1.5rem;">×</div>
+          <div style="text-align: center;">
+            <img src="/gull-logo.png" alt="GullStack" style="max-width: 60px; height: auto;">
+          </div>
+        </div>
+        <h1>Own Sports Surfacing Search</h1>
+        <p>Your PPA partnership deserves digital dominance to match. Stop losing contractors to inferior suppliers who simply rank higher.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost of Inaction -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Cost of Invisibility</div>
+        <div class="section-title">Every month AT Sports stays invisible online, contractors choose inferior suppliers.</div>
+        <p class="section-sub">You have the PPA partnership. You have the quality. But contractors can't find you when they search. That needs to change.</p>
+
+        <div class="callout">
+          <div class="number" style="color: var(--muted);">$2.4M</div>
+          <div class="label">Potential annual revenue lost to competitors who simply rank higher</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagnosis -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Current State</div>
+        <div class="section-title">Why contractors can't find you.</div>
+
+        <div class="card-grid">
+          <div class="card problem">
+            <h3>Where You're Losing</h3>
+            <ul>
+              <li><strong>"Sports surfacing contractors"</strong> — not ranking in top 100</li>
+              <li><strong>"Tennis court resurfacing"</strong> — not ranking in top 100</li>
+              <li><strong>"Basketball court installation"</strong> — not ranking in top 100</li>
+              <li><strong>Current site architecture</strong> — can't support the content needed to compete</li>
+              <li><strong>Zero contractor resources</strong> — no reason for Google to send you traffic</li>
+            </ul>
+          </div>
+
+          <div class="card win">
+            <h3>What You Have That Competitors Don't</h3>
+            <ul>
+              <li><strong>PPA partnership</strong> — official endorsement from pro pickleball</li>
+              <li><strong>Proven quality standards</strong> — surfaces that perform at the highest level</li>
+              <li><strong>National contractor network</strong> — relationships that others lack</li>
+              <li><strong>Complete solution</strong> — from design to installation to maintenance</li>
+              <li><strong>Sports expertise</strong> — deep understanding of performance requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional Hook -->
+  <section>
+    <div class="container">
+      <div class="fade-in" style="max-width: 640px; margin: 0 auto; text-align: center;">
+        <div class="section-label">Imagine This</div>
+        <div class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem); font-style: italic; color: var(--accent-hover);">
+          A contractor in Phoenix needs sports surfacing. They search "professional sports surface installation." Your name appears first. Not the local guys. Not the big chains. You.
+        </div>
+        <p class="section-sub" style="margin: 20px auto 0;">
+          That's not a fantasy — it's what happens when proven partnerships meet modern SEO strategy. We make it real.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GullStack -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Why GullStack</div>
+        <div class="section-title">Not your typical agency.</div>
+        <p class="section-sub">We use AI-powered workflows to deliver enterprise-level marketing + custom software development at a fraction of traditional costs — and pass the savings directly to you.</p>
+
+        <div class="comparison">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>DIY/Freelancer</th>
+                <th>Traditional Agency</th>
+                <th>GullStack</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>New Platform Build</td>
+                <td>$5-15K (template)</td>
+                <td>$50-120K</td>
+                <td>✓ Included</td>
+              </tr>
+              <tr>
+                <td>Timeline</td>
+                <td>4-8 months</td>
+                <td>12-18 weeks</td>
+                <td>45 days</td>
+              </tr>
+              <tr>
+                <td>SEO Strategy</td>
+                <td>❌</td>
+                <td>Extra $$</td>
+                <td>✓ Included</td>
+              </tr>
+              <tr>
+                <td>AI Integration</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>✓ Core advantage</td>
+              </tr>
+              <tr>
+                <td>Content Volume</td>
+                <td>10-20 pages</td>
+                <td>50-100 pages</td>
+                <td>1,000+ pages</td>
+              </tr>
+              <tr>
+                <td>Customer Platform</td>
+                <td>❌</td>
+                <td>$200K+ separate</td>
+                <td>✓ Included</td>
+              </tr>
+              <tr>
+                <td>Ongoing Updates</td>
+                <td>DIY</td>
+                <td>$200-300/hr</td>
+                <td>✓ Included</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Case Studies</div>
+        <div class="section-title">Results speak louder than promises.</div>
+
+        <div class="case-study">
+          <h4>Sun Dermatology</h4>
+          <div class="industry">Healthcare / Panama City, FL</div>
+          <div class="results">
+            <div class="result-item">
+              <div class="metric">400%</div>
+              <div class="desc">organic traffic growth</div>
+            </div>
+            <div class="result-item">
+              <div class="metric">2x</div>
+              <div class="desc">new patient bookings in 4 months</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-study">
+          <h4>Best Sports Surfaces</h4>
+          <div class="industry">National Directory / 179 Vendors</div>
+          <div class="results">
+            <div class="result-item">
+              <div class="metric">Page 1</div>
+              <div class="desc">rankings in 60 days</div>
+            </div>
+            <div class="result-item">
+              <div class="metric">179</div>
+              <div class="desc">vendor listings nationwide</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">First-Year ROI</div>
+        <div class="section-title">Conservative projections based on your PPA partnership value.</div>
+
+        <div class="callout">
+          <div class="number gold">8.5x</div>
+          <div class="label">Return on marketing investment (conservative estimate)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Investment</div>
+        <div class="section-title">Three ways to dominate sports surfacing.</div>
+        <p class="section-sub">Choose the path that matches your growth goals. All plans include new platform build, AI customer system, and performance guarantees.</p>
+
+        <div class="pricing-grid">
+          <div class="tier">
+            <div class="tier-label">Starter</div>
+            <div class="price">$12,500</div>
+            <div class="price-note">per month</div>
+            <ul>
+              <li>Modern SEO-optimized platform</li>
+              <li>AI-powered contractor portal</li>
+              <li>100+ optimized pages</li>
+              <li>50 location/product pages</li>
+              <li>Monthly content updates</li>
+              <li>Technical SEO management</li>
+              <li>Basic AI customer support</li>
+            </ul>
+            <a href="mailto:bryce@gullstack.com?subject=AT Sports Starter Plan" class="tier-btn outline">Get Started</a>
+          </div>
+
+          <div class="tier featured">
+            <div class="tier-label">Growth — Recommended</div>
+            <div class="price">$24,500</div>
+            <div class="price-note">per month</div>
+            <ul>
+              <li>Everything in Starter</li>
+              <li>Advanced AI customer platform</li>
+              <li>1,000+ optimized pages</li>
+              <li>200+ location/product pages</li>
+              <li>Weekly content creation</li>
+              <li>Link building campaigns</li>
+              <li>AI-powered project management</li>
+              <li>Automated contractor onboarding</li>
+              <li>Conversion optimization</li>
+              <li>Dedicated strategist</li>
+            </ul>
+            <a href="mailto:bryce@gullstack.com?subject=AT Sports Growth Plan" class="tier-btn primary">Choose Growth</a>
+          </div>
+
+          <div class="tier">
+            <div class="tier-label">Dominate</div>
+            <div class="price">$42,000</div>
+            <div class="price-note">per month</div>
+            <ul>
+              <li>Everything in Growth</li>
+              <li>Enterprise AI platform</li>
+              <li>2,000+ optimized pages</li>
+              <li>National SEO campaign</li>
+              <li>Digital PR & media outreach</li>
+              <li>Custom inventory integration</li>
+              <li>AI-powered pricing optimization</li>
+              <li>Advanced analytics dashboard</li>
+              <li>Priority 24/7 support</li>
+              <li>Quarterly strategy retreats</li>
+            </ul>
+            <a href="mailto:bryce@gullstack.com?subject=AT Sports Dominate Plan" class="tier-btn outline">Go Enterprise</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Expect -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">What to Expect</div>
+        <div class="section-title">Performance guarantees you can count on.</div>
+
+        <div class="card-grid" style="max-width: 800px; margin: 40px auto;">
+          <div class="card win">
+            <h3>✓ Results</h3>
+            <ul style="list-style: none;">
+              <li>Minimum 15% organic traffic growth — that's our baseline. Most clients see 8x or more within 12 months</li>
+              <li>New platform live in 45 days — we move fast so you start capturing leads sooner</li>
+              <li>AI customer system active immediately — automated support, quoting, project management</li>
+            </ul>
+          </div>
+
+          <div class="card win">
+            <h3>✓ Partnership</h3>
+            <ul style="list-style: none;">
+              <li>Month-to-month flexibility — no long-term contracts after initial build period</li>
+              <li>Full transparency — you'll see everything we do, every metric we track</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card fade-in">
+        <h2>Ready to own sports surfacing search?</h2>
+        <p>Every month AT Sports stays invisible online, contractors choose inferior suppliers. Your PPA partnership deserves digital dominance to match.</p>
+        <a href="mailto:bryce@gullstack.com?subject=AT Sports Growth Strategy&body=Hi Bryce,%0A%0AI'm ready to discuss dominating sports surfacing search for AT Sports." class="cta-btn">Schedule a Call →</a>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin: 16px 0 0;">30-minute strategy call • No commitment</p>
+        <div class="urgency">⚡️ We take 3 new clients per month. This proposal is reserved for 14 days.</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

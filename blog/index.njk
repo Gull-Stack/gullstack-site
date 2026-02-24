@@ -2,13 +2,35 @@
 layout: base.njk
 title: Blog — Insights on Marketing, Business & Technology
 description: Insights on marketing, business growth, and technology from the GullStack team.
-headerStyle: inner
 activeNav: blog
 css: |
-  /* Page Content */
-  main {
-    padding-top: 180px;
-    padding-bottom: 80px;
+  /* Hero Section for Blog */
+  .blog-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 60px;
+    position: relative;
+  }
+  
+  .blog-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  
+  .blog-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
   }
   
   .page-title {
@@ -20,7 +42,12 @@ css: |
   .page-subtitle {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+  }
+  
+  /* Blog Grid */
+  main {
+    padding-bottom: 80px;
   }
   
   /* Blog Grid with Images */
@@ -117,10 +144,15 @@ css: |
   .blog-card:hover .blog-card-link { gap: 10px; }
 ---
 
-<main class="container container--blog">
-  <h1 class="page-title">Blog</h1>
-  <p class="page-subtitle">Insights on marketing, business growth, and building great products.</p>
+<!-- Blog Hero -->
+<section class="blog-hero">
+  <div class="blog-hero-content">
+    <h1 class="page-title">Blog</h1>
+    <p class="page-subtitle">Insights on marketing, business growth, and building great products.</p>
+  </div>
+</section>
 
+<main class="container container--blog">
   <div class="blog-grid">
     <a href="/blog/she-cried/" class="blog-card" style="grid-column: span 2;">
       <div class="blog-card-image-wrapper" style="height: 280px;">
