@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gotham Bail Bonds × GullStack | Emergency Growth Proposal</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+:root {
+  --accent: #8b5cf6;
+  --accent-glow: rgba(139,92,246,0.3);
+  --bg: #0f0f14;
+  --bg-elevated: #1a1a24;
+  --bg-card: #22222e;
+  --text: #e8e8f0;
+  --text-muted: #8888a0;
+  --green: #22c55e;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --orange: #f97316;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container { max-width: 900px; margin: 0 auto; }
+
+.hero {
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  margin-bottom: 48px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.hero-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-logos img {
+  height: 48px;
+  filter: drop-shadow(0 0 8px rgba(139,92,246,0.5));
+}
+
+.divider {
+  font-size: 2rem;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero h1 span {
+  color: var(--red);
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 3px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.label {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.score-card {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.score-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.score-value {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.score-value.bad { color: var(--red); }
+.score-value.warn { color: var(--orange); }
+.score-value.ok { color: var(--yellow); }
+.score-value.good { color: var(--green); }
+
+.score-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.issues-list {
+  list-style: none;
+  margin-top: 24px;
+}
+
+.issues-list li {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--red);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.issues-list li.warning { border-left-color: var(--orange); }
+.issues-list li.info { border-left-color: var(--accent); }
+
+.icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.issue-text strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.issue-text span {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 0.95rem;
+}
+
+thead {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.highlight-row {
+  background: rgba(239,68,68,0.1);
+  border-left: 3px solid var(--red);
+}
+
+.cta-box {
+  background: linear-gradient(135deg, var(--accent) 0%, #6d28d9 100%);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.cta-box h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cta-box p {
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+  color: rgba(255,255,255,0.9);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: white;
+  color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: #f3f3f3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 32px 20px; }
+  .section { padding: 24px 20px; }
+  .hero h1 { font-size: 1.8rem; }
+  .section-title { font-size: 1.5rem; }
+  .cta-buttons { flex-direction: column; }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-logos">
+    <img src="https://gullstack.com/gull-logo.png" alt="GullStack">
+    <span class="divider">×</span>
+    <span style="font-weight:800; font-size:1.3rem;">Gotham Bail Bonds</span>
+  </div>
+  <h1>Your Website Is <span>Completely Dead</span>.</h1>
+  <p class="subtitle">While your competitors are taking calls 24/7, your $37,500 investment is sitting there doing nothing. Here's exactly what's broken — and how to fix it in 2 weeks.</p>
+</div>
+
+<div class="section">
+  <div class="label">THE PROBLEM</div>
+  <div class="section-title">Your Website Doesn't Exist</div>
+  <p class="section-sub">Not "slow." Not "outdated." <strong>Dead.</strong> When someone searches for bail bonds in Los Angeles, your website doesn't load. At all.</p>
+  
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-value bad">DOWN</div>
+      <div class="score-label">Website Status</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value bad">$0</div>
+      <div class="score-label">Leads Generated</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value bad">0</div>
+      <div class="score-label">Google Visibility</div>
+    </div>
+  </div>
+
+  <ul class="issues-list">
+    <li>
+      <span class="icon">🔴</span>
+      <div class="issue-text">
+        <strong>Domain Not Resolving</strong>
+        <span>gothambailbonds.com returns an error. No one can find your business online.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🔴</span>
+      <div class="issue-text">
+        <strong>Zero Google Presence</strong>
+        <span>Not on page 1. Not on page 2. Not anywhere. Competitors own every search result.</span>
+      </div>
+    </li>
+    <li>
+      <span class="icon">🔴</span>
+      <div class="issue-text">
+        <strong>$37,500 Wasted</strong>
+        <span>Previous marketing investment sitting dormant. Every day without a live site = money left on the table.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="label">WHO'S WINNING</div>
+  <div class="section-title">Your Competitors Are Stealing Your Customers</div>
+  <p class="section-sub">While your site is down, these bail bond companies are taking every call that should be yours.</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Google Ranking</th>
+        <th>Est. Monthly Calls</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Bail Hotline</strong></td>
+        <td>Page 1, Position 1-3</td>
+        <td>~1,200</td>
+      </tr>
+      <tr>
+        <td><strong>Aladdin Bail Bonds</strong></td>
+        <td>Page 1, Position 1-5</td>
+        <td>~900</td>
+      </tr>
+      <tr>
+        <td><strong>Andy's Bail Bonds</strong></td>
+        <td>Page 1, Position 3-7</td>
+        <td>~700</td>
+      </tr>
+      <tr class="highlight-row">
+        <td><strong>⚠️ Gotham Bail Bonds</strong></td>
+        <td>WEBSITE DOWN</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="label">THE FIX</div>
+  <div class="section-title">What Your New Site Looks Like (2 Weeks)</div>
+  <p class="section-sub">Modern, mobile-first design. SEO-optimized. Built to convert searches into calls 24/7.</p>
+  
+  <ul class="issues-list">
+    <li class="info">
+      <span class="icon">✅</span>
+      <div class="issue-text">
+        <strong>Live in 2 Weeks</strong>
+        <span>New website, new domain setup, Google-ready. No downtime, no delays.</span>
+      </div>
+    </li>
+    <li class="info">
+      <span class="icon">✅</span>
+      <div class="issue-text">
+        <strong>Mobile-First Design</strong>
+        <span>75% of bail bond searches happen on phones. Your site will work flawlessly on mobile.</span>
+      </div>
+    </li>
+    <li class="info">
+      <span class="icon">✅</span>
+      <div class="issue-text">
+        <strong>Google Top 5 in 30 Days</strong>
+        <span>SEO optimized for "bail bonds Los Angeles" and related searches. Built to rank.</span>
+      </div>
+    </li>
+    <li class="info">
+      <span class="icon">✅</span>
+      <div class="issue-text">
+        <strong>24/7 Lead Generation</strong>
+        <span>Clear call-to-action, click-to-call buttons, contact forms. Every visitor turns into a lead.</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <div class="label">WHY THIS MATTERS</div>
+  <div class="section-title">Your Business Deserves Better</div>
+  <p class="section-sub">250+ employees across 4 states. Veteran-owned. $37,500 already invested in marketing. Your reputation is too strong for a dead website.</p>
+  
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-value good">250+</div>
+      <div class="score-label">Employees Counting on This</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value good">4</div>
+      <div class="score-label">States Covered</div>
+    </div>
+    <div class="score-card">
+      <div class="score-value warn">$37.5K</div>
+      <div class="score-label">Already Invested</div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-box">
+  <h2>Let's Fix This in 2 Weeks</h2>
+  <p>New website. Google top 5. Mobile-ready. Built to bring in calls 24/7.<br>No agency retainers. No $10K quotes. Just results.</p>
+  <div class="cta-buttons">
+    <a href="tel:+17207394085" class="btn btn-primary">📞 Call Now: (720) 739-4085</a>
+    <a href="mailto:josh@gullstack.com?subject=Gotham%20Bail%20Bonds%20-%20Let's%20Talk" class="btn btn-secondary">📧 Email: josh@gullstack.com</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
