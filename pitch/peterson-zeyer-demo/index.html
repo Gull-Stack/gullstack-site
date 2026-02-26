@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peterson Zeyer × GullStack | Growth Proposal</title>
-  <meta name="description" content="Dominate bankruptcy law search in Boise. Get more clients searching for debt relief with AI-powered legal marketing.">
+  <title>Peterson Zeyer Law | Boise Bankruptcy Attorneys</title>
+  <meta name="description" content="Idaho's trusted bankruptcy attorneys. Free consultations for Chapter 7 and Chapter 13 bankruptcy in Boise, Nampa, and the Treasure Valley.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     :root {
-      --midnight: #0a0a1a;
-      --purple: #a855f7;
-      --cyan: #22d3ee;
+      --navy: #1a2332;
+      --navy-light: #2a3a52;
+      --gold: #c9a961;
+      --gold-light: #d4ba7a;
+      --cream: #faf9f7;
       --white: #ffffff;
-      --gray-100: #f8fafc;
-      --gray-200: #e2e8f0;
-      --gray-600: #64748b;
-      --gray-800: #1e293b;
-      --red: #ef4444;
-      --font-serif: 'Young Serif', Georgia, serif;
+      --text: #333333;
+      --text-muted: #666666;
+      --border: #e5e5e5;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, sans-serif;
     }
     
@@ -29,10 +29,12 @@
     
     body {
       font-family: var(--font-sans);
-      color: var(--white);
+      color: var(--text);
       line-height: 1.7;
-      background: var(--midnight);
+      background: var(--white);
     }
+    
+    a { color: inherit; text-decoration: none; }
     
     .container {
       max-width: 1200px;
@@ -40,9 +42,625 @@
       padding: 0 24px;
     }
     
-    .demo-banner {
-      background: var(--purple);
+    /* Header */
+    header {
+      background: var(--navy);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      height: 40px;
+    }
+    
+    .logo img {
+      height: 100%;
+      width: auto;
+    }
+    
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    
+    nav a {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover { color: var(--gold); }
+    
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    
+    .nav-cta:hover {
+      background: var(--gold-light);
+    }
+    
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .mobile-menu { display: block; }
+    }
+    
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 180px 0 120px;
       color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('./images/boise.jpg') center/cover;
+      opacity: 0.2;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,169,97,0.2);
+      color: var(--gold);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero { padding: 140px 0 80px; }
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+    
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--white);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      margin-top: -40px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    .stat h3 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    
+    .stat p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 100px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    
+    .section-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+    
+    /* Attorneys */
+    .attorneys {
+      background: var(--cream);
+    }
+    
+    .attorneys-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px;
+    }
+    
+    @media (max-width: 768px) {
+      .attorneys-grid { grid-template-columns: 1fr; }
+    }
+    
+    .attorney-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    
+    .attorney-photo {
+      height: 320px;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    
+    .attorney-photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .attorney-info {
+      padding: 32px;
+    }
+    
+    .attorney-info h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    
+    .attorney-info .title {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+    
+    .attorney-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    
+    /* Practice Areas */
+    .practice-areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .practice-areas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 600px) {
+      .practice-areas-grid { grid-template-columns: 1fr; }
+    }
+    
+    .practice-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    
+    .practice-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    
+    .practice-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--cream);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .practice-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    
+    .practice-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    
+    .practice-card a {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .practice-card a:hover { text-decoration: underline; }
+    
+    /* Office Section */
+    .office {
+      background: var(--navy);
+      color: var(--white);
+    }
+    
+    .office .section-header h2 { color: var(--white); }
+    .office .section-header p { color: rgba(255,255,255,0.7); }
+    
+    .office-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    
+    @media (max-width: 900px) {
+      .office-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    
+    .office-photo {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .office-photo img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    
+    .office-info h3 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--gold);
+    }
+    
+    .office-info p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 24px;
+    }
+    
+    .office-details {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    
+    .office-details h4 {
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    
+    .office-details p {
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    
+    .office-details .phone {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    
+    /* Process */
+    .process {
+      background: var(--cream);
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (max-width: 500px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+    
+    .process-step {
+      text-align: center;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 40px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    
+    .step-number {
+      width: 64px;
+      height: 64px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0 auto 20px;
+    }
+    
+    .process-step h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+    
+    .process-step p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background: var(--white);
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    @media (max-width: 900px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+    
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 1.25rem;
+      margin-bottom: 16px;
+    }
+    
+    .testimonial-card blockquote {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    
+    .testimonial-author span {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 100px 0;
+    }
+    
+    .cta h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    
+    .cta p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f1620;
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    
+    .footer-brand .logo {
+      margin-bottom: 16px;
+      display: block;
+      height: 40px;
+    }
+    
+    .footer-brand .logo img {
+      height: 100%;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    
+    .footer-col h4 {
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    
+    .footer-col a {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+    
+    .footer-col a:hover { color: var(--gold); }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    
+    .footer-bottom p {
+      font-size: 0.85rem;
+    }
+    
+    /* Demo Banner */
+    .demo-banner {
+      background: var(--gold);
+      color: var(--navy);
       text-align: center;
       padding: 12px;
       font-size: 0.9rem;
@@ -50,505 +668,7 @@
     }
     
     .demo-banner a {
-      color: var(--white);
       text-decoration: underline;
-    }
-    
-    /* Header */
-    .header {
-      padding: 60px 0 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .header-content {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 0.9rem;
-      color: var(--gray-600);
-    }
-    
-    .close-btn {
-      background: none;
-      border: none;
-      color: var(--gray-600);
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-left: auto;
-    }
-    
-    /* Hero */
-    .hero {
-      padding: 80px 0 100px;
-      text-align: center;
-    }
-    
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 32px;
-      background: linear-gradient(135deg, var(--white) 0%, var(--cyan) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--gray-600);
-      max-width: 800px;
-      margin: 0 auto 48px;
-    }
-    
-    .prepared-for {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 16px 32px;
-      font-size: 0.9rem;
-      color: var(--gray-600);
-    }
-    
-    .prepared-for strong {
-      color: var(--white);
-      font-weight: 600;
-    }
-    
-    /* Cost of Inaction */
-    .cost-section {
-      padding: 100px 0;
-      background: rgba(255,255,255,0.02);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .cost-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    
-    .cost-header h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
-    
-    .cost-header p {
-      font-size: 1.2rem;
-      color: var(--gray-600);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .cost-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      text-align: center;
-    }
-    
-    @media (max-width: 768px) {
-      .cost-stats { grid-template-columns: 1fr; gap: 32px; }
-    }
-    
-    .cost-stat h3 {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      color: var(--red);
-      margin-bottom: 8px;
-    }
-    
-    .cost-stat p {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-    }
-    
-    /* Diagnosis */
-    .diagnosis-section {
-      padding: 100px 0;
-    }
-    
-    .section-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    
-    .section-header h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      margin-bottom: 16px;
-    }
-    
-    .section-header p {
-      font-size: 1.2rem;
-      color: var(--gray-600);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .diagnosis-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-    
-    @media (max-width: 900px) {
-      .diagnosis-grid { grid-template-columns: 1fr; gap: 60px; }
-    }
-    
-    .diagnosis-problems h3,
-    .diagnosis-strengths h3 {
-      font-size: 1.3rem;
-      margin-bottom: 32px;
-      color: var(--white);
-    }
-    
-    .diagnosis-problems ul,
-    .diagnosis-strengths ul {
-      list-style: none;
-      space-y: 16px;
-    }
-    
-    .diagnosis-problems li {
-      color: var(--red);
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    
-    .diagnosis-strengths li {
-      color: var(--cyan);
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    
-    /* Imagine Section */
-    .imagine-section {
-      padding: 100px 0;
-      background: linear-gradient(135deg, var(--purple) 0%, #7c3aed 100%);
-      text-align: center;
-    }
-    
-    .imagine-section h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      margin-bottom: 32px;
-    }
-    
-    .imagine-section p {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.8;
-    }
-    
-    /* Strategy */
-    .strategy-section {
-      padding: 100px 0;
-    }
-    
-    .strategy-timeline {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin-top: 80px;
-    }
-    
-    @media (max-width: 900px) {
-      .strategy-timeline { grid-template-columns: 1fr; }
-    }
-    
-    .timeline-item {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 40px 32px;
-      text-align: center;
-    }
-    
-    .timeline-phase {
-      background: var(--purple);
-      color: var(--white);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 24px;
-    }
-    
-    .timeline-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 16px;
-      color: var(--white);
-    }
-    
-    .timeline-item p {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-    }
-    
-    .timeline-result {
-      color: var(--cyan);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    
-    /* ROI */
-    .roi-section {
-      padding: 100px 0;
-      background: rgba(255,255,255,0.02);
-    }
-    
-    .roi-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 48px;
-      margin-top: 80px;
-    }
-    
-    @media (max-width: 768px) {
-      .roi-stats { grid-template-columns: 1fr; }
-    }
-    
-    .roi-stat {
-      text-align: center;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 40px 32px;
-    }
-    
-    .roi-stat h3 {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      color: var(--cyan);
-      margin-bottom: 8px;
-    }
-    
-    .roi-stat p {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-    }
-    
-    /* Why GullStack */
-    .why-section {
-      padding: 100px 0;
-    }
-    
-    .comparison-table {
-      margin: 80px 0;
-      overflow-x: auto;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    
-    th, td {
-      padding: 20px 24px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    th {
-      background: rgba(255,255,255,0.05);
-      font-weight: 600;
-      color: var(--white);
-    }
-    
-    td {
-      color: var(--gray-600);
-    }
-    
-    .checkmark { color: var(--cyan); }
-    .cross { color: var(--red); }
-    
-    .case-studies {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 48px;
-      margin-top: 80px;
-    }
-    
-    @media (max-width: 768px) {
-      .case-studies { grid-template-columns: 1fr; }
-    }
-    
-    .case-study {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 40px 32px;
-    }
-    
-    .case-study h4 {
-      color: var(--cyan);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-    
-    .case-study .industry {
-      color: var(--gray-600);
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-    
-    .case-study p {
-      color: var(--white);
-      font-weight: 600;
-    }
-    
-    /* Pricing */
-    .pricing-section {
-      padding: 100px 0;
-      background: rgba(255,255,255,0.02);
-    }
-    
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 80px;
-    }
-    
-    @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; max-width: 400px; margin: 80px auto 0; }
-    }
-    
-    .pricing-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 40px 32px;
-      position: relative;
-      text-align: center;
-    }
-    
-    .pricing-card.featured {
-      border-color: var(--purple);
-      background: rgba(168, 85, 247, 0.05);
-    }
-    
-    .pricing-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--purple);
-      color: var(--white);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 20px;
-    }
-    
-    .pricing-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 8px;
-      color: var(--white);
-    }
-    
-    .pricing-card .price {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      color: var(--cyan);
-      margin-bottom: 4px;
-    }
-    
-    .pricing-card .period {
-      color: var(--gray-600);
-      font-size: 0.9rem;
-      margin-bottom: 32px;
-    }
-    
-    .pricing-card ul {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 32px;
-    }
-    
-    .pricing-card li {
-      color: var(--gray-600);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-      padding-left: 24px;
-      position: relative;
-    }
-    
-    .pricing-card li::before {
-      content: "✓";
-      color: var(--cyan);
-      position: absolute;
-      left: 0;
-    }
-    
-    /* CTA */
-    .cta-section {
-      padding: 100px 0;
-      text-align: center;
-    }
-    
-    .cta-section h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      margin-bottom: 24px;
-    }
-    
-    .cta-section p {
-      font-size: 1.2rem;
-      color: var(--gray-600);
-      margin-bottom: 48px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--purple);
-      color: var(--white);
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    
-    .btn:hover {
-      background: #9333ea;
-      transform: translateY(-2px);
-    }
-    
-    .urgency {
-      margin-top: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--cyan);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .section-header h2 { font-size: 2rem; }
-      .cost-stat h3 { font-size: 2rem; }
-      .roi-stat h3 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -557,320 +677,276 @@
     🎨 DEMO PREVIEW — Built by <a href="https://gullstack.com">GullStack</a> | <a href="../peterson-zeyer-law.html">View Full Proposal →</a>
   </div>
   
-  <div class="header">
+  <header>
     <div class="container">
-      <div class="header-content">
-        <span>×</span>
-        <span>Growth Proposal</span>
-        <button class="close-btn">×</button>
+      <div class="header-inner">
+        <a href="#" class="logo">
+          <img src="./images/peterson-zeyer-law-logo-horizontal.png" alt="Peterson Zeyer Law">
+        </a>
+        <nav>
+          <a href="#attorneys">Attorneys</a>
+          <a href="#practice-areas">Practice Areas</a>
+          <a href="#process">Process</a>
+          <a href="#office">Office</a>
+          <a href="tel:208-433-9882" class="nav-cta">Free Consultation</a>
+        </nav>
+        <button class="mobile-menu">☰</button>
+      </div>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Idaho's Trusted Bankruptcy Attorneys</div>
+        <h1>Your Fresh Start Begins Here</h1>
+        <p>Filing for bankruptcy is a legal tool designed to help honest, hardworking people get relief from overwhelming debt. At Peterson Zeyer Law, we make the process simple, smooth, and stress-free.</p>
+        <div class="hero-buttons">
+          <a href="tel:208-433-9882" class="btn btn-primary">
+            <span>📞</span> Free Consultation
+          </a>
+          <a href="#practice-areas" class="btn btn-outline">
+            Learn About Your Options
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <h3>1,000+</h3>
+          <p>Cases Filed</p>
+        </div>
+        <div class="stat">
+          <h3>$0</h3>
+          <p>Down Payment Options</p>
+        </div>
+        <div class="stat">
+          <h3>5★</h3>
+          <p>Client Reviews</p>
+        </div>
+        <div class="stat">
+          <h3>Free</h3>
+          <p>Initial Consultation</p>
+        </div>
       </div>
     </div>
   </div>
   
-  <section class="hero">
-    <div class="container">
-      <h1>Dominate Bankruptcy Law Search</h1>
-      <p>You help families escape debt. We'll make sure they find you first — before DIY bankruptcy sites, legal document services, or any inferior alternative.</p>
-      
-      <div class="prepared-for">
-        <span>Prepared for</span>
-        <strong>Peterson Zeyer Law — Idaho's Bankruptcy Experts</strong>
-      </div>
-    </div>
-  </section>
-  
-  <section class="cost-section">
-    <div class="container">
-      <div class="cost-header">
-        <h2>The Cost of Standing Still</h2>
-        <p>You're losing $42K every month to inferior competitors.</p>
-        <p style="margin-top: 16px;">While Peterson Zeyer offers experienced legal representation, DIY bankruptcy sites and document mills capture 95% of online searches. Every month you wait, that gap widens.</p>
-      </div>
-      
-      <div class="cost-stats">
-        <div class="cost-stat">
-          <h3>$42,000</h3>
-          <p>Monthly revenue going to competitors</p>
-          <small style="color: var(--gray-600);">Based on 8,400+ monthly bankruptcy searches you're not capturing</small>
-        </div>
-        <div class="cost-stat">
-          <h3>8,400+</h3>
-          <p>Monthly searches for bankruptcy help</p>
-          <small style="color: var(--gray-600);">In Boise, Nampa, and the Treasure Valley</small>
-        </div>
-        <div class="cost-stat">
-          <h3>0.2%</h3>
-          <p>Your current search visibility</p>
-          <small style="color: var(--gray-600);">Invisible to families who need your help most</small>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="diagnosis-section">
+  <section class="attorneys" id="attorneys">
     <div class="container">
       <div class="section-header">
-        <h2>The Diagnosis</h2>
-        <p>Expert legal counsel. Invisible website.</p>
+        <h2>Meet Your Attorneys</h2>
+        <p>Experienced advocates who understand what you're going through and are dedicated to guiding you toward financial freedom.</p>
       </div>
       
-      <div class="diagnosis-grid">
-        <div class="diagnosis-problems">
-          <h3>Where You're Losing</h3>
-          <ul>
-            <li>• "Bankruptcy attorney Boise" — not ranking in top 100</li>
-            <li>• "Chapter 7 bankruptcy lawyer" — not ranking in top 100</li>
-            <li>• "Stop wage garnishment Idaho" — not ranking in top 100</li>
-            <li>• Current site architecture — can't compete with modern SEO</li>
-            <li>• Zero educational content — no reason for Google to send traffic</li>
-            <li>• Missing location pages — Nampa, Meridian, Eagle searches ignored</li>
-          </ul>
+      <div class="attorneys-grid">
+        <div class="attorney-card">
+          <div class="attorney-photo">
+            <img src="./images/peterson-bw-circle_1_orig.png" alt="Jake W. Peterson" loading="lazy">
+          </div>
+          <div class="attorney-info">
+            <h3>Jake W. Peterson</h3>
+            <div class="title">Founding Partner</div>
+            <p>Jake founded Peterson Zeyer Law with a mission to make bankruptcy accessible to everyone who needs it. He has helped hundreds of Idaho families get the fresh start they deserve.</p>
+          </div>
         </div>
-        <div class="diagnosis-strengths">
-          <h3>What You Have That Competitors Don't</h3>
-          <ul>
-            <li>• 1,000+ successful cases filed — proven track record</li>
-            <li>• $0 down payment options — accessible to cash-strapped families</li>
-            <li>• Same-day filing available — immediate creditor protection</li>
-            <li>• Chapter 7 & 13 expertise — complete bankruptcy solutions</li>
-            <li>• Free consultations — no-risk for prospects</li>
-            <li>• 30+ years combined experience — deep legal expertise</li>
-          </ul>
+        <div class="attorney-card">
+          <div class="attorney-photo">
+            <img src="./images/hyrum-bw-circle_1.png" alt="Hyrum Zeyer" loading="lazy">
+          </div>
+          <div class="attorney-info">
+            <h3>Hyrum Zeyer</h3>
+            <div class="title">Partner</div>
+            <p>Hyrum brings a compassionate approach to every case, taking time to understand each client's unique situation and providing clear, actionable guidance through the bankruptcy process.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="imagine-section">
-    <div class="container">
-      <h2>Imagine This</h2>
-      <p>A family in Nampa types "stop wage garnishment immediately." Your name appears first. Not Rocket Lawyer. Not LegalZoom. You.</p>
-      <p style="margin-top: 32px;">That's not a fantasy — it's what happens when genuine legal expertise meets modern digital strategy. We make it real.</p>
-    </div>
-  </section>
-  
-  <section class="strategy-section">
+  <section class="practice-areas" id="practice-areas">
     <div class="container">
       <div class="section-header">
-        <h2>The Strategy</h2>
-        <p>Local SEO. New site. Legal market domination.</p>
+        <h2>Practice Areas</h2>
+        <p>We specialize in helping individuals and families find the right path to debt relief.</p>
       </div>
       
-      <div class="strategy-timeline">
-        <div class="timeline-item">
-          <div class="timeline-phase">Month 1-2</div>
-          <h4>New Site + Foundation</h4>
-          <p>Modern, fast site with 50+ optimized pages. Practice area pages, location pages, educational content hub. Schema markup and technical SEO from day one.</p>
-          <div class="timeline-result">AI-assisted content creation for 10x faster deployment</div>
+      <div class="practice-areas-grid">
+        <div class="practice-card">
+          <div class="practice-icon">⚡</div>
+          <h3>Chapter 7 Bankruptcy</h3>
+          <p>Eliminate most unsecured debts and get a fresh start in as little as 4-6 months. Ideal for those with limited income and assets.</p>
+          <a href="#">Learn more →</a>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Month 2-4</div>
-          <h4>Content + Local SEO</h4>
-          <p>100+ location-specific pages, bankruptcy guides, educational resources. AI-powered competitive analysis adapts strategy in real-time.</p>
-          <div class="timeline-result">200% organic traffic increase, 300+ keyword rankings</div>
+        <div class="practice-card">
+          <div class="practice-icon">🏠</div>
+          <h3>Chapter 13 Bankruptcy</h3>
+          <p>Reorganize your debts into a manageable 3-5 year payment plan. Keep your home and catch up on missed mortgage payments.</p>
+          <a href="#">Learn more →</a>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-phase">Month 4-6</div>
-          <h4>Authority + Scale</h4>
-          <p>Link building, digital PR, review generation. AI-powered monitoring ensures you stay ahead of competitors — not quarterly like traditional firms.</p>
-          <div class="timeline-result">500% visibility improvement, market leadership</div>
+        <div class="practice-card">
+          <div class="practice-icon">🛡️</div>
+          <h3>Stop Wage Garnishment</h3>
+          <p>Filing bankruptcy immediately stops wage garnishment, giving you relief from creditors and protection for your paycheck.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🚗</div>
+          <h3>Stop Repossession</h3>
+          <p>Protect your vehicle from repossession and create a plan to catch up on payments while keeping your transportation.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">🏡</div>
+          <h3>Stop Foreclosure</h3>
+          <p>Chapter 13 bankruptcy can stop foreclosure proceedings and allow you to save your home through a repayment plan.</p>
+          <a href="#">Learn more →</a>
+        </div>
+        <div class="practice-card">
+          <div class="practice-icon">👨‍👩‍👧</div>
+          <h3>Family Law & Divorce</h3>
+          <p>We understand how bankruptcy intersects with divorce and can help coordinate both processes for the best outcome.</p>
+          <a href="#">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="roi-section">
+  <section class="office" id="office">
     <div class="container">
       <div class="section-header">
-        <h2>The Return</h2>
-        <p>Conservative Year 1 projections.</p>
-        <p style="margin-top: 16px;">Based on 2.8% conversion rate and $2,200 average case value.</p>
+        <h2>Our Boise Office</h2>
+        <p>Conveniently located in the heart of Boise, serving clients throughout the Treasure Valley.</p>
       </div>
       
-      <div class="roi-stats">
-        <div class="roi-stat">
-          <h3>$486K</h3>
-          <p>Projected additional annual revenue</p>
-          <small style="color: var(--gray-600);">221 new clients at $2,200 avg. case value</small>
+      <div class="office-grid">
+        <div class="office-photo">
+          <img src="./images/law-office.jpg" alt="Peterson Zeyer Law Office" loading="lazy">
         </div>
-        <div class="roi-stat">
-          <h3>12K</h3>
-          <p>Monthly organic visitors</p>
-          <small style="color: var(--gray-600);">(from 820)</small>
-        </div>
-        <div class="roi-stat">
-          <h3>85+</h3>
-          <p>Top 10 keyword rankings</p>
-          <small style="color: var(--gray-600);">(from 2)</small>
-        </div>
-        <div class="roi-stat">
-          <h3>632%</h3>
-          <p>First-year ROI</p>
-          <small style="color: var(--gray-600);">Conservative estimate</small>
+        <div class="office-info">
+          <h3>Professional. Accessible. Results-Driven.</h3>
+          <p>Our team of experienced bankruptcy attorneys is committed to providing compassionate, effective legal representation to help you navigate financial difficulties and achieve a fresh start.</p>
+          <p>We understand that financial hardship can be overwhelming and stressful. That's why we offer free consultations and flexible payment options to make quality legal representation accessible when you need it most.</p>
+          
+          <div class="office-details">
+            <h4>Contact Information</h4>
+            <p>1215 W Hays Street</p>
+            <p>Boise, ID 83702</p>
+            <p class="phone">📞 (208) 433-9882</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="why-section">
+  <section class="process" id="process">
     <div class="container">
       <div class="section-header">
-        <h2>Why GullStack</h2>
-        <p>Not your typical legal marketing agency.</p>
+        <h2>How It Works</h2>
+        <p>We make the bankruptcy process simple and transparent. Here's what to expect.</p>
       </div>
       
-      <div class="comparison-table">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th>DIY / Freelancer</th>
-              <th>Traditional Marketing Agency</th>
-              <th>GullStack</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>New Site Build</strong></td>
-              <td>$2-5K (template)</td>
-              <td>$15-40K</td>
-              <td><span class="checkmark">✓ Included</span></td>
-            </tr>
-            <tr>
-              <td><strong>Timeline</strong></td>
-              <td>2-6 months</td>
-              <td>8-12 weeks</td>
-              <td><span class="checkmark">60 days</span></td>
-            </tr>
-            <tr>
-              <td><strong>SEO Strategy</strong></td>
-              <td><span class="cross">❌</span></td>
-              <td>Extra $$</td>
-              <td><span class="checkmark">✓ Included</span></td>
-            </tr>
-            <tr>
-              <td><strong>AI-Powered</strong></td>
-              <td><span class="cross">❌</span></td>
-              <td><span class="cross">❌</span></td>
-              <td><span class="checkmark">✓ Core advantage</span></td>
-            </tr>
-            <tr>
-              <td><strong>Content Volume</strong></td>
-              <td>5-10 pages</td>
-              <td>20-50 pages</td>
-              <td><span class="checkmark">500+ pages</span></td>
-            </tr>
-            <tr>
-              <td><strong>Ongoing Updates</strong></td>
-              <td>DIY</td>
-              <td>$150-250/hr</td>
-              <td><span class="checkmark">✓ Included</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="case-studies">
-        <div class="case-study">
-          <h4>Sun Dermatology</h4>
-          <div class="industry">Healthcare / Panama City, FL</div>
-          <p>400% organic traffic growth</p>
-          <p>New patient bookings doubled in 4 months</p>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Free Consultation</h4>
+          <p>Meet with an attorney to discuss your situation and explore your options. No obligation.</p>
         </div>
-        <div class="case-study">
-          <h4>Best Sports Surfaces</h4>
-          <div class="industry">National Directory / 179 Vendors</div>
-          <p>Page 1 rankings in 60 days</p>
-          <p>From zero to 179 vendor listings nationwide</p>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Gather Documents</h4>
+          <p>We'll provide a clear checklist and help you compile everything needed for your petition.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>File Your Case</h4>
+          <p>We prepare and file your petition. Collection calls and garnishments stop immediately.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Fresh Start</h4>
+          <p>After your discharge, you're debt-free and ready to rebuild your financial future.</p>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="pricing-section">
+  <section class="testimonials">
     <div class="container">
       <div class="section-header">
-        <h2>Investment</h2>
-        <p>Three ways to grow.</p>
-        <p style="margin-top: 16px;">Choose the path that matches your growth goals. All plans include a new site build, AI-assisted content, and performance guarantees.</p>
+        <h2>Client Success Stories</h2>
+        <p>Don't just take our word for it — hear from people we've helped.</p>
       </div>
       
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Starter</h3>
-          <div class="price">$4,500</div>
-          <div class="period">/month</div>
-          <ul>
-            <li>Modern SEO-optimized website</li>
-            <li>50+ optimized pages</li>
-            <li>10 location pages</li>
-            <li>Monthly content updates</li>
-            <li>Technical SEO management</li>
-            <li>Monthly performance reports</li>
-          </ul>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Relief is an understatement, now that my case has been discharged. The process of filing for bankruptcy is daunting and encrypted in legalese. Hyrum and his team provided a clear template and timeline. I knew what to expect, and I felt supported."</blockquote>
+          <div class="testimonial-author">Hilary <span>— Verified Client</span></div>
         </div>
-        <div class="pricing-card featured">
-          <div class="pricing-badge">⚡ Growth — Recommended</div>
-          <h3>Growth</h3>
-          <div class="price">$8,500</div>
-          <div class="period">/month</div>
-          <ul>
-            <li>Everything in Starter</li>
-            <li>200+ optimized pages</li>
-            <li>25+ location pages</li>
-            <li>Weekly content creation</li>
-            <li>Link building campaigns</li>
-            <li>AI-powered competitor monitoring</li>
-            <li>Conversion optimization</li>
-            <li>Dedicated strategist</li>
-          </ul>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"Mr. Zeyer and his staff have been incredible to work with throughout this entire process. We had various challenges and complexities arise with our case, and each step of the way, Mr. Zeyer handled everything with professionalism and care."</blockquote>
+          <div class="testimonial-author">Michael T. <span>— Verified Client</span></div>
         </div>
-        <div class="pricing-card">
-          <h3>Dominate</h3>
-          <div class="price">$15,000</div>
-          <div class="period">/month</div>
-          <ul>
-            <li>Everything in Growth</li>
-            <li>500+ optimized pages</li>
-            <li>Statewide SEO campaign</li>
-            <li>Digital PR & media outreach</li>
-            <li>Custom analytics dashboard</li>
-            <li>Priority 24/7 support</li>
-            <li>Quarterly strategy retreats</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div style="text-align: center; margin-top: 60px;">
-        <h3 style="color: var(--white); margin-bottom: 24px;">What to Expect</h3>
-        <div style="max-width: 800px; margin: 0 auto; color: var(--gray-600);">
-          <p style="margin-bottom: 16px;">• <strong>Minimum 15% organic traffic growth</strong> — that's our baseline. Most legal clients see 5x or more within 12 months.</p>
-          <p style="margin-bottom: 16px;">• <strong>New site live in 60 days</strong> — we move fast so you start capturing leads sooner</p>
-          <p style="margin-bottom: 16px;">• <strong>Month-to-month flexibility</strong> — no long-term contracts after the initial build period</p>
-          <p>• <strong>Full transparency</strong> — you'll see everything we do, every metric we track</p>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <blockquote>"They charge a flat rate for representation, and it is worth every cent. I will be sharing Mr. Zeyer's name with anyone who finds themselves in financial turmoil. Cannot recommend highly enough."</blockquote>
+          <div class="testimonial-author">Sarah M. <span>— Verified Client</span></div>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="cta-section">
+  <section class="cta">
     <div class="container">
-      <h2>Ready to own bankruptcy law search?</h2>
-      <p>Every month Peterson Zeyer stays invisible, families choose DIY bankruptcy mills or worse — no help at all. Let's change that.</p>
-      
-      <a href="mailto:bryce@gullstack.com?subject=Peterson Zeyer Growth Strategy&body=Hi Bryce,%0A%0AI" class="btn">
-        Schedule a Call →
+      <h2>Ready for Your Fresh Start?</h2>
+      <p>Schedule your free, no-obligation consultation today. We'll review your situation and explain all your options.</p>
+      <a href="tel:208-433-9882" class="btn btn-primary">
+        Call (208) 433-9882
       </a>
-      
-      <div style="margin-top: 16px; color: var(--gray-600); font-size: 0.9rem;">
-        30-minute strategy call · No commitment
-      </div>
-      
-      <div class="urgency">
-        <span>⚡</span>
-        <span>We take 3 new clients per month. This proposal is reserved for 14 days.</span>
-      </div>
     </div>
   </section>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">
+            <img src="./images/peterson-zeyer-law-logo-horizontal.png" alt="Peterson Zeyer Law">
+          </span>
+          <p>Idaho's trusted bankruptcy attorneys, helping families get the fresh start they deserve since 2015.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Practice Areas</h4>
+          <a href="#">Chapter 7</a>
+          <a href="#">Chapter 13</a>
+          <a href="#">Stop Garnishment</a>
+          <a href="#">Family Law</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">FAQs</a>
+          <a href="#">Bankruptcy Process</a>
+          <a href="#">Client Forms</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:208-433-9882">(208) 433-9882</a>
+          <a href="mailto:Legal@PetersonZeyerLaw.com">Email Us</a>
+          <a href="#">Directions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Peterson Zeyer Law. All rights reserved.</p>
+        <p>Serving Boise, Nampa, Meridian, Eagle, Caldwell & the Treasure Valley</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
