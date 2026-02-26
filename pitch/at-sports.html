@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT Sports - AI-Powered Growth Strategy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            scroll-behavior: smooth;
+            background: #ffffff;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .hero h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .growth-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            margin: 2rem auto;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .prepared-for {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-family: 'Young Serif', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1a202c;
+        }
+        
+        .opportunity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .opportunity-card {
+            background: #f7fafc;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .opportunity-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .opportunity-card .metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .competitive-analysis {
+            background: #1a202c;
+            color: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+        
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .competitor-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .competitor-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .blue-ocean {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .blue-ocean h3 {
+            font-family: 'Young Serif', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .growth-projection {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+        
+        .projection-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-card .period {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-card .growth {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e53e3e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ai-features {
+            background: #f0f4f8;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .roi-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+        
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .roi-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .roi-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cta-section {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 2rem 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .urgency {
+            background: #fed7d7;
+            border: 1px solid #fc8181;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            text-align: center;
+            color: #742a2a;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="prepared-for">
+            <strong>Prepared for:</strong><br>
+            Brad Carroll & Malory Bateman<br>
+            AT Sports
+        </div>
+        
+        <div class="hero-content">
+            <h1>AI-Powered Growth Strategy</h1>
+            <p class="subtitle">Transforming Court Installation Through Technology & Positioning</p>
+            
+            <div class="growth-badge">
+                🚀 Growth Proposal: 750-1000% Traffic Increase
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8; font-size: 1.1rem;">
+                Proposal Reserved 14 Days | Meeting: Tomorrow
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>💡 The Market Opportunity</h2>
+        
+        <div class="opportunity-grid">
+            <div class="opportunity-card">
+                <h3>Your Current Position</h3>
+                <div class="metric">$3.5K/mo</div>
+                <p>Highest-value GullStack client with PPA Tour partnership and quality products</p>
+            </div>
+            
+            <div class="opportunity-card">
+                <h3>The Problem</h3>
+                <div class="metric" style="color: #e53e3e;">$500K-1M</div>
+                <p>Annual revenue lost to invisible digital presence while competitors dominate search</p>
+            </div>
+            
+            <div class="opportunity-card">
+                <h3>Current Organic Traffic</h3>
+                <div class="metric" style="color: #f56500;">1,800</div>
+                <p><strong>GA4 Verified:</strong> 1,800 organic visitors/month vs. SportMaster's 8K-12K monthly</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="competitive-analysis">
+        <h2 style="color: white; margin-bottom: 3rem;">🎯 Competitive Intelligence</h2>
+        
+        <div class="competitor-grid">
+            <div class="competitor-card">
+                <h4>🥇 LAYKOLD - Premium Player</h4>
+                <p><strong>US Open Official Surface</strong></p>
+                <p>15K-20K monthly visits</p>
+                <p style="color: #ff6b6b; margin-top: 1rem;"><strong>Problem:</strong> Too expensive for independent installers</p>
+            </div>
+            
+            <div class="competitor-card">
+                <h4>🥈 SPORTMASTER - Franchise System</h4>
+                <p><strong>100+ Franchise Locations</strong></p>
+                <p>8K-12K monthly visits</p>
+                <p style="color: #ff6b6b; margin-top: 1rem;"><strong>Problem:</strong> Bureaucracy between you and contractors</p>
+            </div>
+            
+            <div class="competitor-card">
+                <h4>🥉 NOVA SPORTS - Environmental</h4>
+                <p><strong>Sustainability Focus</strong></p>
+                <p>3K-5K monthly visits</p>
+                <p style="color: #ff6b6b; margin-top: 1rem;"><strong>Problem:</strong> Limited installer resources</p>
+            </div>
+            
+            <div class="competitor-card">
+                <h4>🛠️ TRU-BOUNCE - Specialist</h4>
+                <p><strong>Crack Repair Only</strong></p>
+                <p>1.5K-2.5K monthly visits</p>
+                <p style="color: #ff6b6b; margin-top: 1rem;"><strong>Problem:</strong> Single-product focus</p>
+            </div>
+        </div>
+        
+        <div class="blue-ocean">
+            <h3>🔥 THE BLUE OCEAN OPPORTUNITY</h3>
+            <p style="font-size: 1.3rem; margin-bottom: 2rem;"><strong>NO ONE is specifically championing independent installers</strong></p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                <div>✅ PPA Tour credibility without premium pricing</div>
+                <div>✅ Complete solutions - paint, repair, portable, tools</div>
+                <div>✅ Direct support - no franchise middlemen</div>
+                <div>✅ Installer-first approach - make them heroes</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="growth-projection">
+        <h2 style="text-align: center; margin-bottom: 3rem;">📈 Traffic Growth Projections</h2>
+        
+        <div class="projection-timeline">
+            <div class="timeline-card">
+                <div class="period">6-Month Target</div>
+                <div class="growth">350-450%</div>
+                <p><strong>8,000-10,000</strong> monthly visits</p>
+                <p style="margin-top: 1rem; color: #667eea;"><strong>FROM:</strong> 1,800 organic (GA4 verified)</p>
+                <p style="margin-top: 0.5rem; color: #667eea;"><strong>50-75</strong> additional qualified leads monthly</p>
+                <p style="margin-top: 0.5rem; font-weight: 600;">$200K-350K additional revenue</p>
+            </div>
+            
+            <div class="timeline-card">
+                <div class="period">12-Month Target</div>
+                <div class="growth">750-1000%</div>
+                <p><strong>15,000-20,000</strong> monthly visits</p>
+                <p style="margin-top: 1rem; color: #667eea;"><strong>BASELINE:</strong> 1,800 organic visitors</p>
+                <p style="margin-top: 0.5rem; color: #667eea;"><strong>100-150</strong> additional qualified leads monthly</p>
+                <p style="margin-top: 0.5rem; font-weight: 600;">$500K-750K additional revenue</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ai-features">
+        <h2 style="text-align: center; margin-bottom: 3rem;">🤖 AI Integration Strategy</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔧</div>
+                <h3>AI Installation Assistant</h3>
+                <p>24/7 technical support chatbot answering contractor questions instantly</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧮</div>
+                <h3>Smart Calculators</h3>
+                <p>Instant material estimation and project planning with weather considerations</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Business Intelligence</h3>
+                <p>Demand forecasting, competitive monitoring, and customer success prediction</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Predictive Analytics</h3>
+                <p>Market expansion identification and inventory optimization</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="roi-section">
+        <h2 style="margin-bottom: 3rem;">💰 Investment & ROI Projection</h2>
+        
+        <div class="roi-grid">
+            <div class="roi-card">
+                <div class="roi-number">$49K</div>
+                <p>6-Month Investment</p>
+            </div>
+            <div class="roi-card">
+                <div class="roi-number">$200K-350K</div>
+                <p>6-Month Additional Revenue</p>
+            </div>
+            <div class="roi-card">
+                <div class="roi-number">400-600%</div>
+                <p>6-Month ROI</p>
+            </div>
+            <div class="roi-card">
+                <div class="roi-number">$97K</div>
+                <p>12-Month Total Investment</p>
+            </div>
+            <div class="roi-card">
+                <div class="roi-number">$500K-750K</div>
+                <p>12-Month Additional Revenue</p>
+            </div>
+            <div class="roi-card">
+                <div class="roi-number">400-650%</div>
+                <p>Annual ROI</p>
+            </div>
+        </div>
+        
+        <p style="font-size: 1.2rem; margin-top: 2rem; opacity: 0.9;">
+            Conservative projections show platform generates leads indefinitely
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🎨 Website Transformation</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 3rem 0;">
+            <div style="background: #fed7d7; border-radius: 20px; padding: 2rem;">
+                <h3 style="color: #742a2a; margin-bottom: 1.5rem;">❌ Current Problems</h3>
+                <ul style="color: #742a2a; list-style: none;">
+                    <li>• Generic corporate messaging</li>
+                    <li>• Buried product information</li>
+                    <li>• No installer tools or calculators</li>
+                    <li>• Poor mobile experience</li>
+                    <li>• Weak search rankings</li>
+                    <li>• No social proof</li>
+                </ul>
+            </div>
+            
+            <div style="background: #c6f6d5; border-radius: 20px; padding: 2rem;">
+                <h3 style="color: #276749; margin-bottom: 1.5rem;">✅ New Experience</h3>
+                <ul style="color: #276749; list-style: none;">
+                    <li>• Contractor-hero positioning</li>
+                    <li>• PPA Tour credibility prominent</li>
+                    <li>• AI-powered tools & calculators</li>
+                    <li>• Mobile-first design</li>
+                    <li>• SEO-optimized content</li>
+                    <li>• Success stories & testimonials</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="background: #e6fffa; border: 2px solid #4fd1c7; border-radius: 20px; padding: 2rem; text-align: center; margin: 2rem 0;">
+            <h3 style="color: #234e52; margin-bottom: 1rem;">New Hero Framework (Donald Young Method)</h3>
+            <p style="font-size: 1.3rem; color: #234e52; font-weight: 600;">
+                "Professional court installers choose AT Sports for projects that build reputations"
+            </p>
+            <p style="margin-top: 1rem; color: #2c7a7b;">
+                Making installers the heroes of their own success stories
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🤝 Multi-Business Integration</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+            <div style="background: #667eea; color: white; border-radius: 20px; padding: 2rem; text-align: center;">
+                <h3>AT Sports</h3>
+                <p style="opacity: 0.9;">Professional B2B foundation with PPA credibility</p>
+            </div>
+            
+            <div style="background: #764ba2; color: white; border-radius: 20px; padding: 2rem; text-align: center;">
+                <h3>Dwell Paint</h3>
+                <p style="opacity: 0.9;">Premium residential extension</p>
+            </div>
+            
+            <div style="background: #f093fb; color: white; border-radius: 20px; padding: 2rem; text-align: center;">
+                <h3>Grit Paint</h3>
+                <p style="opacity: 0.9;">Performance athletics focus</p>
+            </div>
+            
+            <div style="background: #4facfe; color: white; border-radius: 20px; padding: 2rem; text-align: center;">
+                <h3>DIY Paint Solution</h3>
+                <p style="opacity: 0.9;">Accessible entry point</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <p style="font-size: 1.2rem; color: #4a5568;">
+                <strong>Cross-Pollination Strategy:</strong> AT Sports credibility elevates all brands while creating referral opportunities across the entire ecosystem
+            </p>
+        </div>
+    </div>
+
+    <div class="urgency">
+        <h3 style="color: #742a2a; margin-bottom: 1rem;">⏰ Decision Timeline</h3>
+        <p><strong>This proposal is reserved for 14 days</strong></p>
+        <p style="margin-top: 0.5rem;">Growing demand for AI marketing means limited availability. Similar projects booking 60-90 days out.</p>
+    </div>
+
+    <div class="cta-section">
+        <h2 style="margin-bottom: 2rem;">🏆 Ready to Transform AT Sports?</h2>
+        
+        <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;">
+            Transform from generic manufacturer to "The Installer's Champion"<br>
+            Conservative projections: <strong>400-650% ROI in year one</strong>
+        </p>
+        
+        <div style="margin: 2rem 0;">
+            <a href="#" class="cta-button">Approve Project</a>
+            <a href="#" class="cta-button" style="background: transparent; border: 2px solid white;">Schedule Follow-up</a>
+        </div>
+        
+        <div style="margin-top: 3rem; opacity: 0.8; font-size: 0.9rem;">
+            <p><strong>Contact:</strong> Bryce Morgan - GullStack Marketing</p>
+            <p>Next Steps: Project kickoff within 48 hours of approval</p>
+        </div>
+    </div>
+</body>
+</html>
