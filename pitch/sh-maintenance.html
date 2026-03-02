@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S & H Maintenance - Macon's Trusted HVAC Experts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f97316;
+        }
+        
+        .phone-header {
+            background: #f97316;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* Rating Badge */
+        .rating-badge {
+            background: #f97316;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), 
+                        linear-gradient(rgba(249, 115, 22, 0.1), rgba(249, 115, 22, 0.1)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f8ff" width="1200" height="600"/><text x="600" y="250" text-anchor="middle" font-size="48" fill="%23666">Professional HVAC Service</text><text x="600" y="300" text-anchor="middle" font-size="36" fill="%23888">Since 2012 in Macon</text><text x="600" y="350" text-anchor="middle" font-size="24" fill="%23888">4.5 ★ Rated • 59 Reviews</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-rating {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            background: rgba(249, 115, 22, 0.9);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: #f97316;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            background: #f8fafc;
+            padding: 2rem 0;
+        }
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .badge {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .badge h3 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3a8a;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+            border-color: #f97316;
+        }
+        
+        .service-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .service-card li:before {
+            content: "✓ ";
+            color: #f97316;
+            font-weight: bold;
+        }
+        
+        /* Emergency Service Banner */
+        .emergency-banner {
+            background: linear-gradient(45deg, #f97316, #ea580c);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .emergency-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .emergency-phone {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        /* Service Area */
+        .service-area {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .area-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #1e3a8a;
+            transition: all 0.3s;
+        }
+        
+        .area-item:hover {
+            border-color: #f97316;
+            transform: translateY(-2px);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+        
+        .testimonial {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #f97316;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: "⭐⭐⭐⭐⭐";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .hours {
+            background: rgba(249, 115, 22, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                S & H Maintenance
+                <span class="rating-badge">4.5 ★ (59 Reviews)</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="phone-header">(478) 745-4926</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>S & H Maintenance</h1>
+                <div class="hero-rating">⭐⭐⭐⭐⭐ 4.5 Stars • 59 Google Reviews</div>
+                <p>Macon's Most Trusted HVAC Experts | 24/7 Emergency Service | Licensed & Insured</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Get Free Estimate</a>
+                    <a href="#" class="btn btn-secondary">Call Now: (478) 745-4926</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge">
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed and insured for your protection</p>
+                </div>
+                <div class="badge">
+                    <h3>12+ Years Experience</h3>
+                    <p>Proudly serving Macon since 2012</p>
+                </div>
+                <div class="badge">
+                    <h3>⭐ 4.5 Star Rating</h3>
+                    <p>59 verified Google reviews from satisfied customers</p>
+                </div>
+                <div class="badge">
+                    <h3>24/7 Emergency Service</h3>
+                    <p>Always available when you need us most</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our HVAC Services in Macon</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Heating Services</h3>
+                    <ul>
+                        <li>Furnace Repair & Installation</li>
+                        <li>Heat Pump Services</li>
+                        <li>Boiler Repair & Replacement</li>
+                        <li>Emergency Heating Repair</li>
+                        <li>Duct Cleaning & Repair</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Cooling Services</h3>
+                    <ul>
+                        <li>Air Conditioning Repair</li>
+                        <li>AC Installation & Replacement</li>
+                        <li>Central Air Systems</li>
+                        <li>Indoor Air Quality Solutions</li>
+                        <li>Preventive Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Commercial Services</h3>
+                    <ul>
+                        <li>Commercial HVAC Systems</li>
+                        <li>Preventive Maintenance Plans</li>
+                        <li>Energy Efficiency Audits</li>
+                        <li>24/7 Commercial Support</li>
+                        <li>Rooftop Unit Service</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <section class="emergency-banner">
+        <div class="container">
+            <h2>HVAC Emergency in Macon? We're Here 24/7</h2>
+            <div class="emergency-phone">(478) 745-4926</div>
+            <p>Don't suffer in extreme temperatures. Local Macon experts available now!</p>
+            <a href="#" class="btn btn-secondary">Emergency Service</a>
+        </div>
+    </section>
+
+    <!-- Service Area -->
+    <section class="service-area">
+        <div class="container">
+            <h2 class="section-title">Proudly Serving Macon and Middle Georgia</h2>
+            <div class="area-grid">
+                <div class="area-item">Warner Robins</div>
+                <div class="area-item">Perry</div>
+                <div class="area-item">Forsyth</div>
+                <div class="area-item">Gray</div>
+                <div class="area-item">Centerville</div>
+                <div class="area-item">Byron</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Why Macon Trusts S & H Maintenance</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"S & H Maintenance saved us during the hottest week of summer. Their response time was incredible and the technician was professional and knowledgeable. Highly recommend!"</div>
+                    <div class="testimonial-author">- Verified Google Review, Macon Homeowner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Been using them for our office building for years. Always reliable, always professional. Their 24/7 emergency service is a lifesaver for our business."</div>
+                    <div class="testimonial-author">- Verified Google Review, Commercial Client</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Excellent service and fair pricing. They installed our new AC unit and it's been perfect ever since. These are the HVAC pros Macon can trust."</div>
+                    <div class="testimonial-author">- Verified Google Review, Macon Resident</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready for Reliable HVAC Service in Macon?</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact S & H Maintenance</h3>
+                    <p><strong>Phone:</strong> (478) 745-4926</p>
+                    <p><strong>Email:</strong> service@shmaintenance.com</p>
+                    <p><strong>Address:</strong> 1605 Graham Rd<br>Macon, GA 31211</p>
+                    <div class="hours">
+                        <h4>Business Hours:</h4>
+                        <p>Monday - Friday: 7:00 AM - 7:00 PM</p>
+                        <p>Saturday: 8:00 AM - 5:00 PM</p>
+                        <p>Sunday: Emergency Service Only</p>
+                        <p><strong>24/7 Emergency Service Available</strong></p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Why Choose S & H Maintenance?</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Licensed & Insured in Georgia</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 12+ Years Serving Macon</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ ⭐ 4.5 Star Google Rating</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 24/7 Emergency Service</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 100% Satisfaction Guarantee</li>
+                        <li style="padding: 8px 0;">✓ Local Macon Family Business</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn btn-primary">Get Your Free Estimate Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 S & H Maintenance. All rights reserved. | Licensed & Insured | Proudly Serving Macon, GA and Middle Georgia</p>
+        </div>
+    </footer>
+</body>
+</html>
