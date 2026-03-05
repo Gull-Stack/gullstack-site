@@ -20,6 +20,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("projects");
   eleventyConfig.addPassthroughCopy("ai-consulting");
   eleventyConfig.addPassthroughCopy("pitch"); // Keep pitch pages as-is (standalone client pitches)
+  eleventyConfig.addPassthroughCopy("pitch/**/*.{jpg,jpeg,png,gif,svg,webp,ico}"); // Ensure pitch images are copied
   eleventyConfig.addPassthroughCopy("assets"); // Pitch assets (logos, images)
   eleventyConfig.addPassthroughCopy("privacy.html"); // Static for now
   
