@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gigg Platform: Community Engagement for Modern Policing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6366f1;
+            --primary-cyan: #06b6d4;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .header .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .header .description {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        .header-meta {
+            opacity: 0.7;
+            font-size: 1rem;
+            margin-top: 30px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-family: 'Young Serif', serif;
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .card h3 {
+            font-family: 'Young Serif', serif;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+
+        .card h4 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Feature Lists */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-purple);
+        }
+
+        .feature-item h4 {
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            font-family: 'Young Serif', serif;
+        }
+
+        .feature-item p {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .feature-item ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .feature-item li {
+            margin: 8px 0;
+            color: var(--text-medium);
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-purple);
+            background: linear-gradient(135deg, #f8fafc, #e0e7ff);
+        }
+
+        .pricing-card h4 {
+            font-family: 'Young Serif', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin: 20px 0;
+        }
+
+        .pricing-description {
+            color: var(--text-medium);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .pricing-features {
+            text-align: left;
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .pricing-features li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            background: var(--success-color);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Results Cards */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary-cyan);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .result-card h4 {
+            color: var(--primary-cyan);
+            font-family: 'Young Serif', serif;
+            margin-bottom: 20px;
+        }
+
+        .result-stat {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-cyan);
+            display: block;
+            margin: 20px 0 10px;
+        }
+
+        /* Benefits */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--success-color), #34d399);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            align-items: flex-start;
+        }
+
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content h4 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: var(--text-medium);
+        }
+
+        /* Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary-purple);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.2);
+        }
+
+        .option-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .option-card h4 {
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .option-card p {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            color: white;
+            text-align: center;
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin: 60px 0;
+        }
+
+        .contact-card h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h4 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .card {
+                padding: 30px 25px;
+            }
+            
+            .card h2 {
+                font-size: 2rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="badge">Strategic Partnership Proposal</div>
+                <h1>The Gigg Platform</h1>
+                <div class="subtitle">Community Engagement for Modern Policing</div>
+                <div class="description">Transforming Police-Community Relations Through Social Intelligence</div>
+                <div class="header-meta">
+                    <strong>From:</strong> Bryce Morgan, Strategic Partnerships Director<br>
+                    <strong>Company:</strong> Gigg (www.gigg.com) | <strong>Date:</strong> March 2026
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <!-- Challenge Card -->
+            <div class="card">
+                <h2>The Challenge Every Department Faces</h2>
+                <p>Police departments across America are struggling with complex community engagement challenges that require modern solutions:</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>📉 Declining Community Trust</h4>
+                        <p>Departments need new engagement strategies to rebuild relationships and demonstrate transparency to their communities.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>👁️ Manual Social Media Monitoring</h4>
+                        <p>Critical conversations and community concerns are missed due to inadequate monitoring capabilities.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🚫 Limited Resources</h4>
+                        <p>Understaffed communications teams struggle with comprehensive community outreach across multiple platforms.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚡ Reactive Crisis Communications</h4>
+                        <p>Crisis response happens too late, missing opportunities for proactive community engagement.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📋 Federal Transparency Mandates</h4>
+                        <p>New requirements for accountability and community engagement demand technological solutions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>💡 The Solution Question</h4>
+                        <p><strong>What if there was a proven platform that solved all of these challenges while actually strengthening police-community relationships?</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platform Overview -->
+            <div class="card">
+                <h2>Meet the Gigg Engagement Engine</h2>
+                <p>For over 6 years, Gigg has powered community engagement for major organizations with complex stakeholder relationships:</p>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h4>The Church of Jesus Christ of Latter-day Saints</h4>
+                        <span class="result-stat">$150,000</span>
+                        <p>Annual investment with proven 80% conversion rate when highlighting community members</p>
+                    </div>
+                    <div class="result-card">
+                        <h4>Purdue University</h4>
+                        <span class="result-stat">500+</span>
+                        <p>Student posts generated in 3 days (vs. 100 paid ambassadors previously), driving dramatic enrollment increases</p>
+                    </div>
+                    <div class="result-card">
+                        <h4>Major League Pickleball</h4>
+                        <span class="result-stat">Scale</span>
+                        <p>Fan engagement at scale across multiple venues and events</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 40px; border-radius: 20px; text-align: center; margin: 40px 0;">
+                    <h3 style="color: var(--primary-cyan); margin-bottom: 20px;">Proven Law Enforcement Success</h3>
+                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--text-dark);">One police department has been using Gigg since 2018 and just renewed at <span style="color: var(--primary-purple);">$10,000 annually</span> after experiencing the platform's transformative impact on community relations.</p>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="card">
+                <h2>How Gigg Works for Law Enforcement</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>1. Community Intelligence Dashboard</h4>
+                        <p><strong>Monitor everything, miss nothing.</strong></p>
+                        <ul>
+                            <li>Aggregate ALL social media mentions across platforms</li>
+                            <li>AI-powered sentiment analysis identifies concerns before escalation</li>
+                            <li>Keyword monitoring for public safety topics</li>
+                            <li>Geographic mapping for strategic deployment</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>2. Community Recognition Engine</h4>
+                        <p><strong>Turn critics into champions.</strong></p>
+                        <ul>
+                            <li>Highlight positive interactions with <strong>80% conversion rate</strong></li>
+                            <li>Competition platform for community nominations</li>
+                            <li>Automated citizen appreciation driving long-term engagement</li>
+                            <li>Officer spotlight campaigns with community voting</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>3. Public Safety Campaign Tools</h4>
+                        <p><strong>Proactive outreach that actually works.</strong></p>
+                        <ul>
+                            <li>Target safety messaging based on social behavior patterns</li>
+                            <li>Drive participation in safety initiatives through competitions</li>
+                            <li>Youth engagement programs (anti-drug, education, recruitment)</li>
+                            <li>Holiday safety campaigns with measurable response</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>4. Crisis Communication Hub</h4>
+                        <p><strong>Respond faster, communicate better.</strong></p>
+                        <ul>
+                            <li>Real-time sentiment monitoring during incidents</li>
+                            <li>Instant multi-platform broadcasting with tracking</li>
+                            <li>Community feedback loops informing tactical decisions</li>
+                            <li>Geographic sentiment analysis for deployment strategy</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-item">
+                        <h4>5. Physical Display Integration</h4>
+                        <p><strong>Bring digital engagement into the real world.</strong></p>
+                        <ul>
+                            <li>Community recognition boards for stations and events</li>
+                            <li>Live social feeds at community meetings</li>
+                            <li>Recognition walls highlighting positive interactions</li>
+                            <li>Event displays showcasing community presence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing -->
+            <div class="card">
+                <h2>Flexible Pricing for Any Department Size</h2>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🆓</div>
+                        <h4>Community Connect</h4>
+                        <div class="pricing-price">FREE</div>
+                        <div class="pricing-description">Perfect for testing the waters</div>
+                        <ul class="pricing-features">
+                            <li>One social feed for community highlights</li>
+                            <li>Basic citizen recognition features</li>
+                            <li>Community board displays</li>
+                            <li>Up to 1,000 monthly mentions</li>
+                        </ul>
+                        <p style="font-style: italic; color: var(--success-color); font-weight: 600; margin-top: 20px;">Get started immediately with no budget approval required</p>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">👮‍♂️</div>
+                        <h4>Public Safety Starter</h4>
+                        <div class="pricing-price">$3,247<span style="font-size: 1rem; color: var(--text-medium);">/month</span></div>
+                        <div class="pricing-description">For departments under 50 officers</div>
+                        <ul class="pricing-features">
+                            <li>Multiple social feed monitoring</li>
+                            <li>AI sentiment analysis</li>
+                            <li>Competition platform for engagement</li>
+                            <li>Crisis communication templates</li>
+                            <li>Up to 5,000 monthly mentions</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🚔</div>
+                        <h4>Department Pro</h4>
+                        <div class="pricing-price">$7,891<span style="font-size: 1rem; color: var(--text-medium);">/month</span></div>
+                        <div class="pricing-description">For departments 50-200 officers</div>
+                        <ul class="pricing-features">
+                            <li>Advanced AI threat detection</li>
+                            <li>Keyword monitoring & customer identification</li>
+                            <li>Geographic sentiment mapping</li>
+                            <li>Physical display integration</li>
+                            <li>Real-time crisis communication hub</li>
+                            <li>Up to 25,000 monthly mentions</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🏛️</div>
+                        <h4>Metro Command</h4>
+                        <div class="pricing-price">$15,647<span style="font-size: 1rem; color: var(--text-medium);">/month</span></div>
+                        <div class="pricing-description">For departments 200+ officers</div>
+                        <ul class="pricing-features">
+                            <li>Complete social intelligence platform</li>
+                            <li>Custom safety campaign tools</li>
+                            <li>Dedicated crisis communication center</li>
+                            <li>Advanced analytics and reporting</li>
+                            <li>Multi-location display management</li>
+                            <li>Unlimited mentions and full API access</li>
+                        </ul>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🌟</div>
+                        <h4>Enterprise Solutions</h4>
+                        <div class="pricing-price">Custom<span style="font-size: 1rem; color: var(--text-medium);"> Pricing</span></div>
+                        <div class="pricing-description">For major metro departments (1000+ officers)</div>
+                        <ul class="pricing-features">
+                            <li>Federal compliance features</li>
+                            <li>Custom integrations with existing systems</li>
+                            <li>Dedicated account management</li>
+                            <li>Advanced training and support</li>
+                            <li>Custom development and features</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Gigg -->
+            <div class="card">
+                <h2>Why Departments Choose Gigg</h2>
+                
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✅</div>
+                        <div>
+                            <div class="benefit-text">Proven Track Record</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">6+ years serving major organizations with complex community engagement needs</div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div>
+                            <div class="benefit-text">Immediate ROI</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">80% conversion rate when highlighting citizens creates instant positive community relations</div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🚀</div>
+                        <div>
+                            <div class="benefit-text">Risk-Free Trial</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">Free tier allows full evaluation with no budget approval or procurement delays</div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <div>
+                            <div class="benefit-text">Grant Eligible</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">Qualifies for COPS grants, Homeland Security funding, and state community engagement initiatives</div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📈</div>
+                        <div>
+                            <div class="benefit-text">Scalable Investment</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">Start free, upgrade based on proven results and growing needs</div>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛡️</div>
+                        <div>
+                            <div class="benefit-text">Crisis-Tested</div>
+                            <div style="color: var(--text-medium); font-size: 0.9rem;">Platform handles high-volume, high-stakes communication for sensitive organizations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Federal Funding -->
+            <div class="card">
+                <h2>Federal Funding Opportunities</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Community Oriented Policing Services (COPS) Grants</h4>
+                        <ul>
+                            <li>Technology grants specifically for community engagement platforms</li>
+                            <li>Community policing initiatives requiring measurable engagement metrics</li>
+                            <li>Crisis communication and transparency mandates</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Department of Homeland Security Grants</h4>
+                        <ul>
+                            <li>Social media monitoring and threat assessment capabilities</li>
+                            <li>Community resilience and engagement technology</li>
+                            <li>Emergency communication and public information systems</li>
+                        </ul>
+                    </div>
+                    <div class="feature-item">
+                        <h4>State and Local Funding</h4>
+                        <ul>
+                            <li>Community engagement technology initiatives</li>
+                            <li>Police accountability and transparency requirements</li>
+                            <li>Public safety communication modernization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Timeline -->
+            <div class="card">
+                <h2>Implementation Timeline</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1-2</div>
+                        <div class="timeline-content">
+                            <h4>Setup & Training (Weeks 1-2)</h4>
+                            <p>Platform configuration for department specifications, staff training on community engagement workflows, and integration with existing social media accounts.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3-4</div>
+                        <div class="timeline-content">
+                            <h4>Pilot Launch (Weeks 3-4)</h4>
+                            <p>Begin monitoring and community highlighting, launch first community recognition campaign, and establish crisis communication protocols.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2-3</div>
+                        <div class="timeline-content">
+                            <h4>Full Deployment (Months 2-3)</h4>
+                            <p>Advanced feature activation based on initial results, physical display installation at key locations, and community education drives.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">∞</div>
+                        <div class="timeline-content">
+                            <h4>Ongoing Optimization</h4>
+                            <p>Regular performance reviews and strategy adjustments, community feedback integration, and advanced feature rollout based on proven success metrics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="card">
+                <h2>Next Steps</h2>
+                
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-number">1</div>
+                        <h4>Start Free Today</h4>
+                        <p>Immediate setup with Community Connect tier, 30-day guided trial with our team, upgrade only when you see measurable community engagement results.</p>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-number">2</div>
+                        <h4>Schedule Strategic Consultation</h4>
+                        <p>Review your department's specific community engagement challenges, custom demonstration using your community's social data, and federal grant application assistance.</p>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-number">3</div>
+                        <h4>Peer Reference Call</h4>
+                        <p>Direct conversation with our current police department client, real-world implementation insights and lessons learned, honest assessment of platform impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-card">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <a href="mailto:bryce@gigg.com">bryce@gigg.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📱 Direct Phone</h4>
+                        <a href="tel:+15404240317">(540) 424-0317</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🌐 Platform</h4>
+                        <a href="http://www.gigg.com">www.gigg.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="card">
+                <h2>The Bottom Line</h2>
+                <p style="font-size: 1.3rem; line-height: 1.6; text-align: center; margin-bottom: 40px;">Your community is already talking about your department on social media. The question isn't whether these conversations are happening—it's whether you're part of them.</p>
+                
+                <div style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); padding: 40px; border-radius: 20px; text-align: center; margin: 40px 0;">
+                    <h3 style="color: var(--primary-purple); margin-bottom: 20px;">Transform Your Community Relations</h3>
+                    <p style="font-size: 1.2rem; color: var(--text-dark); margin-bottom: 30px;">Gigg transforms passive monitoring into active community engagement, turning social media from a liability into your department's strongest community relations asset.</p>
+                    <p style="font-size: 1.4rem; font-weight: 700; color: var(--primary-cyan);">With our free tier, you have nothing to lose and everything to gain.</p>
+                </div>
+
+                <div style="text-align: center; margin: 50px 0;">
+                    <p style="font-style: italic; font-size: 1.2rem; color: var(--text-medium);">"The Gigg platform doesn't just monitor social media—it transforms how communities and organizations engage with each other. For police departments, that transformation can mean the difference between reactive crisis management and proactive community partnership."</p>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <h3 style="color: var(--primary-purple); margin-bottom: 20px;">Ready to strengthen your community relationships?</h3>
+                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--text-dark);">Let's start the conversation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gigg Engagement Platform | Strategic Partnership Proposal</p>
+            <p>Prepared by: Bryce Morgan, Strategic Partnerships Director</p>
+            <p>Platform: www.gigg.com | Direct: (540) 424-0317 | Email: bryce@gigg.com</p>
+        </div>
+    </div>
+</body>
+</html>
