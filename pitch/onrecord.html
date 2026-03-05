@@ -294,6 +294,33 @@
       margin: 0 auto 16px;
     }
 
+    /* Logo Header */
+    .logo-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .logo-client {
+      height: 60px;
+      width: auto;
+      filter: brightness(1.1);
+    }
+
+    .logo-divider {
+      font-size: 2rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .logo-gullstack {
+      height: 40px;
+      width: auto;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
@@ -311,6 +338,11 @@
 <!-- Hero -->
 <section class="hero">
   <div class="container">
+    <div class="logo-header">
+      <img src="/pitch/onrecord-logo.jpg" alt="OnRecord Title" class="logo-client">
+      <div class="logo-divider">×</div>
+      <img src="/gull-pixel.png" alt="GullStack" class="logo-gullstack">
+    </div>
     <div class="hero-badge">AI Automation Proposal</div>
     <h1>Reclaim <span>14 Hours</span> Daily with AI Workflow Automation</h1>
     <p class="hero-subtitle">Your team handles 14 hours of automatable work daily. Here's your roadmap to instant AI-powered order entry, title commitments, and document workflows.</p>
