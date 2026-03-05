@@ -194,6 +194,87 @@
     .callout .label { font-size: 1.1rem; color: var(--text-muted); }
     .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
 
+    /* Search Grids */
+    .search-grid {
+      margin: 32px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .search-grid h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-results {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .result-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .result-item.not-found {
+      border-left-color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .result-rank {
+      font-weight: 700;
+      color: var(--accent-hover);
+      min-width: 40px;
+      margin-right: 16px;
+    }
+
+    .result-rank.not-found {
+      color: var(--muted);
+    }
+
+    .result-info {
+      flex: 1;
+    }
+
+    .result-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .result-url {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .result-status {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 12px;
+      margin-left: 12px;
+    }
+
+    .result-status.page-1 {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .result-status.not-found {
+      background: var(--muted-soft);
+      color: var(--muted);
+    }
+
     /* Timeline */
     .timeline { margin: 40px 0; }
 
@@ -367,6 +448,18 @@
             <li><strong>Competitive displacement</strong> — Target keywords where inferior sites currently rank</li>
           </ul>
         </div>
+
+        <div class="card problem">
+          <h3>Where Most Competitors Are Failing</h3>
+          <ul>
+            <li><strong>Outdated websites</strong> — Most Utah cleaning companies have 2015-era sites</li>
+            <li><strong>No local SEO strategy</strong> — Missing Google Business optimization, citations</li>
+            <li><strong>Generic content</strong> — No Utah-specific or service-specific optimization</li>
+            <li><strong>Poor mobile experience</strong> — Not responsive or fast loading</li>
+            <li><strong>No social proof</strong> — Missing testimonials, reviews, credibility markers</li>
+            <li><strong>Weak conversion paths</strong> — No clear customer journey or calls to action</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -379,7 +472,45 @@
         <div class="section-title">Utah's commercial cleaning digital market is wide open.</div>
         <p class="section-sub">Your professional site will easily outrank competitors with basic, outdated websites. First-mover advantage in strategic SEO amplification.</p>
 
-        <div class="card opportunity">
+        <div class="search-grid">
+          <h4>"commercial cleaning Salt Lake City Utah"</h4>
+          <div class="search-results">
+            <div class="result-item">
+              <div class="result-rank">#1</div>
+              <div class="result-info">
+                <div class="result-name">ServiceMaster Clean</div>
+                <div class="result-url">servicemaster.com</div>
+              </div>
+              <div class="result-status page-1">Basic Site</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#2</div>
+              <div class="result-info">
+                <div class="result-name">Local Competitor</div>
+                <div class="result-url">utahclean.com</div>
+              </div>
+              <div class="result-status page-1">Outdated</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#3</div>
+              <div class="result-info">
+                <div class="result-name">Generic Cleaner</div>
+                <div class="result-url">cleaningservices.com</div>
+              </div>
+              <div class="result-status page-1">No Local Focus</div>
+            </div>
+            <div class="result-item not-found">
+              <div class="result-rank not-found">—</div>
+              <div class="result-info">
+                <div class="result-name">Advanced Building Care</div>
+                <div class="result-url">advancedbuildingcare.com</div>
+              </div>
+              <div class="result-status not-found">Ready to Dominate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card opportunity" style="margin: 32px 0;">
           <h3>High-Value Utah Keywords Ready for Domination</h3>
           <ul>
             <li><strong>"Commercial cleaning Salt Lake City"</strong> — 1,900 monthly searches, your content already targets this</li>
@@ -390,16 +521,11 @@
             <li><strong>"Industrial cleaning Utah"</strong> — 260 monthly searches, content already exists on your site</li>
           </ul>
         </div>
-
-        <div style="background: var(--gold-soft); border: 1px solid var(--gold); border-radius: 12px; padding: 24px; margin: 32px 0;">
-          <h3 style="color: var(--gold); margin-bottom: 12px; font-size: 1.1rem;">Competitive Reality Check</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Most Utah cleaning companies have 2015-era websites with no Utah-specific content, poor mobile optimization, and zero SEO strategy. Your new site already beats 80% of the competition before any optimization.</p>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Updated Service Package -->
+  <!-- Service Package -->
   <section style="background: var(--bg-elevated);">
     <div class="container">
       <div class="fade-in">
@@ -442,13 +568,50 @@
     </div>
   </section>
 
-  <!-- Accelerated Timeline -->
+  <!-- Emotional Hook -->
+  <section>
+    <div class="container">
+      <div class="fade-in" style="max-width: 640px; margin: 0 auto; text-align: center;">
+        <div class="section-label">Imagine This</div>
+        <div class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem); font-style: italic; color: var(--accent-hover);">
+          A Salt Lake City office manager searches "commercial cleaning service." They find three basic websites. They never find your professional site.
+        </div>
+        <p class="section-sub" style="margin: 20px auto 0;">
+          That $3,000/month cleaning contract goes to a competitor with half your credentials — but better search visibility. This happens daily across Utah.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategy -->
   <section>
     <div class="container">
       <div class="fade-in">
-        <div class="section-label">Accelerated Timeline</div>
-        <div class="section-title">Faster results with your strong foundation.</div>
-        <p class="section-sub">Your professional site means we can focus on optimization rather than creation. Expect quicker rankings and lead generation.</p>
+        <div class="section-label">The Strategy</div>
+        <div class="section-title">Accelerated timeline with your strong foundation.</div>
+        <p class="section-sub">Your professional site means we can focus on optimization rather than creation. Expect quicker rankings and lead generation with strategic amplification.</p>
+
+        <div class="card opportunity">
+          <h3>Month 1: Technical Foundation + Quick Wins</h3>
+          <ul>
+            <li><strong>Technical SEO optimization</strong> — Schema markup, meta optimization, site speed fine-tuning</li>
+            <li><strong>Google Business Profile enhancement</strong> — Complete optimization, review management setup</li>
+            <li><strong>Target "commercial cleaning Farmington UT"</strong> — 110 monthly searches, zero competition</li>
+            <li><strong>Existing content optimization</strong> — Enhance current Utah-focused pages for maximum impact</li>
+            <li><strong>Local citation building</strong> — 25+ Utah business directories and citations</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Month 2: Local SEO Amplification</h3>
+          <ul>
+            <li><strong>Service area expansion</strong> — West Jordan, Sandy, Ogden-specific content</li>
+            <li><strong>Advanced schema markup</strong> — LocalBusiness, Service, Review schemas across site</li>
+            <li><strong>Competitive displacement</strong> — Target keywords where weak competitors rank</li>
+            <li><strong>Review generation strategy</strong> — Systematic customer review collection process</li>
+            <li><strong>Local pack optimization</strong> — Enhanced Google Business presence for map rankings</li>
+          </ul>
+        </div>
 
         <div class="timeline">
           <div class="phase">
@@ -480,7 +643,7 @@
     </div>
   </section>
 
-  <!-- Enhanced Projections -->
+  <!-- ROI -->
   <section style="background: var(--bg-elevated);">
     <div class="container">
       <div class="fade-in">
@@ -509,23 +672,53 @@
           </div>
         </div>
 
-        <div class="card win">
-          <h3>Why Results Will Come Faster</h3>
+        <div style="text-align: center; margin-top: 40px; padding: 24px; background: var(--gold-soft); border-radius: 12px; border: 1px solid var(--gold);">
+          <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Conservative Annual Impact</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">50+ additional monthly leads × $2,000-5,000 average contract value = $100,000-250,000 additional annual revenue</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GullStack -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Why GullStack</div>
+        <div class="section-title">Local business SEO specialists.</div>
+        <p class="section-sub">We focus on Utah service businesses with budget-friendly packages that deliver real results. Your success is our success.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px;">
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Peterson Zeyer Law</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Legal Services / Utah</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">300% traffic increase</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">Personal injury leads from local search</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">D One Builders</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Construction / Gilroy, CA</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">15-20 monthly leads</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">From targeted construction SEO strategy</p>
+          </div>
+        </div>
+
+        <div class="card opportunity" style="margin-top: 32px;">
+          <h3>What Makes This Work</h3>
           <ul>
-            <li><strong>Professional content foundation</strong> — Utah-focused copy already written and optimized</li>
-            <li><strong>Modern, mobile design</strong> — High conversion rates from day one</li>
-            <li><strong>Comprehensive service descriptions</strong> — All major commercial cleaning keywords already covered</li>
-            <li><strong>Strong brand positioning</strong> — Owner/operator model clearly differentiated</li>
-            <li><strong>Social proof established</strong> — Customer testimonials and satisfaction guarantee in place</li>
-            <li><strong>Technical foundation solid</strong> — Focus on amplification rather than rebuilding</li>
+            <li><strong>Utah market focus</strong> — Deep understanding of local business landscape and opportunities</li>
+            <li><strong>Budget-friendly approach</strong> — Real results without agency-level overhead costs</li>
+            <li><strong>Service business expertise</strong> — Proven strategies for contractors, cleaning, professional services</li>
+            <li><strong>Strong foundation amplification</strong> — Your professional site gives us huge advantages</li>
+            <li><strong>Month-to-month commitment</strong> — No long contracts, cancel anytime if not satisfied</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ROI Enhancement -->
-  <section>
+  <!-- Investment -->
+  <section style="background: var(--bg-elevated);">
     <div class="container">
       <div class="fade-in">
         <div class="section-label">ROI Enhancement</div>
@@ -552,9 +745,16 @@
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px; padding: 24px; background: var(--gold-soft); border-radius: 12px; border: 1px solid var(--gold);">
-          <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Conservative Annual Impact</p>
-          <p style="color: var(--text-muted); font-size: 0.9rem;">50+ additional monthly leads × $2,000-5,000 average contract value = $100,000-250,000 additional annual revenue</p>
+        <div class="card win" style="margin-top: 32px;">
+          <h3>Why Results Will Come Faster</h3>
+          <ul>
+            <li><strong>Professional content foundation</strong> — Utah-focused copy already written and optimized</li>
+            <li><strong>Modern, mobile design</strong> — High conversion rates from day one</li>
+            <li><strong>Comprehensive service descriptions</strong> — All major commercial cleaning keywords already covered</li>
+            <li><strong>Strong brand positioning</strong> — Owner/operator model clearly differentiated</li>
+            <li><strong>Social proof established</strong> — Customer testimonials and satisfaction guarantee in place</li>
+            <li><strong>Technical foundation solid</strong> — Focus on amplification rather than rebuilding</li>
+          </ul>
         </div>
       </div>
     </div>
