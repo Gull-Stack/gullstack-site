@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunWest Bank × Utah Pickleball Center | Sponsorship Opportunity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f8fafc;
+      --bg-elevated: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: rgba(37, 99, 235, 0.1);
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --accent-light: rgba(14, 165, 233, 0.1);
+      --gold: #f59e0b;
+      --gold-light: rgba(245, 158, 11, 0.1);
+      --border: #e2e8f0;
+      --shadow: rgba(15, 23, 42, 0.08);
+      --font-primary: 'Roboto', -apple-system, sans-serif;
+      --font-secondary: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-secondary);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.3;
+      animation: drift 2s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 32px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 48px; }
+    .hero-logos .separator { font-size: 2rem; opacity: 0.3; }
+
+    .hero h1 {
+      font-family: var(--font-primary);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900; line-height: 1.1; margin-bottom: 24px;
+    }
+    
+    .hero .subtitle {
+      font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto 40px;
+      line-height: 1.4;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white; padding: 8px 24px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 32px;
+    }
+
+    .project-info {
+      margin-top: 40px; padding: 24px 32px;
+      background: rgba(255,255,255,0.1); border-radius: 12px; display: inline-block;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .project-info .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 4px; }
+    .project-info .name { font-size: 1.3rem; font-weight: 700; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--primary); margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-primary); font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; margin-bottom: 20px; line-height: 1.2; color: var(--text);
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; margin: 48px 0;
+    }
+
+    .stat {
+      background: var(--bg-card); border: 2px solid var(--border);
+      border-radius: 16px; padding: 32px 24px; text-align: center;
+      transition: all 0.3s ease; box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .stat:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+    }
+
+    .stat .number {
+      font-family: var(--font-primary); font-size: 2.5rem; font-weight: 900;
+      color: var(--primary); margin-bottom: 8px; line-height: 1;
+    }
+
+    .stat .label {
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.4; font-weight: 500;
+    }
+
+    .stat.accent .number { color: var(--accent); }
+    .stat.gold .number { color: var(--gold); }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card); border: 2px solid var(--border);
+      border-radius: 16px; padding: 32px; margin: 32px 0;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .card.primary {
+      border-left: 4px solid var(--primary);
+      background: linear-gradient(135deg, var(--primary-light), transparent 60%);
+    }
+    .card.accent {
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-light), transparent 60%);
+    }
+    .card.gold {
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-light), transparent 60%);
+    }
+
+    .card h3 { 
+      font-family: var(--font-primary);
+      font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; 
+    }
+    .card.primary h3 { color: var(--primary); }
+    .card.accent h3 { color: var(--accent); }
+    .card.gold h3 { color: var(--gold); }
+
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 10px 0 10px 32px;
+      color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.primary li::before { content: '→'; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 1.2rem; }
+    .card.accent li::before { content: '★'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .card.gold li::before { content: '💰'; position: absolute; left: 0; font-size: 1.1rem; }
+    .card li strong { color: var(--text); font-weight: 600; }
+
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 3px solid var(--primary);
+      border-radius: 20px; margin: 48px 0;
+      position: relative; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-primary);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900; margin-bottom: 12px; line-height: 1;
+      color: var(--primary);
+    }
+    .callout .number.accent { color: var(--accent); }
+    .callout .number.gold { color: var(--gold); }
+    .callout .label { font-size: 1.2rem; color: var(--text); font-weight: 600; }
+    .callout .sublabel { font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
+
+    /* Package Grid */
+    .packages {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px; margin: 48px 0;
+    }
+
+    .package {
+      background: var(--bg-card); border: 3px solid var(--border);
+      border-radius: 20px; padding: 40px 32px; text-align: center;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+      box-shadow: 0 4px 16px var(--shadow);
+    }
+
+    .package.featured {
+      border-color: var(--primary);
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.2);
+    }
+
+    .package.featured::before {
+      content: 'PREMIER OPPORTUNITY'; position: absolute; top: 0; left: 0; right: 0;
+      background: var(--primary); color: white; padding: 8px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+    }
+
+    .package:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25);
+    }
+
+    .package h3 {
+      font-family: var(--font-primary);
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .package .price {
+      font-family: var(--font-primary);
+      font-size: 2.2rem; font-weight: 900; margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .package .period {
+      color: var(--text-muted); margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .package ul {
+      list-style: none; text-align: left; margin: 24px 0;
+    }
+
+    .package li {
+      padding: 8px 0; position: relative; padding-left: 24px;
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+
+    .package li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Timeline */
+    .timeline { margin: 48px 0; }
+
+    .event {
+      display: grid; grid-template-columns: 120px 1fr; gap: 24px;
+      padding: 32px 0; border-bottom: 2px solid var(--border);
+    }
+    .event:last-child { border-bottom: none; }
+
+    .event-date {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--primary);
+      padding-top: 4px;
+    }
+
+    .event h4 { 
+      font-family: var(--font-primary);
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; 
+    }
+    .event p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+
+    .event .highlight {
+      margin-top: 12px; padding: 12px 16px;
+      background: var(--primary-light); border-left: 3px solid var(--primary);
+      border-radius: 8px; font-size: 0.85rem; color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white; padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 600px; margin: 0 auto;
+      background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 20px; padding: 48px 32px;
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-primary);
+      font-size: 2.2rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2;
+    }
+    .cta-card p { opacity: 0.9; margin-bottom: 32px; font-size: 1.1rem; }
+
+    .cta-btn {
+      display: inline-block;
+      background: white; color: var(--primary);
+      padding: 16px 40px; border-radius: 12px;
+      font-size: 1.1rem; font-weight: 700; text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 48px 24px;
+      border-top: 2px solid var(--border);
+      background: var(--bg-elevated);
+    }
+    .footer p { color: var(--text-muted); font-size: 0.9rem; }
+    .footer .mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; margin-bottom: 16px;
+    }
+    .footer .mark img { height: 32px; }
+    .footer .mark span { font-weight: 700; font-size: 1rem; letter-spacing: 1px; color: var(--primary); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-logos { flex-wrap: wrap; gap: 16px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .packages { grid-template-columns: 1fr; }
+      .event { grid-template-columns: 1fr; }
+      .event-date { padding-top: 0; margin-bottom: -8px; }
+      .package.featured { transform: none; }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logos">
+        <img src="https://www.sunwestbank.com/wp-content/themes/sunwest/images/sunwest-bank-logo-white.png" alt="SunWest Bank" style="height: 56px;">
+        <span class="separator">×</span>
+        <img src="https://via.placeholder.com/200x48/2563eb/ffffff?text=Utah+Pickleball+Center" alt="Utah Pickleball Center" style="background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px;">
+      </div>
+      <div class="badge">Sponsorship Opportunity</div>
+      <h1>Utah Pickleball Center</h1>
+      <p class="subtitle">Title sponsorship opportunities at the world's premier pickleball facility — built right here in Utah</p>
+      <div class="project-info">
+        <div class="label">Project Investment</div>
+        <div class="name">$35 Million Facility</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Opportunity Overview -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Opportunity</div>
+        <div class="section-title">Position SunWest Bank at the center of America's fastest-growing sport</div>
+        <p class="section-sub">Pickleball is exploding in Utah and nationwide. Partner with the world's premier pickleball facility and connect with an affluent, engaged audience that values community investment and excellence.</p>
+
+        <div class="callout">
+          <div class="number accent">4.8M</div>
+          <div class="label">Americans Playing Pickleball in 2023</div>
+          <div class="sublabel">Growing 85% annually — fastest-growing sport in America</div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="number">36.5M</div>
+            <div class="label">Projected players by 2030</div>
+          </div>
+          <div class="stat accent">
+            <div class="number">$2.8B</div>
+            <div class="label">Industry economic impact</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">$75K+</div>
+            <div class="label">Average household income of pickleball players</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Details -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">World-Class Facility</div>
+        <div class="section-title">Utah's premier pickleball destination</div>
+        <p class="section-sub">A $35 million investment creating the most comprehensive pickleball facility in the western United States, featuring championship-level courts, hospitality suites, and year-round programming.</p>
+
+        <div class="card primary">
+          <h3>Facility Features</h3>
+          <ul>
+            <li><strong>32 Premium Courts</strong> — Professional-grade surfaces for tournaments and recreational play</li>
+            <li><strong>Championship Center Court</strong> — Stadium seating for 2,000+ spectators during major events</li>
+            <li><strong>Corporate Hospitality Suites</strong> — Luxury boxes with premium catering and entertainment areas</li>
+            <li><strong>Training & Fitness Center</strong> — Professional coaching facilities and performance training</li>
+            <li><strong>Event & Conference Spaces</strong> — Multi-purpose rooms for corporate events and community gatherings</li>
+            <li><strong>Pro Shop & Retail</strong> — Comprehensive equipment and merchandise center</li>
+            <li><strong>Restaurant & Bar</strong> — Full-service dining with views of championship courts</li>
+            <li><strong>Youth Academy</strong> — Dedicated programming for junior players and development</li>
+          </ul>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="number">250K+</div>
+            <div class="label">Annual visitors projected</div>
+          </div>
+          <div class="stat accent">
+            <div class="number">52</div>
+            <div class="label">Weeks of programming annually</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">12</div>
+            <div class="label">Major tournaments per year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience Profile -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Target Audience</div>
+        <div class="section-title">Reach Utah's most affluent and engaged community</div>
+        <p class="section-sub">Pickleball players represent an ideal demographic for SunWest Bank — high income, community-focused, and actively seeking financial services for their active lifestyles.</p>
+
+        <div class="card accent">
+          <h3>Player Demographics</h3>
+          <ul>
+            <li><strong>Average Age: 47 years</strong> — Prime earning and investment years</li>
+            <li><strong>Average Income: $78,500</strong> — 40% higher than national average</li>
+            <li><strong>Education: 67% college graduates</strong> — Professional and business leaders</li>
+            <li><strong>Home Ownership: 82%</strong> — Active real estate market participants</li>
+            <li><strong>Investment Activity: 73%</strong> — Retirement planning and wealth management focus</li>
+            <li><strong>Small Business: 34%</strong> — Entrepreneurs and business owners</li>
+          </ul>
+        </div>
+
+        <div class="card gold">
+          <h3>Utah Market Advantages</h3>
+          <ul>
+            <li><strong>Fastest-growing state economy</strong> — High disposable income and business growth</li>
+            <li><strong>Tech corridor proximity</strong> — Silicon Slopes executives and entrepreneurs</li>
+            <li><strong>Active lifestyle culture</strong> — Outdoor recreation and fitness-focused community</li>
+            <li><strong>Family-oriented values</strong> — Multi-generational activities and youth development</li>
+            <li><strong>Community investment mindset</strong> — Supporting local businesses and institutions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsorship Packages -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Sponsorship Packages</div>
+        <div class="section-title">Three levels of partnership opportunity</div>
+        <p class="section-sub">Choose the sponsorship level that aligns with SunWest Bank's marketing goals and community investment strategy.</p>
+
+        <div class="packages">
+          <div class="package featured">
+            <h3>Championship Court</h3>
+            <div class="price">$250K</div>
+            <div class="period">Annual Investment</div>
+            <ul>
+              <li><strong>Center Court Naming Rights</strong></li>
+              <li>SunWest Bank branding on championship court</li>
+              <li>Logo placement on court surfaces and walls</li>
+              <li>Tournament broadcast visibility</li>
+              <li>VIP tournament experiences</li>
+              <li>Corporate event hosting rights</li>
+              <li>National media exposure during events</li>
+              <li>Digital marketing integration</li>
+              <li>Player appearance opportunities</li>
+            </ul>
+          </div>
+
+          <div class="package">
+            <h3>Front Jersey</h3>
+            <div class="price">$250K</div>
+            <div class="period">Annual Investment</div>
+            <ul>
+              <li><strong>Primary Team Jersey Sponsorship</strong></li>
+              <li>Front chest logo placement</li>
+              <li>Official team jersey rights</li>
+              <li>Logo on all team materials</li>
+              <li>Social media integration</li>
+              <li>Player appearance opportunities</li>
+              <li>Community outreach programs</li>
+              <li>Tournament hospitality access</li>
+              <li>Marketing collateral usage rights</li>
+            </ul>
+          </div>
+
+          <div class="package">
+            <h3>Hospitality Suite</h3>
+            <div class="price">$100K</div>
+            <div class="period">Annual Investment</div>
+            <ul>
+              <li><strong>Premium Hospitality Suite Access</strong></li>
+              <li>Dedicated corporate suite</li>
+              <li>150+ entertainment events annually</li>
+              <li>Client hosting and networking</li>
+              <li>Catered experiences</li>
+              <li>Tournament VIP access</li>
+              <li>Corporate event space rental</li>
+              <li>Branded hospitality materials</li>
+            </ul>
+          </div>
+
+          <div class="package">
+            <h3>Sleeve Sponsorship</h3>
+            <div class="price">$100K</div>
+            <div class="period">Annual Investment</div>
+            <ul>
+              <li><strong>Jersey Sleeve Logo Placement</strong></li>
+              <li>Secondary jersey sponsorship</li>
+              <li>Logo on team apparel</li>
+              <li>Tournament merchandise integration</li>
+              <li>Social media visibility</li>
+              <li>Community event participation</li>
+              <li>Player meet-and-greets</li>
+              <li>Marketing material usage</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Combined Package Incentive -->
+        <div class="card primary" style="margin-top: 48px;">
+          <h3 style="color: white; margin-bottom: 16px;">💰 Combined Package Advantage</h3>
+          <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px;">
+            Maximize your investment with our multi-package discount:
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;">
+            <div>
+              <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 8px;">INDIVIDUAL PRICING</div>
+              <div style="font-size: 1.8rem; font-weight: 700; color: white;">$700K Total</div>
+              <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">All four packages separately</div>
+            </div>
+            <div>
+              <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 8px;">COMBINED DISCOUNT</div>
+              <div style="font-size: 1.8rem; font-weight: 700; color: #f59e0b;">$560K Total</div>
+              <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">Save $140K (20% discount)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI & Benefits -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Return on Investment</div>
+        <div class="section-title">Measurable brand exposure and community impact</div>
+        <p class="section-sub">Transform sponsorship investment into tangible business results through brand exposure, client acquisition, and community leadership positioning.</p>
+
+        <div class="callout">
+          <div class="number gold">12.5M</div>
+          <div class="label">Annual Brand Impressions</div>
+          <div class="sublabel">Championship court and facility exposure across all platforms</div>
+        </div>
+
+        <div class="card primary">
+          <h3>Quantifiable Benefits</h3>
+          <ul>
+            <li><strong>Brand Exposure Value: $2.1M+</strong> — Equivalent advertising value annually</li>
+            <li><strong>Client Entertainment ROI: 340%</strong> — Premium hospitality suite utilization</li>
+            <li><strong>Lead Generation: 450+ qualified prospects</strong> — Direct facility visitor engagement</li>
+            <li><strong>Digital Reach: 890K+</strong> — Social media and online content views</li>
+            <li><strong>Community Presence: Year-round</strong> — 52 weeks of consistent visibility</li>
+            <li><strong>Media Coverage: 125+ mentions</strong> — Tournament and event press coverage</li>
+          </ul>
+        </div>
+
+        <div class="card gold">
+          <h3>Strategic Advantages</h3>
+          <ul>
+            <li><strong>Market Leadership</strong> — First major bank to partner with premier pickleball facility</li>
+            <li><strong>Demographic Alignment</strong> — Direct access to high-value banking prospects</li>
+            <li><strong>Community Investment</strong> — Supporting Utah's recreational and economic development</li>
+            <li><strong>Corporate Differentiation</strong> — Unique client entertainment and networking opportunities</li>
+            <li><strong>Employee Engagement</strong> — Team building and wellness programming options</li>
+            <li><strong>Long-term Partnership</strong> — Growing sport with expanding audience reach</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Partnership Timeline</div>
+        <div class="section-title">Key milestones and activation opportunities</div>
+        <p class="section-sub">Strategic timing to maximize sponsorship impact from facility opening through championship season.</p>
+
+        <div class="timeline">
+          <div class="event">
+            <div class="event-date">Q2 2026</div>
+            <div>
+              <h4>Facility Grand Opening</h4>
+              <p>Launch partnership with ribbon cutting ceremony, VIP preview events, and community celebration. Maximum media coverage and public relations opportunity.</p>
+              <div class="highlight">Major PR opportunity: Regional and national media coverage</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-date">Q3 2026</div>
+            <div>
+              <h4>Summer Championship Series</h4>
+              <p>Host premier tournaments with professional players and national television coverage. Peak audience engagement and brand exposure.</p>
+              <div class="highlight">TV exposure: ESPN and Tennis Channel coverage</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-date">Q4 2026</div>
+            <div>
+              <h4>Youth Academy Launch</h4>
+              <p>Community development programming featuring SunWest Bank financial literacy education. Build long-term brand loyalty with next generation.</p>
+              <div class="highlight">Community impact: Educational partnership opportunities</div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-date">Q1 2027</div>
+            <div>
+              <h4>Corporate League Season</h4>
+              <p>Business-to-business networking through corporate pickleball leagues. Direct access to Utah's business community and decision makers.</p>
+              <div class="highlight">B2B networking: 200+ Utah companies participating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Partner with Utah's Premier Pickleball Destination</h2>
+        <p>Join the Utah Pickleball Center as a founding sponsor and connect SunWest Bank with Utah's most engaged and affluent community.</p>
+        <a href="mailto:info@utahpickleballcenter.com?subject=SunWest Bank Sponsorship Inquiry&body=Hi,%0A%0AI'm interested in discussing sponsorship opportunities for SunWest Bank at the Utah Pickleball Center.%0A%0APlease provide additional information about partnership options and next steps.%0A%0AThank you!" class="cta-btn">Schedule Partnership Discussion</a>
+        <p style="opacity: 0.8; font-size: 0.9rem; margin-top: 20px;">Limited founding sponsorship opportunities available</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mark">
+      <img src="https://via.placeholder.com/120x32/2563eb/ffffff?text=Utah+Pickleball+Center" alt="Utah Pickleball Center">
+      <span>×</span>
+      <span style="color: var(--text-muted);">Partnership Opportunity</span>
+    </div>
+    <p><strong>Utah Pickleball Center</strong> • South Jordan, Utah • info@utahpickleballcenter.com</p>
+    <p style="margin-top: 8px; font-size: 0.8rem; opacity: 0.7;">A $35 million investment in Utah's recreational future</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
