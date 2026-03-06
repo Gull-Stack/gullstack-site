@@ -1,471 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Building Care — Growth Proposal | GullStack</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', system-ui, sans-serif; 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
-        
-        .header { text-align: center; margin-bottom: 60px; }
-        .header h1 { 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
-        }
-        .header p { font-size: 1.1rem; color: #94a3b8; }
-        .header .date { font-size: 0.9rem; color: #64748b; margin-top: 8px; }
-        
-        .section { 
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            border-radius: 16px; 
-            padding: 32px; 
-            margin-bottom: 32px;
-        }
-        .section h2 { 
-            font-size: 1.4rem; 
-            color: #3b82f6; 
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .section h2::before { content: attr(data-icon); font-size: 1.5rem; }
-        
-        .section h3 { 
-            font-size: 1.1rem; 
-            color: #f1f5f9; 
-            margin: 24px 0 12px 0;
-        }
-        
-        .section p, .section li { color: #cbd5e1; }
-        .section ul { margin-left: 20px; margin-top: 12px; }
-        .section li { margin-bottom: 8px; }
-        
-        .highlight { 
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 3px solid #3b82f6;
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 20px 0;
-        }
-        
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-        .stat-card {
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f97316;
-        }
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-top: 4px;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-        }
-        .comparison-table th {
-            color: #94a3b8;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-        .comparison-table td { color: #e2e8f0; }
-        .comparison-table .old { color: #71717a; }
-        .comparison-table .new { color: #22c55e; }
-        
-        .competitor-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin: 16px 0;
-        }
-        .competitor {
-            background: rgba(15, 23, 42, 0.6);
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-        .competitor strong { color: #f1f5f9; }
-        .competitor span { color: #94a3b8; font-size: 0.8rem; display: block; margin-top: 4px; }
-        
-        .phase {
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 16px 0;
-        }
-        .phase-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-        .phase-number {
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-            color: white;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        .phase-title { font-weight: 600; color: #f1f5f9; }
-        
-        .cta {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
-            border-radius: 16px;
-            margin-top: 40px;
-        }
-        .cta h2 { color: #f1f5f9; margin-bottom: 16px; }
-        .cta p { color: #94a3b8; margin-bottom: 24px; }
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-        }
-        
-        .logo { font-weight: 700; color: #64748b; margin-top: 40px; text-align: center; }
-        
-        .hero-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .hero-logos img {
-            max-height: 80px;
-            width: auto;
-            object-fit: contain;
-        }
-        .hero-logos .gullstack-logo {
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-        }
-        .hero-logos .client-logo {
-            border-radius: 8px;
-            background: white;
-            padding: 8px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Building Care × GullStack | Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 44px; border-radius: 8px; }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-glow), rgba(168,85,247,0.08));
+      border: 1px solid rgba(168,85,247,0.2);
+      color: var(--accent-hover); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168,85,247,0.2);
+    }
+
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
+    }
+
+    .stat .label {
+      color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;
+    }
+
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
+
+    /* Insight cards */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
+
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-glow), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--accent-hover); }
+    .card.win h3 { color: var(--gold); }
+
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
+
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .number.muted { color: var(--muted); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
+
+    /* Search Grids */
+    .search-grid {
+      margin: 32px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .search-grid h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-results {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .result-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .result-item.not-found {
+      border-left-color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .result-rank {
+      font-weight: 700;
+      color: var(--accent-hover);
+      min-width: 40px;
+      margin-right: 16px;
+    }
+
+    .result-rank.not-found {
+      color: var(--muted);
+    }
+
+    .result-info {
+      flex: 1;
+    }
+
+    .result-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .result-url {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .result-status {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 12px;
+      margin-left: 12px;
+    }
+
+    .result-status.page-1 {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .result-status.not-found {
+      background: var(--muted-soft);
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline { margin: 40px 0; }
+
+    .phase {
+      display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .phase:last-child { border-bottom: none; }
+
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; padding: 16px 40px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(168,85,247,0.35);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 48px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer p { color: var(--text-muted); font-size: 0.85rem; }
+    .footer .mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 12px; opacity: 0.5;
+    }
+    .footer .mark img { height: 28px; }
+    .footer .mark span { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-logos { flex-wrap: wrap; gap: 12px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .phase { grid-template-columns: 1fr; }
+      .phase-label { padding-top: 0; margin-bottom: -12px; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-        <div class="header">
-            <div class="hero-logos">
-                <img src="../gull-logo.png" alt="GullStack" class="gullstack-logo">
-                <img src="abc-logo.jpg" alt="Advanced Building Care" class="client-logo">
-            </div>
-            <h1>Advanced Building Care</h1>
-            <p>Growth Proposal: Dominating Utah Commercial Cleaning</p>
-            <div class="date">Prepared February 2026</div>
-        </div>
-
-        <!-- Executive Summary -->
-        <div class="section">
-            <h2 data-icon="📋">Executive Summary</h2>
-            <p>Advanced Building Care has 15+ years of experience and a proven franchise model — but your digital presence is invisible against national competitors who dominate Utah search results.</p>
-            
-            <div class="highlight">
-                <strong>The Opportunity:</strong> None of the top 10 competitors for "commercial cleaning Salt Lake City" are local Utah companies with your franchise model. You have a differentiation story that's not being told online.
-            </div>
-            
-            <p>This proposal outlines how we'll transform your website into a lead-generating machine, implement SEO strategies to rank above national franchises, and build AI-powered tools to streamline your operations.</p>
-        </div>
-
-        <!-- Current State -->
-        <div class="section">
-            <h2 data-icon="🔍">Current State Analysis</h2>
-            
-            <h3>Your Website Today</h3>
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="number">~500</div>
-                    <div class="label">Words of Content</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">0</div>
-                    <div class="label">Blog Articles</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">5</div>
-                    <div class="label">Total Pages</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">?</div>
-                    <div class="label">Monthly Leads</div>
-                </div>
-            </div>
-            
-            <h3>Key Issues Identified</h3>
-            <ul>
-                <li><strong>Thin Content:</strong> Not enough text for Google to understand what you do or where you serve</li>
-                <li><strong>No Service Pages:</strong> Missing dedicated pages for office cleaning, medical facilities, floor care, etc.</li>
-                <li><strong>No Location Pages:</strong> Not targeting Salt Lake City, Provo, Ogden, Sandy, etc. individually</li>
-                <li><strong>No Social Proof:</strong> Reviews and testimonials not featured prominently</li>
-                <li><strong>Weak CTAs:</strong> No clear path from visitor to quote request</li>
-                <li><strong>Mobile Experience:</strong> Not optimized for smartphone users (60%+ of traffic)</li>
-            </ul>
-        </div>
-
-        <!-- Competitive Landscape -->
-        <div class="section">
-            <h2 data-icon="⚔️">Competitive Landscape</h2>
-            <p>When someone searches "commercial cleaning Salt Lake City," here's who appears:</p>
-            
-            <div class="competitor-list">
-                <div class="competitor">
-                    <strong>ServiceMaster</strong>
-                    <span>National franchise • Rank #1</span>
-                </div>
-                <div class="competitor">
-                    <strong>Vanguard Cleaning</strong>
-                    <span>National franchise • Rank #2</span>
-                </div>
-                <div class="competitor">
-                    <strong>Stratus Building Solutions</strong>
-                    <span>National franchise • Rank #3</span>
-                </div>
-                <div class="competitor">
-                    <strong>Jani-King</strong>
-                    <span>National franchise • Rank #4</span>
-                </div>
-                <div class="competitor">
-                    <strong>ABM Industries</strong>
-                    <span>National corporation • Rank #5</span>
-                </div>
-                <div class="competitor">
-                    <strong>JAN-PRO</strong>
-                    <span>National franchise • Rank #6</span>
-                </div>
-            </div>
-            
-            <div class="highlight">
-                <strong>Your Advantage:</strong> These are all massive, impersonal national brands. You offer LOCAL franchise owners who have skin in the game — that's a story worth telling. None of them emphasize the "pride of ownership" angle you have.
-            </div>
-        </div>
-
-        <!-- New Website -->
-        <div class="section">
-            <h2 data-icon="✨">The New Website</h2>
-            <p>We've built a modern, conversion-focused website that positions Advanced Building Care as the premium choice:</p>
-            
-            <p style="margin: 20px 0;">
-                <strong>Preview:</strong> <a href="https://advanced-building-care.vercel.app/" target="_blank" style="color: #3b82f6;">advanced-building-care.vercel.app</a>
-            </p>
-            
-            <table class="comparison-table">
-                <tr>
-                    <th>Feature</th>
-                    <th>Old Site</th>
-                    <th>New Site</th>
-                </tr>
-                <tr>
-                    <td>Design</td>
-                    <td class="old">Dated, generic</td>
-                    <td class="new">Modern, professional, trust-building</td>
-                </tr>
-                <tr>
-                    <td>Service Pages</td>
-                    <td class="old">1 generic page</td>
-                    <td class="new">6 dedicated service pages</td>
-                </tr>
-                <tr>
-                    <td>Location Targeting</td>
-                    <td class="old">None</td>
-                    <td class="new">8 Utah cities highlighted</td>
-                </tr>
-                <tr>
-                    <td>Social Proof</td>
-                    <td class="old">No reviews shown</td>
-                    <td class="new">Testimonials + trust badges</td>
-                </tr>
-                <tr>
-                    <td>Mobile Experience</td>
-                    <td class="old">Basic responsive</td>
-                    <td class="new">Mobile-first design</td>
-                </tr>
-                <tr>
-                    <td>Quote Request Flow</td>
-                    <td class="old">Buried contact page</td>
-                    <td class="new">Multiple CTAs, sticky header</td>
-                </tr>
-                <tr>
-                    <td>Stats & Credibility</td>
-                    <td class="old">None</td>
-                    <td class="new">15+ years, 500+ buildings, 98% retention</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- SEO Strategy -->
-        <div class="section">
-            <h2 data-icon="📈">SEO Growth Strategy</h2>
-            <p>How we'll get you ranking above the national franchises:</p>
-            
-            <h3>Target Keywords</h3>
-            <ul>
-                <li>"commercial cleaning Salt Lake City" (1,300 monthly searches)</li>
-                <li>"office cleaning services Utah" (720 monthly searches)</li>
-                <li>"janitorial services Salt Lake" (480 monthly searches)</li>
-                <li>"medical facility cleaning Utah" (260 monthly searches)</li>
-                <li>"commercial floor cleaning SLC" (170 monthly searches)</li>
-                <li>+ 25 long-tail location-based keywords</li>
-            </ul>
-            
-            <h3>Content Plan</h3>
-            <ul>
-                <li><strong>Service Pages (6):</strong> Office, Medical, Floor Care, Industrial, After-Hours, Deep Cleaning</li>
-                <li><strong>Location Pages (8):</strong> Salt Lake City, Provo, Ogden, Sandy, Murray, West Valley, Lehi, Park City</li>
-                <li><strong>Blog Articles (2/month):</strong> "How Often Should Offices Be Deep Cleaned?", "Medical Facility Cleaning Compliance Guide", etc.</li>
-                <li><strong>Case Studies (1/month):</strong> Before/after showcases of client facilities</li>
-            </ul>
-            
-            <h3>Technical SEO</h3>
-            <ul>
-                <li>Schema markup for local business + services</li>
-                <li>Google Business Profile optimization</li>
-                <li>Review generation strategy</li>
-                <li>Site speed optimization (<2s load time)</li>
-            </ul>
-        </div>
-
-        <!-- AI Integrations -->
-        <div class="section">
-            <h2 data-icon="🤖">AI-Powered Business Operations</h2>
-            <p>Beyond the website, we can build tools that streamline your operations:</p>
-            
-            <h3>Instant Quote Calculator</h3>
-            <p>Website visitors input their square footage, facility type, and cleaning frequency — AI generates an estimated quote instantly. Captures lead info before they call competitors.</p>
-            
-            <h3>Smart Scheduling Assistant</h3>
-            <p>AI chatbot that handles initial quote requests 24/7. Qualifies leads, schedules walk-throughs, and sends appointment reminders. Never miss an after-hours inquiry again.</p>
-            
-            <h3>Review Response Automation</h3>
-            <p>AI drafts personalized responses to Google/Yelp reviews within hours. Maintains your online reputation without manual effort.</p>
-            
-            <h3>Franchise Owner Portal (Future)</h3>
-            <p>Dashboard for franchise owners to track leads, schedule jobs, manage crews, and view performance metrics.</p>
-        </div>
-
-        <!-- Implementation -->
-        <div class="section">
-            <h2 data-icon="🚀">Implementation Roadmap</h2>
-            
-            <div class="phase">
-                <div class="phase-header">
-                    <div class="phase-number">1</div>
-                    <div class="phase-title">Website Launch (Week 1-2)</div>
-                </div>
-                <p>Deploy new website, set up analytics, configure lead capture forms, connect to your CRM or email.</p>
-            </div>
-            
-            <div class="phase">
-                <div class="phase-header">
-                    <div class="phase-number">2</div>
-                    <div class="phase-title">SEO Foundation (Week 3-4)</div>
-                </div>
-                <p>Create service pages, location pages, optimize meta tags, submit sitemap, claim/optimize Google Business Profile.</p>
-            </div>
-            
-            <div class="phase">
-                <div class="phase-header">
-                    <div class="phase-number">3</div>
-                    <div class="phase-title">Content Engine (Month 2+)</div>
-                </div>
-                <p>Begin publishing blog content, case studies, and gathering/showcasing customer reviews.</p>
-            </div>
-            
-            <div class="phase">
-                <div class="phase-header">
-                    <div class="phase-number">4</div>
-                    <div class="phase-title">AI Tools (Month 3+)</div>
-                </div>
-                <p>Deploy quote calculator, scheduling chatbot, and review automation as add-on services.</p>
-            </div>
-        </div>
-
-        <!-- Investment -->
-        <div class="section">
-            <h2 data-icon="💰">Investment</h2>
-            
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="number">$0</div>
-                    <div class="label">Website (Already Built)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">$299</div>
-                    <div class="label">Monthly SEO + Content</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">TBD</div>
-                    <div class="label">AI Tools (Add-On)</div>
-                </div>
-            </div>
-            
-            <div class="highlight">
-                <strong>Proving Ground Deal:</strong> We'll launch the new site and do the first month of SEO at no charge. You only pay ongoing after you see results and are happy with the partnership.
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="cta">
-            <h2>Ready to Dominate Utah Commercial Cleaning?</h2>
-            <p>Let's get your new website live and start capturing leads this week.</p>
-            <a href="mailto:josh@gullstack.com?subject=Advanced Building Care - Let's Go" class="cta-btn">Let's Do This</a>
-        </div>
-
-        <div class="logo">
-            <p>Prepared by GullStack</p>
-        </div>
+      <div class="hero-logos">
+        <span style="font-size: 1.5rem; font-weight: 700; background: white; color: var(--bg); padding: 8px 16px; border-radius: 8px;">Advanced Building Care</span>
+        <span style="font-size: 1.5rem; opacity: 0.2;">×</span>
+        <img src="/gull-logo.png" alt="GullStack">
+      </div>
+      <div class="badge">Growth Proposal</div>
+      <h1>Amplify Your <span class="glow">Already Strong</span> Digital Foundation</h1>
+      <p>Your new site is 70% SEO-ready with Utah-focused content and professional design. Here's how to 10x your visibility with strategic optimization.</p>
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Advanced Building Care</div>
+      </div>
     </div>
+  </section>
+
+  <!-- Stronger Position -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Stronger Position</div>
+        <div class="section-title">Your new site changes everything.</div>
+        <p class="section-sub">advancedbuildingcare.vercel.app is professionally built with Utah-specific content, proper service targeting, and modern design. You're starting from a much stronger position than most competitors.</p>
+
+        <div class="callout">
+          <div class="number gold">70%</div>
+          <div class="label">SEO-ready out of the box</div>
+          <div class="sublabel">Utah keywords, service pages, professional content already in place</div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat gold">
+            <div class="number">4,140</div>
+            <div class="label">Monthly Utah commercial cleaning searches</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">110</div>
+            <div class="label">"Commercial cleaning Farmington UT"<br>searches with zero competition</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">Fast</div>
+            <div class="label">Time to results with solid foundation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Already Working -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">What's Already Working</div>
+        <div class="section-title">Your new site has the fundamentals right.</div>
+        <p class="section-sub">Unlike most Utah cleaning companies with basic websites, you've got professional foundation that just needs strategic amplification.</p>
+
+        <div class="card win">
+          <h3>Strong SEO Foundation Already Built</h3>
+          <ul>
+            <li><strong>"Commercial Cleaning Salt Lake City"</strong> — already in page title and content</li>
+            <li><strong>Utah-specific content throughout</strong> — Wasatch Front, Northern Utah, local service areas</li>
+            <li><strong>Comprehensive service descriptions</strong> — healthcare, industrial, office cleaning properly defined</li>
+            <li><strong>Professional social proof</strong> — customer testimonials and satisfaction guarantee</li>
+            <li><strong>Clear conversion process</strong> — 3-step customer journey with strong CTAs</li>
+            <li><strong>Mobile-optimized design</strong> — responsive layout and fast loading</li>
+            <li><strong>Owner/operator advantage</strong> — local franchise model clearly communicated</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Quick Optimization Opportunities</h3>
+          <ul>
+            <li><strong>Technical SEO layer</strong> — Schema markup, meta optimization, site speed fine-tuning</li>
+            <li><strong>Local directory presence</strong> — Google Business Profile optimization, citation building</li>
+            <li><strong>Keyword density optimization</strong> — Enhance existing pages for target Utah keywords</li>
+            <li><strong>Location-specific pages</strong> — West Jordan, Sandy, Ogden service area expansion</li>
+            <li><strong>Review generation strategy</strong> — Systematic customer review requests</li>
+            <li><strong>Competitive displacement</strong> — Target keywords where inferior sites currently rank</li>
+          </ul>
+        </div>
+
+        <div class="card problem">
+          <h3>Where Most Competitors Are Failing</h3>
+          <ul>
+            <li><strong>Outdated websites</strong> — Most Utah cleaning companies have 2015-era sites</li>
+            <li><strong>No local SEO strategy</strong> — Missing Google Business optimization, citations</li>
+            <li><strong>Generic content</strong> — No Utah-specific or service-specific optimization</li>
+            <li><strong>Poor mobile experience</strong> — Not responsive or fast loading</li>
+            <li><strong>No social proof</strong> — Missing testimonials, reviews, credibility markers</li>
+            <li><strong>Weak conversion paths</strong> — No clear customer journey or calls to action</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Opportunity -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Market Opportunity</div>
+        <div class="section-title">Utah's commercial cleaning digital market is wide open.</div>
+        <p class="section-sub">Your professional site will easily outrank competitors with basic, outdated websites. First-mover advantage in strategic SEO amplification.</p>
+
+        <div class="search-grid">
+          <h4>"commercial cleaning Salt Lake City Utah"</h4>
+          <div class="search-results">
+            <div class="result-item">
+              <div class="result-rank">#1</div>
+              <div class="result-info">
+                <div class="result-name">ServiceMaster Clean</div>
+                <div class="result-url">servicemaster.com</div>
+              </div>
+              <div class="result-status page-1">Basic Site</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#2</div>
+              <div class="result-info">
+                <div class="result-name">Local Competitor</div>
+                <div class="result-url">utahclean.com</div>
+              </div>
+              <div class="result-status page-1">Outdated</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#3</div>
+              <div class="result-info">
+                <div class="result-name">Generic Cleaner</div>
+                <div class="result-url">cleaningservices.com</div>
+              </div>
+              <div class="result-status page-1">No Local Focus</div>
+            </div>
+            <div class="result-item not-found">
+              <div class="result-rank not-found">—</div>
+              <div class="result-info">
+                <div class="result-name">Advanced Building Care</div>
+                <div class="result-url">advancedbuildingcare.com</div>
+              </div>
+              <div class="result-status not-found">Ready to Dominate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card opportunity" style="margin: 32px 0;">
+          <h3>High-Value Utah Keywords Ready for Domination</h3>
+          <ul>
+            <li><strong>"Commercial cleaning Salt Lake City"</strong> — 1,900 monthly searches, your content already targets this</li>
+            <li><strong>"Janitorial services Utah"</strong> — 720 monthly searches, low competition</li>
+            <li><strong>"Office cleaning Salt Lake"</strong> — 480 monthly searches, medium competition</li>
+            <li><strong>"Commercial cleaning Farmington UT"</strong> — 110 monthly searches, NO competition</li>
+            <li><strong>"Healthcare facility cleaning Utah"</strong> — 140 monthly searches, you already have this content</li>
+            <li><strong>"Industrial cleaning Utah"</strong> — 260 monthly searches, content already exists on your site</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Package -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Service Package</div>
+        <div class="section-title">What I'll handle for $29-55/month.</div>
+        <p class="section-sub">Strategic amplification of your strong foundation. Less content creation, more technical optimization and local SEO dominance.</p>
+
+        <div class="card opportunity">
+          <h3>Essential Package - $29/month</h3>
+          <ul>
+            <li><strong>Technical SEO optimization</strong> — Schema markup, meta tags, site speed fine-tuning</li>
+            <li><strong>Google Business Profile management</strong> — Optimization, posts, review management</li>
+            <li><strong>Local citation building</strong> — 15+ Utah business directories</li>
+            <li><strong>Monthly performance tracking</strong> — Rankings, traffic, lead sources</li>
+          </ul>
+        </div>
+
+        <div class="card win">
+          <h3>Growth Package - $39/month (Recommended)</h3>
+          <ul>
+            <li><strong>Everything in Essential</strong> — Plus enhanced content and competitive targeting</li>
+            <li><strong>Existing content optimization</strong> — Enhance your current pages for maximum keyword impact</li>
+            <li><strong>Local SEO expansion</strong> — 25+ directories, NAP consistency, location pages</li>
+            <li><strong>Service area content</strong> — West Jordan, Sandy, Ogden-specific pages</li>
+            <li><strong>Competitor displacement strategy</strong> — Target keywords where weak sites currently rank</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Premium Package - $55/month</h3>
+          <ul>
+            <li><strong>Everything in Growth</strong> — Plus advanced strategy and monitoring</li>
+            <li><strong>Advanced schema markup</strong> — LocalBusiness, Service, Review schemas</li>
+            <li><strong>Conversion rate optimization</strong> — Enhance your strong foundation for maximum leads</li>
+            <li><strong>Competitive intelligence</strong> — Monthly analysis of what's working for others</li>
+            <li><strong>Review generation automation</strong> — Systematic customer review requests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional Hook -->
+  <section>
+    <div class="container">
+      <div class="fade-in" style="max-width: 640px; margin: 0 auto; text-align: center;">
+        <div class="section-label">Imagine This</div>
+        <div class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem); font-style: italic; color: var(--accent-hover);">
+          A Salt Lake City office manager searches "commercial cleaning service." They find three basic websites. They never find your professional site.
+        </div>
+        <p class="section-sub" style="margin: 20px auto 0;">
+          That $3,000/month cleaning contract goes to a competitor with half your credentials — but better search visibility. This happens daily across Utah.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategy -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Strategy</div>
+        <div class="section-title">Accelerated timeline with your strong foundation.</div>
+        <p class="section-sub">Your professional site means we can focus on optimization rather than creation. Expect quicker rankings and lead generation with strategic amplification.</p>
+
+        <div class="card opportunity">
+          <h3>Month 1: Technical Foundation + Quick Wins</h3>
+          <ul>
+            <li><strong>Technical SEO optimization</strong> — Schema markup, meta optimization, site speed fine-tuning</li>
+            <li><strong>Google Business Profile enhancement</strong> — Complete optimization, review management setup</li>
+            <li><strong>Target "commercial cleaning Farmington UT"</strong> — 110 monthly searches, zero competition</li>
+            <li><strong>Existing content optimization</strong> — Enhance current Utah-focused pages for maximum impact</li>
+            <li><strong>Local citation building</strong> — 25+ Utah business directories and citations</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Month 2: Local SEO Amplification</h3>
+          <ul>
+            <li><strong>Service area expansion</strong> — West Jordan, Sandy, Ogden-specific content</li>
+            <li><strong>Advanced schema markup</strong> — LocalBusiness, Service, Review schemas across site</li>
+            <li><strong>Competitive displacement</strong> — Target keywords where weak competitors rank</li>
+            <li><strong>Review generation strategy</strong> — Systematic customer review collection process</li>
+            <li><strong>Local pack optimization</strong> — Enhanced Google Business presence for map rankings</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <div class="phase">
+            <div class="phase-label">Month 1</div>
+            <div>
+              <h4>Technical Foundation + Quick Wins</h4>
+              <p>Technical SEO optimization of existing pages, Google Business Profile enhancement, target "commercial cleaning Farmington UT" for immediate ranking with existing content.</p>
+              <div class="result">3-5x website traffic, first local rankings, enhanced conversion rates</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Month 2</div>
+            <div>
+              <h4>Local SEO Amplification</h4>
+              <p>Optimize existing Salt Lake City content, build comprehensive local citations, enhance service-specific pages already on your site. Add West Jordan/Sandy targeting.</p>
+              <div class="result">5-7x website traffic, 5-8 first page rankings, strong local visibility</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Month 3</div>
+            <div>
+              <h4>Market Domination</h4>
+              <p>Advanced optimization, competitive displacement, conversion rate improvements on your professional foundation. Scale across broader Utah market.</p>
+              <div class="result">8-10x website traffic, 3-5x monthly leads, market leadership position</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Enhanced Projections</div>
+        <div class="section-title">Higher confidence with professional foundation.</div>
+        <p class="section-sub">Your strong site foundation significantly improves our ability to deliver results. These projections are conservative given your starting position.</p>
+
+        <div class="callout">
+          <div class="number gold">5-10x</div>
+          <div class="label">Website traffic increase</div>
+          <div class="sublabel">From ~500/month to 2,500-5,000 monthly visitors</div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat gold">
+            <div class="number">3-5x</div>
+            <div class="label">Monthly lead generation</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">8-12</div>
+            <div class="label">First page keyword rankings</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">50+</div>
+            <div class="label">Additional monthly inquiries</div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 24px; background: var(--gold-soft); border-radius: 12px; border: 1px solid var(--gold);">
+          <p style="color: var(--gold); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">Conservative Annual Impact</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">50+ additional monthly leads × $2,000-5,000 average contract value = $100,000-250,000 additional annual revenue</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GullStack -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Why GullStack</div>
+        <div class="section-title">Local business SEO specialists.</div>
+        <p class="section-sub">We focus on Utah service businesses with budget-friendly packages that deliver real results. Your success is our success.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px;">
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Peterson Zeyer Law</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Legal Services / Utah</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">300% traffic increase</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">Personal injury leads from local search</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">D One Builders</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Construction / Gilroy, CA</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">15-20 monthly leads</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">From targeted construction SEO strategy</p>
+          </div>
+        </div>
+
+        <div class="card opportunity" style="margin-top: 32px;">
+          <h3>What Makes This Work</h3>
+          <ul>
+            <li><strong>Utah market focus</strong> — Deep understanding of local business landscape and opportunities</li>
+            <li><strong>Budget-friendly approach</strong> — Real results without agency-level overhead costs</li>
+            <li><strong>Service business expertise</strong> — Proven strategies for contractors, cleaning, professional services</li>
+            <li><strong>Strong foundation amplification</strong> — Your professional site gives us huge advantages</li>
+            <li><strong>Month-to-month commitment</strong> — No long contracts, cancel anytime if not satisfied</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">ROI Enhancement</div>
+        <div class="section-title">Better returns with professional foundation.</div>
+        <p class="section-sub">Your strong site dramatically improves lead conversion rates and reduces time to results, enhancing overall ROI.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin: 40px 0;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold); margin-bottom: 8px;">Higher</div>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">Conversion Rates</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Professional design converts better than basic sites</div>
+          </div>
+          
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold); margin-bottom: 8px;">Faster</div>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">Time to Results</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">70% SEO-ready foundation accelerates rankings</div>
+          </div>
+          
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center;">
+            <div style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold); margin-bottom: 8px;">Better</div>
+            <div style="color: var(--text-muted); font-size: 0.9rem;">Lead Quality</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 8px;">Comprehensive service descriptions attract serious prospects</div>
+          </div>
+        </div>
+
+        <div class="card win" style="margin-top: 32px;">
+          <h3>Why Results Will Come Faster</h3>
+          <ul>
+            <li><strong>Professional content foundation</strong> — Utah-focused copy already written and optimized</li>
+            <li><strong>Modern, mobile design</strong> — High conversion rates from day one</li>
+            <li><strong>Comprehensive service descriptions</strong> — All major commercial cleaning keywords already covered</li>
+            <li><strong>Strong brand positioning</strong> — Owner/operator model clearly differentiated</li>
+            <li><strong>Social proof established</strong> — Customer testimonials and satisfaction guarantee in place</li>
+            <li><strong>Technical foundation solid</strong> — Focus on amplification rather than rebuilding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready to amplify your strong foundation?</h2>
+        <p>Your professional site puts you ahead of 80% of Utah competitors before we even start. Let's turn that advantage into market domination.</p>
+        <a href="mailto:bryce@gullstack.com?subject=Advanced Building Care SEO Amplification&body=Hi Bryce,%0A%0AI'd like to discuss amplifying our new site with strategic SEO. The Utah commercial cleaning opportunity looks strong.%0A%0ABest regards" class="cta-btn">Let's Amplify Your Success</a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">Month-to-month service · Cancel anytime</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: var(--gold-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 8px; display: inline-block;">
+          <p style="color: var(--gold); font-size: 0.8rem; font-weight: 600; margin: 0;">Your strong foundation = faster results. This proposal is good for 30 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mark">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <p><strong>Bryce Morgan</strong> · bryce@gullstack.com · (540) 424-0317</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
