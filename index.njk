@@ -375,12 +375,13 @@ css: |
 <section class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <div class="hero-tag">AI-Powered Marketing Agency</div>
-      <h1>What's stopping your business from <span class="gradient-text">growing?</span></h1>
-      <p>Most small businesses are overpaying for tools that don't work together, invisible on Google, and leaving money on the table. We fix all of it. One partner. Real results.</p>
+      <div class="hero-tag">Marketing + AI Workforce Platform</div>
+      <h1>While You Sleep, Your AI Workforce <span class="gradient-text">Runs Your Business</span></h1>
+      <p>The only agency that builds your marketing AND deploys your AI workforce. Websites, SEO, and a team of AI employees that work 24/7 &mdash; so you don't have to.</p>
+      <div class="hero-sleep-ticker" id="heroTicker" style="font-size:0.95rem;color:var(--cyan);margin-bottom:24px;min-height:1.5em;font-weight:500;">While you sleep, your AI workforce is triaging 50+ emails...</div>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="/services/" class="btn btn-primary btn-lg">See Our Services</a>
-        <a href="/case-studies/" class="btn btn-outline btn-lg">View Results</a>
+        <a href="/services/" class="btn btn-primary btn-lg">Grow Your Business</a>
+        <a href="/ai-workforce/" class="btn btn-outline btn-lg">Scale Your Operations</a>
       </div>
     </div>
 
@@ -473,6 +474,35 @@ css: |
       if (val) handleSelection('custom', val);
     }
   });
+})();
+</script>
+
+<script>
+(function() {
+  const heroPhrases = [
+    'triaging 50+ emails...',
+    'writing personalized follow-ups...',
+    'preparing tomorrow\'s meetings...',
+    'tracking compliance deadlines...',
+    'qualifying new leads...',
+    'drafting your weekly report...',
+    'scheduling client appointments...',
+    'monitoring your pipeline...'
+  ];
+  let hIdx = 0;
+  const hEl = document.getElementById('heroTicker');
+  if (!hEl) return;
+  hEl.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+  setInterval(() => {
+    hEl.style.opacity = '0';
+    hEl.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      hIdx = (hIdx + 1) % heroPhrases.length;
+      hEl.textContent = 'While you sleep, your AI workforce is ' + heroPhrases[hIdx];
+      hEl.style.opacity = '1';
+      hEl.style.transform = 'translateY(0)';
+    }, 400);
+  }, 3000);
 })();
 </script>
 
@@ -587,28 +617,28 @@ css: |
 
     <div class="spotlight-card fade-in">
       <div class="spotlight-header">
-        <span class="spotlight-tag">Client: Agile Counseling</span>
-        <a href="https://agilecounseling.com" target="_blank" class="spotlight-link">agilecounseling.com &#8594;</a>
+        <span class="spotlight-tag">AI Workforce Deployment: Capital Wealth Management</span>
+        <a href="/ai-workforce/winchester/" class="spotlight-link">Full case study &#8594;</a>
       </div>
       <div class="spotlight-body">
-        <p class="spotlight-quote">She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back.</p>
+        <p class="spotlight-quote">Winchester handles more in an hour than my last assistant did in a week. I actually went to my kid's soccer game last Tuesday. First time in months.</p>
         <div class="spotlight-stats">
           <div class="spotlight-stat">
-            <div class="number">8% &#8594; 1%</div>
-            <div class="label">Processing Fees</div>
+            <div class="number">70 &#8594; 35</div>
+            <div class="label">Hours/Week</div>
           </div>
           <div class="spotlight-stat">
-            <div class="number">$7K</div>
-            <div class="label">Annual Savings</div>
+            <div class="number">40%</div>
+            <div class="label">Revenue Increase</div>
           </div>
           <div class="spotlight-stat">
-            <div class="number">21 Pages</div>
-            <div class="label">Indexed in 24hrs</div>
+            <div class="number">200+</div>
+            <div class="label">Emails/Day Processed</div>
           </div>
         </div>
       </div>
       <div class="spotlight-footer">
-        <a href="/case-studies/agile-counseling/">Read the full story &#8594;</a>
+        <a href="/ai-workforce/winchester/">Read the full Winchester deployment story &#8594;</a>
       </div>
     </div>
   </div>

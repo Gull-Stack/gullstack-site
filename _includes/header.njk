@@ -8,24 +8,33 @@
       </a>
       <nav>
         <div class="nav-dropdown">
-          <a href="/services/"{% if activeNav == 'services' %} class="active"{% endif %}>Services ▾</a>
-          <div class="dropdown-content">
-            <a href="/services/websites/">Websites</a>
-            <a href="/services/seo-aeo/">SEO & AEO</a>
-            <a href="/services/ai-consulting/">AI Consulting</a>
-            <a href="/services/marketing-automation/">Marketing Automation</a>
-            <a href="/services/payment-processing/">Payment Processing</a>
-            <a href="/services/crm/">CRM</a>
-            <a href="/services/booking-scheduling/">Booking & Scheduling</a>
+          <a href="/services/"{% if activeNav == 'services' %} class="active"{% endif %}>Services &#9662;</a>
+          <div class="dropdown-content dropdown-content--wide">
+            <div class="dropdown-columns">
+              <div class="dropdown-col">
+                <span class="dropdown-heading">Marketing Solutions</span>
+                <a href="/services/websites/">Websites &amp; Development</a>
+                <a href="/services/seo-aeo/">SEO &amp; AEO</a>
+                <a href="/services/marketing-automation/">Marketing Automation</a>
+                <a href="/services/payment-processing/">Payment Processing</a>
+                <a href="/services/crm/">CRM &amp; Booking</a>
+              </div>
+              <div class="dropdown-col">
+                <span class="dropdown-heading">AI Workforce Solutions</span>
+                <a href="/ai-workforce/">AI Bot Teams Overview</a>
+                <a href="/ai-workforce/winchester/">Winchester Showcase</a>
+                <a href="/services/ai-consulting/">AI Consulting</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="nav-dropdown">
-          <a href="/industries/"{% if activeNav == 'industries' %} class="active"{% endif %}>Industries ▾</a>
+          <a href="/industries/"{% if activeNav == 'industries' %} class="active"{% endif %}>Industries &#9662;</a>
           <div class="dropdown-content">
             <a href="/industries/therapists/">Therapists</a>
             <a href="/industries/contractors/">Contractors</a>
             <a href="/industries/medical-practices/">Medical Practices</a>
-            <a href="/industries/salons-spas/">Salons & Spas</a>
+            <a href="/industries/salons-spas/">Salons &amp; Spas</a>
             <a href="/industries/consultants/">Consultants</a>
             <a href="/industries/restaurants/">Restaurants</a>
           </div>
@@ -49,15 +58,19 @@
 <!-- Mobile Navigation -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-group">
-    <span class="mobile-nav-label">Services</span>
+    <span class="mobile-nav-label">Marketing Solutions</span>
     <a href="/services/" onclick="closeMobileMenu()">All Services</a>
     <a href="/services/websites/" onclick="closeMobileMenu()">Websites</a>
-    <a href="/services/seo-aeo/" onclick="closeMobileMenu()">SEO & AEO</a>
-    <a href="/services/ai-consulting/" onclick="closeMobileMenu()">AI Consulting</a>
+    <a href="/services/seo-aeo/" onclick="closeMobileMenu()">SEO &amp; AEO</a>
     <a href="/services/marketing-automation/" onclick="closeMobileMenu()">Marketing Automation</a>
     <a href="/services/payment-processing/" onclick="closeMobileMenu()">Payment Processing</a>
-    <a href="/services/crm/" onclick="closeMobileMenu()">CRM</a>
-    <a href="/services/booking-scheduling/" onclick="closeMobileMenu()">Booking</a>
+    <a href="/services/crm/" onclick="closeMobileMenu()">CRM &amp; Booking</a>
+  </div>
+  <div class="mobile-nav-group">
+    <span class="mobile-nav-label">AI Workforce Solutions</span>
+    <a href="/ai-workforce/" onclick="closeMobileMenu()">AI Bot Teams</a>
+    <a href="/ai-workforce/winchester/" onclick="closeMobileMenu()">Winchester Showcase</a>
+    <a href="/services/ai-consulting/" onclick="closeMobileMenu()">AI Consulting</a>
   </div>
   <div class="mobile-nav-group">
     <span class="mobile-nav-label">Industries</span>
@@ -65,7 +78,7 @@
     <a href="/industries/therapists/" onclick="closeMobileMenu()">Therapists</a>
     <a href="/industries/contractors/" onclick="closeMobileMenu()">Contractors</a>
     <a href="/industries/medical-practices/" onclick="closeMobileMenu()">Medical Practices</a>
-    <a href="/industries/salons-spas/" onclick="closeMobileMenu()">Salons & Spas</a>
+    <a href="/industries/salons-spas/" onclick="closeMobileMenu()">Salons &amp; Spas</a>
     <a href="/industries/consultants/" onclick="closeMobileMenu()">Consultants</a>
     <a href="/industries/restaurants/" onclick="closeMobileMenu()">Restaurants</a>
   </div>

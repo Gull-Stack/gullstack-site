@@ -264,6 +264,37 @@ nav a.active { color: var(--text); }
   color: var(--text);
 }
 
+/* Wide dropdown with columns */
+.dropdown-content--wide {
+  min-width: 420px;
+  padding: 20px;
+}
+.dropdown-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.dropdown-col {}
+.dropdown-heading {
+  display: block;
+  padding: 4px 0 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--purple);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 6px;
+}
+.dropdown-content--wide a {
+  padding: 8px 8px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.dropdown-content--wide a:hover {
+  background: var(--glow-indigo);
+}
+
 /* Mobile menu button */
 .mobile-menu-btn {
   display: none;
