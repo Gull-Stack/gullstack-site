@@ -1,137 +1,144 @@
 ---
 layout: base.njk
 title: Services — GullStack
-description: Everything a marketing team does — without the team. Websites, payment processing, CRM, booking, automation, SEO, and AI tools. One partner. Real results.
-ogTitle: Our Services — GullStack
-ogDescription: Less SaaS. Lower fees. Better marketing. See how we help small businesses grow.
+description: Custom websites, SEO & AEO, AI consulting, marketing automation, payment processing, CRM, and booking systems. Everything your small business needs to grow — from one partner.
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  
-  .page-header {
+  .services-hero {
+    padding: 160px 0 80px;
     text-align: center;
-    margin-bottom: 100px;
+    position: relative;
+    overflow: hidden;
   }
-  
-  .page-header h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 20px;
+  .services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
   }
-  
-  .page-header p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto;
+  .services-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
   }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+  .services-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 600px; margin: 0 auto;
+    position: relative; z-index: 1; line-height: 1.7;
   }
-  
-  @media (max-width: 768px) {
-    .services-grid { grid-template-columns: 1fr; }
-  }
-  
-  .service-card {
-    background: var(--bg-elevated);
+  .services-grid-section { padding: 0 0 100px; }
+  .service-card-lg {
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: 40px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: inherit;
+    transition: all var(--transition);
     display: block;
   }
-  
-  .service-card:hover {
-    border-color: var(--accent);
+  .service-card-lg:hover {
+    border-color: var(--indigo);
     transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(79,70,229,0.15);
   }
-  
-  .service-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  .service-card-lg .icon {
+    width: 64px; height: 64px;
+    background: var(--glow-indigo);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 24px;
   }
-  
-  .service-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+  .service-card-lg h3 { font-size: 1.4rem; margin-bottom: 12px; }
+  .service-card-lg p {
+    color: var(--text-muted); font-size: 1rem;
+    line-height: 1.7; margin-bottom: 20px;
   }
-  
-  .service-card p {
-    color: var(--text-muted);
-    line-height: 1.7;
-    margin-bottom: 20px;
+  .service-card-lg .link {
+    color: var(--indigo-hover); font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
   }
-  
-  .service-card .link {
-    color: var(--accent);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  .service-card-lg:hover .link { gap: 10px; }
+  @media (max-width: 768px) {
+    .service-card-lg[style] { grid-column: span 1 !important; }
   }
-  
-  .service-card:hover .link { gap: 12px; }
 ---
 
-<main class="container">
-  <div class="page-header">
-    <h1>What We Build</h1>
-    <p>Everything a marketing team does — without the team. One system. One partner. Real results.</p>
+<section class="services-hero">
+  <span class="section-tag">Our Services</span>
+  <h1>Everything Your Business Needs to <span class="gradient-text">Grow</span></h1>
+  <p>We replace the chaos of disconnected tools with one integrated system. Custom-built for your business, powered by AI, and priced for small businesses — not enterprises.</p>
+</section>
+
+<section class="services-grid-section">
+  <div class="container">
+    <div class="grid-2">
+      <a href="/services/websites/" class="service-card-lg fade-in">
+        <div class="icon">&#127760;</div>
+        <h3>Custom Websites</h3>
+        <p>Hand-built on 11ty — not WordPress, not Wix, not a template. Sites that load in under a second, score 100 on PageSpeed, and convert visitors into customers. Zero monthly hosting fees.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/seo-aeo/" class="service-card-lg fade-in">
+        <div class="icon">&#128200;</div>
+        <h3>SEO & Answer Engine Optimization</h3>
+        <p>Google is just the beginning. AI search engines like ChatGPT, Perplexity, and Google AI Overviews are changing how people find businesses. We optimize for all of them.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/ai-consulting/" class="service-card-lg fade-in">
+        <div class="icon">&#129302;</div>
+        <h3>AI Consulting & Automation</h3>
+        <p>Custom AI agents that handle lead qualification, customer support, content creation, and operational tasks. Our own business runs on AI — we'll show you how to do the same.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/marketing-automation/" class="service-card-lg fade-in">
+        <div class="icon">&#9889;</div>
+        <h3>Marketing Automation</h3>
+        <p>Email sequences, follow-up workflows, drip campaigns, and nurture funnels that run 24/7. Stop losing leads because you were too busy to respond in time.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/payment-processing/" class="service-card-lg fade-in">
+        <div class="icon">&#128179;</div>
+        <h3>Payment Processing at 1%</h3>
+        <p>Most processors charge 2.9-8% per transaction. We charge 1%. On $100K in annual revenue, that's $2,000-7,000 back in your pocket. Every year. Forever.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/crm/" class="service-card-lg fade-in">
+        <div class="icon">&#128202;</div>
+        <h3>CRM & Customer Management</h3>
+        <p>Every customer, every conversation, every transaction — in one place. No more sticky notes, spreadsheets, or forgotten follow-ups. Built for how small businesses actually work.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+
+      <a href="/services/booking-scheduling/" class="service-card-lg fade-in" style="grid-column: span 2;">
+        <div class="icon">&#128197;</div>
+        <h3>Online Booking & Scheduling</h3>
+        <p>Let customers book themselves — anytime, from any device. Automatic confirmations, reminders, and calendar sync. Reduce no-shows by up to 40%. Integrated with your CRM, website, and payment processing so everything stays connected.</p>
+        <span class="link">Learn more &#8594;</span>
+      </a>
+    </div>
   </div>
-  
-  <div class="services-grid">
-    <a href="/services/websites/" class="service-card">
-      <div class="icon">🌐</div>
-      <h2>Websites That Convert</h2>
-      <p>Fast, modern, mobile-first websites built to turn visitors into customers. No templates. No bloat. Just results.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/payment-processing/" class="service-card">
-      <div class="icon">💳</div>
-      <h2>Fair Payment Processing</h2>
-      <p>Stop losing 2-8% on every transaction. We process payments at 1% — putting thousands back in your pocket every year.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/crm/" class="service-card">
-      <div class="icon">📊</div>
-      <h2>One Dashboard CRM</h2>
-      <p>Every lead, every conversation, every follow-up in one place. No more juggling six different logins.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/booking-scheduling/" class="service-card">
-      <div class="icon">📅</div>
-      <h2>Booking & Scheduling</h2>
-      <p>Online booking synced to your calendar. Automated reminders. Follow-ups that run while you sleep.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/marketing-automation/" class="service-card">
-      <div class="icon">⚡</div>
-      <h2>Marketing Automation</h2>
-      <p>Email sequences, SMS follow-ups, and nurture campaigns that convert leads into customers on autopilot.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/seo/" class="service-card">
-      <div class="icon">🔍</div>
-      <h2>SEO & Local Search</h2>
-      <p>Get found when people search for what you do. Local rankings, content strategy, and organic traffic that compounds.</p>
-      <span class="link">Learn more →</span>
-    </a>
-    
-    <a href="/services/ai-consulting/" class="service-card">
-      <div class="icon">🤖</div>
-      <h2>AI-Powered Tools</h2>
-      <p>Replace your SEO employee, content writer, and customer service rep with AI that works 24/7 at a fraction of the cost.</p>
-      <span class="link">Learn more →</span>
-    </a>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Not Sure What You Need?</h2>
+      <p>Tell Bogey about your business. He'll diagnose the problem and recommend the right solution.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
+    </div>
   </div>
-</main>
+</section>

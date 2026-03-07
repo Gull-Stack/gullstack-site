@@ -1,90 +1,373 @@
 ---
 layout: base.njk
-title: Online Booking & Scheduling for Small Business — GullStack
-description: Let customers book appointments 24/7. Syncs with your calendar, sends automatic reminders, and eliminates no-shows. Simple scheduling that works.
-ogTitle: Online Booking & Scheduling — GullStack
-ogDescription: Customers book online. You get notified. Calendar syncs automatically. No more phone tag.
+title: "Online Booking & Scheduling — GullStack"
+description: "Let customers book appointments 24/7 from any device. Automatic confirmations, SMS reminders, calendar sync, and deposit collection. Reduce no-shows by up to 40%."
+ogTitle: "Online Booking & Scheduling — GullStack"
+ogDescription: "24/7 self-service booking with automatic reminders, calendar sync, and deposit collection. No more phone tag."
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
+  - name: Booking & Scheduling
+    url: /services/booking-scheduling/
+faqs:
+  - q: "Which calendars does it sync with?"
+    a: "GullStack booking syncs with Google Calendar, Microsoft Outlook, Apple Calendar (iCal), and any CalDAV-compatible calendar. Sync is real-time and bidirectional — when you block time on your personal calendar, those slots automatically become unavailable for booking. When a customer books, it instantly appears on your calendar."
+  - q: "Can I send automatic reminders to reduce no-shows?"
+    a: "Yes. You can configure email and SMS reminders at any interval — 24 hours before, 2 hours before, or whatever works for your business. Clients also receive an immediate confirmation when they book and a follow-up after their appointment. Businesses using our reminder system report a 30-40% reduction in no-shows."
+  - q: "Can I require a deposit or full payment at booking?"
+    a: "Absolutely. You can require a deposit, full payment, or no payment at booking — it is fully configurable by service type. Payment is processed at our 1% rate, and if a client no-shows, you already have their deposit. This is especially popular with salons, consultants, and therapists who lose revenue from cancellations."
+  - q: "Does it support group bookings or classes?"
+    a: "Yes. You can set up group sessions, classes, or workshops with a maximum capacity. Customers book individual spots, and the session automatically closes when it fills up. This works great for yoga studios, group therapy sessions, workshops, and fitness classes."
+  - q: "Can multiple staff members have their own calendars?"
+    a: "Yes. Each team member gets their own availability settings and booking page. Customers can book with a specific staff member or choose the first available person. This is ideal for salons, medical practices, and any business with multiple service providers."
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    position: relative; z-index: 1;
+    line-height: 1.7;
+  }
+  .page-hero .btn { position: relative; z-index: 1; }
+
+  .problem-section { padding: 80px 0; }
+  .problem-section .section-title { margin-bottom: 16px; }
+  .problem-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .highlight-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .highlight-box ul {
+    margin: 0; padding-left: 20px;
+    color: var(--text-muted); line-height: 1.8; font-size: 1.05rem;
+  }
+  .highlight-box li { margin-bottom: 12px; }
+
+  .solution-section { padding: 80px 0; }
+  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .solution-copy {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  .solution-copy p { margin-bottom: 20px; }
+
+  .features-section { padding: 80px 0; }
+  .features-section .section-title { margin-bottom: 48px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+  .glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .glass-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.12);
+  }
+  .glass-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .glass-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .glass-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+
+  .faq-section { padding: 80px 0; }
+  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 24px 0;
+    background: none; border: none; color: var(--text);
+    font-size: 1.1rem; font-weight: 600; text-align: left;
+    cursor: pointer; gap: 16px;
+  }
+  .faq-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer-inner {
+    padding: 0 0 24px; color: var(--text-muted);
+    line-height: 1.7; font-size: 1rem;
+  }
+
+  .case-study-section { padding: 0 0 80px; }
+  .quote-block {
+    max-width: 700px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: 20px; padding: 40px;
+  }
+  .quote-block .quote-text {
+    font-size: 1.25rem; line-height: 1.6;
+    margin-bottom: 16px; font-style: italic;
+  }
+  .quote-block .quote-cite { color: var(--text-muted); }
+  .quote-block .quote-cite a { color: var(--indigo); font-weight: 600; }
+
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    text-align: center; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px 40px; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta-box p {
+    color: var(--text-muted); margin-bottom: 32px;
+    font-size: 1.1rem; line-height: 1.6;
+  }
+
+  .booking-flow {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    padding: 24px 16px;
+    position: relative;
+  }
+  .flow-step::after {
+    content: '\\2192';
+    position: absolute;
+    right: -8px;
+    top: 40px;
+    font-size: 1.5rem;
+    color: var(--indigo);
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step .step-icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 12px;
+  }
+  .flow-step .step-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  .flow-step .step-desc {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    .booking-flow { flex-direction: column; align-items: center; }
+    .flow-step::after {
+      content: '\\2193';
+      right: auto; top: auto;
+      bottom: -4px; left: 50%;
+      transform: translateX(-50%);
+    }
+  }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">BOOKING & SCHEDULING</span>
-    <h1>Let Customers Book While You Sleep</h1>
-    <p>Online scheduling that syncs with your calendar, sends automatic reminders, and eliminates the back-and-forth of phone tag. Bookings come in 24/7.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">Booking & Scheduling</span>
+    <h1>Let Customers Book <span class="gradient-text">While You Sleep</span></h1>
+    <p>Self-service online booking that syncs with your calendar, sends automatic reminders, collects deposits, and fills your schedule 24/7. No more phone tag. No more missed appointments.</p>
+    <a href="/contact/" class="btn btn-primary btn-lg">Set Up Online Booking &#8594;</a>
   </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">📅</div>
-      <h3>Calendar Sync</h3>
-      <p>Connects to Google Calendar, Outlook, or iCal. Your availability updates automatically — no double bookings.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔔</div>
-      <h3>Automatic Reminders</h3>
-      <p>Email and SMS reminders before appointments. Reduce no-shows by up to 90%.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">💳</div>
-      <h3>Collect Deposits</h3>
-      <p>Require payment at booking to secure appointments and reduce cancellations.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🌐</div>
-      <h3>Embed Anywhere</h3>
-      <p>Add booking to your website, share a link, or let customers book from social media.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">👥</div>
-      <h3>Team Scheduling</h3>
-      <p>Multiple staff members? Customers can book with specific team members or whoever's available.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📝</div>
-      <h3>Intake Forms</h3>
-      <p>Collect information before the appointment. Get what you need without back-and-forth emails.</p>
+</section>
+
+<!-- How It Works Flow -->
+<section style="padding: 0 0 40px;">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center; margin-bottom: 32px;">How It Works</h2>
+    <div class="booking-flow fade-in">
+      <div class="flow-step">
+        <div class="step-icon">&#128197;</div>
+        <div class="step-label">Customer Picks a Time</div>
+        <div class="step-desc">Sees your real-time availability</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-icon">&#128179;</div>
+        <div class="step-label">Pays Deposit</div>
+        <div class="step-desc">Optional deposit at 1% rate</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-icon">&#9989;</div>
+        <div class="step-label">Instant Confirmation</div>
+        <div class="step-desc">Email + SMS confirmation</div>
+      </div>
+      <div class="flow-step">
+        <div class="step-icon">&#128276;</div>
+        <div class="step-label">Auto Reminder</div>
+        <div class="step-desc">Reminders before appointment</div>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Stop Playing Phone Tag</h2>
-    <p>How much time do you spend scheduling appointments? The calls, the voicemails, the "does Tuesday at 3 work?" back-and-forth?</p>
-    
-    <p>With online booking, customers see your real-time availability and book instantly. You get notified. They get a confirmation. Done.</p>
-    
-    <h2>Reduce No-Shows</h2>
-    <p>No-shows kill service businesses. Our automatic reminder system sends texts and emails before every appointment — dramatically reducing missed appointments.</p>
-    
-    <p>Want extra protection? Require a deposit at booking. Customers who pay upfront show up.</p>
+</section>
+
+<!-- Problem Section -->
+<section class="problem-section">
+  <div class="container">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title" style="text-align:center;">Phone Tag Is Killing Your Revenue</h2>
+    <p class="section-sub">Every time a customer has to call, leave a voicemail, and wait for a callback just to book an appointment, you are losing business. People want to book on their own terms — at 10pm on a Tuesday, from their phone, without talking to anyone.</p>
+    <div class="highlight-box fade-in">
+      <ul>
+        <li>You miss calls while you are with clients, and by the time you call back, they have booked with someone else</li>
+        <li>Scheduling a single appointment takes 3-4 back-and-forth messages</li>
+        <li>No-shows cost you hundreds of dollars a month in lost revenue</li>
+        <li>You manually enter appointments into your calendar and occasionally double-book</li>
+        <li>Patients, clients, and customers want to book at night or on weekends when you are not available</li>
+        <li>You spend 30-60 minutes every day just managing your schedule instead of doing actual work</li>
+      </ul>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to Automate Your Schedule?</h2>
-    <p>See how online booking can save you hours every week and fill your calendar on autopilot.</p>
-    <a href="/#contact" class="btn btn-primary">Get a Demo →</a>
+</section>
+
+<!-- Solution Section -->
+<section class="solution-section">
+  <div class="container">
+    <span class="section-tag">The Solution</span>
+    <h2 class="section-title" style="text-align:center;">24/7 Online Booking That Runs Itself</h2>
+    <p class="section-sub">Customers visit your website, see your real-time availability, pick a slot, and book themselves. They get an instant confirmation. You get a notification. The appointment appears on your calendar. Done.</p>
+    <div class="solution-copy fade-in">
+      <p>GullStack booking syncs with your existing calendar in real time. When you block off lunch or take a personal day, those slots automatically disappear from your booking page. When a customer books, it instantly appears on both your calendar and your CRM record for that client.</p>
+      <p>Before the appointment, automatic email and SMS reminders go out to the customer — reducing no-shows by 30-40%. You can require deposits at booking to further protect your time and revenue. Payments process at our 1% rate, not the 2.9-3.5% that platforms like Calendly or Acuity charge through Stripe.</p>
+      <p>After the appointment, automated follow-ups can request reviews, schedule the next visit, or send helpful resources. The entire booking lifecycle is handled without you lifting a finger.</p>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- Features Grid -->
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Built for Service Businesses</h2>
+    <div class="features-grid">
+      <div class="glass-card fade-in">
+        <div class="icon">&#128197;</div>
+        <h3>Real-Time Calendar Sync</h3>
+        <p>Bidirectional sync with Google Calendar, Outlook, and iCal. Your availability is always accurate — no double bookings, no manual updates.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128276;</div>
+        <h3>SMS & Email Reminders</h3>
+        <p>Automated reminders at intervals you choose. Reduce no-shows by 30-40% without manually texting every client the day before.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128179;</div>
+        <h3>Deposit Collection</h3>
+        <p>Require a deposit at booking to secure the appointment. Processed at 1% — not the 2.9% charged by standalone booking tools.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128101;</div>
+        <h3>Multi-Staff Scheduling</h3>
+        <p>Each team member gets their own availability and booking page. Customers pick their preferred provider or take the next available slot.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#127760;</div>
+        <h3>Embed Anywhere</h3>
+        <p>Add booking directly to your website, share a link via text or social media, or embed it in emails. Customers can book from wherever they find you.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128221;</div>
+        <h3>Intake Forms</h3>
+        <p>Collect information at booking — insurance details, project scope, health history, or anything else you need before the appointment. No pre-visit paperwork.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-study-section">
+  <div class="container">
+    <div class="quote-block fade-in">
+      <p class="quote-text">"Our therapists were spending an hour a day just managing their schedules. After switching to GullStack's online booking, clients book themselves, reminders go out automatically, and no-shows dropped by over a third. We got that hour back every single day."</p>
+      <p class="quote-cite">See how we streamlined their scheduling. <a href="/case-studies/agile-counseling/">Read the Agile Counseling case study &#8594;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to <span class="gradient-text">Fill Your Calendar</span> on Autopilot?</h2>
+      <p>Tell Bogey about your scheduling challenges. He will show you how online booking can save you hours every week and reduce no-shows starting immediately.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
+    </div>
+  </div>
+</section>

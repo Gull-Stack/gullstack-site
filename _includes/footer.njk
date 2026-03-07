@@ -1,58 +1,67 @@
-<!-- Footer -->
-<footer id="contact" class="{{ 'footer--simple' if footerStyle == 'simple' else '' }}">
+{% if footerStyle == 'simple' %}
+<footer class="footer--simple">
   <div class="container">
-    {% if footerStyle == 'simple' %}
     <div class="footer-inner">
       <p class="footer-copy">© {{ site.year }} <a href="/">{{ site.fullName }}</a>. All rights reserved.</p>
     </div>
-    {% else %}
-    <div class="footer-inner">
-      <div class="footer-copy">© {{ site.year }} {{ site.fullName }}. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-        <a href="#products">Products</a>
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-      </div>
-      <a href="/" class="footer-logo">
-        <img src="{{ site.logo }}" alt="{{ site.name }}">
-        {{ site.name }}
-      </a>
-    </div>
-    {% endif %}
   </div>
 </footer>
+{% else %}
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">
+          <img src="{{ site.logo }}" alt="{{ site.name }}" class="logo-img">
+          {{ site.name }}
+        </a>
+        <p>AI-powered marketing, websites, and business tools for small businesses that want to grow without overpaying.</p>
+      </div>
 
-<script>
-  // Sticky header (only for homepage with dynamic header)
-  {% if not headerStyle %}
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
-  {% endif %}
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/websites/">Websites</a></li>
+          <li><a href="/services/seo-aeo/">SEO & AEO</a></li>
+          <li><a href="/services/ai-consulting/">AI Consulting</a></li>
+          <li><a href="/services/marketing-automation/">Marketing Automation</a></li>
+          <li><a href="/services/payment-processing/">Payment Processing</a></li>
+          <li><a href="/services/crm/">CRM</a></li>
+          <li><a href="/services/booking-scheduling/">Booking</a></li>
+        </ul>
+      </div>
 
-  // Scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="/industries/therapists/">Therapists</a></li>
+          <li><a href="/industries/contractors/">Contractors</a></li>
+          <li><a href="/industries/medical-practices/">Medical Practices</a></li>
+          <li><a href="/industries/salons-spas/">Salons & Spas</a></li>
+          <li><a href="/industries/consultants/">Consultants</a></li>
+          <li><a href="/industries/restaurants/">Restaurants</a></li>
+        </ul>
+      </div>
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  
-  // Mobile menu
-  function toggleMobileMenu() {
-    document.querySelector('.mobile-menu-btn').classList.toggle('active');
-    document.getElementById('mobileNav').classList.toggle('active');
-    document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
-  }
-  
-  function closeMobileMenu() {
-    document.querySelector('.mobile-menu-btn').classList.remove('active');
-    document.getElementById('mobileNav').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-</script>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/case-studies/">Case Studies</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© {{ site.year }} {{ site.fullName }}. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endif %}

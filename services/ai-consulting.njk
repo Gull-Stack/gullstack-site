@@ -1,142 +1,352 @@
 ---
 layout: base.njk
-title: AI Consulting for Small Business — GullStack
-description: Replace expensive employees with AI that works 24/7. Content creation, customer service, SEO, and automation at a fraction of the cost. Real AI solutions, not hype.
-ogTitle: AI-Powered Tools for Small Business — GullStack
-ogDescription: AI that actually works for small business. Replace expensive employees. Automate the repetitive stuff.
+title: "AI Consulting for Small Business — GullStack"
+description: "Custom AI agents, automation workflows, and ChatGPT integration built for small businesses. Stop drowning in busywork. Let AI handle the repetitive tasks so you can focus on growth."
+ogTitle: "AI Consulting & Automation — GullStack"
+ogDescription: "Custom AI agents and automation workflows that replace manual busywork. Built for small businesses, not enterprises."
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
+  - name: AI Consulting
+    url: /services/ai-consulting/
+faqs:
+  - q: "What can AI actually do for my small business?"
+    a: "AI can handle customer support via chatbot (like our own Bogey), draft blog posts and social media content, qualify leads automatically, summarize emails and documents, manage appointment scheduling, create proposals and invoices, analyze customer data for insights, and automate repetitive workflows. The key is identifying which manual tasks consume the most time and building AI solutions for those specific bottlenecks."
+  - q: "How much does AI consulting cost?"
+    a: "Custom AI agent builds start at $2,500 for a focused single-purpose agent (like a customer-facing chatbot). More complex automation workflows that connect multiple systems run $3,000-7,500. Ongoing AI management and optimization starts at $500/month. Every engagement begins with a free discovery call where we identify the highest-impact opportunities for your business."
+  - q: "Is my business data safe with AI?"
+    a: "Absolutely. We use enterprise-grade AI APIs with strict data handling policies. Your business data is never used to train public AI models. We can deploy AI agents that run on private infrastructure if your industry requires it (healthcare, legal, financial). All of our AI implementations comply with relevant data privacy regulations."
+  - q: "Do I need technical knowledge to use AI tools?"
+    a: "Not at all. We build AI tools that are as easy to use as sending a text message. Our custom agents have conversational interfaces — you talk to them in plain English. We handle all the technical setup, integration, and maintenance. You just use the tools and see the results."
+  - q: "What is a custom AI agent like Bogey?"
+    a: "Bogey is our own AI sales agent that lives on our website. It answers questions about our services, qualifies leads, and books consultations — 24 hours a day. We build similar agents for our clients, trained specifically on their business, services, pricing, and FAQs. Think of it as a knowledgeable employee that never sleeps, never calls in sick, and handles unlimited conversations simultaneously."
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  .comparison { max-width: 600px; margin: 0 auto 80px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
-  .comparison-row { display: flex; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    position: relative; z-index: 1;
+    line-height: 1.7;
+  }
+  .page-hero .btn { position: relative; z-index: 1; }
+
+  .problem-section { padding: 80px 0; }
+  .problem-section .section-title { margin-bottom: 16px; }
+  .problem-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .highlight-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .highlight-box ul {
+    margin: 0; padding-left: 20px;
+    color: var(--text-muted); line-height: 1.8; font-size: 1.05rem;
+  }
+  .highlight-box li { margin-bottom: 12px; }
+
+  .solution-section { padding: 80px 0; }
+  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .solution-copy {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  .solution-copy p { margin-bottom: 20px; }
+
+  .features-section { padding: 80px 0; }
+  .features-section .section-title { margin-bottom: 48px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 900px) {
+    .features-grid { grid-template-columns: 1fr; }
+  }
+  .glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .glass-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.12);
+  }
+  .glass-card .icon { font-size: 2rem; margin-bottom: 16px; }
+  .glass-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .glass-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+
+  .faq-section { padding: 80px 0; }
+  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 24px 0;
+    background: none; border: none; color: var(--text);
+    font-size: 1.1rem; font-weight: 600; text-align: left;
+    cursor: pointer; gap: 16px;
+  }
+  .faq-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer-inner {
+    padding: 0 0 24px; color: var(--text-muted);
+    line-height: 1.7; font-size: 1rem;
+  }
+
+  .case-study-section { padding: 0 0 80px; }
+  .quote-block {
+    max-width: 700px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: 20px; padding: 40px;
+  }
+  .quote-block .quote-text {
+    font-size: 1.25rem; line-height: 1.6;
+    margin-bottom: 16px; font-style: italic;
+  }
+  .quote-block .quote-cite { color: var(--text-muted); }
+  .quote-block .quote-cite a { color: var(--indigo); font-weight: 600; }
+
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    text-align: center; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px 40px; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta-box p {
+    color: var(--text-muted); margin-bottom: 32px;
+    font-size: 1.1rem; line-height: 1.6;
+  }
+
+  .comparison-table {
+    max-width: 620px;
+    margin: 0 auto 60px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .comparison-row {
+    display: flex; justify-content: space-between;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
   .comparison-row:last-child { border-bottom: none; }
-  .comparison-row.header { background: rgba(99,102,241,0.1); font-weight: 600; }
+  .comparison-row.header {
+    background: rgba(79,70,229,0.1);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
   .comparison-row .label { color: var(--text-muted); }
   .comparison-row .human { color: #71717a; }
-  .comparison-row .ai { color: var(--accent); }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
-  .pricing { text-align: center; margin-bottom: 100px; }
-  .pricing .price { font-family: var(--font-serif); font-size: 3rem; color: var(--accent); }
-  .pricing .price span { font-size: 1rem; color: var(--text-muted); }
-  .pricing .note { color: var(--text-muted); margin-top: 8px; }
+  .comparison-row .ai { color: var(--indigo); font-weight: 600; }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">AI CONSULTING</span>
-    <h1>AI That Actually Works for Your Business</h1>
-    <p>Replace expensive employees with AI tools that work 24/7 at a fraction of the cost. Content, customer service, SEO, research — automated and always available.</p>
-    <a href="/#contact" class="btn btn-primary">See What's Possible →</a>
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">AI Consulting</span>
+    <h1>Stop Doing Busywork. <span class="gradient-text">Let AI Handle It.</span></h1>
+    <p>Custom AI agents, automation workflows, and intelligent tools built specifically for your business. We run our own company on AI — and we will show you how to do the same.</p>
+    <a href="/contact/" class="btn btn-primary btn-lg">See What AI Can Do &#8594;</a>
   </div>
-  
-  <div class="comparison">
-    <div class="comparison-row header">
-      <span>Task</span>
-      <span>Human Cost</span>
-      <span>AI Cost</span>
-    </div>
-    <div class="comparison-row">
-      <span class="label">SEO & Content Manager</span>
-      <span class="human">$50K+/year</span>
-      <span class="ai">$2K/month</span>
-    </div>
-    <div class="comparison-row">
-      <span class="label">Customer Service (24/7)</span>
-      <span class="human">$80K+/year</span>
-      <span class="ai">Included</span>
-    </div>
-    <div class="comparison-row">
-      <span class="label">Blog Content Writer</span>
-      <span class="human">$40K+/year</span>
-      <span class="ai">Included</span>
-    </div>
-    <div class="comparison-row">
-      <span class="label">Market Research</span>
-      <span class="human">$100/hour</span>
-      <span class="ai">Included</span>
+</section>
+
+<!-- Problem Section -->
+<section class="problem-section">
+  <div class="container">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title" style="text-align:center;">You Are Drowning in Manual Work</h2>
+    <p class="section-sub">Small business owners spend 40-60% of their time on tasks that could be automated. Every hour spent on repetitive busywork is an hour not spent on growing the business.</p>
+    <div class="highlight-box fade-in">
+      <ul>
+        <li>You spend hours every week answering the same customer questions over and over</li>
+        <li>Content creation takes forever — blog posts, social media, email newsletters pile up on your to-do list</li>
+        <li>Lead follow-up falls through the cracks because you are too busy doing the actual work</li>
+        <li>You cannot afford to hire a full-time employee for tasks that AI could handle at a fraction of the cost</li>
+        <li>You know AI is powerful but have no idea how to actually implement it in your business</li>
+        <li>You have tried ChatGPT but it feels generic — it does not know your business, your customers, or your voice</li>
+      </ul>
     </div>
   </div>
-  
-  <div class="pricing">
-    <div class="price">$2,000<span>/month</span></div>
-    <div class="note">Your own AI assistant, trained on your business, available 24/7</div>
-  </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">✍️</div>
-      <h3>Content Creation</h3>
-      <p>Blog posts, social media, email campaigns — AI creates first drafts at superhuman speed. You review and refine.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">💬</div>
-      <h3>Customer Support</h3>
-      <p>AI chatbot that knows your business inside and out. Answers questions, qualifies leads, books appointments — 24/7.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔍</div>
-      <h3>SEO & Research</h3>
-      <p>Keyword research, competitor analysis, content optimization — tasks that used to take hours done in minutes.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📧</div>
-      <h3>Email Management</h3>
-      <p>Draft responses, summarize threads, prioritize your inbox. Spend less time on email, more time on work that matters.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>Data Analysis</h3>
-      <p>Turn spreadsheets into insights. AI analyzes your data and surfaces what matters.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🎯</div>
-      <h3>Strategy & Planning</h3>
-      <p>Brainstorm ideas, create plans, think through problems. AI as a thought partner that's always available.</p>
+</section>
+
+<!-- Cost Comparison -->
+<section style="padding: 40px 0 0;">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">The Math Speaks for Itself</h2>
+    <div class="comparison-table fade-in">
+      <div class="comparison-row header">
+        <span>Role</span>
+        <span>Employee Cost</span>
+        <span>AI Cost</span>
+      </div>
+      <div class="comparison-row">
+        <span class="label">Content Manager</span>
+        <span class="human">$50K+/yr</span>
+        <span class="ai">$500/mo</span>
+      </div>
+      <div class="comparison-row">
+        <span class="label">Customer Support (24/7)</span>
+        <span class="human">$80K+/yr</span>
+        <span class="ai">$300/mo</span>
+      </div>
+      <div class="comparison-row">
+        <span class="label">Lead Qualification</span>
+        <span class="human">$45K+/yr</span>
+        <span class="ai">Included</span>
+      </div>
+      <div class="comparison-row">
+        <span class="label">Admin & Data Entry</span>
+        <span class="human">$35K+/yr</span>
+        <span class="ai">$200/mo</span>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>This Isn't ChatGPT</h2>
-    <p>Anyone can use ChatGPT. What we provide is different: a dedicated AI assistant trained specifically on your business, integrated with your tools, and available to help with real work — not just answer random questions.</p>
-    
-    <p>Think of it as a hybrid: part employee, part software, part consultant. It knows your customers, your services, your voice. And it's available 24/7 at a fraction of what you'd pay a human.</p>
-    
-    <h2>Real Work, Real Results</h2>
-    <p>Our AI clients use their assistants for things like:</p>
-    <ul style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; padding-left: 24px;">
-      <li>Writing and scheduling 30 days of social media posts in an afternoon</li>
-      <li>Creating detailed blog posts for SEO</li>
-      <li>Researching competitors and market trends</li>
-      <li>Answering customer questions via chat</li>
-      <li>Drafting proposals and contracts</li>
-      <li>Managing calendars and scheduling</li>
-    </ul>
-    
-    <p>This isn't future technology. It's available now, and small businesses that adopt it early will have a massive advantage.</p>
+</section>
+
+<!-- Solution Section -->
+<section class="solution-section">
+  <div class="container">
+    <span class="section-tag">The Solution</span>
+    <h2 class="section-title" style="text-align:center;">AI That Knows Your Business Inside and Out</h2>
+    <p class="section-sub">We do not just hand you a ChatGPT login. We build custom AI agents trained on your business data, integrated with your tools, and designed to handle your specific workflows.</p>
+    <div class="solution-copy fade-in">
+      <p>Our AI consulting process starts with understanding what is eating your time. We audit your daily operations, identify the highest-impact automation opportunities, and build custom AI solutions that plug directly into how you already work.</p>
+      <p>Every agent we build is trained on your specific business — your services, your pricing, your FAQ, your brand voice. When a customer talks to your AI agent, it sounds like talking to someone who actually works at your company. Because in a real sense, it does.</p>
+      <p>We practice what we preach. Bogey, the AI agent on our own website, handles lead qualification, answers service questions, and books consultations around the clock. The technology works. We use it every day.</p>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to 10x Your Productivity?</h2>
-    <p>Let's talk about how AI can help your specific business. No hype — just practical applications that save time and money.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+</section>
+
+<!-- Features Grid -->
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">AI Solutions We Build</h2>
+    <div class="features-grid">
+      <div class="glass-card fade-in">
+        <div class="icon">&#129302;</div>
+        <h3>Custom AI Agents</h3>
+        <p>Conversational agents like Bogey that live on your website, answer questions, qualify leads, and book appointments — 24 hours a day, 7 days a week.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#9889;</div>
+        <h3>Workflow Automation</h3>
+        <p>Connect your tools and automate multi-step processes. New lead comes in? AI qualifies them, adds them to your CRM, sends a welcome email, and notifies your team — automatically.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#9997;&#65039;</div>
+        <h3>Content AI</h3>
+        <p>AI trained on your brand voice that creates blog posts, social media content, email campaigns, and marketing copy. You review and approve — it does the heavy lifting.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128172;</div>
+        <h3>Customer Support Bots</h3>
+        <p>AI chat that handles common questions, troubleshoots issues, and escalates complex cases to your team. Slash your support response time to seconds.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128200;</div>
+        <h3>Data & Analytics AI</h3>
+        <p>Turn messy spreadsheets into actionable insights. AI analyzes your sales data, customer behavior, and marketing performance to surface what matters most.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128295;</div>
+        <h3>Tool Integration</h3>
+        <p>Connect AI to the tools you already use — Google Workspace, CRMs, email platforms, scheduling software. No rip-and-replace. Just smarter workflows.</p>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-study-section">
+  <div class="container">
+    <div class="quote-block fade-in">
+      <p class="quote-text">"Agile Counseling's intake process used to take 3-4 days of back-and-forth emails. We automated the entire workflow with AI — now new clients are matched, scheduled, and onboarded within hours, not days."</p>
+      <p class="quote-cite">See how AI transformed their operations. <a href="/case-studies/agile-counseling/">Read the Agile Counseling case study &#8594;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Put <span class="gradient-text">AI to Work</span>?</h2>
+      <p>Talk to Bogey about your business. He will identify which manual tasks are eating your time and show you exactly how AI can handle them — starting this week.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
+    </div>
+  </div>
+</section>

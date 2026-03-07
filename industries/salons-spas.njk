@@ -1,85 +1,328 @@
 ---
 layout: base.njk
 title: Marketing for Salons & Spas — GullStack
-description: Online booking, client management, and marketing automation for salons, spas, and beauty professionals. Fill your chairs and keep clients coming back.
+description: Online booking, automated appointment reminders, client management, loyalty programs, and marketing automation for salons, spas, and beauty professionals. Fill your chairs and keep clients coming back.
 ogTitle: Marketing for Salons & Spas — GullStack
 ogDescription: Online booking, client management, and marketing that keeps chairs full. Built for beauty professionals.
+headerStyle: inner
+activeNav: industries
+breadcrumb:
+  - name: Industries
+    url: /industries/
+  - name: Salons & Spas
+    url: /industries/salons-spas/
+faqs:
+  - q: How does online booking help reduce no-shows?
+    a: Our booking system sends automated text and email reminders before each appointment. Clients can confirm, reschedule, or cancel with a single tap. You can also require credit card holds or deposits for high-value services. Combined, these features reduce no-shows by up to 90 percent. That means fewer empty chairs and more predictable revenue every week.
+  - q: Can I offer gift cards through my website?
+    a: Yes. We build digital gift card systems directly into your website. Customers purchase gift cards online with instant email delivery to the recipient. Gift cards are tracked in your CRM so you always know balances and redemption history. Physical gift cards can also be integrated with the same system for in-salon purchases.
+  - q: How does GullStack compare to Vagaro, GlossGenius, or Square for salons?
+    a: Those platforms charge 2.5 to 3.5 percent on every transaction. On a $200 color service, that is $5 to $7 gone. Multiply that by hundreds of services per month and you are losing thousands per year. GullStack charges 1 percent for payment processing and includes booking, client management, and marketing automation. You get the same core features with dramatically lower fees.
+  - q: Can stylists manage their own schedules?
+    a: Yes. Each stylist or technician gets their own login to manage their availability, view upcoming appointments, and access client notes. They can block off personal time, set their own working hours, and see their daily schedule from their phone. The system handles multiple providers, different service durations, and varying availability without conflicts.
+  - q: How do loyalty programs work with GullStack?
+    a: We build custom loyalty programs tailored to your salon. Options include points-based systems where clients earn rewards for every visit, punch card style programs for specific services, referral bonuses for bringing in new clients, and birthday rewards. Everything is tracked automatically in your CRM so clients and staff never have to manage physical cards or remember point balances.
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 650px; margin: 0 auto 40px;
+    position: relative; z-index: 1; line-height: 1.7;
+  }
+  .problems-section { padding: 0 0 80px; }
+  .problems-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #f87171; }
+  .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+  .solutions-section { padding: 0 0 80px; }
+  .solutions-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .service-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+  }
+  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
+  .service-card .card-link {
+    color: var(--indigo); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.2s;
+  }
+  .service-card .card-link:hover { gap: 8px; }
+  .comparison-box {
+    max-width: 750px; margin: 0 auto 80px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    padding: 48px;
+  }
+  .comparison-box .comp-tag {
+    display: inline-block;
+    background: rgba(79,70,229,0.15);
+    color: var(--indigo);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .comparison-box h3 { font-size: 1.5rem; margin-bottom: 16px; }
+  .comparison-box .desc {
+    color: var(--text-muted); margin-bottom: 28px; line-height: 1.7;
+  }
+  .comparison-box .comp-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 600px) { .comparison-box .comp-grid { grid-template-columns: 1fr; } }
+  .comparison-box .comp-item {
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+  }
+  .comparison-box .comp-item .comp-label {
+    font-size: 0.8rem; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .comparison-box .comp-item .comp-value {
+    font-size: 1.3rem; font-weight: 700;
+  }
+  .comparison-box .comp-item .comp-value.them { color: #f87171; }
+  .comparison-box .comp-item .comp-value.us { color: var(--indigo); }
+  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover, .faq-item.active { border-color: var(--indigo); }
+  .faq-question {
+    width: 100%; padding: 24px 28px;
+    background: none; border: none; color: var(--text);
+    font-size: 1.05rem; font-weight: 600;
+    text-align: left; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--indigo);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    color: var(--text-muted); line-height: 1.7;
+  }
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">FOR SALONS & SPAS</span>
-    <h1>Fill Your Chairs. Keep Them Coming Back.</h1>
-    <p>Online booking, automated reminders, loyalty programs, and marketing that turns first-time clients into regulars. Everything you need to grow your beauty business.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
-  </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">📅</div>
-      <h3>24/7 Online Booking</h3>
-      <p>Clients book anytime, anywhere. Pick their stylist, service, and time slot. You get notified instantly.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔔</div>
-      <h3>Appointment Reminders</h3>
-      <p>Automated texts reduce no-shows by up to 90%. Clients confirm, reschedule, or cancel with a tap.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">⭐</div>
-      <h3>Loyalty Programs</h3>
-      <p>Reward repeat visits. Points, punch cards, referral bonuses — keep clients coming back and bringing friends.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">💳</div>
-      <h3>Lower Processing Fees</h3>
-      <p>Stop losing 2.5-3% on every swipe. Our 1% rate means more money in your pocket.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📱</div>
-      <h3>Client Management</h3>
-      <p>Track preferences, history, and notes. Know what they like before they sit in your chair.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📧</div>
-      <h3>Marketing Automation</h3>
-      <p>Birthday offers, "we miss you" emails, new service announcements — all automated.</p>
+<section class="page-hero">
+  <span class="section-tag">Salons &amp; Spas</span>
+  <h1>Fill Your Chairs. <span class="gradient-text">Keep Them Coming Back.</span></h1>
+  <p>Online booking, automated reminders, loyalty programs, and marketing that turns first-time clients into lifelong regulars. Everything you need to grow your beauty business.</p>
+  <a href="/contact/" class="btn btn-primary btn-lg">Get Started &#8594;</a>
+</section>
+
+<!-- Platform Comparison -->
+<section class="container">
+  <div class="comparison-box fade-in">
+    <span class="comp-tag">Your Business Deserves Better</span>
+    <h3>Stop Overpaying for Salon Software</h3>
+    <p class="desc">Square, GlossGenius, and Vagaro all charge 2.5-3.5% on every transaction. On a $200 color service, that is $5-$7 gone. Multiply by hundreds of services per month and you are losing thousands per year.</p>
+    <div class="comp-grid">
+      <div class="comp-item">
+        <div class="comp-label">Them: Processing Rate</div>
+        <div class="comp-value them">2.5% - 3.5%</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-label">GullStack: Processing Rate</div>
+        <div class="comp-value us">1%</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-label">Them: On $200 Service</div>
+        <div class="comp-value them">-$5 to -$7</div>
+      </div>
+      <div class="comp-item">
+        <div class="comp-label">GullStack: On $200 Service</div>
+        <div class="comp-value us">-$2</div>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Your Business Deserves Better Than Square</h2>
-    <p>Square, GlossGenius, Vagaro — they all take 2.5-3.5% of every transaction. On a $200 color service, that's $5-7 gone. Multiply by hundreds of services a month, and you're losing thousands a year.</p>
-    
-    <p>We do payment processing at 1%. Same great booking and management tools. More money stays with you.</p>
+</section>
+
+<!-- Industry Problems -->
+<section class="problems-section">
+  <div class="container">
+    <h2>What Salons &amp; Spas <span class="gradient-text">Struggle With</span></h2>
+    <div class="problems-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128683;</div>
+        <h3>No-Show Revenue Loss</h3>
+        <p>An empty chair is lost revenue you can never recover. Without automated reminders and deposit requirements, no-shows can eat into 10-20% of your weekly bookings.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128222;</div>
+        <h3>Phone-Only Booking</h3>
+        <p>Clients want to book at midnight on a Sunday when they are scrolling Instagram. If the only way to book is calling during business hours, you are losing appointments to salons with online booking.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128176;</div>
+        <h3>Expensive Software Fees</h3>
+        <p>Between monthly platform fees and per-transaction charges, salon software companies are taking a significant cut of every service. You do the work. They take the percentage.</p>
+      </div>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to Grow Your Salon?</h2>
-    <p>Let's build a system that fills your chairs and keeps your clients coming back.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+</section>
+
+<!-- Solutions -->
+<section class="solutions-section">
+  <div class="container">
+    <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
+    <div class="solutions-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128197;</div>
+        <h3>24/7 Online Booking</h3>
+        <p>Clients book anytime from any device. Pick their stylist, service, and time slot. Automatic confirmations and reminders reduce no-shows dramatically.</p>
+        <a href="/services/booking-scheduling/" class="card-link">Booking services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128276;</div>
+        <h3>Smart Reminders</h3>
+        <p>Automated text and email reminders before every appointment. Clients confirm, reschedule, or cancel with one tap. Require deposits for high-value services.</p>
+        <a href="/services/marketing-automation/" class="card-link">Automation services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#11088;</div>
+        <h3>Loyalty Programs</h3>
+        <p>Reward repeat visits with points, referral bonuses, and birthday treats. Tracked automatically in your CRM so no one has to manage punch cards.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128179;</div>
+        <h3>1% Payment Processing</h3>
+        <p>Stop losing 2.5-3.5% on every swipe. Our 1% rate means more money stays with you. Same seamless checkout experience, dramatically lower cost.</p>
+        <a href="/services/payment-processing/" class="card-link">Payment services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128241;</div>
+        <h3>Client Management</h3>
+        <p>Track preferences, service history, color formulas, and notes. Know exactly what each client likes before they sit in your chair. Build real relationships at scale.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#9889;</div>
+        <h3>Marketing Automation</h3>
+        <p>Birthday offers, "we miss you" re-engagement emails, new service announcements, and seasonal promotions — all automated so you never have to think about it.</p>
+        <a href="/services/marketing-automation/" class="card-link">Automation services &#8594;</a>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Grow Your Salon?</h2>
+      <p>Let us build a system that fills your chairs, keeps clients coming back, and stops bleeding money on overpriced software.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Started &#8594;</a>
+    </div>
+  </div>
+</section>

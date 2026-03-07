@@ -6,10 +6,10 @@
   <title>{% if title %}{{ title }}{% else %}{{ site.name }} — {{ site.tagline }}{% endif %}</title>
   <meta name="description" content="{{ description | default(site.description) }}">
   <meta name="author" content="{{ site.fullName }}">
-  
+
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ site.url }}{{ page.url | default('/') }}">
-  
+
   <!-- Open Graph -->
   <meta property="og:type" content="{{ ogType | default('website') }}">
   <meta property="og:locale" content="en_US">
@@ -20,13 +20,13 @@
   <meta property="og:image" content="{{ site.url }}/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ ogTitle | default(title) | default(site.name) }}">
   <meta name="twitter:description" content="{{ ogDescription | default(description) | default(site.description) }}">
   <meta name="twitter:image" content="{{ site.url }}/og-image.png">
-  
+
   <!-- Google Analytics -->
   {% if site.gaId %}
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gaId }}"></script>
@@ -37,7 +37,7 @@
     gtag('config', '{{ site.gaId }}');
   </script>
   {% endif %}
-  
+
   <!-- Schema.org Organization -->
   <script type="application/ld+json">
   {
@@ -48,13 +48,78 @@
     "logo": "{{ site.url }}{{ site.logo }}",
     "description": "{{ site.description }}",
     "email": "{{ site.email }}",
+    "foundingDate": "{{ site.founded }}",
     "sameAs": []
   }
   </script>
-  
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{ site.fullName }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}{{ site.logo }}",
+    "description": "{{ site.description }}",
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ site.address.locality }}",
+      "addressRegion": "{{ site.address.region }}",
+      "addressCountry": "{{ site.address.country }}"
+    },
+    "priceRange": "$$"
+  }
+  </script>
+
+  {% if breadcrumb %}
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}"
+      }{% for crumb in breadcrumb %},
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index + 1 }},
+        "name": "{{ crumb.name }}",
+        "item": "{{ site.url }}{{ crumb.url }}"
+      }{% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
+  {% if faqs %}
+  <!-- FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{% for faq in faqs %}
+      {
+        "@type": "Question",
+        "name": "{{ faq.q }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ faq.a }}"
+        }
+      }{% if not loop.last %},{% endif %}{% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Young+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     {% include "styles/main.css" %}
     {{ css | safe }}
@@ -64,10 +129,93 @@
 </head>
 <body>
   {% include "header.njk" %}
-  
+
   {{ content | safe }}
-  
+
+  {% if not hideFooter %}
   {% include "footer.njk" %}
+  {% endif %}
+
+  <script>
+    // Sticky header scroll detection
+    {% if not headerStyle %}
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+    {% endif %}
+
+    // Scroll fade-in animations
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+    // Animated counters
+    function animateCounter(el) {
+      const target = parseInt(el.getAttribute('data-target'));
+      const suffix = el.getAttribute('data-suffix') || '';
+      const prefix = el.getAttribute('data-prefix') || '';
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+      }, 16);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isActive = item.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+          activeItem.classList.remove('active');
+          activeItem.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      document.querySelector('.mobile-menu-btn').classList.toggle('active');
+      document.getElementById('mobileNav').classList.toggle('active');
+      document.body.style.overflow = document.getElementById('mobileNav').classList.contains('active') ? 'hidden' : '';
+    }
+    function closeMobileMenu() {
+      document.querySelector('.mobile-menu-btn').classList.remove('active');
+      document.getElementById('mobileNav').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  </script>
+
   <script src="https://mysupertool.app/widget.js"
     data-tenant="gullstack"
     data-color="#4F46E5"

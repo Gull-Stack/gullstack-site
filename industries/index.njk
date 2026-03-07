@@ -1,75 +1,233 @@
 ---
 layout: base.njk
 title: Industries We Serve — GullStack
-description: Specialized marketing and business systems for therapists, contractors, medical practices, salons, consultants, and more. Industry-specific solutions that work.
+description: Specialized marketing and business systems for therapists, contractors, medical practices, salons, restaurants, and consultants. Industry-specific solutions that actually work.
 ogTitle: Industries We Serve — GullStack
 ogDescription: Marketing solutions tailored to your industry. Real results for real businesses.
+headerStyle: inner
+activeNav: industries
+breadcrumb:
+  - name: Industries
+    url: /industries/
+faqs:
+  - q: Do you only work with the industries listed on this page?
+    a: These are our specialties, but we work with all kinds of small businesses. If your industry is not listed, reach out and we will tell you exactly how we can help. Our core systems — websites, SEO, CRM, booking, and payment processing — work for virtually any service-based business.
+  - q: How is GullStack different from a generic marketing agency?
+    a: We build integrated business systems, not just marketing campaigns. Most agencies hand you a website and disappear. We provide websites, CRM, booking, payment processing, SEO, and AI automation — all connected, all managed, and all optimized for your specific industry.
+  - q: How long does it take to get started?
+    a: Most businesses are fully set up within 2 to 4 weeks. That includes a custom website, CRM configuration, booking system, and payment processing. We move fast because we have built these systems many times for businesses like yours.
+  - q: What does it cost?
+    a: Every business is different, so we quote based on what you actually need. No bloated packages full of things you will never use. Contact us for a free consultation and we will give you a straightforward quote with no surprises.
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .page-header { text-align: center; margin-bottom: 100px; }
-  .page-header h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; }
-  .page-header p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
-  .industries-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 600px; margin: 0 auto;
+    position: relative; z-index: 1; line-height: 1.7;
+  }
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding-bottom: 100px;
+  }
   @media (max-width: 768px) { .industries-grid { grid-template-columns: 1fr; } }
-  .industry-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 20px; padding: 40px; transition: all 0.3s ease; text-decoration: none; color: inherit; display: block; }
-  .industry-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-  .industry-card .icon { font-size: 2.5rem; margin-bottom: 20px; }
-  .industry-card h2 { font-size: 1.5rem; margin-bottom: 12px; }
-  .industry-card p { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
-  .industry-card .link { color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
-  .industry-card:hover .link { gap: 12px; }
-  .industry-card .case-study { display: inline-block; background: rgba(99,102,241,0.1); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 16px; }
+  .industry-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    transition: all var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .industry-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(79,70,229,0.15);
+  }
+  .industry-card .card-icon {
+    width: 64px; height: 64px;
+    background: var(--glow-indigo);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin-bottom: 20px;
+  }
+  .industry-card h2 { font-size: 1.4rem; margin-bottom: 12px; }
+  .industry-card p {
+    color: var(--text-muted); font-size: 1rem;
+    line-height: 1.7; margin-bottom: 20px;
+  }
+  .industry-card .link {
+    color: var(--indigo-hover); font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+  .industry-card:hover .link { gap: 10px; }
+  .industry-card .case-study-badge {
+    display: inline-block;
+    background: rgba(79,70,229,0.1);
+    color: var(--indigo);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover, .faq-item.active { border-color: var(--indigo); }
+  .faq-question {
+    width: 100%; padding: 24px 28px;
+    background: none; border: none; color: var(--text);
+    font-size: 1.05rem; font-weight: 600;
+    text-align: left; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--indigo);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    color: var(--text-muted); line-height: 1.7;
+  }
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
-<main class="container">
-  <div class="page-header">
-    <h1>Built for Your Industry</h1>
-    <p>Every industry has unique needs. We build solutions tailored to how you work, not generic templates.</p>
-  </div>
-  
+<section class="page-hero">
+  <span class="section-tag">Industries</span>
+  <h1>Built for <span class="gradient-text">Your Industry</span></h1>
+  <p>Every industry has unique challenges. We build marketing systems and business tools tailored to how you actually work — not generic templates that miss the mark.</p>
+</section>
+
+<section class="container">
   <div class="industries-grid">
-    <a href="/industries/therapists/" class="industry-card">
-      <span class="case-study">Case Study Available</span>
-      <div class="icon">🧠</div>
-      <h2>Therapists & Counselors</h2>
-      <p>HIPAA-friendly websites, online booking, client portals, and payment processing that doesn't gouge you. We helped one therapist cut fees from 8% to 1%.</p>
-      <span class="link">Learn more →</span>
+    <a href="/industries/therapists/" class="industry-card fade-in">
+      <span class="case-study-badge">Case Study Available</span>
+      <div class="card-icon">&#129504;</div>
+      <h2>Therapists &amp; Counselors</h2>
+      <p>HIPAA-mindful websites, online booking, client portals, and payment processing at 1% — not the 3-8% other platforms charge. We helped one therapist save $7,000 a year.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
-    
-    <a href="/industries/contractors/" class="industry-card">
-      <span class="case-study">Case Study Available</span>
-      <div class="icon">🏗️</div>
-      <h2>Contractors & Construction</h2>
-      <p>Project portfolios, lead capture, local SEO, and CRM to manage estimates and follow-ups. Built for general contractors, remodelers, and specialty trades.</p>
-      <span class="link">Learn more →</span>
+
+    <a href="/industries/contractors/" class="industry-card fade-in">
+      <span class="case-study-badge">Case Study Available</span>
+      <div class="card-icon">&#127959;</div>
+      <h2>Contractors &amp; Construction</h2>
+      <p>Project portfolios, lead capture, local SEO for "[service] near me" searches, and CRM to manage estimates and follow-ups. Built for GCs, remodelers, and specialty trades.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
-    
-    <a href="/industries/medical-practices/" class="industry-card">
-      <div class="icon">⚕️</div>
+
+    <a href="/industries/medical-practices/" class="industry-card fade-in">
+      <div class="card-icon">&#9877;</div>
       <h2>Medical Practices</h2>
-      <p>Patient scheduling, appointment reminders, intake forms, and websites that build trust. For doctors, dentists, chiropractors, and specialists.</p>
-      <span class="link">Learn more →</span>
+      <p>Patient-friendly websites, online scheduling, appointment reminders, intake forms, and SEO for doctors, dentists, chiropractors, and specialists.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
-    
-    <a href="/industries/salons-spas/" class="industry-card">
-      <div class="icon">💅</div>
-      <h2>Salons & Spas</h2>
-      <p>Online booking, client management, loyalty programs, and marketing automation. Fill your chairs and keep clients coming back.</p>
-      <span class="link">Learn more →</span>
+
+    <a href="/industries/restaurants/" class="industry-card fade-in">
+      <div class="card-icon">&#127869;</div>
+      <h2>Restaurants &amp; Food Service</h2>
+      <p>Your own online ordering system without the 30% delivery app cuts, menu management, local SEO, and Google Business Profile optimization.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
-    
-    <a href="/industries/consultants/" class="industry-card">
-      <div class="icon">💼</div>
-      <h2>Consultants & Coaches</h2>
-      <p>Professional websites, proposal systems, invoicing, and client portals. Look credible and close more deals.</p>
-      <span class="link">Learn more →</span>
+
+    <a href="/industries/salons-spas/" class="industry-card fade-in">
+      <div class="card-icon">&#128133;</div>
+      <h2>Salons &amp; Spas</h2>
+      <p>Online booking, automated appointment reminders, client management, loyalty programs, and marketing automation that keeps your chairs full.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
-    
-    <a href="/industries/restaurants/" class="industry-card">
-      <div class="icon">🍽️</div>
-      <h2>Restaurants & Food Service</h2>
-      <p>Online ordering, reservations, menu management, and lower payment processing fees. Keep more of every dollar.</p>
-      <span class="link">Learn more →</span>
+
+    <a href="/industries/consultants/" class="industry-card fade-in">
+      <div class="card-icon">&#128188;</div>
+      <h2>Consultants &amp; Coaches</h2>
+      <p>Professional web presence, scheduling integration, proposal tools, CRM for client management, and content marketing that positions you as the expert.</p>
+      <span class="link">Learn more &#8594;</span>
     </a>
   </div>
-</main>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Don't See Your Industry?</h2>
+      <p>Our core systems work for any service-based business. Tell us about yours and we will show you exactly how we can help.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Us &#8594;</a>
+    </div>
+  </div>
+</section>

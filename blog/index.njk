@@ -1,289 +1,203 @@
 ---
 layout: base.njk
 title: Blog — Insights on Marketing, Business & Technology
-description: Insights on marketing, business growth, and technology from the GullStack team.
+description: Insights on marketing, business growth, AI, SEO, and technology from the GullStack team. Real strategies for real businesses.
+headerStyle: inner
 activeNav: blog
+breadcrumb:
+  - name: Blog
+    url: /blog/
 css: |
-  /* Hero Section for Blog */
   .blog-hero {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 160px 0 60px;
     text-align: center;
-    padding: 60px 24px 60px;
     position: relative;
+    overflow: hidden;
   }
-  
   .blog-hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 50%;
+    top: 0; left: 50%;
     transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
-  
-  .blog-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-  }
-  
-  .page-title {
-    font-family: var(--font-serif);
-    font-size: 3rem;
+  .blog-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 16px;
+    position: relative; z-index: 1;
   }
-  
-  .page-subtitle {
+  .blog-hero p {
     color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+    font-size: 1.15rem;
+    position: relative; z-index: 1;
   }
-  
-  /* Blog Grid */
-  main {
-    padding-bottom: 80px;
-  }
-  
-  /* Blog Grid with Images */
+  .blog-section { padding: 0 0 100px; }
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
-  
   @media (max-width: 768px) {
     .blog-grid { grid-template-columns: 1fr; }
+    .blog-card.featured { grid-column: span 1 !important; }
+    .blog-card.featured .blog-card-image-wrapper,
+    .blog-card.featured .blog-card-image { height: 200px !important; }
   }
-  
-  .blog-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  .blog-card.featured {
+    grid-column: span 2;
   }
-  
-  .blog-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  .blog-card.featured .blog-card-image-wrapper {
+    height: 280px;
   }
-  
-  .blog-card-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.5s;
-    background: var(--bg-elevated);
+  .blog-card.featured .blog-card-image {
+    height: 280px;
   }
-  
-  .blog-card:hover .blog-card-image {
-    transform: scale(1.05);
+  .blog-card.featured .blog-card-title {
+    font-size: 1.6rem;
   }
-  
-  .blog-card-image-wrapper {
-    overflow: hidden;
-    height: 200px;
-    background: linear-gradient(135deg, var(--bg-elevated) 0%, rgba(99,102,241,0.1) 100%);
-  }
-  
-  @media (max-width: 768px) {
-    .blog-card-image-wrapper,
-    .blog-card-image-wrapper[style*="height"],
-    .blog-card-image,
-    .blog-card-image[style*="height"] {
-      height: 180px !important;
-      max-height: 180px !important;
-    }
-  }
-  
-  .blog-card-content {
-    padding: 28px;
-  }
-  
-  .blog-card-category {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-  
-  .blog-card-title {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-  
-  .blog-card-excerpt {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  
-  .blog-card-link {
-    color: var(--accent);
-    font-size: 0.9rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.2s;
-  }
-  
-  .blog-card:hover .blog-card-link { gap: 10px; }
 ---
 
-<!-- Blog Hero -->
 <section class="blog-hero">
-  <div class="blog-hero-content">
-    <h1 class="page-title">Blog</h1>
-    <p class="page-subtitle">Insights on marketing, business growth, and building great products.</p>
-  </div>
+  <h1>Blog</h1>
+  <p>Insights on marketing, business growth, and building with AI.</p>
 </section>
 
-<main class="container container--blog">
-  <div class="blog-grid">
-    <a href="/blog/she-cried/" class="blog-card" style="grid-column: span 2;">
-      <div class="blog-card-image-wrapper" style="height: 280px;">
-        <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling Website" class="blog-card-image" style="height: 280px;">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Client Story • Featured</span>
-        <h2 class="blog-card-title" style="font-size: 1.75rem;">She Cried: How We Saved a Therapist 7% on Every Dollar</h2>
-        <p class="blog-card-excerpt">A therapist came to us paying 8% on every transaction. We rebuilt her entire system. Now she pays 1%. When we showed her the numbers, she cried.</p>
-        <span class="blog-card-link">Read the full story →</span>
-      </div>
-    </a>
+<section class="blog-section">
+  <div class="container container--blog">
+    <div class="blog-grid">
+      <a href="/case-studies/she-cried/" class="blog-card featured">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling Website" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Client Story &bull; Featured</span>
+          <h2 class="blog-card-title">She Cried: How We Saved a Therapist 7% on Every Dollar</h2>
+          <p class="blog-card-excerpt">A therapist came to us paying 8% on every transaction. We rebuilt her entire system. Now she pays 1%. When we showed her the numbers, she cried.</p>
+          <span class="blog-card-link">Read the full story &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/edge-energy-case-study/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://api.microlink.io/?url=https://www.energydevelopmentgroup.com&screenshot=true&meta=false&embed=screenshot.url" alt="EDGE Energy Website" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Case Study • New</span>
-        <h2 class="blog-card-title">EDGE Energy: Selling Texas Energy Independence</h2>
-        <p class="blog-card-excerpt">How we built a conversion-focused website for a Texas microgrid company helping homeowners escape grid failures and rising energy costs.</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/case-studies/edge-energy/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://www.energydevelopmentgroup.com&screenshot=true&meta=false&embed=screenshot.url" alt="EDGE Energy Website" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h2 class="blog-card-title">EDGE Energy: Selling Texas Energy Independence</h2>
+          <p class="blog-card-excerpt">How we built a conversion-focused website for a Texas microgrid company helping homeowners escape grid failures.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/d-one-builders-case-study/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://api.microlink.io/?url=https://www.donebuilders.com&screenshot=true&meta=false&embed=screenshot.url" alt="D One Builders Website" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Case Study</span>
-        <h2 class="blog-card-title">How We Positioned D One Builders to Capture 3,000+ Monthly Searches</h2>
-        <p class="blog-card-excerpt">A Gilroy contractor with 50+ five-star reviews was invisible online. We rebuilt their site with 20+ SEO-optimized pages. Here's the organic opportunity we unlocked.</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/case-studies/d-one-builders/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://www.donebuilders.com&screenshot=true&meta=false&embed=screenshot.url" alt="D One Builders Website" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h2 class="blog-card-title">How We Positioned D One Builders to Capture 3,000+ Monthly Searches</h2>
+          <p class="blog-card-excerpt">A Gilroy contractor with 50+ five-star reviews was invisible online. We rebuilt their site with 20+ SEO-optimized pages.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/agile-counseling-case-study/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" alt="Therapist Office" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Case Study</span>
-        <h2 class="blog-card-title">From Broken Website to 21 Indexed Pages in 24 Hours</h2>
-        <p class="blog-card-excerpt">See how we rebuilt Agile Counseling's website from scratch and achieved full Google indexing in under 24 hours...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/case-studies/agile-counseling/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop" alt="Therapist Office" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h2 class="blog-card-title">From Broken Website to 21 Indexed Pages in 24 Hours</h2>
+          <p class="blog-card-excerpt">See how we rebuilt Agile Counseling's website from scratch and achieved full Google indexing in under 24 hours.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/gold-wash-plants-case-study/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://www.goldwashplants.com/images/washplant-action.jpg" alt="Gold Wash Plant in Action" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Case Study</span>
-        <h2 class="blog-card-title">How We're Driving 3x Organic Growth for a Gold Mining Equipment Company</h2>
-        <p class="blog-card-excerpt">See how we helped Gold Wash Plants achieve rapid Google indexing and position for explosive organic traffic growth...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/case-studies/gold-wash-plants/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://www.goldwashplants.com/images/washplant-action.jpg" alt="Gold Wash Plant" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h2 class="blog-card-title">Driving 3x Organic Growth for a Gold Mining Equipment Company</h2>
+          <p class="blog-card-excerpt">How we helped Gold Wash Plants achieve rapid Google indexing and position for explosive organic traffic growth.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/is-blogging-really-worth-it/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Blogging" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Is Blogging Really Worth It?</h2>
-        <p class="blog-card-excerpt">One of the most common questions companies ask us is if blogging about their business is really worth their time...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/is-blogging-really-worth-it/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop" alt="Blogging" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Is Blogging Really Worth It?</h2>
+          <p class="blog-card-excerpt">One of the most common questions companies ask us is if blogging about their business is really worth their time.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/marketing-starts-telling-story/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=400&fit=crop" alt="Storytelling" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Marketing Starts with Telling Your Story</h2>
-        <p class="blog-card-excerpt">If you can adequately tell your story, marketing your company will be so much easier...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/marketing-starts-telling-story/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=400&fit=crop" alt="Storytelling" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Marketing Starts with Telling Your Story</h2>
+          <p class="blog-card-excerpt">If you can adequately tell your story, marketing your company will be so much easier.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/you-should-write-your-own-content/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop" alt="Writing Content" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Marketing · SEO</span>
-        <h2 class="blog-card-title">You Should Write Your Own Content</h2>
-        <p class="blog-card-excerpt">Writing your content can seem daunting…until you start writing. If you own your own business, you are talking about it all the time...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/you-should-write-your-own-content/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop" alt="Writing Content" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing &bull; SEO</span>
+          <h2 class="blog-card-title">You Should Write Your Own Content</h2>
+          <p class="blog-card-excerpt">Writing your content can seem daunting...until you start writing. If you own your own business, you are talking about it all the time.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/professional-photography-game-changing/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" alt="Professional Photography" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Marketing</span>
-        <h2 class="blog-card-title">Professional Photography is Game Changing</h2>
-        <p class="blog-card-excerpt">One of the first things we recommend when building a website is to get professional photography...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/professional-photography-game-changing/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&h=400&fit=crop" alt="Photography" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Marketing</span>
+          <h2 class="blog-card-title">Professional Photography is Game Changing</h2>
+          <p class="blog-card-excerpt">One of the first things we recommend when building a website is to get professional photography.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/so-we-created-a-fake-business/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop" alt="Fake Business Experiment" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Business · Marketing</span>
-        <h2 class="blog-card-title">So We Created a Fake Business</h2>
-        <p class="blog-card-excerpt">First of all, apologies in advance to anyone who thought this business was real. We were curious to see how much traffic we could create...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/so-we-created-a-fake-business/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop" alt="Fake Business" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Business &bull; Marketing</span>
+          <h2 class="blog-card-title">So We Created a Fake Business</h2>
+          <p class="blog-card-excerpt">First of all, apologies in advance to anyone who thought this business was real. We were curious to see how much traffic we could create.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
 
-    <a href="/blog/you-should-really-own-your-own-domain/" class="blog-card">
-      <div class="blog-card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Domain Ownership" class="blog-card-image">
-      </div>
-      <div class="blog-card-content">
-        <span class="blog-card-category">Business</span>
-        <h2 class="blog-card-title">You Should Really Own Your Own Domain</h2>
-        <p class="blog-card-excerpt">The first step to getting anything online for your business is to buy a domain. Your domain is your identity online...</p>
-        <span class="blog-card-link">Read more →</span>
-      </div>
-    </a>
+      <a href="/blog/you-should-really-own-your-own-domain/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Domain Ownership" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Business</span>
+          <h2 class="blog-card-title">You Should Really Own Your Own Domain</h2>
+          <p class="blog-card-excerpt">The first step to getting anything online for your business is to buy a domain. Your domain is your identity online.</p>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
+    </div>
   </div>
-</main>
+</section>

@@ -1,53 +1,208 @@
 ---
 layout: base.njk
 title: Marketing for Contractors & Construction — GullStack
-description: Websites, lead capture, local SEO, and CRM built for contractors. We positioned one contractor to capture 3,000+ monthly searches. See how we help contractors grow.
+description: Local SEO, lead capture, project portfolios, and CRM built for contractors. We positioned one contractor to capture 3,000+ monthly searches. See how we help contractors get found and win more jobs.
 ogTitle: Marketing for Contractors — GullStack
-ogDescription: Websites, SEO, and CRM that help contractors get found and close more jobs.
+ogDescription: Websites, SEO, and CRM that help contractors get found and close more jobs. Real results, not empty promises.
+headerStyle: inner
+activeNav: industries
+breadcrumb:
+  - name: Industries
+    url: /industries/
+  - name: Contractors & Construction
+    url: /industries/contractors/
+faqs:
+  - q: How does local SEO help contractors get more jobs?
+    a: When homeowners need a contractor, they search Google for things like kitchen remodel near me or general contractor plus their city. Local SEO makes sure your business shows up in those search results. We build service pages, location pages, and optimize your Google Business Profile so you appear when customers are actively looking for what you do. Our D One Builders client went from invisible online to capturing over 3,000 monthly searches.
+  - q: How do I get more reviews for my contracting business?
+    a: We set up automated review request systems that send a text or email to clients after a job is complete. The message includes a direct link to your Google Business Profile, making it easy for happy customers to leave a review with just a few taps. More reviews means better local rankings and more trust from potential customers.
+  - q: Can customers request quotes directly through my website?
+    a: Yes. We build custom lead capture forms that collect exactly the information you need including project type, timeline, budget range, and photos. Every submission goes directly into your CRM with automatic notifications so you can respond quickly. We also set up automated follow-up sequences so no lead falls through the cracks.
+  - q: How long does it take to see results from SEO?
+    a: Most contractors start seeing measurable improvements in search rankings within 60 to 90 days. Significant traffic growth typically happens within 3 to 6 months. SEO is a compounding investment. The content and optimizations we build today keep working for you months and years from now, unlike paid ads that stop the moment you stop paying.
+  - q: Do I really need a website? Most of my work comes from referrals.
+    a: Referrals are great, but even referred customers will Google you before calling. If they find a dated website or no website at all, you lose credibility. A professional site with project photos, reviews, and clear service descriptions validates the referral and makes it easy for them to contact you. Plus, a good website captures the customers who do not have a referral and are searching online.
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  
-  .case-study-box { max-width: 700px; margin: 0 auto 80px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 40px; }
-  .case-study-box .headline { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 16px; }
-  .case-study-box .desc { color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; }
-  .case-study-box .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; border-top: 1px solid rgba(99,102,241,0.2); }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 650px; margin: 0 auto 40px;
+    position: relative; z-index: 1; line-height: 1.7;
+  }
+  .problems-section { padding: 0 0 80px; }
+  .problems-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #f87171; }
+  .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+  .solutions-section { padding: 0 0 80px; }
+  .solutions-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .service-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+  }
+  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
+  .service-card .card-link {
+    color: var(--indigo); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.2s;
+  }
+  .service-card .card-link:hover { gap: 8px; }
+  .case-study-box {
+    max-width: 750px; margin: 0 auto 80px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    padding: 48px;
+  }
+  .case-study-box .cs-tag {
+    display: inline-block;
+    background: rgba(79,70,229,0.15);
+    color: var(--indigo);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .case-study-box .headline {
+    font-size: 1.5rem; margin-bottom: 16px; line-height: 1.3;
+  }
+  .case-study-box .desc {
+    color: var(--text-muted); margin-bottom: 28px; line-height: 1.7;
+  }
+  .case-study-box .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; padding-top: 24px;
+    border-top: 1px solid rgba(79,70,229,0.2);
+  }
+  @media (max-width: 600px) { .case-study-box .stats { grid-template-columns: 1fr; } }
   .case-study-box .stat { text-align: center; }
-  .case-study-box .stat .number { font-family: var(--font-serif); font-size: 2rem; color: var(--accent); }
+  .case-study-box .stat .number { font-size: 2rem; color: var(--indigo); font-weight: 700; }
   .case-study-box .stat .label { font-size: 0.85rem; color: var(--text-muted); }
-  .case-study-box .cta { text-align: center; margin-top: 24px; }
-  .case-study-box .cta a { color: var(--accent); font-weight: 600; }
-  
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } .case-study-box .stats { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .case-study-box .cs-link {
+    text-align: center; margin-top: 24px;
+  }
+  .case-study-box .cs-link a {
+    color: var(--indigo); font-weight: 600; text-decoration: none;
+  }
+  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover, .faq-item.active { border-color: var(--indigo); }
+  .faq-question {
+    width: 100%; padding: 24px 28px;
+    background: none; border: none; color: var(--text);
+    font-size: 1.05rem; font-weight: 600;
+    text-align: left; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--indigo);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    color: var(--text-muted); line-height: 1.7;
+  }
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">FOR CONTRACTORS</span>
-    <h1>Get Found. Win More Jobs.</h1>
-    <p>Your reputation is built on referrals, but what happens when someone searches "contractor near me"? If you're not showing up, your competitors are getting those calls.</p>
-    <a href="/#contact" class="btn btn-primary">See What's Possible →</a>
-  </div>
-  
-  <div class="case-study-box">
-    <p class="headline">D One Builders: From Invisible to 3,000+ Monthly Searches</p>
-    <p class="desc">A contractor with 50+ five-star reviews was nowhere to be found on Google. We rebuilt their site with 20+ pages targeting every service and city they serve.</p>
+<section class="page-hero">
+  <span class="section-tag">Contractors &amp; Construction</span>
+  <h1>Get Found. <span class="gradient-text">Win More Jobs.</span></h1>
+  <p>Your reputation is built on referrals, but what happens when someone searches "contractor near me"? If you are not showing up, your competitors are getting those calls instead.</p>
+  <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free SEO Audit &#8594;</a>
+</section>
+
+<!-- Case Study Reference -->
+<section class="container">
+  <div class="case-study-box fade-in">
+    <span class="cs-tag">D One Builders Case Study</span>
+    <p class="headline">From Invisible Online to 3,000+ Monthly Searches</p>
+    <p class="desc">A contractor with 50+ five-star reviews was nowhere to be found on Google. We rebuilt their digital presence with 20+ optimized pages targeting every service and city they serve.</p>
     <div class="stats">
       <div class="stat">
         <div class="number">20+</div>
@@ -62,65 +217,106 @@ css: |
         <div class="label">Cities Targeted</div>
       </div>
     </div>
-    <div class="cta"><a href="/blog/d-one-builders-case-study/">Read the full case study →</a></div>
+    <div class="cs-link"><a href="/blog/d-one-builders-case-study/">Read the full case study &#8594;</a></div>
   </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">🌐</div>
-      <h3>Professional Website</h3>
-      <p>Showcase your work with project galleries, service pages, and clear calls to action. Built to impress homeowners and convert visitors.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔍</div>
-      <h3>Local SEO</h3>
-      <p>Rank for "contractor + your city" searches. Service pages, location pages, and Google Business Profile optimization.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📱</div>
-      <h3>Lead Capture</h3>
-      <p>Contact forms that work. Get notified instantly when someone requests an estimate, with all their info in your CRM.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>CRM & Follow-up</h3>
-      <p>Track every lead, every estimate, every job. Automated follow-ups so nothing falls through the cracks.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📸</div>
-      <h3>Project Portfolios</h3>
-      <p>Individual pages for your best work. Before/after photos, project details, and testimonials that build trust.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📞</div>
-      <h3>Custom Phone Lines</h3>
-      <p>Dedicated numbers for owners and office managers. Track every call, respond via text, never miss a lead.</p>
+</section>
+
+<!-- Industry Problems -->
+<section class="problems-section">
+  <div class="container">
+    <h2>What Contractors <span class="gradient-text">Struggle With</span></h2>
+    <div class="problems-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128683;</div>
+        <h3>Invisible Online Presence</h3>
+        <p>50+ five-star reviews mean nothing if nobody can find you on Google. Most contractor websites are single-page disasters with nothing for search engines to index.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128244;</div>
+        <h3>Missed Leads</h3>
+        <p>Phone calls go to voicemail. Form submissions sit unread. Without a system to capture and follow up, qualified leads slip away to competitors who respond faster.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128247;</div>
+        <h3>No Portfolio Showcase</h3>
+        <p>You do incredible work, but nobody sees it online. Without project galleries and before-and-after photos, potential clients cannot see the quality that sets you apart.</p>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Reputation Without Visibility Is a Secret</h2>
-    <p>You've built your business on quality work and word-of-mouth referrals. That's how the best contractors grow. But here's the thing: when someone needs a contractor and doesn't have a referral, they Google it.</p>
-    
-    <p>"Kitchen remodel [your city]" — that search happens hundreds of times a month. If you're not showing up, those leads are going to your competitors.</p>
-    
-    <h2>The Fix Is Simple</h2>
-    <p>Most contractor websites are single-page disasters. No service pages, no location pages, nothing for Google to index. We fix that by building out proper content:</p>
-    
-    <p>Service pages for kitchen remodels, bathroom remodels, additions, custom homes. Location pages for every city you serve. Project pages showcasing your best work. All optimized for the searches your customers are making.</p>
-    
-    <h2>Plus: Never Miss a Lead</h2>
-    <p>A website that gets traffic is useless if you can't capture and follow up with leads. Our CRM tracks every contact, sends automatic follow-ups, and gives you custom phone numbers so you can respond instantly from anywhere.</p>
+</section>
+
+<!-- Solutions -->
+<section class="solutions-section">
+  <div class="container">
+    <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
+    <div class="solutions-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127760;</div>
+        <h3>Professional Website</h3>
+        <p>Showcase your work with project galleries, service pages for every trade, and clear calls to action. Built to impress homeowners and convert visitors into leads.</p>
+        <a href="/services/websites/" class="card-link">Website services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128200;</div>
+        <h3>Local SEO Domination</h3>
+        <p>Service pages, location pages, and Google Business Profile optimization. Rank for "contractor + your city" and every variation your customers search for.</p>
+        <a href="/services/seo-aeo/" class="card-link">SEO services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128202;</div>
+        <h3>CRM &amp; Follow-Up</h3>
+        <p>Track every lead, every estimate, every job. Automated follow-up sequences ensure nothing falls through the cracks. Know exactly where every opportunity stands.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128248;</div>
+        <h3>Project Portfolios</h3>
+        <p>Individual pages for your best work. Before-and-after photos, project details, and client testimonials that build trust and show the quality of your craftsmanship.</p>
+        <a href="/services/websites/" class="card-link">Website services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128241;</div>
+        <h3>Lead Capture Forms</h3>
+        <p>Custom forms that collect project type, timeline, budget, and photos. Instant notifications so you can respond fast. Every submission goes straight into your CRM.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#9889;</div>
+        <h3>Marketing Automation</h3>
+        <p>Automated review requests after completed jobs, follow-up emails for pending estimates, and drip campaigns that keep you top-of-mind with past clients.</p>
+        <a href="/services/marketing-automation/" class="card-link">Automation services &#8594;</a>
+      </div>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to Get Found?</h2>
-    <p>Let's talk about what you need. Free SEO audit to show you exactly where you stand and what's possible.</p>
-    <a href="/#contact" class="btn btn-primary">Get Your Free Audit →</a>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-</main>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Get Found?</h2>
+      <p>Get a free SEO audit that shows exactly where you stand, what your competitors are doing, and what it would take to start capturing those "near me" searches.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free Audit &#8594;</a>
+    </div>
+  </div>
+</section>

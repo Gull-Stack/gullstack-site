@@ -1,11 +1,18 @@
 {
   "name": "GullStack",
   "fullName": "GullStack Trust",
-  "tagline": "Build Once. Scale Forever.",
-  "description": "GullStack Trust builds custom software solutions and AI consulting that transform industries and your brand.",
+  "tagline": "AI-Powered Marketing for Small Business",
+  "description": "GullStack Trust is an AI-powered marketing agency that helps small businesses grow with custom websites, SEO, answer engine optimization, and intelligent automation. One partner. Real results.",
   "url": "https://gullstack.com",
   "email": "hello@gullstack.com",
+  "phone": "",
   "logo": "/gull-logo.png",
   "year": "2026",
-  "gaId": "G-F6P0JSXW2H"
+  "gaId": "G-F6P0JSXW2H",
+  "founded": "2019",
+  "address": {
+    "locality": "Salt Lake City",
+    "region": "UT",
+    "country": "US"
+  }
 }

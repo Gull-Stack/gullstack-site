@@ -1,196 +1,350 @@
 ---
 layout: base.njk
-title: Website Design for Small Business — GullStack
-description: Fast, modern websites that convert visitors into customers. Mobile-first design, SEO-ready, and built to grow your business. No templates. No bloat.
-ogTitle: Small Business Website Design — GullStack
-ogDescription: Websites that actually work. Fast, mobile-first, built to convert.
+title: "Custom Websites for Small Business — GullStack"
+description: "Hand-coded static sites that load in under a second, score 100 on PageSpeed, cost $0/month to host, and are built to convert. No WordPress. No Wix. No templates."
+ogTitle: "Custom Small Business Websites — GullStack"
+ogDescription: "Sub-second load times, 100 PageSpeed scores, $0 hosting. Websites that actually work for your business."
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
+  - name: Custom Websites
+    url: /services/websites/
+faqs:
+  - q: "How much does a custom website cost?"
+    a: "Our websites start at $2,500 for a standard 5-page site and go up based on complexity. Unlike Wix or WordPress, there are no monthly hosting fees — your site runs on a global CDN for $0/month. Most clients save $600-1,200/year in hosting costs alone."
+  - q: "How long does it take to build a website?"
+    a: "A typical 5-7 page site takes 2-3 weeks from kickoff to launch. More complex sites with custom features may take 4-6 weeks. We move fast because we are not fighting bloated platforms — we write clean code from scratch."
+  - q: "Can I edit the website myself?"
+    a: "Yes. We set up a simple content management workflow so you can update text, images, and blog posts without touching code. For structural changes, our team handles those as part of ongoing support."
+  - q: "What happens if I need changes after launch?"
+    a: "We offer monthly support plans starting at $200/month that include content updates, performance monitoring, and priority changes. You can also request one-off updates at our hourly rate."
+  - q: "Why not just use WordPress or Wix?"
+    a: "WordPress sites average 3-5 second load times, require constant plugin updates, and are the number one target for hackers. Wix locks you into their platform and charges monthly forever. Our static sites load in under a second, have zero security vulnerabilities, and cost nothing to host."
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  
-  .service-hero {
+  .page-hero {
+    padding: 160px 0 80px;
     text-align: center;
-    margin-bottom: 100px;
+    position: relative;
+    overflow: hidden;
   }
-  
-  .service-hero .tag {
-    display: inline-block;
-    padding: 8px 16px;
-    background: rgba(99,102,241,0.1);
-    border: 1px solid rgba(99,102,241,0.3);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 24px;
-    letter-spacing: 0.05em;
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
   }
-  
-  .service-hero h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 24px;
-    line-height: 1.1;
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
   }
-  
-  .service-hero p {
-    font-size: 1.25rem;
+  .page-hero p {
+    font-size: 1.2rem;
     color: var(--text-muted);
-    max-width: 650px;
+    max-width: 620px;
     margin: 0 auto 40px;
-    line-height: 1.6;
+    position: relative; z-index: 1;
+    line-height: 1.7;
   }
-  
+  .page-hero .btn { position: relative; z-index: 1; }
+
+  .problem-section {
+    padding: 80px 0;
+  }
+  .problem-section .section-title {
+    margin-bottom: 16px;
+  }
+  .problem-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .highlight-box {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .highlight-box ul {
+    margin: 0;
+    padding-left: 20px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+  .highlight-box li { margin-bottom: 12px; }
+
+  .solution-section {
+    padding: 80px 0;
+  }
+  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section .section-sub {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .solution-copy {
+    max-width: 760px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  .solution-copy p { margin-bottom: 20px; }
+
+  .features-section { padding: 80px 0; }
+  .features-section .section-title { margin-bottom: 48px; }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
-    margin-bottom: 100px;
   }
-  
   @media (max-width: 900px) {
     .features-grid { grid-template-columns: 1fr; }
   }
-  
-  .feature-card {
-    background: var(--bg-elevated);
+  .glass-card {
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 32px;
+    transition: all var(--transition);
   }
-  
-  .feature-card .icon {
+  .glass-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.12);
+  }
+  .glass-card .icon {
     font-size: 2rem;
     margin-bottom: 16px;
   }
-  
-  .feature-card h3 {
-    font-size: 1.25rem;
+  .glass-card h3 {
+    font-size: 1.2rem;
     margin-bottom: 12px;
   }
-  
-  .feature-card p {
+  .glass-card p {
     color: var(--text-muted);
     line-height: 1.6;
+    font-size: 0.95rem;
   }
-  
-  .content-section {
-    max-width: 800px;
-    margin: 0 auto 80px;
+
+  .faq-section { padding: 80px 0; }
+  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
   }
-  
-  .content-section h2 {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    margin-bottom: 24px;
+  .faq-item {
+    border-bottom: 1px solid var(--border);
   }
-  
-  .content-section p {
-    color: var(--text-muted);
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    color: var(--text);
     font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    gap: 16px;
   }
-  
-  .content-section ul {
+  .faq-icon {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 0 24px;
     color: var(--text-muted);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 20px;
-    padding-left: 24px;
+    line-height: 1.7;
+    font-size: 1rem;
   }
-  
-  .content-section li { margin-bottom: 8px; }
-  
-  .cta-section {
+
+  .case-study-section { padding: 0 0 80px; }
+  .quote-block {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .quote-block .quote-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .quote-block .quote-cite {
+    color: var(--text-muted);
+  }
+  .quote-block .quote-cite a {
+    color: var(--indigo);
+    font-weight: 600;
+  }
+
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
     text-align: center;
-    background: var(--bg-elevated);
+    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 24px;
     padding: 60px 40px;
     max-width: 700px;
     margin: 0 auto;
   }
-  
-  .cta-section h2 {
-    font-family: var(--font-serif);
+  .cta-box h2 {
     font-size: 2rem;
     margin-bottom: 16px;
   }
-  
-  .cta-section p {
+  .cta-box p {
     color: var(--text-muted);
     margin-bottom: 32px;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">WEBSITES</span>
-    <h1>Websites That Actually Convert</h1>
-    <p>Your website should be your best salesperson — working 24/7 to turn visitors into customers. We build fast, modern sites that do exactly that.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">Custom Websites</span>
+    <h1>Websites That Load Fast, Rank High, and <span class="gradient-text">Actually Convert</span></h1>
+    <p>Hand-coded on 11ty. Sub-second load times. Perfect PageSpeed scores. Zero monthly hosting fees. Built from scratch for your business — not from a template.</p>
+    <a href="/contact/" class="btn btn-primary btn-lg">Get a Free Site Audit &#8594;</a>
   </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">⚡</div>
-      <h3>Lightning Fast</h3>
-      <p>Sub-second load times. No bloated WordPress themes. Just clean, fast code that Google loves.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📱</div>
-      <h3>Mobile-First</h3>
-      <p>70% of your visitors are on phones. Every site we build looks and works perfectly on mobile.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔍</div>
-      <h3>SEO-Ready</h3>
-      <p>Proper meta tags, schema markup, sitemaps, and structure that helps you rank on Google from day one.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🎨</div>
-      <h3>Custom Design</h3>
-      <p>No templates. No cookie-cutter layouts. Every site is designed specifically for your brand and goals.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔒</div>
-      <h3>Secure & Reliable</h3>
-      <p>SSL certificates, modern hosting, and no WordPress vulnerabilities to worry about.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📈</div>
-      <h3>Built to Convert</h3>
-      <p>Strategic calls-to-action, clear messaging, and user experience designed to turn visitors into leads.</p>
+</section>
+
+<!-- Problem Section -->
+<section class="problem-section">
+  <div class="container">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title" style="text-align:center;">Your Website Is Costing You Customers</h2>
+    <p class="section-sub">Most small business websites are built on bloated platforms that slow everything down. If your site takes more than 3 seconds to load, 53% of visitors leave before they ever see what you offer.</p>
+    <div class="highlight-box fade-in">
+      <ul>
+        <li>WordPress sites average 3-5 second load times and require constant plugin updates to stay secure</li>
+        <li>Wix and Squarespace lock you into their platform and charge $15-50/month forever</li>
+        <li>Template-based designs all look the same — your competitors have the same layout you do</li>
+        <li>Slow sites get penalized by Google, burying you in search results</li>
+        <li>You are paying a developer $100+/hour just to make minor text changes</li>
+      </ul>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Why Most Small Business Websites Fail</h2>
-    <p>Here's the truth: most small business websites are expensive digital brochures that don't actually generate business. They're slow, they're not optimized for search, and they don't guide visitors toward taking action.</p>
-    
-    <p>Common problems we see:</p>
-    <ul>
-      <li>Built on bloated platforms like WordPress with 50+ plugins</li>
-      <li>No clear call-to-action — visitors don't know what to do</li>
-      <li>Not mobile-optimized — looks terrible on phones</li>
-      <li>No SEO foundation — invisible to Google</li>
-      <li>Costs $30-100/month just for hosting and maintenance</li>
-    </ul>
-    
-    <h2>Our Approach</h2>
-    <p>We build websites using modern static site technology that's faster, more secure, and costs less to maintain than traditional platforms. Every site is custom-designed for your specific business goals.</p>
-    
-    <p>More importantly, we understand that your website is just one piece of the puzzle. That's why our sites integrate seamlessly with our CRM, booking system, and payment processing — creating a complete system that captures and converts leads automatically.</p>
+</section>
+
+<!-- Solution Section -->
+<section class="solution-section">
+  <div class="container">
+    <span class="section-tag">The Solution</span>
+    <h2 class="section-title" style="text-align:center;">Hand-Coded Static Sites That Outperform Everything</h2>
+    <p class="section-sub">We build websites using 11ty, a modern static site generator that produces pure HTML. No database. No server-side processing. No bloat. Just clean code that loads instantly from a global CDN.</p>
+    <div class="solution-copy fade-in">
+      <p>A static site does not need to query a database or process PHP every time someone visits. The pages are pre-built and served directly from edge servers around the world. The result is a site that loads in under a second, scores 100 on Google PageSpeed, and costs literally nothing to host on platforms like Cloudflare Pages or Netlify.</p>
+      <p>Every site we build is custom-designed for your brand, your goals, and your customers. No templates. No page builders. No drag-and-drop limitations. We write the code by hand so every pixel serves a purpose — turning visitors into leads and leads into customers.</p>
+      <p>And because our sites are pre-built HTML files, they have zero security vulnerabilities. No WordPress plugins to exploit. No databases to hack. Your site just works, quietly and reliably, 24/7.</p>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready for a Website That Works?</h2>
-    <p>Let's talk about what you need. No pressure, no sales pitch — just an honest conversation about how we can help.</p>
-    <a href="/#contact" class="btn btn-primary">Get Your Free Consultation →</a>
+</section>
+
+<!-- Features Grid -->
+<section class="features-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">What You Get</h2>
+    <div class="features-grid">
+      <div class="glass-card fade-in">
+        <div class="icon">&#9889;</div>
+        <h3>Sub-Second Load Times</h3>
+        <p>Your site loads before visitors can blink. Static HTML served from a global CDN means no server delays, no database queries, no waiting.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#127919;</div>
+        <h3>100 PageSpeed Score</h3>
+        <p>Every site ships with a perfect Google PageSpeed score. That means better SEO rankings, lower bounce rates, and more conversions.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128176;</div>
+        <h3>$0 Monthly Hosting</h3>
+        <p>Static sites deploy to Cloudflare Pages or Netlify for free. No monthly hosting bills, no server maintenance, no surprise charges.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128241;</div>
+        <h3>Mobile-First Design</h3>
+        <p>Over 70% of your traffic is on mobile. Every site we build starts mobile-first and scales up to desktop — not the other way around.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128269;</div>
+        <h3>SEO-Ready Architecture</h3>
+        <p>Semantic HTML, schema markup, sitemaps, meta tags, Open Graph — the technical foundation Google needs to rank your site.</p>
+      </div>
+      <div class="glass-card fade-in">
+        <div class="icon">&#128274;</div>
+        <h3>Zero Security Vulnerabilities</h3>
+        <p>No WordPress plugins to exploit. No database to breach. Static sites have the smallest attack surface possible — effectively unhackable.</p>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-study-section">
+  <div class="container">
+    <div class="quote-block fade-in">
+      <p class="quote-text">"Our old WordPress site took 6 seconds to load and was hacked twice. GullStack rebuilt it as a static site — it loads in 0.4 seconds, scores 100 on PageSpeed, and we have not paid a dime in hosting since launch."</p>
+      <p class="quote-cite">See how we rebuilt D-One Builders' online presence. <a href="/case-studies/d-one-builders/">Read the case study &#8594;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready for a Website That <span class="gradient-text">Actually Works</span>?</h2>
+      <p>Tell Bogey about your business. He will audit your current site, identify what is holding you back, and show you exactly what a GullStack website can do for you.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
+    </div>
+  </div>
+</section>

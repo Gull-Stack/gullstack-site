@@ -1,1028 +1,413 @@
 ---
 layout: base.njk
-title: GullStack — Run Your Business, Not Your Software
-description: You're juggling too many tools and losing money on every transaction. We simplify everything — so you can focus on what you actually do. One partner. Real savings.
-ogTitle: GullStack — Run Your Business, Not Your Software
-ogDescription: Too many tools. Too many fees. We fix that. One place for everything. Simple.
+title: GullStack — AI-Powered Marketing for Small Business
+description: GullStack helps small businesses grow with AI-powered websites, SEO, answer engine optimization, and marketing automation. One partner. Real results. Stop overpaying for tools that don't talk to each other.
+ogTitle: GullStack — AI-Powered Marketing for Small Business
+ogDescription: Custom websites, SEO, AEO, AI consulting, and business automation for small businesses. One partner. Real results.
 css: |
   /* ═══════════════════════════════════════════
-     LIVE COUNTER BANNER
-  ═══════════════════════════════════════════ */
-  .live-counter {
-    background: linear-gradient(90deg, rgba(99,102,241,0.9), rgba(168,85,247,0.9));
-    padding: 10px 24px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
-    position: relative;
-    overflow: hidden;
-    margin-top: 80px;
-  }
-  
-  .live-counter::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: shimmer 3s infinite;
-  }
-  
-  @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
-  
-  .live-counter .pulse {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: #c4b5fd;
-    border-radius: 50%;
-    margin-right: 8px;
-    animation: pulse 1.5s infinite;
-  }
-  
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
-  }
-  
-  .live-counter .amount {
-    font-weight: 700;
-    font-family: monospace;
-    font-size: 1rem;
-    color: #c4b5fd;
-  }
-
-  /* ═══════════════════════════════════════════
-     HERO
+     HOMEPAGE HERO
   ═══════════════════════════════════════════ */
   .hero {
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 24px 80px;
+    padding: 120px 24px 60px;
     position: relative;
     overflow: hidden;
   }
-  
   .hero::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -20%;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
+    width: 1000px;
     height: 800px;
-    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(79,70,229,0.12) 0%, rgba(168,85,247,0.06) 40%, transparent 70%);
     pointer-events: none;
   }
-  
-  .hero-content {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
-    max-width: 900px;
   }
-  
-  .hero-tag {
-    display: inline-block;
-    padding: 8px 16px;
-    background: rgba(99,102,241,0.1);
-    border: 1px solid rgba(99,102,241,0.3);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #a855f7;
-    margin-bottom: 32px;
-    letter-spacing: 0.05em;
-  }
-  
-  .hero h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 24px;
-  }
-  
-  .hero h1 .highlight {
-    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .hero p {
-    font-size: 1.35rem;
-    color: var(--text-muted);
-    max-width: 650px;
-    margin: 0 auto 20px;
-    font-weight: 400;
-    line-height: 1.6;
-  }
-  
-  .hero-proof {
-    font-size: 1.1rem;
-    color: var(--text);
-    margin-bottom: 48px;
-    padding: 16px 24px;
-    background: rgba(99,102,241,0.08);
-    border: 1px solid rgba(99,102,241,0.2);
-    border-radius: 12px;
-    display: inline-block;
-  }
-  
-  .hero-proof strong { color: #a855f7; }
-  
-  .hero-btns {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  /* ═══════════════════════════════════════════
-     CALCULATOR
-  ═══════════════════════════════════════════ */
-  .calculator {
-    padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
-    border-top: 1px solid var(--border);
-  }
-  
-  .calc-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .calc-header {
-    text-align: center;
-    margin-bottom: 48px;
-  }
-  
-  .calc-header h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .calc-header p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-  }
-  
-  .calc-box {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 48px;
-  }
-  
-  .calc-inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-bottom: 40px;
-  }
-  
-  @media (max-width: 600px) {
-    .calc-inputs { grid-template-columns: 1fr; }
-  }
-  
-  .calc-field label {
-    display: block;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-  
-  .calc-field input, .calc-field select {
-    width: 100%;
-    padding: 16px 20px;
-    font-size: 1.25rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    color: var(--text);
-    font-family: monospace;
-  }
-  
-  .calc-field input:focus, .calc-field select:focus {
-    outline: none;
-    border-color: var(--accent);
-  }
-  
-  .calc-result {
-    background: linear-gradient(135deg, rgba(239,68,68,0.1), rgba(99,102,241,0.1));
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-  }
-  
-  .calc-result-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .calc-result-row:last-child {
-    border-bottom: none;
-    padding-top: 24px;
-    margin-top: 8px;
-  }
-  
-  .calc-result-row .label {
-    color: var(--text-muted);
-    font-size: 1rem;
-  }
-  
-  .calc-result-row .value {
-    font-family: monospace;
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .calc-result-row .value.negative { color: #71717a; }
-  .calc-result-row .value.positive { color: #a855f7; }
-  
-  .calc-result-row.total .label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-  
-  .calc-result-row.total .value {
-    font-size: 2rem;
-    color: #a855f7;
-  }
-  
-  .calc-cta {
-    margin-top: 32px;
-    text-align: center;
-  }
-  
-  .calc-cta p {
-    color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
-  /* ═══════════════════════════════════════════
-     PROBLEM SECTION
-  ═══════════════════════════════════════════ */
-  .problem {
-    padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(239,68,68,0.03) 50%, var(--bg) 100%);
-    border-top: 1px solid var(--border);
-  }
-  
-  .problem-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .problem-header h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .problem-header p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .saas-stack {
-    max-width: 700px;
-    margin: 0 auto;
-    background: var(--bg-elevated);
-    border: 1px solid rgba(239,68,68,0.3);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  
-  .saas-header {
-    background: rgba(239,68,68,0.1);
-    padding: 16px 24px;
-    border-bottom: 1px solid rgba(239,68,68,0.2);
-    font-weight: 600;
-    color: #71717a;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .saas-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .saas-item:last-of-type { border-bottom: none; }
-  
-  .saas-item .name { color: var(--text-muted); }
-  .saas-item .cost { color: #71717a; font-weight: 600; font-family: monospace; }
-  
-  .saas-total {
-    background: rgba(239,68,68,0.15);
-    padding: 20px 24px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-  
-  .saas-total .cost { color: #71717a; font-size: 1.25rem; }
-  
-  .problem-note {
-    text-align: center;
-    margin-top: 32px;
-    color: var(--text-muted);
-    font-size: 1rem;
-  }
-  
-  /* ═══════════════════════════════════════════
-     BEFORE/AFTER COMPARISON
-  ═══════════════════════════════════════════ */
-  .comparison {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-  }
-  
-  .comparison-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .comparison-header h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .comparison-header p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-  }
-  
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 32px;
-    align-items: stretch;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
   @media (max-width: 900px) {
-    .comparison-grid { 
-      grid-template-columns: 1fr;
-      max-width: 500px;
-    }
-    .comparison-arrow { 
-      transform: rotate(90deg);
-      justify-self: center;
-    }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   }
-  
-  .comparison-card {
-    background: var(--bg-elevated);
-    border-radius: 20px;
-    padding: 32px;
-    position: relative;
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
   }
-  
-  .comparison-card.before {
-    border: 2px solid #71717a;
-  }
-  
-  .comparison-card.after {
-    border: 2px solid #a855f7;
-  }
-  
-  .comparison-card .tag {
-    position: absolute;
-    top: -12px;
-    left: 24px;
-    padding: 4px 16px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 20px;
-  }
-  
-  .comparison-card.before .tag {
-    background: #71717a;
-    color: white;
-  }
-  
-  .comparison-card.after .tag {
-    background: #a855f7;
-    color: white;
-  }
-  
-  .comparison-card h3 {
-    font-size: 1.25rem;
-    margin: 16px 0 24px;
+  .hero-text p {
+    font-size: 1.15rem;
     color: var(--text-muted);
-  }
-  
-  .app-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  
-  .app-icon {
-    aspect-ratio: 1;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    text-align: center;
-  }
-  
-  .app-icon .icon {
-    font-size: 1.5rem;
-    margin-bottom: 4px;
-  }
-  
-  .comparison-card .stats {
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-  }
-  
-  .comparison-card .stat-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    font-size: 0.95rem;
-  }
-  
-  .comparison-card .stat-row .label { color: var(--text-muted); }
-  
-  .comparison-card.before .stat-row .value { 
-    color: #71717a; 
-    font-weight: 600;
-    font-family: monospace;
-  }
-  
-  .comparison-card.after .stat-row .value { 
-    color: #a855f7; 
-    font-weight: 600;
-    font-family: monospace;
-  }
-  
-  .comparison-card.after .app-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .comparison-card.after .app-icon {
-    flex-direction: row;
-    aspect-ratio: auto;
-    padding: 20px 24px;
-    gap: 16px;
-    justify-content: flex-start;
-  }
-  
-  .comparison-card.after .app-icon .icon {
-    font-size: 2rem;
-    margin-bottom: 0;
-  }
-  
-  .comparison-card.after .app-icon .text {
-    text-align: left;
-  }
-  
-  .comparison-card.after .app-icon .text strong {
-    display: block;
-    font-size: 1rem;
-    color: var(--text);
-  }
-  
-  .comparison-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: var(--text-muted);
-  }
-  
-  /* ═══════════════════════════════════════════
-     SOLUTION SECTION
-  ═══════════════════════════════════════════ */
-  .solution {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-  }
-  
-  .solution-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-  
-  @media (max-width: 900px) {
-    .solution-grid { grid-template-columns: 1fr; gap: 48px; }
-  }
-  
-  .solution-text h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 24px;
-  }
-  
-  .solution-text h2 .highlight { color: #a855f7; }
-  
-  .solution-text p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
+    max-width: 520px;
     line-height: 1.7;
     margin-bottom: 32px;
   }
-  
-  .solution-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  .hero-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(79,70,229,0.1);
+    border: 1px solid rgba(79,70,229,0.25);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--purple);
+    margin-bottom: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
-  
-  .solution-list li {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
+
+  /* Chat CTA Widget */
+  .chat-widget {
+    background: var(--bg-card);
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(79,70,229,0.08);
+    max-width: 440px;
+  }
+  @media (max-width: 900px) {
+    .chat-widget { max-width: 100%; }
+  }
+  .chat-header {
     display: flex;
     align-items: center;
-    gap: 16px;
-    font-size: 1.05rem;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(79,70,229,0.05);
   }
-  
-  .solution-list li:last-child { border-bottom: none; }
-  
-  .solution-list .check {
-    width: 28px;
-    height: 28px;
-    background: rgba(99,102,241,0.15);
+  .chat-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #a855f7;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+  }
+  .chat-name {
+    font-weight: 600;
     font-size: 0.9rem;
-    flex-shrink: 0;
   }
-  
-  .fee-comparison {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
+  .chat-status {
+    font-size: 0.75rem;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
-  
-  .fee-comparison h3 {
-    font-size: 1rem;
+  .chat-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--success);
+    border-radius: 50%;
+  }
+  .chat-body {
+    padding: 20px;
+  }
+  .chat-bubble {
+    background: rgba(79,70,229,0.1);
+    border: 1px solid rgba(79,70,229,0.15);
+    border-radius: 16px 16px 16px 4px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .chat-prompt {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
   }
-  
-  .fee-numbers {
+  .chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .chat-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: var(--font-body);
+  }
+  .chat-option:hover {
+    border-color: var(--indigo);
+    background: var(--glow-indigo);
+    transform: translateX(4px);
+  }
+  .chat-option.selected {
+    border-color: var(--purple);
+    background: var(--glow-purple);
+  }
+  .chat-footer {
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.15);
+  }
+  .chat-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+  }
+  .chat-input:focus {
+    outline: none;
+    border-color: var(--indigo);
+  }
+  .chat-send {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+  .chat-send:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+  }
+
+  /* ═══════════════════════════════════════════
+     TRUSTED BY
+  ═══════════════════════════════════════════ */
+  .trusted-section {
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .trusted-label {
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 32px;
+    font-weight: 600;
+  }
+  .trusted-logos {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    margin-bottom: 24px;
+    gap: 48px;
+    flex-wrap: wrap;
+    opacity: 0.5;
   }
-  
-  .fee-box {
-    text-align: center;
+  .trusted-logos img {
+    height: 28px;
+    width: auto;
+    filter: grayscale(1) brightness(2);
+    transition: all 0.3s;
   }
-  
-  .fee-box .label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 8px;
+  .trusted-logos img:hover {
+    filter: grayscale(0) brightness(1);
+    opacity: 1;
   }
-  
-  .fee-box .number {
-    font-family: var(--font-serif);
-    font-size: 4rem;
-    font-weight: 400;
-    line-height: 1;
-  }
-  
-  .fee-box.before .number { color: #71717a; }
-  .fee-box.after .number { color: #a855f7; }
-  
-  .fee-arrow {
-    font-size: 2rem;
-    color: var(--text-muted);
-  }
-  
-  .fee-result {
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-  
-  .fee-result .savings {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    color: #a855f7;
-    margin-bottom: 8px;
-  }
-  
-  .fee-result .note {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-  }
-  
+
   /* ═══════════════════════════════════════════
-     CASE STUDY
+     WHAT WE DO
   ═══════════════════════════════════════════ */
-  .case-study {
+  .services-section {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.05) 50%, var(--bg) 100%);
+  }
+
+  /* ═══════════════════════════════════════════
+     BY THE NUMBERS
+  ═══════════════════════════════════════════ */
+  .numbers-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(79,70,229,0.04) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
   }
-  
-  .case-card {
+
+  /* ═══════════════════════════════════════════
+     CASE STUDY SPOTLIGHT
+  ═══════════════════════════════════════════ */
+  .spotlight-section {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+  .spotlight-card {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--bg-elevated);
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
   }
-  
-  .case-card-header {
-    padding: 32px;
+  .spotlight-header {
+    padding: 24px 32px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
   }
-  
-  .case-tag {
-    font-size: 0.75rem;
+  .spotlight-tag {
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #a855f7;
+    letter-spacing: 0.1em;
+    color: var(--purple);
   }
-  
-  .case-link {
+  .spotlight-link {
     font-family: monospace;
-    font-size: 0.9rem;
-    color: var(--accent);
+    font-size: 0.85rem;
+    color: var(--indigo-hover);
   }
-  
-  .case-card-body {
-    padding: 40px;
-  }
-  
-  .case-quote {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    line-height: 1.4;
+  .spotlight-body { padding: 40px 32px; }
+  .spotlight-quote {
+    font-size: 1.5rem;
+    line-height: 1.5;
     margin-bottom: 32px;
     position: relative;
-    padding-left: 32px;
+    padding-left: 28px;
+    font-weight: 500;
   }
-  
-  .case-quote::before {
-    content: '"';
+  .spotlight-quote::before {
+    content: '\201C';
     position: absolute;
     left: 0;
-    top: -10px;
-    font-size: 4rem;
-    color: #a855f7;
+    top: -6px;
+    font-size: 3rem;
+    color: var(--purple);
     opacity: 0.5;
     line-height: 1;
   }
-  
-  .case-stats {
+  .spotlight-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     padding-top: 32px;
     border-top: 1px solid var(--border);
   }
-  
   @media (max-width: 600px) {
-    .case-stats { grid-template-columns: 1fr; }
+    .spotlight-stats { grid-template-columns: 1fr; }
   }
-  
-  .case-stat {
-    text-align: center;
-  }
-  
-  .case-stat .number {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    color: #a855f7;
+  .spotlight-stat { text-align: center; }
+  .spotlight-stat .number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple);
     margin-bottom: 4px;
   }
-  
-  .case-stat .label {
-    font-size: 0.85rem;
+  .spotlight-stat .label {
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
-  
-  .case-card-footer {
-    padding: 24px 40px;
-    background: rgba(99,102,241,0.05);
+  .spotlight-footer {
+    padding: 20px 32px;
+    background: rgba(79,70,229,0.05);
     border-top: 1px solid var(--border);
     text-align: center;
   }
-  
-  .case-card-footer a {
-    color: #a855f7;
+  .spotlight-footer a {
+    color: var(--purple);
     font-weight: 600;
-  }
-  
-  /* ═══════════════════════════════════════════
-     SERVICES
-  ═══════════════════════════════════════════ */
-  .services {
-    padding: 100px 0;
-    border-top: 1px solid var(--border);
-  }
-  
-  .services-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  
-  .services-header h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .services-header p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-  }
-  
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  
-  @media (max-width: 900px) {
-    .services-grid { grid-template-columns: 1fr; }
-  }
-  
-  .service-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    transition: all 0.3s ease;
-  }
-  
-  .service-card:hover {
-    border-color: #a855f7;
-    transform: translateY(-4px);
-  }
-  
-  .service-icon {
-    width: 56px;
-    height: 56px;
-    background: rgba(99,102,241,0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-  }
-  
-  .service-card p {
-    color: var(--text-muted);
     font-size: 0.95rem;
-    line-height: 1.6;
   }
-  
+
   /* ═══════════════════════════════════════════
      INDUSTRIES
   ═══════════════════════════════════════════ */
-  .industries {
+  .industries-section {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg) 0%, rgba(99,102,241,0.03) 50%, var(--bg) 100%);
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(168,85,247,0.03) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
-  }
-  
-  .industries-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-  
-  @media (max-width: 900px) {
-    .industries-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  
-  @media (max-width: 600px) {
-    .industries-grid { grid-template-columns: 1fr; }
-  }
-  
-  .industry-card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    text-align: center;
-    transition: all 0.3s ease;
-    display: block;
-  }
-  
-  .industry-card:hover {
-    border-color: #a855f7;
-    transform: translateY(-4px);
-  }
-  
-  .industry-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 16px;
-  }
-  
-  .industry-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  
-  .industry-card p {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
   }
 
   /* ═══════════════════════════════════════════
-     CTA
+     RECENT POSTS
   ═══════════════════════════════════════════ */
-  .cta-section {
+  .posts-section {
     padding: 100px 0;
     border-top: 1px solid var(--border);
   }
-  
-  .cta-box {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
-    border: 1px solid rgba(99,102,241,0.3);
-    border-radius: 24px;
-    padding: 60px 40px;
-  }
-  
-  .cta-box h2 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-  }
-  
-  .cta-box p {
-    color: var(--text-muted);
-    font-size: 1.15rem;
-    margin-bottom: 32px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cta-box .btn-primary {
-    background: #a855f7;
-    padding: 18px 36px;
-    font-size: 1.1rem;
-  }
-  
-  .cta-box .btn-primary:hover {
-    background: #7c3aed;
+
+  /* ═══════════════════════════════════════════
+     FINAL CTA
+  ═══════════════════════════════════════════ */
+  .final-cta {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
   }
 ---
 
-<!-- Live Counter Banner -->
-<div class="live-counter">
-  <span class="pulse"></span>
-  Small businesses have lost <span class="amount" id="lossCounter">$0</span> to fees and subscriptions while you've been on this page
-</div>
-
-<script>
-(function() {
-  // Average small business loses ~$15,000/year = ~$1.71/hour = $0.0285/minute = $0.000475/second
-  // We'll use $0.50/second for dramatic effect (represents collective losses)
-  const perSecond = 0.47;
-  let total = 0;
-  const counter = document.getElementById('lossCounter');
-  
-  setInterval(() => {
-    total += perSecond;
-    counter.textContent = '$' + Math.floor(total).toLocaleString();
-  }, 1000);
-})();
-</script>
-
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-tag">FOR BUSINESS OWNERS WHO ARE DONE OVERPAYING</div>
-    <h1>
-      Run Your Business.<br><span class="highlight">Not Your Software.</span>
-    </h1>
-    <p>
-      You're juggling too many tools, losing money on every swipe, and spending hours on things that should take minutes. We fix that. One place for everything. Simple.
-    </p>
-    <div class="hero-proof">
-      A therapist came to us overwhelmed and overpaying. We simplified everything and cut her fees from <strong>8% to 1%</strong>. She cried.
-    </div>
-    <div class="hero-btns">
-      <a href="#calculator" class="btn btn-primary">See What You're Losing →</a>
-      <a href="/blog/she-cried/" class="btn btn-outline">Read Her Story</a>
-    </div>
-  </div>
-</section>
-
-<!-- Calculator -->
-<section class="calculator" id="calculator">
-  <div class="container">
-    <div class="calc-container">
-      <div class="calc-header">
-        <h2>What Are You Losing?</h2>
-        <p>Enter your numbers. See the truth.</p>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-tag">AI-Powered Marketing Agency</div>
+      <h1>What's stopping your business from <span class="gradient-text">growing?</span></h1>
+      <p>Most small businesses are overpaying for tools that don't work together, invisible on Google, and leaving money on the table. We fix all of it. One partner. Real results.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="/services/" class="btn btn-primary btn-lg">See Our Services</a>
+        <a href="/case-studies/" class="btn btn-outline btn-lg">View Results</a>
       </div>
-      
-      <div class="calc-box">
-        <div class="calc-inputs">
-          <div class="calc-field">
-            <label for="revenue">Monthly Revenue</label>
-            <input type="text" id="revenue" placeholder="$10,000" value="10000">
-          </div>
-          <div class="calc-field">
-            <label for="currentFee">Current Processing Fee %</label>
-            <select id="currentFee">
-              <option value="2.9">2.9% (Stripe/Square)</option>
-              <option value="3.5">3.5% (PayPal)</option>
-              <option value="4">4%</option>
-              <option value="5">5%</option>
-              <option value="6">6%</option>
-              <option value="8" selected>8% (Some processors)</option>
-            </select>
-          </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-header">
+        <div class="chat-avatar">B</div>
+        <div>
+          <div class="chat-name">Bogey</div>
+          <div class="chat-status">Online</div>
         </div>
-        
-        <div class="calc-result">
-          <div class="calc-result-row">
-            <span class="label">You're currently losing</span>
-            <span class="value negative" id="currentLoss">$800/mo</span>
-          </div>
-          <div class="calc-result-row">
-            <span class="label">With GullStack (1%)</span>
-            <span class="value positive" id="newCost">$100/mo</span>
-          </div>
-          <div class="calc-result-row total">
-            <span class="label">Your annual savings</span>
-            <span class="value" id="annualSavings">$8,400/year</span>
-          </div>
+      </div>
+      <div class="chat-body">
+        <div class="chat-bubble">
+          What's the #1 thing holding your business back right now?
         </div>
-        
-        <div class="calc-cta">
-          <p>That's real money. Back in your pocket. Every year.</p>
-          <a href="#contact" class="btn btn-primary">Get Started →</a>
+        <div class="chat-prompt">Select one to get started:</div>
+        <div class="chat-options" id="chatOptions">
+          <button class="chat-option" data-value="website">I need a better website</button>
+          <button class="chat-option" data-value="visibility">Nobody can find me online</button>
+          <button class="chat-option" data-value="fees">I'm paying too much for tools</button>
+          <button class="chat-option" data-value="leads">I need more leads</button>
+          <button class="chat-option" data-value="help">I don't know where to start</button>
         </div>
+      </div>
+      <div class="chat-footer">
+        <input type="text" class="chat-input" placeholder="Or type your own..." id="chatInput">
+        <button class="chat-send" id="chatSend">Send</button>
       </div>
     </div>
   </div>
@@ -1030,379 +415,309 @@ css: |
 
 <script>
 (function() {
-  const revenueInput = document.getElementById('revenue');
-  const feeSelect = document.getElementById('currentFee');
-  const currentLoss = document.getElementById('currentLoss');
-  const newCost = document.getElementById('newCost');
-  const annualSavings = document.getElementById('annualSavings');
-  
-  function calculate() {
-    const revenue = parseFloat(revenueInput.value.replace(/[^0-9.]/g, '')) || 0;
-    const feePercent = parseFloat(feeSelect.value) || 0;
-    
-    const monthlyLoss = revenue * (feePercent / 100);
-    const monthlyNew = revenue * 0.01;
-    const yearlySavings = (monthlyLoss - monthlyNew) * 12;
-    
-    currentLoss.textContent = '$' + Math.round(monthlyLoss).toLocaleString() + '/mo';
-    newCost.textContent = '$' + Math.round(monthlyNew).toLocaleString() + '/mo';
-    annualSavings.textContent = '$' + Math.round(yearlySavings).toLocaleString() + '/year';
+  const options = document.querySelectorAll('.chat-option');
+  const chatBody = document.querySelector('.chat-body');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+
+  function handleSelection(value, text) {
+    // Visual feedback
+    options.forEach(o => o.classList.remove('selected'));
+    event.target.classList.add('selected');
+
+    // After brief delay, show response
+    setTimeout(() => {
+      const responseMap = {
+        'website': "A website that actually converts visitors into customers? That's exactly what we build. Let's talk about what your business needs.",
+        'visibility': "Getting found on Google and AI search engines is our specialty. We call it AEO — Answer Engine Optimization. Let's get you visible.",
+        'fees': "Most small businesses lose $6K-18K/year on disconnected tools and high processing fees. We consolidate everything and cut fees to 1%.",
+        'leads': "More leads start with better visibility and a website that works. We've helped businesses go from invisible to 3,000+ monthly searches.",
+        'help': "That's exactly why we're here. Let us look at your business and show you the fastest path to growth."
+      };
+
+      const optionsEl = document.getElementById('chatOptions');
+      const promptEl = document.querySelector('.chat-prompt');
+      if (optionsEl) optionsEl.style.display = 'none';
+      if (promptEl) promptEl.style.display = 'none';
+
+      // Show user message
+      const userBubble = document.createElement('div');
+      userBubble.style.cssText = 'background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.2);border-radius:16px 16px 4px 16px;padding:12px 16px;margin-bottom:12px;font-size:0.9rem;text-align:right;color:var(--text);';
+      userBubble.textContent = text || value;
+      chatBody.appendChild(userBubble);
+
+      // Show bot response
+      setTimeout(() => {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble';
+        botBubble.innerHTML = (responseMap[value] || "Interesting! Let's dig into that.") + '<br><br><a href="/contact/" style="color:#a855f7;font-weight:600;">Book a free consultation →</a>';
+        chatBody.appendChild(botBubble);
+      }, 800);
+    }, 300);
   }
-  
-  revenueInput.addEventListener('input', calculate);
-  feeSelect.addEventListener('change', calculate);
-  calculate();
+
+  options.forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      handleSelection(this.getAttribute('data-value'), this.textContent);
+    });
+  });
+
+  chatSend.addEventListener('click', () => {
+    const val = chatInput.value.trim();
+    if (val) handleSelection('custom', val);
+  });
+
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const val = chatInput.value.trim();
+      if (val) handleSelection('custom', val);
+    }
+  });
 })();
 </script>
 
-<!-- Before/After Comparison -->
-<section class="comparison">
+<!-- Trusted By -->
+<section class="trusted-section">
   <div class="container">
-    <div class="comparison-header">
-      <h2>What Simplifying Looks Like</h2>
-      <p>Same business. Same customers. Way less headache.</p>
+    <div class="trusted-label">Trusted By Businesses Across the Country</div>
+    <div class="trusted-logos">
+      <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url&viewport.width=200&viewport.height=40" alt="Agile Counseling" style="height:20px;border-radius:4px;">
+      <span style="color:var(--text-dim);font-size:0.85rem;font-weight:500;">Agile Counseling</span>
+      <span style="color:var(--border);">|</span>
+      <span style="color:var(--text-dim);font-size:0.85rem;font-weight:500;">D One Builders</span>
+      <span style="color:var(--border);">|</span>
+      <span style="color:var(--text-dim);font-size:0.85rem;font-weight:500;">EDGE Energy</span>
+      <span style="color:var(--border);">|</span>
+      <span style="color:var(--text-dim);font-size:0.85rem;font-weight:500;">Gold Wash Plants</span>
+      <span style="color:var(--border);">|</span>
+      <span style="color:var(--text-dim);font-size:0.85rem;font-weight:500;">AT Sports</span>
     </div>
-    
-    <div class="comparison-grid">
-      <div class="comparison-card before">
-        <span class="tag">Before</span>
-        <h3>6 apps. 6 logins. 6 bills.</h3>
-        <div class="app-grid">
-          <div class="app-icon">
-            <span class="icon">🌐</span>
-            Wix
-          </div>
-          <div class="app-icon">
-            <span class="icon">📅</span>
-            Calendly
-          </div>
-          <div class="app-icon">
-            <span class="icon">✉️</span>
-            Mailchimp
-          </div>
-          <div class="app-icon">
-            <span class="icon">💳</span>
-            Square
-          </div>
-          <div class="app-icon">
-            <span class="icon">📝</span>
-            Typeform
-          </div>
-          <div class="app-icon">
-            <span class="icon">⭐</span>
-            Podium
-          </div>
-        </div>
-        <div class="stats">
-          <div class="stat-row">
-            <span class="label">Monthly subscriptions</span>
-            <span class="value">$784/mo</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Processing fees</span>
-            <span class="value">8%</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Logins to manage</span>
-            <span class="value">6</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Systems talking to each other</span>
-            <span class="value">0</span>
-          </div>
-        </div>
+  </div>
+</section>
+
+<!-- What We Do -->
+<section class="services-section">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Everything Your Business Needs to Grow</h2>
+      <p class="section-sub" style="margin: 0 auto;">We replace the chaos of disconnected tools with one integrated system powered by AI.</p>
+    </div>
+
+    <div class="grid-3 mt-48">
+      <a href="/services/websites/" class="service-card fade-in">
+        <div class="service-icon">&#127760;</div>
+        <h3>Custom Websites</h3>
+        <p>Hand-built sites on 11ty that load fast, rank high, and convert visitors into customers. No templates. No bloat.</p>
+      </a>
+
+      <a href="/services/seo-aeo/" class="service-card fade-in">
+        <div class="service-icon">&#128200;</div>
+        <h3>SEO & AEO</h3>
+        <p>Get found on Google and AI search engines. Answer Engine Optimization is the next frontier — and we're already there.</p>
+      </a>
+
+      <a href="/services/ai-consulting/" class="service-card fade-in">
+        <div class="service-icon">&#129302;</div>
+        <h3>AI Consulting</h3>
+        <p>Custom AI bots, automation workflows, and intelligent tools that handle the busywork so you can focus on what matters.</p>
+      </a>
+
+      <a href="/services/marketing-automation/" class="service-card fade-in">
+        <div class="service-icon">&#9889;</div>
+        <h3>Marketing Automation</h3>
+        <p>Email sequences, follow-ups, and nurture campaigns that run on autopilot. Stop losing leads to slow response times.</p>
+      </a>
+
+      <a href="/services/payment-processing/" class="service-card fade-in">
+        <div class="service-icon">&#128179;</div>
+        <h3>Payment Processing</h3>
+        <p>1% processing fees. Not 3%. Not 8%. One percent. That saves most businesses thousands every year.</p>
+      </a>
+
+      <a href="/services/crm/" class="service-card fade-in">
+        <div class="service-icon">&#128202;</div>
+        <h3>CRM & Booking</h3>
+        <p>Customers, payments, scheduling, and communications — all in one place. No more juggling six different apps.</p>
+      </a>
+    </div>
+
+    <div class="text-center mt-32">
+      <a href="/services/" class="btn btn-outline">View All Services &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- By The Numbers -->
+<section class="numbers-section">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">By The Numbers</span>
+      <h2 class="section-title">Results That Speak for Themselves</h2>
+    </div>
+
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-number" data-target="50" data-suffix="+">0</div>
+        <div class="stat-label">Clients Served</div>
       </div>
-      
-      <div class="comparison-arrow">→</div>
-      
-      <div class="comparison-card after">
-        <span class="tag">After</span>
-        <h3>1 system. Everything connected.</h3>
-        <div class="app-grid">
-          <div class="app-icon">
-            <img src="/gull-logo.png" alt="GullStack" style="width: 48px; height: 48px; object-fit: contain;">
-            <div class="text">
-              <strong>GullStack</strong>
-              Website + Customers + Payments + Everything
-            </div>
-          </div>
-        </div>
-        <div class="stats">
-          <div class="stat-row">
-            <span class="label">Monthly cost</span>
-            <span class="value">$0-299/mo</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Processing fees</span>
-            <span class="value">1%</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Logins to manage</span>
-            <span class="value">1</span>
-          </div>
-          <div class="stat-row">
-            <span class="label">Everything connected</span>
-            <span class="value">✓</span>
-          </div>
-        </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="150" data-suffix="K+" data-prefix="$">0</div>
+        <div class="stat-label">Revenue Saved</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="200" data-suffix="+">0</div>
+        <div class="stat-label">Pages Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="24" data-suffix="hr">0</div>
+        <div class="stat-label">Avg. Index Time</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Problem -->
-<section class="problem" id="problem">
+<!-- Case Study Spotlight -->
+<section class="spotlight-section">
   <div class="container">
-    <div class="problem-header">
-      <h2>Sound Familiar?</h2>
-      <p>You opened a business to do what you love — not to manage a dozen subscriptions that don't talk to each other.</p>
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">Featured Case Study</span>
+      <h2 class="section-title">Real Results for Real Businesses</h2>
     </div>
-    
-    <div class="saas-stack">
-      <div class="saas-header">
-        <span>Monthly Subscriptions You're Paying For</span>
-        <span>Cost</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Website hosting (Wix, Squarespace)</span>
-        <span class="cost">$30/mo</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Scheduling software (Calendly, Acuity)</span>
-        <span class="cost">$45/mo</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Email marketing (Mailchimp)</span>
-        <span class="cost">$35/mo</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Customer tracking (keeping up with clients)</span>
-        <span class="cost">$50/mo</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Forms & intake</span>
-        <span class="cost">$25/mo</span>
-      </div>
-      <div class="saas-item">
-        <span class="name">Review management (Podium)</span>
-        <span class="cost">$599/mo</span>
-      </div>
-      <div class="saas-total">
-        <span>Before payment processing fees</span>
-        <span class="cost">$784+/mo</span>
-      </div>
-    </div>
-    
-    <p class="problem-note">
-      Plus 2-8% on every transaction. That's <strong>$10,000-20,000/year</strong> bleeding out.
-    </p>
-  </div>
-</section>
 
-<!-- Solution -->
-<section class="solution" id="solution">
-  <div class="container">
-    <div class="solution-grid">
-      <div class="solution-text">
-        <h2>You Run the Business.<br><span class="highlight">We Run the Rest.</span></h2>
-        <p>
-          Tell us what's eating your time and money. We replace the chaos with one system that handles it all — so you can get back to the work that actually matters.
-        </p>
-        <ul class="solution-list">
-          <li>
-            <span class="check">✓</span>
-            Customers find you and book — without you lifting a finger
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Get paid faster, keep more of every dollar
-          </li>
-          <li>
-            <span class="check">✓</span>
-            Follow-ups and reminders happen automatically
-          </li>
-          <li>
-            <span class="check">✓</span>
-            See everything in one place — no app-switching
-          </li>
-          <li>
-            <span class="check">✓</span>
-            AI handles the busywork you've been paying people for
-          </li>
-          <li>
-            <span class="check">✓</span>
-            One bill instead of six
-          </li>
-        </ul>
+    <div class="spotlight-card fade-in">
+      <div class="spotlight-header">
+        <span class="spotlight-tag">Client: Agile Counseling</span>
+        <a href="https://agilecounseling.com" target="_blank" class="spotlight-link">agilecounseling.com &#8594;</a>
       </div>
-      
-      <div class="fee-comparison">
-        <h3>Real Client Results</h3>
-        <div class="fee-numbers">
-          <div class="fee-box before">
-            <div class="label">Before</div>
-            <div class="number">8%</div>
-          </div>
-          <div class="fee-arrow">→</div>
-          <div class="fee-box after">
-            <div class="label">After</div>
-            <div class="number">1%</div>
-          </div>
-        </div>
-        <div class="fee-result">
-          <div class="savings">$7,000/year saved</div>
-          <div class="note">On a $100K practice. Every year. Forever.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Case Study -->
-<section class="case-study" id="work">
-  <div class="container">
-    <div class="case-card">
-      <div class="case-card-header">
-        <span class="case-tag">Featured Client</span>
-        <a href="https://agilecounseling.com" target="_blank" class="case-link">agilecounseling.com →</a>
-      </div>
-      <div class="case-card-body">
-        <p class="case-quote">
-          She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back.
-        </p>
-        <div class="case-stats">
-          <div class="case-stat">
-            <div class="number">8%→1%</div>
+      <div class="spotlight-body">
+        <p class="spotlight-quote">She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back.</p>
+        <div class="spotlight-stats">
+          <div class="spotlight-stat">
+            <div class="number">8% &#8594; 1%</div>
             <div class="label">Processing Fees</div>
           </div>
-          <div class="case-stat">
-            <div class="number">$0</div>
-            <div class="label">Website Cost</div>
-          </div>
-          <div class="case-stat">
+          <div class="spotlight-stat">
             <div class="number">$7K</div>
             <div class="label">Annual Savings</div>
           </div>
+          <div class="spotlight-stat">
+            <div class="number">21 Pages</div>
+            <div class="label">Indexed in 24hrs</div>
+          </div>
         </div>
       </div>
-      <div class="case-card-footer">
-        <a href="/blog/she-cried/">Read the full story →</a>
+      <div class="spotlight-footer">
+        <a href="/case-studies/agile-counseling/">Read the full story &#8594;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services -->
-<section class="services" id="services">
+<!-- Industries We Serve -->
+<section class="industries-section">
   <div class="container">
-    <div class="services-header">
-      <h2>What Changes for You</h2>
-      <p>Less time managing. Less money wasted. More of both back in your pocket.</p>
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">Industries We Serve</span>
+      <h2 class="section-title">Built for Your Industry</h2>
+      <p class="section-sub" style="margin: 0 auto;">Every business is different. We build solutions tailored to the way you work.</p>
     </div>
-    
-    <div class="services-grid">
-      <a href="/services/websites/" class="service-card">
-        <div class="service-icon">🌐</div>
-        <h3>A Website That Works for You</h3>
-        <p>Looks great on every phone. Turns visitors into real customers — not just a pretty page that sits there.</p>
-      </a>
-      
-      <a href="/services/payment-processing/" class="service-card">
-        <div class="service-icon">💳</div>
-        <h3>Keep More of Every Dollar</h3>
-        <p>You're probably losing 3-8% on every card swipe. We bring that way down — more money stays yours.</p>
-      </a>
-      
-      <a href="/services/booking-scheduling/" class="service-card">
-        <div class="service-icon">📅</div>
-        <h3>Customers Book Themselves</h3>
-        <p>They pick a time, get reminders, show up. No phone tag. No no-shows. It runs while you sleep.</p>
-      </a>
-      
-      <a href="/services/ai-consulting/" class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>Smart Tools That Save You Hours</h3>
-        <p>Answer customer questions, write posts, handle the busywork — without hiring someone to do it.</p>
-      </a>
-      
-      <a href="/services/crm/" class="service-card">
-        <div class="service-icon">📊</div>
-        <h3>Everything in One Place</h3>
-        <p>Customers, payments, bookings, messages — one screen instead of six apps. Finally.</p>
-      </a>
-      
-      <a href="/services/seo/" class="service-card">
-        <div class="service-icon">📈</div>
-        <h3>People Actually Find You</h3>
-        <p>Show up when someone searches for what you do. More calls. More walk-ins. More business.</p>
-      </a>
-    </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="/services/" class="btn btn-outline">View All Services →</a>
-    </div>
-  </div>
-</section>
 
-<!-- Industries -->
-<section class="industries" id="industries">
-  <div class="container">
-    <div class="services-header">
-      <h2>We Know Your World</h2>
-      <p>Every business runs differently. We build around yours — not the other way around.</p>
-    </div>
-    
-    <div class="industries-grid">
+    <div class="grid-3 mt-48 fade-in">
       <a href="/industries/therapists/" class="industry-card">
-        <span class="industry-icon">🧠</span>
+        <span class="industry-icon">&#129504;</span>
         <h3>Therapists</h3>
-        <p>Stop giving 8% to your payment processor. Focus on clients, not admin.</p>
+        <p>HIPAA-mindful websites, 1% payment processing, and online booking that reduces no-shows.</p>
       </a>
-      
       <a href="/industries/contractors/" class="industry-card">
-        <span class="industry-icon">🏗️</span>
+        <span class="industry-icon">&#127959;</span>
         <h3>Contractors</h3>
-        <p>Dominate local search. Get found for "[service] near me" searches.</p>
+        <p>Dominate local search for "[service] near me" and turn Google into your best lead source.</p>
       </a>
-      
       <a href="/industries/medical-practices/" class="industry-card">
-        <span class="industry-icon">⚕️</span>
+        <span class="industry-icon">&#9877;</span>
         <h3>Medical Practices</h3>
-        <p>HIPAA-mindful booking, patient communications, and online presence.</p>
+        <p>Patient-friendly websites with integrated scheduling, reminders, and online intake forms.</p>
       </a>
-      
       <a href="/industries/salons-spas/" class="industry-card">
-        <span class="industry-icon">💅</span>
+        <span class="industry-icon">&#128133;</span>
         <h3>Salons & Spas</h3>
-        <p>Online booking that reduces no-shows. Lower fees on every transaction.</p>
+        <p>Online booking, automated reminders, and lower processing fees on every transaction.</p>
       </a>
-      
       <a href="/industries/consultants/" class="industry-card">
-        <span class="industry-icon">💼</span>
+        <span class="industry-icon">&#128188;</span>
         <h3>Consultants</h3>
-        <p>Professional websites with integrated scheduling and proposals.</p>
+        <p>Professional websites with scheduling, proposals, and CRM built right in.</p>
       </a>
-      
       <a href="/industries/restaurants/" class="industry-card">
-        <span class="industry-icon">🍽️</span>
+        <span class="industry-icon">&#127869;</span>
         <h3>Restaurants</h3>
-        <p>Online ordering without DoorDash's 30% cut. Keep your margins.</p>
+        <p>Online ordering without DoorDash's 30% cut. Keep your margins. Own your customers.</p>
       </a>
     </div>
-    
-    <div style="text-align: center; margin-top: 40px;">
-      <a href="/industries/" class="btn btn-outline">View All Industries →</a>
+
+    <div class="text-center mt-32">
+      <a href="/industries/" class="btn btn-outline">View All Industries &#8594;</a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
+<!-- Recent Blog Posts -->
+<section class="posts-section">
   <div class="container">
-    <div class="cta-box">
-      <h2>Done Overpaying?</h2>
-      <p>Five minutes. We'll show you exactly where your money's going — and how to keep more of it.</p>
-      <a href="mailto:hello@gullstack.com?subject=Let's%20Talk" class="btn btn-primary">Get Your Free Analysis →</a>
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">From the Blog</span>
+      <h2 class="section-title">Insights & Case Studies</h2>
+    </div>
+
+    <div class="grid-3 mt-48 fade-in">
+      <a href="/case-studies/agile-counseling/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h3 class="blog-card-title">She Cried: How We Saved a Therapist 7% on Every Dollar</h3>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
+
+      <a href="/case-studies/d-one-builders/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://www.donebuilders.com&screenshot=true&meta=false&embed=screenshot.url" alt="D One Builders" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h3 class="blog-card-title">D One Builders: Capturing 3,000+ Monthly Searches</h3>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
+
+      <a href="/case-studies/edge-energy/" class="blog-card">
+        <div class="blog-card-image-wrapper">
+          <img src="https://api.microlink.io/?url=https://www.energydevelopmentgroup.com&screenshot=true&meta=false&embed=screenshot.url" alt="EDGE Energy" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Case Study</span>
+          <h3 class="blog-card-title">EDGE Energy: Selling Texas Energy Independence</h3>
+          <span class="blog-card-link">Read more &#8594;</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center mt-32">
+      <a href="/blog/" class="btn btn-outline">View All Posts &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Still have questions?</h2>
+      <p>Five minutes with Bogey and you'll know exactly where your money is going — and how to keep more of it.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
     </div>
   </div>
 </section>

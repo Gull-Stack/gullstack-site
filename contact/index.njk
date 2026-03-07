@@ -1,0 +1,578 @@
+---
+layout: base.njk
+title: Contact Us — GullStack
+description: Get in touch with GullStack. Whether you need a website, better SEO, or want to stop overpaying for tools — we're here to help your business grow.
+ogTitle: Contact GullStack
+ogDescription: Reach out for a free consultation. Websites, SEO, AI tools, and marketing automation for small businesses.
+headerStyle: inner
+activeNav: contact
+breadcrumb:
+  - name: Contact
+    url: /contact/
+css: |
+  /* =======================================
+     CONTACT PAGE HERO
+  ======================================= */
+  .page-hero {
+    padding: 160px 0 60px;
+  }
+  .page-hero .section-tag {
+    text-align: center;
+  }
+
+  /* =======================================
+     CONTACT LAYOUT
+  ======================================= */
+  .contact-section {
+    padding: 0 0 100px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  /* =======================================
+     CONTACT FORM
+  ======================================= */
+  .contact-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+  }
+  .contact-form-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  .contact-form-card .form-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 500px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  .form-group label .optional {
+    font-weight: 400;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+    tab-index: -1;
+  }
+  .submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .submit-row .btn {
+    min-width: 180px;
+    justify-content: center;
+  }
+  .submit-note {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  @media (max-width: 500px) {
+    .submit-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .submit-note {
+      text-align: center;
+    }
+  }
+
+  /* Form success/error states */
+  .form-message {
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    display: none;
+  }
+  .form-message.success {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: var(--success);
+    display: block;
+  }
+  .form-message.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    display: block;
+  }
+
+  /* =======================================
+     BOGEY CHAT WIDGET
+  ======================================= */
+  .chat-widget {
+    background: var(--bg-card);
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(79,70,229,0.08);
+  }
+  .chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(79,70,229,0.05);
+  }
+  .chat-avatar {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+  }
+  .chat-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .chat-status {
+    font-size: 0.75rem;
+    color: var(--success);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .chat-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--success);
+    border-radius: 50%;
+  }
+  .chat-body {
+    padding: 20px;
+  }
+  .chat-bubble {
+    background: rgba(79,70,229,0.1);
+    border: 1px solid rgba(79,70,229,0.15);
+    border-radius: 16px 16px 16px 4px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .chat-prompt {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .chat-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    font-family: var(--font-body);
+  }
+  .chat-option:hover {
+    border-color: var(--indigo);
+    background: var(--glow-indigo);
+    transform: translateX(4px);
+  }
+  .chat-option.selected {
+    border-color: var(--purple);
+    background: var(--glow-purple);
+  }
+  .chat-footer {
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.15);
+  }
+  .chat-input {
+    flex: 1;
+    padding: 10px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+  }
+  .chat-input:focus {
+    outline: none;
+    border-color: var(--indigo);
+  }
+  .chat-send {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--indigo), var(--purple));
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+  .chat-send:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+  }
+
+  /* =======================================
+     DIRECT CONTACT INFO
+  ======================================= */
+  .contact-info-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+  }
+  .contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .contact-info-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+  .contact-info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    text-align: center;
+    transition: all var(--transition);
+  }
+  .contact-info-card:hover {
+    border-color: rgba(79,70,229,0.3);
+    box-shadow: 0 8px 32px rgba(79,70,229,0.1);
+    transform: translateY(-4px);
+  }
+  .contact-info-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--glow-indigo);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 0 auto 16px;
+  }
+  .contact-info-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+  .contact-info-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .contact-info-card a {
+    color: var(--purple);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .contact-info-card a:hover {
+    color: var(--purple-light);
+  }
+
+  /* =======================================
+     BOTTOM CTA
+  ======================================= */
+  .contact-cta {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+---
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">Get In Touch</span>
+      <h1 class="section-title">Let's <span class="gradient-text">Talk</span></h1>
+      <p class="section-sub" style="margin: 0 auto;">Whether you need a website, better SEO, or want to stop overpaying for tools &#8212; we're here to help.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form + Bogey Chat -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Contact Form -->
+      <div class="contact-form-card fade-in">
+        <h2>Send Us a Message</h2>
+        <p class="form-subtitle">Tell us about your business and what you need. We'll get back to you within 24 hours.</p>
+
+        <div id="formMessage" class="form-message"></div>
+
+        <form id="contactForm" action="https://formspree.io/f/hello@gullstack.com" method="POST">
+          <!-- Honeypot -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="company_fax">Fax</label>
+            <input type="text" name="company_fax" id="company_fax" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" placeholder="Your business name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your business and what you're looking for..." rows="5" required></textarea>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Send Message &#8594;</button>
+            <span class="submit-note">No spam. No sales calls unless you ask.</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: Bogey Chat Widget -->
+      <div class="fade-in">
+        <div class="chat-widget">
+          <div class="chat-header">
+            <div class="chat-avatar">B</div>
+            <div>
+              <div class="chat-name">Bogey</div>
+              <div class="chat-status">Online</div>
+            </div>
+          </div>
+          <div class="chat-body" id="contactChatBody">
+            <div class="chat-bubble">
+              What's the #1 thing holding your business back?
+            </div>
+            <div class="chat-prompt">Select one to get started:</div>
+            <div class="chat-options" id="contactChatOptions">
+              <button class="chat-option" data-value="website">I need a better website</button>
+              <button class="chat-option" data-value="visibility">Nobody can find me online</button>
+              <button class="chat-option" data-value="fees">I'm paying too much for tools</button>
+              <button class="chat-option" data-value="leads">I need more leads</button>
+              <button class="chat-option" data-value="help">I don't know where to start</button>
+            </div>
+          </div>
+          <div class="chat-footer">
+            <input type="text" class="chat-input" placeholder="Or type your own..." id="contactChatInput">
+            <button class="chat-send" id="contactChatSend">Send</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Direct Contact Info -->
+<section class="contact-info-section">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">Reach Out Directly</span>
+      <h2 class="section-title">Other Ways to Connect</h2>
+    </div>
+
+    <div class="contact-info-grid fade-in">
+      <div class="contact-info-card">
+        <div class="contact-info-icon">&#9993;</div>
+        <h3>Email Us</h3>
+        <p><a href="mailto:hello@gullstack.com">hello@gullstack.com</a></p>
+      </div>
+
+      <div class="contact-info-card">
+        <div class="contact-info-icon">&#9201;</div>
+        <h3>Response Time</h3>
+        <p>We respond within 24 hours.<br>Bogey responds instantly.</p>
+      </div>
+
+      <div class="contact-info-card">
+        <div class="contact-info-icon">&#128640;</div>
+        <h3>Free Consultation</h3>
+        <p>5 minutes with us and you'll know exactly where your money is going.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="contact-cta">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Not Ready to Talk Yet?</h2>
+      <p>Browse our case studies and see what we've done for businesses like yours. The results speak for themselves.</p>
+      <a href="/blog/" class="btn btn-primary btn-lg">See Our Work &#8594;</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  // ========================================
+  // Bogey Chat Widget Logic
+  // ========================================
+  var options = document.querySelectorAll('#contactChatOptions .chat-option');
+  var chatBody = document.getElementById('contactChatBody');
+  var chatInput = document.getElementById('contactChatInput');
+  var chatSend = document.getElementById('contactChatSend');
+
+  var responseMap = {
+    'website': "A website that actually converts visitors into customers? That's exactly what we build. Let's talk about what your business needs.",
+    'visibility': "Getting found on Google and AI search engines is our specialty. We call it AEO \u2014 Answer Engine Optimization. Let's get you visible.",
+    'fees': "Most small businesses lose $6K\u201318K/year on disconnected tools and high processing fees. We consolidate everything and cut fees to 1%.",
+    'leads': "More leads start with better visibility and a website that works. We've helped businesses go from invisible to 3,000+ monthly searches.",
+    'help': "That's exactly why we're here. Let us look at your business and show you the fastest path to growth."
+  };
+
+  function handleChatSelection(value, text) {
+    options.forEach(function(o) { o.classList.remove('selected'); });
+
+    setTimeout(function() {
+      var optionsEl = document.getElementById('contactChatOptions');
+      var promptEl = chatBody.querySelector('.chat-prompt');
+      if (optionsEl) optionsEl.style.display = 'none';
+      if (promptEl) promptEl.style.display = 'none';
+
+      // Show user message
+      var userBubble = document.createElement('div');
+      userBubble.style.cssText = 'background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.2);border-radius:16px 16px 4px 16px;padding:12px 16px;margin-bottom:12px;font-size:0.9rem;text-align:right;color:var(--text);';
+      userBubble.textContent = text || value;
+      chatBody.appendChild(userBubble);
+
+      // Show bot response after delay
+      setTimeout(function() {
+        var botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble';
+        botBubble.innerHTML = (responseMap[value] || "Interesting! Let's dig into that.") + '<br><br><strong style="color:var(--purple);">Fill out the form and we\'ll follow up personally.</strong>';
+        chatBody.appendChild(botBubble);
+      }, 800);
+    }, 300);
+  }
+
+  options.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      handleChatSelection(this.getAttribute('data-value'), this.textContent);
+    });
+  });
+
+  chatSend.addEventListener('click', function() {
+    var val = chatInput.value.trim();
+    if (val) {
+      handleChatSelection('custom', val);
+      chatInput.value = '';
+    }
+  });
+
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      var val = chatInput.value.trim();
+      if (val) {
+        handleChatSelection('custom', val);
+        chatInput.value = '';
+      }
+    }
+  });
+
+  // ========================================
+  // Contact Form Handling
+  // ========================================
+  var form = document.getElementById('contactForm');
+  var formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', function(e) {
+    // Check honeypot
+    var honeypot = document.getElementById('company_fax');
+    if (honeypot && honeypot.value) {
+      e.preventDefault();
+      return;
+    }
+
+    // Basic client-side validation feedback
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      e.preventDefault();
+      formMessage.className = 'form-message error';
+      formMessage.textContent = 'Please fill out all required fields.';
+      return;
+    }
+
+    // Show sending state
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+  });
+})();
+</script>

@@ -1,56 +1,208 @@
 ---
 layout: base.njk
 title: Marketing for Therapists & Counselors — GullStack
-description: Websites, booking, and payment processing built for mental health professionals. One therapist cut fees from 8% to 1% and cried. See how we help therapists grow.
+description: HIPAA-mindful websites, 1% payment processing, online booking, and SEO for therapists. One counselor cut fees from 8% to 1% and saved $7,000 a year. See how we help mental health professionals grow.
 ogTitle: Marketing for Therapists — GullStack
-ogDescription: Websites, booking, and payment processing that doesn't gouge you. Built for mental health professionals.
+ogDescription: Websites, booking, and payment processing built for mental health professionals. 1% processing fees instead of 8%.
+headerStyle: inner
+activeNav: industries
+breadcrumb:
+  - name: Industries
+    url: /industries/
+  - name: Therapists & Counselors
+    url: /industries/therapists/
+faqs:
+  - q: Is my client data HIPAA compliant with GullStack?
+    a: We build HIPAA-mindful systems with encrypted data transmission, secure hosting, and privacy-first design. Our websites do not store protected health information (PHI) directly. For scheduling and intake forms, we integrate with HIPAA-compliant practice management systems you already use or recommend trusted partners that sign Business Associate Agreements.
+  - q: How does 1% payment processing work for therapy practices?
+    a: Most therapists use services like SimplePractice, IvyPay, or Square that charge 2.5-8% per transaction. On a $150 session, that is $4 to $12 gone every time. Our 1% processing rate means you keep more of every session. On 20 clients per week at $150 each, you save $3,000 to $7,000 per year compared to typical processors.
+  - q: Can clients book appointments directly through my website?
+    a: Yes. We build online booking directly into your website so clients can see your availability, choose a session type, and book instantly. Automatic confirmation emails and text reminders reduce no-shows. The system syncs with your calendar so you never get double-booked.
+  - q: Will you help me show up when people search for a therapist near me?
+    a: Absolutely. Local SEO is one of our core services. We optimize your Google Business Profile, build location-specific content, and structure your website so you rank for searches like therapist near me, counselor in your city, and anxiety therapist plus your area. Most of our therapy clients see meaningful ranking improvements within 60 to 90 days.
+  - q: Do I need to switch my practice management system to work with GullStack?
+    a: No. We integrate with the tools you already use including SimplePractice, TherapyNotes, Jane App, and others. Our systems complement your existing workflow rather than replacing it. We handle the marketing and business side so you can focus on your clients.
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  
-  .case-study-box { max-width: 700px; margin: 0 auto 80px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(168,85,247,0.05)); border: 1px solid rgba(99,102,241,0.2); border-radius: 20px; padding: 40px; }
-  .case-study-box .quote { font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.5; margin-bottom: 24px; }
-  .case-study-box .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 24px; border-top: 1px solid rgba(99,102,241,0.2); }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 650px; margin: 0 auto 40px;
+    position: relative; z-index: 1; line-height: 1.7;
+  }
+  .problems-section { padding: 0 0 80px; }
+  .problems-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #f87171; }
+  .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+  .solutions-section { padding: 0 0 80px; }
+  .solutions-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .service-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+  }
+  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
+  .service-card .card-link {
+    color: var(--indigo); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.2s;
+  }
+  .service-card .card-link:hover { gap: 8px; }
+  .case-study-box {
+    max-width: 750px; margin: 0 auto 80px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    padding: 48px;
+  }
+  .case-study-box .cs-tag {
+    display: inline-block;
+    background: rgba(79,70,229,0.15);
+    color: var(--indigo);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .case-study-box .quote {
+    font-size: 1.35rem; line-height: 1.5;
+    margin-bottom: 28px; font-style: italic;
+  }
+  .case-study-box .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; padding-top: 24px;
+    border-top: 1px solid rgba(79,70,229,0.2);
+  }
+  @media (max-width: 600px) { .case-study-box .stats { grid-template-columns: 1fr; } }
   .case-study-box .stat { text-align: center; }
-  .case-study-box .stat .number { font-family: var(--font-serif); font-size: 2rem; color: var(--accent); }
+  .case-study-box .stat .number { font-size: 2rem; color: var(--indigo); font-weight: 700; }
   .case-study-box .stat .label { font-size: 0.85rem; color: var(--text-muted); }
-  .case-study-box .cta { text-align: center; margin-top: 24px; }
-  .case-study-box .cta a { color: var(--accent); font-weight: 600; }
-  
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } .case-study-box .stats { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  .content-section ul { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; padding-left: 24px; }
-  .content-section li { margin-bottom: 8px; }
-  
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .case-study-box .cs-link {
+    text-align: center; margin-top: 24px;
+  }
+  .case-study-box .cs-link a {
+    color: var(--indigo); font-weight: 600; text-decoration: none;
+  }
+  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover, .faq-item.active { border-color: var(--indigo); }
+  .faq-question {
+    width: 100%; padding: 24px 28px;
+    background: none; border: none; color: var(--text);
+    font-size: 1.05rem; font-weight: 600;
+    text-align: left; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--indigo);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    color: var(--text-muted); line-height: 1.7;
+  }
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">FOR THERAPISTS & COUNSELORS</span>
-    <h1>Marketing That Understands Your Practice</h1>
-    <p>You became a therapist to help people, not to figure out payment processing and website design. We handle the business side so you can focus on your clients.</p>
-    <a href="/#contact" class="btn btn-primary">See What's Possible →</a>
-  </div>
-  
-  <div class="case-study-box">
+<section class="page-hero">
+  <span class="section-tag">Therapists &amp; Counselors</span>
+  <h1>Marketing That <span class="gradient-text">Understands</span> Your Practice</h1>
+  <p>You became a therapist to help people, not to wrestle with payment processors and website builders. We handle the business and marketing side so you can focus on your clients.</p>
+  <a href="/contact/" class="btn btn-primary btn-lg">See What's Possible &#8594;</a>
+</section>
+
+<!-- Case Study Reference -->
+<section class="container">
+  <div class="case-study-box fade-in">
+    <span class="cs-tag">Agile Counseling Case Study</span>
     <p class="quote">"She cried when we showed her the numbers. Not because of the website — because she just got 7% of her revenue back."</p>
     <div class="stats">
       <div class="stat">
-        <div class="number">8%→1%</div>
+        <div class="number">8% &#8594; 1%</div>
         <div class="label">Processing Fees</div>
       </div>
       <div class="stat">
@@ -58,75 +210,110 @@ css: |
         <div class="label">Website Cost</div>
       </div>
       <div class="stat">
-        <div class="number">$7K</div>
+        <div class="number">$7K+</div>
         <div class="label">Annual Savings</div>
       </div>
     </div>
-    <div class="cta"><a href="/blog/she-cried/">Read her full story →</a></div>
+    <div class="cs-link"><a href="/blog/agile-counseling-case-study/">Read the full case study &#8594;</a></div>
   </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">🌐</div>
-      <h3>Professional Website</h3>
-      <p>Warm, trustworthy design that helps potential clients feel comfortable reaching out. Optimized for local search.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📅</div>
-      <h3>Online Booking</h3>
-      <p>Clients book appointments directly. Syncs with your calendar, sends reminders, reduces no-shows.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">💳</div>
-      <h3>1% Payment Processing</h3>
-      <p>Stop losing 3-8% on every session. Our 1% rate puts thousands back in your pocket every year.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📝</div>
-      <h3>Digital Intake Forms</h3>
-      <p>Clients complete paperwork before their first session. Secure, HIPAA-friendly, fully integrated.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔒</div>
-      <h3>Secure Client Portal</h3>
-      <p>Share resources, collect payments, and communicate securely with clients between sessions.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔍</div>
-      <h3>Local SEO</h3>
-      <p>Show up when people search "therapist near me" in your area. Get found by the clients who need you.</p>
+</section>
+
+<!-- Industry Problems -->
+<section class="problems-section">
+  <div class="container">
+    <h2>What Therapists <span class="gradient-text">Struggle With</span></h2>
+    <div class="problems-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128176;</div>
+        <h3>Payment Processing Gouging</h3>
+        <p>SimplePractice, IvyPay, and Square charge 2.5-8% per transaction. On 20 clients a week at $150 each, that is $4,000-$7,000 per year vanishing in fees.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128683;</div>
+        <h3>Invisible Online Presence</h3>
+        <p>Potential clients search "therapist near me" every day. If your website is buried on page three or does not exist, those clients are booking with your competitors.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128274;</div>
+        <h3>HIPAA Compliance Anxiety</h3>
+        <p>You know you need a website and online booking, but the fear of accidentally violating HIPAA keeps you stuck with outdated systems or no online presence at all.</p>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Built for How You Work</h2>
-    <p>We understand that therapy practices are different from other businesses. You have considerations around privacy, client trust, and the sensitive nature of your work.</p>
-    
-    <p>Every system we build keeps that in mind:</p>
-    <ul>
-      <li>HIPAA-friendly design and data handling</li>
-      <li>Warm, calming aesthetics that put potential clients at ease</li>
-      <li>Clear service descriptions without clinical jargon</li>
-      <li>Easy-to-find contact information and booking</li>
-      <li>Integration with practice management systems you already use</li>
-    </ul>
-    
-    <h2>The Payment Processing Problem</h2>
-    <p>Most therapists use services like SimplePractice, IvyPay, or Square for payments. They charge 2.5-3.5% per transaction — some even higher.</p>
-    
-    <p>On a $150 session, that's $4-5 gone. Every session. If you see 20 clients a week, that's $4,000-5,000 per year just in processing fees.</p>
-    
-    <p>We cut that to 1%. That's real money back in your pocket — enough to cover a vacation, pay off student loans faster, or invest back in your practice.</p>
+</section>
+
+<!-- Solutions -->
+<section class="solutions-section">
+  <div class="container">
+    <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
+    <div class="solutions-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127760;</div>
+        <h3>Professional Website</h3>
+        <p>Warm, trustworthy design that helps potential clients feel comfortable reaching out. Optimized for local search and built with HIPAA-mindful practices.</p>
+        <a href="/services/websites/" class="card-link">Website services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128197;</div>
+        <h3>Online Booking</h3>
+        <p>Clients book appointments directly from your site. Calendar sync, automatic reminders, and intake form integration reduce no-shows and save you hours.</p>
+        <a href="/services/booking-scheduling/" class="card-link">Booking services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128179;</div>
+        <h3>1% Payment Processing</h3>
+        <p>Stop losing 3-8% on every session. Our 1% rate puts thousands back in your pocket annually. Same convenience, dramatically lower cost.</p>
+        <a href="/services/payment-processing/" class="card-link">Payment services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128270;</div>
+        <h3>Local SEO</h3>
+        <p>Show up when people search "therapist near me" in your area. Google Business Profile optimization, local content, and proper schema markup.</p>
+        <a href="/services/seo-aeo/" class="card-link">SEO services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128221;</div>
+        <h3>Digital Intake Forms</h3>
+        <p>Clients complete paperwork before their first session. Secure, integrated with your practice management system, and one less thing to worry about.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128274;</div>
+        <h3>Secure Client Portal</h3>
+        <p>Share resources, collect payments, and communicate securely with clients between sessions. Privacy-first design throughout.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to Simplify Your Practice?</h2>
-    <p>Let's talk about what you need. Website, booking, payments, or all of the above — we'll build something that works for your practice.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-</main>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Simplify Your Practice?</h2>
+      <p>Website, booking, payments, or all of the above. Let us build something that works for your practice so you can get back to helping your clients.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Started &#8594;</a>
+    </div>
+  </div>
+</section>

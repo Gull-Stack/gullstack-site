@@ -3,12 +3,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("index.html");
   eleventyConfig.ignores.add("blog/index.html");
   eleventyConfig.ignores.add("blog/gold-wash-plants-case-study.html");
-  
+
   // Ignore markdown files (not content)
   eleventyConfig.ignores.add("*.md");
   eleventyConfig.ignores.add("PLAYBOOK.md");
   eleventyConfig.ignores.add("README.md");
-  
+
   // Pass through static assets
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("*.png");
@@ -18,27 +18,39 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fly");
   eleventyConfig.addPassthroughCopy("contract");
   eleventyConfig.addPassthroughCopy("projects");
-  eleventyConfig.addPassthroughCopy("ai-consulting");
-  eleventyConfig.addPassthroughCopy("pitch"); // Keep pitch pages as-is (standalone client pitches)
-  eleventyConfig.addPassthroughCopy("pitch/**/*.{jpg,jpeg,png,gif,svg,webp,ico}"); // Ensure pitch images are copied
-  eleventyConfig.addPassthroughCopy("assets"); // Pitch assets (logos, images)
-  eleventyConfig.addPassthroughCopy("privacy.html"); // Static for now
-  
-  // Pass through remaining blog HTML files (not yet converted)
-  // Explicitly list files NOT yet converted to njk
+  eleventyConfig.addPassthroughCopy("pitch");
+  eleventyConfig.addPassthroughCopy("pitch/**/*.{jpg,jpeg,png,gif,svg,webp,ico}");
+  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("admin");
+  eleventyConfig.addPassthroughCopy("supertool");
+  eleventyConfig.addPassthroughCopy("images");
+
+  // Static HTML pages (passed through as-is)
+  eleventyConfig.addPassthroughCopy("privacy.html");
+  eleventyConfig.addPassthroughCopy("terms.html");
+  eleventyConfig.addPassthroughCopy("sales-agent-blueprint.html");
+  eleventyConfig.addPassthroughCopy("sunwest-sponsorship.html");
+
+  // Pass through remaining blog HTML files (legacy, not yet converted)
   eleventyConfig.addPassthroughCopy("blog/is-blogging-really-worth-it.html");
   eleventyConfig.addPassthroughCopy("blog/marketing-starts-telling-story.html");
   eleventyConfig.addPassthroughCopy("blog/you-should-write-your-own-content.html");
   eleventyConfig.addPassthroughCopy("blog/professional-photography-game-changing.html");
   eleventyConfig.addPassthroughCopy("blog/so-we-created-a-fake-business.html");
   eleventyConfig.addPassthroughCopy("blog/you-should-really-own-your-own-domain.html");
-  
+
   // Pass through blog images
   eleventyConfig.addPassthroughCopy("blog/**/*.{jpg,jpeg,png,gif,svg,webp}");
-  
-  // Keep URLs clean (no trailing slash, no .html)
-  // This matches vercel.json cleanUrls: true
-  
+
+  // API routes
+  eleventyConfig.addPassthroughCopy("api");
+
+  // Date filter for sitemap
+  eleventyConfig.addFilter("date", function(date) {
+    const d = new Date(date);
+    return d.toISOString().split('T')[0];
+  });
+
   return {
     dir: {
       input: ".",
@@ -46,7 +58,6 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data"
     },
-    // Template formats to process
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk"

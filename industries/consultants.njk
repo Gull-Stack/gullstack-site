@@ -1,85 +1,324 @@
 ---
 layout: base.njk
 title: Marketing for Consultants & Coaches — GullStack
-description: Professional websites, proposal systems, and client management for consultants and coaches. Look credible, close more deals, and scale your practice.
+description: Professional websites, scheduling integration, proposal tools, CRM for client management, and content marketing for consultants and coaches. Look credible, close more deals, and scale your practice.
 ogTitle: Marketing for Consultants & Coaches — GullStack
-ogDescription: Professional websites, proposals, and client management. Look credible. Close more deals.
+ogDescription: Professional websites, proposals, and client management. Look credible. Close more deals. Scale your practice.
+headerStyle: inner
+activeNav: industries
+breadcrumb:
+  - name: Industries
+    url: /industries/
+  - name: Consultants & Coaches
+    url: /industries/consultants/
+faqs:
+  - q: How does GullStack help consultants generate more leads?
+    a: We build a complete lead generation system that works 24/7. It starts with a website optimized for search and designed to convert visitors into discovery call bookings. We add content marketing through blog posts and thought leadership pieces that position you as the expert in your space. SEO brings organic traffic. Marketing automation nurtures leads with email sequences. And your CRM tracks everything from first touch to signed contract so nothing falls through the cracks.
+  - q: Can I use content marketing to grow my consulting business?
+    a: Content marketing is one of the most powerful tools for consultants and coaches. We help you create blog posts, case studies, and thought leadership content that demonstrates your expertise and attracts ideal clients through organic search. Consistent content builds authority over time, and every piece you publish keeps working for you indefinitely. We handle the strategy, optimization, and distribution so you can focus on what you know best.
+  - q: How do I scale my consulting business without burning out?
+    a: Scaling a consulting business requires systems that reduce the manual work on everything except your core expertise. We automate your lead qualification, client onboarding, scheduling, invoicing, and follow-ups. That means less time on admin and more time delivering value to clients. As you grow, these systems scale with you without requiring additional staff or hours in your day.
+  - q: What if I already have a website? Do I need to start over?
+    a: Not necessarily. We will evaluate your current website and give you an honest assessment. If it is converting well and just needs some optimization, we can work with what you have. If it is actively hurting your credibility or not generating leads, we may recommend a rebuild. Either way, the goal is the same — a professional online presence that consistently brings in qualified prospects.
+  - q: How does your proposal system work?
+    a: Our proposal system lets you create professional, branded proposals in minutes using customizable templates. Clients receive a beautiful, interactive proposal they can review on any device. You get notified when they open it, how long they spend on each section, and when they are ready to sign. Electronic signatures and payment collection are built in, so you go from proposal to paid without any friction.
 css: |
-  main { padding-top: 240px; padding-bottom: 100px; } @media (max-width: 768px) { main { padding-top: 180px; } }
-  .service-hero { text-align: center; margin-bottom: 100px; }
-  .service-hero .tag { display: inline-block; padding: 8px 16px; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 600; color: var(--accent); margin-bottom: 24px; letter-spacing: 0.05em; }
-  .service-hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 24px; line-height: 1.1; }
-  .service-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 650px; margin: 0 auto 40px; line-height: 1.6; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 100px; }
-  @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
-  .feature-card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-  .feature-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
-  .feature-card p { color: var(--text-muted); line-height: 1.6; }
-  .content-section { max-width: 800px; margin: 0 auto 80px; }
-  .content-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; }
-  .content-section p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; }
-  .cta-section { text-align: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 24px; padding: 60px 40px; max-width: 700px; margin: 0 auto; }
-  .cta-section h2 { font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; }
-  .cta-section p { color: var(--text-muted); margin-bottom: 32px; }
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    max-width: 800px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem; color: var(--text-muted);
+    max-width: 650px; margin: 0 auto 40px;
+    position: relative; z-index: 1; line-height: 1.7;
+  }
+  .problems-section { padding: 0 0 80px; }
+  .problems-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
+    border: 1px solid rgba(239,68,68,0.15);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+  }
+  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
+  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #f87171; }
+  .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+  .solutions-section { padding: 0 0 80px; }
+  .solutions-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .solutions-grid { grid-template-columns: 1fr; } }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .service-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-2px);
+  }
+  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
+  .service-card .card-link {
+    color: var(--indigo); font-weight: 600; font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: gap 0.2s;
+  }
+  .service-card .card-link:hover { gap: 8px; }
+  .authority-box {
+    max-width: 750px; margin: 0 auto 80px;
+    background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
+    border: 1px solid rgba(79,70,229,0.2);
+    border-radius: var(--radius-xl);
+    padding: 48px;
+  }
+  .authority-box .auth-tag {
+    display: inline-block;
+    background: rgba(79,70,229,0.15);
+    color: var(--indigo);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .authority-box h3 { font-size: 1.5rem; margin-bottom: 16px; }
+  .authority-box .desc {
+    color: var(--text-muted); margin-bottom: 28px; line-height: 1.7;
+  }
+  .authority-box .pillars {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .authority-box .pillars { grid-template-columns: 1fr; } }
+  .authority-box .pillar {
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+  }
+  .authority-box .pillar h4 {
+    font-size: 1rem; margin-bottom: 8px; color: var(--indigo);
+  }
+  .authority-box .pillar p {
+    font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+  }
+  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center; margin-bottom: 48px;
+  }
+  .faq-list { display: flex; flex-direction: column; gap: 16px; }
+  .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover, .faq-item.active { border-color: var(--indigo); }
+  .faq-question {
+    width: 100%; padding: 24px 28px;
+    background: none; border: none; color: var(--text);
+    font-size: 1.05rem; font-weight: 600;
+    text-align: left; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; color: var(--indigo);
+    transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .faq-answer-inner {
+    padding: 0 28px 24px;
+    color: var(--text-muted); line-height: 1.7;
+  }
+  .cta-section { padding: 0 0 100px; }
+  .cta-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
-<main class="container">
-  <div class="service-hero">
-    <span class="tag">FOR CONSULTANTS & COACHES</span>
-    <h1>Look Professional. Close More Deals.</h1>
-    <p>Your expertise is your product. Your website, proposals, and client experience should reflect that expertise. We help consultants and coaches build credibility and scale their practice.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
-  </div>
-  
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">🌐</div>
-      <h3>Authority Website</h3>
-      <p>Professional design that positions you as the expert. Case studies, testimonials, and clear service offerings.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📋</div>
-      <h3>Proposal System</h3>
-      <p>Create beautiful proposals in minutes. Track opens, get e-signatures, and close deals faster.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">💳</div>
-      <h3>Invoicing & Payments</h3>
-      <p>Send invoices, collect payments, and manage recurring retainers. 1% processing — not 3%.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📅</div>
-      <h3>Easy Scheduling</h3>
-      <p>Clients book discovery calls and sessions directly. No more calendar ping-pong.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">🔒</div>
-      <h3>Client Portal</h3>
-      <p>Share deliverables, collect information, and communicate with clients in one secure place.</p>
-    </div>
-    
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>CRM & Pipeline</h3>
-      <p>Track every prospect from first touch to signed contract. Never lose a lead again.</p>
+<section class="page-hero">
+  <span class="section-tag">Consultants &amp; Coaches</span>
+  <h1>Look Professional. <span class="gradient-text">Close More Deals.</span></h1>
+  <p>Your expertise is your product. Your website, proposals, and client experience should reflect that expertise at every touchpoint. We help consultants and coaches build credibility and scale their practice.</p>
+  <a href="/contact/" class="btn btn-primary btn-lg">Get Started &#8594;</a>
+</section>
+
+<!-- Authority Building -->
+<section class="container">
+  <div class="authority-box fade-in">
+    <span class="auth-tag">The Credibility System</span>
+    <h3>Everything That Positions You as the Expert</h3>
+    <p class="desc">A clunky website, messy proposals, or awkward payment process undermines the premium positioning you have worked to build. We make sure every touchpoint reinforces your authority.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <h4>Professional Website</h4>
+        <p>Custom design that positions you as the authority. Case studies, testimonials, and clear service offerings that convert visitors into discovery calls.</p>
+      </div>
+      <div class="pillar">
+        <h4>Content Marketing</h4>
+        <p>Blog posts and thought leadership pieces optimized for search. Demonstrate expertise, attract organic traffic, and build trust before the first conversation.</p>
+      </div>
+      <div class="pillar">
+        <h4>Polished Proposals</h4>
+        <p>Beautiful, interactive proposals with open tracking, e-signatures, and built-in payment collection. Go from pitch to paid without friction.</p>
+      </div>
+      <div class="pillar">
+        <h4>Client Experience</h4>
+        <p>Seamless scheduling, secure portals for sharing deliverables, automated invoicing, and professional communication at every stage.</p>
+      </div>
     </div>
   </div>
-  
-  <div class="content-section">
-    <h2>Your Reputation Is Everything</h2>
-    <p>Clients are hiring you for your expertise. Your online presence should reinforce that expertise at every turn — from the first website visit to the final invoice.</p>
-    
-    <p>A clunky website, messy proposals, or awkward payment process undermines the premium positioning you've worked to build. We help you look as professional as you are.</p>
+</section>
+
+<!-- Industry Problems -->
+<section class="problems-section">
+  <div class="container">
+    <h2>What Consultants <span class="gradient-text">Struggle With</span></h2>
+    <div class="problems-grid">
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128683;</div>
+        <h3>Credibility Gap</h3>
+        <p>You have deep expertise, but your website looks like it was built in 2015. Potential clients Google you before the discovery call, and a weak online presence undermines your value before you even speak.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128338;</div>
+        <h3>Admin Time Drain</h3>
+        <p>Scheduling calls, writing proposals, chasing invoices, managing client communication — the business side of consulting eats into the hours you should be spending on billable client work.</p>
+      </div>
+      <div class="problem-card fade-in">
+        <div class="problem-icon">&#128200;</div>
+        <h3>Feast or Famine Pipeline</h3>
+        <p>When you are busy with client work, marketing stops. When projects end, you scramble for the next one. Without a consistent lead generation system, revenue is unpredictable.</p>
+      </div>
+    </div>
   </div>
-  
-  <div class="cta-section">
-    <h2>Ready to Elevate Your Practice?</h2>
-    <p>Let's build a system that matches your expertise and helps you scale.</p>
-    <a href="/#contact" class="btn btn-primary">Get Started →</a>
+</section>
+
+<!-- Solutions -->
+<section class="solutions-section">
+  <div class="container">
+    <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
+    <div class="solutions-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">&#127760;</div>
+        <h3>Authority Website</h3>
+        <p>Professional, custom-designed website that positions you as the expert in your field. Case studies, testimonials, service descriptions, and clear calls to action.</p>
+        <a href="/services/websites/" class="card-link">Website services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128197;</div>
+        <h3>Scheduling Integration</h3>
+        <p>Clients book discovery calls and sessions directly from your site. No more email ping-pong. Calendar sync, buffer times, and automatic reminders included.</p>
+        <a href="/services/booking-scheduling/" class="card-link">Booking services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128203;</div>
+        <h3>Proposal System</h3>
+        <p>Create polished proposals in minutes. Track opens, get e-signatures, and collect payments on approval. Professional proposals that close deals faster.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128202;</div>
+        <h3>CRM &amp; Pipeline</h3>
+        <p>Track every prospect from first touch to signed contract. Automated follow-ups, pipeline visibility, and client management in one place. Never lose a lead.</p>
+        <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128179;</div>
+        <h3>Invoicing at 1%</h3>
+        <p>Send professional invoices, collect payments, and manage recurring retainers. 1% processing instead of 3%. On a $10,000 monthly retainer, that is $200 saved per month.</p>
+        <a href="/services/payment-processing/" class="card-link">Payment services &#8594;</a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">&#128270;</div>
+        <h3>SEO &amp; Content Strategy</h3>
+        <p>Blog posts and thought leadership content that ranks on Google and positions you as the go-to expert. Organic traffic that builds a consistent pipeline over time.</p>
+        <a href="/services/seo-aeo/" class="card-link">SEO services &#8594;</a>
+      </div>
+    </div>
   </div>
-</main>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Elevate Your Practice?</h2>
+      <p>Let us build a system that matches your expertise, generates leads consistently, and frees you from the admin work that eats into your billable hours.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Started &#8594;</a>
+    </div>
+  </div>
+</section>
