@@ -133,42 +133,7 @@ css: |
     color: var(--text);
     line-height: 1.5;
   }
-  .chat-prompt {
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
-  .chat-options {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .chat-option {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: left;
-    font-family: var(--font-body);
-  }
-  .chat-option:hover {
-    border-color: var(--indigo);
-    background: var(--glow-indigo);
-    transform: translateX(4px);
-  }
-  .chat-option.selected {
-    border-color: var(--purple);
-    background: var(--glow-purple);
-  }
+  /* options removed — free text only */
   .chat-footer {
     padding: 12px 20px;
     border-top: 1px solid var(--border);
@@ -397,21 +362,13 @@ css: |
           <div class="chat-status">Online</div>
         </div>
       </div>
-      <div class="chat-body">
+      <div class="chat-body" id="chatBody">
         <div class="chat-bubble">
           What's the #1 thing holding your business back right now?
         </div>
-        <div class="chat-prompt">Select one to get started:</div>
-        <div class="chat-options" id="chatOptions">
-          <button class="chat-option" data-value="website">I need a better website</button>
-          <button class="chat-option" data-value="visibility">Nobody can find me online</button>
-          <button class="chat-option" data-value="fees">I'm paying too much for tools</button>
-          <button class="chat-option" data-value="leads">I need more leads</button>
-          <button class="chat-option" data-value="help">I don't know where to start</button>
-        </div>
       </div>
       <div class="chat-footer">
-        <input type="text" class="chat-input" placeholder="Or type your own..." id="chatInput">
+        <input type="text" class="chat-input" placeholder="Type here..." id="chatInput">
         <button class="chat-send" id="chatSend">Send</button>
       </div>
     </div>
@@ -420,63 +377,40 @@ css: |
 
 <script>
 (function() {
-  const options = document.querySelectorAll('.chat-option');
-  const chatBody = document.querySelector('.chat-body');
+  const chatBody = document.getElementById('chatBody');
   const chatInput = document.getElementById('chatInput');
   const chatSend = document.getElementById('chatSend');
 
-  function handleSelection(value, text) {
-    // Visual feedback
-    options.forEach(o => o.classList.remove('selected'));
-    event.target.classList.add('selected');
+  function sendMessage() {
+    const val = chatInput.value.trim();
+    if (!val) return;
 
-    // After brief delay, show response
+    // Show user message
+    const userBubble = document.createElement('div');
+    userBubble.style.cssText = 'background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.2);border-radius:16px 16px 4px 16px;padding:12px 16px;margin-bottom:12px;font-size:0.9rem;text-align:right;color:var(--text);';
+    userBubble.textContent = val;
+    chatBody.appendChild(userBubble);
+    chatInput.value = '';
+
+    // Show typing indicator
+    const typing = document.createElement('div');
+    typing.className = 'chat-bubble';
+    typing.innerHTML = '<span style="opacity:0.5;">Bogey is typing...</span>';
+    chatBody.appendChild(typing);
+
+    // TODO: Replace with Bogey API call
     setTimeout(() => {
-      const responseMap = {
-        'website': "A website that actually converts visitors into customers? That's exactly what we build. Let's talk about what your business needs.",
-        'visibility': "Getting found on Google and AI search engines is our specialty. We call it AEO — Answer Engine Optimization. Let's get you visible.",
-        'fees': "Most small businesses lose $6K-18K/year on disconnected tools and high processing fees. We consolidate everything and cut fees to 1%.",
-        'leads': "More leads start with better visibility and a website that works. We've helped businesses go from invisible to 3,000+ monthly searches.",
-        'help': "That's exactly why we're here. Let us look at your business and show you the fastest path to growth."
-      };
-
-      const optionsEl = document.getElementById('chatOptions');
-      const promptEl = document.querySelector('.chat-prompt');
-      if (optionsEl) optionsEl.style.display = 'none';
-      if (promptEl) promptEl.style.display = 'none';
-
-      // Show user message
-      const userBubble = document.createElement('div');
-      userBubble.style.cssText = 'background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.2);border-radius:16px 16px 4px 16px;padding:12px 16px;margin-bottom:12px;font-size:0.9rem;text-align:right;color:var(--text);';
-      userBubble.textContent = text || value;
-      chatBody.appendChild(userBubble);
-
-      // Show bot response
-      setTimeout(() => {
-        const botBubble = document.createElement('div');
-        botBubble.className = 'chat-bubble';
-        botBubble.innerHTML = (responseMap[value] || "Interesting! Let's dig into that.") + '<br><br><a href="/contact/" style="color:#a855f7;font-weight:600;">Book a free consultation →</a>';
-        chatBody.appendChild(botBubble);
-      }, 800);
-    }, 300);
+      typing.remove();
+      const botBubble = document.createElement('div');
+      botBubble.className = 'chat-bubble';
+      botBubble.innerHTML = "Great question. We see this a lot — and we have a proven system to fix it. Let's talk about your specific situation." + '<br><br><a href="/contact/" style="color:#a855f7;font-weight:600;">Book a free consultation →</a>';
+      chatBody.appendChild(botBubble);
+    }, 1200);
   }
 
-  options.forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      handleSelection(this.getAttribute('data-value'), this.textContent);
-    });
-  });
-
-  chatSend.addEventListener('click', () => {
-    const val = chatInput.value.trim();
-    if (val) handleSelection('custom', val);
-  });
-
+  chatSend.addEventListener('click', sendMessage);
   chatInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const val = chatInput.value.trim();
-      if (val) handleSelection('custom', val);
-    }
+    if (e.key === 'Enter') sendMessage();
   });
 })();
 </script>
