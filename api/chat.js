@@ -33,7 +33,7 @@ RULES:
     const response = await fetch('https://bogey.gullstack.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer 612bf7f020065fe753c69882a62d52169d8ea9bb9baa1204',
+        'Authorization': `Bearer ${process.env.BOGEY_GATEWAY_TOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
