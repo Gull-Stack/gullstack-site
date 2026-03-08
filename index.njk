@@ -122,6 +122,8 @@ css: |
   .chat-body {
     padding: 20px;
     background: var(--bg-card);
+    max-height: 350px;
+    overflow-y: auto;
   }
   .chat-bubble {
     background: rgba(79,70,229,0.1);
@@ -383,12 +385,7 @@ css: |
   let msgCount = 0;
   let userEmail = null;
   let emailGateActive = false;
-
-  const responses = [
-    "That's a common challenge. Most businesses we work with were in the same spot before they found us. Tell me more — what does your business do?",
-    "Got it. So here's what we typically see: the problem isn't effort, it's systems. You're probably doing 10 things manually that AI could handle overnight. What's eating most of your time right now?",
-    "This is exactly what our AI workforce solves. We've helped businesses cut their workload by 50% while growing revenue 40%. I'd love to show you how — but first..."
-  ];
+  let chatHistory = [];
 
   function showEmailGate() {
     emailGateActive = true;
@@ -398,7 +395,7 @@ css: |
 
     const gateBubble = document.createElement('div');
     gateBubble.className = 'chat-bubble';
-    gateBubble.innerHTML = "I want to give you a real breakdown — not generic advice. Drop your email and I'll keep the conversation going with specifics for your business. 🔒 <span style='opacity:0.5;font-size:0.8rem;'>No spam, ever.</span>";
+    gateBubble.innerHTML = "I want to give you a real breakdown — not generic advice. Drop your email and I'll send you a custom analysis for your business. <span style='opacity:0.5;font-size:0.8rem;'>No spam, ever.</span>";
     chatBody.appendChild(gateBubble);
     chatBody.scrollTop = chatBody.scrollHeight;
   }
@@ -407,7 +404,24 @@ css: |
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
   }
 
-  function sendMessage() {
+  async function callBogey(userMsg) {
+    chatHistory.push({ role: 'user', content: userMsg });
+    try {
+      const resp = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: chatHistory }),
+      });
+      const data = await resp.json();
+      const reply = data.reply || "Book a call at gullstack.com/contact — I'll map out exactly what you need.";
+      chatHistory.push({ role: 'assistant', content: reply });
+      return reply;
+    } catch (e) {
+      return "Looks like I'm having a moment. <a href='/contact/' style='color:#a855f7;font-weight:600;'>Book a call</a> and we'll pick this up live.";
+    }
+  }
+
+  async function sendMessage() {
     const val = chatInput.value.trim();
     if (!val) return;
 
@@ -416,7 +430,7 @@ css: |
       if (!isValidEmail(val)) {
         const errBubble = document.createElement('div');
         errBubble.className = 'chat-bubble';
-        errBubble.innerHTML = "<span style='opacity:0.7;'>That doesn't look like an email. Try again — I promise it's worth it.</span>";
+        errBubble.innerHTML = "<span style='opacity:0.7;'>That doesn't look like an email. Try again.</span>";
         chatBody.appendChild(errBubble);
         chatBody.scrollTop = chatBody.scrollHeight;
         return;
@@ -427,18 +441,21 @@ css: |
       chatInput.placeholder = 'Type here...';
       chatInput.value = '';
 
-      // Show user email
       const userBubble = document.createElement('div');
       userBubble.style.cssText = 'background:rgba(168,85,247,0.15);border:1px solid rgba(168,85,247,0.2);border-radius:16px 16px 4px 16px;padding:12px 16px;margin-bottom:12px;font-size:0.9rem;text-align:right;color:var(--text);';
       userBubble.textContent = val;
       chatBody.appendChild(userBubble);
 
-      // TODO: Send email to CRM/API
-      // fetch('/api/lead', { method:'POST', body: JSON.stringify({ email: userEmail }) });
+      // Send lead to API
+      fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: [{ role: 'user', content: '[LEAD CAPTURED] Email: ' + val + ' — Previous conversation: ' + chatHistory.map(m => m.role + ': ' + m.content).join(' | ') }] }),
+      }).catch(() => {});
 
       const thanksBubble = document.createElement('div');
       thanksBubble.className = 'chat-bubble';
-      thanksBubble.innerHTML = "Perfect. Now let's get specific. Based on what you've told me, here's what I'd recommend:<br><br><strong>1.</strong> An AEO-optimized website so AI search engines recommend YOU<br><strong>2.</strong> An AI workforce handling your daily operations<br><strong>3.</strong> A growth system that runs while you sleep<br><br><a href='/contact/' style='color:#a855f7;font-weight:600;'>Book a free strategy call →</a> and we'll map it out for your business.";
+      thanksBubble.innerHTML = "Got it. We'll send you a custom breakdown within 24 hours. In the meantime — <a href='/contact/' style='color:#a855f7;font-weight:600;'>book a free strategy call</a> if you want to move fast.";
       chatBody.appendChild(thanksBubble);
       chatBody.scrollTop = chatBody.scrollHeight;
       return;
@@ -455,26 +472,29 @@ css: |
     // Show typing indicator
     const typing = document.createElement('div');
     typing.className = 'chat-bubble';
-    typing.innerHTML = '<span style="opacity:0.5;">Bogey is typing...</span>';
+    typing.innerHTML = '<span style="opacity:0.5;">Bogey is thinking...</span>';
     chatBody.appendChild(typing);
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // After 3 messages, gate with email
-    if (msgCount >= 3 && !userEmail) {
-      setTimeout(() => {
-        typing.remove();
-        showEmailGate();
-      }, 1000);
-      return;
-    }
-
-    // TODO: Replace with real Bogey API call
-    setTimeout(() => {
+    // After 2 messages, gate with email
+    if (msgCount >= 2 && !userEmail) {
+      const reply = await callBogey(val);
       typing.remove();
       const botBubble = document.createElement('div');
       botBubble.className = 'chat-bubble';
-      const resp = responses[Math.min(msgCount - 1, responses.length - 1)] || "Let's dig deeper. <a href='/contact/' style='color:#a855f7;font-weight:600;'>Book a call</a> and I'll show you exactly how this works for your business.";
-      botBubble.innerHTML = resp;
+      botBubble.innerHTML = reply;
+      chatBody.appendChild(botBubble);
+      chatBody.scrollTop = chatBody.scrollHeight;
+      setTimeout(() => showEmailGate(), 1500);
+      return;
+    }
+
+    // Call real Bogey
+    const reply = await callBogey(val);
+    typing.remove();
+    const botBubble = document.createElement('div');
+    botBubble.className = 'chat-bubble';
+    botBubble.innerHTML = reply;
       chatBody.appendChild(botBubble);
       chatBody.scrollTop = chatBody.scrollHeight;
     }, 1200);
