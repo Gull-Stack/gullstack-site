@@ -386,6 +386,77 @@ css: |
   let userEmail = null;
   let emailGateActive = false;
   let chatHistory = [];
+  let auditDone = false;
+
+  function extractUrl(text) {
+    // Match URLs with or without protocol
+    const match = text.match(/(?:https?:\/\/)?(?:www\.)?([a-zA-Z0-9][-a-zA-Z0-9]*\.)+[a-zA-Z]{2,}(?:\/\S*)?/i);
+    return match ? match[0] : null;
+  }
+
+  function scoreColor(score) {
+    if (score >= 80) return '#22c55e';
+    if (score >= 50) return '#eab308';
+    return '#ef4444';
+  }
+
+  function renderAuditCard(audit) {
+    const { scores, speed, seoIssues, mobileIssues, hasStructuredData } = audit;
+    let html = `<div style="background:rgba(10,10,26,0.6);border:1px solid rgba(79,70,229,0.3);border-radius:12px;padding:16px;margin:8px 0;">`;
+    html += `<div style="font-weight:700;margin-bottom:12px;font-size:0.85rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.05em;">Site Audit Results</div>`;
+    
+    // Score bars
+    const scoreItems = [
+      { label: 'Performance', val: scores.performance },
+      { label: 'SEO', val: scores.seo },
+      { label: 'Accessibility', val: scores.accessibility },
+    ];
+    scoreItems.forEach(s => {
+      html += `<div style="margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:4px;">
+          <span>${s.label}</span><span style="color:${scoreColor(s.val)};font-weight:700;">${s.val}/100</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:4px;height:6px;overflow:hidden;">
+          <div style="width:${s.val}%;height:100%;background:${scoreColor(s.val)};border-radius:4px;transition:width 1s ease;"></div>
+        </div>
+      </div>`;
+    });
+
+    // Speed metrics
+    if (speed.fcp || speed.lcp) {
+      html += `<div style="font-size:0.75rem;opacity:0.6;margin-top:8px;">`;
+      if (speed.lcp) html += `Largest paint: ${speed.lcp} · `;
+      if (speed.tbt) html += `Blocking: ${speed.tbt} · `;
+      if (speed.cls) html += `Layout shift: ${speed.cls}`;
+      html += `</div>`;
+    }
+
+    // Issues
+    const allIssues = [...(seoIssues || []), ...(mobileIssues || [])];
+    if (!hasStructuredData) allIssues.push('No structured data (invisible to AI search)');
+    if (allIssues.length > 0) {
+      html += `<div style="margin-top:10px;font-size:0.8rem;color:#ef4444;">`;
+      allIssues.forEach(i => { html += `<div style="margin-bottom:2px;">— ${i}</div>`; });
+      html += `</div>`;
+    }
+
+    html += `</div>`;
+    return html;
+  }
+
+  async function runAudit(url) {
+    try {
+      const resp = await fetch('/api/audit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url }),
+      });
+      const data = await resp.json();
+      return data;
+    } catch (e) {
+      return { success: false, error: 'Audit failed to connect.' };
+    }
+  }
 
   function showEmailGate() {
     emailGateActive = true;
@@ -486,8 +557,51 @@ css: |
     chatBody.appendChild(typing);
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    // After 2 messages, gate with email
-    if (msgCount >= 2 && !userEmail) {
+    // Check if user dropped a URL — trigger audit
+    const detectedUrl = extractUrl(val);
+    if (detectedUrl && !auditDone) {
+      auditDone = true;
+      typing.innerHTML = '<span style="opacity:0.5;">Bogey is analyzing your site...</span>';
+      
+      const auditData = await runAudit(detectedUrl);
+      
+      if (auditData.success) {
+        // Show the visual audit card
+        typing.remove();
+        const auditBubble = document.createElement('div');
+        auditBubble.className = 'chat-bubble';
+        auditBubble.innerHTML = renderAuditCard(auditData);
+        chatBody.appendChild(auditBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Now send audit data to Bogey for interpretation
+        const auditTyping = document.createElement('div');
+        auditTyping.className = 'chat-bubble';
+        auditTyping.innerHTML = '<span style="opacity:0.5;">Bogey is thinking...</span>';
+        chatBody.appendChild(auditTyping);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        const auditSummary = `[AUDIT RESULTS for ${detectedUrl}] Performance: ${auditData.scores.performance}/100, SEO: ${auditData.scores.seo}/100, Accessibility: ${auditData.scores.accessibility}/100. Speed: LCP ${auditData.speed.lcp || 'n/a'}, TBT ${auditData.speed.tbt || 'n/a'}, CLS ${auditData.speed.cls || 'n/a'}. SEO issues: ${(auditData.seoIssues||[]).join(', ') || 'none found'}. Mobile issues: ${(auditData.mobileIssues||[]).join(', ') || 'none found'}. Structured data: ${auditData.hasStructuredData ? 'present' : 'MISSING'}. Total issues found: ${auditData.issueCount}. Give the visitor a plain-English breakdown of what this means for their business and what they should fix first. Then offer to build a full roadmap.`;
+        
+        const reply = await callBogey(auditSummary);
+        auditTyping.remove();
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble';
+        botBubble.innerHTML = reply;
+        chatBody.appendChild(botBubble);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Email gate after audit (they've gotten real value now)
+        setTimeout(() => showEmailGate(), 2000);
+        return;
+      } else {
+        // Audit failed — fall through to normal flow
+        typing.innerHTML = '<span style="opacity:0.5;">Bogey is thinking...</span>';
+      }
+    }
+
+    // After 3 messages (increased from 2), gate with email
+    if (msgCount >= 3 && !userEmail && !auditDone) {
       const reply = await callBogey(val);
       typing.remove();
       const botBubble = document.createElement('div');
