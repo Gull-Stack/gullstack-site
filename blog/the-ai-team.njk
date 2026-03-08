@@ -1,0 +1,466 @@
+---
+layout: base.njk
+title: "The AI Team: How GullStack Runs an AI-Powered Workforce"
+description: "GullStack built an AI command center that treats bots like real team members — visible, measurable, and manageable. Here's how the AI Team View Super Dashboard works."
+headerStyle: inner
+footerStyle: simple
+activeNav: blog
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  
+  .back-link {
+    margin-top: 120px;
+  }
+  
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { color: var(--text); }
+  
+  .post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  
+  .post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  
+  .post-content { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+  .post-content p { margin-bottom: 28px; color: rgba(255,255,255,0.85); }
+  .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin: 56px 0 24px;
+    color: var(--text);
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 28px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .post-content li { margin-bottom: 12px; }
+  .post-content strong { color: var(--text); }
+  
+  .roster-table {
+    width: 100%;
+    margin: 40px 0;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .roster-table th {
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .roster-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    color: rgba(255,255,255,0.85);
+  }
+  .roster-table tr:hover td {
+    background: var(--bg-elevated);
+  }
+  .roster-table .bot-name {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .roster-table .swarm-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .swarm-eng { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
+  .swarm-mkt { background: rgba(0,255,136,0.1); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); }
+  .swarm-ops { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); }
+  
+  .dashboard-feature {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  .dashboard-feature h3 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+  }
+  .dashboard-feature ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dashboard-feature li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+  }
+  .dashboard-feature li:last-child { border-bottom: none; }
+  
+  .status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+  .status-green { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.5); }
+  .status-yellow { background: #eab308; box-shadow: 0 0 8px rgba(234,179,8,0.5); }
+  .status-red { background: #ef4444; box-shadow: 0 0 8px rgba(239,68,68,0.5); }
+  
+  .phase-roadmap {
+    margin: 48px 0;
+  }
+  .phase-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+  }
+  .phase-shipped::before { background: #22c55e; }
+  .phase-next::before { background: #eab308; }
+  .phase-future::before { background: #6366f1; }
+  .phase-card h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .phase-card .phase-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .phase-shipped .phase-label { color: #22c55e; }
+  .phase-next .phase-label { color: #eab308; }
+  .phase-future .phase-label { color: #818cf8; }
+  .phase-card p, .phase-card ul {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .phase-card li { margin-bottom: 4px; }
+
+  .quote-block {
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    background: var(--bg-elevated);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .metric-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .metric-card .metric-value {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-card .metric-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-box .btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .post-title { font-size: 2rem; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .roster-table { font-size: 0.85rem; }
+    .roster-table th, .roster-table td { padding: 10px 8px; }
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+  
+  <span class="post-category">Product</span>
+  <h1 class="post-title">The AI Team: How GullStack Runs an AI-Powered Workforce</h1>
+  <p class="post-meta">March 8, 2026 &bull; 6 min read</p>
+
+  <article class="post-content">
+    <p>Most businesses say they "use AI." They mean they have a chatbot. Maybe an email drafter. Something invisible running in the background that nobody really understands or trusts.</p>
+
+    <p>We built something different.</p>
+
+    <p>GullStack's AI Team View is a command center inside <a href="/supertool/">SuperTool</a> that treats AI bots like actual team members. Every bot has a name, a role, a status indicator, and a daily performance report. Business owners log in and see their AI department working in real-time.</p>
+
+    <p>Not a black box. A glass office.</p>
+
+    <div class="quote-block">
+      The question isn't "should we use AI?" It's "can we see what it's doing, measure its output, and manage it like everything else?"
+    </div>
+
+    <h2>The Vision: AI That's Visible, Measurable, Manageable</h2>
+
+    <p>Every bot in the system is three things:</p>
+
+    <ul>
+      <li><strong>Visible</strong> &mdash; appears on an org chart with an avatar, defined role, and reporting lines. You know exactly who does what.</li>
+      <li><strong>Measurable</strong> &mdash; productivity scores, tasks completed, hours saved, cost tracked. Real numbers, not vibes.</li>
+      <li><strong>Manageable</strong> &mdash; pause it. Reassign it. View its logs. Get alerts when something breaks. Full control, always.</li>
+    </ul>
+
+    <p>Think of it like an HR dashboard, except nobody calls in sick and nobody needs a pizza party to stay motivated.</p>
+
+    <h2>Meet the Roster</h2>
+
+    <p>Here's who's currently on the GullStack AI team:</p>
+
+    <table class="roster-table">
+      <thead>
+        <tr>
+          <th>Bot</th>
+          <th>Role</th>
+          <th>Swarm</th>
+          <th>What It Does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="bot-name">Vision</td>
+          <td>Chief Technologist</td>
+          <td><span class="swarm-badge swarm-eng">Engineering</span></td>
+          <td>Architecture, code, full-stack development. Built the dashboard itself.</td>
+        </tr>
+        <tr>
+          <td class="bot-name">Content Engine</td>
+          <td>Content &amp; Marketing</td>
+          <td><span class="swarm-badge swarm-mkt">Marketing</span></td>
+          <td>Blog posts, newsletters, social calendars, SEO copy</td>
+        </tr>
+        <tr>
+          <td class="bot-name">Client Success</td>
+          <td>Support &amp; Retention</td>
+          <td><span class="swarm-badge swarm-ops">Ops</span></td>
+          <td>Client health monitoring, support tickets, onboarding follow-ups</td>
+        </tr>
+        <tr>
+          <td class="bot-name">RuleShe Tow</td>
+          <td>Research &amp; Code Gen</td>
+          <td><span class="swarm-badge swarm-eng">Engineering</span></td>
+          <td>Competitive analysis, market research, code generation</td>
+        </tr>
+        <tr>
+          <td class="bot-name">Diniah Utm</td>
+          <td>Analytics &amp; Tracking</td>
+          <td><span class="swarm-badge swarm-mkt">Marketing</span></td>
+          <td>UTM tracking, ad attribution, conversion reporting</td>
+        </tr>
+        <tr>
+          <td class="bot-name">Aftesy Pr Sife</td>
+          <td>PR &amp; Outreach</td>
+          <td><span class="swarm-badge swarm-mkt">Marketing</span></td>
+          <td>Press releases, partnership outreach, public relations</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>How It Works</h2>
+
+    <p>The system is built on webhooks and real-time streaming. Here's the flow:</p>
+
+    <ol>
+      <li><strong>Bots register via webhook</strong> &mdash; each gets a unique identity on the dashboard with avatar, role, and swarm assignment.</li>
+      <li><strong>Every action is logged</strong> &mdash; commits pushed, emails sent, tasks completed, CRM updates. Nothing happens in the dark.</li>
+      <li><strong>Daily summaries auto-generate</strong> &mdash; "Vision pushed 12 commits, saved ~3 human hours." No manual reporting.</li>
+      <li><strong>Real-time status updates</strong> &mdash; <span class="status-dot status-green"></span> active, <span class="status-dot status-yellow"></span> idle, <span class="status-dot status-red"></span> error. You see it the second it happens.</li>
+      <li><strong>Alerts fire automatically</strong> &mdash; bot goes silent? Cost ceiling hit? You know instantly.</li>
+      <li><strong>ROI is calculated live</strong> &mdash; tasks multiplied by human-equivalent time equals hours saved equals dollars saved.</li>
+    </ol>
+
+    <h2>The Dashboard at a Glance</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value">147</div>
+        <div class="metric-label">Tasks Today</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">91%</div>
+        <div class="metric-label">AI Utilization</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">23h</div>
+        <div class="metric-label">Human Hours Saved</div>
+      </div>
+    </div>
+
+    <div class="dashboard-feature">
+      <h3>Key Metrics the Dashboard Tracks</h3>
+      <ul>
+        <li><strong>Total Tasks Completed</strong> across all bots</li>
+        <li><strong>AI Utilization %</strong> &mdash; how many bots are actively working right now</li>
+        <li><strong>Human Hours Saved</strong> &mdash; real ROI, calculated daily</li>
+        <li><strong>API Spend</strong> &mdash; exactly what your AI team costs to run</li>
+        <li><strong>Team Health Score</strong> &mdash; composite 0-100 across reliability, throughput, and efficiency</li>
+        <li><strong>Hot Bots Leaderboard</strong> &mdash; which bot is crushing it today</li>
+      </ul>
+    </div>
+
+    <h2>What Makes This Different</h2>
+
+    <p>No other platform does this.</p>
+
+    <p>Competitors give you one chatbot and call it "AI-powered." GullStack gives you an entire AI department &mdash; organized by team (Engineering, Marketing, Ops), with reporting lines, performance metrics, and real-time oversight.</p>
+
+    <p>It's the difference between "we use AI" and "we manage an AI workforce."</p>
+
+    <p>Every action is auditable. Every cost is visible. Every bot is accountable. If something breaks, you don't find out three days later when a client complains &mdash; you see a red dot and an alert in your queue within seconds.</p>
+
+    <h2>The Tech Stack</h2>
+
+    <ul>
+      <li><strong>OpenClaw</strong> &mdash; AI infrastructure powering each bot's reasoning and execution</li>
+      <li><strong>SuperTool</strong> &mdash; The platform that makes it all visible and manageable</li>
+      <li><strong>Real-time SSE</strong> &mdash; Live status updates without page refreshes</li>
+      <li><strong>Webhook architecture</strong> &mdash; Any AI framework can plug into the dashboard</li>
+    </ul>
+
+    <h2>The Roadmap</h2>
+
+    <div class="phase-roadmap">
+      <div class="phase-card phase-shipped">
+        <div class="phase-label">Phase 1 &mdash; Shipped</div>
+        <h4>The Command Center</h4>
+        <ul>
+          <li>Org chart with swarm groupings</li>
+          <li>Bot cards with real-time status</li>
+          <li>Activity feed and KPI dashboard</li>
+          <li>Alert queue with intervention controls</li>
+          <li>Cost tracking and ROI calculations</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-next">
+        <div class="phase-label">Phase 2 &mdash; Next</div>
+        <h4>Intelligence Layer</h4>
+        <ul>
+          <li>Handoff flow maps showing bot-to-bot triggers</li>
+          <li>Predictive capacity alerts</li>
+          <li>Natural language queries &mdash; "What did Vision do last Tuesday?"</li>
+        </ul>
+      </div>
+      <div class="phase-card phase-future">
+        <div class="phase-label">Phase 3 &mdash; Future</div>
+        <h4>Simulation &amp; Scale</h4>
+        <ul>
+          <li>Simulation mode &mdash; "What if we add another Content Engine?"</li>
+          <li>Role-based views for different stakeholders</li>
+          <li>Cross-bot bottleneck detection</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Why This Matters for Your Business</h2>
+
+    <p>AI adoption is accelerating. But adoption without visibility is just hope with a monthly bill attached.</p>
+
+    <p>The AI Team View gives business owners something nobody else offers: <strong>proof that their AI investment is working</strong>. Not a vague promise. Not a "trust us, it's doing things." Actual numbers. Actual output. Actual ROI.</p>
+
+    <p>And when you can see the value, you can scale it with confidence.</p>
+
+    <div class="cta-box">
+      <h3>Want an AI Team Working for Your Business?</h3>
+      <p>We'll build your AI department, train it on your workflows, and give you full visibility into everything it does.</p>
+      <a href="/#contact" class="btn">Talk to GullStack &rarr;</a>
+    </div>
+  </article>
+</main>
