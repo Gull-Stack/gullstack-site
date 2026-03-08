@@ -3,7 +3,6 @@ layout: base.njk
 title: "The AI Team: How GullStack Runs an AI-Powered Workforce"
 description: "GullStack built an AI command center that treats bots like real team members — visible, measurable, and manageable. Here's how the AI Team View Super Dashboard works."
 headerStyle: inner
-footerStyle: simple
 activeNav: blog
 css: |
   main {
@@ -28,6 +27,18 @@ css: |
   }
   .back-link:hover { color: var(--text); }
   
+  .hero-image {
+    margin: -20px 0 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+
   .post-category {
     display: inline-block;
     font-size: 0.75rem;
@@ -272,6 +283,10 @@ css: |
 <main class="container container--narrow">
   <a href="/blog/" class="back-link">&larr; Back to Blog</a>
   
+  <div class="hero-image">
+    <img src="/images/blog-ai-team-social.png" alt="GullStack AI Team Command Center Dashboard">
+  </div>
+
   <span class="post-category">Product</span>
   <h1 class="post-title">The AI Team: How GullStack Runs an AI-Powered Workforce</h1>
   <p class="post-meta">March 8, 2026 &bull; 6 min read</p>
