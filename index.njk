@@ -495,9 +495,8 @@ css: |
     const botBubble = document.createElement('div');
     botBubble.className = 'chat-bubble';
     botBubble.innerHTML = reply;
-      chatBody.appendChild(botBubble);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }, 1200);
+    chatBody.appendChild(botBubble);
+    chatBody.scrollTop = chatBody.scrollHeight;
   }
 
   chatSend.addEventListener('click', sendMessage);
