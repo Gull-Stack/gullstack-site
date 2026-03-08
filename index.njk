@@ -453,9 +453,19 @@ css: |
         body: JSON.stringify({ messages: [{ role: 'user', content: '[LEAD CAPTURED] Email: ' + val + ' — Previous conversation: ' + chatHistory.map(m => m.role + ': ' + m.content).join(' | ') }] }),
       }).catch(() => {});
 
+      // After email capture, call Bogey with full context for a real personalized response
+      const typing = document.createElement('div');
+      typing.className = 'chat-bubble';
+      typing.innerHTML = '<span style="opacity:0.5;">Bogey is thinking...</span>';
+      chatBody.appendChild(typing);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      const summary = chatHistory.map(m => m.role + ': ' + m.content).join(' | ');
+      const reply = await callBogey('[The visitor just gave their email: ' + val + '] Based on the conversation so far, give them a specific, actionable recommendation for their business. Be direct. Push them to book a strategy call at /contact/. Previous conversation: ' + summary);
+      typing.remove();
       const thanksBubble = document.createElement('div');
       thanksBubble.className = 'chat-bubble';
-      thanksBubble.innerHTML = "Got it. We'll send you a custom breakdown within 24 hours. In the meantime — <a href='/contact/' style='color:#a855f7;font-weight:600;'>book a free strategy call</a> if you want to move fast.";
+      thanksBubble.innerHTML = reply + '<br><br><a href="/contact/" style="color:#a855f7;font-weight:600;">Book a free strategy call →</a>';
       chatBody.appendChild(thanksBubble);
       chatBody.scrollTop = chatBody.scrollHeight;
       return;
