@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -49,9 +50,10 @@ css: |
     max-width: 650px; margin: 0 auto 40px;
     position: relative; z-index: 1; line-height: 1.7;
   }
-  .problems-section { padding: 0 0 80px; }
+  .problems-section { padding: 8rem 0; }
   .problems-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .problems-grid {
@@ -61,17 +63,18 @@ css: |
   }
   @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
   .problem-card {
-    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
-    border: 1px solid rgba(239,68,68,0.15);
+    background: linear-gradient(135deg, rgba(148,163,184,0.06), rgba(148,163,184,0.02));
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
   }
-  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
-  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #22d3ee; }
+  .problem-card .problem-icon { margin-bottom: 12px; color: var(--text-dim); }
+  .problem-card h3 { font-size: 1.1rem; font-weight: 400; margin-bottom: 10px; color: #22d3ee; }
   .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
-  .solutions-section { padding: 0 0 80px; }
+  .solutions-section { padding: 8rem 0; }
   .solutions-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .solutions-grid {
@@ -91,8 +94,8 @@ css: |
     border-color: var(--indigo);
     transform: translateY(-2px);
   }
-  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
-  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card .service-icon { margin-bottom: 16px; color: var(--indigo); }
+  .service-card h3 { font-size: 1.15rem; font-weight: 400; margin-bottom: 10px; }
   .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
   .service-card .card-link {
     color: var(--indigo); font-weight: 600; font-size: 0.9rem;
@@ -119,7 +122,7 @@ css: |
     font-weight: 600;
     margin-bottom: 20px;
   }
-  .savings-box h3 { font-size: 1.5rem; margin-bottom: 16px; }
+  .savings-box h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 16px; }
   .savings-box .savings-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 24px; padding-top: 24px;
@@ -132,9 +135,10 @@ css: |
   .savings-box .desc {
     color: var(--text-muted); margin-bottom: 28px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;
   }
-  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section { padding: 8rem 0; max-width: 800px; margin: 0 auto; }
   .faq-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .faq-list { display: flex; flex-direction: column; gap: 16px; }
@@ -171,7 +175,7 @@ css: |
     padding: 0 28px 24px;
     color: var(--text-muted); line-height: 1.7;
   }
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -179,7 +183,7 @@ css: |
     padding: 60px 40px;
     text-align: center;
   }
-  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; margin-bottom: 16px; }
   .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
@@ -219,17 +223,17 @@ css: |
     <h2>What Restaurants <span class="gradient-text">Struggle With</span></h2>
     <div class="problems-grid">
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128176;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
         <h3>The Third-Party Trap</h3>
         <p>DoorDash takes 15-30% of every order. Grubhub and UberEats do the same. You are doing the cooking, they are taking the profit. On a $30 order, that is $5-$9 gone before you count food costs.</p>
       </div>
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128179;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
         <h3>Processing Fee Drain</h3>
         <p>Square charges 2.6% plus $0.10 per swipe. Toast takes 2.49% plus $0.15. On a busy night with $3,000 in card sales, that is $75 to $80 in fees. Every single night.</p>
       </div>
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128221;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
         <h3>Menu Update Headaches</h3>
         <p>Prices change, items sell out, seasonal specials rotate. If updating your online menu requires a web developer or a 30-minute fight with a clunky system, it does not get done.</p>
       </div>
@@ -243,37 +247,37 @@ css: |
     <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
     <div class="solutions-grid">
       <div class="service-card fade-in">
-        <div class="service-icon">&#127869;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg></div>
         <h3>Your Own Online Ordering</h3>
         <p>A branded ordering system on your website. No commissions, no middlemen. Pickup, delivery, or dine-in pre-orders — all processed at 1% instead of 15-30%.</p>
         <a href="/services/websites/" class="card-link">Website services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128179;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
         <h3>1% Payment Processing</h3>
         <p>In-person swipes, online orders, and gift card transactions — all at 1%. Stop losing thousands per year to inflated processing rates.</p>
         <a href="/services/payment-processing/" class="card-link">Payment services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128241;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>Easy Menu Management</h3>
         <p>Update prices, add specials, mark items as sold out — all from your phone in seconds. Seasonal menus, happy hour pricing, and daily specials are simple to manage.</p>
         <a href="/services/websites/" class="card-link">Website services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128200;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
         <h3>Local SEO</h3>
         <p>Show up when someone searches "restaurants near me" or your cuisine type in your city. Google Business Profile optimization, review management, and local content.</p>
         <a href="/services/seo-aeo/" class="card-link">SEO services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#11088;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
         <h3>Loyalty Programs</h3>
         <p>Reward repeat customers with points, discounts, and VIP perks. Turn first-time visitors into regulars and give them a reason to order direct instead of through apps.</p>
         <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128202;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
         <h3>Analytics &amp; Insights</h3>
         <p>See what is selling, when you are busiest, and who your best customers are. Data-driven decisions help you optimize your menu, staffing, and marketing.</p>
         <a href="/services/crm/" class="card-link">CRM services &#8594;</a>

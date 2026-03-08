@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -54,8 +55,8 @@ css: |
   }
   .page-hero .btn { position: relative; z-index: 1; }
 
-  .problem-section { padding: 80px 0; }
-  .problem-section .section-title { margin-bottom: 16px; }
+  .problem-section { padding: 8rem 0; }
+  .problem-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .problem-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -64,8 +65,8 @@ css: |
   .highlight-box {
     max-width: 720px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
-    border: 1px solid rgba(239,68,68,0.2);
+    background: linear-gradient(135deg, rgba(148,163,184,0.08), rgba(148,163,184,0.03));
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
   }
@@ -75,8 +76,8 @@ css: |
   }
   .highlight-box li { margin-bottom: 12px; }
 
-  .solution-section { padding: 80px 0; }
-  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section { padding: 8rem 0; }
+  .solution-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .solution-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -91,8 +92,8 @@ css: |
   }
   .solution-copy p { margin-bottom: 20px; }
 
-  .features-section { padding: 80px 0; }
-  .features-section .section-title { margin-bottom: 48px; }
+  .features-section { padding: 8rem 0; }
+  .features-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -113,12 +114,12 @@ css: |
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(79,70,229,0.12);
   }
-  .glass-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .glass-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .glass-card .icon { margin-bottom: 16px; color: var(--text-muted); }
+  .glass-card h3 { font-size: 1.2rem; font-weight: 400; margin-bottom: 12px; }
   .glass-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
 
-  .faq-section { padding: 80px 0; }
-  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .faq-list { max-width: 760px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-question {
@@ -141,7 +142,7 @@ css: |
     line-height: 1.7; font-size: 1rem;
   }
 
-  .case-study-section { padding: 0 0 80px; }
+  .case-study-section { padding: 0 0 8rem; }
   .quote-block {
     max-width: 700px; margin: 0 auto;
     background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
@@ -155,13 +156,13 @@ css: |
   .quote-block .quote-cite { color: var(--text-muted); }
   .quote-block .quote-cite a { color: var(--indigo); font-weight: 600; }
 
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     text-align: center; background: var(--bg-card);
     border: 1px solid var(--border); border-radius: 24px;
     padding: 60px 40px; max-width: 700px; margin: 0 auto;
   }
-  .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
   .cta-box p {
     color: var(--text-muted); margin-bottom: 32px;
     font-size: 1.1rem; line-height: 1.6;
@@ -196,8 +197,8 @@ css: |
     border-radius: 50%;
     background: var(--glow-indigo);
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem;
     margin: 0 auto 12px;
+    color: var(--text-muted);
   }
   .flow-step .step-label {
     font-weight: 600;
@@ -236,22 +237,22 @@ css: |
     <h2 class="section-title" style="text-align:center; margin-bottom: 32px;">How It Works</h2>
     <div class="booking-flow fade-in">
       <div class="flow-step">
-        <div class="step-icon">&#128197;</div>
+        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
         <div class="step-label">Customer Picks a Time</div>
         <div class="step-desc">Sees your real-time availability</div>
       </div>
       <div class="flow-step">
-        <div class="step-icon">&#128179;</div>
+        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
         <div class="step-label">Pays Deposit</div>
         <div class="step-desc">Optional deposit at 1% rate</div>
       </div>
       <div class="flow-step">
-        <div class="step-icon">&#9989;</div>
+        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
         <div class="step-label">Instant Confirmation</div>
         <div class="step-desc">Email + SMS confirmation</div>
       </div>
       <div class="flow-step">
-        <div class="step-icon">&#128276;</div>
+        <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
         <div class="step-label">Auto Reminder</div>
         <div class="step-desc">Reminders before appointment</div>
       </div>
@@ -298,32 +299,32 @@ css: |
     <h2 class="section-title" style="text-align:center;">Built for Service Businesses</h2>
     <div class="features-grid">
       <div class="glass-card fade-in">
-        <div class="icon">&#128197;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
         <h3>Real-Time Calendar Sync</h3>
         <p>Bidirectional sync with Google Calendar, Outlook, and iCal. Your availability is always accurate — no double bookings, no manual updates.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128276;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
         <h3>SMS & Email Reminders</h3>
         <p>Automated reminders at intervals you choose. Reduce no-shows by 30-40% without manually texting every client the day before.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128179;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg></div>
         <h3>Deposit Collection</h3>
         <p>Require a deposit at booking to secure the appointment. Processed at 1% — not the 2.9% charged by standalone booking tools.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128101;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
         <h3>Multi-Staff Scheduling</h3>
         <p>Each team member gets their own availability and booking page. Customers pick their preferred provider or take the next available slot.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#127760;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
         <h3>Embed Anywhere</h3>
         <p>Add booking directly to your website, share a link via text or social media, or embed it in emails. Customers can book from wherever they find you.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128221;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
         <h3>Intake Forms</h3>
         <p>Collect information at booking — insurance details, project scope, health history, or anything else you need before the appointment. No pre-visit paperwork.</p>
       </div>

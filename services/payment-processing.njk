@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -54,8 +55,8 @@ css: |
   }
   .page-hero .btn { position: relative; z-index: 1; }
 
-  .problem-section { padding: 80px 0; }
-  .problem-section .section-title { margin-bottom: 16px; }
+  .problem-section { padding: 8rem 0; }
+  .problem-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .problem-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -64,8 +65,8 @@ css: |
   .highlight-box {
     max-width: 720px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
-    border: 1px solid rgba(239,68,68,0.2);
+    background: linear-gradient(135deg, rgba(148,163,184,0.08), rgba(148,163,184,0.03));
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
   }
@@ -75,8 +76,8 @@ css: |
   }
   .highlight-box li { margin-bottom: 12px; }
 
-  .solution-section { padding: 80px 0; }
-  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section { padding: 8rem 0; }
+  .solution-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .solution-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -91,8 +92,8 @@ css: |
   }
   .solution-copy p { margin-bottom: 20px; }
 
-  .features-section { padding: 80px 0; }
-  .features-section .section-title { margin-bottom: 48px; }
+  .features-section { padding: 8rem 0; }
+  .features-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -113,12 +114,12 @@ css: |
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(79,70,229,0.12);
   }
-  .glass-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .glass-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .glass-card .icon { margin-bottom: 16px; color: var(--text-muted); }
+  .glass-card h3 { font-size: 1.2rem; font-weight: 400; margin-bottom: 12px; }
   .glass-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
 
-  .faq-section { padding: 80px 0; }
-  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .faq-list { max-width: 760px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-question {
@@ -141,7 +142,7 @@ css: |
     line-height: 1.7; font-size: 1rem;
   }
 
-  .case-study-section { padding: 0 0 80px; }
+  .case-study-section { padding: 0 0 8rem; }
   .quote-block {
     max-width: 700px; margin: 0 auto;
     background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
@@ -155,13 +156,13 @@ css: |
   .quote-block .quote-cite { color: var(--text-muted); }
   .quote-block .quote-cite a { color: var(--indigo); font-weight: 600; }
 
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     text-align: center; background: var(--bg-card);
     border: 1px solid var(--border); border-radius: 24px;
     padding: 60px 40px; max-width: 700px; margin: 0 auto;
   }
-  .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
   .cta-box p {
     color: var(--text-muted); margin-bottom: 32px;
     font-size: 1.1rem; line-height: 1.6;
@@ -178,6 +179,7 @@ css: |
   }
   .comparison-box h3 {
     font-size: 1.3rem;
+    font-weight: 400;
     margin-bottom: 32px;
     color: var(--text-muted);
   }
@@ -339,32 +341,32 @@ css: |
     <h2 class="section-title" style="text-align:center;">Everything You Need to Get Paid</h2>
     <div class="features-grid">
       <div class="glass-card fade-in">
-        <div class="icon">&#128176;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
         <h3>Transparent 1% Rate</h3>
         <p>One percent on every transaction. No hidden fees, no surprise charges, no monthly minimums. Your rate never increases.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#9889;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
         <h3>Fast Deposits</h3>
         <p>Funds arrive in your bank account within 1-2 business days. No holding periods, no rolling reserves, no cash flow disruptions.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128274;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
         <h3>PCI Level 1 Security</h3>
         <p>The highest level of payment security certification. All card data is tokenized and encrypted end-to-end. Your customers are protected.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128241;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>Accept Payments Anywhere</h3>
         <p>Online checkout, invoices, text-to-pay links, in-person terminals, and digital wallets. However your customers want to pay, you can accept it.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128279;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div>
         <h3>Fully Integrated</h3>
         <p>Every payment automatically updates your CRM, customer records, and financial reports. No manual data entry. No reconciliation headaches.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128202;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
         <h3>Real-Time Dashboard</h3>
         <p>See every transaction, track revenue trends, process refunds, and export reports from a single clean dashboard.</p>
       </div>

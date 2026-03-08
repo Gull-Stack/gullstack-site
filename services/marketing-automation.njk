@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -54,8 +55,8 @@ css: |
   }
   .page-hero .btn { position: relative; z-index: 1; }
 
-  .problem-section { padding: 80px 0; }
-  .problem-section .section-title { margin-bottom: 16px; }
+  .problem-section { padding: 8rem 0; }
+  .problem-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .problem-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -64,8 +65,8 @@ css: |
   .highlight-box {
     max-width: 720px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
-    border: 1px solid rgba(239,68,68,0.2);
+    background: linear-gradient(135deg, rgba(148,163,184,0.08), rgba(148,163,184,0.03));
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
   }
@@ -75,8 +76,8 @@ css: |
   }
   .highlight-box li { margin-bottom: 12px; }
 
-  .solution-section { padding: 80px 0; }
-  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section { padding: 8rem 0; }
+  .solution-section .section-title { font-weight: 300; margin-bottom: 16px; }
   .solution-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -91,8 +92,8 @@ css: |
   }
   .solution-copy p { margin-bottom: 20px; }
 
-  .features-section { padding: 80px 0; }
-  .features-section .section-title { margin-bottom: 48px; }
+  .features-section { padding: 8rem 0; }
+  .features-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -113,12 +114,12 @@ css: |
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(79,70,229,0.12);
   }
-  .glass-card .icon { font-size: 2rem; margin-bottom: 16px; }
-  .glass-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+  .glass-card .icon { margin-bottom: 16px; color: var(--text-muted); }
+  .glass-card h3 { font-size: 1.2rem; font-weight: 400; margin-bottom: 12px; }
   .glass-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
 
-  .faq-section { padding: 80px 0; }
-  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title { font-weight: 300; margin-bottom: 48px; }
   .faq-list { max-width: 760px; margin: 0 auto; }
   .faq-item { border-bottom: 1px solid var(--border); }
   .faq-question {
@@ -141,7 +142,7 @@ css: |
     line-height: 1.7; font-size: 1rem;
   }
 
-  .case-study-section { padding: 0 0 80px; }
+  .case-study-section { padding: 0 0 8rem; }
   .quote-block {
     max-width: 700px; margin: 0 auto;
     background: linear-gradient(135deg, rgba(79,70,229,0.1), rgba(168,85,247,0.05));
@@ -155,13 +156,13 @@ css: |
   .quote-block .quote-cite { color: var(--text-muted); }
   .quote-block .quote-cite a { color: var(--indigo); font-weight: 600; }
 
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     text-align: center; background: var(--bg-card);
     border: 1px solid var(--border); border-radius: 24px;
     padding: 60px 40px; max-width: 700px; margin: 0 auto;
   }
-  .cta-box h2 { font-size: 2rem; margin-bottom: 16px; }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
   .cta-box p {
     color: var(--text-muted); margin-bottom: 32px;
     font-size: 1.1rem; line-height: 1.6;
@@ -264,32 +265,32 @@ css: |
     <h2 class="section-title" style="text-align:center;">What Gets Automated</h2>
     <div class="features-grid">
       <div class="glass-card fade-in">
-        <div class="icon">&#9993;&#65039;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
         <h3>Welcome Sequences</h3>
         <p>New lead fills out a form? They instantly receive a personalized welcome email series introducing your services and building trust before the first call.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128241;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>SMS Follow-Ups</h3>
         <p>Text messages with 98% open rates. Appointment reminders, quick follow-ups, and time-sensitive offers that actually get seen and read.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#127919;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
         <h3>Trigger-Based Workflows</h3>
         <p>Customer behavior drives the next action. Opened an email but did not book? Trigger a different follow-up. Visited your pricing page? Send a special offer.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128257;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg></div>
         <h3>Drip Campaigns</h3>
         <p>Long-term nurture sequences that keep your business top of mind for leads who are not ready to buy yet. When they are ready, you are the first call.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#11088;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
         <h3>Review Requests</h3>
         <p>Automated review request emails sent after completed projects or appointments. Build your Google reviews on autopilot without awkward in-person asks.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128200;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
         <h3>Performance Analytics</h3>
         <p>See open rates, click rates, response rates, and revenue generated by each automation. Know exactly which sequences are converting and which need tweaking.</p>
       </div>

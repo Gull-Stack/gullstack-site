@@ -15,8 +15,8 @@ css: |
     margin-top: 120px;
   }
   
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-hover); }
+  a { color: var(--purple); }
+  a:hover { color: var(--purple-light); }
   
   .back-link {
     display: inline-flex;
@@ -136,7 +136,7 @@ css: |
   }
   .comparison-slider .label.before-label {
     left: 12px;
-    background: rgba(239,68,68,0.9);
+    background: rgba(148,163,184,0.9);
     color: #fff;
   }
   .comparison-slider .label.after-label {
@@ -223,13 +223,14 @@ css: |
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 16px;
   }
   
   .post-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2.75rem;
+    font-weight: 300;
     line-height: 1.2;
     margin-bottom: 24px;
   }
@@ -243,13 +244,15 @@ css: |
   .post-content { font-size: 1.05rem; color: var(--text); line-height: 1.7; }
   .post-content p { margin-bottom: 24px; color: rgba(255,255,255,0.85); }
   .post-content h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 1.5rem;
+    font-weight: 300;
     margin: 48px 0 20px;
     color: var(--text);
   }
   .post-content h3 {
     font-size: 1.2rem;
+    font-weight: 400;
     margin: 32px 0 16px;
     color: var(--text);
   }
@@ -267,14 +270,14 @@ css: |
     margin: 32px 0;
   }
   .stat-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
   }
   .stat-number {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2rem;
     color: var(--success);
     margin-bottom: 4px;
@@ -291,7 +294,7 @@ css: |
     margin: 32px 0;
   }
   .before-card, .after-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
@@ -304,7 +307,7 @@ css: |
   .before-card li, .after-card li { margin-bottom: 8px; font-size: 0.95rem; }
   
   .quote-block {
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--purple);
     padding-left: 24px;
     margin: 32px 0;
     font-style: italic;
@@ -312,13 +315,13 @@ css: |
   }
   
   .highlight-box {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
     margin: 32px 0;
   }
-  .highlight-box h4 { color: var(--accent); margin-bottom: 12px; }
+  .highlight-box h4 { color: var(--purple); margin-bottom: 12px; }
   
   @media (max-width: 768px) {
     .stat-grid { grid-template-columns: 1fr; }
@@ -560,7 +563,7 @@ css: |
     <div class="highlight-box">
       <h4>Is Your Website Working Against You?</h4>
       <p style="margin-bottom: 16px;">If you're a therapist, attorney, contractor, or any local service business—your website should be your best salesperson. If it's not generating leads, we should talk.</p>
-      <a href="/#contact" style="color: var(--accent); font-weight: 600;">Get a free SEO audit →</a>
+      <a href="/#contact" style="color: var(--purple); font-weight: 600;">Get a free SEO audit →</a>
     </div>
   </article>
 </main>

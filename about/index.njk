@@ -13,8 +13,6 @@ css: |
   /* ═══════════════════════════════════════════
      ABOUT PAGE
   ═══════════════════════════════════════════ */
-
-  /* Hero */
   .page-hero {
     padding: 180px 0 100px;
   }
@@ -33,6 +31,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
   }
   .page-hero .hero-sub {
     font-size: 1.25rem;
@@ -42,13 +41,11 @@ css: |
     line-height: 1.7;
   }
 
-  /* Sections */
   .about-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
 
-  /* Story */
   .story-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -60,6 +57,7 @@ css: |
   }
   .story-text h2 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 300;
     margin-bottom: 24px;
     line-height: 1.2;
   }
@@ -73,9 +71,7 @@ css: |
     color: var(--text);
   }
 
-  /* Mission callout */
   .mission-box {
-    background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(168,85,247,0.06));
     border: 1px solid rgba(79,70,229,0.2);
     border-radius: var(--radius-xl);
     padding: 48px;
@@ -94,7 +90,7 @@ css: |
   }
   .mission-box blockquote {
     font-size: clamp(1.2rem, 3vw, 1.6rem);
-    font-weight: 600;
+    font-weight: 300;
     line-height: 1.5;
     position: relative;
     z-index: 1;
@@ -111,7 +107,6 @@ css: |
     padding-left: 24px;
   }
 
-  /* Team */
   .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -122,9 +117,6 @@ css: |
   }
 
   .team-card {
-    background: rgba(18,18,42,0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 36px;
@@ -139,28 +131,17 @@ css: |
     background: linear-gradient(135deg, var(--indigo), var(--purple));
   }
 
-  /* AI agent cards */
   .team-card--ai {
-    background: rgba(18,18,42,0.4);
-    border: 1px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-  }
-  .team-card--ai::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: calc(var(--radius-lg) + 1px);
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(79,70,229,0.4), rgba(168,85,247,0.3), rgba(34,211,238,0.3));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    border: 1px solid rgba(79,70,229,0.2);
   }
   .team-card--ai .team-avatar {
     background: linear-gradient(135deg, rgba(34,211,238,0.2), rgba(168,85,247,0.2));
     border: 1px solid rgba(34,211,238,0.3);
+    color: var(--cyan);
+  }
+  .team-card--ai .team-avatar svg {
+    width: 20px;
+    height: 20px;
   }
   .team-card--ai .ai-badge {
     display: inline-flex;
@@ -206,7 +187,8 @@ css: |
   }
   .team-name {
     font-size: 1.15rem;
-    font-weight: 700;
+    font-weight: 500;
+    color: var(--text);
     margin-bottom: 2px;
   }
   .team-role {
@@ -220,7 +202,6 @@ css: |
     line-height: 1.7;
   }
 
-  /* AI agents grid — 5 cards in a different rhythm */
   .ai-team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -248,7 +229,6 @@ css: |
     font-size: 0.9rem;
   }
 
-  /* Values */
   .values-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -261,9 +241,6 @@ css: |
     .values-grid { grid-template-columns: 1fr; }
   }
   .value-card {
-    background: rgba(18,18,42,0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px 24px;
@@ -276,12 +253,19 @@ css: |
     box-shadow: 0 8px 32px rgba(168,85,247,0.08);
   }
   .value-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--purple);
+  }
+  .value-icon svg {
+    width: 24px;
+    height: 24px;
   }
   .value-card h3 {
     font-size: 1.1rem;
+    font-weight: 400;
     margin-bottom: 10px;
   }
   .value-card p {
@@ -290,13 +274,11 @@ css: |
     line-height: 1.6;
   }
 
-  /* CTA */
   .about-cta {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
 
-  /* Divider label */
   .team-divider {
     text-align: center;
     margin: 48px 0 32px;
@@ -362,7 +344,7 @@ css: |
 
     <!-- Human team -->
     <div class="team-grid mt-48">
-      <div class="team-card team-card--human glass-card fade-in">
+      <div class="team-card team-card--human fade-in">
         <div class="team-header">
           <div class="team-avatar">BM</div>
           <div>
@@ -373,7 +355,7 @@ css: |
         <p class="team-bio">Background in digital marketing and business development. Bryce is the one asking "but does this actually make the client money?" before anything ships. He leads strategy, client relationships, and makes sure every dollar we spend for a client comes back multiplied.</p>
       </div>
 
-      <div class="team-card team-card--human glass-card fade-in">
+      <div class="team-card team-card--human fade-in">
         <div class="team-header">
           <div class="team-avatar">J</div>
           <div>
@@ -395,7 +377,7 @@ css: |
       <div class="team-card team-card--ai fade-in">
         <div class="ai-badge">AI Agent &middot; Always Online</div>
         <div class="team-header">
-          <div class="team-avatar">B</div>
+          <div class="team-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
           <div>
             <div class="team-name">Bogey</div>
             <div class="team-role">AI Sales Agent</div>
@@ -407,7 +389,7 @@ css: |
       <div class="team-card team-card--ai fade-in">
         <div class="ai-badge">AI Agent &middot; Always Online</div>
         <div class="team-header">
-          <div class="team-avatar">M</div>
+          <div class="team-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <div>
             <div class="team-name">Melvin</div>
             <div class="team-role">AI Build Agent</div>
@@ -419,7 +401,7 @@ css: |
       <div class="team-card team-card--ai fade-in">
         <div class="ai-badge">AI Agent &middot; Always Online</div>
         <div class="team-header">
-          <div class="team-avatar">V</div>
+          <div class="team-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
           <div>
             <div class="team-name">The Vision</div>
             <div class="team-role">AI Creative Director</div>
@@ -431,7 +413,7 @@ css: |
       <div class="team-card team-card--ai fade-in">
         <div class="ai-badge">AI Agent &middot; Always Online</div>
         <div class="team-header">
-          <div class="team-avatar">D</div>
+          <div class="team-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div>
             <div class="team-name">Donald</div>
             <div class="team-role">AI Operations</div>
@@ -443,7 +425,7 @@ css: |
       <div class="team-card team-card--ai fade-in">
         <div class="ai-badge">AI Agent &middot; Always Online</div>
         <div class="team-header">
-          <div class="team-avatar">S</div>
+          <div class="team-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
           <div>
             <div class="team-name">Steve</div>
             <div class="team-role">AI Analytics</div>
@@ -466,25 +448,25 @@ css: |
 
     <div class="values-grid mt-48">
       <div class="value-card fade-in">
-        <span class="value-icon">&#128269;</span>
+        <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
         <h3>Transparency</h3>
         <p>No hidden fees. No surprise invoices. No fine print. You know exactly what you're paying for and what you're getting before you sign anything.</p>
       </div>
 
       <div class="value-card fade-in">
-        <span class="value-icon">&#9889;</span>
+        <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <h3>Speed</h3>
         <p>We move fast because your business can't wait. Most agencies take 3 months to launch a website. We do it in weeks — sometimes days.</p>
       </div>
 
       <div class="value-card fade-in">
-        <span class="value-icon">&#128200;</span>
+        <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
         <h3>Results</h3>
         <p>We measure everything. If something isn't working, we change it. If it is working, we double down. Vanity metrics don't pay your bills.</p>
       </div>
 
       <div class="value-card fade-in">
-        <span class="value-icon">&#128161;</span>
+        <span class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></span>
         <h3>Simplicity</h3>
         <p>One partner, not ten vendors. One dashboard, not six logins. We consolidate your tools so you can focus on running your business.</p>
       </div>

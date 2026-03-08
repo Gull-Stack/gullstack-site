@@ -36,6 +36,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -49,11 +50,10 @@ css: |
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
-    padding-bottom: 100px;
+    padding-bottom: 8rem;
   }
   @media (max-width: 768px) { .industries-grid { grid-template-columns: 1fr; } }
   .industry-card {
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     padding: 40px;
@@ -68,13 +68,12 @@ css: |
     box-shadow: 0 16px 48px rgba(79,70,229,0.15);
   }
   .industry-card .card-icon {
-    width: 64px; height: 64px;
-    background: var(--glow-indigo);
-    border-radius: 16px;
+    width: 48px; height: 48px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; margin-bottom: 20px;
+    color: var(--cyan); margin-bottom: 20px;
   }
-  .industry-card h2 { font-size: 1.4rem; margin-bottom: 12px; }
+  .industry-card .card-icon svg { width: 24px; height: 24px; }
+  .industry-card h2 { font-size: 1.4rem; font-weight: 400; margin-bottom: 12px; }
   .industry-card p {
     color: var(--text-muted); font-size: 1rem;
     line-height: 1.7; margin-bottom: 20px;
@@ -97,15 +96,15 @@ css: |
     margin-bottom: 16px;
     letter-spacing: 0.02em;
   }
-  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section { padding: 5rem 0; max-width: 800px; margin: 0 auto; }
   .faq-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center;
     margin-bottom: 48px;
   }
   .faq-list { display: flex; flex-direction: column; gap: 16px; }
   .faq-item {
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -115,10 +114,10 @@ css: |
   .faq-question {
     width: 100%; padding: 24px 28px;
     background: none; border: none; color: var(--text);
-    font-size: 1.05rem; font-weight: 600;
+    font-size: 1.05rem; font-weight: 500;
     text-align: left; cursor: pointer;
     display: flex; justify-content: space-between; align-items: center;
-    gap: 16px;
+    gap: 16px; font-family: var(--font-body);
   }
   .faq-icon {
     width: 28px; height: 28px; flex-shrink: 0;
@@ -137,20 +136,19 @@ css: |
     padding: 0 28px 24px;
     color: var(--text-muted); line-height: 1.7;
   }
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     padding: 60px 40px;
     text-align: center;
   }
-  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; margin-bottom: 16px; }
   .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
 <section class="page-hero">
-  <span class="section-tag">Industries</span>
+  <span class="section-tag" style="justify-content:center;">Industries</span>
   <h1>Built for <span class="gradient-text">Your Industry</span></h1>
   <p>Every industry has unique challenges. We build marketing systems and business tools tailored to how you actually work — not generic templates that miss the mark.</p>
 </section>
@@ -159,7 +157,7 @@ css: |
   <div class="industries-grid">
     <a href="/industries/therapists/" class="industry-card fade-in">
       <span class="case-study-badge">Case Study Available</span>
-      <div class="card-icon">&#129504;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
       <h2>Therapists &amp; Counselors</h2>
       <p>HIPAA-mindful websites, online booking, client portals, and payment processing at 1% — not the 3-8% other platforms charge. We helped one therapist save $7,000 a year.</p>
       <span class="link">Learn more &#8594;</span>
@@ -167,35 +165,35 @@ css: |
 
     <a href="/industries/contractors/" class="industry-card fade-in">
       <span class="case-study-badge">Case Study Available</span>
-      <div class="card-icon">&#127959;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
       <h2>Contractors &amp; Construction</h2>
       <p>Project portfolios, lead capture, local SEO for "[service] near me" searches, and CRM to manage estimates and follow-ups. Built for GCs, remodelers, and specialty trades.</p>
       <span class="link">Learn more &#8594;</span>
     </a>
 
     <a href="/industries/medical-practices/" class="industry-card fade-in">
-      <div class="card-icon">&#9877;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
       <h2>Medical Practices</h2>
       <p>Patient-friendly websites, online scheduling, appointment reminders, intake forms, and SEO for doctors, dentists, chiropractors, and specialists.</p>
       <span class="link">Learn more &#8594;</span>
     </a>
 
     <a href="/industries/restaurants/" class="industry-card fade-in">
-      <div class="card-icon">&#127869;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
       <h2>Restaurants &amp; Food Service</h2>
       <p>Your own online ordering system without the 30% delivery app cuts, menu management, local SEO, and Google Business Profile optimization.</p>
       <span class="link">Learn more &#8594;</span>
     </a>
 
     <a href="/industries/salons-spas/" class="industry-card fade-in">
-      <div class="card-icon">&#128133;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M4.93 10.93l1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="M19.07 10.93l-1.41 1.41"/><path d="M22 22H2"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></div>
       <h2>Salons &amp; Spas</h2>
       <p>Online booking, automated appointment reminders, client management, loyalty programs, and marketing automation that keeps your chairs full.</p>
       <span class="link">Learn more &#8594;</span>
     </a>
 
     <a href="/industries/consultants/" class="industry-card fade-in">
-      <div class="card-icon">&#128188;</div>
+      <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
       <h2>Consultants &amp; Coaches</h2>
       <p>Professional web presence, scheduling integration, proposal tools, CRM for client management, and content marketing that positions you as the expert.</p>
       <span class="link">Learn more &#8594;</span>

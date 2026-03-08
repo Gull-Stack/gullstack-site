@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -49,9 +50,10 @@ css: |
     max-width: 650px; margin: 0 auto 40px;
     position: relative; z-index: 1; line-height: 1.7;
   }
-  .problems-section { padding: 0 0 80px; }
+  .problems-section { padding: 8rem 0; }
   .problems-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .problems-grid {
@@ -61,17 +63,18 @@ css: |
   }
   @media (max-width: 900px) { .problems-grid { grid-template-columns: 1fr; } }
   .problem-card {
-    background: linear-gradient(135deg, rgba(239,68,68,0.06), rgba(239,68,68,0.02));
-    border: 1px solid rgba(239,68,68,0.15);
+    background: linear-gradient(135deg, rgba(148,163,184,0.06), rgba(148,163,184,0.02));
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
   }
-  .problem-card .problem-icon { font-size: 1.5rem; margin-bottom: 12px; }
-  .problem-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: #22d3ee; }
+  .problem-card .problem-icon { margin-bottom: 12px; color: var(--text-dim); }
+  .problem-card h3 { font-size: 1.1rem; font-weight: 400; margin-bottom: 10px; color: #22d3ee; }
   .problem-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
-  .solutions-section { padding: 0 0 80px; }
+  .solutions-section { padding: 8rem 0; }
   .solutions-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .solutions-grid {
@@ -91,8 +94,8 @@ css: |
     border-color: var(--indigo);
     transform: translateY(-2px);
   }
-  .service-card .service-icon { font-size: 1.8rem; margin-bottom: 16px; }
-  .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card .service-icon { margin-bottom: 16px; color: var(--indigo); }
+  .service-card h3 { font-size: 1.15rem; font-weight: 400; margin-bottom: 10px; }
   .service-card p { color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px; }
   .service-card .card-link {
     color: var(--indigo); font-weight: 600; font-size: 0.9rem;
@@ -139,9 +142,10 @@ css: |
   .case-study-box .cs-link a {
     color: var(--indigo); font-weight: 600; text-decoration: none;
   }
-  .faq-section { padding: 80px 0; max-width: 800px; margin: 0 auto; }
+  .faq-section { padding: 8rem 0; max-width: 800px; margin: 0 auto; }
   .faq-section h2 {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
     text-align: center; margin-bottom: 48px;
   }
   .faq-list { display: flex; flex-direction: column; gap: 16px; }
@@ -178,7 +182,7 @@ css: |
     padding: 0 28px 24px;
     color: var(--text-muted); line-height: 1.7;
   }
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -186,7 +190,7 @@ css: |
     padding: 60px 40px;
     text-align: center;
   }
-  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+  .cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; margin-bottom: 16px; }
   .cta-box p { color: var(--text-muted); margin-bottom: 32px; max-width: 550px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 ---
 
@@ -227,17 +231,17 @@ css: |
     <h2>What Contractors <span class="gradient-text">Struggle With</span></h2>
     <div class="problems-grid">
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128683;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg></div>
         <h3>Invisible Online Presence</h3>
         <p>50+ five-star reviews mean nothing if nobody can find you on Google. Most contractor websites are single-page disasters with nothing for search engines to index.</p>
       </div>
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128244;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>Missed Leads</h3>
         <p>Phone calls go to voicemail. Form submissions sit unread. Without a system to capture and follow up, qualified leads slip away to competitors who respond faster.</p>
       </div>
       <div class="problem-card fade-in">
-        <div class="problem-icon">&#128247;</div>
+        <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
         <h3>No Portfolio Showcase</h3>
         <p>You do incredible work, but nobody sees it online. Without project galleries and before-and-after photos, potential clients cannot see the quality that sets you apart.</p>
       </div>
@@ -251,37 +255,37 @@ css: |
     <h2>How GullStack <span class="gradient-text">Solves It</span></h2>
     <div class="solutions-grid">
       <div class="service-card fade-in">
-        <div class="service-icon">&#127760;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
         <h3>Professional Website</h3>
         <p>Showcase your work with project galleries, service pages for every trade, and clear calls to action. Built to impress homeowners and convert visitors into leads.</p>
         <a href="/services/websites/" class="card-link">Website services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128200;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
         <h3>Local SEO Domination</h3>
         <p>Service pages, location pages, and Google Business Profile optimization. Rank for "contractor + your city" and every variation your customers search for.</p>
         <a href="/services/seo-aeo/" class="card-link">SEO services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128202;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
         <h3>CRM &amp; Follow-Up</h3>
         <p>Track every lead, every estimate, every job. Automated follow-up sequences ensure nothing falls through the cracks. Know exactly where every opportunity stands.</p>
         <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128248;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
         <h3>Project Portfolios</h3>
         <p>Individual pages for your best work. Before-and-after photos, project details, and client testimonials that build trust and show the quality of your craftsmanship.</p>
         <a href="/services/websites/" class="card-link">Website services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#128241;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>Lead Capture Forms</h3>
         <p>Custom forms that collect project type, timeline, budget, and photos. Instant notifications so you can respond fast. Every submission goes straight into your CRM.</p>
         <a href="/services/crm/" class="card-link">CRM services &#8594;</a>
       </div>
       <div class="service-card fade-in">
-        <div class="service-icon">&#9889;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
         <h3>Marketing Automation</h3>
         <p>Automated review requests after completed jobs, follow-up emails for pending estimates, and drip campaigns that keep you top-of-mind with past clients.</p>
         <a href="/services/marketing-automation/" class="card-link">Automation services &#8594;</a>

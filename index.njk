@@ -9,30 +9,31 @@ css: |
      HOMEPAGE HERO
   ═══════════════════════════════════════════ */
   .hero {
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
-    padding: 120px 24px 60px;
+    padding: 140px 24px 80px;
     position: relative;
     overflow: hidden;
   }
-  .hero::before {
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('/images/salt-lake-hero.jpg') center center / cover no-repeat;
+    z-index: 0;
+  }
+  .hero-bg::after {
     content: '';
     position: absolute;
-    top: -20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 800px;
-    background: radial-gradient(ellipse, rgba(79,70,229,0.12) 0%, rgba(168,85,247,0.06) 40%, transparent 70%);
-    pointer-events: none;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(10,10,26,0.85) 0%, rgba(10,10,26,0.80) 60%, #0a0a1a 100%);
   }
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -43,6 +44,8 @@ css: |
   .hero-text h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     line-height: 1.15;
+    font-weight: 300;
+    letter-spacing: -0.03em;
     margin-bottom: 20px;
   }
   .hero-text p {
@@ -68,7 +71,6 @@ css: |
 
   /* Chat CTA Widget */
   .chat-widget {
-    background: var(--bg-card);
     border: 1px solid rgba(79,70,229,0.2);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -101,6 +103,7 @@ css: |
   .chat-name {
     font-weight: 600;
     font-size: 0.9rem;
+    color: var(--text);
   }
   .chat-status {
     font-size: 0.75rem;
@@ -118,6 +121,7 @@ css: |
   }
   .chat-body {
     padding: 20px;
+    background: var(--bg-card);
   }
   .chat-bubble {
     background: rgba(79,70,229,0.1);
@@ -244,14 +248,14 @@ css: |
      WHAT WE DO
   ═══════════════════════════════════════════ */
   .services-section {
-    padding: 100px 0;
+    padding: 8rem 0;
   }
 
   /* ═══════════════════════════════════════════
      BY THE NUMBERS
   ═══════════════════════════════════════════ */
   .numbers-section {
-    padding: 80px 0;
+    padding: 5rem 0;
     background: linear-gradient(180deg, var(--bg) 0%, rgba(79,70,229,0.04) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
   }
@@ -260,13 +264,12 @@ css: |
      CASE STUDY SPOTLIGHT
   ═══════════════════════════════════════════ */
   .spotlight-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
   .spotlight-card {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -299,7 +302,8 @@ css: |
     margin-bottom: 32px;
     position: relative;
     padding-left: 28px;
-    font-weight: 500;
+    font-weight: 300;
+    color: var(--text);
   }
   .spotlight-quote::before {
     content: '\201C';
@@ -325,7 +329,7 @@ css: |
   .spotlight-stat .number {
     font-family: var(--font-heading);
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 300;
     color: var(--purple);
     margin-bottom: 4px;
   }
@@ -335,7 +339,6 @@ css: |
   }
   .spotlight-footer {
     padding: 20px 32px;
-    background: rgba(79,70,229,0.05);
     border-top: 1px solid var(--border);
     text-align: center;
   }
@@ -349,7 +352,7 @@ css: |
      INDUSTRIES
   ═══════════════════════════════════════════ */
   .industries-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     background: linear-gradient(180deg, var(--bg) 0%, rgba(168,85,247,0.03) 50%, var(--bg) 100%);
     border-top: 1px solid var(--border);
   }
@@ -358,7 +361,7 @@ css: |
      RECENT POSTS
   ═══════════════════════════════════════════ */
   .posts-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
 
@@ -366,13 +369,14 @@ css: |
      FINAL CTA
   ═══════════════════════════════════════════ */
   .final-cta {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
 ---
 
-<!-- Hero -->
+<!-- Hero with Salt Lake background -->
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-grid">
     <div class="hero-text">
       <div class="hero-tag">Marketing + AI Workforce Platform</div>
@@ -536,39 +540,39 @@ css: |
 
     <div class="grid-3 mt-48">
       <a href="/services/websites/" class="service-card fade-in">
-        <div class="service-icon">&#127760;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
         <h3>Custom Websites</h3>
         <p>Hand-built sites on 11ty that load fast, rank high, and convert visitors into customers. No templates. No bloat.</p>
       </a>
 
       <a href="/services/seo-aeo/" class="service-card fade-in">
-        <div class="service-icon">&#128200;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h3>SEO & AEO</h3>
-        <p>Get found on Google and AI search engines. Answer Engine Optimization is the next frontier — and we're already there.</p>
+        <p>Get found on Google and AI search engines. Answer Engine Optimization is the next frontier &mdash; and we're already there.</p>
       </a>
 
       <a href="/services/ai-consulting/" class="service-card fade-in">
-        <div class="service-icon">&#129302;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
         <h3>AI Consulting</h3>
         <p>Custom AI bots, automation workflows, and intelligent tools that handle the busywork so you can focus on what matters.</p>
       </a>
 
       <a href="/services/marketing-automation/" class="service-card fade-in">
-        <div class="service-icon">&#9889;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Marketing Automation</h3>
         <p>Email sequences, follow-ups, and nurture campaigns that run on autopilot. Stop losing leads to slow response times.</p>
       </a>
 
       <a href="/services/payment-processing/" class="service-card fade-in">
-        <div class="service-icon">&#128179;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
         <h3>Payment Processing</h3>
         <p>1% processing fees. Not 3%. Not 8%. One percent. That saves most businesses thousands every year.</p>
       </a>
 
       <a href="/services/crm/" class="service-card fade-in">
-        <div class="service-icon">&#128202;</div>
+        <div class="service-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>CRM & Booking</h3>
-        <p>Customers, payments, scheduling, and communications — all in one place. No more juggling six different apps.</p>
+        <p>Customers, payments, scheduling, and communications &mdash; all in one place. No more juggling six different apps.</p>
       </a>
     </div>
 
@@ -655,32 +659,32 @@ css: |
 
     <div class="grid-3 mt-48 fade-in">
       <a href="/industries/therapists/" class="industry-card">
-        <span class="industry-icon">&#129504;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
         <h3>Therapists</h3>
         <p>HIPAA-mindful websites, 1% payment processing, and online booking that reduces no-shows.</p>
       </a>
       <a href="/industries/contractors/" class="industry-card">
-        <span class="industry-icon">&#127959;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg></span>
         <h3>Contractors</h3>
         <p>Dominate local search for "[service] near me" and turn Google into your best lead source.</p>
       </a>
       <a href="/industries/medical-practices/" class="industry-card">
-        <span class="industry-icon">&#9877;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
         <h3>Medical Practices</h3>
         <p>Patient-friendly websites with integrated scheduling, reminders, and online intake forms.</p>
       </a>
       <a href="/industries/salons-spas/" class="industry-card">
-        <span class="industry-icon">&#128133;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M4.93 10.93l1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="M19.07 10.93l-1.41 1.41"/><path d="M22 22H2"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span>
         <h3>Salons & Spas</h3>
         <p>Online booking, automated reminders, and lower processing fees on every transaction.</p>
       </a>
       <a href="/industries/consultants/" class="industry-card">
-        <span class="industry-icon">&#128188;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
         <h3>Consultants</h3>
         <p>Professional websites with scheduling, proposals, and CRM built right in.</p>
       </a>
       <a href="/industries/restaurants/" class="industry-card">
-        <span class="industry-icon">&#127869;</span>
+        <span class="industry-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
         <h3>Restaurants</h3>
         <p>Online ordering without DoorDash's 30% cut. Keep your margins. Own your customers.</p>
       </a>
@@ -746,7 +750,7 @@ css: |
   <div class="container">
     <div class="cta-box fade-in">
       <h2>Still have questions?</h2>
-      <p>Five minutes with Bogey and you'll know exactly where your money is going — and how to keep more of it.</p>
+      <p>Five minutes with Bogey and you'll know exactly where your money is going &mdash; and how to keep more of it.</p>
       <a href="/contact/" class="btn btn-primary btn-lg">Talk to Bogey &#8594;</a>
     </div>
   </div>

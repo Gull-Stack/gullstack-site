@@ -19,8 +19,8 @@ css: |
     margin-top: 120px;
   }
 
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-hover); }
+  a { color: var(--purple); }
+  a:hover { color: var(--purple-light); }
 
   .back-link {
     display: inline-flex;
@@ -140,7 +140,7 @@ css: |
   }
   .comparison-slider .label.before-label {
     left: 12px;
-    background: rgba(239,68,68,0.9);
+    background: rgba(113,113,122,0.9);
     color: #fff;
   }
   .comparison-slider .label.after-label {
@@ -227,12 +227,13 @@ css: |
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 16px;
   }
 
   .post-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
+    font-weight: 300;
     font-size: 2.75rem;
     line-height: 1.2;
     margin-bottom: 24px;
@@ -247,7 +248,8 @@ css: |
   .post-content { font-size: 1.05rem; color: var(--text); line-height: 1.7; }
   .post-content p { margin-bottom: 24px; color: rgba(255,255,255,0.85); }
   .post-content h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
+    font-weight: 300;
     font-size: 1.5rem;
     margin: 48px 0 20px;
     color: var(--text);
@@ -271,14 +273,15 @@ css: |
     margin: 32px 0;
   }
   .stat-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
   }
   .stat-number {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
+    font-weight: 300;
     font-size: 2rem;
     color: var(--success);
     margin-bottom: 4px;
@@ -295,7 +298,7 @@ css: |
     margin: 32px 0;
   }
   .before-card, .after-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
@@ -308,7 +311,7 @@ css: |
   .before-card li, .after-card li { margin-bottom: 8px; font-size: 0.95rem; }
 
   .quote-block {
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--purple);
     padding-left: 24px;
     margin: 32px 0;
     font-style: italic;
@@ -316,13 +319,13 @@ css: |
   }
 
   .highlight-box {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
     margin: 32px 0;
   }
-  .highlight-box h4 { color: var(--accent); margin-bottom: 12px; }
+  .highlight-box h4 { color: var(--purple); margin-bottom: 12px; }
 
   @media (max-width: 768px) {
     .stat-grid { grid-template-columns: 1fr; }
@@ -431,7 +434,7 @@ css: |
 
     <div class="before-after">
       <div class="before-card">
-        <h4>&#10060; Before GullStack</h4>
+        <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Before GullStack</h4>
         <ul>
           <li>Empty Open Graph meta tags</li>
           <li>No Google Analytics tracking</li>
@@ -444,7 +447,7 @@ css: |
         </ul>
       </div>
       <div class="after-card">
-        <h4>&#9989; After GullStack</h4>
+        <h4><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> After GullStack</h4>
         <ul>
           <li>Full OG tags + schema markup</li>
           <li>GA4 tracking on all pages</li>
@@ -564,7 +567,7 @@ css: |
     <div class="highlight-box">
       <h4>Is Your Website Working Against You?</h4>
       <p style="margin-bottom: 16px;">If you're a therapist, attorney, contractor, or any local service business—your website should be your best salesperson. If it's not generating leads, we should talk.</p>
-      <a href="/#contact" style="color: var(--accent); font-weight: 600;">Get a free SEO audit &rarr;</a>
+      <a href="/#contact" style="color: var(--purple); font-weight: 600;">Get a free SEO audit &rarr;</a>
     </div>
   </article>
 </main>

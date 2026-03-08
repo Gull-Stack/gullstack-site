@@ -15,8 +15,8 @@ css: |
     margin-top: 120px;
   }
   
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-hover); }
+  a { color: var(--purple); }
+  a:hover { color: var(--purple-light); }
   
   .back-link {
     display: inline-flex;
@@ -51,7 +51,7 @@ css: |
   .hero-overlay .site-url {
     font-family: monospace;
     font-size: 0.9rem;
-    color: var(--accent);
+    color: var(--purple);
   }
   
   .post-category {
@@ -60,13 +60,14 @@ css: |
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 16px;
   }
   
   .post-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2.5rem;
+    font-weight: 300;
     line-height: 1.2;
     margin-bottom: 24px;
   }
@@ -80,8 +81,9 @@ css: |
   .post-content { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
   .post-content p { margin-bottom: 28px; color: rgba(255,255,255,0.85); }
   .post-content h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 1.75rem;
+    font-weight: 300;
     margin: 56px 0 24px;
     color: var(--text);
   }
@@ -99,14 +101,14 @@ css: |
     margin: 40px 0;
   }
   .stat-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
     text-align: center;
   }
   .stat-number {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--success);
     margin-bottom: 4px;
@@ -125,7 +127,7 @@ css: |
     width: 100%;
     border-collapse: collapse;
     margin: 32px 0;
-    background: var(--bg-elevated);
+    background: transparent;
     border-radius: 12px;
     overflow: hidden;
   }
@@ -136,7 +138,7 @@ css: |
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--purple);
   }
   .keyword-table td {
     padding: 14px 16px;
@@ -151,7 +153,7 @@ css: |
   }
   
   .site-structure {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 16px;
     padding: 32px;
@@ -159,6 +161,7 @@ css: |
   }
   .site-structure h3 {
     font-size: 1.1rem;
+    font-weight: 400;
     margin-bottom: 20px;
     color: var(--success);
   }
@@ -193,22 +196,22 @@ css: |
   .structure-col li:last-child { border-bottom: none; }
   .structure-col li::before {
     content: "→";
-    color: var(--accent);
+    color: var(--purple);
   }
   
   .quote-block {
-    border-left: 4px solid var(--accent);
+    border-left: 4px solid var(--purple);
     padding: 24px 32px;
     margin: 48px 0;
     font-size: 1.25rem;
     font-style: italic;
     color: rgba(255,255,255,0.9);
-    background: var(--bg-elevated);
+    background: transparent;
     border-radius: 0 12px 12px 0;
   }
   
   .cta-box {
-    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    background: transparent;
     border: 1px solid rgba(99,102,241,0.3);
     border-radius: 16px;
     padding: 40px;
@@ -216,8 +219,9 @@ css: |
     text-align: center;
   }
   .cta-box h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 1.75rem;
+    font-weight: 400;
     margin-bottom: 16px;
   }
   .cta-box p {
@@ -230,7 +234,7 @@ css: |
   .cta-box .btn {
     display: inline-block;
     padding: 16px 32px;
-    background: var(--accent);
+    background: var(--purple);
     color: #fff;
     font-weight: 600;
     border-radius: 8px;
@@ -238,7 +242,7 @@ css: |
     transition: all 0.2s;
   }
   .cta-box .btn:hover {
-    background: var(--accent-hover);
+    background: var(--purple-light);
     transform: translateY(-2px);
   }
 ---

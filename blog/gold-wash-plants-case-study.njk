@@ -11,8 +11,8 @@ css: |
     padding-bottom: 60px;
   }
   
-  a { color: var(--accent); }
-  a:hover { color: var(--accent-hover); }
+  a { color: var(--purple); }
+  a:hover { color: var(--purple-light); }
   
   .back-link {
     display: inline-flex;
@@ -30,13 +30,14 @@ css: |
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--purple);
     margin-bottom: 16px;
   }
   
   .post-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2.5rem;
+    font-weight: 300;
     line-height: 1.2;
     margin-bottom: 24px;
   }
@@ -50,13 +51,15 @@ css: |
   .post-content { font-size: 1.05rem; color: var(--text); line-height: 1.7; }
   .post-content p { margin-bottom: 24px; color: rgba(255,255,255,0.85); }
   .post-content h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 1.5rem;
+    font-weight: 300;
     margin: 48px 0 20px;
     color: var(--text);
   }
   .post-content h3 {
     font-size: 1.2rem;
+    font-weight: 400;
     margin: 32px 0 16px;
     color: var(--text);
   }
@@ -74,14 +77,14 @@ css: |
     margin: 32px 0;
   }
   .stat-card {
-    background: var(--bg-elevated);
+    background: transparent;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
   }
   .stat-number {
-    font-family: var(--font-serif);
+    font-family: var(--font-heading);
     font-size: 2rem;
     color: var(--success);
     margin-bottom: 4px;
@@ -92,7 +95,7 @@ css: |
   }
   
   .quote-block {
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--purple);
     padding-left: 24px;
     margin: 32px 0;
     font-style: italic;
@@ -246,7 +249,7 @@ css: |
     <div class="highlight-box">
       <h4>Want Results Like This?</h4>
       <p style="margin-bottom: 16px;">{{ site.name }} specializes in SEO for B2B and niche markets. We move fast, focus on results, and skip the fluff.</p>
-      <a href="/#contact" style="color: var(--accent); font-weight: 600;">Get in touch →</a>
+      <a href="/#contact" style="color: var(--purple); font-weight: 600;">Get in touch →</a>
     </div>
   </article>
 </main>

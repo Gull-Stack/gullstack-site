@@ -40,6 +40,7 @@ css: |
   }
   .page-hero h1 {
     font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
     max-width: 800px;
     margin: 0 auto 24px;
     position: relative; z-index: 1;
@@ -55,9 +56,10 @@ css: |
   .page-hero .btn { position: relative; z-index: 1; }
 
   .problem-section {
-    padding: 80px 0;
+    padding: 8rem 0;
   }
   .problem-section .section-title {
+    font-weight: 300;
     margin-bottom: 16px;
   }
   .problem-section .section-sub {
@@ -68,8 +70,8 @@ css: |
   .highlight-box {
     max-width: 720px;
     margin: 0 auto;
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.03));
-    border: 1px solid rgba(239,68,68,0.2);
+    background: linear-gradient(135deg, rgba(148,163,184,0.08), rgba(148,163,184,0.03));
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
   }
@@ -83,9 +85,12 @@ css: |
   .highlight-box li { margin-bottom: 12px; }
 
   .solution-section {
-    padding: 80px 0;
+    padding: 8rem 0;
   }
-  .solution-section .section-title { margin-bottom: 16px; }
+  .solution-section .section-title {
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
   .solution-section .section-sub {
     max-width: 700px;
     margin: 0 auto 48px;
@@ -100,8 +105,11 @@ css: |
   }
   .solution-copy p { margin-bottom: 20px; }
 
-  .features-section { padding: 80px 0; }
-  .features-section .section-title { margin-bottom: 48px; }
+  .features-section { padding: 8rem 0; }
+  .features-section .section-title {
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -123,11 +131,12 @@ css: |
     box-shadow: 0 12px 40px rgba(79,70,229,0.12);
   }
   .glass-card .icon {
-    font-size: 2rem;
     margin-bottom: 16px;
+    color: var(--text-muted);
   }
   .glass-card h3 {
     font-size: 1.2rem;
+    font-weight: 400;
     margin-bottom: 12px;
   }
   .glass-card p {
@@ -136,8 +145,11 @@ css: |
     font-size: 0.95rem;
   }
 
-  .faq-section { padding: 80px 0; }
-  .faq-section .section-title { margin-bottom: 48px; }
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title {
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
   .faq-list {
     max-width: 760px;
     margin: 0 auto;
@@ -182,7 +194,7 @@ css: |
     font-size: 1rem;
   }
 
-  .case-study-section { padding: 0 0 80px; }
+  .case-study-section { padding: 0 0 8rem; }
   .quote-block {
     max-width: 700px;
     margin: 0 auto;
@@ -205,7 +217,7 @@ css: |
     font-weight: 600;
   }
 
-  .cta-section { padding: 0 0 100px; }
+  .cta-section { padding: 0 0 8rem; }
   .cta-box {
     text-align: center;
     background: var(--bg-card);
@@ -217,6 +229,7 @@ css: |
   }
   .cta-box h2 {
     font-size: 2rem;
+    font-weight: 300;
     margin-bottom: 16px;
   }
   .cta-box p {
@@ -275,32 +288,32 @@ css: |
     <h2 class="section-title" style="text-align:center;">What You Get</h2>
     <div class="features-grid">
       <div class="glass-card fade-in">
-        <div class="icon">&#9889;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
         <h3>Sub-Second Load Times</h3>
         <p>Your site loads before visitors can blink. Static HTML served from a global CDN means no server delays, no database queries, no waiting.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#127919;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
         <h3>100 PageSpeed Score</h3>
         <p>Every site ships with a perfect Google PageSpeed score. That means better SEO rankings, lower bounce rates, and more conversions.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128176;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></div>
         <h3>$0 Monthly Hosting</h3>
         <p>Static sites deploy to Cloudflare Pages or Netlify for free. No monthly hosting bills, no server maintenance, no surprise charges.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128241;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
         <h3>Mobile-First Design</h3>
         <p>Over 70% of your traffic is on mobile. Every site we build starts mobile-first and scales up to desktop — not the other way around.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128269;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
         <h3>SEO-Ready Architecture</h3>
         <p>Semantic HTML, schema markup, sitemaps, meta tags, Open Graph — the technical foundation Google needs to rank your site.</p>
       </div>
       <div class="glass-card fade-in">
-        <div class="icon">&#128274;</div>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
         <h3>Zero Security Vulnerabilities</h3>
         <p>No WordPress plugins to exploit. No database to breach. Static sites have the smallest attack surface possible — effectively unhackable.</p>
       </div>

@@ -23,9 +23,6 @@ faqs:
   - q: "What if I already have a CRM or project management tool?"
     a: "Our bots integrate with your existing stack — Salesforce, HubSpot, Monday.com, Slack, Gmail, Outlook, and dozens more. Sophia Operations specializes in connecting your tools so nothing falls through the cracks."
 css: |
-  /* ═══════════════════════════════════════════
-     AI WORKFORCE HERO
-  ═══════════════════════════════════════════ */
   .aw-hero {
     padding: 160px 24px 100px;
     text-align: center;
@@ -51,6 +48,7 @@ css: |
   }
   .aw-hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 300;
     line-height: 1.15;
     margin-bottom: 24px;
   }
@@ -68,11 +66,8 @@ css: |
     flex-wrap: wrap;
   }
 
-  /* ═══════════════════════════════════════════
-     WHILE YOU SLEEP
-  ═══════════════════════════════════════════ */
   .sleep-section {
-    padding: 80px 0;
+    padding: 5rem 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: linear-gradient(180deg, var(--bg) 0%, rgba(168,85,247,0.03) 50%, var(--bg) 100%);
@@ -103,13 +98,14 @@ css: |
   }
   .sleep-headline {
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 700;
+    font-weight: 300;
     margin-bottom: 12px;
+    color: var(--text);
   }
   .sleep-rotating {
     font-size: clamp(1.4rem, 3vw, 2.2rem);
     color: var(--purple-light);
-    font-weight: 600;
+    font-weight: 300;
     min-height: 1.4em;
     margin-bottom: 32px;
   }
@@ -122,7 +118,6 @@ css: |
   }
   .sleep-item {
     padding: 8px 20px;
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 50px;
     font-size: 0.85rem;
@@ -136,14 +131,10 @@ css: |
     font-weight: 700;
   }
 
-  /* ═══════════════════════════════════════════
-     BOT ROSTER
-  ═══════════════════════════════════════════ */
   .roster-section {
-    padding: 100px 0;
+    padding: 8rem 0;
   }
   .bot-card {
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 32px;
@@ -171,14 +162,18 @@ css: |
     opacity: 1;
   }
   .bot-avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
     margin-bottom: 20px;
+    color: white;
+  }
+  .bot-avatar svg {
+    width: 24px;
+    height: 24px;
   }
   .bot-card .bot-role {
     font-size: 0.7rem;
@@ -191,6 +186,7 @@ css: |
   }
   .bot-card h3 {
     font-size: 1.2rem;
+    font-weight: 400;
     margin-bottom: 12px;
   }
   .bot-card p {
@@ -218,18 +214,14 @@ css: |
     font-size: 0.75rem;
   }
 
-  /* ═══════════════════════════════════════════
-     WINCHESTER SPOTLIGHT
-  ═══════════════════════════════════════════ */
   .winchester-spotlight {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
     background: linear-gradient(180deg, var(--bg) 0%, rgba(79,70,229,0.04) 50%, var(--bg) 100%);
   }
   .winchester-card {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     overflow: hidden;
@@ -242,7 +234,6 @@ css: |
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 12px;
-    background: rgba(79,70,229,0.05);
   }
   .winchester-body {
     padding: 40px 32px;
@@ -253,7 +244,8 @@ css: |
     margin-bottom: 32px;
     position: relative;
     padding-left: 28px;
-    font-weight: 500;
+    font-weight: 300;
+    color: var(--text);
   }
   .winchester-quote::before {
     content: '\201C';
@@ -279,7 +271,7 @@ css: |
   .winchester-stat .number {
     font-family: var(--font-heading);
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 300;
     color: var(--purple);
     margin-bottom: 4px;
   }
@@ -298,11 +290,8 @@ css: |
     font-size: 0.95rem;
   }
 
-  /* ═══════════════════════════════════════════
-     PRICING
-  ═══════════════════════════════════════════ */
   .pricing-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
   .pricing-grid {
@@ -316,7 +305,6 @@ css: |
     .pricing-grid { grid-template-columns: 1fr; max-width: 440px; }
   }
   .pricing-card {
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     padding: 40px 32px;
@@ -358,13 +346,14 @@ css: |
   }
   .pricing-name {
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 8px;
+    color: var(--text);
   }
   .pricing-price {
     font-family: var(--font-heading);
     font-size: 2.8rem;
-    font-weight: 800;
+    font-weight: 300;
     margin-bottom: 4px;
     background: linear-gradient(135deg, var(--indigo), var(--purple));
     -webkit-background-clip: text;
@@ -406,18 +395,14 @@ css: |
     margin-top: 2px;
   }
 
-  /* ═══════════════════════════════════════════
-     ROI CALCULATOR
-  ═══════════════════════════════════════════ */
   .roi-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
     background: linear-gradient(180deg, var(--bg) 0%, rgba(34,211,238,0.03) 50%, var(--bg) 100%);
   }
   .roi-card {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     padding: 48px 40px;
@@ -458,7 +443,6 @@ css: |
     box-shadow: 0 0 0 3px var(--glow-indigo);
   }
   .roi-results {
-    background: rgba(79,70,229,0.08);
     border: 1px solid rgba(79,70,229,0.2);
     border-radius: var(--radius-lg);
     padding: 32px;
@@ -467,7 +451,7 @@ css: |
   .roi-savings {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 800;
+    font-weight: 300;
     background: linear-gradient(135deg, var(--cyan), var(--purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -486,11 +470,8 @@ css: |
     margin-top: 16px;
   }
 
-  /* ═══════════════════════════════════════════
-     FAQ
-  ═══════════════════════════════════════════ */
   .faq-section {
-    padding: 100px 0;
+    padding: 8rem 0;
     border-top: 1px solid var(--border);
   }
 ---
@@ -498,7 +479,7 @@ css: |
 <!-- Hero -->
 <section class="aw-hero">
   <div class="aw-hero-inner">
-    <span class="section-tag">AI Workforce Solutions</span>
+    <span class="section-tag" style="justify-content:center;">AI Workforce Solutions</span>
     <h1>Meet Your New AI Employees &mdash; They Work 24/7, Never Call in Sick, and <span class="gradient-text">Cost 80% Less</span></h1>
     <p>Deploy a team of specialized AI bots that handle your email, track compliance deadlines, generate leads, create content, and optimize operations &mdash; all while you sleep.</p>
     <div class="aw-hero-ctas">
@@ -516,12 +497,12 @@ css: |
       <div class="sleep-headline">While You Sleep, Your AI Workforce Is:</div>
       <div class="sleep-rotating" id="sleepRotator">triaging 50+ emails...</div>
       <div class="sleep-items">
-        <span class="sleep-item"><span class="check">&#10003;</span> Email Triage</span>
-        <span class="sleep-item"><span class="check">&#10003;</span> Lead Qualification</span>
-        <span class="sleep-item"><span class="check">&#10003;</span> Compliance Tracking</span>
-        <span class="sleep-item"><span class="check">&#10003;</span> Meeting Prep</span>
-        <span class="sleep-item"><span class="check">&#10003;</span> Content Creation</span>
-        <span class="sleep-item"><span class="check">&#10003;</span> Report Generation</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Email Triage</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Lead Qualification</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Compliance Tracking</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Meeting Prep</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Content Creation</span>
+        <span class="sleep-item"><span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Report Generation</span>
       </div>
     </div>
   </div>
@@ -568,7 +549,7 @@ css: |
     <div class="grid-3 mt-48">
       <!-- Winchester -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--indigo), var(--purple));">&#127913;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--indigo), var(--purple));"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
         <span class="bot-role">Chief of Staff</span>
         <h3>Sir Winchester III</h3>
         <p>Your executive assistant on steroids. Winchester triages email, manages your calendar, delegates tasks to other bots, and gives you a daily briefing before you finish your coffee.</p>
@@ -583,7 +564,7 @@ css: |
 
       <!-- Victoria -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--cyan), var(--indigo));">&#128202;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--cyan), var(--indigo));"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <span class="bot-role">Business Intelligence</span>
         <h3>Victoria Sterling</h3>
         <p>Your data analyst who never sleeps. Victoria monitors KPIs, generates reports, spots trends before you do, and translates numbers into actions you can actually take.</p>
@@ -598,7 +579,7 @@ css: |
 
       <!-- Marcus -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, #a855f7, #22d3ee);">&#128737;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, #a855f7, #22d3ee);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <span class="bot-role">Risk &amp; Regulatory</span>
         <h3>Marcus Compliance</h3>
         <p>Your compliance officer who tracks every deadline, every filing, every regulation. Marcus ensures nothing slips through the cracks &mdash; even the deadlines you forgot existed.</p>
@@ -613,7 +594,7 @@ css: |
 
       <!-- Isabella -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--purple), #ec4899);">&#128221;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, var(--purple), var(--cyan));"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
         <span class="bot-role">Marketing &amp; Communications</span>
         <h3>Isabella Content</h3>
         <p>Your marketing department in a bot. Isabella writes blog posts, crafts social media, builds newsletters, and maintains your brand voice across every channel.</p>
@@ -628,7 +609,7 @@ css: |
 
       <!-- Alexander -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, #22c55e, var(--cyan));">&#127919;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, #22c55e, var(--cyan));"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <span class="bot-role">Lead Development</span>
         <h3>Alexander Prospect</h3>
         <p>Your top sales development rep. Alexander qualifies leads, nurtures prospects, manages your pipeline, and makes sure no opportunity dies from slow follow-up.</p>
@@ -643,7 +624,7 @@ css: |
 
       <!-- Sophia -->
       <div class="bot-card fade-in">
-        <div class="bot-avatar" style="background: linear-gradient(135deg, #22d3ee, #4F46E5);">&#128295;</div>
+        <div class="bot-avatar" style="background: linear-gradient(135deg, #22d3ee, #4F46E5);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
         <span class="bot-role">Process Optimization</span>
         <h3>Sophia Operations</h3>
         <p>Your operations manager who optimizes everything. Sophia connects your tools, automates workflows, eliminates bottlenecks, and makes your entire business run smoother.</p>
@@ -712,7 +693,6 @@ css: |
     </div>
 
     <div class="pricing-grid">
-      <!-- Starter -->
       <div class="pricing-card fade-in">
         <span class="pricing-tier">Starter</span>
         <h3 class="pricing-name">Starter AI Team</h3>
@@ -731,7 +711,6 @@ css: |
         <a href="/contact/" class="btn btn-outline btn-full">Get Started &#8594;</a>
       </div>
 
-      <!-- Professional -->
       <div class="pricing-card featured fade-in">
         <div class="pricing-badge">Most Popular</div>
         <span class="pricing-tier">Professional</span>
@@ -752,7 +731,6 @@ css: |
         <a href="/contact/" class="btn btn-primary btn-full">Get Started &#8594;</a>
       </div>
 
-      <!-- Elite -->
       <div class="pricing-card fade-in">
         <span class="pricing-tier">Elite</span>
         <h3 class="pricing-name">Elite AI Workforce</h3>
@@ -779,7 +757,7 @@ css: |
 <section class="roi-section" id="calculator">
   <div class="container">
     <div class="section-header text-center fade-in">
-      <span class="section-tag">ROI Calculator</span>
+      <span class="section-tag teal">ROI Calculator</span>
       <h2 class="section-title">See What You'll Save</h2>
       <p class="section-sub" style="margin: 0 auto;">Enter your numbers and see what an AI workforce saves you in real dollars.</p>
     </div>
@@ -852,7 +830,7 @@ css: |
 </section>
 
 <!-- Final CTA -->
-<section class="final-cta" style="border-top: 1px solid var(--border);">
+<section style="padding: 8rem 0; border-top: 1px solid var(--border);">
   <div class="container">
     <div class="cta-box fade-in">
       <h2>Ready to Deploy Your AI Workforce?</h2>
