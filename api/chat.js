@@ -57,10 +57,10 @@ RULES:
     }
 
     const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || "Let's talk specifics. Book a call at gullstack.com/contact and I'll map out exactly what your business needs.";
+    const reply = data.choices?.[0]?.message?.content || "Tell me more about your business — what industry are you in and what's the biggest thing slowing your growth right now?";
     
     return res.status(200).json({ reply });
   } catch (err) {
-    return res.status(502).json({ error: 'Bogey unavailable', detail: err.message });
+    return res.status(200).json({ reply: "I'm pulling myself together — give me a sec and try again. In the meantime, what's your business and what's holding it back? I want to give you something useful." });
   }
 }

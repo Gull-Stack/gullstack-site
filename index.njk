@@ -484,11 +484,11 @@ css: |
         body: JSON.stringify({ messages: chatHistory }),
       });
       const data = await resp.json();
-      const reply = data.reply || "Book a call at gullstack.com/contact — I'll map out exactly what you need.";
+      const reply = data.reply || "Tell me more about your business — what industry are you in and what's the biggest challenge you're facing right now?";
       chatHistory.push({ role: 'assistant', content: reply });
       return reply;
     } catch (e) {
-      return "Looks like I'm having a moment. <a href='/contact/' style='color:#a855f7;font-weight:600;'>Book a call</a> and we'll pick this up live.";
+      return "Give me one more shot — hit send again. If I'm still spacing out, drop your info at <a href='/contact/' style='color:#a855f7;font-weight:600;'>gullstack.com/contact</a> and the team will follow up with real answers, not fluff.";
     }
   }
 
