@@ -272,6 +272,28 @@ css: |
     transform: translateY(-2px);
   }
 
+  details {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  details summary:hover {
+    color: var(--accent);
+  }
+  details p {
+    margin-top: 16px;
+    color: var(--text-muted);
+    font-size: 1rem;
+  }
+
   @media (max-width: 768px) {
     .post-title { font-size: 2rem; }
     .metrics-grid { grid-template-columns: 1fr; }
@@ -292,9 +314,20 @@ css: |
   <p class="post-meta">March 8, 2026 &bull; 6 min read</p>
 
   <article class="post-content">
-    <p>Most businesses say they "use AI." They mean they have a chatbot. Maybe an email drafter. Something invisible running in the background that nobody really understands or trusts.</p>
+    <p>Your team is drowning in repetitive work. Data entry. Follow-up emails. Answering the same client questions for the 50th time this week. You know AI could help — but every solution you've seen is either a glorified chatbot or a black box you can't trust.</p>
 
     <p>We built something different.</p>
+
+    <h2>Which of These Sounds Familiar?</h2>
+
+    <ul>
+      <li>You spend 2-3 hours daily on admin tasks that feel completely mindless</li>
+      <li>Client questions repeat endlessly — same answers, different inbox</li>
+      <li>Data entry takes forever and mistakes cost you real money</li>
+      <li>You're working nights and weekends but can't afford to hire</li>
+      <li>Every "AI solution" you've tried felt like expensive theater</li>
+      <li>You want to scale but refuse to sacrifice quality</li>
+    </ul>
 
     <p>GullStack's AI Team View is a command center inside <a href="/supertool/">SuperTool</a> that treats AI bots like actual team members. Every bot has a name, a role, a status indicator, and a daily performance report. Business owners log in and see their AI department working in real-time.</p>
 
@@ -302,6 +335,37 @@ css: |
 
     <div class="quote-block">
       The question isn't "should we use AI?" It's "can we see what it's doing, measure its output, and manage it like everything else?"
+    </div>
+
+    <h2>What Your AI Team Actually Does</h2>
+
+    <p>Every AI department we build operates on three universal pillars:</p>
+
+    <div class="dashboard-feature">
+      <h3>Intelligent Data Entry</h3>
+      <ul>
+        <li><strong>Extracts data from documents automatically</strong> — contracts, forms, invoices, emails</li>
+        <li><strong>Auto-populates your existing systems</strong> — CRM, accounting, project management</li>
+        <li><strong>15 minutes becomes 2 minutes</strong> — 87% time reduction on manual entry</li>
+      </ul>
+    </div>
+
+    <div class="dashboard-feature">
+      <h3>Workflow Orchestration</h3>
+      <ul>
+        <li><strong>Triggers the right action at the right milestone</strong> — no more "did we follow up?"</li>
+        <li><strong>Automates emails, updates, notifications</strong> — based on your actual business rules</li>
+        <li><strong>Connects systems that don't talk</strong> — eliminates copy-paste between platforms</li>
+      </ul>
+    </div>
+
+    <div class="dashboard-feature">
+      <h3>Client Communication</h3>
+      <ul>
+        <li><strong>Answers repetitive questions 24/7</strong> — trained on your specific knowledge base</li>
+        <li><strong>Handles FAQ and routine requests</strong> — frees you for high-value conversations</li>
+        <li><strong>Saves 10+ hours per week</strong> — time you can spend growing the business</li>
+      </ul>
     </div>
 
     <h2>The Vision: AI That's Visible, Measurable, Manageable</h2>
@@ -315,6 +379,10 @@ css: |
     </ul>
 
     <p>Think of it like an HR dashboard, except nobody calls in sick and nobody needs a pizza party to stay motivated.</p>
+
+    <h2>Real Numbers: What This Actually Saves</h2>
+
+    <p>A title company processing 50 orders per month was spending 15-20 minutes on manual data entry per order. AI reduced that to 2 minutes. 12 emails per transaction were automated. Client FAQ handling went from 10 hours per week to zero. Result: 75+ hours per month freed, capacity doubled without hiring.</p>
 
     <h2>Meet the Roster</h2>
 
@@ -386,16 +454,16 @@ css: |
 
     <div class="metrics-grid">
       <div class="metric-card">
-        <div class="metric-value">147</div>
-        <div class="metric-label">Tasks Today</div>
+        <div class="metric-value">75+</div>
+        <div class="metric-label">Hours/Month Saved</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">91%</div>
-        <div class="metric-label">AI Utilization</div>
+        <div class="metric-value">$25K</div>
+        <div class="metric-label">Annual Labor Savings</div>
       </div>
       <div class="metric-card">
-        <div class="metric-value">23h</div>
-        <div class="metric-label">Human Hours Saved</div>
+        <div class="metric-value">2-3x</div>
+        <div class="metric-label">Capacity Increase</div>
       </div>
     </div>
 
@@ -464,6 +532,56 @@ css: |
       </div>
     </div>
 
+    <h2>But What If AI Makes a Mistake?</h2>
+
+    <p>This is the number one objection. Fair enough — trust is earned.</p>
+
+    <p>Here's how we handle it: AI pre-fills and drafts, humans review before anything goes live. You control the safety level. Want AI to send routine confirmations automatically? Fine. Want human approval for anything over $500? Also fine.</p>
+
+    <p>The system is designed around human-in-the-loop principles. AI does the tedious work — data extraction, first drafts, status updates — but you maintain final approval on anything that matters. It's not about replacing judgment. It's about eliminating the drudgery that buries your judgment under busywork.</p>
+
+    <h2>How Fast Can You Get Started?</h2>
+
+    <ul>
+      <li><strong>Client assistant:</strong> 1-2 weeks — FAQ handling, appointment scheduling, basic communication</li>
+      <li><strong>Workflow automation:</strong> 2-3 weeks — data entry, email sequences, CRM updates</li>
+      <li><strong>Full AI department:</strong> 4-6 weeks — complete workforce with reporting and oversight</li>
+    </ul>
+
+    <p>We start small, prove value, then scale. No six-month implementations. No massive upfront commitments.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary><strong>What if our team resists AI?</strong></summary>
+      <p>Show them the time savings, not the technology. When someone realizes AI can eliminate their least favorite task, resistance turns into advocacy. We've never had pushback after the first week of results.</p>
+    </details>
+
+    <details>
+      <summary><strong>How is this different from hiring another employee?</strong></summary>
+      <p>An employee costs $50-80K annually plus benefits. AI costs a fraction of that, works 24/7, never gets sick, and scales instantly. Plus you can see exactly what it's doing every hour of every day.</p>
+    </details>
+
+    <details>
+      <summary><strong>What if the AI makes a mistake?</strong></summary>
+      <p>Human oversight is built into every workflow. Critical decisions require approval. Routine tasks run automatically. You set the boundaries based on your risk tolerance.</p>
+    </details>
+
+    <details>
+      <summary><strong>How long does implementation take?</strong></summary>
+      <p>1-6 weeks depending on scope. We start with your biggest pain point, prove ROI, then expand. You'll see value in the first week.</p>
+    </details>
+
+    <details>
+      <summary><strong>Why AI versus just hiring more people?</strong></summary>
+      <p>Hiring is expensive, slow, and risky. Training takes months. Turnover costs thousands. AI scales instantly, learns your processes perfectly, and provides complete transparency into its work.</p>
+    </details>
+
+    <details>
+      <summary><strong>Can we start small?</strong></summary>
+      <p>Absolutely. Most clients start with one specific workflow — usually their biggest time sink. We prove the concept, then expand systematically based on ROI.</p>
+    </details>
+
     <h2>Why This Matters for Your Business</h2>
 
     <p>AI adoption is accelerating. But adoption without visibility is just hope with a monthly bill attached.</p>
@@ -475,6 +593,7 @@ css: |
     <div class="cta-box">
       <h3>Want an AI Team Working for Your Business?</h3>
       <p>We'll build your AI department, train it on your workflows, and give you full visibility into everything it does.</p>
+      <p><strong>Start with a pilot. 30 days, limited scope. If the ROI isn't obvious, walk away — no hard feelings.</strong></p>
       <a href="/#contact" class="btn">Talk to GullStack &rarr;</a>
     </div>
   </article>
