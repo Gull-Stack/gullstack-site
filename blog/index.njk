@@ -57,6 +57,12 @@ css: |
   .blog-card.featured .blog-card-title {
     font-size: 1.6rem;
   }
+  .blog-card-date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
 ---
 
 <section class="blog-hero">
@@ -67,7 +73,20 @@ css: |
 <section class="blog-section">
   <div class="container container--blog">
     <div class="blog-grid">
-      <a href="/case-studies/she-cried/" class="blog-card featured">
+      <a href="/blog/the-ai-team/" class="blog-card featured">
+        <div class="blog-card-image-wrapper">
+          <img src="/images/blog-ai-team-social.png" alt="AI Team Command Center Dashboard" class="blog-card-image">
+        </div>
+        <div class="blog-card-content">
+          <span class="blog-card-category">Product &bull; Featured</span>
+          <time class="blog-card-date">March 7, 2026</time>
+          <h2 class="blog-card-title">The AI Team: How GullStack Runs an AI-Powered Workforce</h2>
+          <p class="blog-card-excerpt">We built a command center that treats AI bots like real team members — visible on an org chart, measurable with real KPIs, and manageable in real-time.</p>
+          <span class="blog-card-link">Read the full story &#8594;</span>
+        </div>
+      </a>
+
+      <a href="/case-studies/she-cried/" class="blog-card">
         <div class="blog-card-image-wrapper">
           <img src="https://api.microlink.io/?url=https://agilecounseling.com&screenshot=true&meta=false&embed=screenshot.url" alt="Agile Counseling Website" class="blog-card-image">
         </div>
@@ -123,18 +142,6 @@ css: |
           <span class="blog-card-category">Case Study</span>
           <h2 class="blog-card-title">Driving 3x Organic Growth for a Gold Mining Equipment Company</h2>
           <p class="blog-card-excerpt">How we helped Gold Wash Plants achieve rapid Google indexing and position for explosive organic traffic growth.</p>
-          <span class="blog-card-link">Read more &#8594;</span>
-        </div>
-      </a>
-
-      <a href="/blog/the-ai-team/" class="blog-card">
-        <div class="blog-card-image-wrapper">
-          <img src="/images/blog-ai-team-social.png" alt="AI Team Command Center Dashboard" class="blog-card-image">
-        </div>
-        <div class="blog-card-content">
-          <span class="blog-card-category">Product</span>
-          <h2 class="blog-card-title">The AI Team: How GullStack Runs an AI-Powered Workforce</h2>
-          <p class="blog-card-excerpt">We built a command center that treats AI bots like real team members — visible on an org chart, measurable with real KPIs, and manageable in real-time.</p>
           <span class="blog-card-link">Read more &#8594;</span>
         </div>
       </a>
