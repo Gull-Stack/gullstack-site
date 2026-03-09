@@ -124,39 +124,37 @@ css: |
     color: #374151;
   }
 
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin: 48px 0;
-  }
-  .metric-card {
+  .metrics-comparison {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 48px 0;
   }
-  .metric-card .old-val {
-    font-size: 1.1rem;
-    color: #ef4444;
-    opacity: 0.7;
-    text-decoration: line-through;
-    margin-bottom: 4px;
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
   }
-  .metric-card .new-val {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: #22c55e;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .metric-card .metric-label {
-    font-size: 0.8rem;
+  .metrics-table th {
+    text-align: left;
+    padding: 16px 12px;
+    border-bottom: 2px solid var(--border);
     color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
+  .metrics-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .metrics-table tr:last-child td { border-bottom: none; }
+  .metrics-old { color: #ef4444; opacity: 0.7; }
+  .metrics-new { color: #22c55e; font-weight: 600; }
+  .metrics-arrow { color: var(--text-muted); padding: 0 12px; }
 
   .breakdown { margin: 64px 0; }
   .breakdown h2 {
@@ -188,7 +186,8 @@ css: |
 
   @media (max-width: 768px) {
     .project-hero h1 { font-size: 2rem; }
-    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .metrics-comparison { padding: 24px; }
+    .metrics-table th, .metrics-table td { padding: 12px 8px; font-size: 0.9rem; }
     .slider-container { padding-bottom: 90%; }
     .image-label { top: 12px; padding: 6px 14px; font-size: 0.75rem; }
     .before-image .image-label { left: 12px; }
@@ -224,32 +223,55 @@ css: |
     </div>
   </div>
 
-  <div class="metrics-grid">
-    <div class="metric-card">
-      <div class="old-val">1,036 KB</div>
-      <div class="new-val">41 KB</div>
-      <div class="metric-label">Page Size</div>
-    </div>
-    <div class="metric-card">
-      <div class="old-val">393ms</div>
-      <div class="new-val">259ms</div>
-      <div class="metric-label">Load Time</div>
-    </div>
-    <div class="metric-card">
-      <div class="old-val">171</div>
-      <div class="new-val">10</div>
-      <div class="metric-label">Scripts</div>
-    </div>
-    <div class="metric-card">
-      <div class="old-val">27</div>
-      <div class="new-val">2</div>
-      <div class="metric-label">Stylesheets</div>
-    </div>
-    <div class="metric-card">
-      <div class="old-val">Wix</div>
-      <div class="new-val">11ty</div>
-      <div class="metric-label">Platform</div>
-    </div>
+  <div class="metrics-comparison">
+    <table class="metrics-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Before (Wix)</th>
+          <th></th>
+          <th>After (11ty)</th>
+          <th>Improvement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Page Size</strong></td>
+          <td class="metrics-old">1,036 KB</td>
+          <td class="metrics-arrow">&rarr;</td>
+          <td class="metrics-new">41 KB</td>
+          <td class="metrics-new">96% smaller</td>
+        </tr>
+        <tr>
+          <td><strong>Load Time</strong></td>
+          <td class="metrics-old">393ms</td>
+          <td class="metrics-arrow">&rarr;</td>
+          <td class="metrics-new">259ms</td>
+          <td class="metrics-new">34% faster</td>
+        </tr>
+        <tr>
+          <td><strong>Scripts</strong></td>
+          <td class="metrics-old">171</td>
+          <td class="metrics-arrow">&rarr;</td>
+          <td class="metrics-new">10</td>
+          <td class="metrics-new">94% fewer</td>
+        </tr>
+        <tr>
+          <td><strong>Stylesheets</strong></td>
+          <td class="metrics-old">27</td>
+          <td class="metrics-arrow">&rarr;</td>
+          <td class="metrics-new">2</td>
+          <td class="metrics-new">93% fewer</td>
+        </tr>
+        <tr>
+          <td><strong>Platform</strong></td>
+          <td class="metrics-old">Wix</td>
+          <td class="metrics-arrow">&rarr;</td>
+          <td class="metrics-new">11ty Static</td>
+          <td class="metrics-new">Zero bloat</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="breakdown">
