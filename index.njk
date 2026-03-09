@@ -721,6 +721,231 @@ css: |
   </div>
 </section>
 
+<!-- Before/After Slider -->
+<section style="padding:80px 0;border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-header text-center fade-in">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title">See the Difference</h2>
+    </div>
+
+    <div class="before-after-slider fade-in" style="margin-top:48px;">
+      <div class="slider-container">
+        <div class="slider-image before-image">
+          <img src="/images/abc-before.jpg" alt="Advanced Building Care - Before">
+          <div class="image-label">BEFORE</div>
+        </div>
+        <div class="slider-image after-image">
+          <img src="/images/abc-after.jpg" alt="Advanced Building Care - After">
+          <div class="image-label">AFTER</div>
+        </div>
+        <div class="slider-handle">
+          <div class="handle-line"></div>
+          <div class="handle-button">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-caption text-center fade-in" style="margin-top:32px;">
+      <p style="font-size:1.1rem;color:var(--text-muted);line-height:1.6;margin-bottom:24px;">
+        <strong style="color:var(--text);">Advanced Building Care</strong> — from bloated Wix template to blazing-fast static site. 96% smaller. 34% faster. Zero bloat.
+      </p>
+      <a href="/portfolio/" class="btn btn-outline">See More Transformations →</a>
+    </div>
+  </div>
+
+  <style>
+    .before-after-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      overflow: hidden;
+      cursor: col-resize;
+    }
+
+    .slider-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slider-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .after-image {
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path 0.1s ease;
+    }
+
+    .image-label {
+      position: absolute;
+      top: 20px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .before-image .image-label {
+      right: 20px;
+      background: rgba(239,68,68,0.9);
+    }
+
+    .after-image .image-label {
+      left: 20px;
+      background: rgba(34,197,94,0.9);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: white;
+      transform: translateX(-50%);
+      cursor: col-resize;
+      z-index: 10;
+    }
+
+    .handle-line {
+      width: 100%;
+      height: 100%;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .handle-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      color: #374151;
+    }
+
+    .handle-button:hover {
+      background: #f9fafb;
+    }
+
+    @media (max-width: 768px) {
+      .slider-container {
+        padding-bottom: 75%; /* More square on mobile */
+      }
+      
+      .image-label {
+        top: 12px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+      }
+      
+      .before-image .image-label {
+        right: 12px;
+      }
+      
+      .after-image .image-label {
+        left: 12px;
+      }
+      
+      .handle-button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+
+  <script>
+    (function() {
+      const slider = document.querySelector('.before-after-slider');
+      if (!slider) return;
+      
+      const container = slider.querySelector('.slider-container');
+      const afterImage = slider.querySelector('.after-image');
+      const handle = slider.querySelector('.slider-handle');
+      
+      let isDragging = false;
+      
+      function updateSlider(clientX) {
+        const rect = container.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        
+        afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+        handle.style.left = `${percentage}%`;
+      }
+      
+      function startDrag(e) {
+        isDragging = true;
+        container.style.cursor = 'col-resize';
+        updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
+      }
+      
+      function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
+      }
+      
+      function stopDrag() {
+        isDragging = false;
+        container.style.cursor = 'col-resize';
+      }
+      
+      // Mouse events
+      handle.addEventListener('mousedown', startDrag);
+      container.addEventListener('click', (e) => {
+        if (e.target === container || e.target === container.querySelector('img')) {
+          updateSlider(e.clientX);
+        }
+      });
+      document.addEventListener('mousemove', drag);
+      document.addEventListener('mouseup', stopDrag);
+      
+      // Touch events
+      handle.addEventListener('touchstart', startDrag, { passive: false });
+      container.addEventListener('touchstart', (e) => {
+        if (e.target === container || e.target === container.querySelector('img')) {
+          updateSlider(e.touches[0].clientX);
+        }
+      });
+      document.addEventListener('touchmove', drag, { passive: false });
+      document.addEventListener('touchend', stopDrag);
+    })();
+  </script>
+</section>
+
 <!-- What We Do -->
 <section class="services-section">
   <div class="container">

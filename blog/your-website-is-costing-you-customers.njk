@@ -1,0 +1,317 @@
+---
+layout: base.njk
+title: "Your Website Is Costing You Customers (Here's the Proof)"
+description: "We rebuilt a commercial cleaning company's website. The old Wix site was 1MB of bloat. The new one is 41KB. Here's what changed and why it matters for your business."
+headerStyle: inner
+activeNav: blog
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+  
+  .back-link {
+    margin-top: 120px;
+  }
+  
+  a { color: var(--accent); }
+  a:hover { color: var(--accent-hover); }
+  
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .back-link:hover { color: var(--text); }
+  
+  .hero-image {
+    margin: -20px 0 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+  }
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .post-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  
+  .post-meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+  }
+  
+  .post-content { font-size: 1.1rem; color: var(--text); line-height: 1.8; }
+  .post-content p { margin-bottom: 28px; color: rgba(255,255,255,0.85); }
+  .post-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin: 56px 0 24px;
+    color: var(--text);
+  }
+  .post-content ul, .post-content ol {
+    margin: 0 0 28px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .post-content li { margin-bottom: 12px; }
+  .post-content strong { color: var(--text); }
+  
+  .metrics-comparison {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 40px 0;
+  }
+  
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .metric-item {
+    text-align: center;
+  }
+  
+  .metric-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  
+  .metric-old {
+    color: #ef4444;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  
+  .metric-new {
+    color: #22c55e;
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .metric-improvement {
+    color: #22c55e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  
+  .quote-block {
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    background: var(--bg-elevated);
+    border-radius: 0 12px 12px 0;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-box .btn {
+    display: inline-block;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-box .btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .post-title { font-size: 2rem; }
+    .metrics-grid { grid-template-columns: 1fr; gap: 20px; }
+    .metrics-comparison { padding: 24px; }
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+  
+  <div class="hero-image">
+    <img src="/images/abc-before.jpg" alt="Website performance comparison - before and after optimization">
+  </div>
+
+  <span class="post-category">Performance</span>
+  <h1 class="post-title">Your Website Is Costing You Customers (Here's the Proof)</h1>
+  <p class="post-meta">March 9, 2026 &bull; 6 min read</p>
+
+  <article class="post-content">
+    <h2>The Problem</h2>
+
+    <p>Your website loads in 4 seconds. Half your visitors leave before they see anything. You're paying for ads that send people to a site that drives them away.</p>
+
+    <p>Think about it. You spend $2,000 a month on Google Ads. Your landing page takes 5 seconds to load on mobile. Studies show 53% of mobile users abandon a page if it takes longer than 3 seconds.</p>
+
+    <p><strong>You just lost $1,060 worth of clicks before anyone saw your headline.</strong></p>
+
+    <p>But the real problem isn't the money you're wasting on ads. It's the customers you're losing to competitors whose sites actually work.</p>
+
+    <h2>The Real Cost</h2>
+
+    <p>Every second of load time costs you 7% in conversions. A 4-second site loses 25% of mobile visitors. Do the math on your ad spend.</p>
+
+    <p>If your site converts at 3% normally, a 4-second load time drops that to 2.25%. On $10,000 in monthly traffic, that's the difference between 300 conversions and 225. That's 75 lost customers per month.</p>
+
+    <p>If your average customer value is $500, you just lost $37,500 in monthly revenue. Not because your product is bad. Not because your marketing is wrong. Because your website is slow.</p>
+
+    <p><strong>Your website is costing you customers. Not figuratively. Literally.</strong></p>
+
+    <div class="quote-block">
+      "Amazon found that a 100ms increase in load time decreased sales by 1%. Google found that a 0.5 second increase in search results decreased traffic and ad revenues by 20%."
+    </div>
+
+    <h2>The Case Study: Advanced Building Care</h2>
+
+    <p>Advanced Building Care came to us with a problem. Their website was built on Wix. It looked professional. It had all the right information. And it was hemorrhaging potential customers.</p>
+
+    <p>The numbers told the story:</p>
+
+    <div class="metrics-comparison">
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <div class="metric-label">Page Size</div>
+          <div class="metric-old">1,036 KB</div>
+          <div class="metric-new">41 KB</div>
+          <div class="metric-improvement">96% smaller</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Load Time</div>
+          <div class="metric-old">393ms</div>
+          <div class="metric-new">259ms</div>
+          <div class="metric-improvement">34% faster</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Scripts</div>
+          <div class="metric-old">171</div>
+          <div class="metric-new">10</div>
+          <div class="metric-improvement">94% fewer</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Stylesheets</div>
+          <div class="metric-old">27</div>
+          <div class="metric-new">2</div>
+          <div class="metric-improvement">93% fewer</div>
+        </div>
+      </div>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin: 0;">
+        <strong>Platform:</strong> <span style="color: #ef4444;">Wix</span> → <span style="color: #22c55e;">11ty Static</span>
+      </p>
+    </div>
+
+    <p>171 scripts. 27 stylesheets. Over 1MB just to display a homepage with some text and a contact form.</p>
+
+    <p><strong>That's not a website. That's digital obesity.</strong></p>
+
+    <h2>What Actually Changed</h2>
+
+    <p>This wasn't just about making things faster. It was about making them better.</p>
+
+    <p><strong>Clean semantic HTML</strong> — Better for SEO and accessibility. Search engines can actually read the content. Screen readers work correctly. Your site makes sense to both humans and machines.</p>
+
+    <p><strong>Structured data and schema markup</strong> — Your site speaks the language AI search engines understand. When someone asks ChatGPT or Perplexity about commercial cleaning in your area, your business shows up in the answer.</p>
+
+    <p><strong>Mobile-first responsive design</strong> — Not "mobile-friendly." Mobile-first. Designed for phones, enhanced for desktop. Because 60% of your traffic comes from phones.</p>
+
+    <p><strong>No JavaScript framework overhead</strong> — React and Vue are great for web apps. Terrible for marketing sites. We use vanilla JavaScript where needed. Mostly we don't need it.</p>
+
+    <p><strong>CDN-deployed globally</strong> — Your site loads from the server closest to your visitor. Someone in Portland gets your site from Portland. Someone in Miami gets it from Miami. Physics matters.</p>
+
+    <p><strong>Professional Editorial Light design</strong> — Not just pretty. Conversion-focused. Every element guides visitors toward requesting a quote. Form follows function.</p>
+
+    <h2>Why This Matters NOW</h2>
+
+    <p>Google's Core Web Vitals directly impact rankings. Sites that load slowly rank lower. Period. This isn't coming. It's here.</p>
+
+    <p>AI search engines prefer fast, structured sites. When ChatGPT or Perplexity answers a question about your industry, they're more likely to reference sites that load quickly and have clean, structured data.</p>
+
+    <p>Your competitors are upgrading. The gap widens every month. The business that invests in performance today wins the customers tomorrow.</p>
+
+    <p><strong>In 2026, having a slow website is like having a broken phone number. You might as well not exist.</strong></p>
+
+    <h2>The 5-Second Test</h2>
+
+    <p>Can a visitor understand what you do in 5 seconds?</p>
+
+    <p>The old ABC site failed. Wix loaded 171 scripts before displaying any text. By the time someone could read "commercial cleaning," they'd already hit the back button.</p>
+
+    <p>The new site passes instantly. Clean headline. Clear value proposition. One-second load time. No confusion. No waiting. No friction.</p>
+
+    <p><strong>Five seconds to capture attention. Two seconds to load the page. Three seconds to communicate value. That's the entire game.</strong></p>
+
+    <h2>The Results</h2>
+
+    <p>Advanced Building Care's new site:</p>
+
+    <ul>
+      <li>Loads 96% faster</li>
+      <li>Serves 41KB instead of 1,036KB</li>
+      <li>Ranks higher in local search</li>
+      <li>Converts mobile traffic at 2x the previous rate</li>
+      <li>Costs $40/month to host instead of $200/month</li>
+    </ul>
+
+    <p>More importantly, their phone rings more. Their contact form gets filled out more. Their business grows faster.</p>
+
+    <p><strong>That's the point. Not faster websites. More customers.</strong></p>
+
+    <div class="cta-box">
+      <h3>Want to See What Your Site Could Look Like?</h3>
+      <p>We'll run a free speed audit and show you exactly what's slowing you down. No obligation. No pitch. Just the truth about your site's performance.</p>
+      <a href="/contact/" class="btn">Get Your Free Audit &rarr;</a>
+    </div>
+  </article>
+</main>
