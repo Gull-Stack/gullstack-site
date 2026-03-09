@@ -1,0 +1,326 @@
+---
+layout: base.njk
+title: Advanced Building Care — Website Transformation | GullStack Portfolio
+description: How we rebuilt Advanced Building Care from a bloated Wix template to a blazing-fast 11ty static site. 96% smaller. 34% faster. Zero bloat.
+headerStyle: inner
+activeNav: portfolio
+css: |
+  main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+    margin-top: 120px;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .project-hero { margin-bottom: 64px; }
+  .project-hero h1 {
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .project-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 700px;
+  }
+
+  .before-after-slider {
+    max-width: 1000px;
+    margin: 0 auto 48px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    border: 1px solid var(--border);
+  }
+
+  .slider-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    overflow: hidden;
+    cursor: col-resize;
+  }
+
+  .slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slider-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  .before-image { z-index: 1; }
+  .after-image { z-index: 2; clip-path: inset(0 0 0 50%); }
+
+  .image-label {
+    position: absolute;
+    top: 20px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 5;
+  }
+
+  .before-image .image-label {
+    left: 20px;
+    background: rgba(239,68,68,0.9);
+  }
+
+  .after-image .image-label {
+    right: 20px;
+    background: rgba(34,197,94,0.9);
+  }
+
+  .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: white;
+    transform: translateX(-50%);
+    cursor: col-resize;
+    z-index: 10;
+  }
+
+  .handle-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #374151;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin: 48px 0;
+  }
+  .metric-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .metric-card .old-val {
+    font-size: 1.1rem;
+    color: #ef4444;
+    opacity: 0.7;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .metric-card .new-val {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: #22c55e;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-card .metric-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .breakdown { margin: 64px 0; }
+  .breakdown h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+  .breakdown p, .breakdown li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+  }
+  .breakdown p { margin-bottom: 20px; }
+  .breakdown ul { margin: 0 0 28px 24px; }
+  .breakdown li { margin-bottom: 10px; }
+  .breakdown strong { color: var(--text); }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    margin: 56px 0;
+    text-align: center;
+  }
+  .cta-box h3 { font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 16px; }
+  .cta-box p { color: var(--text-muted); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .cta-box .btn { display: inline-block; padding: 16px 32px; background: var(--accent); color: #fff; font-weight: 600; border-radius: 8px; text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .project-hero h1 { font-size: 2rem; }
+    .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+    .slider-container { padding-bottom: 90%; }
+    .image-label { top: 12px; padding: 6px 14px; font-size: 0.75rem; }
+    .before-image .image-label { left: 12px; }
+    .after-image .image-label { right: 12px; }
+  }
+---
+
+<main class="container container--narrow">
+  <a href="/portfolio/" class="back-link">&larr; Back to Portfolio</a>
+
+  <div class="project-hero">
+    <h1>Advanced Building Care</h1>
+    <p>Commercial cleaning company serving Utah. Rebuilt from a bloated Wix template to a conversion-focused static site that loads in under 300ms.</p>
+  </div>
+
+  <div class="before-after-slider" id="abcSlider">
+    <div class="slider-container">
+      <div class="slider-image before-image">
+        <img src="/images/abc-before.jpg" alt="Advanced Building Care - Before (Wix)">
+        <div class="image-label">Before</div>
+      </div>
+      <div class="slider-image after-image">
+        <img src="/images/abc-after.jpg" alt="Advanced Building Care - After (GullStack)">
+        <div class="image-label">After</div>
+      </div>
+      <div class="slider-handle">
+        <div style="width:100%;height:100%;background:white;box-shadow:0 0 10px rgba(0,0,0,0.3);"></div>
+        <div class="handle-button">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-left:-8px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="old-val">1,036 KB</div>
+      <div class="new-val">41 KB</div>
+      <div class="metric-label">Page Size</div>
+    </div>
+    <div class="metric-card">
+      <div class="old-val">393ms</div>
+      <div class="new-val">259ms</div>
+      <div class="metric-label">Load Time</div>
+    </div>
+    <div class="metric-card">
+      <div class="old-val">171</div>
+      <div class="new-val">10</div>
+      <div class="metric-label">Scripts</div>
+    </div>
+    <div class="metric-card">
+      <div class="old-val">27</div>
+      <div class="new-val">2</div>
+      <div class="metric-label">Stylesheets</div>
+    </div>
+    <div class="metric-card">
+      <div class="old-val">Wix</div>
+      <div class="new-val">11ty</div>
+      <div class="metric-label">Platform</div>
+    </div>
+  </div>
+
+  <div class="breakdown">
+    <h2>What Changed</h2>
+
+    <p><strong>The old site was a Wix template.</strong> 171 scripts. 27 stylesheets. Over 1MB just to load the homepage. Visitors on mobile waited 4+ seconds to see anything useful. Half of them left before the hero image loaded.</p>
+
+    <p><strong>We rebuilt it from scratch on 11ty.</strong> Static HTML. Two stylesheets. Ten scripts (most of them analytics). The homepage now serves 41KB total — that's 25x smaller than before.</p>
+
+    <h2>What We Built</h2>
+
+    <ul>
+      <li><strong>Editorial Light design</strong> — clean, professional, light-dominant layout with full-bleed hero imagery</li>
+      <li><strong>Conversion-focused structure</strong> — services grid, trust signals, 3-step process, FAQ accordion, contact form all on the homepage</li>
+      <li><strong>Mobile-first responsive</strong> — looks great on every screen size, no pinch-zooming required</li>
+      <li><strong>Structured data / schema markup</strong> — Organization, LocalBusiness, FAQPage, BreadcrumbList for SEO and AEO</li>
+      <li><strong>Dynamic sitemap</strong> — auto-generated from all pages, always up to date</li>
+      <li><strong>CDN deployment</strong> — served from Vercel's edge network globally, sub-300ms load times</li>
+      <li><strong>No JavaScript framework overhead</strong> — vanilla JS only where needed, native HTML elements for FAQ accordions</li>
+    </ul>
+
+    <h2>The Result</h2>
+
+    <p>A website that loads before the visitor can blink. 96% smaller. 34% faster. Professional design that positions Advanced Building Care as Utah's most trusted commercial cleaning partner — not just another cleaning company with a template site.</p>
+
+    <p>The services page now showcases every offering with clear descriptions and CTAs. The FAQ section answers common questions before they're asked. The 3-step "Getting Started" process removes friction from the buying decision.</p>
+
+    <p><strong>This is what happens when you stop renting a template and start owning your digital presence.</strong></p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Want Results Like This?</h3>
+    <p>We'll audit your current site for free and show you exactly what's slowing you down.</p>
+    <a href="/contact/" class="btn">Get Your Free Audit &#8594;</a>
+  </div>
+</main>
+
+<script>
+(function() {
+  const slider = document.querySelector('#abcSlider');
+  if (!slider) return;
+  const container = slider.querySelector('.slider-container');
+  const afterImage = slider.querySelector('.after-image');
+  const handle = slider.querySelector('.slider-handle');
+  let isDragging = false;
+
+  function updateSlider(clientX) {
+    const rect = container.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    afterImage.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    handle.style.left = `${pct}%`;
+  }
+
+  function startDrag(e) {
+    isDragging = true;
+    updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
+  }
+  function drag(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+    updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
+  }
+  function stopDrag() { isDragging = false; }
+
+  handle.addEventListener('mousedown', startDrag);
+  container.addEventListener('click', (e) => updateSlider(e.clientX));
+  document.addEventListener('mousemove', drag);
+  document.addEventListener('mouseup', stopDrag);
+  handle.addEventListener('touchstart', startDrag, { passive: false });
+  document.addEventListener('touchmove', drag, { passive: false });
+  document.addEventListener('touchend', stopDrag);
+})();
+</script>

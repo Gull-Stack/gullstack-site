@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Our Work - GullStack Portfolio
-description: Before and after. Real businesses. Real transformations. See how we've helped companies reduce page sizes by 96%, improve load times by 34%, and eliminate bloat.
+title: Our Work — GullStack Portfolio
+description: Before and after. Real businesses. Real transformations. See how we help companies eliminate bloat, improve speed, and convert more customers.
 headerStyle: inner
 activeNav: portfolio
 css: |
@@ -9,20 +9,17 @@ css: |
     padding-top: 140px;
     padding-bottom: 80px;
   }
-  
+
   .portfolio-hero {
     text-align: center;
     margin-bottom: 80px;
   }
-  
   .portfolio-hero h1 {
     font-family: var(--font-serif);
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: 24px;
-    color: var(--text);
   }
-  
   .portfolio-hero p {
     font-size: 1.25rem;
     color: var(--text-muted);
@@ -30,388 +27,129 @@ css: |
     margin: 0 auto;
     line-height: 1.6;
   }
-  
-  .project-section {
-    margin-bottom: 120px;
-  }
-  
-  .project-header {
-    margin-bottom: 48px;
-  }
-  
-  .project-title {
-    font-family: var(--font-serif);
-    font-size: 2.25rem;
-    margin-bottom: 16px;
-    color: var(--text);
-  }
-  
-  .project-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-  
-  .before-after-slider {
-    max-width: 900px;
-    margin: 0 auto 48px;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-    border: 1px solid var(--border);
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    margin-bottom: 80px;
   }
 
-  .slider-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    overflow: hidden;
-    cursor: col-resize;
-  }
-
-  .slider-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .slider-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .after-image {
-    clip-path: inset(0 50% 0 0);
-    transition: clip-path 0.1s ease;
-  }
-
-  .image-label {
-    position: absolute;
-    top: 20px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .before-image .image-label {
-    right: 20px;
-    background: rgba(239,68,68,0.9);
-  }
-
-  .after-image .image-label {
-    left: 20px;
-    background: rgba(34,197,94,0.9);
-  }
-
-  .slider-handle {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: white;
-    transform: translateX(-50%);
-    cursor: col-resize;
-    z-index: 10;
-  }
-
-  .handle-line {
-    width: 100%;
-    height: 100%;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  }
-
-  .handle-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 48px;
-    height: 48px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    color: #374151;
-  }
-
-  .handle-button:hover {
-    background: #f9fafb;
-  }
-  
-  .metrics-comparison {
+  .portfolio-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 40px;
-    margin: 48px 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
-  .metrics-table {
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.4);
+  }
+
+  .portfolio-card-image {
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 32px;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: top;
+    display: block;
   }
-  
-  .metrics-table th {
-    text-align: left;
-    padding: 16px 12px;
-    border-bottom: 2px solid var(--border);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+
+  .portfolio-card-content {
+    padding: 24px;
   }
-  
-  .metrics-table td {
-    padding: 16px 12px;
-    border-bottom: 1px solid var(--border);
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-  
-  .metrics-table tr:last-child td {
-    border-bottom: none;
-  }
-  
-  .metrics-old {
-    color: #ef4444;
-    opacity: 0.7;
-  }
-  
-  .metrics-new {
-    color: #22c55e;
-    font-weight: 600;
-  }
-  
-  .metrics-arrow {
-    color: var(--text-muted);
-    font-weight: normal;
-    padding: 0 12px;
-  }
-  
-  .project-description {
-    font-size: 1.1rem;
-    line-height: 1.7;
+  .portfolio-card-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    margin-bottom: 8px;
     color: var(--text);
-    max-width: 800px;
-    margin: 0 auto;
   }
-  
+  .portfolio-card-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-stats {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .portfolio-stat {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #22c55e;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .portfolio-card-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+  }
+  .cta-section h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   @media (max-width: 768px) {
-    .portfolio-hero h1 {
-      font-size: 2.25rem;
-    }
-    
-    .project-title {
-      font-size: 1.75rem;
-    }
-    
-    .slider-container {
-      padding-bottom: 75%; /* More square on mobile */
-    }
-    
-    .image-label {
-      top: 12px;
-      padding: 6px 12px;
-      font-size: 0.7rem;
-    }
-    
-    .before-image .image-label {
-      right: 12px;
-    }
-    
-    .after-image .image-label {
-      left: 12px;
-    }
-    
-    .handle-button {
-      width: 40px;
-      height: 40px;
-    }
-    
-    .metrics-comparison {
-      padding: 24px;
-    }
-    
-    .metrics-table {
-      font-size: 0.9rem;
-    }
-    
-    .metrics-table th,
-    .metrics-table td {
-      padding: 12px 8px;
-    }
+    .portfolio-hero h1 { font-size: 2.25rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
   }
 ---
 
-<main class="container container--narrow">
+<main class="container">
   <div class="portfolio-hero fade-in">
     <h1>Our Work</h1>
     <p>Before and after. Real businesses. Real transformations.</p>
   </div>
 
-  <div class="project-section fade-in">
-    <div class="project-header">
-      <h2 class="project-title">Advanced Building Care</h2>
-      <p class="project-subtitle">Commercial cleaning company rebuilt from a bloated Wix template to a blazing-fast static site.</p>
-    </div>
-
-    <div class="before-after-slider" id="abcSlider">
-      <div class="slider-container">
-        <div class="slider-image before-image">
-          <img src="/images/abc-before.jpg" alt="Advanced Building Care - Before (Wix)">
-          <div class="image-label">BEFORE</div>
+  <div class="portfolio-grid">
+    <a href="/portfolio/abc-services/" class="portfolio-card fade-in">
+      <img src="/images/abc-side-by-side.jpg" alt="Advanced Building Care — Before and After" class="portfolio-card-image">
+      <div class="portfolio-card-content">
+        <h3>Advanced Building Care</h3>
+        <p>Commercial cleaning company rebuilt from a bloated Wix template to a blazing-fast static site.</p>
+        <div class="portfolio-stats">
+          <span class="portfolio-stat">96% smaller</span>
+          <span class="portfolio-stat">34% faster</span>
+          <span class="portfolio-stat">25x lighter</span>
         </div>
-        <div class="slider-image after-image">
-          <img src="/images/abc-after.jpg" alt="Advanced Building Care - After (11ty)">
-          <div class="image-label">AFTER</div>
-        </div>
-        <div class="slider-handle">
-          <div class="handle-line"></div>
-          <div class="handle-button">
-            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
-            </svg>
-          </div>
-        </div>
+        <span class="portfolio-card-link">View full breakdown &#8594;</span>
       </div>
-    </div>
+    </a>
 
-    <div class="metrics-comparison">
-      <table class="metrics-table">
-        <thead>
-          <tr>
-            <th>Metric</th>
-            <th>Before (Wix)</th>
-            <th></th>
-            <th>After (11ty)</th>
-            <th>Improvement</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Page Size</strong></td>
-            <td class="metrics-old">1,036 KB</td>
-            <td class="metrics-arrow">→</td>
-            <td class="metrics-new">41 KB</td>
-            <td class="metrics-new">96% smaller</td>
-          </tr>
-          <tr>
-            <td><strong>Load Time</strong></td>
-            <td class="metrics-old">393ms</td>
-            <td class="metrics-arrow">→</td>
-            <td class="metrics-new">259ms</td>
-            <td class="metrics-new">34% faster</td>
-          </tr>
-          <tr>
-            <td><strong>Scripts</strong></td>
-            <td class="metrics-old">171</td>
-            <td class="metrics-arrow">→</td>
-            <td class="metrics-new">10</td>
-            <td class="metrics-new">94% fewer</td>
-          </tr>
-          <tr>
-            <td><strong>Stylesheets</strong></td>
-            <td class="metrics-old">27</td>
-            <td class="metrics-arrow">→</td>
-            <td class="metrics-new">2</td>
-            <td class="metrics-new">93% fewer</td>
-          </tr>
-          <tr>
-            <td><strong>Platform</strong></td>
-            <td class="metrics-old">Wix</td>
-            <td class="metrics-arrow">→</td>
-            <td class="metrics-new">11ty Static</td>
-            <td class="metrics-new">Zero bloat</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="project-description">
-      <p>Advanced Building Care was running on a Wix template — 171 scripts, 27 stylesheets, over 1MB just to load the homepage. We rebuilt it from scratch on 11ty with Editorial Light design. The result: a page that loads in under 300ms, serves 41KB total, and converts visitors into quote requests.</p>
-    </div>
+    <!-- Add more portfolio cards here as projects are completed -->
   </div>
 
-  <!-- Placeholder for future projects -->
-  <div class="text-center fade-in" style="padding: 80px 0; border-top: 1px solid var(--border);">
-    <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 24px; color: var(--text);">More Projects Coming Soon</h3>
-    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px;">We're documenting more transformations. Check back soon or <a href="/contact/" style="color: var(--accent);">talk to us</a> about becoming our next case study.</p>
-    <a href="/contact/" class="btn btn-primary">Start Your Transformation →</a>
+  <div class="cta-section fade-in">
+    <h3>Want to Be Next?</h3>
+    <p>We'll audit your current site for free and show you exactly what's holding it back.</p>
+    <a href="/contact/" class="btn btn-primary">Get Your Free Audit &#8594;</a>
   </div>
 </main>
-
-<script>
-  (function() {
-    const slider = document.querySelector('#abcSlider');
-    if (!slider) return;
-    
-    const container = slider.querySelector('.slider-container');
-    const afterImage = slider.querySelector('.after-image');
-    const handle = slider.querySelector('.slider-handle');
-    
-    let isDragging = false;
-    
-    function updateSlider(clientX) {
-      const rect = container.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-      
-      afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-      handle.style.left = `${percentage}%`;
-    }
-    
-    function startDrag(e) {
-      isDragging = true;
-      container.style.cursor = 'col-resize';
-      updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
-    }
-    
-    function drag(e) {
-      if (!isDragging) return;
-      e.preventDefault();
-      updateSlider(e.touches ? e.touches[0].clientX : e.clientX);
-    }
-    
-    function stopDrag() {
-      isDragging = false;
-      container.style.cursor = 'col-resize';
-    }
-    
-    // Mouse events
-    handle.addEventListener('mousedown', startDrag);
-    container.addEventListener('click', (e) => {
-      if (e.target === container || e.target === container.querySelector('img')) {
-        updateSlider(e.clientX);
-      }
-    });
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDrag);
-    
-    // Touch events
-    handle.addEventListener('touchstart', startDrag, { passive: false });
-    container.addEventListener('touchstart', (e) => {
-      if (e.target === container || e.target === container.querySelector('img')) {
-        updateSlider(e.touches[0].clientX);
-      }
-    });
-    document.addEventListener('touchmove', drag, { passive: false });
-    document.addEventListener('touchend', stopDrag);
-  })();
-</script>
