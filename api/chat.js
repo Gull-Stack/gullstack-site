@@ -1,36 +1,4 @@
-// Send email notification for new chat conversations
-async function notifyNewChat(firstMessage) {
-  if (!process.env.RESEND_API_KEY) return;
-  try {
-    const preview = firstMessage.length > 200 ? firstMessage.slice(0, 200) + '...' : firstMessage;
-    const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/Boise' });
-    await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from: 'Bogey <notifications@gullstack.com>',
-        to: ['bryce@gullstack.com'],
-        subject: `New Bogey Chat — ${preview.slice(0, 60)}`,
-        html: `<div style="font-family:sans-serif;max-width:600px;">
-          <h2 style="color:#a855f7;margin-bottom:4px;">New Chat on GullStack.com</h2>
-          <p style="color:#888;margin-top:0;">${timestamp} MST</p>
-          <div style="background:#f4f4f5;padding:16px;border-radius:8px;margin:16px 0;">
-            <strong>Visitor said:</strong><br>${preview}
-          </div>
-          <p style="color:#666;font-size:0.85rem;">Bogey is handling the conversation. Check back for lead capture.</p>
-        </div>`,
-      }),
-    });
-  } catch (e) {
-    // Don't let notification failures break chat
-    console.error('Email notification failed:', e.message);
-  }
-}
-
-// High-priority notification when a visitor drops their email
+// Email notification when a visitor drops their email (lead capture)
 async function notifyLeadCapture(rawContent) {
   if (!process.env.RESEND_API_KEY) return;
   try {
@@ -79,16 +47,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'messages array required' });
   }
 
-  // Notify on first user message (new conversation) or lead capture
-  const userMessages = messages.filter(m => m.role === 'user');
-  const lastUserMsg = userMessages[userMessages.length - 1]?.content || '';
-  
+  // Notify when a visitor drops their email
+  const lastUserMsg = messages[messages.length - 1]?.content || '';
   if (lastUserMsg.startsWith('[LEAD CAPTURED]')) {
-    // High-priority: someone dropped their email
     notifyLeadCapture(lastUserMsg);
-  } else if (userMessages.length === 1) {
-    // New conversation started
-    notifyNewChat(userMessages[0].content);
   }
 
   // System prompt for Bogey — value-first sales mode
