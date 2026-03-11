@@ -1,3 +1,71 @@
+// Send email notification for new chat conversations
+async function notifyNewChat(firstMessage) {
+  if (!process.env.RESEND_API_KEY) return;
+  try {
+    const preview = firstMessage.length > 200 ? firstMessage.slice(0, 200) + '...' : firstMessage;
+    const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/Boise' });
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Bogey <notifications@gullstack.com>',
+        to: ['bryce@gullstack.com'],
+        subject: `New Bogey Chat — ${preview.slice(0, 60)}`,
+        html: `<div style="font-family:sans-serif;max-width:600px;">
+          <h2 style="color:#a855f7;margin-bottom:4px;">New Chat on GullStack.com</h2>
+          <p style="color:#888;margin-top:0;">${timestamp} MST</p>
+          <div style="background:#f4f4f5;padding:16px;border-radius:8px;margin:16px 0;">
+            <strong>Visitor said:</strong><br>${preview}
+          </div>
+          <p style="color:#666;font-size:0.85rem;">Bogey is handling the conversation. Check back for lead capture.</p>
+        </div>`,
+      }),
+    });
+  } catch (e) {
+    // Don't let notification failures break chat
+    console.error('Email notification failed:', e.message);
+  }
+}
+
+// High-priority notification when a visitor drops their email
+async function notifyLeadCapture(rawContent) {
+  if (!process.env.RESEND_API_KEY) return;
+  try {
+    const emailMatch = rawContent.match(/Email:\s*(\S+)/);
+    const email = emailMatch ? emailMatch[1] : 'unknown';
+    const timestamp = new Date().toLocaleString('en-US', { timeZone: 'America/Boise' });
+    const convo = rawContent.replace(/.*Previous conversation:\s*/, '').replace(/\|/g, '\n');
+    await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Bogey <notifications@gullstack.com>',
+        to: ['bryce@gullstack.com'],
+        subject: `🔥 LEAD CAPTURED — ${email}`,
+        html: `<div style="font-family:sans-serif;max-width:600px;">
+          <h2 style="color:#22c55e;margin-bottom:4px;">Lead Captured!</h2>
+          <p style="color:#888;margin-top:0;">${timestamp} MST</p>
+          <div style="background:#f0fdf4;padding:16px;border-radius:8px;margin:16px 0;border:1px solid #bbf7d0;">
+            <strong>Email:</strong> <a href="mailto:${email}">${email}</a>
+          </div>
+          <div style="background:#f4f4f5;padding:16px;border-radius:8px;margin:16px 0;">
+            <strong>Conversation:</strong><br><pre style="white-space:pre-wrap;font-size:0.85rem;">${convo}</pre>
+          </div>
+          <p><strong>Follow up ASAP.</strong></p>
+        </div>`,
+      }),
+    });
+  } catch (e) {
+    console.error('Lead notification failed:', e.message);
+  }
+}
+
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -9,6 +77,18 @@ export default async function handler(req, res) {
   const { messages } = req.body;
   if (!messages || !Array.isArray(messages)) {
     return res.status(400).json({ error: 'messages array required' });
+  }
+
+  // Notify on first user message (new conversation) or lead capture
+  const userMessages = messages.filter(m => m.role === 'user');
+  const lastUserMsg = userMessages[userMessages.length - 1]?.content || '';
+  
+  if (lastUserMsg.startsWith('[LEAD CAPTURED]')) {
+    // High-priority: someone dropped their email
+    notifyLeadCapture(lastUserMsg);
+  } else if (userMessages.length === 1) {
+    // New conversation started
+    notifyNewChat(userMessages[0].content);
   }
 
   // System prompt for Bogey — value-first sales mode
