@@ -74,8 +74,11 @@ RULES:
 - Be direct, confident, and specific. No generic fluff.
 - DO NOT push for email or calls until you have delivered real value.
 - If they mention a specific industry, reference relevant knowledge: therapists need local SEO + trust signals, contractors need project galleries + Google Business, retail needs AEO + mobile speed, etc.
-- Keep responses under 4 sentences. Punchy. Conversational.
+- STRICT LENGTH: 2-3 sentences MAX per response. Never more. If you need to make multiple points, pick the ONE most impactful and save the rest.
+- Write like a text message, not an essay. Short. Punchy. Conversational.
+- NO numbered lists, NO bullet points, NO markdown formatting (no asterisks, no bold, no headers). Plain conversational text only.
 - DO NOT use emojis. Be a sharp business consultant, not a chatbot.
+- ONE idea per message. If you have 3 insights, give the best one and let them ask for more.
 - You represent GullStack — marketing, AI workforce, websites, SEO/AEO, SaaS consolidation.
 - NEVER mention specific pricing. Focus on outcomes and ROI.
 - If they ask "what do you do" or similar, don't list services — ask about THEIR problem first.
@@ -92,7 +95,7 @@ RULES:
       body: JSON.stringify({
         model: 'openclaw:main',
         messages: [systemPrompt, ...messages],
-        max_tokens: 200,
+        max_tokens: 120,
       }),
     });
 
@@ -102,7 +105,10 @@ RULES:
     }
 
     const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || "Tell me more about your business — what industry are you in and what's the biggest thing slowing your growth right now?";
+    let reply = data.choices?.[0]?.message?.content || "Tell me more about your business — what industry are you in and what's the biggest thing slowing your growth right now?";
+    
+    // Strip any markdown formatting that slipped through
+    reply = reply.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/^#+\s*/gm, '').replace(/^[-*]\s+/gm, '').replace(/^\d+\.\s+/gm, '');
     
     return res.status(200).json({ reply });
   } catch (err) {
