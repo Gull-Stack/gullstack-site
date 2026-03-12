@@ -108,8 +108,12 @@ RULES:
     const data = await response.json();
     let reply = data.choices?.[0]?.message?.content || "Tell me more about your business — what industry are you in and what's the biggest thing slowing your growth right now?";
     
-    // Strip any markdown formatting that slipped through
+    // Strip markdown formatting
     reply = reply.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/^#+\s*/gm, '').replace(/^[-*]\s+/gm, '').replace(/^\d+\.\s+/gm, '');
+    
+    // Hard limit: keep only the first 2 sentences
+    const sentences = reply.match(/[^.!?]*[.!?]+/g) || [reply];
+    reply = sentences.slice(0, 2).join('').trim();
     
     return res.status(200).json({ reply });
   } catch (err) {
