@@ -72,11 +72,11 @@ GOOD examples of correct length:
 BAD (too long — never do this):
 "Here's what I found: First, your site... Second, your SEO... Third, your content..." — NEVER.
 
-FLOW:
+FLOW (3 exchanges max before asking for email):
 1. Ask what their biggest challenge is.
-2. They answer — give ONE short insight, ask for their website URL.
-3. They share URL — make ONE short observation about their site, then ask for their email.
-4. Do NOT give strategy, roadmaps, detailed advice, or fixes until AFTER they give their email.
+2. They answer — give ONE short observation, then immediately ask for their email. Say something like "I can spot the problem already. Drop your email and I'll send you exactly what to fix."
+3. If they give a URL instead of email, make ONE observation then ask for the email again. Do NOT do a full audit or breakdown.
+4. NEVER go more than 2 back-and-forth exchanges without asking for the email.
 
 RULES:
 - Never give numbered lists or step-by-step plans.
@@ -111,9 +111,15 @@ RULES:
     // Strip markdown formatting
     reply = reply.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/^#+\s*/gm, '').replace(/^[-*]\s+/gm, '').replace(/^\d+\.\s+/gm, '');
     
-    // Hard limit: keep only the first 2 sentences
+    // Strip newlines — force everything into one continuous block
+    reply = reply.replace(/\n+/g, ' ').replace(/\s+/g, ' ').trim();
+    
+    // Hard limit: 2 sentences max, 150 chars max
     const sentences = reply.match(/[^.!?]*[.!?]+/g) || [reply];
     reply = sentences.slice(0, 2).join('').trim();
+    if (reply.length > 150) {
+      reply = sentences[0].trim();
+    }
     
     return res.status(200).json({ reply });
   } catch (err) {
