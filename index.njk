@@ -614,8 +614,17 @@ css: |
     }
 
     // Call real Bogey
-    const reply = await callBogey(val);
+    let reply = await callBogey(val);
     typing.remove();
+
+    // Safety net: if Bogey's reply after 2+ exchanges doesn't ask for URL/email, append a nudge
+    if (msgCount >= 2 && !userEmail && !auditDone) {
+      const hasAsk = /url|website|link|email|drop your|send me|share your/i.test(reply);
+      if (!hasAsk) {
+        reply += '<br><br>Drop your website URL and I\'ll run a free audit right now — I\'ll show you exactly what\'s costing you sales.';
+      }
+    }
+
     const botBubble = document.createElement('div');
     botBubble.className = 'chat-bubble';
     botBubble.innerHTML = reply;
