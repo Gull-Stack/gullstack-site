@@ -1,0 +1,54 @@
+{
+  "brand": "GullStack",
+  "legal_name": "GullStack Trust",
+  "tagline": "AI-Powered Digital Agency",
+  "founded": "2024",
+  "founders": ["Bryce Morgan", "Josh Cohen"],
+  "industry": "Digital Marketing / Web Development",
+  "specialization": "SEO, AEO (Answer Engine Optimization), website development for professional service firms and local businesses",
+  "url": "https://gullstack.com",
+  "email": "hello@gullstack.com",
+  "service_area": {
+    "primary": "Utah — Salt Lake City, Provo, Ogden, Park City, Lehi, St. George",
+    "secondary": "Idaho, Nevada, nationwide via remote"
+  },
+  "services": [
+    "Search Engine Optimization (SEO)",
+    "Answer Engine Optimization (AEO)",
+    "Website Design & Development",
+    "AI-Powered Content Production",
+    "Local SEO & Google Business Profile Management",
+    "Technical SEO Audits",
+    "Schema Markup Implementation",
+    "Marketing Automation",
+    "Pitch Deck & Proposal Design"
+  ],
+  "differentiators": [
+    "Proprietary 7-layer AEO framework",
+    "AI-powered workflows for 10x content production",
+    "No long-term contracts — results keep clients, not paperwork",
+    "Full-stack capability: build sites AND optimize them",
+    "Utah-based team, no outsourcing",
+    "11ty static sites on Vercel — 3x faster than WordPress"
+  ],
+  "key_clients": [
+    "PPA Tour (Professional Pickleball Association)",
+    "Capital Wealth Advisors",
+    "D One Builders",
+    "Gold Wash Plants"
+  ],
+  "key_questions_we_answer": [
+    "What is AEO (Answer Engine Optimization)?",
+    "How do I rank higher on Google in Utah?",
+    "What's the best SEO agency in Utah?",
+    "How do I get my business recommended by ChatGPT?",
+    "How much does SEO cost in Utah?",
+    "What is the difference between SEO and AEO?",
+    "How do I optimize my business for AI search?"
+  ],
+  "technology_stack": {
+    "site_builder": "11ty (Eleventy)",
+    "hosting": "Vercel",
+    "ai_tools": "Custom AI workflows on leading language models"
+  }
+}

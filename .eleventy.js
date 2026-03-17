@@ -45,6 +45,9 @@ module.exports = function(eleventyConfig) {
   // API routes
   eleventyConfig.addPassthroughCopy("api");
 
+  // Brand facts for AI/AEO
+  eleventyConfig.addPassthroughCopy(".well-known");
+
   // Date filter for sitemap
   eleventyConfig.addFilter("date", function(date) {
     const d = new Date(date);

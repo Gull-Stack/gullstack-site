@@ -1,0 +1,441 @@
+---
+layout: base.njk
+title: "SEO Services Utah — Utah SEO Company & Agency — GullStack"
+description: "Utah SEO that actually moves the needle. Local SEO, technical optimization, content strategy, and answer engine optimization. Serving Salt Lake City, Provo, Ogden, and statewide."
+ogTitle: "Utah SEO Services — GullStack Trust"
+ogDescription: "Dominate local search in Utah. Full-service SEO and AEO from a Salt Lake City agency that delivers real results."
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
+  - name: SEO Services Utah
+    url: /seo-services-utah/
+faqs:
+  - q: "How much does SEO cost in Utah?"
+    a: "Our Utah SEO services start at $1,500/month for local businesses and scale based on market competitiveness and scope. We offer flexible packages that include technical SEO, local optimization, content strategy, and reporting. Most clients see meaningful results within 3-6 months."
+  - q: "How long does SEO take to show results?"
+    a: "SEO is a long-term investment. Local businesses typically see measurable improvements in 3-4 months — appearing in Google map packs, ranking for long-tail keywords, and generating organic leads. Highly competitive markets may take 6-9 months to see top rankings. We focus on quick wins first while building toward sustainable growth."
+  - q: "What is the difference between SEO and AEO?"
+    a: "SEO optimizes your site to rank in Google search results. AEO (Answer Engine Optimization) optimizes your content to be cited by AI tools like ChatGPT, Perplexity, and Google AI Overviews. Both are critical. SEO captures traditional search traffic. AEO captures the growing segment of users who rely on AI for recommendations."
+  - q: "Do you require long-term contracts?"
+    a: "No. We offer month-to-month agreements because we believe our results should speak for themselves. Most clients stay with us long-term because SEO is ongoing, but you are never locked into a contract you cannot exit."
+  - q: "Can you help with website design too?"
+    a: "Yes. We build custom websites optimized for SEO from day one. If you need a new site or a redesign, we handle everything — design, development, content, technical SEO, and launch. Our sites are fast, conversion-focused, and built to rank."
+css: |
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
+    max-width: 850px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 40px;
+    position: relative; z-index: 1;
+    line-height: 1.7;
+  }
+  .page-hero .btn { position: relative; z-index: 1; }
+
+  .services-section { padding: 8rem 0; }
+  .services-section .section-title { font-weight: 300; margin-bottom: 48px; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 768px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .service-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.12);
+  }
+  .service-card .icon {
+    margin-bottom: 16px;
+    color: var(--indigo);
+  }
+  .service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .service-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .service-card a {
+    color: var(--indigo);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .service-card a:hover {
+    text-decoration: underline;
+  }
+
+  .results-section { padding: 8rem 0; }
+  .results-section .section-title { font-weight: 300; margin-bottom: 48px; }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .results-grid { grid-template-columns: 1fr; }
+  }
+  .result-card {
+    background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(79,70,229,0.03));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .result-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--indigo);
+  }
+  .result-card .industry {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .result-card .stat {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .result-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .areas-section { padding: 8rem 0; }
+  .areas-section .section-title { font-weight: 300; margin-bottom: 16px; }
+  .areas-section .section-sub {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .area-tag {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: all var(--transition);
+  }
+  .area-tag:hover {
+    border-color: var(--indigo);
+    color: var(--text);
+  }
+
+  .why-section { padding: 8rem 0; }
+  .why-section .section-title { font-weight: 300; margin-bottom: 48px; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+  .why-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .why-card .icon {
+    margin-bottom: 16px;
+    color: var(--text-muted);
+  }
+  .why-card h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .why-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title { font-weight: 300; margin-bottom: 48px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 24px 0;
+    background: none; border: none; color: var(--text);
+    font-size: 1.1rem; font-weight: 600; text-align: left;
+    cursor: pointer; gap: 16px;
+  }
+  .faq-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer-inner {
+    padding: 0 0 24px; color: var(--text-muted);
+    line-height: 1.7; font-size: 1rem;
+  }
+
+  .cta-section { padding: 0 0 8rem; }
+  .cta-box {
+    text-align: center; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px 40px; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
+  .cta-box p {
+    color: var(--text-muted); margin-bottom: 32px;
+    font-size: 1.1rem; line-height: 1.6;
+  }
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "SEO Services Utah",
+  "provider": {
+    "@type": "Organization",
+    "name": "GullStack Trust"
+  },
+  "areaServed": [
+    {
+      "@type": "State",
+      "name": "Utah"
+    }
+  ],
+  "description": "Professional SEO services for Utah businesses. Local SEO, technical optimization, content strategy, and answer engine optimization. Serving Salt Lake City, Provo, Ogden, and statewide.",
+  "serviceType": "Search Engine Optimization"
+}
+</script>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">Utah SEO Services</span>
+    <h1>Utah SEO That Actually <span class="gradient-text">Moves the Needle</span></h1>
+    <p>Stop throwing money at SEO agencies that deliver reports instead of results. We specialize in getting Utah businesses found on Google, in local map packs, and on AI-powered search tools.</p>
+    <a href="/contact/" class="btn btn-primary btn-lg">Get a Free SEO Audit &#8594;</a>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">What Our Utah SEO Services Include</h2>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3>Technical SEO</h3>
+        <p>Site speed optimization, Core Web Vitals, mobile performance, crawlability fixes, structured data implementation, and indexation audits. We fix the technical foundation that makes or breaks rankings.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        </div>
+        <h3>Local SEO</h3>
+        <p>Google Business Profile optimization, local citation building, review strategy, map pack rankings, and location-specific content. Dominate local search across Salt Lake City, Provo, Ogden, and beyond.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        </div>
+        <h3>Content Strategy</h3>
+        <p>Keyword research, service page optimization, blog content, and resource guides targeting real search queries your customers use. Human-written, AI-enhanced, optimized for both search engines and readers.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        </div>
+        <h3>On-Page SEO</h3>
+        <p>Title tags, meta descriptions, header optimization, internal linking, image alt text, and schema markup. Every page on your site optimized to rank for target keywords.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h3>Answer Engine Optimization (AEO)</h3>
+        <p>Get cited by ChatGPT, Perplexity, and Google AI Overviews. We optimize your content for AI-powered search — the fastest-growing search channel in 2026.</p>
+        <a href="/aeo-services/">Learn about AEO &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results / Case Studies -->
+<section class="results-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Real Results for Utah Businesses</h2>
+    <div class="results-grid">
+      <div class="result-card fade-in">
+        <h4>Capital Wealth Advisors</h4>
+        <div class="industry">Financial Planning — Salt Lake City</div>
+        <span class="stat">4.2x</span>
+        <p>Organic lead growth in 6 months. Dominated local search for "financial advisor Salt Lake City" and ranked top 3 in ChatGPT recommendations.</p>
+      </div>
+      <div class="result-card fade-in">
+        <h4>D One Builders</h4>
+        <div class="industry">Custom Home Builder — Utah County</div>
+        <span class="stat">3,000+</span>
+        <p>Monthly searches captured within 4 months. Went from invisible on Google to dominating map pack and organic results for "custom home builder Utah."</p>
+      </div>
+      <div class="result-card fade-in">
+        <h4>Gold Wash Plants</h4>
+        <div class="industry">Equipment Manufacturer — Nationwide</div>
+        <span class="stat">850%</span>
+        <p>Increase in organic traffic. Ranked #1 for high-intent keywords like "gold trommel for sale" and "portable wash plant."</p>
+      </div>
+      <div class="result-card fade-in">
+        <h4>PPA Tour</h4>
+        <div class="industry">Sports Organization — National</div>
+        <span class="stat">2.1M+</span>
+        <p>Annual organic sessions. Built content strategy and technical SEO foundation that scaled to millions of pageviews from search.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Utah Areas Served -->
+<section class="areas-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Utah Areas We Serve</h2>
+    <p class="section-sub">Based in Salt Lake City, serving businesses across the Wasatch Front and statewide.</p>
+    <div class="areas-grid fade-in">
+      <div class="area-tag">Salt Lake City</div>
+      <div class="area-tag">Provo</div>
+      <div class="area-tag">Ogden</div>
+      <div class="area-tag">Orem</div>
+      <div class="area-tag">West Jordan</div>
+      <div class="area-tag">Sandy</div>
+      <div class="area-tag">Lehi</div>
+      <div class="area-tag">Murray</div>
+      <div class="area-tag">South Jordan</div>
+      <div class="area-tag">Park City</div>
+      <div class="area-tag">Draper</div>
+      <div class="area-tag">Layton</div>
+      <div class="area-tag">Taylorsville</div>
+      <div class="area-tag">St. George</div>
+      <div class="area-tag">Logan</div>
+      <div class="area-tag">Spanish Fork</div>
+    </div>
+  </div>
+</section>
+
+<!-- Why GullStack -->
+<section class="why-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Why Utah Businesses Choose GullStack</h2>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h3>No Fluff, Just Results</h3>
+        <p>We do not send you 50-page reports filled with vanity metrics. We focus on what matters: rankings, traffic, and leads. You will know exactly what we are doing and why it works.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3>Local Utah Expertise</h3>
+        <p>We understand the Utah market. We know which keywords convert, how to compete in local search, and what strategies work best for businesses in the Wasatch Front and beyond.</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </div>
+        <h3>SEO + AEO Combined</h3>
+        <p>We are one of the only agencies optimizing for traditional search and AI-powered answer engines. While competitors focus only on Google, we get you found everywhere your customers search.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Find Out Where You Rank in <span class="gradient-text">Utah Search</span></h2>
+      <p>Bogey will audit your current SEO, show you where you are losing traffic, and build a custom strategy to get you found by more Utah customers.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free SEO Audit &#8594;</a>
+    </div>
+  </div>
+</section>

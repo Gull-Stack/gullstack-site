@@ -1,10 +1,287 @@
 ---
 layout: base.njk
-title: "Our Work — GullStack Portfolio"
-description: Before and after. Real businesses. Real transformations.
+title: "SEO & AEO Case Studies — Real Results — GullStack"
+description: "See how GullStack delivers measurable SEO and AEO results for businesses. Real clients, real data, real growth. Capital Wealth, D One Builders, PPA Tour, Gold Wash Plants."
+ogTitle: "Case Studies — GullStack Trust"
+ogDescription: "Real SEO and AEO results from real clients. See the strategies, implementations, and measurable outcomes."
 headerStyle: inner
-permalink: /case-studies/
+activeNav: portfolio
+breadcrumb:
+  - name: Case Studies
+    url: /case-studies/
+css: |
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(79,70,229,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
+    max-width: 850px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 40px;
+    position: relative; z-index: 1;
+    line-height: 1.7;
+  }
+
+  .cases-section { padding: 4rem 0 8rem; }
+  .case-card {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px;
+    transition: all var(--transition);
+  }
+  .case-card:hover {
+    border-color: var(--indigo);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.1);
+  }
+  .case-card:last-child { margin-bottom: 0; }
+  .case-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .case-header h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  .case-industry {
+    background: var(--glow-indigo);
+    color: var(--indigo);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .case-body p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+  .case-body h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 24px 0 12px;
+    color: var(--text);
+  }
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 32px 0;
+    text-align: center;
+  }
+  .case-stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--indigo);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .case-stat-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .case-link {
+    color: var(--indigo);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .case-link:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .case-card { padding: 32px 24px; }
+    .case-stats { grid-template-columns: 1fr; }
+  }
+
+  .cta-section { padding: 0 0 8rem; }
+  .cta-box {
+    text-align: center; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px 40px; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
+  .cta-box p {
+    color: var(--text-muted); margin-bottom: 32px;
+    font-size: 1.1rem; line-height: 1.6;
+  }
 ---
-<meta http-equiv="refresh" content="0;url=/portfolio/">
-<script>window.location.href='/portfolio/';</script>
-<p>Redirecting to <a href="/portfolio/">Our Work</a>...</p>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">Our Work</span>
+    <h1>Real Clients. <span class="gradient-text">Real Results</span>.</h1>
+    <p>We do not sell promises. We build systems that generate measurable growth. Here is the proof.</p>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section class="cases-section">
+  <div class="container">
+
+    <!-- Capital Wealth Advisors -->
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <h2>Capital Wealth Advisors</h2>
+        <span class="case-industry">Financial Services</span>
+      </div>
+      <div class="case-body">
+        <h3>The Challenge</h3>
+        <p>Capital Wealth Advisors, a fiduciary financial planning firm in Lehi, Utah, had a dated website with minimal SEO presence. They were invisible in both traditional search and AI-powered search tools. Competitors with larger marketing budgets dominated every relevant keyword.</p>
+
+        <h3>What We Did</h3>
+        <p>Complete site rebuild from 32 pages to 42+ pages with dedicated service pages targeting high-intent keywords. Implemented our full 7-layer AEO framework including brand-facts page, machine-readable brand data, FAQPage schema on all content, and Answer Hub pages targeting "best retirement planner Utah" and related queries. Built a federal employee niche content strategy to differentiate from generalist competitors.</p>
+
+        <div class="case-stats">
+          <div>
+            <span class="case-stat-number">42+</span>
+            <span class="case-stat-label">Optimized pages built</span>
+          </div>
+          <div>
+            <span class="case-stat-number">7-Layer</span>
+            <span class="case-stat-label">Full AEO framework deployed</span>
+          </div>
+          <div>
+            <span class="case-stat-number">60+</span>
+            <span class="case-stat-label">Targeted keywords</span>
+          </div>
+        </div>
+
+        <p>Capital Wealth is now positioned as the most technically optimized financial advisory site in Utah, with structured data, AEO-ready content, and AI-citation readiness that no competitor in their market has matched.</p>
+        <a href="https://capitalwealth.com" target="_blank" rel="noopener" class="case-link">Visit capitalwealth.com &#8594;</a>
+      </div>
+    </div>
+
+    <!-- D One Builders -->
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <h2>D One Builders</h2>
+        <span class="case-industry">Construction</span>
+      </div>
+      <div class="case-body">
+        <h3>The Challenge</h3>
+        <p>D One Builders, a custom home builder and general contractor in Silicon Valley, had a functional website but was missing critical SEO pages targeting their most profitable service categories. High-intent keywords like "custom home builders silicon valley" and "design build contractors bay area" were going to competitors.</p>
+
+        <h3>What We Did</h3>
+        <p>Built 4 priority SEO pages targeting construction keywords in Silicon Valley: commercial construction, design-build services, custom home building, and swimming pool construction. Each page was optimized with Service schema, local intent keywords, and structured content designed to capture both Google rankings and AI citations.</p>
+
+        <div class="case-stats">
+          <div>
+            <span class="case-stat-number">4</span>
+            <span class="case-stat-label">Priority SEO pages added</span>
+          </div>
+          <div>
+            <span class="case-stat-number">15-20</span>
+            <span class="case-stat-label">Expected new monthly leads</span>
+          </div>
+          <div>
+            <span class="case-stat-number">90 Days</span>
+            <span class="case-stat-label">To projected results</span>
+          </div>
+        </div>
+
+        <a href="https://donebuilders.com" target="_blank" rel="noopener" class="case-link">Visit donebuilders.com &#8594;</a>
+      </div>
+    </div>
+
+    <!-- PPA Tour -->
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <h2>PPA Tour</h2>
+        <span class="case-industry">Professional Sports</span>
+      </div>
+      <div class="case-body">
+        <h3>The Challenge</h3>
+        <p>The Professional Pickleball Association needed a comprehensive digital strategy to grow their national brand presence, drive ticket sales, and engage a rapidly expanding fanbase across multiple markets.</p>
+
+        <h3>What We Did</h3>
+        <p>Full digital strategy for the national professional pickleball tour. Developed content frameworks, SEO architecture, and marketing systems designed to scale with the sport's explosive growth. Built systems to handle multi-market event promotion and fan engagement across digital channels.</p>
+
+        <div class="case-stats">
+          <div>
+            <span class="case-stat-number">National</span>
+            <span class="case-stat-label">Multi-market reach</span>
+          </div>
+          <div>
+            <span class="case-stat-number">Full Stack</span>
+            <span class="case-stat-label">Digital strategy</span>
+          </div>
+          <div>
+            <span class="case-stat-number">Scalable</span>
+            <span class="case-stat-label">Growth framework</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold Wash Plants -->
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <h2>Gold Wash Plants</h2>
+        <span class="case-industry">Manufacturing</span>
+      </div>
+      <div class="case-body">
+        <h3>The Challenge</h3>
+        <p>Gold Wash Plants, a manufacturer of gold mining equipment, needed to generate organic leads in a highly niche B2B market. Traditional advertising was expensive and poorly targeted. They needed consistent inbound leads from people actively searching for their equipment.</p>
+
+        <h3>What We Did</h3>
+        <p>Ongoing SEO strategy focused on long-tail manufacturing keywords, technical product content, and lead generation through organic search. Built optimized product pages, buying guides, and comparison content that captures buyers at every stage of the purchase funnel.</p>
+
+        <div class="case-stats">
+          <div>
+            <span class="case-stat-number">Ongoing</span>
+            <span class="case-stat-label">Organic lead generation</span>
+          </div>
+          <div>
+            <span class="case-stat-number">B2B</span>
+            <span class="case-stat-label">Niche market SEO</span>
+          </div>
+          <div>
+            <span class="case-stat-number">$55/mo</span>
+            <span class="case-stat-label">Affordable SEO maintenance</span>
+          </div>
+        </div>
+
+        <a href="https://goldwashplants.com" target="_blank" rel="noopener" class="case-link">Visit goldwashplants.com &#8594;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>Ready to Be Our <span class="gradient-text">Next Case Study</span>?</h2>
+      <p>Every client on this page started with a free audit. Let us show you what is possible for your business.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free Audit &#8594;</a>
+    </div>
+  </div>
+</section>

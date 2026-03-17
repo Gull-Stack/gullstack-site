@@ -1,0 +1,387 @@
+---
+layout: base.njk
+title: "AI SEO Services — AI-Powered Search Optimization — GullStack"
+description: "AI-powered SEO that delivers enterprise results at agency prices. We use AI to build faster, optimize smarter, and produce 10x more content than traditional agencies."
+ogTitle: "AI SEO Services — GullStack Trust"
+ogDescription: "AI-powered SEO workflows that deliver enterprise-level results at a fraction of the cost. 10x content production, smarter audits, real results."
+headerStyle: inner
+activeNav: services
+breadcrumb:
+  - name: Services
+    url: /services/
+  - name: AI SEO Services
+    url: /ai-seo-services/
+faqs:
+  - q: "Is AI-generated content bad for SEO?"
+    a: "Google does not penalize AI content. It penalizes low-quality content. We use AI to accelerate production, but every piece is reviewed, edited, and optimized by our team. The result is high-quality content at 10x the speed of traditional agencies."
+  - q: "How is AI SEO different from regular SEO?"
+    a: "The strategy is the same: rank higher, convert more. The execution is faster and more scalable. AI handles research, drafting, and technical audits. Humans handle strategy, editing, and client relationships. You get enterprise-level output without the enterprise price tag."
+  - q: "Will AI replace human SEO strategists?"
+    a: "No. AI is a force multiplier, not a replacement. It handles the repetitive, data-heavy work so our strategists can focus on what matters: understanding your market, crafting positioning, and making decisions that drive revenue. The agencies that combine AI speed with human judgment will win."
+  - q: "How much faster is AI-powered SEO?"
+    a: "Our AI workflows produce content 10x faster and run technical audits in minutes instead of days. A competitive analysis that used to take a week now takes hours. The time savings go directly into more content, deeper research, and better results for your business."
+  - q: "Do you use AI to mass-produce garbage content?"
+    a: "Absolutely not. AI generates first drafts and handles research. Our team reviews, edits, and approves every piece before it goes live. We would rather publish 10 excellent pages than 100 mediocre ones. Quality is non-negotiable."
+  - q: "What AI tools do you use?"
+    a: "We use a combination of custom AI workflows built on leading language models, proprietary automation pipelines, and industry-standard SEO platforms. The specific tools matter less than the process: AI handles volume, humans handle quality and strategy."
+css: |
+  .page-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 800px; height: 600px;
+    background: radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 300;
+    max-width: 900px;
+    margin: 0 auto 24px;
+    position: relative; z-index: 1;
+  }
+  .page-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    position: relative; z-index: 1;
+    line-height: 1.7;
+  }
+  .page-hero .btn { position: relative; z-index: 1; }
+
+  .how-section { padding: 8rem 0; }
+  .how-section .section-title { font-weight: 300; margin-bottom: 16px; }
+  .how-section .section-sub {
+    max-width: 720px;
+    margin: 0 auto 64px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .how-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all var(--transition);
+  }
+  .how-card:hover {
+    border-color: var(--indigo);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(79,70,229,0.15);
+  }
+  .how-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .how-card p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .how-number {
+    display: inline-block;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--glow-indigo);
+    color: var(--indigo);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .dont-section { padding: 8rem 0; }
+  .dont-section .section-title { font-weight: 300; margin-bottom: 16px; }
+  .dont-section .section-sub {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+  .dont-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .dont-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .dont-col h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .dont-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dont-col li {
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 0.95rem;
+  }
+  .dont-col li::before {
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .dont-col.do-col li::before {
+    content: '\2713';
+    color: var(--green, #22c55e);
+  }
+  .dont-col.no-col li::before {
+    content: '\2717';
+    color: var(--red, #ef4444);
+  }
+  @media (max-width: 768px) {
+    .dont-grid { grid-template-columns: 1fr; }
+  }
+
+  .diff-section { padding: 8rem 0; }
+  .diff-section .section-title { font-weight: 300; margin-bottom: 16px; }
+  .diff-section .section-sub {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  .diff-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .diff-stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--indigo);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .diff-stat-label {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  @media (max-width: 768px) {
+    .diff-stats { grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  .faq-section { padding: 8rem 0; }
+  .faq-section .section-title { font-weight: 300; margin-bottom: 48px; }
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 24px 0;
+    background: none; border: none; color: var(--text);
+    font-size: 1.1rem; font-weight: 600; text-align: left;
+    cursor: pointer; gap: 16px;
+  }
+  .faq-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--glow-indigo);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: transform 0.3s;
+  }
+  .faq-item.active .faq-icon { transform: rotate(45deg); }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-answer-inner {
+    padding: 0 0 24px; color: var(--text-muted);
+    line-height: 1.7; font-size: 1rem;
+  }
+
+  .cta-section { padding: 0 0 8rem; }
+  .cta-box {
+    text-align: center; background: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 24px;
+    padding: 60px 40px; max-width: 700px; margin: 0 auto;
+  }
+  .cta-box h2 { font-size: 2rem; font-weight: 300; margin-bottom: 16px; }
+  .cta-box p {
+    color: var(--text-muted); margin-bottom: 32px;
+    font-size: 1.1rem; line-height: 1.6;
+  }
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI SEO Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "GullStack Trust"
+  },
+  "areaServed": [
+    { "@type": "State", "name": "Utah" },
+    { "@type": "State", "name": "Idaho" },
+    { "@type": "State", "name": "Nevada" },
+    { "@type": "Country", "name": "United States" }
+  ],
+  "description": "AI-powered SEO services that deliver enterprise-level results at agency prices. 10x content production, automated technical audits, and smarter optimization.",
+  "serviceType": "AI-Powered Search Engine Optimization"
+}
+</script>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">AI-Powered SEO</span>
+    <h1>AI-Powered SEO. <span class="gradient-text">Human-Directed Strategy</span>.</h1>
+    <p>We use AI to work 10x faster, not to replace expertise. The result: enterprise-level SEO at a fraction of the cost. Every decision is human-made. Every output is human-approved.</p>
+    <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free SEO Audit &#8594;</a>
+  </div>
+</section>
+
+<!-- How We Use AI -->
+<section class="how-section">
+  <div class="container">
+    <span class="section-tag">Our Approach</span>
+    <h2 class="section-title" style="text-align:center;">How We Use AI in SEO</h2>
+    <p class="section-sub">AI handles the heavy lifting so our strategists can focus on what actually moves your business forward.</p>
+    <div class="how-grid">
+      <div class="how-card fade-in">
+        <span class="how-number">1</span>
+        <h3>AI-Assisted Content Production</h3>
+        <p>Generate research-backed first drafts, optimize for target keywords, and scale to 10x the volume of traditional agencies. Every piece is reviewed and edited by our team before publishing.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="how-number">2</span>
+        <h3>Automated Technical Audits</h3>
+        <p>AI crawls your entire site and identifies technical issues in minutes instead of days. Broken links, missing schema, Core Web Vitals problems, crawl errors, and mobile issues surfaced instantly.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="how-number">3</span>
+        <h3>Competitive Intelligence</h3>
+        <p>AI-powered analysis of competitor content gaps, keyword opportunities, and ranking strategies. We know exactly where your competitors are weak and where you can win.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="how-number">4</span>
+        <h3>Schema Generation</h3>
+        <p>Automated structured data creation for every page: Organization, LocalBusiness, Service, FAQPage, BreadcrumbList, and industry-specific schema. AI builds it, our team validates it.</p>
+      </div>
+      <div class="how-card fade-in">
+        <span class="how-number">5</span>
+        <h3>AEO Integration</h3>
+        <p>Every SEO engagement includes answer engine optimization built in. We do not just optimize for Google. We optimize for ChatGPT, Perplexity, and Google AI Overviews simultaneously. <a href="/aeo-services/" style="color:var(--indigo);font-weight:600;">Learn about our AEO framework &#8594;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Do / Don't Do -->
+<section class="dont-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">What We Do — and What We Refuse to Do</h2>
+    <p class="section-sub" style="max-width:720px;margin:0 auto 48px;text-align:center;color:var(--text-muted);font-size:1.1rem;line-height:1.7;">AI is a tool. How you use it determines whether it builds trust or destroys it.</p>
+    <div class="dont-grid">
+      <div class="dont-col do-col fade-in">
+        <h3>What We Do</h3>
+        <ul>
+          <li>Use AI to accelerate research and first drafts</li>
+          <li>Human-review and edit every piece of content</li>
+          <li>Run AI-powered technical audits for speed</li>
+          <li>Build proprietary automation pipelines</li>
+          <li>Integrate AEO into every SEO engagement</li>
+          <li>Focus AI on volume so humans focus on strategy</li>
+        </ul>
+      </div>
+      <div class="dont-col no-col fade-in">
+        <h3>What We Refuse to Do</h3>
+        <ul>
+          <li>Mass-produce garbage content for keyword stuffing</li>
+          <li>Automate strategy decisions without human judgment</li>
+          <li>Publish AI-generated content without expert review</li>
+          <li>Sacrifice quality for volume</li>
+          <li>Use AI as a shortcut instead of a force multiplier</li>
+          <li>Overpromise results based on AI hype</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The GullStack Difference -->
+<section class="diff-section">
+  <div class="container">
+    <span class="section-tag">The Difference</span>
+    <h2 class="section-title" style="text-align:center;">Enterprise Results. Agency Prices.</h2>
+    <p class="section-sub">AI makes us faster. Experience makes us effective. The combination means you get results that used to require a six-figure agency budget.</p>
+    <div class="diff-stats fade-in">
+      <div>
+        <span class="diff-stat-number">10x</span>
+        <span class="diff-stat-label">Content production speed</span>
+      </div>
+      <div>
+        <span class="diff-stat-number">1/3</span>
+        <span class="diff-stat-label">The cost of traditional agencies</span>
+      </div>
+      <div>
+        <span class="diff-stat-number">100%</span>
+        <span class="diff-stat-label">Human-reviewed output</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <h2 class="section-title" style="text-align:center;">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {% for faq in faqs %}
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>{{ faq.q }}</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">{{ faq.a }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box fade-in">
+      <h2>See What AI-Powered SEO <span class="gradient-text">Can Do for You</span></h2>
+      <p>Get a free audit of your current SEO performance and see exactly how our AI-powered approach can accelerate your results.</p>
+      <a href="/contact/" class="btn btn-primary btn-lg">Get Your Free SEO Audit &#8594;</a>
+    </div>
+  </div>
+</section>
