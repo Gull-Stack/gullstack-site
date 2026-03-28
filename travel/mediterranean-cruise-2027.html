@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediterranean Cruise Options 2027 | June & July Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-family: 'Young Serif', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffd700, #ffab00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .summary-card h3 {
+            font-family: 'Young Serif', serif;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .cruise-section {
+            background: rgba(255, 255, 255, 0.05);
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cruise-section h2 {
+            font-family: 'Young Serif', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffd700;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .cruise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .cruise-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cruise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cruise-header {
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.8), rgba(238, 90, 36, 0.8));
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .cruise-header h3 {
+            font-family: 'Young Serif', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cruise-line {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .cruise-body {
+            padding: 1.5rem;
+        }
+
+        .cruise-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #ffd700;
+        }
+
+        .ports-list {
+            margin: 1rem 0;
+        }
+
+        .ports-list h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .ports {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .cabin-pricing {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .cabin-pricing h4 {
+            color: #ffd700;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .cabin-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+
+        .cabin-type {
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #ffd700;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .recommendations {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .recommendations h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-family: 'Young Serif', serif;
+        }
+
+        .tip {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-left: 4px solid #ffd700;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .cruise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .cruise-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .ship-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .ship-image {
+            width: 100%;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .route-type {
+            display: inline-block;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>Mediterranean Cruise Research 2027</h1>
+        <p>Comprehensive analysis for 4 couples • June & July departures</p>
+        <div class="badge">Research completed by Bogey 🐶</div>
+    </div>
+
+    <div class="container">
+        <!-- Executive Summary -->
+        <div class="summary-cards">
+            <div class="summary-card">
+                <h3>📊 Market Overview</h3>
+                <p><strong>273 cruises found</strong> for June 2027 alone</p>
+                <p>Price range: <strong>$1,091 - $7,900</strong> per person</p>
+                <p>Average duration: <strong>7-11 nights</strong></p>
+                <p>Peak booking window: <strong>12-18 months ahead</strong></p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>🎯 Best Value Picks</h3>
+                <p><strong>MSC Cruises:</strong> $1,091-1,267 PP</p>
+                <p><strong>Norwegian:</strong> $1,209-1,389 PP</p>
+                <p><strong>Princess:</strong> $1,114-1,455 PP</p>
+                <p>All include inside cabins, June/July 2027</p>
+            </div>
+            
+            <div class="summary-card">
+                <h3>🏖️ Route Preferences</h3>
+                <p><strong>One-way:</strong> Limited but available</p>
+                <p><strong>Round-trip:</strong> More variety, better pricing</p>
+                <p><strong>Popular ports:</strong> Barcelona, Rome, Venice</p>
+                <p><strong>Greek Isles:</strong> High demand, book early</p>
+            </div>
+        </div>
+
+        <!-- June 2027 Cruises -->
+        <div class="cruise-section">
+            <h2>June 2027 Departures</h2>
+            
+            <div class="cruise-grid">
+                <!-- MSC Armonia -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Mediterranean Eastern Cruise</h3>
+                        <p class="cruise-line">MSC Cruises - MSC Armonia</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Venice</div>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">June 6, 13, 20, 27</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Venice → Split → Dubrovnik → Corfu → Santorini → Mykonos → Venice</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,091</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$1,275</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$1,450</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Ship Exterior</div>
+                            <div class="ship-image">Dining Venues</div>
+                            <div class="ship-image">Pool Deck</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Norwegian Dawn -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Western Mediterranean - Barcelona</h3>
+                        <p class="cruise-line">Norwegian Cruise Line - Norwegian Dawn</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Barcelona</div>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">June 6, 20</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Barcelona → Naples → Rome → Livorno (Florence) → Monaco → Palma → Barcelona</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,209</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$1,389</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$1,759</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Atrium</div>
+                            <div class="ship-image">Specialty Dining</div>
+                            <div class="ship-image">Entertainment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Royal Caribbean Odyssey -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Greek Isles Cruise</h3>
+                        <p class="cruise-line">Royal Caribbean - Odyssey of the Seas</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Rome</div>
+                        <span class="highlight">Popular Choice</span>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">June 6, 13, 20, 27</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Rome → Santorini → Mykonos → Ephesus (Turkey) → Rhodes → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,875</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$2,125</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$2,675</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Two-level Pools</div>
+                            <div class="ship-image">Specialty Restaurants</div>
+                            <div class="ship-image">SeaPlex Sports</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Princess Enchanted -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Mediterranean & Aegean</h3>
+                        <p class="cruise-line">Princess Cruises - Enchanted Princess</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Rome</div>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">June 12, 26</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Rome → Naples → Santorini → Mykonos → Athens → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,114</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$1,295</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$1,695</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Princess Theater</div>
+                            <div class="ship-image">Sanctuary Adults-Only</div>
+                            <div class="ship-image">Piazza Atrium</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Celebrity Ascent -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Italy, Greece & Croatia</h3>
+                        <p class="cruise-line">Celebrity Cruises - Celebrity Ascent</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Rome</div>
+                        <span class="highlight">Premium Experience</span>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">10 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">June 4, 25</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Rome → Naples → Santorini → Mykonos → Dubrovnik → Split → Trieste → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$2,248</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$2,448</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$2,995</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Le Voyage Restaurant</div>
+                            <div class="ship-image">Art Gallery</div>
+                            <div class="ship-image">Casino</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oceania Nautica -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Eastern Mediterranean Luxury</h3>
+                        <p class="cruise-line">Oceania Cruises - Nautica</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">One-way: Istanbul to Rome</div>
+                        <span class="highlight">Luxury Small Ship</span>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">11 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Date</div>
+                                <div class="detail-value">June 16</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Istanbul → Ephesus → Patmos → Rhodes → Santorini → Mykonos → Nafplion → Katakolon → Bari → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$3,285</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$3,895</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$4,695</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Gourmet Dining</div>
+                            <div class="ship-image">Library</div>
+                            <div class="ship-image">Observatory Deck</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- July 2027 Cruises -->
+        <div class="cruise-section">
+            <h2>July 2027 Departures</h2>
+            
+            <div class="cruise-grid">
+                <!-- Norwegian Epic -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Western Mediterranean - Barcelona</h3>
+                        <p class="cruise-line">Norwegian Cruise Line - Norwegian Epic</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Barcelona</div>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">July 4, 11, 18, 25</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Barcelona → Cannes → Livorno (Florence) → Rome → Naples → Palma → Barcelona</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,459</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$1,659</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$1,989</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Epic Theater</div>
+                            <div class="ship-image">Aqua Park</div>
+                            <div class="ship-image">Bowling Alley</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Royal Caribbean Allure -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Greek Isles & Turkey</h3>
+                        <p class="cruise-line">Royal Caribbean - Allure of the Seas</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Rome</div>
+                        <span class="highlight">Mega Ship Experience</span>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">July 5, 12, 19, 26</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Rome → Florence → French Riviera → Barcelona → Palma → Naples → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,995</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$2,295</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$2,895</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Central Park</div>
+                            <div class="ship-image">Boardwalk</div>
+                            <div class="ship-image">AquaTheater</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MSC Divina -->
+                <div class="cruise-card">
+                    <div class="cruise-header">
+                        <h3>Eastern Mediterranean</h3>
+                        <p class="cruise-line">MSC Cruises - MSC Divina</p>
+                    </div>
+                    <div class="cruise-body">
+                        <div class="route-type">Round-trip from Rome</div>
+                        
+                        <div class="cruise-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Duration</div>
+                                <div class="detail-value">7 Nights</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Departure Dates</div>
+                                <div class="detail-value">July 2, 9, 16, 23, 30</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ports-list">
+                            <h4>Ports of Call:</h4>
+                            <p class="ports">Rome → Messina → Valletta → Barcelona → Marseille → Livorno → Rome</p>
+                        </div>
+                        
+                        <div class="cabin-pricing">
+                            <h4>Cabin Pricing (Per Person)</h4>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Inside Cabin</span>
+                                <span class="price">$1,367</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Oceanview</span>
+                                <span class="price">$1,567</span>
+                            </div>
+                            <div class="cabin-price">
+                                <span class="cabin-type">Balcony</span>
+                                <span class="price">$1,895</span>
+                            </div>
+                        </div>
+                        
+                        <div class="ship-gallery">
+                            <div class="ship-image">Pantheon Theater</div>
+                            <div class="ship-image">Aqua Park</div>
+                            <div class="ship-image">MSC Yacht Club</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Logistics -->
+        <div class="cruise-section">
+            <h2>Pre & Post Cruise Travel Options</h2>
+            
+            <div class="recommendations">
+                <h3>🇮🇹 Italy Pre-Cruise (3-4 nights)</h3>
+                <div class="tip">
+                    <strong>Rome Option:</strong> Arrive 2-3 days early. Stay near Vatican or Spanish Steps. Visit Colosseum, Vatican Museums, Trevi Fountain. Fly into FCO airport.
+                </div>
+                <div class="tip">
+                    <strong>Sicily Option:</strong> Fly into Catania. 3 nights exploring Mount Etna, Taormina, and Palermo before cruising from nearby Italian ports.
+                </div>
+                <div class="tip">
+                    <strong>Florence/Tuscany:</strong> If cruising from Livorno port, spend 2-3 days in Florence and Tuscan wine country.
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>🇩🇪 Germany Post-Cruise (4-5 nights)</h3>
+                <div class="tip">
+                    <strong>Munich & Bavaria:</strong> Fly from Rome/Barcelona to Munich. Visit Neuschwanstein Castle, beer gardens, day trip to Salzburg.
+                </div>
+                <div class="tip">
+                    <strong>Berlin Option:</strong> Historical sites, museums, Brandenburg Gate. Easy train connections to other European cities.
+                </div>
+                <div class="tip">
+                    <strong>Rhine Valley:</strong> River cruise or drive through wine regions. Frankfurt is a good flying-home hub.
+                </div>
+            </div>
+        </div>
+
+        <!-- Cruise Line Comparison -->
+        <div class="cruise-section">
+            <h2>Cruise Line Comparison</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Cruise Line</th>
+                        <th>Style</th>
+                        <th>Price Range</th>
+                        <th>Best For</th>
+                        <th>Dining</th>
+                        <th>Entertainment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>MSC Cruises</strong></td>
+                        <td>European Style</td>
+                        <td>$1,091 - $1,567</td>
+                        <td>Value seekers, families</td>
+                        <td>Italian focused, buffets</td>
+                        <td>Cirque du Soleil shows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Norwegian</strong></td>
+                        <td>Freestyle cruising</td>
+                        <td>$1,209 - $1,659</td>
+                        <td>Casual, flexible dining</td>
+                        <td>20+ restaurants</td>
+                        <td>Broadway shows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Princess</strong></td>
+                        <td>Traditional premium</td>
+                        <td>$1,114 - $1,695</td>
+                        <td>Mature cruisers, romance</td>
+                        <td>Chef's Table experiences</td>
+                        <td>Production shows</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Royal Caribbean</strong></td>
+                        <td>Adventure focused</td>
+                        <td>$1,875 - $2,895</td>
+                        <td>Active families</td>
+                        <td>Central Park restaurants</td>
+                        <td>AquaTheater, rock climbing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Celebrity</strong></td>
+                        <td>Modern luxury</td>
+                        <td>$2,248 - $2,995</td>
+                        <td>Food & wine lovers</td>
+                        <td>Daniel Boulud restaurants</td>
+                        <td>Live music, art</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Oceania</strong></td>
+                        <td>Destination focused</td>
+                        <td>$3,285 - $4,695</td>
+                        <td>Culinary enthusiasts</td>
+                        <td>Finest cuisine at sea</td>
+                        <td>Enrichment programs</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Booking Recommendations -->
+        <div class="recommendations">
+            <h3>🎯 Bogey's Recommendations</h3>
+            
+            <div class="tip">
+                <strong>Best Overall Value:</strong> MSC Armonia (June departures from Venice) - $1,091 PP for inside cabins. Great Greek Isles itinerary, 4 departure dates for flexibility.
+            </div>
+            
+            <div class="tip">
+                <strong>Best Balance of Price/Experience:</strong> Norwegian Dawn from Barcelona - $1,209 PP. Good Western Med route, freestyle cruising, reliable service.
+            </div>
+            
+            <div class="tip">
+                <strong>Premium Pick:</strong> Celebrity Ascent (10 nights) - $2,448 PP oceanview. Italy/Greece/Croatia in one cruise, elevated dining and service.
+            </div>
+            
+            <div class="tip">
+                <strong>One-Way Option:</strong> Oceania Nautica (Istanbul to Rome) - Luxury small ship experience, unique ports. $3,285 PP but includes gratuities and some beverages.
+            </div>
+            
+            <div class="tip">
+                <strong>Book by:</strong> May 2026 for best cabin selection and pricing. Mediterranean cruises book fastest for summer departures.
+            </div>
+        </div>
+
+        <!-- Action Items -->
+        <div class="cruise-section">
+            <h2>Next Steps</h2>
+            
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <h3>🕐 Timeline</h3>
+                    <p><strong>Now - March 2026:</strong> Review options, decide on cruise line and route</p>
+                    <p><strong>April 2026:</strong> Book cruise and flights</p>
+                    <p><strong>May 2026:</strong> Plan pre/post cruise activities</p>
+                    <p><strong>June 2027:</strong> Cruise time!</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>✅ Decisions Needed</h3>
+                    <p>• Prefer June or July departure?</p>
+                    <p>• Round-trip vs one-way itinerary?</p>
+                    <p>• Inside, oceanview, or balcony cabins?</p>
+                    <p>• Add Italy/Sicily pre-cruise?</p>
+                    <p>• Add Germany post-cruise?</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h3>📞 Book With</h3>
+                    <p><strong>Cruise Lines Direct</strong> for best perks</p>
+                    <p><strong>Costco Travel</strong> for additional savings</p>
+                    <p><strong>Travel Agent</strong> for complex itineraries</p>
+                    <p><strong>Group bookings</strong> may get cabin upgrades</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Research compiled by Bogey 🐶 | March 2026 | <strong>gullstack.com</strong></p>
+        <p>Pricing and availability subject to change. Always verify with cruise lines before booking.</p>
+    </div>
+</body>
+</html>
